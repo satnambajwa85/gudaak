@@ -129,7 +129,7 @@ class UserController extends Controller
 			else
 				$quest[$question->id]['option'][]	=	'';
 		}
-		echo '<pre>';print_r($quest);die;
+		//echo '<pre>';print_r($quest);die;
 		$model	=	new TestReports;
 		if(!empty($_POST['TestReports'])){
 			$model->attributes = $_POST['TestReports'];
