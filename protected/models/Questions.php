@@ -37,7 +37,7 @@ class Questions extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, alias, description, orient_items_id', 'required'),
+			array('title, alias, orient_items_id', 'required'),
 			array('published, status, orient_items_id', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>500),
 			array('alias', 'length', 'max'=>100),

@@ -64,9 +64,9 @@
 								<a href="#" class="more-faqs">More FAQs</a>
 							</ul>
 							<div align="center" class="mar-bottom">
-							<?php echo CHtml::link('Take Test',array('user/test'),array('class'=>'btn btn-warning'));?>
-								
-							</div>
+						 
+								<?php echo CHtml::link('Take Test',array('user/test','startTest'=>''.$_REQUEST['view'].''),array('class'=>'btn btn-warning'));?>
+						  	</div>
 						</div>
 					</div>
 				</div>

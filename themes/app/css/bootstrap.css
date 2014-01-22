@@ -5203,13 +5203,13 @@ a.thumbnail:focus {
 
 .list-group {
   padding-left: 0;
-  margin-bottom: 20px;
+  margin-bottom: 27px;
 }
 
 .list-group-item {
   position: relative;
   display: block;
-  padding: 10px 15px;
+  padding: 8px 15px;
   margin-bottom: -1px;
   background-color: #ffffff;
   border: 1px solid #dddddd;
@@ -6868,7 +6868,7 @@ header {
     text-transform: uppercase;
 }
 .wrapper {
-    background: none repeat scroll 0 0 #FAFAFA;
+    background: none repeat scroll 0 0 #fff;
     float: left;
     width: 100%;
 }
@@ -7151,6 +7151,9 @@ header {
 
 	
 }
+.top-stats-icons i.icon-twitter {line-height: 27px;padding: 0;}
+.top-stats-icons i.icon-linkedin {line-height: 27px;padding: 0;}
+.top-stats-icons a{background:transparent;text-decoration:none;}
 .icon-top{float:left;color:#fff;padding:13px 0 0 0;}
 .top-nav-left li a{color:#fff;font-weight:bold;}
 .top-nav-left li a:hover{color:#F5F5F5;}
@@ -7183,7 +7186,7 @@ header {
 .middle-format-right{background:#E9F9F9;background-color:#E9F9F9;}
 .middle-format-right h1{color: #666;font-size: 16px;font-weight: bold;text-transform: capitalize;}
 .middle-format-right p{color: #666666;font-size: 11px;margin-top: 7px;text-align: justify;}
-.widget-body {background:#F1F1F1;background-color:#F1F1F1;float: left;margin-bottom: 30px; width: 100%;}
+.widget-body {background:#F1F1F1;background-color:#F1F1F1;float: left; width: 100%;}
 .blue {
     background: none repeat scroll 0 0 #6899C4;
 	color: #FFFFFF;
@@ -7600,7 +7603,7 @@ header {
 	border-radius: 50%;padding:6px 7px 5px;}
 .hot-link-icon ul >li a >i.icon-twitter:hover{background-color:#E88B2D;background:E88B2D;}
 .hot-link-icon ul >li a >i.icon-linkedin:hover{background-color:#E88B2D;background:E88B2D;}
-.hot-link-icon ul >li a >i.icon-facebook:hover,.icon-twitter:hover,.icon-linkedin:hover{background-color:#E88B2D;background:E88B2D;}
+/*.hot-link-icon ul >li a >i.icon-facebook:hover,.icon-twitter:hover,.icon-linkedin:hover{background-color:#E88B2D;background:E88B2D;}*/
 .next-slide{position: relative;right: 68px;top: -27px;width:200px;height:52px;background:#E88B2D;background-color:#E88B2D;} 
 .next-slide h1{color:#fff;float:left; font-size: 23px;margin: 14px;}
 .next-slide i{color:#fff;float:right; font-size: 45px;margin: 4px 19px 0 0;}
@@ -7709,3 +7712,6 @@ top:115px;width: 252px;background:#FAFFFF;background-color:#FAFFFF;z-index:999;}
   height: 43px;
     width: 110px;
 }
+
+.mr12{margin-right:12px;}
+.top-nav-section{height:38px;}

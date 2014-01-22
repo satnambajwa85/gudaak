@@ -22,8 +22,8 @@
 	<?php  $this->Widget('WidgetDashboardMenu'); ?>
 	<section class="main-section">
 		<div class="container">
-			<div class="row color">
-						<div class="col-md-8 pull-right">
+			<div class="row color top-nav-section">
+						<div class="pull-right">
 							<ul class="nav nav-pills top-nav-left pull-left">
 							  <li><i class="icon-microphone icon-top"></i><a href="#">Talk to Counsellor</a></li>
 							  <li><i class="glyphicon glyphicon-list-alt icon-top"></i><a href="#">News and Updates</a></li>
@@ -31,7 +31,7 @@
 							 
 							  
 							</ul>
-							<div class="top-stats-icons fr">
+							<div class="top-stats-icons fr mr12">
 								<a href="<?php echo Yii::app()->session['setting']['fb_link'];?>" target="_blank">
 									<i class="icon-facebook"></i>
 								</a>
@@ -50,30 +50,14 @@
 				
 			</div>
 			<div class="row white">
-				<div class="col-xs-12 col-sm-6 col-md-5 pull-left dashboard-logo white">
-					<div class="dashboard-logo  pull-left">
-						<img src="<?php echo $path;?>/images/dashboard-logo.png"/>
-					</div>
-					<div>
-						<h1>Stream Explore</h1>
-						<span>It is long established fact a reader will be It is long established fact a reader will be
-								It is long established fact a reader will be 
-						</span>
-						
-						<a href="#">Konw more about stream explore</a>
-					</div>
-				</div>
-				<div class="row col-xs-12 col-sm-6 col-md-7 pull-right banner">
-					<img src="<?php echo $path;?>/images/banner.png"/>
-				</div>
-				<div class="clearfix"></div>
+				 
 				<?php echo $content;?>
 
 		</div>
 		</div>
 	</section>
 	</div>
-	<footer id="footer" class="row color">
+	<footer id="footer" class="row color mr0">
 		 <div class="container">
 	
 			 <ul class="footer nav navbar-nav">

@@ -111,29 +111,82 @@ class UserController extends Controller
 		}
 		$this->render('editProfile', array('model'=>$model));
 	}
-	public function actionTest()
-	{	
+	public function actionTest($startTest)
+	{		//echo '<pre>';print_r($_REQUEST);die;
 		if(!Yii::app()->user->id){
 			$this->redirect(Yii::app()->createUrl('/site/'));
 		}
-		$questions	=	Questions::model()->FindAllByAttributes(array('orient_items_id'=>2,'published'=>1,'status'=>1));
-		$quest		=	array();
-		foreach($questions as $question){
-			$quest[$question->id]['id']	=	$question->id;
-			$quest[$question->id]['title']	=	$question->title;
-			$options	=	QuestionOptions::model()->FindAllByAttributes(array('questions_id'=>$question->id,'activation'=>1,'status'=>1));
-			if(!empty($options))
-			foreach($options as $option){
-				$quest[$question->id]['option'][$option->id]	=	$option->name;
-			}
-			else
-				$quest[$question->id]['option'][]	=	'';
-		}
-		echo '<pre>';print_r($quest);die;
-		$model	=	new TestReports;
-		if(!empty($_POST['TestReports'])){
-			$model->attributes = $_POST['TestReports'];
-			CVarDumper::dump($model->attributes,10,1);die;
+		$questions	=	array();
+		switch ($startTest){
+			case 'Interest':
+				$questions	=	Questions::model()->FindAllByAttributes(array('orient_items_id'=>3,'published'=>1,'status'=>1));
+				$quest		=	array();
+				foreach($questions as $question){
+					$quest[$question->id]['id']	=	$question->id;
+					$quest[$question->id]['title']	=	$question->title;
+					$options	=	QuestionOptions::model()->FindAllByAttributes(array('questions_id'=>$question->id,'activation'=>1,'status'=>1));
+					if(!empty($options))
+					foreach($options as $option){
+						$quest[$question->id]['option'][$option->id]	=	$option->name;
+					}
+					else
+						$quest[$question->id]['option'][]	=	'';
+				}
+				$model	=	new TestReports;
+				if(isset($_POST['testReports'])){
+							$model->attributes 				= 	$_POST['testReports'];
+							$model->questions_id 			= 	$_POST['testReports']['question_options_id'];
+							foreach($model->questions_id as $key=>$value){
+								$testReport								=	new TestReports;
+								$Question								=	$key;
+								$Options								=	$value;
+								$testReport->comments	 				= 	'comments';
+								$testReport->status		 				=	1;
+								$testReport->activation	 				=	1;
+								$testReport->questions_id				=	$Question;
+								$testReport->question_options_id 		=	$Options;
+								$testReport->user_profiles_id	 		=	Yii::app()->user->profileId;
+								$testReport->save();
+							}
+							$this->redirect(Yii::app()->createUrl('user/tests&view=personality'));
+				}
+				
+				break;
+			case 'personality':
+				$questions	=	Questions::model()->FindAllByAttributes(array('orient_items_id'=>2,'published'=>1,'status'=>1));
+				$quest		=	array();
+				foreach($questions as $question){
+					$quest[$question->id]['id']	=	$question->id;
+					$quest[$question->id]['title']	=	$question->title;
+					$options	=	QuestionOptions::model()->FindAllByAttributes(array('questions_id'=>$question->id,'activation'=>1,'status'=>1));
+					if(!empty($options))
+					foreach($options as $option){
+						$quest[$question->id]['option'][$option->id]	=	$option->name;
+					}
+					else
+						$quest[$question->id]['option'][]	=	'';
+				}
+				
+				$model	=	new TestReports;
+				if(isset($_POST['testReports'])){
+							$model->attributes 				= 	$_POST['testReports'];
+							$model->questions_id 			= 	$_POST['testReports']['question_options_id'];
+							foreach($model->questions_id as $key=>$value){
+								$testReport								=	new TestReports;
+								$Question								=	$key;
+								$Options								=	$value;
+								$testReport->comments	 				= 	'comments';
+								$testReport->status		 				=	1;
+								$testReport->activation	 				=	1;
+								$testReport->questions_id				=	$Question;
+								$testReport->question_options_id 		=	$Options;
+								$testReport->user_profiles_id	 		=	Yii::app()->user->profileId;
+								$testReport->save();
+							}
+							$this->redirect(Yii::app()->createUrl('user/tests&view=personality'));
+				}
+			break;
+			 
 		}
 		$this->render('test', array('questions'=>$quest,'model'=>$model));
 	}	

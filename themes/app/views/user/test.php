@@ -27,16 +27,12 @@
 												<p><?php	echo $question['id'].'. '. $question['title'];?></p>
 												
 												<div>
-													<label>
+													<?php if(!empty($question['option'])){ ?>
+														<?php echo $form->radioButtonList($model,'question_options_id['.$question['id'].']',$question['option']); ?>
+													<?php }else{ ?>
 													
-															
-																<?php echo $form->radioButtonList($model,'question_options_id[]',$question['option']); ?>
-															
-												
-															
+													<?php } ?>
 													
-													
-												  </label>
 												</div>
 											</div>
 												
