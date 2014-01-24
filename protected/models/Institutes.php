@@ -20,6 +20,7 @@
  * @property integer $cities_id
  *
  * The followings are the available model relations:
+ * @property CareerOptionsHasInstitutes[] $careerOptionsHasInstitutes
  * @property Cities $cities
  * @property InstitutesHasAffiliations[] $institutesHasAffiliations
  * @property Courses[] $courses
@@ -63,6 +64,7 @@ class Institutes extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'careerOptionsHasInstitutes' => array(self::HAS_MANY, 'CareerOptionsHasInstitutes', 'institutes_id'),
 			'cities' => array(self::BELONGS_TO, 'Cities', 'cities_id'),
 			'institutesHasAffiliations' => array(self::HAS_MANY, 'InstitutesHasAffiliations', 'institutes_id'),
 			'courses' => array(self::MANY_MANY, 'Courses', 'institutes_has_courses(institutes_id, courses_id)'),

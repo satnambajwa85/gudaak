@@ -20,11 +20,6 @@ class UserController extends Controller
 			'page'=>array(
 				'class'=>'CViewAction',
 			),
-		   'upload'=>array(
-			'class'=>'xupload.actions.XUploadAction',
-			'path' =>Yii::app()->baseUrl. "/uploads/user/small/",
-			'publicPath' => Yii::app() ->baseUrl. "/uploads/user/small/",
-		),
 		);
 	}
 	public function beforeAction() 
@@ -111,60 +106,25 @@ class UserController extends Controller
 		}
 		$this->render('editProfile', array('model'=>$model));
 	}
-	public function actionTest($startTest)
+	public function actionTest($id)
 	{		//echo '<pre>';print_r($_REQUEST);die;
 		if(!Yii::app()->user->id){
 			$this->redirect(Yii::app()->createUrl('/site/'));
 		}
+		
 		$questions	=	array();
-		switch ($startTest){
-			case 'Interest':
-				$questions	=	Questions::model()->FindAllByAttributes(array('orient_items_id'=>3,'published'=>1,'status'=>1));
-				$quest		=	array();
-				foreach($questions as $question){
-					$quest[$question->id]['id']	=	$question->id;
-					$quest[$question->id]['title']	=	$question->title;
-					$options	=	QuestionOptions::model()->FindAllByAttributes(array('questions_id'=>$question->id,'activation'=>1,'status'=>1));
-					if(!empty($options))
+		$questions	=	Questions::model()->FindAllByAttributes(array('orient_items_id'=>$id,'published'=>1,'status'=>1));
+		$quest		=	array();
+		foreach($questions as $question){
+				$quest[$question->id]['id']	=	$question->id;
+				$quest[$question->id]['title']	=	$question->title;
+				$options	=	QuestionOptions::model()->FindAllByAttributes(array('questions_id'=>$question->id,'activation'=>1,'status'=>1));
+				if(!empty($options))
 					foreach($options as $option){
 						$quest[$question->id]['option'][$option->id]	=	$option->name;
 					}
-					else
-						$quest[$question->id]['option'][]	=	'';
-				}
-				$model	=	new TestReports;
-				if(isset($_POST['testReports'])){
-							$model->attributes 				= 	$_POST['testReports'];
-							$model->questions_id 			= 	$_POST['testReports']['question_options_id'];
-							foreach($model->questions_id as $key=>$value){
-								$testReport								=	new TestReports;
-								$Question								=	$key;
-								$Options								=	$value;
-								$testReport->comments	 				= 	'comments';
-								$testReport->status		 				=	1;
-								$testReport->activation	 				=	1;
-								$testReport->questions_id				=	$Question;
-								$testReport->question_options_id 		=	$Options;
-								$testReport->user_profiles_id	 		=	Yii::app()->user->profileId;
-								$testReport->save();
-							}
-							$this->redirect(Yii::app()->createUrl('user/tests&view=personality'));
-				}
-				
-				break;
-			case 'personality':
-				$questions	=	Questions::model()->FindAllByAttributes(array('orient_items_id'=>2,'published'=>1,'status'=>1));
-				$quest		=	array();
-				foreach($questions as $question){
-					$quest[$question->id]['id']	=	$question->id;
-					$quest[$question->id]['title']	=	$question->title;
-					$options	=	QuestionOptions::model()->FindAllByAttributes(array('questions_id'=>$question->id,'activation'=>1,'status'=>1));
-					if(!empty($options))
-					foreach($options as $option){
-						$quest[$question->id]['option'][$option->id]	=	$option->name;
-					}
-					else
-						$quest[$question->id]['option'][]	=	'';
+				else
+					$quest[$question->id]['option'][]	=	'';
 				}
 				
 				$model	=	new TestReports;
@@ -183,31 +143,23 @@ class UserController extends Controller
 								$testReport->user_profiles_id	 		=	Yii::app()->user->profileId;
 								$testReport->save();
 							}
-							$this->redirect(Yii::app()->createUrl('user/tests&view=personality'));
+							
 				}
-			break;
-			 
-		}
 		$this->render('test', array('questions'=>$quest,'model'=>$model));
 	}	
-	public function actionTests($view)
+	public function actionTests($id)
 	{	
 		if(!Yii::app()->user->id){
 			$this->redirect(Yii::app()->createUrl('/site'));
 		}
-		$test	=	array();
-                        
-		switch ($view){
-			case 'Interest':
-				
-				break;
-			case 'personality':
-				
-				break;
-			 
-		}
+		$criteria				=	new CDbCriteria();
+		$criteria->condition 	= 'published  = :published  and status=:status';
+		$criteria->params 		= array(':published'=>1,':status'=>1);
+		$testContent			=	OrientItems::model()->findByPk($id,$criteria);
+		
+
 		//(array('view','id'=>$model->id));
-		$this->render('userTest',array('test'=>$test));
+		$this->render('userTest',array('testContent'=>$testContent));
 	}
 	public function actionLiveChat()
 	{	
@@ -222,9 +174,39 @@ class UserController extends Controller
 		if(!Yii::app()->user->id){
 			$this->redirect(Yii::app()->createUrl('/site'));
 		}
-		
-		$this->render('career');
+		$criteria1 		= new CDbCriteria;
+		$criteria1->condition = '(published =:published and status=:status)';
+		$criteria1->params = array(':published'=>1,'status'=>1);
+		$models	=	 CareerCategories::model()->findAll($criteria1);
+		$dataProvider=new CActiveDataProvider('CareerCategories', array(
+							'criteria'=>$criteria1,
+							'pagination'=>array(
+								'pageSize'=>6,
+							),
+						));
+		$this->render('career',array('fech_result'=>$dataProvider));
 	}
+	
+	public function actionCareerList($id)
+	{	
+		if(!Yii::app()->user->id){
+			$this->redirect(Yii::app()->createUrl('/site'));
+		}
+		$career		=	Career::model()->FindAllByAttributes(array('career_categories_id'=>$id,'published'=>1,'status'=>1));
+		
+		$this->render('careerList',array('career'=>$career));
+	}
+	public function actionCareerOptions($id)
+	{	
+		if(!Yii::app()->user->id){
+			$this->redirect(Yii::app()->createUrl('/site'));
+		}
+		$careerOptions1		=	CareerOptions::model()->FindByPk(array('career_id'=>$id,'published'=>1,'status'=>1));
+		$careerOptions2		=	CareerOptions::model()->findAllByAttributes(array('career_id'=>$id,'published'=>1,'status'=>1));
+		
+		$this->render('careerOptions',array('careerOptions1'=>$careerOptions1,'careerOptions2'=>$careerOptions2));
+	}
+	
 	public function actionSearch()
 	{	
 

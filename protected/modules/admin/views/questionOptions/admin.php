@@ -42,12 +42,12 @@ $('.search-form form').submit(function(){
 	'columns'=>array(
 		'id',
 			array(
-            'name'=>'Orient Items ',
-            'value'=>'$data->questions->orientItems->title'
+            'name'=>'Career Categories ',
+            'value'=>'$data->career->careerCategories->title'
         ),
 		array(
-            'name'=>'Questions Categories',
-            'value'=>'$data->questions->title'
+            'name'=>'Career ',
+            'value'=>'$data->career->title'
         ),
 
 		'name',

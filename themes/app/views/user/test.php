@@ -24,7 +24,7 @@
 										
 										<?php $counterId++;} ?>
 											<div class="pull-left">
-												<p><?php	echo $question['id'].'. '. $question['title'];?></p>
+												<p><?php	echo $count++.'. '. $question['title'];?></p>
 												
 												<div>
 													<?php if(!empty($question['option'])){ ?>

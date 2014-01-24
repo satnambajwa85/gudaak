@@ -1,6 +1,6 @@
 $(document).ready(function () {
 	$('.hot-link-icon a').tooltip();
-	$('.tab-description').hide();
+	//$('.tab-description').hide();
 	$('#test-tab a').bind('click', function(e){
 		$('#test-tab a.current').removeClass('current');
 		$('.tab-section:visible').hide();
@@ -32,13 +32,27 @@ $(document).ready(function () {
 	//user live chat script end here
 	// career page js start
 	$('.categories-tab').hide();
-		$('.description a').bind('click', function(e){
-			$('.description a.current').removeClass('current');
+		$('.links a').bind('click', function(e){
+			$('.links a.current').removeClass('current');
 			$(this.hash).slideToggle();
 			$(this).addClass('current');
 			e.preventDefault();
 		});
 		
 	// career page js end
+	//dashboard menu js start here
+	$(".side-navigation ul li").click( function(){
+		$("ul",this).slideToggle();
+	});			
+	//career tabs js end here
+		//$('.tab-description').hide();
+	$('#career-description-tabs li a').bind('click', function(e){
+		$('#career-description-tabs li a.current').removeClass('current');
+		$('.tab-visible:visible').hide();
+		$(this.hash).slideToggle();
+		$(this).addClass('current');
+		e.preventDefault();
+	}).filter(':first').click();	
+	//career tabs ends here
 });
 						

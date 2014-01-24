@@ -23,7 +23,7 @@
 	<section class="main-section">
 		<div class="container">
 			<div class="row color top-nav-section">
-						<div class="pull-right">
+						<div class="pull-right top-nav-section">
 							<ul class="nav nav-pills top-nav-left pull-left">
 							  <li><i class="icon-microphone icon-top"></i><a href="#">Talk to Counsellor</a></li>
 							  <li><i class="glyphicon glyphicon-list-alt icon-top"></i><a href="#">News and Updates</a></li>
@@ -70,7 +70,7 @@
 				<li><a class="pull-left" href="#about">Assessment Test</a><i class="pull-right border-l">|</i></li>
 				<li><a class="pull-left" href="#about">Take Test</a><i class="pull-right border-l">|</i></li>
 				<li><a class="pull-left" href="#about">FAQ's</a><i class="pull-right border-l">|</i></li>
-				<li><a class="pull-left" href="#about">Contacts</a></li>
+				<li><?php echo CHtml::link('Contacts',array('site/contact'),array('class'=>'pull-left'));?></li>
 				
 				
 			</ul>
@@ -81,7 +81,6 @@
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <script src="<?php echo $path;?>/js/bootstrap.min.js"></script>
-	<script type="text/javascript"  src="<?php echo $path;?>/js/script.js"></script>
 	<script type="text/javascript"  src="<?php echo $path;?>/js/custom.js"></script>
 	<script type="text/javascript"  src="<?php echo $path;?>/js/jcarousels.js"></script>
 	 <!-- jquery jcarousel -->

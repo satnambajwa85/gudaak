@@ -96,7 +96,7 @@ if($action	==	'changePassword')
 					
 					<div class="span3 pull-left">
 						<?php echo $form->labelEx($model,'gender'); ?>
-						<?php echo $form->radioButtonlist($model,'gender',array('Male'=>'Male','Female'=>'Female'),array('separator'=>'')); ?>
+						<?php echo $form->radioButtonlist($model,'gender',array('1'=>'Male','0'=>'Female'),array('separator'=>'')); ?>
 						<?php echo $form->error($model,'gender'); ?>
 					</div>
 					<div class="span3 pull-left">

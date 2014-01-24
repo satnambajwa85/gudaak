@@ -19,7 +19,7 @@
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
-		<div class="form-group">
+	<div class="form-group">
 		<?php echo $form->labelEx($model,'states_id'); ?>
 		<?php echo $form->dropDownlist($model,'states_id',CHtml::listData(States::model()->findAll(),'id','title'),array('class'=>'form-control')); ?>
 		<?php echo $form->error($model,'states_id'); ?>
