@@ -170,11 +170,10 @@ class UserController extends Controller
 		$criteria1 		= new CDbCriteria;
 		$criteria1->condition = '(published =:published and status=:status)';
 		$criteria1->params = array(':published'=>1,'status'=>1);
-		$models	=	 CareerCategories::model()->findAll($criteria1);
-		$dataProvider=new CActiveDataProvider('CareerCategories', array(
+		$dataProvider=new CActiveDataProvider('Career', array(
 							'criteria'=>$criteria1,
 							'pagination'=>array(
-								'pageSize'=>6,
+								'pageSize'=>8,
 							),
 						));
 		$this->render('career',array('fech_result'=>$dataProvider));
@@ -185,8 +184,8 @@ class UserController extends Controller
 		if(!Yii::app()->user->id){
 			$this->redirect(Yii::app()->createUrl('/site'));
 		}
-		$dataBYId		=	CareerCategories::model()->FindByPk($id);
-		$career			=	Career::model()->FindAllByAttributes(array('career_categories_id'=>$id,'published'=>1,'status'=>1));
+		$dataBYId		=	Career::model()->FindByPk($id);
+		$career			=	Careeroptions::model()->FindAllByAttributes(array('career_id'=>$id,'published'=>1,'status'=>1));
 		
 		$this->render('careerList',array('career'=>$career,'dataBYId'=>$dataBYId));
 	}
