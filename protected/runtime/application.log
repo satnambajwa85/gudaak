@@ -11910,3 +11910,66 @@ in C:\wamp\www\gudaak\index.php (13)
 2014/01/21 15:55:24 [warning] [application] Failed to set unsafe attribute "description" of "QuestionOptions".
 in C:\wamp\www\gudaak\protected\modules\admin\controllers\QuestionOptionsController.php (72)
 in C:\wamp\www\gudaak\index.php (13)
+2014/01/24 15:09:08 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'vidy.site_setting' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\SiteController.php (29)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/24 15:09:08 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\SiteController.php(29): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): SiteController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/
+---
+2014/01/24 15:10:10 [error] [php] Trying to get property of non-object (C:\wamp\www\gudaak\protected\controllers\SiteController.php:30)
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#1 C:\wamp\www\framework\web\CWebApplication.php(276): SiteController->run()
+#2 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#3 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/
+in C:\wamp\www\gudaak\protected\controllers\SiteController.php (30)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/24 15:16:37 [error] [php] Trying to get property of non-object (C:\wamp\www\gudaak\protected\controllers\SiteController.php:30)
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#1 C:\wamp\www\framework\web\CWebApplication.php(276): SiteController->run()
+#2 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#3 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/
+in C:\wamp\www\gudaak\protected\controllers\SiteController.php (30)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/24 15:20:52 [error] [php] mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() (C:\wamp\www\gudaak\protected\controllers\SiteController.php:154)
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 C:\wamp\www\framework\web\CController.php(287): SiteController->runAction()
+#2 C:\wamp\www\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#3 C:\wamp\www\framework\web\CWebApplication.php(276): SiteController->run()
+#4 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=site/userRegister
+in C:\wamp\www\gudaak\protected\controllers\SiteController.php (154)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/24 15:21:33 [error] [php] mail() [<a href='function.mail'>function.mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() (C:\wamp\www\gudaak\protected\controllers\SiteController.php:154)
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 C:\wamp\www\framework\web\CController.php(287): SiteController->runAction()
+#2 C:\wamp\www\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#3 C:\wamp\www\framework\web\CWebApplication.php(276): SiteController->run()
+#4 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#5 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=site/userRegister
+in C:\wamp\www\gudaak\protected\controllers\SiteController.php (154)
+in C:\wamp\www\gudaak\index.php (13)

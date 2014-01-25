@@ -83,7 +83,7 @@ class SiteController extends Controller
 							$headers .= "From: ".Yii::app()->params['adminEmail']."\r\nReply-To: ".Yii::app()->params['adminEmail'];  
 							$subject = "Account Details";
 							 
-							mail($to,$subject,$body,$headers);
+							//mail($to,$subject,$body,$headers);
 							$this->redirect(array('site/login'));
 							Yii::app()->user->setFlash('register','Check email .');
 							Yii::app()->user->setFlash('create','Thank you for join us.');
@@ -151,7 +151,7 @@ class SiteController extends Controller
 								$headers .= "From: ".Yii::app()->params['adminEmail']."\r\nReply-To: ".Yii::app()->params['adminEmail'];  
 								$subject = "Account Details";
 								 
-								mail($to,$subject,$body,$headers);
+								//mail($to,$subject,$body,$headers);
 								$this->redirect(array('site/login'));
 								Yii::app()->user->setFlash('register','Check email .');
 								Yii::app()->user->setFlash('create','Thank you for join us.');
