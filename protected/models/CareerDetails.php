@@ -20,6 +20,7 @@ class CareerDetails extends CActiveRecord
 	/**
 	 * @return string the associated database table name
 	 */
+	 public $career_categories_id,$career_id;
 	public function tableName()
 	{
 		return 'career_details';

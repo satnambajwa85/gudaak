@@ -53,6 +53,28 @@ $(document).ready(function () {
 		$(this).addClass('current');
 		e.preventDefault();
 	}).filter(':first').click();	
+	//career tabs ends here	//career tabs js end here
+	//$('.tab-description').hide();
+	$('.career-list-view ul li a').bind('click', function(e){
+		$('.career-list-view ul li a.currentTab').removeClass('currentTab');
+		$('.career-tab-section:visible').hide();
+		$(this.hash).slideToggle();
+		$(this).addClass('currentTab');
+		e.preventDefault();
+	}).filter(':first').click();	
+	//$('.tab-description').hide();
+	$('.top-nav-bar  li a').bind('click', function(e){
+		$('.top-nav-bar li a.active-tab').removeClass('active-tab');
+		$('.home-tab-section:visible').hide();
+		$(this.hash).slideToggle();
+		$(this).addClass('active-tab');
+		e.preventDefault();
+	}).filter(':first').click();	
+
 	//career tabs ends here
+	
+
+
+
 });
 						

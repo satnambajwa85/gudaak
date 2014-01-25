@@ -31,29 +31,30 @@
 		         
 		        </div>
 		        <div class="navbar-collapse collapse">
-		          <ul class="nav navbar-nav ">
-		            <li><a href="#">What is Gudaak</a></li>
-		            <li><a href="#">Why Gudaak</a></li>
+		          <ul class="nav navbar-nav top-nav-bar">
+		            <li><a href="#tab1">What is Gudaak</a></li>
+		            <li><a href="#tab2">Why Gudaak</a></li>
 		            <li><?php //echo CHtml::link('<i class="icon-circle big-circle"></i>',array('site/'),array('style'=>'color:#fff;left: 142px;position: absolute;top: -66px;background:none repeat scroll 0 0 rgba(0, 0, 0, 0);'))?></li>
 		           </ul>
 				   
-		          <ul class="nav navbar-nav navbar-right">
+		          <ul class="nav navbar-nav navbar-left">
 					<li><a href="#">School</a></li>
 					 <li><a href="#">Student/Parents</a></li>
-		            <li><a href="./">Approach</a></li>
-		            <?php if((Yii::app()->user->id) && (Yii::app()->user->userType=='user' or Yii::app()->user->userType=='admin' )){ ?>
-					<li><?php	echo CHtml::link('&nbsp;<i class="glyphicon glyphicon-user"></i>&nbsp;Dashboard',array('user/'),array('class'=>'btn btn-warning fr dashboard'));?></li>
-					<li><?php	echo CHtml::link('&nbsp;<i class="glyphicon glyphicon-off "></i>&nbsp;Logout',array('site/logout'),array('class'=>'btn btn-warning fr logout'));?></li>
-					
-						<?php } else{ ?>
-					<li>
-						<?php echo CHtml::button('Join Us!',array('class'=>'btn btn-warning','id'=>'home-login-box'));?>
-									 
-					</li>
-					<li><?php echo CHtml::link('<i class="glyphicon glyphicon-comment"></i>Lets Talk!','#',array('class'=>'btn-talk white-text btn btn-warning','style'=>'padding:6px 9px 9px 9px;font-weight:normal;'));?>
-					</li>
-					<?php	} ?>
 		          </ul>
+				  <ul class="pull-right navigation-bt">
+						 <?php if((Yii::app()->user->id) && (Yii::app()->user->userType=='user' or Yii::app()->user->userType=='admin' )){ ?>
+						<li><?php	echo CHtml::link('&nbsp;<i class="glyphicon glyphicon-user"></i>&nbsp;Dashboard',array('user/'),array('class'=>'btn-talk white-text btn btn-warning'));?></li>
+						<li><?php	echo CHtml::link('&nbsp;<i class="glyphicon glyphicon-off "></i>&nbsp;Logout',array('site/logout'),array('class'=>'btn-talk white-text btn btn-warning'));?></li>
+						
+							<?php } else{ ?>
+						<li>
+							<?php echo CHtml::link('Join Us!','#',array('class'=>'btn-talk white-text btn btn-warning','id'=>'home-login-box'));?>
+										 
+						</li>
+						<li><?php echo CHtml::link('<i class="glyphicon glyphicon-comment"></i>Lets Talk!','#',array('class'=>'btn-talk white-text btn btn-warning'));?>
+						</li>
+						<?php	} ?>
+				  </ul>
 		        </div><!--/.nav-collapse -->
 		  </div>
     </div>
@@ -64,7 +65,7 @@
 	<div class="clear"></div>
 	<footer id="footer">
 		<div class="pull-right next-slide">
-			<h1>What Next</h1><i class="icon-circle-arrow-right"></i>
+			<h1>Lats Talk</h1><i class="glyphicon glyphicon-comment"></i>
 		</div>
 		<div class="clear"></div>
 		 <div class="container">

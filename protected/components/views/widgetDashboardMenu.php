@@ -42,14 +42,32 @@ $getId='';
 }
 $active='';
 $displayCss='';
+$activeExplore='';
+$activeExploreDisplay='';
+$careerActive='';
 if($action	==	'tests'||'test'){
 	$active ='slidebg';
 	$displayCss='style="display:block;"';
 	}
-if($action	==	'index'){
+if($action	==	'career'||'careerList'||'careerDetails'){
 	$active ='';
-	$displayCss='style=""';
+	$displayCss='style="display:none;"';
+	$careerActive='currentLink';
+	$activeExplore ='slidebg';
+	$activeExploreDisplay='style="display:block;"';
 	}
+if($action	==	'stream'||'streamList'){
+	$active ='';
+	$displayCss='';
+	$careerActive='';
+	$activeExplore ='';
+	$activeExploreDisplay='';
+	$streamActive='currentLink';
+	$stream ='slidebg';
+	$StreamDisplay='style="display:block;"';
+	
+	}
+
 
 /*if($action	==	'')
 	$accActive ='slidebg';
@@ -67,36 +85,29 @@ if($action	==	'')
 							<li><a title="" href="#">Detailed Report</a></li>
 						</ul>					
 					</li>
-					<li><a class="" title=""><i class="glyphicon glyphicon-eye-open"></i>Explore</a>
-						<ul>
-							<li><?php echo CHtml::link('Career library',array('user/career'))?></li>
+					<li><a class="<?php echo $activeExplore;?>" title=""><i class="glyphicon glyphicon-eye-open"></i>Explore</a>
+						<ul <?php echo $activeExploreDisplay;?>>
+							<li><?php echo CHtml::link('Career library',array('user/career'),array('class'=>''.$careerActive.''))?></li>
 							<li><?php echo CHtml::link('Online Chat',array('user/liveChat'))?>
 							<li><a title="" href="#">Video Clips</a></li>
 							<li><a title="" href="#">Articles</a></li>
 							
 						</ul>
 					</li>
-					<li><a class="" title=""><i class="glyphicon glyphicon-thumbs-up"></i>Stream Preference </a>
-						<ul>
-							<li><a title="" href="cart.html"> Cart Page</a></li>
-							<li><a title="" href="billing.html"> Billing Page</a></li>
-							<li><a title="" href="order-recieved.html"> Order Recieved</a></li>
+					<li><a class="<?php echo $stream;?>" title=""><i class="glyphicon glyphicon-thumbs-up"></i>Stream Preference </a>
+						<ul <?php echo $StreamDisplay;?>>
+							<li><?php echo CHtml::link('Stream',array('user/stream'),array('class'=>''.$streamActive.''))?></li>
+							
 						</ul>					
 					</li>
 					<li><a class="" title=""><i class="glyphicon glyphicon-flag"></i>Finalized Stream </a>
 						<ul>
-							<li><a title="" href="cart.html"> Cart Page</a></li>
-							<li><a title="" href="billing.html"> Billing Page</a></li>
-							<li><a title="" href="order-recieved.html"> Order Recieved</a></li>
+							 
 						</ul>					
 					</li>
 					<li><a class="" title=""><i class="icon-anchor"></i>Suggested Stream </a>
 						<ul>
-							<li><a title="" href="cart.html"> Cart Page</a></li>
-							<li><a title="" href="billing.html"> Billing Page</a></li>
-							<?php echo CHtml::ajaxLink('<span>|</span>',array('user/editProfile'));?>
-						
-							<li><a title="" href="order-recieved.html"> Order Recieved</a></li>
+							
 						</ul>					
 					</li>
 					

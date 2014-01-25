@@ -96,8 +96,8 @@ class CareerController extends Controller
 					
 					#STHUMB Image
 					$img->image_resize      = true;
-					$img->image_y         	= 117;
-					$img->image_x           = 173;
+					$img->image_y         	= 115;
+					$img->image_x           = 265;
 					$img->file_new_name_body = $newName;
 					$img->process('uploads/career/small/');
 				 
@@ -152,15 +152,15 @@ class CareerController extends Controller
 				if ($img->processed) {
 					#THUMB Image
 					$img->image_resize      = true;
-					$img->image_y         	= 335;
-					$img->image_x           = 1800;
+					$img->image_y         	= 304;
+					$img->image_x           = 304;
 					$img->file_new_name_body = $newName;
 					$img->process('uploads/career/large/');
 					
 					#STHUMB Image
 					$img->image_resize      = true;
-					$img->image_y         	= 90;
-					$img->image_x           = 162;
+					$img->image_y         	= 115;
+					$img->image_x           = 265;
 					$img->file_new_name_body = $newName;
 					$img->process('uploads/career/small/');
 					

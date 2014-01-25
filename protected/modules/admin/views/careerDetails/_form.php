@@ -19,6 +19,32 @@
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
+	 <div class="form-group">
+	<?php echo $form->labelEx($model,'career_categories_id'); ?>
+			 <?php 	echo $form->dropDownList($model,'career_categories_id',
+								CHtml::listData(CareerCategories::model()->findAll(),'id','title'),
+								array('ajax' => array('type'=>'POST',
+									'url'=>CController::createUrl('DynamicCareer'), //url to call.
+									'update'=>'#CareerDetails_career_id',
+									
+									
+										)));?>
+	<?php echo $form->error($model,'career_categories_id'); ?>
+		
+	</div>
+	 <div class="form-group">
+	<?php echo $form->labelEx($model,'career_id'); ?>
+			 <?php 	echo $form->dropDownList($model,'career_id',
+								CHtml::listData(Career::model()->findAll(),'id','title'),
+								array('ajax' => array('type'=>'POST',
+									'url'=>CController::createUrl('DynamicCareerList'), //url to call.
+									'update'=>'#CareerDetails_career_options_id',
+									
+									
+										)));?>
+	<?php echo $form->error($model,'career_id'); ?>
+		
+	</div>
 	<div class="row">
 		<?php echo $form->labelEx($model,'career_options_id'); ?>
 		<?php echo $form->dropDownlist($model,'career_options_id',CHtml::listData(CareerOptions::model()->findAll(),'id','title'),array('class'=>'form-control')); ?>
