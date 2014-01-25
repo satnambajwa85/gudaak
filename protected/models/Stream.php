@@ -13,6 +13,7 @@
  * @property integer $activation
  *
  * The followings are the available model relations:
+ * @property StreamHasCareerOptions[] $streamHasCareerOptions
  * @property UserEducation[] $userEducations
  */
 class Stream extends CActiveRecord
@@ -51,6 +52,7 @@ class Stream extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'streamHasCareerOptions' => array(self::HAS_MANY, 'StreamHasCareerOptions', 'stream_id'),
 			'userEducations' => array(self::HAS_MANY, 'UserEducation', 'stream_id'),
 		);
 	}

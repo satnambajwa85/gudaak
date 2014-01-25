@@ -3,10 +3,10 @@
 class StreamController extends Controller
 {
 	/**
-	 * @var string the default layout for the views. Defaults to '/layouts/admin', meaning
+	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='/layouts/admin';
+	public $layout='//layouts/column2';
 
 	/**
 	 * @return array action filters
@@ -28,7 +28,7 @@ class StreamController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','admin','delete'),
+				'actions'=>array('index','view'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -70,43 +70,6 @@ class StreamController extends Controller
 		if(isset($_POST['Stream']))
 		{
 			$model->attributes=$_POST['Stream'];
-			$targetFolder = Yii::app()->request->baseUrl.'/uploads/stream/';
-			if (!empty($_FILES['Stream']['name']['image'])) {
-				$tempFile = $_FILES['Stream']['tmp_name']['image'];
-				$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
-				$targetFile = $targetPath.'/'.$_FILES['Stream']['name']['image'];
-				$pat = $targetFile;
-				move_uploaded_file($tempFile,$targetFile);
-				$absoPath = $pat;
-				$newName = time();
-				$img = Yii::app()->imagemod->load($pat);
-				# ORIGINAL
-				$img->file_max_size = 5000000; // 5 MB
-				$img->file_new_name_body = $newName;
-				$img->process('uploads/stream/original/');
-				$img->processed;
-				#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
-				if ($img->processed) {
-					#THUMB Image
-					$img->image_resize      = true;
-					$img->image_y         	= 500;
-					$img->image_x           = 500;
-					$img->file_new_name_body = $newName;
-					$img->process('uploads/stream/large/');
-					
-					#STHUMB Image
-					$img->image_resize      = true;
-					$img->image_y         	= 100;
-					$img->image_x           = 100;
-					$img->file_new_name_body = $newName;
-					$img->process('uploads/stream/small/');
-			 
-					$fileName	=	$img->file_dst_name;
-					$img->clean();
-	
-				}
-				$model->image	=	$fileName;
-			}
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -131,50 +94,6 @@ class StreamController extends Controller
 		if(isset($_POST['Stream']))
 		{
 			$model->attributes=$_POST['Stream'];
-					$targetFolder = Yii::app()->request->baseUrl.'/uploads/stream/';
-				if (!empty($_FILES['Stream']['name']['image'])) {
-					$tempFile = $_FILES['Stream']['tmp_name']['image'];
-					$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
-					$targetFile = $targetPath.'/'.$_FILES['Stream']['name']['image'];
-					$pat = $targetFile;
-					move_uploaded_file($tempFile,$targetFile);
-					$absoPath = $pat;
-					$newName = time();
-					$img = Yii::app()->imagemod->load($pat);
-					# ORIGINAL
-					$img->file_max_size = 5000000; // 5 MB
-					$img->file_new_name_body = $newName;
-					$img->process('uploads/stream/original/');
-					$img->processed;
-					#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
-				if ($img->processed) {
-						#THUMB Image
-						$img->image_resize      = true;
-						$img->image_y         	= 500;
-						$img->image_x           = 500;
-						$img->file_new_name_body = $newName;
-						$img->process('uploads/stream/large/');
-						
-						#STHUMB Image
-						$img->image_resize      = true;
-						$img->image_y         	= 100;
-						$img->image_x           = 100;
-						$img->file_new_name_body = $newName;
-						$img->process('uploads/stream/small/');
-				 
-					 
-					$fileName	=	$img->file_dst_name;
-					$img->clean();
-	
-				}
-				$model->image	=	$fileName;
-				if($_POST['Stream']['oldImage']!=''){
-					@unlink($targetFolder1.'original/'.$_POST['Stream']['oldImage']);
-					@unlink($targetFolder1.'large/'.$_POST['Stream']['oldImage']);
-					@unlink($targetFolder1.'small/'.$_POST['Stream']['oldImage']);
-			 
-				}
-			}
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}

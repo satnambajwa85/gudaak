@@ -21,7 +21,7 @@
 	<div class="wrapper">
 	<?php  $this->Widget('WidgetDashboardMenu'); ?>
 	<section class="main-section">
-		<div class="container">
+		<div class="left-main">
 			<div class="row color top-nav-section">
 						<div class="pull-right top-nav-section">
 							<ul class="nav nav-pills top-nav-left pull-left">
@@ -49,7 +49,7 @@
 						 
 				
 			</div>
-			<div class="row white">
+			<div class="row white mr0">
 				 
 				<?php echo $content;?>
 

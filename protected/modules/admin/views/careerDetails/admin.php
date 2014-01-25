@@ -40,6 +40,14 @@ $('.search-form form').submit(function(){
 	//'filter'=>$model,
 	'columns'=>array(
 		'id',
+		array(
+            'name'=>'Career Categories ',
+            'value'=>'$data->careerOptions->career->careerCategories->title'
+        ),
+			array(
+            'name'=>'Career',
+            'value'=>'$data->careerOptions->career->title'
+        ),
 		'title',
 		//'description',
 		'image',

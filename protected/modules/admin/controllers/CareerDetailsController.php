@@ -28,15 +28,15 @@ class CareerDetailsController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','admin','delete'),
+				'actions'=>array('index','view','admin','delete','DynamicCareer','DynamicCareerList'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','DynamicCareer','DynamicCareerList'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
+				'actions'=>array('admin','delete','DynamicCareer','DynamicCareerList'),
 				'users'=>array('admin'),
 			),
 			array('deny',  // deny all users
@@ -170,4 +170,32 @@ class CareerDetailsController extends Controller
 			Yii::app()->end();
 		}
 	}
+	public function actionDynamicCareer()
+	{	 
+		$getId = '';
+		if(!empty($_POST['CareerDetails']['career_categories_id'])) 
+			$getId	 = $_POST['CareerDetails']['career_categories_id'];
+			$data	=	Career::model()->findAll('career_categories_id =:parent_id',array(':parent_id'=>(int) $getId));
+			$data	=	CHtml::listData($data,'id','title');
+			echo '<option value="0">Please Select</option>';
+			foreach($data as $value=>$name){
+				echo CHtml::tag('option', array('value'=>$value),CHtml::encode($name),true);
+				
+			}
+		die;
+	}
+	public function actionDynamicCareerList()
+	{	 
+		$getId = '';
+		if(!empty($_POST['CareerDetails']['career_id'])) 
+			$getId	 = $_POST['CareerDetails']['career_id'];
+			$data	=	CareerOptions::model()->findAll('career_id =:parent_id',array(':parent_id'=>(int) $getId));
+			$data	=	CHtml::listData($data,'id','title');
+			echo '<option value="0">Please Select</option>';
+			foreach($data as $value=>$name){
+				echo CHtml::tag('option', array('value'=>$value),CHtml::encode($name),true);
+				
+			}
+		die;
+	}		
 }

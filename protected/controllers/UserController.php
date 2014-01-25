@@ -75,13 +75,6 @@ class UserController extends Controller
 					$img->processed;
 					#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
 				if ($img->processed) {
-					#THUMB Image
-					$img->image_resize      = true;
-					$img->image_y         	= 335;
-					$img->image_x           = 1800;
-					$img->file_new_name_body = $newName;
-					$img->process('uploads/user/large/');
-					
 					#STHUMB Image
 					$img->image_resize      = true;
 					$img->image_y         	= 50;
@@ -192,21 +185,39 @@ class UserController extends Controller
 		if(!Yii::app()->user->id){
 			$this->redirect(Yii::app()->createUrl('/site'));
 		}
-		$career		=	Career::model()->FindAllByAttributes(array('career_categories_id'=>$id,'published'=>1,'status'=>1));
+		$dataBYId		=	CareerCategories::model()->FindByPk($id);
+		$career			=	Career::model()->FindAllByAttributes(array('career_categories_id'=>$id,'published'=>1,'status'=>1));
 		
-		$this->render('careerList',array('career'=>$career));
+		$this->render('careerList',array('career'=>$career,'dataBYId'=>$dataBYId));
 	}
-	public function actionCareerOptions($id)
+	public function actionCareerDetails($id)
 	{	
 		if(!Yii::app()->user->id){
 			$this->redirect(Yii::app()->createUrl('/site'));
 		}
-		$careerOptions1		=	CareerOptions::model()->FindByPk(array('career_id'=>$id,'published'=>1,'status'=>1));
-		$careerOptions2		=	CareerOptions::model()->findAllByAttributes(array('career_id'=>$id,'published'=>1,'status'=>1));
-		
-		$this->render('careerOptions',array('careerOptions1'=>$careerOptions1,'careerOptions2'=>$careerOptions2));
+		$careerDetails				=	CareerOptions::model()->FindByPk($id);
+		$careerDetailsList			=	CareerDetails::model()->findAllByAttributes(array('career_options_id'=>$id,'published'=>1,'status'=>1));
+		$this->render('careerDetails',array('careerDetails'=>$careerDetails,'careerDetailsList'=>$careerDetailsList));
 	}
-	
+	public function actionReadFull($id)
+	{
+		$career		=	CareerCategories::model()->FindByPk($id);
+		$this->render('readFull',array('career'=>$career));
+	}
+	public function actionStream()
+	{
+		$criteria1 		= new CDbCriteria;
+		$criteria1->condition = '(published =:published and status=:status)';
+		$criteria1->params = array(':published'=>1,'status'=>1);
+		$models	=	 CareerCategories::model()->findAll($criteria1);
+		$dataProvider=new CActiveDataProvider('CareerCategories', array(
+							'criteria'=>$criteria1,
+							'pagination'=>array(
+								'pageSize'=>6,
+							),
+						));
+		$this->render('stream',array('fech_result'=>$dataProvider));
+	}
 	public function actionSearch()
 	{	
 
