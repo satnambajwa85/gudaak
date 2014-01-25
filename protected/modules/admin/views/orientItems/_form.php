@@ -47,7 +47,26 @@
 												)); ?>
 		<?php echo $form->error($model,'description'); ?>
 	</div>
-
+	<div class="form-group">
+		<?php echo $form->labelEx($model,'test_features'); ?>
+		<?php $this->widget('application.extensions.ckeditor.CKEditor', array(
+												'model'=>$model,
+												'attribute'=>'test_features',
+												'language'=>'en',
+												'editorTemplate'=>'full',
+												)); ?>
+		<?php echo $form->error($model,'test_features'); ?>
+	</div>
+	<div class="form-group">
+		<?php echo $form->labelEx($model,'test_faqs'); ?>
+		<?php $this->widget('application.extensions.ckeditor.CKEditor', array(
+												'model'=>$model,
+												'attribute'=>'test_faqs',
+												'language'=>'en',
+												'editorTemplate'=>'full',
+												)); ?>
+		<?php echo $form->error($model,'test_faqs'); ?>
+	</div>
 	<div class="form-group">
 		<?php echo $form->labelEx($model,'image'); ?>
 		<?php echo $form->fileField($model,'image',array('size'=>45,'maxlength'=>45)); ?>

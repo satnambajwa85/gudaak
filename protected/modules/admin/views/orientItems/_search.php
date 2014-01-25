@@ -30,6 +30,15 @@
 		<?php echo $form->label($model,'description'); ?>
 		<?php echo $form->textArea($model,'description',array('rows'=>6, 'cols'=>50)); ?>
 	</div>
+	<div class="row">
+		<?php echo $form->label($model,'test_features'); ?>
+		<?php echo $form->textArea($model,'test_features',array('rows'=>6, 'cols'=>50)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'test_faqs'); ?>
+		<?php echo $form->textArea($model,'test_faqs',array('rows'=>6, 'cols'=>50)); ?>
+	</div>
 
 	<div class="row">
 		<?php echo $form->label($model,'image'); ?>

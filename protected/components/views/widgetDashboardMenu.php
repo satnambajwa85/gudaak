@@ -32,14 +32,42 @@
 			<div class="side-navigation">
 				<h4>My Progress</h4>
 				<ul>
-					<li><a class="slidebg" title=""><i class="glyphicon glyphicon-record"></i>Acess</a>
-						<ul>
-							<li><?php echo CHtml::link('Interest Test',array('user/tests','view'=>'Interest'))?></li>
-							<li><?php echo CHtml::link('Personality Test',array('user/tests','view'=>'personality'))?></li>
+					<?php
+$action	=	Yii::app()->controller->action->id;
+if(isset($_REQUEST['id'])){
+$getId=$_REQUEST['id'];
+}
+else{
+$getId='';
+}
+$active='';
+$displayCss='';
+if($action	==	'tests'||'test'){
+	$active ='slidebg';
+	$displayCss='style="display:block;"';
+	}
+if($action	==	'index'){
+	$active ='';
+	$displayCss='style=""';
+	}
+
+/*if($action	==	'')
+	$accActive ='slidebg';
+if($action	==	'')
+	$accActive ='slidebg';
+	if($action	==	'')
+	$accActive ='slidebg';*/
+		 
+?>
+					<li><a class="<?php echo $active;?>" title=""><i class="glyphicon glyphicon-record"></i>Acess</a>
+						<ul <?php echo $displayCss;?>>
+							<?php foreach($tests as $testList){ ?>
+							<li><?php echo CHtml::link(''.$testList->title.'',array('user/tests','id'=>$testList->id),array('class'=>($getId==$testList->id)?'currentLink':''))?></li>
+							<?php }?>
 							<li><a title="" href="#">Detailed Report</a></li>
 						</ul>					
 					</li>
-					<li><a class="slidebg" title=""><i class="glyphicon glyphicon-eye-open"></i>Explore</a>
+					<li><a class="" title=""><i class="glyphicon glyphicon-eye-open"></i>Explore</a>
 						<ul>
 							<li><?php echo CHtml::link('Career library',array('user/career'))?></li>
 							<li><?php echo CHtml::link('Online Chat',array('user/liveChat'))?>
@@ -48,21 +76,21 @@
 							
 						</ul>
 					</li>
-					<li><a class="slidebg" title=""><i class="glyphicon glyphicon-thumbs-up"></i>Stream Preference </a>
+					<li><a class="" title=""><i class="glyphicon glyphicon-thumbs-up"></i>Stream Preference </a>
 						<ul>
 							<li><a title="" href="cart.html"> Cart Page</a></li>
 							<li><a title="" href="billing.html"> Billing Page</a></li>
 							<li><a title="" href="order-recieved.html"> Order Recieved</a></li>
 						</ul>					
 					</li>
-					<li><a class="slidebg" title=""><i class="glyphicon glyphicon-flag"></i>Finalized Stream </a>
+					<li><a class="" title=""><i class="glyphicon glyphicon-flag"></i>Finalized Stream </a>
 						<ul>
 							<li><a title="" href="cart.html"> Cart Page</a></li>
 							<li><a title="" href="billing.html"> Billing Page</a></li>
 							<li><a title="" href="order-recieved.html"> Order Recieved</a></li>
 						</ul>					
 					</li>
-					<li><a class="slidebg" title=""><i class="icon-anchor"></i>Suggested Stream </a>
+					<li><a class="" title=""><i class="icon-anchor"></i>Suggested Stream </a>
 						<ul>
 							<li><a title="" href="cart.html"> Cart Page</a></li>
 							<li><a title="" href="billing.html"> Billing Page</a></li>

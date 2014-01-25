@@ -33,9 +33,12 @@
 								array('label'=>'<span class="badge '.$Sresult.' pull-right">'.$states.'</span>States', 'url'=>array('/admin/states/admin/')),
 								array('label'=>'<span class="badge '.$Ciresult.' pull-right">'.$cities.'</span>Cities', 'url'=>array('/admin/cities/admin/')),
 								),), 
-						array('label'=>'Test Report', 'url'=>'#','itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"),
+						array('label'=>'Manage Career', 'url'=>'#','itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"),
 						  'items'=>array(
-								array('label'=>'<span class="badge '.$testResult.' pull-right">'.$testReports.'</span>Test Reports', 'url'=>array('/admin/testReports/admin/')),
+								array('label'=>'Career Cluster', 'url'=>array('/admin/careerCategories/admin/')),
+								array('label'=>'Career', 'url'=>array('/admin/career/admin/')),
+								array('label'=>'Career Options', 'url'=>array('/admin/careerOptions/admin/')),
+								array('label'=>'Career Details', 'url'=>array('/admin/CareerDetails/admin/')),
 							
 								),), 
                         array('label'=>'Test Management <span class="caret"></span>', 'url'=>'#','itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"), 

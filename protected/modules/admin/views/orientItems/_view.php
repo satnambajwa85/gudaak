@@ -21,6 +21,13 @@
 	<?php echo CHtml::encode($data->description); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('test_features')); ?>:</b>
+	<?php echo CHtml::encode($data->test_features); ?>
+	<br />
+	<b><?php echo CHtml::encode($data->getAttributeLabel('test_faqs')); ?>:</b>
+	<?php echo CHtml::encode($data->test_faqs); ?>
+	<br />
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('image')); ?>:</b>
 	<?php echo CHtml::encode($data->image); ?>
 	<br />

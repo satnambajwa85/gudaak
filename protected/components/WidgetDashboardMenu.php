@@ -21,7 +21,8 @@ class WidgetDashboardMenu extends CWidget
    protected function renderContent()
    	{
 	 	$userProfile	=	UserProfiles::model()->findByPK(Yii::app()->user->profileId);
-		$this->render('widgetDashboardMenu',array('userinfo'=>$userProfile));
+		$tests			=	OrientItems::model()->findAllByAttributes(array('published'=>1,'status'=>1),array('order'=>'title ASC '));
+		$this->render('widgetDashboardMenu',array('userinfo'=>$userProfile,'tests'=>$tests));
 	}  
 
 }

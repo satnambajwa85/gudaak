@@ -1,3 +1,20 @@
+<div class="col-xs-12 col-sm-6 col-md-5 pull-left dashboard-logo white">
+					<div class="dashboard-logo  pull-left">
+						<img src="<?php echo Yii::app()->theme->baseUrl;?>/images/dashboard-logo.png">
+					</div>
+					<div>
+						<h1>Stream Explore</h1>
+						<span>It is long established fact a reader will be It is long established fact a reader will be
+								It is long established fact a reader will be 
+						</span>
+						
+						<a href="#">Konw more about stream explore</a>
+					</div>
+</div>
+<div class="row col-xs-12 col-sm-6 col-md-7 pull-right banner">
+					<img src="<?php echo Yii::app()->theme->baseUrl;?>/images/banner.png">
+				</div>
+<div class="clearfix"></div>
 <div class="border">
 		<ol class="breadcrumb">
 		  <li><a href="#">Explore</a></li>
@@ -16,252 +33,25 @@
 			
 		</div>
 		<div class="clear"></div>
-		<div class="row educationbot border fl">
-			<div class="col-md-4">
-				<img src="<?php echo Yii::app()->theme->baseUrl;?>/images/thumb3.jpg"/>
-				<div class="description pull-right col-md-6">
-					<h3>Humanities/Arts</h3>
-					<p>A long established established established demo text</p>
-					
-					<ul>
-						<li><i class="yellow icon-star"></i></li>
-						<li><i class="yellow icon-star"></i></li>
-						<li><i class="yellow icon-star"></i></li>
-						<li><i class="yellow icon-star"></i></li>
-						<li><i class="yellow icon-star"></i></li>
-					</ul>
-					<a href="#categories1" class="pull-right">Categories<i class="icon-double-angle-down"></i></a>
-					<div id="categories1" class="categories-tab">
-						<ul>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-						</ul>
-					
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<img src="<?php echo Yii::app()->theme->baseUrl;?>/images/thumb3.jpg"/>
-				<div class="description pull-right col-md-6">
-					<h3>Humanities/Arts</h3>
-					<p>A long established established established demo text</p>
-					
-					<ul>
-						<li><i class="yellow icon-star"></i></li>
-						<li><i class="yellow icon-star"></i></li>
-						<li><i class="yellow icon-star"></i></li>
-						<li><i class="yellow icon-star"></i></li>
-						<li><i class="yellow icon-star"></i></li>
-					</ul>
-					<a href="#categories2" class="pull-right">Categories<i class="icon-double-angle-down"></i></a>
-					<div id="categories2" class="categories-tab">
-						<ul>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-						</ul>
-					
-					</div>
-				
-				</div>
-			</div>
-			<div class="col-md-4">
-				<img src="<?php echo Yii::app()->theme->baseUrl;?>/images/thumb3.jpg"/>
-				<div class="description pull-right col-md-6">
-					<h3>Humanities/Arts</h3>
-					<p>A long established established established demo text</p>
-					
-					<ul>
-						<li><i class="yellow icon-star"></i></li>
-						<li><i class="yellow icon-star"></i></li>
-						<li><i class="yellow icon-star"></i></li>
-						<li><i class="yellow icon-star"></i></li>
-						<li><i class="yellow icon-star"></i></li>
-					</ul>
-					<a href="#categories3" class="pull-right">Categories<i class="icon-double-angle-down"></i></a>
-					<div id="categories3" class="categories-tab">
-						<ul>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-						</ul>
-					
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<img src="<?php echo Yii::app()->theme->baseUrl;?>/images/thumb3.jpg"/>
-				<div class="description pull-right col-md-6">
-					<h3>Humanities/Arts</h3>
-					<p>A long established established established demo text</p>
-					
-					<ul>
-						<li><i class="yellow icon-star"></i></li>
-						<li><i class="yellow icon-star"></i></li>
-						<li><i class="yellow icon-star"></i></li>
-						<li><i class="yellow icon-star"></i></li>
-						<li><i class="yellow icon-star"></i></li>
-					</ul>
-					<a href="#categories4" class="pull-right">Categories<i class="icon-double-angle-down"></i></a>
-					<div id="categories4" class="categories-tab">
-						<ul>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-						</ul>
-					
-					</div>
-				</div>
-			</div>
-			
-			<div class="col-md-4">
-				<img src="<?php echo Yii::app()->theme->baseUrl;?>/images/thumb3.jpg"/>
-				<div class="description pull-right col-md-6">
-					<h3>Humanities/Arts</h3>
-					<p>A long established established established demo text</p>
-					
-					<ul>
-						<li><i class="yellow icon-star"></i></li>
-						<li><i class="yellow icon-star"></i></li>
-						<li><i class="yellow icon-star"></i></li>
-						<li><i class="yellow icon-star"></i></li>
-						<li><i class="yellow icon-star"></i></li>
-					</ul>
-					<a href="#categories5" class="pull-right">Categories<i class="icon-double-angle-down"></i></a>
-					<div id="categories5" class="categories-tab">
-						<ul>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-						</ul>
-					
-					</div>
-				</div>
-			</div>
-			
-			<div class="col-md-4">
-				<img src="<?php echo Yii::app()->theme->baseUrl;?>/images/thumb3.jpg"/>
-				<div class="description pull-right col-md-6">
-					<h3>Humanities/Arts</h3>
-					<p>A long established established established demo text</p>
-					
-					<ul>
-						<li><i class="yellow icon-star"></i></li>
-						<li><i class="yellow icon-star"></i></li>
-						<li><i class="yellow icon-star"></i></li>
-						<li><i class="yellow icon-star"></i></li>
-						<li><i class="yellow icon-star"></i></li>
-					</ul>
-					<a href="#categories6" class="pull-right">Categories<i class="icon-double-angle-down"></i></a>
-					<div id="categories6" class="categories-tab">
-						<ul>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-							<li>
-								<?php echo(CHtml::checkBox('hindi'));echo(CHtml::label('hindi', 'name')); ?>
-							</li>
-						</ul>
-					
-					</div>
-				</div>
-			</div>
-			
-			
-			
-		</div>
-		
+		<div class="row educationbot  fl">
+ <?php $this->widget('zii.widgets.CListView', array(
+											'dataProvider'=>$fech_result,
+											'itemView'=>'_career_library',
+											'id'=>'careerLibrary', 
+											'ajaxUpdate'=>true, 
+											'summaryText'=>false,
+											'pager' => array(
+														'header' => '',
+														'cssFile' =>'',
+														'firstPageLabel'=>'',
+														'lastPageLabel'=>'',
+														'prevPageLabel'=>'<img border="0" src="'.Yii::app()->theme->baseUrl.'/images/paging_left_arrow.gif">',
+														'nextPageLabel'=>'<img border="0" src="'.Yii::app()->theme->baseUrl.'/images/paging_right_arrow.gif">',
+														),)); ?>
 	</div>
+</div>
 	
-	<div class="col-md-3 pd0 pull-left">
+	<div class="news pd0 pull-right">
 		<?php  $this->Widget('WidgetNews'); ?>
 	</div>
 			

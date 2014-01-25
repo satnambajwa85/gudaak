@@ -47,7 +47,7 @@ $('.search-form form').submit(function(){
         ),
 		'title',
 		'alias',
-		'description',
+		//'description',
 		'image',
 		'video_link',
 		/*

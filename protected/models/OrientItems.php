@@ -8,6 +8,8 @@
  * @property string $title
  * @property string $alias
  * @property string $description
+ * @property string $test_features
+ * @property string $test_faqs
  * @property string $image
  * @property string $video_link
  * @property string $add_date
@@ -43,10 +45,10 @@ class OrientItems extends CActiveRecord
 			array('title, alias', 'length', 'max'=>500),
 			array('image', 'length', 'max'=>45),
 			array('video_link', 'length', 'max'=>300),
-			array('add_date', 'safe'),
+			array('test_features, test_faqs, add_date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, title, alias, description, image, video_link, add_date, published, status, orient_categories_id', 'safe', 'on'=>'search'),
+			array('id, title, alias, description, test_features, test_faqs, image, video_link, add_date, published, status, orient_categories_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -74,6 +76,8 @@ class OrientItems extends CActiveRecord
 			'title' => 'Title',
 			'alias' => 'Alias',
 			'description' => 'Description',
+			'test_features' => 'Test Features',
+			'test_faqs' => 'Test Faqs',
 			'image' => 'Image',
 			'video_link' => 'Video Link',
 			'add_date' => 'Add Date',
@@ -105,6 +109,8 @@ class OrientItems extends CActiveRecord
 		$criteria->compare('title',$this->title,true);
 		$criteria->compare('alias',$this->alias,true);
 		$criteria->compare('description',$this->description,true);
+		$criteria->compare('test_features',$this->test_features,true);
+		$criteria->compare('test_faqs',$this->test_faqs,true);
 		$criteria->compare('image',$this->image,true);
 		$criteria->compare('video_link',$this->video_link,true);
 		$criteria->compare('add_date',$this->add_date,true);

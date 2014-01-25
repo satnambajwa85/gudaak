@@ -16,6 +16,7 @@
  * @property integer $user_role_id
  *
  * The followings are the available model relations:
+ * @property Counselor[] $counselors
  * @property Schools[] $schools
  * @property UserRole $userRole
  * @property UserProfiles[] $userProfiles
@@ -56,6 +57,7 @@ class UserLogin extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'counselors' => array(self::HAS_MANY, 'Counselor', 'user_login_id'),
 			'schools' => array(self::MANY_MANY, 'Schools', 'schools_has_user_login(user_login_id, schools_id)'),
 			'userRole' => array(self::BELONGS_TO, 'UserRole', 'user_role_id'),
 			'userProfiles' => array(self::HAS_MANY, 'UserProfiles', 'user_login_id'),

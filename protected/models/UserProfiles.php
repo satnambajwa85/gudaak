@@ -24,6 +24,7 @@
  * @property integer $user_login_id
  *
  * The followings are the available model relations:
+ * @property Counselling[] $counsellings
  * @property TestReports[] $testReports
  * @property UserEducation[] $userEducations
  * @property GenerateGudaakIds $generateGudaakIds
@@ -49,7 +50,7 @@ class UserProfiles extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('display_name, first_name, last_name, class, email, gender, date_of_birth, mobile_no, add_date, generate_gudaak_ids_id, user_login_id', 'required'),
+			array('display_name, first_name, last_name, email, gender, date_of_birth, mobile_no, add_date, generate_gudaak_ids_id, user_login_id', 'required'),
 			array('semd_mail, status, generate_gudaak_ids_id, user_login_id', 'numerical', 'integerOnly'=>true),
 			array('display_name, email', 'length', 'max'=>100),
 			array('first_name, last_name', 'length', 'max'=>50),
@@ -71,6 +72,7 @@ class UserProfiles extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'counsellings' => array(self::HAS_MANY, 'Counselling', 'user_profiles_id'),
 			'testReports' => array(self::HAS_MANY, 'TestReports', 'user_profiles_id'),
 			'userEducations' => array(self::HAS_MANY, 'UserEducation', 'user_profiles_id'),
 			'generateGudaakIds' => array(self::BELONGS_TO, 'GenerateGudaakIds', 'generate_gudaak_ids_id'),
