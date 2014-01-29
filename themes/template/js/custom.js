@@ -124,7 +124,6 @@ $(document).ready(function () {
 		$(this).addClass('orange');
 		e.preventDefault();
 	}).filter(':first').click();
-
 		$(".home-login-box ").on("click", function() { // wire up the OK button to dismiss the modal when shown
 		 $("#myModal").modal({ // wire up the actual modal functionality and show the dialog
 		"backdrop" : "static",
@@ -139,9 +138,6 @@ $(document).ready(function () {
 			"show" : true // ensure the modal is shown immediately
 			});
 			});
-
-
-
-});
+	});
 
 						

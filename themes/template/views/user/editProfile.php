@@ -1,48 +1,45 @@
-<?php	$this->pageTitle=Yii::app()->name . ' - Edit Profile';?>
-<!-- left side menu start -->
-		   <div class="spacer15">
-					<?php if(Yii::app()->user->hasFlash('updated')): ?>
-						<div class="alert alert-success">
-						  <button data-dismiss="alert" class="close" type="button">×</button>
-						  <strong><?php echo Yii::app()->user->getFlash('updated'); ?></strong>
-						</div>
-							<div class="flash-error">
-								
-							</div>
-					<?php endif; ?>	
-					
-			</div>
-<div class="cold-md-12 editProfile col-md-offset-2 pill-left">
+<?php
+/* @var $this SiteController */
+$this->pageTitle=Yii::app()->name . ' - Update your Profile';
+?>
+<div class="col-md-12  fl">
+	
+							
+	 
+						<!--<div class="row test-bot">Question to know your interest</div>-->
+	
+		<?php $form=$this->beginWidget('CActiveForm', array(
+																'id'=>'user-update',
+																'enableAjaxValidation'=>false,
+																'htmlOptions'=>array('enctype'=>'multipart/form-data'),
+													));?>
+							
+				<div class="col-md-2 pull-left">
 
-			<?php 
-				$form=$this->beginWidget('CActiveForm', array(
-														'id'=>'user-register',
-													    'enableClientValidation'=>true,
-														'clientOptions'=>array(
-																'validateOnSubmit'=>true,
-																
-															)
-														));?>
-			  <div class="col-md-2 pull-left">
-
-					<?php $path =	Yii::app()->baseUrl.'/uploads/user/large/';?>
+					<?php $path =	Yii::app()->request->baseUrl.'/uploads/user/large/';?>
 					<?php if(isset($model->image)){ ?> 
 					<?php echo $form->hiddenField($model,'oldImage',array('value'=>$model->image)); ?>
-					<img width="100" class="mt40" src="<?php echo $path.$model->image;?>" alt="image"/>
+					<img src="<?php echo $path.$model->image;?>" alt="image"/>
 					 <?php }?>
 
 					  
-				</div>                              
-			  <div class="col-md-5 pull-left">
-				<i class="icon-key orange pull-left"></i>
-				<h4 class="form-signin-heading ">Edit YourProfile!</h4>
-				<?php echo $form->textField($model,'first_name',array('class'=>'form-control','placeholder'=>'First Name','autofocus'=>true));
-				echo $form->error($model,'first_name');?>
-				<div class="pd4"></div>
-				<?php echo $form->textField($model,'last_name',array('class'=>'form-control','placeholder'=>'last Name','autofocus'=>true));
-				echo $form->error($model,'last_name');?>
-				<div class="pd4"></div>
-				<?php $this->widget('zii.widgets.jui.CJuiDatePicker',array(
+				</div>			
+				<div class="col-md-10 pd0 pull-left">
+							<div class="form-group">
+								<div class="form-row">
+									<?php echo $form->textField($model,'first_name',array('class'=>'form-control','placeholder'=>'First Name'));
+									echo $form->error($model,'first_name');?>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-row">
+									<?php echo $form->textField($model,'last_name',array('class'=>'form-control','placeholder'=>'Last Name'));
+									echo $form->error($model,'last_name');?>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-row">
+									<?php $this->widget('zii.widgets.jui.CJuiDatePicker',array(
 																			'model'=>$model,
 																			'attribute'=>'date_of_birth',
 																			'options'=>array('dateFormat'=>'yy-mm-dd',
@@ -53,29 +50,46 @@
 																			'htmlOptions'=>array('class'=>'form-control','placeholder'=>'DOB'),
 																			
 																			));
-				echo $form->error($model,'date_of_birth');?>
-				<div class="pd4"></div>
-                <?php echo $form->textField($model,'class',array('class'=>'form-control','placeholder'=>'Class','autofocus'=>true));
-				echo $form->error($model,'class');?>
-                <div class="pd4"></div>
-                <?php echo $form->textField($model,'email',array('class'=>'form-control','placeholder'=>'Class','autofocus'=>true));
-				echo $form->error($model,'email');?>
-                 <div class="pd4"></div>
-                <?php echo $form->textField($model,'mobile_no',array('class'=>'form-control','placeholder'=>'Mobile No','autofocus'=>true));
-				echo $form->error($model,'mobile_no');?>
-                <div class="pd4"></div>
-                <?php echo $form->fileField($model,'image');
-				echo $form->error($model,'image');?>
-                <div class="pd4"></div>
-               <?php echo $form->radioButtonlist($model,'gender',array('1'=>'Male','0'=>'Female'),array('separator'=>'','class'=>'pull-left'));
-				echo $form->error($model,'gender');?>
-				 
+									echo $form->error($model,'date_of_birth');?>
+								</div>
+							</div>
 				
-				
-				<div align="center">
-				<?php echo CHtml::submitButton('Update',array('class'=>'btn btn-warning login mt'));?>
-				</div>
-                </div>
-			  <?php $this->endWidget();?>
+							<div class="form-group">
+								<div class="form-row">
+									<?php echo $form->textField($model,'class',array('class'=>'form-control','placeholder'=>'Class'));
+									echo $form->error($model,'class');?>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-row">
+									<?php echo $form->textField($model,'email',array('class'=>'form-control','placeholder'=>'Email'));
+									echo $form->error($model,'email');?>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-row">
+								<?php echo $form->textField($model,'mobile_no',array('class'=>'form-control','placeholder'=>'Mobile'));
+								echo $form->error($model,'mobile_no');?>
+								</div>
+							</div>
+							<div class="form-group">
+								<div class="form-row">
+								<?php echo $form->fileField($model,'image');
+								echo $form->error($model,'image');?>
+								</div>
+							</div>
+							
+							<div class="form-group">
+							<div class="form-row">
+									<?php echo $form->radioButtonlist($model,'gender',array('1'=>'Male','0'=>'Female'),array('separator'=>'','class'=>'pull-left'));
+									echo $form->error($model,'gender');?>
+								</div>
+							</div>
+						 	<div class="clear"></div>
+							<?php echo CHtml::submitButton('Update',array('class'=>'update-internal btn back-gary-color'));?>
+						</div>
+								<?php	$this->endWidget();	?>
 
+		
 </div>
+				 
