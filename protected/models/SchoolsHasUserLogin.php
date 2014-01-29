@@ -4,8 +4,15 @@
  * This is the model class for table "schools_has_user_login".
  *
  * The followings are the available columns in table 'schools_has_user_login':
+ * @property integer $id
  * @property integer $schools_id
  * @property integer $user_login_id
+ * @property integer $published
+ * @property string $add_date
+ *
+ * The followings are the available model relations:
+ * @property Schools $schools
+ * @property UserLogin $userLogin
  */
 class SchoolsHasUserLogin extends CActiveRecord
 {
@@ -25,11 +32,11 @@ class SchoolsHasUserLogin extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('schools_id, user_login_id', 'required'),
-			array('schools_id, user_login_id', 'numerical', 'integerOnly'=>true),
+			array('schools_id, user_login_id, published', 'numerical', 'integerOnly'=>true),
+			array('add_date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('schools_id, user_login_id', 'safe', 'on'=>'search'),
+			array('id, schools_id, user_login_id, published, add_date', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -41,6 +48,8 @@ class SchoolsHasUserLogin extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'schools' => array(self::BELONGS_TO, 'Schools', 'schools_id'),
+			'userLogin' => array(self::BELONGS_TO, 'UserLogin', 'user_login_id'),
 		);
 	}
 
@@ -50,8 +59,11 @@ class SchoolsHasUserLogin extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
+			'id' => 'ID',
 			'schools_id' => 'Schools',
 			'user_login_id' => 'User Login',
+			'published' => 'Published',
+			'add_date' => 'Add Date',
 		);
 	}
 
@@ -73,8 +85,11 @@ class SchoolsHasUserLogin extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
+		$criteria->compare('id',$this->id);
 		$criteria->compare('schools_id',$this->schools_id);
 		$criteria->compare('user_login_id',$this->user_login_id);
+		$criteria->compare('published',$this->published);
+		$criteria->compare('add_date',$this->add_date,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

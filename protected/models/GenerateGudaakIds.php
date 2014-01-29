@@ -36,6 +36,7 @@ class GenerateGudaakIds extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('gudaak_id, cities_id, schools_id, add_date', 'required'),
+			array('gudaak_id', 'unique'),
 			array('gudaak_id, cities_id, schools_id, activation, status', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.

@@ -96,8 +96,8 @@ class CareerOptionsController extends Controller
 					
 					#STHUMB Image
 					$img->image_resize      = true;
-					$img->image_y         	= 117;
-					$img->image_x           = 173;
+					$img->image_y         	= 115;
+					$img->image_x           = 265;
 					$img->file_new_name_body = $newName;
 					$img->process('uploads/career_options/small/');
 				 
@@ -133,7 +133,7 @@ class CareerOptionsController extends Controller
 			$model->attributes=$_POST['CareerOptions'];
 			$model->modification_date=date('Y-m-d H:i:s');
 			$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/uploads/career_options/';
-					$targetFolder = Yii::app()->request->baseUrl.'/uploads/career_optionscareer_options/';
+					$targetFolder = Yii::app()->request->baseUrl.'/uploads/career_options/';
 				if (!empty($_FILES['CareerOptions']['name']['image'])) {
 					$tempFile = $_FILES['CareerOptions']['tmp_name']['image'];
 					$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
@@ -152,15 +152,15 @@ class CareerOptionsController extends Controller
 				if ($img->processed) {
 					#THUMB Image
 					$img->image_resize      = true;
-					$img->image_y         	= 335;
-					$img->image_x           = 1800;
+					$img->image_y         	= 304;
+					$img->image_x           = 304;
 					$img->file_new_name_body = $newName;
 					$img->process('uploads/career_options/large/');
 					
 					#STHUMB Image
 					$img->image_resize      = true;
-					$img->image_y         	= 90;
-					$img->image_x           = 162;
+					$img->image_y         	= 115;
+					$img->image_x           = 265;
 					$img->file_new_name_body = $newName;
 					$img->process('uploads/career_options/small/');
 					

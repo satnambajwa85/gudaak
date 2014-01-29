@@ -105,7 +105,9 @@ class SiteController extends Controller
 	
 	public function actionUserRegister()
 	{	
-
+		if(Yii::app()->user->id){
+			$this->redirect(array('site/'));
+		}
 		$model	=	new Register;
 		
 			if(isset($_POST['Register']))
@@ -283,14 +285,28 @@ class SiteController extends Controller
 		}
 		$this->render('contact',array('model'=>$model));
 	}
-
+	public function actionWhatIsGudaak()
+	{	
+		
+		$this->renderPartial('_whatGudaak',true);
+	
+	}
+	public function actionWhyGudaak()
+	{	
+		
+		$this->renderPartial('_whyGudaak',true);
+	
+	}
+	public function actionAbout()
+	{
+	
+		$this->render('about');
+	}
 	/**
 	 * Displays the login page
 	 */
 	public function actionLogin()
 	{	
-		$this->layout='//layouts/page';
-	
 		$model=new LoginForm;
 		// if it is ajax validation request
 		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
@@ -310,6 +326,10 @@ class SiteController extends Controller
 				Yii::app()->user->setFlash('success','You are sucessfully logged in.');
 				if(Yii::app()->user->userType=='admin'){
 					$this->redirect(Yii::app()->createUrl('/admin/admin'));
+					
+				}
+				if(Yii::app()->user->userType=='school'){
+					$this->redirect(Yii::app()->createUrl('/school/index'));
 					
 				}
 				if(Yii::app()->user->userType=='user'){

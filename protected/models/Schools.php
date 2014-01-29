@@ -12,6 +12,8 @@
  * @property string $mobile_no
  * @property string $fax
  * @property string $address
+ * @property string $address2
+ * @property string $postcode
  * @property integer $activation
  * @property string $telephone_no
  * @property string $images
@@ -22,7 +24,7 @@
  *
  * The followings are the available model relations:
  * @property GenerateGudaakIds[] $generateGudaakIds
- * @property UserLogin[] $userLogins
+ * @property SchoolsHasUserLogin[] $schoolsHasUserLogins
  */
 class Schools extends CActiveRecord
 {
@@ -42,16 +44,17 @@ class Schools extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, add_date', 'required'),
+			array('name', 'required'),
 			array('activation, status', 'numerical', 'integerOnly'=>true),
-			array('name, display_name, address, website', 'length', 'max'=>500),
+			array('name, display_name, address, address2, website', 'length', 'max'=>500),
 			array('email', 'length', 'max'=>150),
 			array('mobile_no, fax, telephone_no', 'length', 'max'=>15),
+			array('postcode', 'length', 'max'=>6),
 			array('images', 'length', 'max'=>45),
-			array('description, modification_date', 'safe'),
+			array('description, modification_date, add_date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, description, display_name, email, mobile_no, fax, address, activation, telephone_no, images, website, modification_date, add_date, status', 'safe', 'on'=>'search'),
+			array('id, name, description, display_name, email, mobile_no, fax, address, address2, postcode, activation, telephone_no, images, website, modification_date, add_date, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -64,7 +67,7 @@ class Schools extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'generateGudaakIds' => array(self::HAS_MANY, 'GenerateGudaakIds', 'schools_id'),
-			'userLogins' => array(self::MANY_MANY, 'UserLogin', 'schools_has_user_login(schools_id, user_login_id)'),
+			'schoolsHasUserLogins' => array(self::HAS_MANY, 'SchoolsHasUserLogin', 'schools_id'),
 		);
 	}
 
@@ -82,6 +85,8 @@ class Schools extends CActiveRecord
 			'mobile_no' => 'Mobile No',
 			'fax' => 'Fax',
 			'address' => 'Address',
+			'address2' => 'Address2',
+			'postcode' => 'Postcode',
 			'activation' => 'Activation',
 			'telephone_no' => 'Telephone No',
 			'images' => 'Images',
@@ -118,6 +123,8 @@ class Schools extends CActiveRecord
 		$criteria->compare('mobile_no',$this->mobile_no,true);
 		$criteria->compare('fax',$this->fax,true);
 		$criteria->compare('address',$this->address,true);
+		$criteria->compare('address2',$this->address2,true);
+		$criteria->compare('postcode',$this->postcode,true);
 		$criteria->compare('activation',$this->activation);
 		$criteria->compare('telephone_no',$this->telephone_no,true);
 		$criteria->compare('images',$this->images,true);

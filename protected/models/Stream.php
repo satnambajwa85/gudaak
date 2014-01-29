@@ -13,7 +13,7 @@
  * @property integer $activation
  *
  * The followings are the available model relations:
- * @property StreamHasCareerOptions[] $streamHasCareerOptions
+ * @property CareerOptionsHasStream[] $careerOptionsHasStreams
  * @property UserEducation[] $userEducations
  */
 class Stream extends CActiveRecord
@@ -34,8 +34,8 @@ class Stream extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('id, name, description', 'required'),
-			array('id, status, activation', 'numerical', 'integerOnly'=>true),
+			array('name, description', 'required'),
+			array('status, activation', 'numerical', 'integerOnly'=>true),
 			array('name, description, image', 'length', 'max'=>45),
 			array('add_date', 'safe'),
 			// The following rule is used by search().
@@ -52,7 +52,7 @@ class Stream extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'streamHasCareerOptions' => array(self::HAS_MANY, 'StreamHasCareerOptions', 'stream_id'),
+			'careerOptionsHasStreams' => array(self::HAS_MANY, 'CareerOptionsHasStream', 'stream_id'),
 			'userEducations' => array(self::HAS_MANY, 'UserEducation', 'stream_id'),
 		);
 	}

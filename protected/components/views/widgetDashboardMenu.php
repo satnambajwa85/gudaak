@@ -8,21 +8,24 @@
 			<p>Welcome</p>
 			<?php echo CHtml::link('<span>'.$userinfo->display_name.'</span>',array('user/'));?>
 			<div class="clear"></div>
-			<div class="progress">
+			<div class="progress fl ">
 			  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-				<span class="sr-only">40% Complete (success)</span>
 			  </div>
+			  <span class="sr-only">40% <span>
+			
 			</div>
+			  <span class="tolal-process"><?php echo $completeProfile;?> </span>
+			<span class="progress-title">Profile Completion</span>
 			
 		</div>
 			<div class="clearfix"></div>
 			<div class="user-nav">
 				<ul>
-					<li>
-						<?php echo CHtml::Link('<i class="glyphicon glyphicon-user"></i>Profile<span>|</span>',array('user/editProfile'));?>
+					<li class="border-right">
+						<?php echo CHtml::Link('<i class="glyphicon glyphicon-user"></i>Profile',array('user/editProfile'));?>
 						
 					</li>
-					<li><?php echo CHtml::Link('<i class="glyphicon glyphicon-cog"></i>Setting<span>|</span>',array('user/editProfile'));?>
+					<li class="border-right"><?php echo CHtml::Link('<i class="glyphicon glyphicon-cog"></i>Setting',array('user/changePassword'));?>
 				 	</li>
 					<li><?php echo CHtml::Link('<i class="glyphicon glyphicon-off"></i>Logout',array('site/logout'));?>
 					 
@@ -67,6 +70,18 @@ if($action	==	'stream'||'streamList'){
 	$StreamDisplay='style="display:block;"';
 	
 	}
+	if($action	==	'index'){
+	$active ='';
+	$displayCss='';
+	$careerActive='';
+	$activeExplore ='';
+	$activeExploreDisplay='';
+	$streamActive='';
+	$stream ='';
+	$StreamDisplay='';
+	
+	}
+
 
 
 /*if($action	==	'')
@@ -102,7 +117,7 @@ if($action	==	'')
 					</li>
 					<li><a class="" title=""><i class="glyphicon glyphicon-flag"></i>Finalized Stream </a>
 						<ul>
-							 
+							 <li><?php echo CHtml::ajaxlink('Online Chat',array('user/liveChat'))?>
 						</ul>					
 					</li>
 					<li><a class="" title=""><i class="icon-anchor"></i>Suggested Stream </a>
