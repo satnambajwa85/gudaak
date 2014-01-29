@@ -12,7 +12,7 @@
       <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
 	<?php
-	  $baseUrl = Yii::app()->getBaseUrl().'/abound';
+	  $baseUrl = Yii::app()->theme->baseUrl.'/adminCss';
 	  $cs = Yii::app()->getClientScript();
 	  Yii::app()->clientScript->registerCoreScript('jquery');
 	?>

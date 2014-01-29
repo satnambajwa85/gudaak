@@ -69,9 +69,27 @@ class UserLoginController extends Controller
 
 		if(isset($_POST['UserLogin']))
 		{
-			$model->attributes=$_POST['UserLogin'];
-			if($model->save())
+			$model->attributes	=$_POST['UserLogin'];
+			$model->password	=md5($_POST['UserLogin']['password']);
+			echo $model->password;die;
+			if($model->save()){
+				if($model->userRole->title=='school'){
+					$school				=	new Schools;
+					$school->name		=	$model->username;
+					$school->email		=	$model->username;
+					$school->add_date	=	date('Y-m-d H:i:s');
+					if($school->save()){
+						$schoolLogin	=	new SchoolsHasUserLogin;
+						$schoolLogin->schools_id	=	$school->id;
+						$schoolLogin->user_login_id	=	$model->id;
+						$schoolLogin->add_date		=	date('Y-m-d H:i:s');
+						if($schoolLogin->save()){
+							$this->redirect(array('view','id'=>$model->id));
+						}
+					}
+				}
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
 		$this->render('create',array(

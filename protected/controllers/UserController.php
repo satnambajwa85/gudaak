@@ -75,6 +75,13 @@ class UserController extends Controller
 					$img->processed;
 					#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
 				if ($img->processed) {
+					#LARGE Image
+					$img->image_resize      = true;
+					$img->image_y         	= 150;
+					$img->image_x           = 150;
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/user/large/');
+					
 					#STHUMB Image
 					$img->image_resize      = true;
 					$img->image_y         	= 50;
@@ -206,16 +213,32 @@ class UserController extends Controller
 	public function actionStream()
 	{
 		$criteria1 		= new CDbCriteria;
-		$criteria1->condition = '(published =:published and status=:status)';
-		$criteria1->params = array(':published'=>1,'status'=>1);
-		$models	=	 CareerCategories::model()->findAll($criteria1);
-		$dataProvider=new CActiveDataProvider('CareerCategories', array(
+		$criteria1->condition = '(activation =:activation and status=:status)';
+		$criteria1->params = array(':activation'=>1,'status'=>1);
+		$dataProvider=new CActiveDataProvider('Stream', array(
 							'criteria'=>$criteria1,
 							'pagination'=>array(
-								'pageSize'=>6,
+								'pageSize'=>10,
 							),
 						));
 		$this->render('stream',array('fech_result'=>$dataProvider));
+	}
+	public function actionstreamCareerOptions($id)
+	{	
+		$criteria 		= new CDbCriteria;
+		//$criteria->join = 'LEFT JOIN career_options_has_subjects ON career_options_has_subjects.career_options_id = t.career_options_id';
+		//$criteria->join = 'LEFT JOIN subjects ON career_options_has_subjects.id=subjects.id';
+		$criteria->condition = '(t.stream_id =:sID and t.status=:status and t.published=:published)';
+		$criteria->params = array(':published'=>1,'status'=>1,'sID'=>$id);
+		$stream	=	CareerOptionsHasStream::model()->findAll($criteria);
+		$steamData	=	Stream::model()->findByPk($id);
+		$this->render('streamCareerOptions',array('stream'=>$stream,'steamData'=>$steamData));
+	}
+	public function actioncareerOptionsAjax($id)
+	{	
+		
+		$resultList	=	CareerOptionsHasSubjects::model()->findAllByAttributes(array('subjects_id'=>$id));
+	    $this->renderPartial('_careerOptionsAjax',array('resultList'=> $resultList), false, true);
 	}
 	public function actionSearch()
 	{	
@@ -235,23 +258,18 @@ class UserController extends Controller
 	//Forgot password
 		//Change password 
 	public function actionChangePassword()
-	{
+	{	
 		$id=Yii::app()->user->userId;
-		//get users group
-		$usergroup='';                       
-		
 		$model=new Changepassword();
 		 
 		if(isset($_POST['Changepassword'])){
 			$model->attributes = $_POST['Changepassword'];
 			if($model->confirmpass != $model->newpassword ){
 				Yii::app()->user->setFlash('updated',"New password is not matching with confirm password ");
-				$this->redirect(Yii::app()->createUrl('admin/admin/changePassword'));
-				
+				$this->redirect(Yii::app()->createUrl('user/changePassword'));
 			}
 			
 			if($model->validate()){
-				
 				// Change the posted password to md5 hash to cmpare it with database
 				$hashed_password = md5($_POST['Changepassword']['oldpassword']); 
 				// Searches for the record in the database for the posted password 
@@ -262,11 +280,11 @@ class UserController extends Controller
 					
 					UserLogin::model()->updateAll(array('password'=>$posted_new_password),'id="'.$id.'"');
 					Yii::app()->user->setFlash('updated',"Password changed successfully!");
-					 
+					$this->redirect(Yii::app()->createUrl('user/changePassword'));
 				}
 				else{ 
 					Yii::app()->user->setFlash('updated',"Password provided by you does not exist.Please provide the correct password");
-					 
+					 $this->redirect(Yii::app()->createUrl('user/changePassword'));
 				} 			
 			} //validate ends
 		} //isset ends

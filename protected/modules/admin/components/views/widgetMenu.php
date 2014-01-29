@@ -20,14 +20,16 @@
                     'encodeLabel'=>false,
                     'items'=>array(
                        
-						 array('label'=>'Users Management', 'url'=>'#','itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"),
+						 array('label'=>'Users', 'url'=>'#','itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"),
 						 
 						  'items'=>array(
+							array('label'=>'GudaakIds', 'url'=>array('/admin/GenerateGudaakIds/admin/')),
+							array('label'=>'Schools', 'url'=>array('/admin/Schools/admin/')),
 							array('label'=>'<span class="badge '.$roleResult.' pull-right">'.$userRole.'</span>User Role', 'url'=>array('/admin/userRole/admin/')),
 							array('label'=>'<span class="badge '.$loginResult.' pull-right">'.$userlogin.'</span>User login', 'url'=>array('/admin/userlogin/admin/')),
 							array('label'=>'<span class="badge '.$uProResult.' pull-right">'.$userProfiles.'</span>User Profiles', 'url'=>array('/admin/userProfiles/admin/')),)), 
 							
-						array('label'=>'Network Locations', 'url'=>'#','itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"),
+						array('label'=>'Locations', 'url'=>'#','itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"),
 						  'items'=>array(
 								 array('label'=>'<span class="badge '.$result.' pull-right">'.$countries.'</span>Countries', 'url'=>array('/admin/countries/admin/')),
 								array('label'=>'<span class="badge '.$Sresult.' pull-right">'.$states.'</span>States', 'url'=>array('/admin/states/admin/')),
@@ -41,7 +43,15 @@
 								array('label'=>'Career Details', 'url'=>array('/admin/CareerDetails/admin/')),
 							
 								),), 
-                        array('label'=>'Test Management <span class="caret"></span>', 'url'=>'#','itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"), 
+						array('label'=>'Careers', 'url'=>'#','itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"),
+						  'items'=>array(
+								array('label'=>'Career Cluster', 'url'=>array('/admin/careerCategories/admin/')),
+								array('label'=>'Career', 'url'=>array('/admin/career/admin/')),
+								array('label'=>'Career Options', 'url'=>array('/admin/careerOptions/admin/')),
+								array('label'=>'Career Details', 'url'=>array('/admin/CareerDetails/admin/')),
+							
+								),), 
+                        array('label'=>'Questions<span class="caret"></span>', 'url'=>'#','itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"), 
                         'items'=>array(
 							array('label'=>'<span class="badge '.$resultCour.' pull-right">'.$courses.'</span>Courses', 'url'=>array('/admin/courses/admin/')),
 							array('label'=>'<span class="badge '.$affResult.' pull-right">'.$affiliations.'</span>Affiliations', 'url'=>array('/admin/affiliations/admin/')),
@@ -50,9 +60,19 @@
 							array('label'=>'<span class="badge '.$orIResult.' pull-right">'.$orientItems.'</span>Orient Items', 'url'=>array('/admin/orientItems/admin/')),
 							array('label'=>'<span class="badge '.$queResult.' pull-right">'.$questions.'</span>Questions', 'url'=>array('/admin/questions/admin/')),
 							array('label'=>'<span class="badge '.$queOResult.' pull-right">'.$questionOptions.'</span>Question Options', 'url'=>array('/admin/questionOptions/admin/')),
-							array('label'=>'<span class="badge '.$streResult.' pull-right">'.$stream.'</span>Stream', 'url'=>array('/admin/stream/admin/')),
+						
 							
 							
+                        )),
+						array('label'=>'Stream<span class="caret"></span>', 'url'=>'#','itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"), 
+                        'items'=>array(
+								array('label'=>'<span class="badge pull-right"></span>Stream', 'url'=>array('/admin/stream/admin/')),
+								array('label'=>'<span class="badge pull-right"></span>career Options Has Stream', 'url'=>array('/admin/CareerOptionsHasStream/admin/')),
+					    )),
+						array('label'=>'Subjects<span class="caret"></span>', 'url'=>'#','itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"), 
+                        'items'=>array(
+								array('label'=>'<span class="badge pull-right"></span>Subjects', 'url'=>array('/admin/Subjects/admin/')),
+								array('label'=>'<span class="badge pull-right"></span>career Options Has Subjects', 'url'=>array('/admin/CareerOptionsHasSubjects/admin/')),
                         )),
                         array('label'=>'<span class="badge '.$uProResult.' pull-right">'.$slider.'</span>Site Slider', 'url'=>array('/admin/Slider/admin/')),
 						array('label'=>'Site Setting', 'url'=>array('/admin/siteSetting/admin')),

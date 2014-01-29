@@ -1,8 +1,6 @@
 <?php
 class UserIdentity extends CUserIdentity
 {
-	private $_id;
- 
 	public function authenticate()
 	{
 		$record = UserLogin::model()->findByAttributes(array('username'=>$this->username,'activation'=>1));
@@ -13,23 +11,25 @@ class UserIdentity extends CUserIdentity
 			$this->errorCode = self::ERROR_PASSWORD_INVALID;
 		}
 		else{
+		
 			if($record->status==1)//Authenticates only those users whose status =1
-				$this->_id = $record->id;
-				
-				
-			$userInfo	=	UserProfiles::model()->findByAttributes(array('user_login_id'=>$record->id));
+				$this->setState('userId',$record->id);
+			if($record->userRole->title == 'school'){
+				$userInfo	=	SchoolsHasUserLogin::model()->findByAttributes(array('user_login_id'=>$record->id));
+				if(empty($userInfo))
+					return 2;
+				$this->setState('profileId',$userInfo->schools_id);
+			}else{
+				$userInfo	=	UserProfiles::model()->findByAttributes(array('user_login_id'=>$record->id));
+				$this->setState('profileId',$userInfo->id);
+			}
 			$this->setState('userId',$record->id);
-			$this->setState('profileId',$userInfo->id);
-			$this->setState('userName',$userInfo->first_name.' '.$userInfo->last_name);
-			$this->setState('gender',$userInfo->gender);
-			$this->setState('userImg',$userInfo->image);
+			
 			$this->setState('userType',$record->userRole->title);
 			$this->setState('lastLogin',$record->last_login);
-			$this->setState('activation',$record->activation);
-			$userLogin	=	UserLogin::model()->findByPk($record->id);
-			$userLogin->login_status	=	1;
-			$userLogin->last_login	=	date('Y-m-d H:i:s');
-			$userLogin->save();
+			$record->login_status	=	1;
+			$record->last_login		=	date('Y-m-d H:i:s');
+			$record->save();
 			
 			$this->errorCode = self::ERROR_NONE;
 		} 

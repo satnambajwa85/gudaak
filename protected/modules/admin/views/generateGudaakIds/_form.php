@@ -27,31 +27,38 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'cities_id'); ?>
-		<?php echo $form->textField($model,'cities_id'); ?>
+		<?php echo $form->dropDownlist($model,'cities_id',CHtml::listData(Cities::model()->findAll(),'id','title'),array('class'=>'form-control')); ?>
 		<?php echo $form->error($model,'cities_id'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'schools_id'); ?>
-		<?php echo $form->textField($model,'schools_id'); ?>
+		<?php echo $form->dropDownlist($model,'schools_id',CHtml::listData(Schools::model()->findAll(),'id','name'),array('class'=>'form-control')); ?>
 		<?php echo $form->error($model,'schools_id'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'add_date'); ?>
-		<?php echo $form->textField($model,'add_date'); ?>
+		<?php	$this->widget('zii.widgets.jui.CJuiDatePicker',array(
+									'model'=>$model,
+									'attribute'=>'add_date',
+									'options'=>array('dateFormat'=>'yy-mm-dd','minDate'=>0),
+									'htmlOptions'=>array('class'=>'form-control'),
+									'value'=>date('Y-m-d', strtotime('+2 day', strtotime(date('Y-m-d')))),
+									));?>
 		<?php echo $form->error($model,'add_date'); ?>
 	</div>
 
-	<div class="row">
+
+
+	<div class="form-group">
 		<?php echo $form->labelEx($model,'activation'); ?>
-		<?php echo $form->textField($model,'activation'); ?>
+		<?php echo $form->radioButtonlist($model,'activation',array('1'=>'Yes','0'=>'No'),array('separator'=>'')); ?>
 		<?php echo $form->error($model,'activation'); ?>
 	</div>
-
-	<div class="row">
+	<div class="form-group">
 		<?php echo $form->labelEx($model,'status'); ?>
-		<?php echo $form->textField($model,'status'); ?>
+		<?php echo $form->radioButtonlist($model,'status',array('1'=>'Yes','0'=>'No'),array('separator'=>'')); ?>
 		<?php echo $form->error($model,'status'); ?>
 	</div>
 
