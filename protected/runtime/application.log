@@ -3472,6 +3472,7 @@ Stack trace:
 REQUEST_URI=/gudaak/index.php?r=user/streamCareerOptions&_=1390914208006
 HTTP_REFERER=http://localhost/gudaak/index.php?r=user/streamCareerOptions&id=2
 ---
+<<<<<<< HEAD
 2014/01/29 06:58:44 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_768_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
 in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
 in C:\wamp\www\gudaak\protected\controllers\SiteController.php (29)
@@ -5321,3 +5322,5 @@ REQUEST_URI=/gudaak/index.php?r=user/stream
 in C:\wamp\www\gudaak\themes\template\views\user\stream.php (65)
 in C:\wamp\www\gudaak\protected\controllers\UserController.php (225)
 in C:\wamp\www\gudaak\index.php (13)
+=======
+>>>>>>> 8c84cdaddf8e46b4fa85389e242261854c0ce0a3
