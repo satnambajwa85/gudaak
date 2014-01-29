@@ -13,18 +13,13 @@
 														
 						<ul  id="mycarouseltwo" class="jcarousel-list jcarousel-list-horizontal" style="width:1581px;">
 						
-						  <?php $counter	=	1;$count=1;$counterId=1;?>
-								
-									
+						  <?php $counter=1;$count=1;$counterId=1;?>
 									<?php foreach($questions as $question){	?>
-										
-										<?php 
-										if($counter==1 || !($counter%6)){?>	
+										<?php if($counter==1){?>		
 											 <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-1 jcarousel-item-1-horizontal">
-										
-										<?php $counterId++;} ?>
+										<?php } ?>
 											<div class="pull-left">
-												<p><?php	echo $count++.'. '. $question['title'];?></p>
+												<p><?php	echo $counter.'. '. $question['title'];?></p>
 												
 												<div>
 													<?php if(!empty($question['option'])){ ?>
@@ -35,14 +30,15 @@
 													
 												</div>
 											</div>
-												
-											 
-												
-										<?php if($counter==1 || !$counter%6){?>	
+										<?php if($counter%6==0){?>	
 											</li>
+                                            	
+                                            <li class="jcarousel-item jcarousel-item-horizontal jcarousel-item-1 jcarousel-item-1-horizontal">
+                                           
 										<?php } ?>			
 										<?php if($counter==60 ){?>	
 											<?php echo CHtml::submitButton('Submit Test',array('class'=>'btn btn-s-md btn-success')); ?>
+                                            </li>
 										<?php } ?>
 										
 																					
