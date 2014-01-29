@@ -3472,3 +3472,1855 @@ Stack trace:
 REQUEST_URI=/gudaak/index.php?r=user/streamCareerOptions&_=1390914208006
 HTTP_REFERER=http://localhost/gudaak/index.php?r=user/streamCareerOptions&id=2
 ---
+<<<<<<< HEAD
+2014/01/29 06:58:44 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_768_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\SiteController.php (29)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 06:58:44 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\SiteController.php(29): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): SiteController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/
+HTTP_REFERER=http://localhost/
+---
+2014/01/29 06:58:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_768_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\SiteController.php (29)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 06:58:47 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\SiteController.php(29): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): SiteController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/
+HTTP_REFERER=http://localhost/
+---
+2014/01/29 06:58:48 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_768_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\SiteController.php (29)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 06:58:48 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\SiteController.php(29): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): SiteController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/
+HTTP_REFERER=http://localhost/
+---
+2014/01/29 06:58:49 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_768_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\SiteController.php (29)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 06:58:49 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\SiteController.php(29): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): SiteController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/
+HTTP_REFERER=http://localhost/
+---
+2014/01/29 06:58:50 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_768_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\SiteController.php (29)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 06:58:50 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\SiteController.php(29): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): SiteController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/
+HTTP_REFERER=http://localhost/
+---
+2014/01/29 07:26:55 [error] [exception.CException] exception 'CException' with message 'Property "UserProfiles.oldpassword" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('oldpassword')
+#1 C:\wamp\www\framework\web\helpers\CHtml.php(2044): CActiveRecord->__get('oldpassword')
+#2 C:\wamp\www\framework\web\helpers\CHtml.php(1774): CHtml::resolveValue(Object(UserProfiles), 'oldpassword')
+#3 C:\wamp\www\framework\web\helpers\CHtml.php(1238): CHtml::activeInputField('password', Object(UserProfiles), 'oldpassword', Array)
+#4 C:\wamp\www\framework\web\widgets\CActiveForm.php(598): CHtml::activePasswordField(Object(UserProfiles), 'oldpassword', Array)
+#5 C:\wamp\www\gudaak\themes\template\views\user\editProfile.php(34): CActiveForm->passwordField(Object(UserProfiles), 'oldpassword', Array)
+#6 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\gud...')
+#7 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, true)
+#8 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\gud...', Array, true)
+#9 C:\wamp\www\framework\web\CController.php(783): CController->renderPartial('editProfile', Array, true)
+#10 C:\wamp\www\gudaak\protected\controllers\UserController.php(107): CController->render('editProfile', Array)
+#11 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionEditProfile()
+#12 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#13 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#14 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('editProfile')
+#16 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/editProfil...')
+#17 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/gudaak/index.php?r=user/editProfile
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/changePassword
+---
+2014/01/29 07:27:27 [error] [exception.CException] exception 'CException' with message 'Property "UserProfiles.newpassword" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('newpassword')
+#1 C:\wamp\www\framework\web\helpers\CHtml.php(2044): CActiveRecord->__get('newpassword')
+#2 C:\wamp\www\framework\web\helpers\CHtml.php(1774): CHtml::resolveValue(Object(UserProfiles), 'newpassword')
+#3 C:\wamp\www\framework\web\helpers\CHtml.php(1238): CHtml::activeInputField('password', Object(UserProfiles), 'newpassword', Array)
+#4 C:\wamp\www\framework\web\widgets\CActiveForm.php(598): CHtml::activePasswordField(Object(UserProfiles), 'newpassword', Array)
+#5 C:\wamp\www\gudaak\themes\template\views\user\editProfile.php(37): CActiveForm->passwordField(Object(UserProfiles), 'newpassword', Array)
+#6 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\gud...')
+#7 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, true)
+#8 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\gud...', Array, true)
+#9 C:\wamp\www\framework\web\CController.php(783): CController->renderPartial('editProfile', Array, true)
+#10 C:\wamp\www\gudaak\protected\controllers\UserController.php(107): CController->render('editProfile', Array)
+#11 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionEditProfile()
+#12 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#13 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#14 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('editProfile')
+#16 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/editProfil...')
+#17 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/gudaak/index.php?r=user/editProfile
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/changePassword
+---
+2014/01/29 07:29:47 [error] [exception.CException] exception 'CException' with message 'CActiveForm and its behaviors do not have a method or closure named "textdField".' in C:\wamp\www\framework\base\CComponent.php:266
+Stack trace:
+#0 [internal function]: CComponent->__call('textdField', Array)
+#1 C:\wamp\www\gudaak\themes\template\views\user\editProfile.php(34): CActiveForm->textdField(Object(UserProfiles), 'first_name', Array)
+#2 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\gud...')
+#3 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, true)
+#4 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\gud...', Array, true)
+#5 C:\wamp\www\framework\web\CController.php(783): CController->renderPartial('editProfile', Array, true)
+#6 C:\wamp\www\gudaak\protected\controllers\UserController.php(107): CController->render('editProfile', Array)
+#7 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionEditProfile()
+#8 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#9 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#10 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('editProfile')
+#12 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/editProfil...')
+#13 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#14 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/gudaak/index.php?r=user/editProfile
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/changePassword
+---
+2014/01/29 07:43:36 [warning] [application] Failed to set unsafe attribute "oldImage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (58)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 07:49:11 [warning] [application] Failed to set unsafe attribute "oldImage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (58)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 07:58:35 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_7cc_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `user_profiles`.
+in C:\wamp\www\gudaak\protected\models\UserProfiles.php (162)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (54)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 07:58:35 [error] [exception.CDbException] exception 'CDbException' with message 'The table "user_profiles" for active record class "UserProfiles" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(UserProfiles))
+#1 C:\wamp\www\gudaak\protected\models\UserProfiles.php(162): CActiveRecord::model('UserProfiles')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(54): UserProfiles::model()
+#3 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionEditProfile()
+#4 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('editProfile')
+#8 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/editProfil...')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/gudaak/index.php?r=user/editProfile
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/editProfile
+---
+2014/01/29 07:58:39 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_7cc_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 07:58:39 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('editProfile')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/editProfil...')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/editProfile
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/editProfile
+---
+2014/01/29 07:58:42 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_7cc_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 07:58:42 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('editProfile')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/editProfil...')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/editProfile
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/editProfile
+---
+2014/01/29 07:58:50 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_7cc_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 07:58:50 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('editProfile')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/editProfil...')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/editProfile
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/editProfile
+---
+2014/01/29 07:58:52 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_7cc_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 07:58:52 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('editProfile')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/editProfil...')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/editProfile
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/editProfile
+---
+2014/01/29 07:58:54 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_7cc_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 07:58:54 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('editProfile')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/editProfil...')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/editProfile
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/editProfile
+---
+2014/01/29 07:58:55 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_7cc_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 07:58:55 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('editProfile')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/editProfil...')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/editProfile
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/editProfile
+---
+2014/01/29 07:59:18 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_7cc_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 07:59:18 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('editProfile')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/editProfil...')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/editProfile
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/editProfile
+---
+2014/01/29 07:59:40 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_7cc_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 07:59:40 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('editProfile')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/editProfil...')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/editProfile
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/editProfile
+---
+2014/01/29 08:05:01 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_7cc_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:05:01 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('editProfile')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/editProfil...')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/editProfile
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/editProfile
+---
+2014/01/29 08:05:03 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_7cc_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:05:03 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('editProfile')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/editProfil...')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/editProfile
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/editProfile
+---
+2014/01/29 08:20:59 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:20:59 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user%2Fcareer&ajax=careerLibrary
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:04 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:04 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user%2Fcareer&Career_page=2&ajax=careerLibrary
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:07 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:07 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user%2Fcareer&ajax=careerLibrary
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:10 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:10 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user%2Fcareer&Career_page=2&ajax=careerLibrary
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:12 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:12 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user%2Fcareer&ajax=careerLibrary
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:14 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:14 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user%2Fcareer&ajax=careerLibrary
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:21 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:21 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:24 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:24 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:37 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:37 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:39 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:39 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:40 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:40 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:40 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:40 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:40 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:40 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:41 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:41 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:41 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:41 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:41 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:41 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:41 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:41 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:42 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:42 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:42 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:42 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:42 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:42 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:42 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:42 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:42 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:42 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:42 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:42 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:43 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:43 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:43 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:43 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:43 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:43 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:43 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:43 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:43 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:43 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:44 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:44 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:44 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:44 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:44 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:44 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:44 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:44 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:44 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:44 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:44 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:44 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:44 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:44 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:45 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:45 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:45 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:45 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:45 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:45 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:45 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:45 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:45 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:45 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:45 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:45 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:46 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:46 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:46 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:46 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:46 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:47 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:47 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:47 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:47 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:48 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:48 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:48 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:48 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:48 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:48 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:48 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:48 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:49 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:49 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:49 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:49 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:49 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:49 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:49 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:49 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:50 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:50 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:50 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:50 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:50 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:50 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 08:21:50 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1 Can't create/write to file 'C:\Windows\TEMP\#sql_788_0.MYD' (Errcode: 17). The SQL statement executed was: SHOW COLUMNS FROM `site_setting`.
+in C:\wamp\www\gudaak\protected\models\SiteSetting.php (149)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (27)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 08:21:50 [error] [exception.CDbException] exception 'CDbException' with message 'The table "site_setting" for active record class "SiteSetting" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(SiteSetting))
+#1 C:\wamp\www\gudaak\protected\models\SiteSetting.php(149): CActiveRecord::model('SiteSetting')
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(27): SiteSetting::model()
+#3 C:\wamp\www\framework\web\CController.php(307): UserController->beforeAction(Object(CInlineAction))
+#4 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('career')
+#7 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/career')
+#8 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/gudaak/index.php?r=user/career
+---
+2014/01/29 09:53:52 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.profileId" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CWebUser.php(141): CComponent->__get('profileId')
+#1 C:\wamp\www\gudaak\protected\components\WidgetDashboardMenu.php(23): CWebUser->__get('profileId')
+#2 C:\wamp\www\gudaak\protected\components\WidgetDashboardMenu.php(18): WidgetDashboardMenu->renderContent()
+#3 C:\wamp\www\framework\web\CBaseController.php(174): WidgetDashboardMenu->run()
+#4 C:\wamp\www\gudaak\themes\template\views\layouts\dashboard.php(22): CBaseController->widget('WidgetDashboard...')
+#5 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\gud...')
+#6 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, true)
+#7 C:\wamp\www\framework\web\CController.php(785): CBaseController->renderFile('C:\wamp\www\gud...', Array, true)
+#8 C:\wamp\www\gudaak\protected\controllers\UserController.php(225): CController->render('stream', Array)
+#9 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionStream()
+#10 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#12 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('stream')
+#14 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/stream')
+#15 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/gudaak/index.php?r=user/stream
+---
+2014/01/29 09:53:55 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.profileId" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CWebUser.php(141): CComponent->__get('profileId')
+#1 C:\wamp\www\gudaak\protected\components\WidgetDashboardMenu.php(23): CWebUser->__get('profileId')
+#2 C:\wamp\www\gudaak\protected\components\WidgetDashboardMenu.php(18): WidgetDashboardMenu->renderContent()
+#3 C:\wamp\www\framework\web\CBaseController.php(174): WidgetDashboardMenu->run()
+#4 C:\wamp\www\gudaak\themes\template\views\layouts\dashboard.php(22): CBaseController->widget('WidgetDashboard...')
+#5 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\gud...')
+#6 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, true)
+#7 C:\wamp\www\framework\web\CController.php(785): CBaseController->renderFile('C:\wamp\www\gud...', Array, true)
+#8 C:\wamp\www\gudaak\protected\controllers\UserController.php(225): CController->render('stream', Array)
+#9 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionStream()
+#10 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#12 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('stream')
+#14 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/stream')
+#15 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/gudaak/index.php?r=user/stream
+---
+2014/01/29 12:06:05 [error] [php] strcmp() expects parameter 2 to be string, array given (C:\wamp\www\framework\web\helpers\CHtml.php:948)
+Stack trace:
+#0 C:\wamp\www\framework\web\CBaseController.php(127): require()
+#1 C:\wamp\www\framework\web\CBaseController.php(96): UserController->renderInternal()
+#2 C:\wamp\www\framework\web\CController.php(870): UserController->renderFile()
+#3 C:\wamp\www\framework\web\CController.php(783): UserController->renderPartial()
+#4 C:\wamp\www\gudaak\protected\controllers\UserController.php(225): UserController->render()
+#5 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionStream()
+#6 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#7 C:\wamp\www\framework\web\CController.php(287): UserController->runAction()
+#8 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#9 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#10 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#11 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#12 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/stream
+in C:\wamp\www\gudaak\themes\template\views\user\stream.php (53)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (225)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 12:06:22 [error] [php] Missing argument 3 for CHtml::radioButtonList(), called in C:\wamp\www\gudaak\themes\template\views\user\stream.php on line 53 and defined (C:\wamp\www\framework\web\helpers\CHtml.php:934)
+Stack trace:
+#0 C:\wamp\www\framework\web\CBaseController.php(96): UserController->renderInternal()
+#1 C:\wamp\www\framework\web\CController.php(870): UserController->renderFile()
+#2 C:\wamp\www\framework\web\CController.php(783): UserController->renderPartial()
+#3 C:\wamp\www\gudaak\protected\controllers\UserController.php(225): UserController->render()
+#4 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionStream()
+#5 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#6 C:\wamp\www\framework\web\CController.php(287): UserController->runAction()
+#7 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#8 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#9 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#10 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/stream
+in C:\wamp\www\gudaak\themes\template\views\user\stream.php (53)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (225)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 12:06:45 [error] [php] Missing argument 2 for CHtml::radioButtonList(), called in C:\wamp\www\gudaak\themes\template\views\user\stream.php on line 53 and defined (C:\wamp\www\framework\web\helpers\CHtml.php:934)
+Stack trace:
+#0 C:\wamp\www\framework\web\CBaseController.php(96): UserController->renderInternal()
+#1 C:\wamp\www\framework\web\CController.php(870): UserController->renderFile()
+#2 C:\wamp\www\framework\web\CController.php(783): UserController->renderPartial()
+#3 C:\wamp\www\gudaak\protected\controllers\UserController.php(225): UserController->render()
+#4 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionStream()
+#5 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#6 C:\wamp\www\framework\web\CController.php(287): UserController->runAction()
+#7 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#8 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#9 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#10 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/stream
+in C:\wamp\www\gudaak\themes\template\views\user\stream.php (53)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (225)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 12:08:28 [error] [php] Undefined variable: form (C:\wamp\www\gudaak\themes\template\views\user\stream.php:53)
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(870): UserController->renderFile()
+#1 C:\wamp\www\framework\web\CController.php(783): UserController->renderPartial()
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(225): UserController->render()
+#3 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionStream()
+#4 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 C:\wamp\www\framework\web\CController.php(287): UserController->runAction()
+#6 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/stream
+in C:\wamp\www\gudaak\themes\template\views\user\stream.php (53)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (225)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 12:10:00 [error] [php] Undefined variable: model (C:\wamp\www\gudaak\themes\template\views\user\stream.php:53)
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(870): UserController->renderFile()
+#1 C:\wamp\www\framework\web\CController.php(783): UserController->renderPartial()
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(225): UserController->render()
+#3 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionStream()
+#4 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 C:\wamp\www\framework\web\CController.php(287): UserController->runAction()
+#6 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/stream
+in C:\wamp\www\gudaak\themes\template\views\user\stream.php (53)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (225)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 12:13:36 [error] [php] Missing argument 2 for CActiveForm::labelEx(), called in C:\wamp\www\gudaak\themes\template\views\user\stream.php on line 57 and defined (C:\wamp\www\framework\web\widgets\CActiveForm.php:551)
+Stack trace:
+#0 C:\wamp\www\framework\web\CBaseController.php(96): UserController->renderInternal()
+#1 C:\wamp\www\framework\web\CController.php(870): UserController->renderFile()
+#2 C:\wamp\www\framework\web\CController.php(783): UserController->renderPartial()
+#3 C:\wamp\www\gudaak\protected\controllers\UserController.php(225): UserController->render()
+#4 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionStream()
+#5 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#6 C:\wamp\www\framework\web\CController.php(287): UserController->runAction()
+#7 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#8 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#9 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#10 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/stream
+in C:\wamp\www\gudaak\themes\template\views\user\stream.php (57)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (225)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 12:14:11 [error] [php] Undefined variable: model (C:\wamp\www\gudaak\themes\template\views\user\stream.php:57)
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(870): UserController->renderFile()
+#1 C:\wamp\www\framework\web\CController.php(783): UserController->renderPartial()
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(225): UserController->render()
+#3 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionStream()
+#4 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 C:\wamp\www\framework\web\CController.php(287): UserController->runAction()
+#6 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/stream
+in C:\wamp\www\gudaak\themes\template\views\user\stream.php (57)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (225)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 12:14:20 [error] [php] Undefined variable: model (C:\wamp\www\gudaak\themes\template\views\user\stream.php:57)
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(870): UserController->renderFile()
+#1 C:\wamp\www\framework\web\CController.php(783): UserController->renderPartial()
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(225): UserController->render()
+#3 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionStream()
+#4 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 C:\wamp\www\framework\web\CController.php(287): UserController->runAction()
+#6 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/stream
+in C:\wamp\www\gudaak\themes\template\views\user\stream.php (57)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (225)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 12:14:30 [error] [php] Missing argument 2 for CActiveForm::labelEx(), called in C:\wamp\www\gudaak\themes\template\views\user\stream.php on line 57 and defined (C:\wamp\www\framework\web\widgets\CActiveForm.php:551)
+Stack trace:
+#0 C:\wamp\www\framework\web\CBaseController.php(96): UserController->renderInternal()
+#1 C:\wamp\www\framework\web\CController.php(870): UserController->renderFile()
+#2 C:\wamp\www\framework\web\CController.php(783): UserController->renderPartial()
+#3 C:\wamp\www\gudaak\protected\controllers\UserController.php(225): UserController->render()
+#4 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionStream()
+#5 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#6 C:\wamp\www\framework\web\CController.php(287): UserController->runAction()
+#7 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#8 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#9 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#10 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/stream
+in C:\wamp\www\gudaak\themes\template\views\user\stream.php (57)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (225)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 12:14:37 [error] [php] get_class() expects parameter 1 to be object, string given (C:\wamp\www\framework\web\helpers\CHtml.php:2009)
+Stack trace:
+#0 C:\wamp\www\framework\web\widgets\CActiveForm.php(553): activeLabelEx()
+#1 C:\wamp\www\gudaak\themes\template\views\user\stream.php(57): CActiveForm->labelEx()
+#2 C:\wamp\www\framework\web\CBaseController.php(127): require()
+#3 C:\wamp\www\framework\web\CBaseController.php(96): UserController->renderInternal()
+#4 C:\wamp\www\framework\web\CController.php(870): UserController->renderFile()
+#5 C:\wamp\www\framework\web\CController.php(783): UserController->renderPartial()
+#6 C:\wamp\www\gudaak\protected\controllers\UserController.php(225): UserController->render()
+#7 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionStream()
+#8 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#9 C:\wamp\www\framework\web\CController.php(287): UserController->runAction()
+#10 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#11 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#12 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#13 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#14 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/stream
+in C:\wamp\www\gudaak\themes\template\views\user\stream.php (57)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (225)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 12:15:28 [error] [exception.CException] exception 'CException' with message 'UserController has an extra endWidget() call in its view.' in C:\wamp\www\framework\web\CBaseController.php:211
+Stack trace:
+#0 C:\wamp\www\gudaak\themes\template\views\user\stream.php(55): CBaseController->endWidget()
+#1 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\gud...')
+#2 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, true)
+#3 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\gud...', Array, true)
+#4 C:\wamp\www\framework\web\CController.php(783): CController->renderPartial('stream', Array, true)
+#5 C:\wamp\www\gudaak\protected\controllers\UserController.php(225): CController->render('stream', Array)
+#6 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionStream()
+#7 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#9 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('stream')
+#11 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/stream')
+#12 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/gudaak/index.php?r=user/stream
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/index
+---
+2014/01/29 12:21:14 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (C:\wamp\www\framework\web\helpers\CHtml.php:85)
+Stack trace:
+#0 C:\wamp\www\gudaak\themes\template\views\user\stream.php(65): textArea()
+#1 C:\wamp\www\framework\web\CBaseController.php(127): require()
+#2 C:\wamp\www\framework\web\CBaseController.php(96): UserController->renderInternal()
+#3 C:\wamp\www\framework\web\CController.php(870): UserController->renderFile()
+#4 C:\wamp\www\framework\web\CController.php(783): UserController->renderPartial()
+#5 C:\wamp\www\gudaak\protected\controllers\UserController.php(225): UserController->render()
+#6 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionStream()
+#7 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#8 C:\wamp\www\framework\web\CController.php(287): UserController->runAction()
+#9 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#10 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#11 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#12 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/stream
+in C:\wamp\www\gudaak\themes\template\views\user\stream.php (65)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (225)
+in C:\wamp\www\gudaak\index.php (13)
+2014/01/29 12:22:17 [error] [php] htmlspecialchars() expects parameter 1 to be string, array given (C:\wamp\www\framework\web\helpers\CHtml.php:85)
+Stack trace:
+#0 C:\wamp\www\gudaak\themes\template\views\user\stream.php(65): textArea()
+#1 C:\wamp\www\framework\web\CBaseController.php(127): require()
+#2 C:\wamp\www\framework\web\CBaseController.php(96): UserController->renderInternal()
+#3 C:\wamp\www\framework\web\CController.php(870): UserController->renderFile()
+#4 C:\wamp\www\framework\web\CController.php(783): UserController->renderPartial()
+#5 C:\wamp\www\gudaak\protected\controllers\UserController.php(225): UserController->render()
+#6 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionStream()
+#7 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#8 C:\wamp\www\framework\web\CController.php(287): UserController->runAction()
+#9 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#10 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#11 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#12 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/stream
+in C:\wamp\www\gudaak\themes\template\views\user\stream.php (65)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (225)
+in C:\wamp\www\gudaak\index.php (13)
+=======
+>>>>>>> 8c84cdaddf8e46b4fa85389e242261854c0ce0a3

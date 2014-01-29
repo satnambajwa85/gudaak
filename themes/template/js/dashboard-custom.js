@@ -79,11 +79,16 @@ $(document).ready(function () {
 		$(this).addClass('orange');
 		e.preventDefault();
 	}).filter(':first').click();	
-
+		$('#stream-user-tabs li a').bind('click', function(e){
+		$('#stream-user-tabs li a').removeClass('current-tab');
+		$('.stream-user-active:visible').hide();
+		$(this.hash).show();
+		$(this).addClass('currrent-tab');
+		e.preventDefault();
+	}).filter(':first').click();	
 	jQuery('#mycarousel').jcarousel();
 	jQuery('#mycarouseltwo').jcarousel();
 	
 
 
 });
-						
