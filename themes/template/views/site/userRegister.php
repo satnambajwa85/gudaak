@@ -1,10 +1,31 @@
-<div class="col-md-6 col-md-offset-3 white border-layer mr-top116">
+<?php $this->pageTitle=Yii::app()->name . ' - Register';?>
+<div class="clear"></div>
+<div class="col-md-6 mt60 mb58 col-md-offset-3 white border-layer mr-top116">
+			
 			<?php echo CHtml::link('<div class="site-logo"></div>',array('site/'));?>
-			<div class="col-md-12 pd13 mt50 fl">
+			<div class="col-md-12 white  pd13  ">
 			<div class="hide-overflow"></div>
-				<div  class="col-md-5 login-box pull-left ">
+					<?php if(Yii::app()->user->hasFlash('create')): ?>
+						<div class="alert alert-success">
+						  <button data-dismiss="alert" class="close" type="button">×</button>
+						  <strong><?php echo Yii::app()->user->getFlash('create'); ?></strong>
+						</div>
+							<div class="flash-error">
+								
+							</div>
+					<?php endif; ?>	
+					<?php if(Yii::app()->user->hasFlash('error')): ?>
+						<div class="alert alert-success">
+						  <button data-dismiss="alert" class="close" type="button">×</button>
+						  <strong><?php echo Yii::app()->user->getFlash('error'); ?></strong>
+						</div>
+							<div class="flash-error">
+								
+							</div>
+					<?php endif; ?>	
+				<div  class="col-md-6 login-box pull-left ">
 					<div id="">
-								<?php $login=new LoginForm;  $form=$this->beginWidget('CActiveForm', array(
+					<?php 	$login=new LoginForm; $form=$this->beginWidget('CActiveForm', array(
 																	'id'=>'login-form',
 																	'action'=>Yii::app()->createUrl('/site/login'),
 																	'enableClientValidation'=>true,
@@ -20,9 +41,7 @@
 						<?php echo $form->PasswordField($login,'password',array('class'=>'form-control','placeholder'=>'Password'));
 						echo $form->error($login,'password');?>
 						<div class="pd4"></div>
-						<?php echo CHtml::ajaxLink("Forget password?",CController::createUrl('site/forgetPassword'),array('update' => '#render'),array('class'=>'forget pull-left'));
-						echo CHtml::link('',array('/site/forgetPassword'));?>
-						<?php echo CHtml::ajaxLink("New user?",CController::createUrl('site/newUser'),array('update' => '#render'),array('class'=>'forget pull-right'));?>
+						<a href="javascript:void(0);" id="forget" class="forget pull-left">Forget password?</a>
 						<div class="clearfix"></div>
 						<div align="center" class="top-stats-icons">
 						<?php echo CHtml::submitButton('Login',array('class'=>'btn btn-warning login'));?>
@@ -31,8 +50,42 @@
 						<?php echo CHtml::link('<i class="posi-bt icon-facebook"></i>Login with your<br/><strong>Facebook Account</strong>',array('/site/forgetPassword'),array('class'=>'btn btn-lg btn-primary fb'));?>
 						</div>
 						<?php $this->endWidget(); ?>
+					<?php 	$forgetPass=new ForgotpasswordForm; 
+								$form=$this->beginWidget('CActiveForm', array(
+																	'id'=>'forget-form',
+																	'action'=>Yii::app()->createUrl('/site/ForgetPassword'),
+																	'enableClientValidation'=>true,
+																	'clientOptions'=>array(
+																			'validateOnSubmit'=>true,
+																			
+																		)
+																));?> 
+						<i class="icon-key orange pull-left"></i>
+						<h4 class="form-signin-heading ">Get your forget password</h4>
+						<?php echo $form->textField($forgetPass,'email',array('class'=>'form-control','placeholder'=>'Email address','autofocus'=>true));
+						echo $form->error($forgetPass,'email');?>
+						<div class="pd4"></div>
+						<div class="reg_text" align="center"> 
+							<?php if(CCaptcha::checkRequirements()): $this->widget('CCaptcha');?>
+						</div>
+						<div class="hint">
+							<?php echo $form->textField($forgetPass,'verifyCode',array('class'=>'form-control'));
+								echo $form->error($forgetPass,'verifyCode');?>
+						</div>
+						<?php 	endif; ?>
+						<div class="pd4"></div>
+						<?php echo CHtml::Link("Back to login",'javascript:void(0);',array('class'=>'forget pull-left login-visible'));
+						;?>
+						<div class="clearfix"></div>
+						<div align="center" class="top-stats-icons">
+						<?php echo CHtml::submitButton('Submit',array('class'=>'btn btn-warning login'));?>
+						<div class="clearfix"></div>
+						<div class="or">or</div>
+						<?php echo CHtml::link('<i class="posi-bt icon-facebook"></i>Login with your<br/><strong>Facebook Account</strong>',array('/site/forgetPassword'),array('class'=>'btn btn-lg btn-primary fb'));?>
+						</div>
+						<?php $this->endWidget(); ?>
 				</div>
-				<?php echo CHtml::link('Back to home',array('/site'),array('class'=>'btn btn-info back-bt'));?>
+				<?php echo CHtml::link('Back to home',array('/site'),array('class'=>'btn btn-info back-bt2'));?>
 				</div>
 			 <div class="col-md-6 visibale-area pull-right">	
 			<?php 
@@ -69,9 +122,9 @@
  
 
 			 
-				<!--<i class="glyphicon glyphicon-calendar orange dob-icon">-->
+			 
 				<?php echo $form->checkBox($model,'gender',array('id'=>'dimension-switch'));?>
-				<!--<input type="checkbox" id="dimension-switch" checked>-->
+				
 				<div class="clearfix"></div>
 				<?php echo $form->error($model,'date_of_birth');?>
 				<div class="pd4"></div>
@@ -83,6 +136,9 @@
 				echo $form->error($model,'mobile_no');
 				?>
 				<div class="pd4"></div>
+				 <?php echo $form->dropDownList($model,'class',array('10'=>'10th','11'=>'11th','12'=>'12th'),array('class'=>'form-control','placeholder'=>'Mobile','autofocus'=>true));
+                                    echo $form->error($model,'class');?>
+                                    <div class="pd4"></div>
 				<?php echo $form->textField($model,'gudaak_id',array('class'=>'form-control','placeholder'=>'Gudaak ID','autofocus'=>true));
 				echo $form->error($model,'gudaak_id');
 				?>
@@ -97,7 +153,7 @@
 				<div class="pd4"></div>
 				
 				<div align="center">
-				<?php echo CHtml::submitButton('Register',array('class'=>'btn btn-warning login mt'));?>
+				<?php echo CHtml::submitButton('Register',array('class'=>'mb11 btn btn-warning login mt'));?>
 				</div>
 			  <?php $this->endWidget();?>
 			</div>

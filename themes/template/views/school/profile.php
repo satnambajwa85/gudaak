@@ -1,12 +1,11 @@
 <?php $this->pageTitle=Yii::app()->name . ' - Profile';
 $this->breadcrumbs=array('Forms',);?>
-<div class="col-md-6 pop-up-border fl col-lg-offset-3 ">
+<div class="col-md-6 pop-up-border fl col-lg-offset-3 " >
 	<div class="row test-bot">School Profile</div>
 		
 			<?php 
 				$form=$this->beginWidget('CActiveForm', array(
 														'id'=>'school-profile',
-														'action'=>Yii::app()->createUrl('/site/UserRegister'),
 													    'enableClientValidation'=>true,
 														'clientOptions'=>array(
 																'validateOnSubmit'=>true,
@@ -14,8 +13,11 @@ $this->breadcrumbs=array('Forms',);?>
 															)
 														));?>
 				<div class="col-md-4 pull-left">
-					<?php echo $form->fileField($model,'images',array('class'=>'form-control','placeholder'=>'images','autofocus'=>true));
-				echo $form->error($model,'images');?>
+					<div class="school-img">
+						<img src="<?php echo Yii::app()->baseUrl?>/images/school.jpg" />
+					</div>
+					<?php //echo $form->fileField($model,'images',array('class'=>'form-control','placeholder'=>'images','autofocus'=>true));
+				//echo $form->error($model,'images');?>
 				</div>
 			  	<div class="col-md-8 pull-right right-pad">
 				<?php echo $form->textField($model,'name',array('class'=>'form-control','placeholder'=>'School Name','autofocus'=>true));
@@ -30,6 +32,24 @@ $this->breadcrumbs=array('Forms',);?>
 				echo $form->error($model,'address2');
 				?>
 				 
+				<div class="col-md-6 pd0"> 
+				<?php echo $form->textField($model,'postcode',array('class'=>'form-control col-md-5','placeholder'=>'City','autofocus'=>true));
+				echo $form->error($model,'postcode');?>
+				</div>
+				<div class="col-md-6 pd0  pull-right"> 
+					<?php echo $form->dropDownlist($model,'states_id',CHtml::listData(States::model()->findAll(),'id','title'),array('class'=>'form-control'));
+					echo $form->error($model,'states_id');?>
+				</div>
+				<div class="clear"></div>
+				<div class="col-md-6 pd0"> 
+				<?php echo $form->textField($model,'postcode',array('class'=>'form-control col-md-5','placeholder'=>'postcode','autofocus'=>true));
+				echo $form->error($model,'postcode');?>
+				</div>
+				<div class="col-md-6 pd0  pull-right"> 
+					<?php echo $form->dropDownlist($model,'countries_id',CHtml::listData(Countries::model()->findAll(),'id','title'),array('class'=>'form-control'));
+					echo $form->error($model,'countries_id');?>
+				</div>
+				<div class="clear"></div>
 				<?php echo $form->textField($model,'postcode',array('class'=>'form-control','placeholder'=>'Postcode','autofocus'=>true));
 				echo $form->error($model,'postcode');
 				?>	 
@@ -42,10 +62,13 @@ $this->breadcrumbs=array('Forms',);?>
 				<?php echo $form->textField($model,'email',array('class'=>'form-control','placeholder'=>'Email','autofocus'=>true));
 				echo $form->error($model,'email');
 				?>
+				<?php echo $form->textField($model,'email',array('class'=>'form-control','placeholder'=>'Available Grades','autofocus'=>true));
+				echo $form->error($model,'email');
+				?>
 			   
 				
-				<div align="center">
-				<?php echo CHtml::submitButton('Register',array('class'=>'btn btn-warning login mt'));?>
+				<div>
+				<?php echo CHtml::submitButton('Submit Details',array('class'=>'btn btn-warning login mt'));?>
 				</div>
 				</div>
 			  <?php $this->endWidget();?>

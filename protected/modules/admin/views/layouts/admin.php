@@ -46,7 +46,7 @@
 	  $cs->registerScriptFile($baseUrl.'/js/styleswitcher.js');
 	?>
   </head>
-
+<?php $action	=	Yii::app()->controller->action->id; ?>
 <body>
 
 <section id="navigation-main">   
@@ -55,11 +55,33 @@
 </section><!-- /#navigation-main -->
     
 <section class="main-body">
-    <div class="container-fluid">
-            <!-- Include content pages -->
-			
-            <?php echo $content; ?>
+	 
+    <div class="col-md-12">
+		<div class="left-menu">
+				<?php $this->widget('zii.widgets.CMenu',array(
+                    'htmlOptions'=>array('class'=>'nav nav-pills nav-stacked admin-menu'),
+                    'submenuHtmlOptions'=>array('class'=>'span3 dropdown-menu'),
+					'itemCssClass'=>'item-test',
+                    'encodeLabel'=>false,
+                    'items'=>array(
+                       	array('label'=>'Home', 'url'=>array('/admin/admin/index')),
+                       	array('label'=>'Generate Gudaak IDs', 'url'=>array('/admin/GenerateGudaakIds/admin')),
+                       	array('label'=>'Site Setting', 'url'=>array('/admin/siteSetting/admin')),
+                       	array('label'=>'Articles', 'url'=>array('/admin/articles/admin')),
+                       	array('label'=>'News', 'url'=>array('/admin/news/admin')),
+                       	array('label'=>'Events', 'url'=>array('/admin/events/admin')),
+    
+                    ),
+                )); ?>
+            
+        </div>
+		<div class="right-menu pull-left">
+				<!-- Include content pages -->
+				
+				<?php echo $content; ?>
+		</div>
     </div>
+	 
 </section>
 
 <!-- Require the footer -->

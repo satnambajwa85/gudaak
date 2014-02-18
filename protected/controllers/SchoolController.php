@@ -43,30 +43,80 @@ class SchoolController extends Controller
 		if(!Yii::app()->user->id){
 			$this->redirect(Yii::app()->createUrl('/site'));
 		}
+		 
+
+		$this->render('index');
+	}
+	public function actionStudentDetails()
+	{
+		if(!Yii::app()->user->id){
+			$this->redirect(Yii::app()->createUrl('/site'));
+		}
 		$model=new UserProfiles('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['UserProfiles']))
 			$model->attributes=$_GET['UserProfiles'];
 
-		$this->render('index',array('model'=>$model,));
+		$this->render('studentDetails',array('model'=>$model,));
+	}
+	public function actionStudentDetail($id)
+	{
+		if(!Yii::app()->user->id){
+			$this->redirect(Yii::app()->createUrl('/site'));
+		}
+		$index	=	0;
+		$index2	=	0;
+		$uRate	=	array();
+		$uRate2	=	array();
+		$userInfo			=	UserProfiles::model()->findByPk($id);
+		$userFinalStream	=	UserProfilesHasStream::model()->findAllByAttributes(array('user_profiles_id'=>$id,'self'=>1));
+		foreach($userFinalStream as $list){
+			$rating	=$list->stream_id;
+			$userStreamRating	=	UserStreamRating::model()->findAllByAttributes(array('user_profiles_id'=>$id,'stream_id'=>$rating));
+			foreach($userStreamRating as $userStreamRate){
+				$uRate[$index]['rating']	=	$userStreamRate->rating;
+				$uRate[$index]['stream_id']	=	$userStreamRate->stream_id;
+				 
+				$index++;
+				 
+			}
+			 
+		}		
+		$CounsRecoStream	=	UserProfilesHasStream::model()->findAllByAttributes(array('user_profiles_id'=>$id,'self'=>1,'reccomended'=>1));
+		foreach($CounsRecoStream as $CounsReco){
+			$rating	=$CounsReco->stream_id;
+			$userStreamRating2	=	UserStreamRating::model()->findAllByAttributes(array('user_profiles_id'=>$id,'stream_id'=>$rating));
+			foreach($userStreamRating2 as $userStreamRate2){
+				$uRate2[$index2]['rating2']	=	$userStreamRate2->rating;
+				$uRate2[$index2]['sId']	=	$userStreamRate2->stream_id;
+				 
+				$index2++;
+				 
+			}
+			 
+		}
+		$userSummery		=			UserReports::model()->findAllByAttributes(array('user_profiles_id'=>$id,'status'=>1,'activation'=>1));
+		$ratingHistory		=	 		UserStreamRating::model()->findAllByAttributes(array('user_profiles_id'=>$id));
+		$this->render('studentDetail',array('userInfo'=>$userInfo,'userFinalStream'=>$userFinalStream,
+						'counsRecoStream'=>$CounsRecoStream,'uRate2'=>$uRate2,'userStreamRating'=>$uRate,
+						'summaryDetails'=>$userSummery,'ratingHistory'=>$ratingHistory));
 	}
 	public function actionProfile()
-	{	
+	{		
 		if(!Yii::app()->user->id){
 			$this->redirect(Yii::app()->createUrl('/site/'));
 		}
-		$model		=	new   Schools;
-		if(isset($_POST['UserProfiles']))
-		{
-			
-			$model->attributes		=	$_POST['UserProfiles'];
-			$model->display_name 	=	$_POST['UserProfiles']['first_name'].' '.$_POST['UserProfiles']['last_name'];
-			$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/uploads/user/';
+		 
+		$model		=	  Schools::model()->findByPk(Yii::app()->user->profileId);
+		if(isset($_POST['Schools']))
+		{	 
+			$model->attributes		=	$_POST['Schools'];
+			$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/uploads/schools/';
 					$targetFolder = Yii::app()->request->baseUrl.'/uploads/user/';
-				if (!empty($_FILES['UserProfiles']['name']['image'])) {
-					$tempFile = $_FILES['UserProfiles']['tmp_name']['image'];
+				if (!empty($_FILES['Schools']['name']['image'])) {
+					$tempFile = $_FILES['Schools']['tmp_name']['image'];
 					$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
-					$targetFile = $targetPath.'/'.$_FILES['UserProfiles']['name']['image'];
+					$targetFile = $targetPath.'/'.$_FILES['Schools']['name']['image'];
 					$pat = $targetFile;
 					move_uploaded_file($tempFile,$targetFile);
 					$absoPath = $pat;
@@ -75,7 +125,7 @@ class SchoolController extends Controller
 					# ORIGINAL
 					$img->file_max_size = 5000000; // 5 MB
 					$img->file_new_name_body = $newName;
-					$img->process('uploads/user/original/');
+					$img->process('uploads/schools/original/');
 					$img->processed;
 					#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
 				if ($img->processed) {
@@ -84,7 +134,7 @@ class SchoolController extends Controller
 					$img->image_y         	= 50;
 					$img->image_x           = 50;
 					$img->file_new_name_body = $newName;
-					$img->process('uploads/user/small/');
+					$img->process('uploads/schools/small/');
 					
 					 
 					$fileName	=	$img->file_dst_name;
@@ -92,41 +142,19 @@ class SchoolController extends Controller
 	
 				}
 				$model->image	=	$fileName;
-				if($_POST['UserProfiles']['oldImage']!=''){
-					@unlink($targetFolder1.'original/'.$_POST['UserProfiles']['oldImage']);
-					@unlink($targetFolder1.'large/'.$_POST['UserProfiles']['oldImage']);
-					@unlink($targetFolder1.'small/'.$_POST['UserProfiles']['oldImage']);
+				if($_POST['Schools']['oldImage']!=''){
+					@unlink($targetFolder1.'original/'.$_POST['Schools']['oldImage']);
+					@unlink($targetFolder1.'small/'.$_POST['Schools']['oldImage']);
 				}
 			}
 			if($model->save())
-				$this->redirect(array('user/editProfile'));
+				$this->redirect(array('school/profile'));
 		}
 		$this->render('Profile', array('model'=>$model));
 	}
 	
-	public function actionLiveChat()
-	{	
-		if(!Yii::app()->user->id){
-			$this->redirect(Yii::app()->createUrl('/site'));
-		}
-		
-		$this->render('LiveChat');
-	}
-	public function actionSearch()
-	{	
-
-		$qterm	=(isset($_REQUEST['term']))?'%'.$_REQUEST['term'].'%':'%%';
-		$criteria->condition = '(name  Like :qterm OR address Like :qterm)';
-		$criteria->params = array(':qterm'=>$qterm);
-		$dataProvider=new CActiveDataProvider('Schools', array(
-							'criteria'=>$criteria,
-							'pagination'=>array(
-								'pageSize'=>10,
-							),
-						));
-		
-		$this->render('search',array('fech_result'=>$dataProvider));
-	}
+	 
+	 
 	//Forgot password
 		//Change password 
 	public function actionChangePassword()

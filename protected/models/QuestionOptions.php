@@ -12,10 +12,9 @@
  * @property string $add_date
  * @property integer $status
  * @property integer $activation
- * @property integer $questions_id
  *
  * The followings are the available model relations:
- * @property Questions $questions
+ * @property QuestionsHasQuestionOptions[] $questionsHasQuestionOptions
  * @property TestReports[] $testReports
  */
 class QuestionOptions extends CActiveRecord
@@ -23,7 +22,6 @@ class QuestionOptions extends CActiveRecord
 	/**
 	 * @return string the associated database table name
 	 */
-	 public $orient_categories_id,$orient_items_id,$orientItems,$userProfile;
 	public function tableName()
 	{
 		return 'question_options';
@@ -37,13 +35,13 @@ class QuestionOptions extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, value, interest_value, questions_id', 'required'),
-			array('status, activation, questions_id', 'numerical', 'integerOnly'=>true),
+			array('name, value, description, interest_value', 'required'),
+			array('status, activation', 'numerical', 'integerOnly'=>true),
 			array('name, value, interest_value', 'length', 'max'=>45),
 			array('add_date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, value, description, interest_value, add_date, status, activation, questions_id', 'safe', 'on'=>'search'),
+			array('id, name, value, description, interest_value, add_date, status, activation', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -55,7 +53,7 @@ class QuestionOptions extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'questions' => array(self::BELONGS_TO, 'Questions', 'questions_id'),
+			'questionsHasQuestionOptions' => array(self::HAS_MANY, 'QuestionsHasQuestionOptions', 'question_options_id'),
 			'testReports' => array(self::HAS_MANY, 'TestReports', 'question_options_id'),
 		);
 	}
@@ -74,7 +72,6 @@ class QuestionOptions extends CActiveRecord
 			'add_date' => 'Add Date',
 			'status' => 'Status',
 			'activation' => 'Activation',
-			'questions_id' => 'Questions',
 		);
 	}
 
@@ -104,7 +101,6 @@ class QuestionOptions extends CActiveRecord
 		$criteria->compare('add_date',$this->add_date,true);
 		$criteria->compare('status',$this->status);
 		$criteria->compare('activation',$this->activation);
-		$criteria->compare('questions_id',$this->questions_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

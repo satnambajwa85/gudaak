@@ -3,7 +3,7 @@
 class QuestionOptionsController extends Controller
 {
 	/**
-	 * @var string the default layout for the views. Defaults to '/layouts/admin', meaning
+	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='/layouts/admin';
@@ -28,11 +28,11 @@ class QuestionOptionsController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','DynamicCategories','DynamicSubCategories','admin','delete'),
+				'actions'=>array('index','view'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','admin','delete'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -170,38 +170,4 @@ class QuestionOptionsController extends Controller
 			Yii::app()->end();
 		}
 	}
-	public function actionDynamicCategories()
-	{	 
-		$getId = '';
-			if(!empty($_POST['QuestionOptions']['orient_categories_id'])) 
-				$getId = $_POST['QuestionOptions']['orient_categories_id'];
-				$data	=	OrientItems::model()->findAll('orient_categories_id =:parent_id',array(':parent_id'=>(int) $getId));
-					$data	=	CHtml::listData($data,'id','title');
-					 echo '<option value="0">Please Select</option>';
-			foreach($data as $value=>$name){
-				echo CHtml::tag('option', array('value'=>$value),CHtml::encode($name),true);
-				
-			}
-			
-		die;
-
-			 
-	}	
-		public function actionDynamicSubCategories()
-	{	 
-		$getId = '';
-			if(!empty($_POST['QuestionOptions']['orient_items_id'])) 
-				$getId = $_POST['QuestionOptions']['orient_items_id'];
-				$data	=	Questions::model()->findAll('orient_items_id =:parent_id',array(':parent_id'=>(int) $getId));
-					$data	=	CHtml::listData($data,'id','title');
-			foreach($data as $value=>$name){
-				echo CHtml::tag('option', array('value'=>$value),CHtml::encode($name),true);
-				
-			}
-			
-		die;
-
-			 
-	}	
- 
 }

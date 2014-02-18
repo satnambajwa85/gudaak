@@ -51,11 +51,6 @@
 		<?php echo $form->textField($model,'activation'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->label($model,'questions_id'); ?>
-		<?php echo $form->textField($model,'questions_id'); ?>
-	</div>
-
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>
 	</div>

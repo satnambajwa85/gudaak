@@ -2,19 +2,15 @@
 /* @var $this SiteController */
 $this->pageTitle=Yii::app()->name . ' - Update your Profile';
 ?>
-<div class="col-md-12  fl">
-	
-							
-	 
-						<!--<div class="row test-bot">Question to know your interest</div>-->
-	
+<div class="mt50">&nbsp;</div>
+<div class="col-md-12 mt50 fl ">
 		<?php $form=$this->beginWidget('CActiveForm', array(
-																'id'=>'user-update',
+																'id'=>'user-update-form',
 																'enableAjaxValidation'=>false,
 																'htmlOptions'=>array('enctype'=>'multipart/form-data'),
 													));?>
 							
-				<div class="col-md-2 pull-left">
+				<div class="col-md-2 pull-left mt10">
 
 					<?php $path =	Yii::app()->request->baseUrl.'/uploads/user/large/';?>
 					<?php if(isset($model->image)){ ?> 
@@ -24,7 +20,7 @@ $this->pageTitle=Yii::app()->name . ' - Update your Profile';
 
 					  
 				</div>			
-				<div class="col-md-10 pd0 pull-left">
+				<div class="col-md-9 pd0 pull-left">
 							<div class="form-group">
 								<div class="form-row">
 									<?php echo $form->textField($model,'first_name',array('class'=>'form-control','placeholder'=>'First Name'));
@@ -92,4 +88,3 @@ $this->pageTitle=Yii::app()->name . ' - Update your Profile';
 
 		
 </div>
-				 

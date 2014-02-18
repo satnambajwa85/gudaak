@@ -61,7 +61,7 @@ $(document).ready(function () {
 		$(this).addClass('orange');
 		e.preventDefault();
 	}).filter(':first').click();	
-
+	
 });
 
 						

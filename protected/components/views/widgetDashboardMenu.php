@@ -1,7 +1,7 @@
 <?php $path	=	Yii::app()->theme->baseUrl;?>
 	<header>
 		<div class="logo">
-			<?php echo CHtml::link('<img alt="" src="'.$path.'/images/logo.png">',array('/site'));?>
+			<?php echo CHtml::link('<img alt="" src="'.$path.'/images/dashboard-logo.png">',array('/site'));?>
 		</div><!-- Logo -->
 		<div class="welcome-user">
 			<?php echo CHtml::link('<img alt="'.$userinfo->display_name.'" src="'.Yii::app()->baseUrl.'/uploads/user/small/'.$userinfo->image.'">',array('user/'),array('class'=>'userImage'));?>
@@ -9,9 +9,9 @@
 			<?php echo CHtml::link('<span>'.$userinfo->display_name.'</span>',array('user/'));?>
 			<div class="clear"></div>
 			<div class="progress fl ">
-			  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+			  <div style="width:<?php echo $completeProfile;?> !important;" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
 			  </div>
-			  <span class="sr-only">40% <span>
+			  <span class="sr-only"> <span>
 			
 			</div>
 			  <span class="tolal-process"><?php echo $completeProfile;?> </span>
@@ -22,7 +22,7 @@
 			<div class="user-nav">
 				<ul>
 					<li class="border-right">
-						<?php echo CHtml::Link('<i class="glyphicon glyphicon-user"></i>Profile',array('user/editProfile'));?>
+						<?php echo CHtml::Link('<i class="glyphicon glyphicon-user"></i>Profile',array('user/index'));?>
 						
 					</li>
 					<li class="border-right"><?php echo CHtml::Link('<i class="glyphicon glyphicon-cog"></i>Setting',array('user/changePassword'));?>
@@ -37,95 +37,76 @@
 				<ul>
 					<?php
 $action	=	Yii::app()->controller->action->id;
+$getId='';
 if(isset($_REQUEST['id'])){
 $getId=$_REQUEST['id'];
 }
-else{
-$getId='';
-}
-$active='';
-$displayCss='';
-$activeExplore='';
-$activeExploreDisplay='';
-$careerActive='';
-if($action	==	'tests'||'test'){
-	$active ='slidebg';
-	$displayCss='style="display:block;"';
-	}
-if($action	==	'career'||'careerList'||'careerDetails'){
-	$active ='';
-	$displayCss='style="display:none;"';
-	$careerActive='currentLink';
-	$activeExplore ='slidebg';
-	$activeExploreDisplay='style="display:block;"';
-	}
-if($action	==	'stream'||'streamList'){
-	$active ='';
-	$displayCss='';
-	$careerActive='';
-	$activeExplore ='';
-	$activeExploreDisplay='';
-	$streamActive='currentLink';
-	$stream ='slidebg';
-	$StreamDisplay='style="display:block;"';
-	
-	}
-	if($action	==	'index'){
-	$active ='';
-	$displayCss='';
-	$careerActive='';
-	$activeExplore ='';
-	$activeExploreDisplay='';
-	$streamActive='';
-	$stream ='';
-	$StreamDisplay='';
-	
-	}
-
-
-
-/*if($action	==	'')
-	$accActive ='slidebg';
-if($action	==	'')
-	$accActive ='slidebg';
-	if($action	==	'')
-	$accActive ='slidebg';*/
 		 
 ?>
-					<li><a class="<?php echo $active;?>" title=""><i class="glyphicon glyphicon-record"></i>Acess</a>
-						<ul <?php echo $displayCss;?>>
-							<?php foreach($tests as $testList){ ?>
-							<li><?php echo CHtml::link(''.$testList->title.'',array('user/tests','id'=>$testList->id),array('class'=>($getId==$testList->id)?'currentLink':''))?></li>
-							<?php }?>
-							<li><a title="" href="#">Detailed Report</a></li>
+					<li><?php echo CHtml::link('<i class="icon-desktop"></i>Orientation Tour',array('user/tour'),array('title'=>'Acess','class'=>''.($action=='tour')?'slidebg':''.''))?>
+					</li>
+					<li><?php echo CHtml::link('<i class="glyphicon glyphicon-record"></i>Acess',array('user/tests'),array('title'=>'Acess','class'=>''.($action=='tests')?'slidebg':''.''))?>
+				
+				
+						<ul style="<?php echo ($action=='tests'||$action=='DetailedReport')?'display:block':'';?>">
+							 
+						<!--<li><?php //echo CHtml::link('Tests',array('user/tests'),array('class'=>''.($action=='tests')?'currentLink':''.''))?></li>-->
+							 
+							<li><?php echo CHtml::link('Detailed Report',array('user/DetailedReport'))?></li>
 						</ul>					
 					</li>
-					<li><a class="<?php echo $activeExplore;?>" title=""><i class="glyphicon glyphicon-eye-open"></i>Explore</a>
-						<ul <?php echo $activeExploreDisplay;?>>
-							<li><?php echo CHtml::link('Career library',array('user/career'),array('class'=>''.$careerActive.''))?></li>
-							<li><?php echo CHtml::link('Online Chat',array('user/liveChat'))?>
-							<li><a title="" href="#">Video Clips</a></li>
-							<li><a title="" href="#">Articles</a></li>
+					<?php if(Yii::app()->user->id && Yii::app()->user->userType=='user'){?>
+					<li><?php  echo CHtml::link('<i class="glyphicon glyphicon-eye-open"></i>Explore',array('user/explore'),array('title'=>'Explore','class'=>''.($action=='career'|| $action == 'liveChat' || $action == 'explore' || $action =='articlesList')?'slidebg':''.''))?>
+					
+					
+						<ul style="<?php echo ($action=='career'||$action=='liveChat' || $action=='explore' || $action=='articlesList')?'display:block':'';?>">
+							<li><?php echo CHtml::link('Career library',array('user/career'),array('class'=>''.($action == 'career' || $action ==  'careerList' || $action ==  'careerDetails')?'currentLink':''.''))?></li>
+							<!--<li><?php //echo CHtml::link('Online Chat',array('user/liveChat'),array('class'=>''.($action=='liveChat')?'currentLink':''.''));?></li>--> 	
+							<li><?php echo CHtml::link('Articles',array('user/articlesList'),array('class'=>''.($action=='articlesList')?'currentLink':''.''));?></li>
+							
 							
 						</ul>
 					</li>
-					<li><a class="<?php echo $stream;?>" title=""><i class="glyphicon glyphicon-thumbs-up"></i>Stream Preference </a>
-						<ul <?php echo $StreamDisplay;?>>
-							<li><?php echo CHtml::link('Stream',array('user/stream'),array('class'=>''.$streamActive.''))?></li>
-							
-						</ul>					
+					<li><?php echo CHtml::link('<i class="glyphicon glyphicon-thumbs-up"></i>Career Preference',array('user/careerPreference'),array('title'=>'Career Preference','class'=>''.($action=='careerPreference')?'slidebg':''.''))?>
+						 					
 					</li>
-					<li><a class="" title=""><i class="glyphicon glyphicon-flag"></i>Finalized Stream </a>
-						<ul>
-							 <li><?php echo CHtml::ajaxlink('Online Chat',array('user/liveChat'))?>
-						</ul>					
-					</li>
-					<li><a class="" title=""><i class="icon-anchor"></i>Suggested Stream </a>
-						<ul>
-							
-						</ul>					
-					</li>
+					<?php } else { ?>
+					<li><?php echo CHtml::link('<i class="glyphicon glyphicon-eye-open"></i>Explore',array('user/streamExplore'),array('title'=>'Explore','class'=>''.($action=='streamList'|| $action == 'stream' || $action =='articlesList')?'slidebg':''.''))?>
 					
+					
+						<ul style="<?php echo ($action=='streamList'|| $action == 'stream' || $action == 'streamPreference' || $action =='articlesList')?'display:block':'';?>">
+							<li><?php echo CHtml::link('Stream Library',array('user/streamList'),array('class'=>''.($action == 'streamList' || $action ==  'stream' )?'currentLink':''.''))?></li>
+							<li><?php echo CHtml::link('Articles',array('user/articlesList'),array('class'=>''.($action=='articlesList')?'currentLink':''.''));?></li>
+							
+							
+						</ul>
+					</li>
+					<li><?php echo CHtml::link('<i class="glyphicon glyphicon-thumbs-up"></i>Stream Preference',array('user/streamPreference'),array('title'=>'Career Preference','class'=>''.($action=='streamPreference')?'slidebg':''.''))?>
+						 					
+					</li>
+					<?php } ?>
+					
+				
+					<?php if(Yii::app()->user->id && Yii::app()->user->userType=='user'){?>
+					<li>
+						<?php echo CHtml::link('<i class="glyphicon glyphicon-flag"></i>Finalized Career',array('user/finalizedCareer'),array('class'=>''.($action=='finalizedCareer')?'slidebg':''.''));?>
+					
+					</li>
+							<li><?php echo CHtml::link('<i class="icon-location-arrow"></i>Approach',array('user/exploreColleges'),array('class'=>''.($action=='exploreColleges' ||$action=='shortListedColleges'||$action=='application')?'slidebg':''.''));?>
+					
+						
+						<ul style="<?php echo ($action=='shortListedColleges'||$action=='exploreColleges' || $action=='application')?'display:block':'';?>">
+						
+							<li><?php echo CHtml::link('Shortlisted Colleges',array('user/shortListedColleges'));?></li>
+							<li><?php echo CHtml::link('Application Progress',array('user/application'));?></li>
+						</ul>
+					</li>
+					<?php }else{ ?>
+					<li>
+						<?php echo CHtml::link('<i class="glyphicon glyphicon-flag"></i>Finalized Stream',array('user/finalizedStream'),array('class'=>''.($action=='finalizedStream')?'slidebg':''.''));?>
+					
+					</li>
+					<?php } ?>
 					
 				</ul>
 			</div>

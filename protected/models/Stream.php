@@ -9,12 +9,18 @@
  * @property string $description
  * @property string $image
  * @property string $add_date
+ * @property integer $featured
+ * @property string $rating
  * @property integer $status
  * @property integer $activation
  *
  * The followings are the available model relations:
  * @property CareerOptionsHasStream[] $careerOptionsHasStreams
+ * @property StreamHasSubjects[] $streamHasSubjects
  * @property UserEducation[] $userEducations
+ * @property UserProfilesHasStream[] $userProfilesHasStreams
+ * @property UserStreamComments[] $userStreamComments
+ * @property UserStreamRating[] $userStreamRatings
  */
 class Stream extends CActiveRecord
 {
@@ -35,12 +41,13 @@ class Stream extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('name, description', 'required'),
-			array('status, activation', 'numerical', 'integerOnly'=>true),
-			array('name, description, image', 'length', 'max'=>45),
+			array('featured, status, activation', 'numerical', 'integerOnly'=>true),
+			array('name, image', 'length', 'max'=>45),
+			array('rating', 'length', 'max'=>10),
 			array('add_date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, description, image, add_date, status, activation', 'safe', 'on'=>'search'),
+			array('id, name, description, image, add_date, featured, rating, status, activation', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -53,7 +60,11 @@ class Stream extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'careerOptionsHasStreams' => array(self::HAS_MANY, 'CareerOptionsHasStream', 'stream_id'),
+			'streamHasSubjects' => array(self::HAS_MANY, 'StreamHasSubjects', 'stream_id'),
 			'userEducations' => array(self::HAS_MANY, 'UserEducation', 'stream_id'),
+			'userProfilesHasStreams' => array(self::HAS_MANY, 'UserProfilesHasStream', 'stream_id'),
+			'userStreamComments' => array(self::HAS_MANY, 'UserStreamComments', 'stream_id'),
+			'userStreamRatings' => array(self::HAS_MANY, 'UserStreamRating', 'stream_id'),
 		);
 	}
 
@@ -68,6 +79,8 @@ class Stream extends CActiveRecord
 			'description' => 'Description',
 			'image' => 'Image',
 			'add_date' => 'Add Date',
+			'featured' => 'Featured',
+			'rating' => 'Rating',
 			'status' => 'Status',
 			'activation' => 'Activation',
 		);
@@ -96,6 +109,8 @@ class Stream extends CActiveRecord
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('image',$this->image,true);
 		$criteria->compare('add_date',$this->add_date,true);
+		$criteria->compare('featured',$this->featured);
+		$criteria->compare('rating',$this->rating,true);
 		$criteria->compare('status',$this->status);
 		$criteria->compare('activation',$this->activation);
 

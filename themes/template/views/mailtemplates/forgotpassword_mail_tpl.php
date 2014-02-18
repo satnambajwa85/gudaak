@@ -33,7 +33,7 @@
 	<tr>
 		<td>
 			<a href="#" class="mail_logo">
-			<img src="<?php echo "http://".Yii::app()->request->getServerName().Yii::app()->theme->baseUrl; ?>/images/mail_logo.png"/>
+			<img src="<?php echo "http://".Yii::app()->request->getServerName().Yii::app()->theme->baseUrl; ?>/images/home-logo.png"/>
 			</a>
 		</td>	
 	</tr>
@@ -44,7 +44,7 @@
 	</tr>
 	<tr>
 		<td>
-			Thank you for being part of wdc.com<br />
+			Thank you for being part of gudaak.com<br />
 		Your Account Credentials are as follows:
 		</td>	
 	</tr>
@@ -57,7 +57,7 @@
 	<tr>
 		<td>
 			Regards
-			WDC
+			Gudaak
 		</td>	
 	</tr>
 </table>

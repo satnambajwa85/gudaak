@@ -26,14 +26,30 @@
  * The followings are the available model relations:
  * @property Counselling[] $counsellings
  * @property TestReports[] $testReports
+ * @property UserComments[] $userComments
  * @property UserEducation[] $userEducations
  * @property GenerateGudaakIds $generateGudaakIds
  * @property UserLogin $userLogin
+ * @property UserProfilesHasInstitutes[] $userProfilesHasInstitutes
  * @property UserProfilesHasInterests[] $userProfilesHasInterests
+ * @property UserProfilesHasStream[] $userProfilesHasStreams
+ * @property UserRating[] $userRatings
  * @property UserReports[] $userReports
+ * @property UserScores[] $userScores
+ * @property UserTests[] $userTests
  */
 class UserProfiles extends CActiveRecord
 {
+	/**
+	 * Returns the static model of the specified AR class.
+	 * @param string $className active record class name.
+	 * @return UserProfiles the static model class
+	 */
+	public static function model($className=__CLASS__)
+	{
+		return parent::model($className);
+	}
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -59,7 +75,7 @@ class UserProfiles extends CActiveRecord
 			array('address, user_info', 'length', 'max'=>600),
 			array('postcode', 'length', 'max'=>6),
 			// The following rule is used by search().
-			// @todo Please remove those attributes that should not be searched.
+			// Please remove those attributes that should not be searched.
 			array('id, display_name, first_name, last_name, class, email, gender, date_of_birth, image, mobile_no, address, postcode, user_info, add_date, semd_mail, status, generate_gudaak_ids_id, user_login_id', 'safe', 'on'=>'search'),
 		);
 	}
@@ -74,11 +90,17 @@ class UserProfiles extends CActiveRecord
 		return array(
 			'counsellings' => array(self::HAS_MANY, 'Counselling', 'user_profiles_id'),
 			'testReports' => array(self::HAS_MANY, 'TestReports', 'user_profiles_id'),
+			'userComments' => array(self::HAS_MANY, 'UserComments', 'user_profiles_id'),
 			'userEducations' => array(self::HAS_MANY, 'UserEducation', 'user_profiles_id'),
 			'generateGudaakIds' => array(self::BELONGS_TO, 'GenerateGudaakIds', 'generate_gudaak_ids_id'),
 			'userLogin' => array(self::BELONGS_TO, 'UserLogin', 'user_login_id'),
+			'userProfilesHasInstitutes' => array(self::HAS_MANY, 'UserProfilesHasInstitutes', 'user_profiles_id'),
 			'userProfilesHasInterests' => array(self::HAS_MANY, 'UserProfilesHasInterests', 'user_profiles_id'),
+			'userProfilesHasStreams' => array(self::HAS_MANY, 'UserProfilesHasStream', 'user_profiles_id'),
+			'userRatings' => array(self::HAS_MANY, 'UserRating', 'user_profiles_id'),
 			'userReports' => array(self::HAS_MANY, 'UserReports', 'user_profiles_id'),
+			'userScores' => array(self::HAS_MANY, 'UserScores', 'user_profiles_id'),
+			'userTests' => array(self::HAS_MANY, 'UserTests', 'user_profiles_id'),
 		);
 	}
 
@@ -111,19 +133,12 @@ class UserProfiles extends CActiveRecord
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
-	 *
-	 * Typical usecase:
-	 * - Initialize the model fields with values from filter form.
-	 * - Execute this method to get CActiveDataProvider instance which will filter
-	 * models according to data in model fields.
-	 * - Pass data provider to CGridView, CListView or any similar widget.
-	 *
-	 * @return CActiveDataProvider the data provider that can return the models
-	 * based on the search/filter conditions.
+	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
 	 */
 	public function search()
 	{
-		// @todo Please modify the following code to remove attributes that should not be searched.
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
 
 		$criteria=new CDbCriteria;
 
@@ -149,16 +164,5 @@ class UserProfiles extends CActiveRecord
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
-	}
-
-	/**
-	 * Returns the static model of the specified AR class.
-	 * Please note that you should have this exact method in all your CActiveRecord descendants!
-	 * @param string $className active record class name.
-	 * @return UserProfiles the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
 	}
 }

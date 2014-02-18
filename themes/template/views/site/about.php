@@ -1,10 +1,11 @@
 <?php
 $this->pageTitle=Yii::app()->name . ' - About Us';
 ?>
-<div class="home-tabing container">
+<div class="clear"></div>
+<div class="home-tabing about-fix container  ">
 	<div class="row">
-		<div class="col-md-12 pull-left ">
-			<div  class="col-md-6 pull-left padding-right">
+		<div class="col-md-12 pull-left mt50">
+			<div  class="col-md-6 pull-left about-left-aera">
 					<h1>Enlighten minds with <strong class="orange">Gudaak</strong></h1> 
 					<span>
 						Windows, OS X and Linux have their own style for the scroll bar as you can see in the following screenshot. This in return could lead to undesired results and consistencies for your design.

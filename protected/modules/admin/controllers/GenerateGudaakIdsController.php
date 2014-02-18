@@ -28,11 +28,11 @@ class GenerateGudaakIdsController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','admin','delete'),
+				'actions'=>array('index','view'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','admin','delete'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -69,7 +69,13 @@ class GenerateGudaakIdsController extends Controller
 
 		if(isset($_POST['GenerateGudaakIds']))
 		{
-			$model->attributes=$_POST['GenerateGudaakIds'];
+			$model->attributes	=	$_POST['GenerateGudaakIds'];
+			$model->gudaak_id	=	$_POST['GenerateGudaakIds']['gudaak_id'];
+			$model->schools_id	=	$_POST['GenerateGudaakIds']['schools_id'];
+			$model->cities_id	=	$_POST['GenerateGudaakIds']['cities_id'];
+			$random_number 		= 	rand(999,9999);
+			$gudaakID			=	$model->gudaak_id.'-S'.$model->schools_id.'-C'.$model->cities_id.'-'.$random_number;
+			$model->gudaak_id	=	$gudaakID;
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}

@@ -28,6 +28,7 @@ $('.search-form form').submit(function(){
 
 <h1>Manage Questions</h1>
 
+
 <!--<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>-->
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
@@ -38,24 +39,25 @@ $('.search-form form').submit(function(){
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'questions-grid',
 	'dataProvider'=>$model->search(),
-	//'filter'=>$model,
+//	'filter'=>$model,
 	'columns'=>array(
 		'id',
 		array(
-            'name'=>'Categories',
-            'value'=>'$data->orientItems->orientCategories->title'
+            'name'=>'Orient Items',
+            'value'=>'$data->orientItems->title'
         ),
 		array(
-            'name'=>'Sub_Categories',
-            'value'=>'$data->orientItems->title'
+            'name'=>'Career Categories',
+            'value'=>'$data->careerCategories->title'
         ),
 		'title',
 		'alias',
-		//'description',
+	//	'description',
 		'image',
 		'published',
 		/*
 		'status',
+		'career_categories_id',
 		'orient_items_id',
 		*/
 		array(

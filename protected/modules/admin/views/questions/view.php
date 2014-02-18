@@ -28,6 +28,7 @@ $this->menu=array(
 		'image',
 		'published',
 		'status',
+		'career_categories_id',
 		'orient_items_id',
 	),
 )); ?>

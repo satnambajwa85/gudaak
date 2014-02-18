@@ -3,28 +3,12 @@
 		 News & Updates
 	</div>
 	<div class="list-group">
-		
-		<a class="list-group-item active" href="#">
-		  <h4 class="list-group-item-heading">List group item heading</h4>
-		  <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam.</p>
-		</a>
-		<a class="list-group-item active" href="#">
-		  <h4 class="list-group-item-heading">List group item heading</h4>
-		  <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam.</p>
-		</a>
-		<a class="list-group-item" href="#">
-		  <h4 class="list-group-item-heading">List group item heading</h4>
-		  <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam.</p>
-		</a>
-		<a class="list-group-item" href="#">
-		  <h4 class="list-group-item-heading">List group item heading</h4>
-		  <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam.</p>
-		</a>
-		<a class="list-group-item" href="#">
-		  <h4 class="list-group-item-heading">List group item heading</h4>
-		  <p class="list-group-item-text">Donec id elit non mi porta gravida at eget metus. Maecenas sed diam.</p>
-		</a>
-		
-		<button type="button" class="btn btn-default btn-lg btn-block">Load more news</button>
+		<?php foreach($news as $list){ ?>
+		<?php echo CHtml::link('<h4 class="list-group-item-heading">'.$list->title.'</h4><p class="list-group-item-text">'.substr($list->description,0,55).'..</p>',array('site/news','id'=>$list->id),array('class'=>'list-group-item active','title'=>''.$list->title.''));?>
+		<?php } ?>
+		 <div class="col-md-12 pull-left news-pager">
+			<?php $this->widget('CLinkPager', array('pages' => $pages)) ?>
+		</div>
+		<button type="button" class="btn btn-default btn-lg btn-block lodad-more">Load more news</button>
 	  </div>
 </div>

@@ -29,6 +29,5 @@ $this->menu=array(
 		'add_date',
 		'status',
 		'activation',
-		'questions_id',
 	),
 )); ?>

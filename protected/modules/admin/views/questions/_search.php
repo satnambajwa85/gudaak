@@ -47,6 +47,11 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->label($model,'career_categories_id'); ?>
+		<?php echo $form->textField($model,'career_categories_id'); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->label($model,'orient_items_id'); ?>
 		<?php echo $form->textField($model,'orient_items_id'); ?>
 	</div>

@@ -8,7 +8,7 @@
           </a>
      
           <!-- Be sure to leave the brand out there if you want it shown -->
-		  <?php echo CHtml::link('VIDYARTHA',array('/admin/admin'),array('class'=>'brand'));?>
+		  <?php echo CHtml::link('Gudaak',array('/admin/admin'),array('class'=>'brand'));?>
 		<?php 	
 		
 		?>
@@ -75,7 +75,11 @@
 								array('label'=>'<span class="badge pull-right"></span>career Options Has Subjects', 'url'=>array('/admin/CareerOptionsHasSubjects/admin/')),
                         )),
                         array('label'=>'<span class="badge '.$uProResult.' pull-right">'.$slider.'</span>Site Slider', 'url'=>array('/admin/Slider/admin/')),
+						array('label'=>'Course Stream', 'url'=>array('/admin/courseStream/admin')),
 						array('label'=>'Site Setting', 'url'=>array('/admin/siteSetting/admin')),
+						array('label'=>'Articles', 'url'=>array('/admin/articles/admin')),
+						array('label'=>'News', 'url'=>array('/admin/news/admin')),
+						array('label'=>'Events', 'url'=>array('/admin/events/admin')),
                         /*array('label'=>'Gii generated', 'url'=>array('customer/index')),*/
                         array('label'=>'My Account <span class="caret"></span>', 'url'=>'#','itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"), 
                         'items'=>array(

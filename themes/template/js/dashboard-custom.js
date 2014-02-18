@@ -1,4 +1,40 @@
 $(document).ready(function () {
+	//scroll starts
+		var $scrollBar = $('#scrollBar'),
+		i = 1;
+	$scrollBar
+		.on('reach.scrollbox', function () {
+			if (i < 6) {
+				// emulate XHR
+				window.setTimeout(function () {
+				   
+					$scrollBar.scrollbox('update'); // recalculate bar height and position
+				}, 300);
+			}
+		})
+		.scrollbox({
+			buffer: 150 // position from bottom when reach.scrollbox will be triggered
+		});
+		
+	//scroll ends	
+	//scroll starts
+		var $testScroll = $('#testScroll'),
+		i = 1;
+	$testScroll
+		.on('reach.scrollbox', function () {
+			if (i < 6) {
+				// emulate XHR
+				window.setTimeout(function () {
+				   
+					$testScroll.scrollbox('update'); // recalculate bar height and position
+				}, 300);
+			}
+		})
+		.scrollbox({
+			buffer: 150 // position from bottom when reach.scrollbox will be triggered
+		});
+		
+	//scroll ends
 	$('.hot-link-icon a').tooltip();
 	//$('.tab-description').hide();
 	$('#test-tab a').bind('click', function(e){
@@ -41,9 +77,13 @@ $(document).ready(function () {
 		
 	// career page js end
 	//dashboard menu js start here
-	$(".side-navigation ul li").click( function(){
-		$("ul",this).slideToggle();
-	});			
+	$(".side-navigation ul li").hover( function(){
+		$("ul",this).slideDown();
+	});
+ 
+	//$(".side-navigation ul li").mouseout( function(){
+		//$("ul",this).slideUp();
+	//});
 	//career tabs js end here
 		//$('.tab-description').hide();
 	$('#career-description-tabs li a').bind('click', function(e){
@@ -86,9 +126,22 @@ $(document).ready(function () {
 		$(this).addClass('currrent-tab');
 		e.preventDefault();
 	}).filter(':first').click();	
-	jQuery('#mycarousel').jcarousel();
-	jQuery('#mycarouseltwo').jcarousel();
-	
-
-
+	$( "#tabs" ).tabs();
+	//user profile edit tab 
+	$(".edit-form").click(function(){
+		$("#user-profile-form").hide();
+		$(".profile_tab1_form").show();
+		
+	}); 	
+	//ends here 
+		$(".retake").on("click", function() { // wire up the OK button to dismiss the modal when shown
+			$("#myModal").modal({ // wire up the actual modal functionality and show the dialog
+			"backdrop" : "static",
+			"keyboard" : true,
+			"show" : true // ensure the modal is shown immediately
+			});
+		});
+		$("#update-final-list a").click(function(){
+			$(this).parent().parent().parent().parent().hide(3000);
+	});
 });

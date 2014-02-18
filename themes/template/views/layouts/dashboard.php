@@ -9,12 +9,29 @@
     <!--<link rel="shortcut icon" href="ico/favicon.png">-->
     <title><?php echo CHtml::encode($this->pageTitle);?></title>
     <!-- Bootstrap core CSS -->
-    <link href="<?php echo $path;?>/css/bootstrap.css" rel="stylesheet">
+	<link href="<?php echo $path;?>/css/dashboard.css" rel="stylesheet">
+	<link href="<?php echo $path;?>/css/style.css" rel="stylesheet">
+	<link href="<?php echo $path;?>/css/ui-lightness/jquery-ui-1.10.3.custom.css" rel="stylesheet">
+	
+
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="<?php echo $path;?>/js/html5shiv.js"></script>
       <script src="<?php echo $path;?>/js/respond.min.js"></script>
     <![endif]-->
+	<?php Yii::app()->clientScript->registerScript(
+'myHideEffect',
+'$(".flash-success").animate({opacity: 1.0}, 3000).fadeOut("slow");', 
+CClientScript::POS_READY
+);
+Yii::app()->clientScript->registerScript(
+	'myHideEffect2',
+	'$(".flash-error").animate({opacity: 1.0}, 3000).fadeOut("slow");', 
+	CClientScript::POS_READY
+);
+
+
+?>
   </head>
 
   <body>
@@ -27,8 +44,8 @@
 						<div class="pull-right">
 							<ul class="nav  top-nav-left pull-left">
 							  <li><i class="icon-microphone icon-top"></i><a href="#">Talk to Counsellor</a></li>
-							  <li><i class="glyphicon glyphicon-list-alt icon-top"></i><a href="#">News and Updates</a></li>
-							  <li><i class="glyphicon glyphicon-list-alt icon-top"></i><a href="#">Summary</a></li>
+							  <li><i class="glyphicon glyphicon-list-alt icon-top"></i><?php echo CHtml::link('News and Updates',array('user/newsUpdates'));?></li>
+							  <li><i class="glyphicon glyphicon-list-alt icon-top"></i><?php echo CHtml::link('Summary',array('user/summary'));?></li>
 							 
 							  
 							</ul>
@@ -63,14 +80,14 @@
 	
 			 <ul class="dashboard-footer nav navbar-nav">
             
-				<li><a class="pull-left" href="#about">Home</a><i class="pull-right border-l">|</i></li>
+				<li><?php echo CHtml::link('Home',array('site/'),array('class'=>'pull-left'));?><i class="pull-right border-l">|</i></li>
 				<li><?php echo CHtml::link('About',array('/site/about'),array('class'=>'pull-left'));?><i class="pull-right border-l">|</i></li>
-				<li><a class="pull-left" href="#about">Services</a><i class="pull-right border-l">|</i></li>
-				<li><a class="pull-left" href="#about">Experts</a><i class="pull-right border-l">|</i></li>
-				<li><a class="pull-left" href="#about">Tour</a><i class="pull-right border-l">|</i></li>
-				<li><a class="pull-left" href="#about">Assessment Test</a><i class="pull-right border-l">|</i></li>
-				<li><a class="pull-left" href="#about">Take Test</a><i class="pull-right border-l">|</i></li>
-				<li><a class="pull-left" href="#about">FAQ's</a><i class="pull-right border-l">|</i></li>
+				<!--<li><a class="pull-left" href="#about">Services</a><i class="pull-right border-l">|</i></li>
+				<li><a class="pull-left" href="#about">Experts</a><i class="pull-right border-l">|</i></li>-->
+				<li><?php echo CHtml::link('Tour',array('user/tour'),array('class'=>'pull-left'));?><i class="pull-right border-l">|</i></li>
+				<!--<li><a class="pull-left" href="#about">Assessment Test</a><i class="pull-right border-l">|</i></li>-->
+				<li><?php echo CHtml::link('Take Test',array('user/tests'),array('class'=>'pull-left'));?><i class="pull-right border-l">|</i></li>
+				<!--<li><a class="pull-left" href="#about">FAQ's</a><i class="pull-right border-l">|</i></li>-->
 				<li><?php echo CHtml::link('Contacts',array('site/contact'),array('class'=>'pull-left'));?></li>
 				
 				
@@ -81,12 +98,18 @@
     <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
+    
     <script src="<?php echo $path;?>/js/bootstrap.min.js"></script>
+	<script src="<?php echo $path;?>/js/jquery-ui-1.10.3.custom.js"></script>
 	<script type="text/javascript"  src="<?php echo $path;?>/js/dashboard-custom.js"></script>
-	<script type="text/javascript"  src="<?php echo $path;?>/js/jcarousels.js"></script>
-	 <!-- jquery jcarousel -->
+	<script type="text/javascript"  src="<?php echo $path;?>/js/rating.js"></script>
+	<script src="<?php echo Yii::app()->theme->baseUrl;?>/js/jquery.scrollbox.js" type="text/javascript"></script>
+	
+<script src="<?php echo $path;?>/js/jquery-ui-1.10.3.custom.js"></script>
+<!-- jquery jcarousel --> 
+
+<!-- end Scripts --> 
 
 
-	<!-- end Scripts -->
   </body>
 </html>

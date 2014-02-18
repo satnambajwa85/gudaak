@@ -41,24 +41,14 @@ $('.search-form form').submit(function(){
 	//'filter'=>$model,
 	'columns'=>array(
 		'id',
-			array(
-            'name'=>'Career Categories ',
-            'value'=>'$data->career->careerCategories->title'
-        ),
-		array(
-            'name'=>'Career ',
-            'value'=>'$data->career->title'
-        ),
-
 		'name',
 		'value',
-		'description',
+		//'description',
 		'interest_value',
 		'add_date',
 		/*
 		'status',
 		'activation',
-		'questions_id',
 		*/
 		array(
 			'class'=>'CButtonColumn',

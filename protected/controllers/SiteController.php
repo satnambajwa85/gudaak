@@ -24,7 +24,7 @@ class SiteController extends Controller
 	 * This is the pre load function 
 	 * 
 	 */
-	public function beforeAction() 
+	public function beforeAction($action) 
 	{
 		$data		=	SiteSetting::model()->findByAttributes(array('status'=>1,'published'=>1));
 		Yii::app()->session['setting']	=	array('site_meta'=>$data->site_meta,
@@ -42,69 +42,44 @@ class SiteController extends Controller
 	}
 	public function actionIndex()
 	{
-		// renders the view file 'protected/views/site/index.php'
-		// using the default layout 'protected/views/layouts/main.php'
+		
 		$this->render('index');
+	}	
+	public function actionIndex2()
+	{
+		
+		$this->render('index2');
+	}
+	public function actionIndex3()
+	{
+		
+		$this->render('index3');
+	}
+	public function actionIndex4()
+	{
+		
+		$this->render('index4');
+	}
+	public function actionWhat()
+	{	
+		
+		$this->render('_whatGudaak');
+	
+	}
+	public function actionWhy()
+	{	
+		$this->render('_whyGudaak');
+	
 	}
 	/**
 	 * This is the Register  User 'userRegister' action that is invoked
 	 * when an action is not explicitly requested by users.
 	 */
-	public function actionNewUser()
-	{
-		
-		$model	=	new Register;
-		if(isset($_POST['Register']))
-		{
-						
-			$model->attributes		=	$_POST['Register'];
-			$model->display_name	=	$model->first_name;
-			$model->image			=	'noimage.jpg';
-			$model->add_date		=	date('Y-m-d H:i:s');
-			$model->semd_mail		=	1;
-				$user	 = new  UserLogin();
-				$user->username			=	$_POST['Register']['username'];
-				$user->password			=	md5($_POST['Register']['password']);
-				$user->add_date			=	date('Y-m-d H:i:s');
-				$user->block			=	0;
-				$user->activation		=	1;
-				$user->user_role_id		=	2;
-				$model->user_login_id	=	1;
-				$valid					=	$model->validate();
-				$valid					=	$user->validate() && $valid;
-				if($valid){
-					if($user->save()){
-						$model->user_login_id	=	$user->id;
-						if($model->save()){
-							$body = $this->renderPartial('../mailtemplates/reg_mail_tpl',array('email'=>$_POST['Register']['email'],'password'=>$_POST['Register']['password']), true);
-							$to = $_POST['Register']['email'];
-							$headers  = 'MIME-Version: 1.0' . "\r\n";
-							$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-							$headers .= "From: ".Yii::app()->params['adminEmail']."\r\nReply-To: ".Yii::app()->params['adminEmail'];  
-							$subject = "Account Details";
-							 
-							//mail($to,$subject,$body,$headers);
-							$this->redirect(array('site/login'));
-							Yii::app()->user->setFlash('register','Check email .');
-							Yii::app()->user->setFlash('create','Thank you for join us.');
-							$this->redirect(array('site/userRegister'));
-							die;
-						}
-						else {
-								
-							Yii::app()->user->setFlash('error','Please fill up carefully all field are mandatory.');
-							$this->redirect(array('site/userRegister'));
-							die;
-						}
-					}
-				}
-		}
-
-		$this->renderPartial('newUser', array('model'=>$model), false, true);
-	}
+ 
 	
 	public function actionUserRegister()
 	{	
+		$this->layout='//layouts/main2';
 		if(Yii::app()->user->id){
 			$this->redirect(array('site/'));
 		}
@@ -112,27 +87,46 @@ class SiteController extends Controller
 		
 			if(isset($_POST['Register']))
 			{
-						
 				$model->attributes		=	$_POST['Register'];
 				$model->display_name	=	$model->first_name.' '.$model->last_name;
 				$model->image			=	'noimage.jpg';
+				$gender					=	$_POST['Register']['gender'];
+					if($gender==1){
+					$model->gender			=	'Male';
+					}
+					if($gender==0){
+					$model->gender			=	'Female';
+					}
 				$model->add_date		=	date('Y-m-d H:i:s');
 				$model->semd_mail		=	1;
 				
 				$gudaak_id				=	$model->gudaak_id;
+			
 				
 					$record_exists = GenerateGudaakIds::model()->exists('gudaak_id  = :gudaak ', array(':gudaak'=>$gudaak_id )); 
 					$gudaakId	=	GenerateGudaakIds::model()->findByAttributes(array('gudaak_id'=>$gudaak_id));
 					 
 					if($record_exists==1 AND $gudaak_id !='' ){
-					
+						$findGudakID			=	UserProfiles::model()->exists('generate_gudaak_ids_id= :GDK ', array(':GDK'=>$gudaakId->id)); 
+						 if($findGudakID==1){
+							 	Yii::app()->user->setFlash('create','Gudaak ID already in use.');
+								$this->redirect(array('site/userRegister'));
+						}
+						else{
 						$user	 = new  UserLogin();
 						$user->username			=	$_POST['Register']['email'];
 						$user->password			=	md5($_POST['Register']['password']);
 						$user->add_date			=	date('Y-m-d H:i:s');
 						$user->block			=	0;
+						$Uclass					=	$_POST['Register']['class'];
 						$user->activation		=	1;
-						$user->user_role_id		=	2;
+						if($Uclass<=10){
+							$user->user_role_id		=	4;
+						}
+						if($Uclass>=11){
+							$user->user_role_id		=	3;
+						}
+						
 						$model->user_login_id	=	1;
 						$model->generate_gudaak_ids_id	=	1;
 						
@@ -146,18 +140,14 @@ class SiteController extends Controller
 							$model->generate_gudaak_ids_id	=	$gudaakId->id;
 							
 							if($model->save()){
-								$body = $this->renderPartial('../mailtemplates/reg_mail_tpl',array('email'=>$_POST['Register']['email'],'password'=>$_POST['Register']['password']), true);
-								$to = $_POST['Register']['email'];
-								$headers  = 'MIME-Version: 1.0' . "\r\n";
-								$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-								$headers .= "From: ".Yii::app()->params['adminEmail']."\r\nReply-To: ".Yii::app()->params['adminEmail'];  
-								$subject = "Account Details";
-								 
-								//mail($to,$subject,$body,$headers);
+								//Start  mail Function 
+								$data['name']		=	$model->display_name;
+								$data['email']		=	$user->username;
+								$data['password']	=	$user->password;
+								$this->sendMail($data,'register'); 
+								//End  mail Function  
+								Yii::app()->user->setFlash('create','Thank you for join us check your email.');
 								$this->redirect(array('site/login'));
-								Yii::app()->user->setFlash('register','Check email .');
-								Yii::app()->user->setFlash('create','Thank you for join us.');
-								$this->redirect(array('site/userRegister'));
 								die;
 							}
 							else {
@@ -168,10 +158,10 @@ class SiteController extends Controller
 							}
 						}
 					}
-					
+				}
 				}
 				else{
-					
+						Yii::app()->user->setFlash('create','Please fill accurate information.');
 						$this->redirect(array('site/userRegister'));
 						
 			
@@ -206,35 +196,28 @@ class SiteController extends Controller
 	}
 	//Forgot password
 	public function actionForgetPassword()
-	{
+	{	$this->layout='//layouts/main2';
 		$model=new ForgotpasswordForm;
 		if(isset($_POST['ForgotpasswordForm'])){
 			$model->attributes=$_POST['ForgotpasswordForm'];
-			if($model->validate())
-			{
+			if($model->validate()){
 				//Searches for the record in the database for the posted email 
-				$record_exists = UserProfiles::model()->exists('email = :email', array(':email'=>$_POST['ForgotpasswordForm']['email']));   				
+				$record_exists = UserLogin::model()->exists('username = :email', array(':email'=>$_POST['ForgotpasswordForm']['email']));   				
 				if($record_exists==1){
-					$record = UserProfiles::model()->findByAttributes(array('email'=>$_POST['ForgotpasswordForm']['email'])); 
+					$record = UserLogin::model()->findByAttributes(array('username'=>$_POST['ForgotpasswordForm']['email'])); 
 					//Generates a random number  
 					$random_number = rand(99999,9999999);
 					/*  Actual Code to be used  */
-					$body = $this->renderPartial('/mailtemplates/forgotpassword_mail_tpl',array('userfullname'=>$record->display_name,'email' => $record->email,'password'=>$random_number), true);
-					
-					$headers  = 'MIME-Version: 1.0' . "\r\n";
-					$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-					$headers .= "From: ".Yii::app()->params['adminEmail']."\r\nReply-To: ".Yii::app()->params['adminEmail'];                 	$subject = "Account Details";
-					if(mail($record->email,$subject,$body,$headers)){
-						$id = $record->id;
-						//Can be encodeed id used md5
-						$new_password = $random_number;
-						//Updates the password with the same random nunber which has been e-mailed to the account holder
-						UserProfiles::model()->updateAll(array('password'=>$new_password),'id="'.$record->id.'"');
-						Yii::app()->user->setFlash('new_password_message','Your new password has been sent to the email you provided.');
+				  	$new_password = md5($random_number);
+						UserLogin::model()->updateAll(array('password'=>$new_password),'id="'.$record->id.'"');
+					//Start  mail Function 
+						$data['name']		=	'Dear user';
+						$data['email']		=	$record->username;
+						$data['password']	=	$record->password;
+						$this->sendMail($data,'forget'); 
+						Yii::app()->user->setFlash('new_password_message','Your new password has been sent to your email address.');
 						$this->refresh();
-					} 
-					else
-						Yii::app()->user->setFlash('error',"Sorry mail could not be sent this time!Please try again.");					
+				 		Yii::app()->user->setFlash('new_password_message',"Sorry mail could not be sent this time!Please try again.");					
 					}
 				else{
 						Yii::app()->user->setFlash('error',"The details provided by you does not match our records!");
@@ -249,7 +232,7 @@ class SiteController extends Controller
 	 * This is the action to handle external exceptions.
 	 */
 	public function actionError()
-	{
+	{	
 		if($error=Yii::app()->errorHandler->error)
 		{
 			if(Yii::app()->request->isAjaxRequest)
@@ -264,7 +247,7 @@ class SiteController extends Controller
 	 * Displays the contact page
 	 */
 	public function actionContact()
-	{
+	{	$this->layout='//layouts/main2';
 		$model=new ContactForm;
 		if(isset($_POST['ContactForm']))
 		{
@@ -285,28 +268,27 @@ class SiteController extends Controller
 		}
 		$this->render('contact',array('model'=>$model));
 	}
-	public function actionWhatIsGudaak()
-	{	
-		
-		$this->renderPartial('_whatGudaak',true);
 	
-	}
-	public function actionWhyGudaak()
-	{	
-		
-		$this->renderPartial('_whyGudaak',true);
-	
-	}
 	public function actionAbout()
 	{
-	
+		
 		$this->render('about');
+	}
+	public function actionStudents()
+	{
+		
+		$this->render('features');
+	}
+	public function actionSchools()
+	{
+		
+		$this->render('schoolsFeatures');
 	}
 	/**
 	 * Displays the login page
 	 */
 	public function actionLogin()
-	{	
+	{	$this->layout='//layouts/main2';
 		$model=new LoginForm;
 		// if it is ajax validation request
 		if(isset($_POST['ajax']) && $_POST['ajax']==='login-form')
@@ -320,26 +302,36 @@ class SiteController extends Controller
 		{
 			$model->attributes=$_POST['LoginForm'];
 			// validate user input and redirect to the previous page if valid
-			  
+			 
 			if($model->login()){
-				   
-				Yii::app()->user->setFlash('success','You are sucessfully logged in.');
+				if(!isset(Yii::app()->user->userType)){
+					Yii::app()->user->setFlash('login','Email or password not valid.');
+					$this->redirect(array('site/login'));
+					die;
+				}
 				if(Yii::app()->user->userType=='admin'){
 					$this->redirect(Yii::app()->createUrl('/admin/admin'));
 					
 				}
 				if(Yii::app()->user->userType=='school'){
-					$this->redirect(Yii::app()->createUrl('/school/index'));
+					
+					$this->redirect(Yii::app()->createUrl('/school/'));
 					
 				}
 				if(Yii::app()->user->userType=='user'){
-					$this->redirect(Yii::app()->createUrl('/user/index'));
+					$this->redirect(Yii::app()->createUrl('/user/'));
 					
-				}	
-			}
-			else{
+				}
+				if(Yii::app()->user->userType=='smallUser'){
+				 
+					$this->redirect(Yii::app()->createUrl('/user/'));
+					
+				}
+				else{
 				Yii::app()->user->setFlash('login','Email or password not valid.');
 			}
+			}
+			
 			
 		}
 		else{	

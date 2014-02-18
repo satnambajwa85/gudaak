@@ -20,8 +20,15 @@ class WidgetNews extends CWidget
    }  
    protected function renderContent()
    	{
-	 	
-		$this->render('widgetNews');
+	 	$criteria			=	new CDbCriteria();
+		$criteria->condition= '(published =:published and status =:status )';
+		$criteria->params 	= array('published'=>1,'status'=>1);
+		$count				=	News::model()->count($criteria);
+		$pages				=	new CPagination($count);
+		$pages->pageSize	=	5;
+		$pages->applyLimit($criteria);
+		$news				=	News::model()->findAll($criteria);
+		$this->render('widgetNews',array('pages'=>$pages,'news'=>$news));
 	}  
 
 }

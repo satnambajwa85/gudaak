@@ -14,9 +14,22 @@
  *
  * The followings are the available model relations:
  * @property Career[] $careers
+ * @property CareerAssessment[] $careerAssessments
+ * @property Questions[] $questions
+ * @property UserScores[] $userScores
  */
 class CareerCategories extends CActiveRecord
 {
+	/**
+	 * Returns the static model of the specified AR class.
+	 * @param string $className active record class name.
+	 * @return CareerCategories the static model class
+	 */
+	public static function model($className=__CLASS__)
+	{
+		return parent::model($className);
+	}
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -39,7 +52,7 @@ class CareerCategories extends CActiveRecord
 			array('image', 'length', 'max'=>45),
 			array('description, add_date', 'safe'),
 			// The following rule is used by search().
-			// @todo Please remove those attributes that should not be searched.
+			// Please remove those attributes that should not be searched.
 			array('id, title, description, image, add_date, published, status', 'safe', 'on'=>'search'),
 		);
 	}
@@ -53,6 +66,9 @@ class CareerCategories extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'careers' => array(self::HAS_MANY, 'Career', 'career_categories_id'),
+			'careerAssessments' => array(self::HAS_MANY, 'CareerAssessment', 'career_categories_id'),
+			'questions' => array(self::HAS_MANY, 'Questions', 'career_categories_id'),
+			'userScores' => array(self::HAS_MANY, 'UserScores', 'career_categories_id'),
 		);
 	}
 
@@ -74,19 +90,12 @@ class CareerCategories extends CActiveRecord
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
-	 *
-	 * Typical usecase:
-	 * - Initialize the model fields with values from filter form.
-	 * - Execute this method to get CActiveDataProvider instance which will filter
-	 * models according to data in model fields.
-	 * - Pass data provider to CGridView, CListView or any similar widget.
-	 *
-	 * @return CActiveDataProvider the data provider that can return the models
-	 * based on the search/filter conditions.
+	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
 	 */
 	public function search()
 	{
-		// @todo Please modify the following code to remove attributes that should not be searched.
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
 
 		$criteria=new CDbCriteria;
 
@@ -101,16 +110,5 @@ class CareerCategories extends CActiveRecord
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
-	}
-
-	/**
-	 * Returns the static model of the specified AR class.
-	 * Please note that you should have this exact method in all your CActiveRecord descendants!
-	 * @param string $className active record class name.
-	 * @return CareerCategories the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
 	}
 }

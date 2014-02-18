@@ -38,10 +38,6 @@
 	<?php echo CHtml::encode($data->activation); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('questions_id')); ?>:</b>
-	<?php echo CHtml::encode($data->questions_id); ?>
-	<br />
-
 	*/ ?>
 
 </div>

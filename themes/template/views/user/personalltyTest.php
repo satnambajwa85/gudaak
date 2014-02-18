@@ -54,12 +54,6 @@
 										<?php if($counter==60 ){?>	
 											<?php echo CHtml::submitButton('Submit Test',array('class'=>'btn btn-s-md btn-success')); ?>
 										<?php } ?>
-										
-																					
-								
-										
-										
-									
 								<?php 
 								$counter++;
 								} ?>

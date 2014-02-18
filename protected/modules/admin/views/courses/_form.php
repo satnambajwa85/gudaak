@@ -20,7 +20,7 @@
 	<?php echo $form->errorSummary($model); ?>
 		<div class="form-group">
 		<?php echo $form->labelEx($model,'interests_id'); ?>
-		<?php echo $form->dropDownlist($model,'interests_id',CHtml::listData(Interests::model()->findAll(),'id','name'),array('class'=>'form-control')); ?>
+		<?php echo $form->dropDownlist($model,'interests_id',CHtml::listData(Interests::model()->findAll(),'id','title'),array('class'=>'form-control')); ?>
 		<?php echo $form->error($model,'interests_id'); ?>
 	</div>
 

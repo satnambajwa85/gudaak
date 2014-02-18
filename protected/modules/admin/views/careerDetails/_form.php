@@ -73,7 +73,7 @@
 		<?php echo $form->error($model,'image'); ?>
 		<?php if(isset($model->image)){ ?> 
 		<?php echo $form->hiddenField($model,'oldImage',array('value'=>$model->image)); ?>
-		<img width="100" height="100" src="<?php echo Yii::app()->request->baseUrl.'/uploads/careerDetails/small/'.$model->image;?>" alt="image"/>
+		<img width="100" height="100" src="<?php echo Yii::app()->request->baseUrl.'/uploads/career_details/small/'.$model->image;?>" alt="image"/>
 		<?php }?>
 	</div>
 

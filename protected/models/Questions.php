@@ -11,11 +11,13 @@
  * @property string $image
  * @property integer $published
  * @property integer $status
+ * @property integer $career_categories_id
  * @property integer $orient_items_id
  *
  * The followings are the available model relations:
- * @property QuestionOptions[] $questionOptions
+ * @property CareerCategories $careerCategories
  * @property OrientItems $orientItems
+ * @property QuestionsHasQuestionOptions[] $questionsHasQuestionOptions
  * @property TestReports[] $testReports
  */
 class Questions extends CActiveRecord
@@ -23,7 +25,7 @@ class Questions extends CActiveRecord
 	/**
 	 * @return string the associated database table name
 	 */
-	  public $orient_categories_id;
+	 public $options;
 	public function tableName()
 	{
 		return 'questions';
@@ -37,14 +39,14 @@ class Questions extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, alias, orient_items_id', 'required'),
-			array('published, status, orient_items_id', 'numerical', 'integerOnly'=>true),
+			array('title, alias, description, career_categories_id, orient_items_id', 'required'),
+			array('published, status, career_categories_id, orient_items_id', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>500),
 			array('alias', 'length', 'max'=>100),
 			array('image', 'length', 'max'=>45),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, title, alias, description, image, published, status, orient_items_id', 'safe', 'on'=>'search'),
+			array('id, title, alias, description, image, published, status, career_categories_id, orient_items_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -56,8 +58,9 @@ class Questions extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'questionOptions' => array(self::HAS_MANY, 'QuestionOptions', 'questions_id'),
+			'careerCategories' => array(self::BELONGS_TO, 'CareerCategories', 'career_categories_id'),
 			'orientItems' => array(self::BELONGS_TO, 'OrientItems', 'orient_items_id'),
+			'questionsHasQuestionOptions' => array(self::HAS_MANY, 'QuestionsHasQuestionOptions', 'questions_id'),
 			'testReports' => array(self::HAS_MANY, 'TestReports', 'questions_id'),
 		);
 	}
@@ -75,6 +78,7 @@ class Questions extends CActiveRecord
 			'image' => 'Image',
 			'published' => 'Published',
 			'status' => 'Status',
+			'career_categories_id' => 'Career Categories',
 			'orient_items_id' => 'Orient Items',
 		);
 	}
@@ -104,6 +108,7 @@ class Questions extends CActiveRecord
 		$criteria->compare('image',$this->image,true);
 		$criteria->compare('published',$this->published);
 		$criteria->compare('status',$this->status);
+		$criteria->compare('career_categories_id',$this->career_categories_id);
 		$criteria->compare('orient_items_id',$this->orient_items_id);
 
 		return new CActiveDataProvider($this, array(

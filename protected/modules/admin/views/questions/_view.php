@@ -34,6 +34,10 @@
 	<br />
 
 	<?php /*
+	<b><?php echo CHtml::encode($data->getAttributeLabel('career_categories_id')); ?>:</b>
+	<?php echo CHtml::encode($data->career_categories_id); ?>
+	<br />
+
 	<b><?php echo CHtml::encode($data->getAttributeLabel('orient_items_id')); ?>:</b>
 	<?php echo CHtml::encode($data->orient_items_id); ?>
 	<br />

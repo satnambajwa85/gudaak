@@ -21,9 +21,20 @@
  * @property OrientCategories $orientCategories
  * @property Questions[] $questions
  * @property UserReports[] $userReports
+ * @property UserTests[] $userTests
  */
 class OrientItems extends CActiveRecord
 {
+	/**
+	 * Returns the static model of the specified AR class.
+	 * @param string $className active record class name.
+	 * @return OrientItems the static model class
+	 */
+	public static function model($className=__CLASS__)
+	{
+		return parent::model($className);
+	}
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -47,7 +58,7 @@ class OrientItems extends CActiveRecord
 			array('video_link', 'length', 'max'=>300),
 			array('test_features, test_faqs, add_date', 'safe'),
 			// The following rule is used by search().
-			// @todo Please remove those attributes that should not be searched.
+			// Please remove those attributes that should not be searched.
 			array('id, title, alias, description, test_features, test_faqs, image, video_link, add_date, published, status, orient_categories_id', 'safe', 'on'=>'search'),
 		);
 	}
@@ -63,6 +74,7 @@ class OrientItems extends CActiveRecord
 			'orientCategories' => array(self::BELONGS_TO, 'OrientCategories', 'orient_categories_id'),
 			'questions' => array(self::HAS_MANY, 'Questions', 'orient_items_id'),
 			'userReports' => array(self::HAS_MANY, 'UserReports', 'orient_items_id'),
+			'userTests' => array(self::HAS_MANY, 'UserTests', 'orient_items_id'),
 		);
 	}
 
@@ -89,19 +101,12 @@ class OrientItems extends CActiveRecord
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
-	 *
-	 * Typical usecase:
-	 * - Initialize the model fields with values from filter form.
-	 * - Execute this method to get CActiveDataProvider instance which will filter
-	 * models according to data in model fields.
-	 * - Pass data provider to CGridView, CListView or any similar widget.
-	 *
-	 * @return CActiveDataProvider the data provider that can return the models
-	 * based on the search/filter conditions.
+	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
 	 */
 	public function search()
 	{
-		// @todo Please modify the following code to remove attributes that should not be searched.
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
 
 		$criteria=new CDbCriteria;
 
@@ -121,16 +126,5 @@ class OrientItems extends CActiveRecord
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
-	}
-
-	/**
-	 * Returns the static model of the specified AR class.
-	 * Please note that you should have this exact method in all your CActiveRecord descendants!
-	 * @param string $className active record class name.
-	 * @return OrientItems the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
 	}
 }

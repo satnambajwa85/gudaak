@@ -3,7 +3,7 @@
 class QuestionsController extends Controller
 {
 	/**
-	 * @var string the default layout for the views. Defaults to '/layouts/admin', meaning
+	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
 	public $layout='/layouts/admin';
@@ -28,11 +28,11 @@ class QuestionsController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','DynamicCategories','admin','delete'),
+				'actions'=>array('index','view'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update'),
+				'actions'=>array('create','update','admin','delete'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -69,7 +69,9 @@ class QuestionsController extends Controller
 
 		if(isset($_POST['Questions']))
 		{
-			$model->attributes=$_POST['Questions'];
+			$model->attributes		=$_POST['Questions'];
+			$model->orient_items_id	=$_POST['Questions']['orient_items_id'];
+			$model->options			=$_POST['Questions']['options'];
 			$targetFolder = Yii::app()->request->baseUrl.'/uploads/questions/';
 			if (!empty($_FILES['Questions']['name']['image'])) {
 				$tempFile = $_FILES['Questions']['tmp_name']['image'];
@@ -107,15 +109,21 @@ class QuestionsController extends Controller
 				}
 				$model->image	=	$fileName;
 			}
-			if($model->save())
+			if($model->save()){
+				foreach($model->options as $optionsList){
+					$option	=	new QuestionsHasQuestionOptions;
+					$option->question_options_id 	 = $optionsList;
+					$option->questions_id			=	$model->id;
+					$option->save();
+					
+					
+				}
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
-
-		$this->render('create',array(
-			'model'=>$model,
-		));
+	
+		$this->render('create',array('model'=>$model));
 	}
-
 	/**
 	 * Updates a particular model.
 	 * If update is successful, the browser will be redirected to the 'view' page.
@@ -131,7 +139,11 @@ class QuestionsController extends Controller
 		if(isset($_POST['Questions']))
 		{
 			$model->attributes=$_POST['Questions'];
-					$targetFolder = Yii::app()->request->baseUrl.'/uploads/questions/';
+			$model->orient_items_id	=$_POST['Questions']['orient_items_id'];
+			$model->options			=$_POST['Questions']['options'];
+				$targetFolder1 = $_SERVER['DOCUMENT_ROOT'].Yii::app()->baseUrl.'/uploads/questions/';
+				//echo $targetFolder1;die;
+					$targetFolder = Yii::app()->request->baseUrl.'/uploads/countries/';
 				if (!empty($_FILES['Questions']['name']['image'])) {
 					$tempFile = $_FILES['Questions']['tmp_name']['image'];
 					$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
@@ -175,7 +187,16 @@ class QuestionsController extends Controller
 			 
 				}
 			}
-			if($model->save())
+			if($model->save()){
+					foreach($model->options as $optionsList){
+					$option	=	new QuestionsHasQuestionOptions;
+					$option->question_options_id 	 = $optionsList;
+					$option->questions_id			=	$model->id;
+					$option->save();
+					
+					
+				}
+			}
 				$this->redirect(array('view','id'=>$model->id));
 		}
 
@@ -251,23 +272,4 @@ class QuestionsController extends Controller
 			Yii::app()->end();
 		}
 	}
-	
-	public function actionDynamicCategories()
-	{	 
-		$getId = '';
-			if(!empty($_POST['Questions']['orient_categories_id'])) 
-				$getId = $_POST['Questions']['orient_categories_id'];
-				$data	=	OrientItems::model()->findAll('orient_categories_id =:parent_id',array(':parent_id'=>(int) $getId));
-					$data	=	CHtml::listData($data,'id','title');
-					 
-			foreach($data as $value=>$name){
-				echo CHtml::tag('option', array('value'=>$value),CHtml::encode($name),true);
-				
-			}
-			
-		die;
-
-			 
-	}	
- 
 }

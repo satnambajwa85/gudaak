@@ -1,10 +1,5 @@
-	<div class="border">
-		<ol class="breadcrumb">
-		  <li><a href="#">Assessment</a></li>
-		</ol>
-	</div>
-	<div class="row col-md-9 mar0">
-		<div class="mr0 col-md-12 color-light-green">
+	<div class="row col-md-10 margint mar0">
+		<div class="mr0  col-md-12 color-light-green">
 			<div class="mr0  pull-left middle-format-left">
 				<h1 class="pull-left" style="color:#fff;"><i class="icon-comment-alt">&nbsp;</i>Online Chat</h1>
 			</div>
@@ -95,10 +90,48 @@
 					
 				</div>
 				<div id="online" class="tab-section">
-					2
+					<aside>
+							
+							<ul id="online-activity">
+								<li>
+									<i class="icon-circle pull-left active-user"></i>
+									<a href=""><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/user.png"/></a>
+									<a href="">Jagraj Singh</a>
+								</li>
+								<li>
+									<i class="icon-circle pull-left active-user"></i>
+									<a href=""><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/user.png"/></a>
+									<a href="">Jagraj Singh</a>
+								</li>
+								<li>
+									<i class="icon-circle pull-left active-user"></i>
+									<a href=""><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/user.png"/></a>
+									<a href="">Jagraj Singh</a>
+								</li>
+							</ul>
+						</aside>
 				</div>
 				<div id="offline" class="tab-section">
-					3
+					<aside>
+							
+							<ul id="online-activity">
+								<li>
+									<i class="icon-circle pull-left deactive"></i>
+									<a href=""><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/user.png"/></a>
+									<a href="">Jagraj Singh</a>
+								</li>
+								<li>
+									<i class="icon-circle pull-left deactive"></i>
+									<a href=""><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/user.png"/></a>
+									<a href="">Jagraj Singh</a>
+								</li>
+								<li>
+									<i class="icon-circle pull-left deactive"></i>
+									<a href=""><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/user.png"/></a>
+									<a href="">Jagraj Singh</a>
+								</li>
+							</ul>
+						</aside>
 				</div>
 			</div>
 			
@@ -161,7 +194,7 @@
 		
 	</div>
 	
-					<div class="col-md-3 pd0 pull-left">
+					<div class="col-md-2 pd0 pull-right">
 					<?php  $this->Widget('WidgetNews'); ?>
 				</div>
 			

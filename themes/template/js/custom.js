@@ -1,4 +1,14 @@
 $(document).ready(function () {
+			function checkCheckBoxes(theForm) {
+				if (
+				theForm.MyCheckbox.checked == false) 
+				{
+					alert ('You didn\'t choose any of the checkboxes!');
+					return false;
+				} else {    
+					return true;
+				}
+			}
 			//accessScroll start 
 			var $accessScroll = $('#accessScroll'),
 				i = 1;
@@ -51,7 +61,9 @@ $(document).ready(function () {
 					buffer: 150 // position from bottom when reach.scrollbox will be triggered
 				});
 		//approachScroll end 
+	$('#forget-form').hide();
 	$('.hot-link-icon a').tooltip();
+	$('.footer_2left span a').tooltip();
 	//$('.tab-description').hide();
 	$('#test-tab a').bind('click', function(e){
 		$('#test-tab a.current').removeClass('current');
@@ -114,16 +126,16 @@ $(document).ready(function () {
 		$(this).addClass('currentTab');
 		e.preventDefault();
 	}).filter(':first').click();	
-	//$('.tab-description').hide();
-	
-	//career tabs ends here
+	$('.tab-description').hide();
+		//career tabs ends here
 		$('#access-Links li a').bind('click', function(e){
-		$('#access-Links li a').removeClass('orange');
+		$('#access-Links li a').removeClass('orange ');
 		$('.approach-active:visible').hide();
 		$(this.hash).slideToggle();
 		$(this).addClass('orange');
 		e.preventDefault();
 	}).filter(':first').click();
+	
 		$(".home-login-box ").on("click", function() { // wire up the OK button to dismiss the modal when shown
 		 $("#myModal").modal({ // wire up the actual modal functionality and show the dialog
 		"backdrop" : "static",
@@ -138,6 +150,31 @@ $(document).ready(function () {
 			"show" : true // ensure the modal is shown immediately
 			});
 			});
+		$("#forget").on("click", function() { // wire up the OK button to dismiss the modal when shown
+			 $("#login-form").hide();
+			 $("#forget-form").show();
+		});	
+		$(".login-visible").on("click", function() { // wire up the OK button to dismiss the modal when shown
+			 $("#forget-form").hide();
+			 $("#login-form").show();
+			 
+		});
+		$('.left_nav li a').bind('click', function(e){
+				$('.left_nav li a').removeClass('white-text');
+				$(this).addClass('white-text');
+				e.preventDefault();
+			});
+		$(".counsellor-comment").on("click", function() { // wire up the OK button to dismiss the modal when shown
+			$("#myModal").modal({ // wire up the actual modal functionality and show the dialog
+			"backdrop" : "static",
+			"keyboard" : true,
+			"show" : true // ensure the modal is shown immediately
+			});
+		});
+
+		
+		
+		
 	});
 
 						

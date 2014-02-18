@@ -27,25 +27,36 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'description'); ?>
-		<?php echo $form->textArea($model,'description',array('rows'=>6, 'cols'=>50)); ?>
+		<?php $this->widget('application.extensions.ckeditor.CKEditor', array(
+												'model'=>$model,
+												'attribute'=>'description',
+												'language'=>'en',
+												'editorTemplate'=>'full',
+												)); ?>
 		<?php echo $form->error($model,'description'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'add_date'); ?>
-		<?php echo $form->textField($model,'add_date'); ?>
+		<?php	$this->widget('zii.widgets.jui.CJuiDatePicker',array(
+									'model'=>$model,
+									'attribute'=>'add_date',
+									'options'=>array('dateFormat'=>'yy-mm-dd','minDate'=>0),
+									'htmlOptions'=>array('class'=>'form-control'),
+									'value'=>date('Y-m-d', strtotime('+2 day', strtotime(date('Y-m-d')))),
+									));?>
 		<?php echo $form->error($model,'add_date'); ?>
 	</div>
-
 	<div class="row">
 		<?php echo $form->labelEx($model,'published'); ?>
-		<?php echo $form->textField($model,'published'); ?>
+		<?php echo $form->radioButtonlist($model,'published',array('1'=>'Yes','0'=>'No'),array('separator'=>'')); ?>
 		<?php echo $form->error($model,'published'); ?>
 	</div>
 
-	<div class="row">
+
+	<div class="form-group">
 		<?php echo $form->labelEx($model,'status'); ?>
-		<?php echo $form->textField($model,'status'); ?>
+		<?php echo $form->radioButtonlist($model,'status',array('1'=>'Yes','0'=>'No'),array('separator'=>'')); ?>
 		<?php echo $form->error($model,'status'); ?>
 	</div>
 

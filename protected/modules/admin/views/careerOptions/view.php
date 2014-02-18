@@ -24,7 +24,12 @@ $this->menu=array(
 		'id',
 		'title',
 		'description',
-		'image',
+			 array(
+            'name'=>'image',
+            'type'=>'raw',
+             'value' => '<img src="'.Yii::app()->baseUrl.'/uploads/career_options/small/'.$model->image.'"/>'
+
+        ),
 		'add_date',
 		'modification_date',
 		'published',

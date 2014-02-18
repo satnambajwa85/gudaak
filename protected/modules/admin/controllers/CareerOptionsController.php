@@ -28,7 +28,7 @@ class CareerOptionsController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','admin','delete','DynamicCareer'),
+				'actions'=>array('index','view','admin','delete','DynamicCareer','createDetails','createDetailsView'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
@@ -114,6 +114,35 @@ class CareerOptionsController extends Controller
 		$this->render('create',array(
 			'model'=>$model,
 		));
+	}
+	
+	public function actionCreateDetails($id)
+	{
+		$model=new CareerDetails;
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['CareerDetails']))
+		{
+			$model->attributes=$_POST['CareerDetails'];
+			if($model->save())
+				$this->redirect(array('createDetailsView','id'=>$id));
+		}
+
+		$this->render('createDetails',array('model'=>$model,'id'=>$id));
+	}
+	
+	public function actionCreateDetailsView($id)
+	{
+		$model=new CareerDetails('search');
+		$model->unsetAttributes();  // clear any default values
+		$model->career_options_id	=	$id;
+		
+		if(isset($_GET['CareerDetails']))
+			$model->attributes=$_GET['CareerDetails'];
+
+		$this->render('createDetailsView',array('model'=>$model,'id'=>$id));
 	}
 
 	/**

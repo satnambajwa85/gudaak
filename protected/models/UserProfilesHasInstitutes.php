@@ -4,8 +4,20 @@
  * This is the model class for table "user_profiles_has_institutes".
  *
  * The followings are the available columns in table 'user_profiles_has_institutes':
+ * @property integer $id
  * @property integer $user_profiles_id
  * @property integer $institutes_id
+ * @property string $add_date
+ * @property string $modified_date
+ * @property integer $status
+ * @property integer $published
+ * @property integer $user_count
+ * @property string $field1
+ * @property string $field2
+ *
+ * The followings are the available model relations:
+ * @property UserProfiles $userProfiles
+ * @property Institutes $institutes
  */
 class UserProfilesHasInstitutes extends CActiveRecord
 {
@@ -26,10 +38,12 @@ class UserProfilesHasInstitutes extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('user_profiles_id, institutes_id', 'required'),
-			array('user_profiles_id, institutes_id', 'numerical', 'integerOnly'=>true),
+			array('user_profiles_id, institutes_id, status, published, user_count', 'numerical', 'integerOnly'=>true),
+			array('field1, field2', 'length', 'max'=>45),
+			array('add_date, modified_date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('user_profiles_id, institutes_id', 'safe', 'on'=>'search'),
+			array('id, user_profiles_id, institutes_id, add_date, modified_date, status, published, user_count, field1, field2', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -41,6 +55,8 @@ class UserProfilesHasInstitutes extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'userProfiles' => array(self::BELONGS_TO, 'UserProfiles', 'user_profiles_id'),
+			'institutes' => array(self::BELONGS_TO, 'Institutes', 'institutes_id'),
 		);
 	}
 
@@ -50,8 +66,16 @@ class UserProfilesHasInstitutes extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
+			'id' => 'ID',
 			'user_profiles_id' => 'User Profiles',
 			'institutes_id' => 'Institutes',
+			'add_date' => 'Add Date',
+			'modified_date' => 'Modified Date',
+			'status' => 'Status',
+			'published' => 'Published',
+			'user_count' => 'User Count',
+			'field1' => 'Field1',
+			'field2' => 'Field2',
 		);
 	}
 
@@ -73,8 +97,16 @@ class UserProfilesHasInstitutes extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
+		$criteria->compare('id',$this->id);
 		$criteria->compare('user_profiles_id',$this->user_profiles_id);
 		$criteria->compare('institutes_id',$this->institutes_id);
+		$criteria->compare('add_date',$this->add_date,true);
+		$criteria->compare('modified_date',$this->modified_date,true);
+		$criteria->compare('status',$this->status);
+		$criteria->compare('published',$this->published);
+		$criteria->compare('user_count',$this->user_count);
+		$criteria->compare('field1',$this->field1,true);
+		$criteria->compare('field2',$this->field2,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

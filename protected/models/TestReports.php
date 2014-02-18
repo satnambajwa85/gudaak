@@ -11,14 +11,27 @@
  * @property integer $questions_id
  * @property integer $question_options_id
  * @property integer $user_profiles_id
+ * @property string $add_date
+ * @property integer $test_category
  *
  * The followings are the available model relations:
- * @property Questions $questions
  * @property QuestionOptions $questionOptions
+ * @property Questions $questions
  * @property UserProfiles $userProfiles
  */
-class testReports extends CActiveRecord
+class TestReports extends CActiveRecord
 {
+	/**
+	 * Returns the static model of the specified AR class.
+	 * @param string $className active record class name.
+	 * @return TestReports the static model class
+	 */
+	public $career_categories_id;
+	public static function model($className=__CLASS__)
+	{
+		return parent::model($className);
+	}
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -36,11 +49,12 @@ class testReports extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('questions_id, question_options_id, user_profiles_id', 'required'),
-			array('status, activation, questions_id, question_options_id, user_profiles_id', 'numerical', 'integerOnly'=>true),
+			array('status, activation, questions_id, question_options_id, user_profiles_id, test_category', 'numerical', 'integerOnly'=>true),
 			array('comments', 'length', 'max'=>100),
+			array('add_date', 'safe'),
 			// The following rule is used by search().
-			// @todo Please remove those attributes that should not be searched.
-			array('id, comments, status, activation, questions_id, question_options_id, user_profiles_id', 'safe', 'on'=>'search'),
+			// Please remove those attributes that should not be searched.
+			array('id, comments, status, activation, questions_id, question_options_id, user_profiles_id, add_date, test_category', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -52,8 +66,8 @@ class testReports extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'questions' => array(self::BELONGS_TO, 'Questions', 'questions_id'),
 			'questionOptions' => array(self::BELONGS_TO, 'QuestionOptions', 'question_options_id'),
+			'questions' => array(self::BELONGS_TO, 'Questions', 'questions_id'),
 			'userProfiles' => array(self::BELONGS_TO, 'UserProfiles', 'user_profiles_id'),
 		);
 	}
@@ -71,24 +85,19 @@ class testReports extends CActiveRecord
 			'questions_id' => 'Questions',
 			'question_options_id' => 'Question Options',
 			'user_profiles_id' => 'User Profiles',
+			'add_date' => 'Add Date',
+			'test_category' => 'Test Category',
 		);
 	}
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
-	 *
-	 * Typical usecase:
-	 * - Initialize the model fields with values from filter form.
-	 * - Execute this method to get CActiveDataProvider instance which will filter
-	 * models according to data in model fields.
-	 * - Pass data provider to CGridView, CListView or any similar widget.
-	 *
-	 * @return CActiveDataProvider the data provider that can return the models
-	 * based on the search/filter conditions.
+	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
 	 */
 	public function search()
 	{
-		// @todo Please modify the following code to remove attributes that should not be searched.
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
 
 		$criteria=new CDbCriteria;
 
@@ -99,20 +108,11 @@ class testReports extends CActiveRecord
 		$criteria->compare('questions_id',$this->questions_id);
 		$criteria->compare('question_options_id',$this->question_options_id);
 		$criteria->compare('user_profiles_id',$this->user_profiles_id);
+		$criteria->compare('add_date',$this->add_date,true);
+		$criteria->compare('test_category',$this->test_category);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
-	}
-
-	/**
-	 * Returns the static model of the specified AR class.
-	 * Please note that you should have this exact method in all your CActiveRecord descendants!
-	 * @param string $className active record class name.
-	 * @return testReports the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
 	}
 }

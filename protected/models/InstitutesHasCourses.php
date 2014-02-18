@@ -4,8 +4,16 @@
  * This is the model class for table "institutes_has_courses".
  *
  * The followings are the available columns in table 'institutes_has_courses':
+ * @property integer $id
  * @property integer $institutes_id
  * @property integer $courses_id
+ * @property string $add_date
+ * @property integer $published
+ * @property integer $status
+ *
+ * The followings are the available model relations:
+ * @property Institutes $institutes
+ * @property Courses $courses
  */
 class InstitutesHasCourses extends CActiveRecord
 {
@@ -26,10 +34,11 @@ class InstitutesHasCourses extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('institutes_id, courses_id', 'required'),
-			array('institutes_id, courses_id', 'numerical', 'integerOnly'=>true),
+			array('institutes_id, courses_id, published, status', 'numerical', 'integerOnly'=>true),
+			array('add_date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('institutes_id, courses_id', 'safe', 'on'=>'search'),
+			array('id, institutes_id, courses_id, add_date, published, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -41,6 +50,8 @@ class InstitutesHasCourses extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'institutes' => array(self::BELONGS_TO, 'Institutes', 'institutes_id'),
+			'courses' => array(self::BELONGS_TO, 'Courses', 'courses_id'),
 		);
 	}
 
@@ -50,8 +61,12 @@ class InstitutesHasCourses extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
+			'id' => 'ID',
 			'institutes_id' => 'Institutes',
 			'courses_id' => 'Courses',
+			'add_date' => 'Add Date',
+			'published' => 'Published',
+			'status' => 'Status',
 		);
 	}
 
@@ -73,8 +88,12 @@ class InstitutesHasCourses extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
+		$criteria->compare('id',$this->id);
 		$criteria->compare('institutes_id',$this->institutes_id);
 		$criteria->compare('courses_id',$this->courses_id);
+		$criteria->compare('add_date',$this->add_date,true);
+		$criteria->compare('published',$this->published);
+		$criteria->compare('status',$this->status);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

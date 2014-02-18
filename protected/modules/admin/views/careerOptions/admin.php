@@ -51,7 +51,12 @@ $('.search-form form').submit(function(){
         ),
 		'title',
 		//'description',
-		'image',
+		 array(
+            'name'=>'image',
+            'type'=>'raw',
+             'value' => 'CHtml::image(Yii::app()->baseUrl . "/uploads/career_options/small/" . $data->image)'
+
+        ),
 		'add_date',
 		'modification_date',
 		/*

@@ -20,9 +20,8 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'gudaak_id'); ?>
-		<?php echo $form->textField($model,'gudaak_id'); ?>
-		<?php echo $form->error($model,'gudaak_id'); ?>
+		<?php echo $form->hiddenField($model,'gudaak_id',array('value'=>'GDK')); ?>
+	 
 	</div>
 
 	<div class="row">

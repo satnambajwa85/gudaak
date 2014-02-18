@@ -4,7 +4,7 @@
 /* @var $form CActiveForm */
 ?>
 
-<div class="col-sm-6 form">
+<div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'questions-form',
@@ -19,39 +19,30 @@
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
-	<div class="form-group">
-	<?php echo $form->labelEx($model,'orient_categories_id'); ?>
-			 <?php 	echo $form->dropDownList($model,'orient_categories_id',
-								CHtml::listData(OrientCategories::model()->findAll(),'id','title'),
-								array('ajax' => array('type'=>'POST',
-									'url'=>CController::createUrl('DynamicCategories'), //url to call.
-									'update'=>'#Questions_orient_items_id', //selector to update
-									 
-									
-										)));?>
-	<?php echo $form->error($model,'orient_categories_id'); ?>
-		
-	</div>
- 
-	<div class="form-group">
+	<div class="row">
 		<?php echo $form->labelEx($model,'orient_items_id'); ?>
 		<?php echo $form->dropDownlist($model,'orient_items_id',CHtml::listData(OrientItems::model()->findAll(),'id','title'),array('class'=>'form-control')); ?>
 		<?php echo $form->error($model,'orient_items_id'); ?>
 	</div>
-
-	<div class="form-group">
+	<div class="row">
+		<?php echo $form->labelEx($model,'career_categories_id'); ?>
+		<?php echo $form->dropDownlist($model,'career_categories_id',CHtml::listData(CareerCategories::model()->findAll(),'id','title'),array('class'=>'form-control')); ?>
+		<?php echo $form->error($model,'career_categories_id'); ?>
+	</div>
+	
+	<div class="row">
 		<?php echo $form->labelEx($model,'title'); ?>
-		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>500,'class'=>'form-control')); ?>
+		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>500)); ?>
 		<?php echo $form->error($model,'title'); ?>
 	</div>
 
-	<div class="form-group">
+	<div class="row">
 		<?php echo $form->labelEx($model,'alias'); ?>
-		<?php echo $form->textField($model,'alias',array('size'=>60,'maxlength'=>100,'class'=>'form-control')); ?>
+		<?php echo $form->textField($model,'alias',array('size'=>60,'maxlength'=>100)); ?>
 		<?php echo $form->error($model,'alias'); ?>
 	</div>
 
-	<div class="form-group">
+	<div class="row">
 		<?php echo $form->labelEx($model,'description'); ?>
 		<?php $this->widget('application.extensions.ckeditor.CKEditor', array(
 												'model'=>$model,
@@ -72,11 +63,12 @@
 		<?php }?>
 	</div>
 
-	<div class="form-group">
+	<div class="row">
 		<?php echo $form->labelEx($model,'published'); ?>
 		<?php echo $form->radioButtonlist($model,'published',array('1'=>'Yes','0'=>'No'),array('separator'=>'')); ?>
 		<?php echo $form->error($model,'published'); ?>
 	</div>
+
 
 	<div class="form-group">
 		<?php echo $form->labelEx($model,'status'); ?>
@@ -84,8 +76,21 @@
 		<?php echo $form->error($model,'status'); ?>
 	</div>
 
-	<div class="form-group buttons">
-			<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array('class'=>'btn btn-s-md btn-success')); ?>
+<div class="form-group">
+		
+		<?php $optionsList	=	QuestionOptions::model()->findAllByAttributes(array('activation'=>1,'status'=>1));
+		?>
+		<?php foreach($optionsList as $list){ ?>
+		<?php echo $form->checkBoxList($model,'options[]',array(''.$list->id.''=>''.$list->name.''));
+			
+		?>
+		<?php } ?>
+		
+	</div>
+
+
+	<div class="row buttons">
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>
 
 <?php $this->endWidget(); ?>

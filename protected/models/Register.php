@@ -25,6 +25,7 @@ class Register extends CActiveRecord
 		    array('password', 'required','message' => 'Please enter  password.'), 
 			array('password', 'length', 'max' => 50, 'min' => 6, 'tooShort' => 'Password must have at least 6 chars'),
 		    array('email', 'email'), 
+			array('email','unique'), 
 		    array('gudaak_id', 'required','message' => 'Please enter Gudaak ID.'), 
             array('confirmpass', 'required','message' => 'Please confirm your password.'), 
             array('confirmpass', 'compare', 'compareAttribute'=>'password'), 
