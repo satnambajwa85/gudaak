@@ -1,5 +1,5 @@
 	<div class="career-bot pull-left">
-		<div class="mr0 col-md-12 fl">
+		<div class="mr0 col-md-12 pd0 fl">
 			<div class="mr0  pull-left stream-pref">
 				<h1>Stream Library </h1>
 				<p>It is long established fact a reader will be It is long established fact a reader will be
@@ -25,7 +25,7 @@
 	</div>
 	<div class="col-md-9 pull-left  stream-description">
 		<?php echo CHtml::link('<h1>'.substr($data['name'],0,30).'</h1>',array('user/stream','id'=>$data['id']));?>
-		<p><?php echo substr($data['description'],0,100);?>..</p>
+		<p><?php echo substr($data['description'],0,90);?>..</p>
 			 <ul class="star-rating" style="margin:0px;">
 				<div id="user-rating<?php echo $data['id'];?>"  ></div>
 			</ul>
@@ -52,7 +52,7 @@
 </div>
 
 	
-	<div class="col-md-2 pd0 pull-right">
+	<div class="news pd0 pull-right">
 		<?php  $this->Widget('WidgetNews'); ?>
 	</div>
 			

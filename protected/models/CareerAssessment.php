@@ -10,7 +10,7 @@
  * @property string $add_date
  * @property integer $published
  * @property integer $status
- * @property string $value
+ * @property string $field1
  * @property integer $score_end
  * @property integer $career_categories_id
  *
@@ -19,16 +19,6 @@
  */
 class CareerAssessment extends CActiveRecord
 {
-	/**
-	 * Returns the static model of the specified AR class.
-	 * @param string $className active record class name.
-	 * @return CareerAssessment the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
-	}
-
 	/**
 	 * @return string the associated database table name
 	 */
@@ -47,10 +37,10 @@ class CareerAssessment extends CActiveRecord
 		return array(
 			array('score_start, description, add_date, score_end, career_categories_id', 'required'),
 			array('score_start, published, status, score_end, career_categories_id', 'numerical', 'integerOnly'=>true),
-			array('value', 'length', 'max'=>45),
+			array('field1', 'length', 'max'=>45),
 			// The following rule is used by search().
-			// Please remove those attributes that should not be searched.
-			array('id, score_start, description, add_date, published, status, value, score_end, career_categories_id', 'safe', 'on'=>'search'),
+			// @todo Please remove those attributes that should not be searched.
+			array('id, score_start, description, add_date, published, status, field1, score_end, career_categories_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -78,7 +68,7 @@ class CareerAssessment extends CActiveRecord
 			'add_date' => 'Add Date',
 			'published' => 'Published',
 			'status' => 'Status',
-			'value' => 'Field1',
+			'field1' => 'Field1',
 			'score_end' => 'Score End',
 			'career_categories_id' => 'Career Categories',
 		);
@@ -86,12 +76,19 @@ class CareerAssessment extends CActiveRecord
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
-	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+	 *
+	 * Typical usecase:
+	 * - Initialize the model fields with values from filter form.
+	 * - Execute this method to get CActiveDataProvider instance which will filter
+	 * models according to data in model fields.
+	 * - Pass data provider to CGridView, CListView or any similar widget.
+	 *
+	 * @return CActiveDataProvider the data provider that can return the models
+	 * based on the search/filter conditions.
 	 */
 	public function search()
 	{
-		// Warning: Please modify the following code to remove attributes that
-		// should not be searched.
+		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
 
@@ -101,12 +98,23 @@ class CareerAssessment extends CActiveRecord
 		$criteria->compare('add_date',$this->add_date,true);
 		$criteria->compare('published',$this->published);
 		$criteria->compare('status',$this->status);
-		$criteria->compare('value',$this->value,true);
+		$criteria->compare('field1',$this->field1,true);
 		$criteria->compare('score_end',$this->score_end);
 		$criteria->compare('career_categories_id',$this->career_categories_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+	}
+
+	/**
+	 * Returns the static model of the specified AR class.
+	 * Please note that you should have this exact method in all your CActiveRecord descendants!
+	 * @param string $className active record class name.
+	 * @return CareerAssessment the static model class
+	 */
+	public static function model($className=__CLASS__)
+	{
+		return parent::model($className);
 	}
 }

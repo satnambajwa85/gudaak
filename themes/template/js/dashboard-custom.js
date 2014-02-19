@@ -141,7 +141,38 @@ $(document).ready(function () {
 			"show" : true // ensure the modal is shown immediately
 			});
 		});
-		$("#update-final-list a").click(function(){
-			$(this).parent().parent().parent().parent().hide(3000);
-	});
+		$(".Summary-details").on("click", function() { // wire up the OK button to dismiss the modal when shown
+			$("#Summary-details").modal({ // wire up the actual modal functionality and show the dialog
+			"backdrop" : "static",
+			"keyboard" : true,
+			"show" : true // ensure the modal is shown immediately
+			});
+		});
+		$(".profile-details").on("click", function() { // wire up the OK button to dismiss the modal when shown
+			$("#profile-details").modal({ // wire up the actual modal functionality and show the dialog
+			"backdrop" : "static",
+			"keyboard" : true,
+			"show" : true // ensure the modal is shown immediately
+			});
+		});
+		$(".next_button1").click(function(){
+			$("#tabs-1").hide(10);
+			$("#tabs-2").show(10);
+			$(".next-active-res1").removeClass("ui-state-active");
+			$(".next-active-res2").addClass("ui-state-active");
+		});
+		$(".next_button2").click(function(){
+			$("#tabs-2").hide(10);
+			$("#tabs-3").show(10);
+			$(".next-active-res2").removeClass("ui-state-active");
+			$(".next-active-res3").addClass("ui-state-active");
+		});
+		$("#ui-id-1").click(function(){
+			$(".next-active-res1").addClass("ui-state-active");
+			$(".next-active-res2").removeClass("ui-state-active");
+			$(".next-active-res3").removeClass("ui-state-active");
+		
+			 
+		});
+
 });

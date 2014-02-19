@@ -23,14 +23,23 @@
 				<div class="col-md-12 fl">
 				  	<?php foreach($data as $list){ ?>
 					
-						<div class="col-md-6 pull-left fl  pd-b10">
+						<div class="stream-cat pull-left fl  pd-b10">
 						<div class="col-md-12 fl pd0 ">
 							<div class="pull-left pd0 prefered-stream-img">
-								<img  src="<?php echo Yii::app()->baseUrl;?>/uploads/stream/small/<?php echo (!empty($list['image']))?''.$list['image'].'':'noimage.jpg';?>" />
+							<?php 
+						$filename = ''.$list['image'].'';
+						 $path=Yii::getPathOfAlias('webroot.uploads.stream.small') . '/';
+						$file=$path.$filename;
+						if (file_exists($file)){ ?>
+						<?php echo CHtml::link('<img src="'.Yii::app()->baseUrl.'/uploads/stream/small/'.$list['image'].'"/>',array('user/stream','id'=>''.$list['id'].''),array('class'=>'fl'));?>
+						<?php 	}else{ ?>
+				<?php echo CHtml::link('<img  src="'.Yii::app()->baseUrl.'/uploads/stream/small/noimage.jpg"/>',array('user/stream','id'=>$list['id']));?>
+								
+				<?php } ?>
 							</div>
 							<div class="col-md-9 pull-left  stream-description">
 								<h1><?php echo substr($list['name'],0,30);?></h1>
-								<p><?php echo substr($list['description'],0,100);?>..</p>
+								<p><?php echo substr($list['description'],0,50);?>..</p>
 								   	 <ul class="star-rating" style="margin:0px;">
 										<div id="user-rating<?php echo $list['id'];?>"  ></div>
 									</ul>
@@ -40,7 +49,7 @@
 									 
 										<script type="text/javascript">
 										$(document).ready(function(){
-											$('#user-rating<?php echo $list['id'];?>').raty({readonly:true, score:'<?php echo $list['rating'];?>'});
+											$('#user-rating<?php echo $list['id'];?>').raty({readOnly:true, score:'<?php echo $list['rating'];?>'});
 												
 										});
 									</script>
@@ -108,7 +117,7 @@
 </div>
 
 	
-	<div class="col-md-2 pd0 fl">
+	<div class="news pd0 fl">
 		<?php  $this->Widget('WidgetNews'); ?>
 	</div>
 			

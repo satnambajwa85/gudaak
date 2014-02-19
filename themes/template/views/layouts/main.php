@@ -59,7 +59,7 @@
 						
 						<li><?php echo CHtml::link('School',array('site/schools'),array('class'=>''.(Yii::app()->controller->action->id=='schools')?'white-text':''.''));?></li>
 						<li><?php echo CHtml::link('Student/Parents',array('site/students'),array('class'=>''.(Yii::app()->controller->action->id=='students')?'white-text':''.''));?></li>
-                         <?php if((Yii::app()->user->id) && (Yii::app()->user->userType=='user' or Yii::app()->user->userType=='admin' or Yii::app()->user->userType=='school' )){ ?>
+                         <?php if(isset(Yii::app()->user->id) && isset(Yii::app()->user->userType) && (Yii::app()->user->userType=='upper11th' or Yii::app()->user->userType=='admin' or Yii::app()->user->userType=='below10th' or Yii::app()->user->userType=='school')){ ?>
 					 <li>
 						<?php if(Yii::app()->user->userType=='school'){?>
 						<?php echo CHtml::link('&nbsp;<i class="glyphicon glyphicon-user"></i> Dashboard',array('school/'),array('class'=>'join_us'));?></li>
@@ -113,26 +113,16 @@
 						
                         <?php } ?>
                     </span>
-                    <ul>
+                   <!-- <ul>
                         <li><?php echo CHtml::link('Home',array('site/'))?></li>
 						<li><a href="javascript:void(0);">|</a></li>
 						<li><?php echo CHtml::link('About',array('site/about'))?></li>
-                       <li><a href="javascript:void(0);">|</a></li>
-                        <li><a href="javascript:void(0);">Service</a></li>
-                        <li><a href="javascript:void(0);">|</a></li>
-                        <li><a href="javascript:void(0);">Experts</a></li>
-                        <li><a href="javascript:void(0);">|</a></li>
-                        <li><a href="javascript:void(0);">Tour </a></li>
-                        <li><a href="javascript:void(0);">|</a></li>
-                        <li><a href="javascript:void(0);">Assessment Test</a></li>
-                        <li><a href="javascript:void(0);">|</a></li>
-                        <li><a href="javascript:void(0);">Take a test</a></li>
-                        <li><a href="javascript:void(0);">|</a></li>
+                      	<li><a href="javascript:void(0);">|</a></li>
                         <li><?php echo CHtml::Ajaxlink('FAQs','javascript:void(0);');?>
                         </li>
                         <li><a href="javascript:void(0);">|</a></li>
                         <li><?php echo CHtml::link('Contact',array('site/contact'))?></li>
-                    </ul>
+                    </ul>-->
                 </div>
                 <div class="footer_2right">
                 	<ul>
@@ -148,7 +138,7 @@
 	 
 
 	 </div>
-<?php if(empty(Yii::app()->user->id)) { ?>
+<?php if(!isset(Yii::app()->user->id)) { ?>
 	<!-- set up the modal to start hidden and fade in and out -->
     <div id="myModal" class="modal fade">
     	<div class="modal-dialog">
@@ -221,6 +211,21 @@
                                                             'clientOptions'=>array('validateOnSubmit'=>true,)));?>
                                     <i class="glyphicon glyphicon-edit orange pull-left"></i>
                                     <h4 class="form-signin-heading ">Enroll your future!!!</h4>
+									   <?php 	echo $form->textField($model,'gudaak_id',
+								
+								array('class'=>'form-control','placeholder'=>'Gudaak ID','ajax' => array('type'=>'POST',
+									'url'=>CController::createUrl('site/AutoCompleteLookup'), //url to call.
+									'success'=>'function(data){afterResponse(data)}',
+									//'update'=>'#Register_class',
+									
+									
+										)));?>
+								 
+                                    <?php /*echo CHtml::ajaxLink('Check User', CHtml::normalizeUrl(array('site/CheckUser')), array('data'=>'js:jQuery(this).parents("form").serialize()+"&isAjaxRequest=1"','success'=>'function(data){$("#searchResult").html(data);$("#searchResult").fadeIn();return false;}'),array('id'=>'ajaxSubmit','class'=>'btn btn-primary pull-right','name'=>'ajaxSubmit'));echo '<div class="span4 pull-right alert alert-info" id="searchResult" style="display:none;"></div>';*/
+                                    
+									//echo $form->textField($model,'gudaak_id',array('class'=>'form-control','placeholder'=>'Gudaak ID','autofocus'=>true));
+                                    echo $form->error($model,'gudaak_id');?>
+									  <div class="pd4"></div>
                                     <?php echo $form->textField($model,'first_name',array('class'=>'form-control','placeholder'=>'First Name','autofocus'=>true));
                                     echo $form->error($model,'first_name');?>
                                     <div class="pd4"></div>
@@ -234,7 +239,7 @@
                                                                                     'changeMonth'=>'true',
                                                                                     'changeYear'=>'true',),
                                                                     'htmlOptions'=>array('class'=>'dob form-control pull-left',
-                                                                                        'placeholder'=>'DOB','autofocus'=>true),));?>
+                                                                                        'placeholder'=>'DOB','autofocus'=>false),));?>
                                     <?php echo $form->checkBox($model,'gender',array('id'=>'dimension-switch'));?>
                                     <!--<input type="checkbox" id="dimension-switch" checked>-->
                                     <div class="clearfix"></div>
@@ -246,12 +251,11 @@
                                     <?php echo $form->textField($model,'mobile_no',array('class'=>'form-control','placeholder'=>'Mobile','autofocus'=>true));
                                     echo $form->error($model,'mobile_no');?>
                                     <div class="pd4"></div>
-                                    <?php echo $form->dropDownList($model,'class',array('10'=>'10th','11'=>'11th','12'=>'12th'),array('class'=>'form-control','placeholder'=>'Mobile','autofocus'=>true));
-                                    echo $form->error($model,'class');?>
+									<?php echo $form->dropDownlist($model,'class',array('empty'=>'Please Select'),array('id'=>'class_register','class'=>'form-control'));
+									echo $form->error($model,'class');?>
                                     <div class="pd4"></div>
-                                    <?php /*echo CHtml::ajaxLink('Check User', CHtml::normalizeUrl(array('site/CheckUser')), array('data'=>'js:jQuery(this).parents("form").serialize()+"&isAjaxRequest=1"','success'=>'function(data){$("#searchResult").html(data);$("#searchResult").fadeIn();return false;}'),array('id'=>'ajaxSubmit','class'=>'btn btn-primary pull-right','name'=>'ajaxSubmit'));echo '<div class="span4 pull-right alert alert-info" id="searchResult" style="display:none;"></div>';*/
-                                    echo $form->textField($model,'gudaak_id',array('class'=>'form-control','placeholder'=>'Gudaak ID','autofocus'=>true));
-                                    echo $form->error($model,'gudaak_id');?>
+									<?php echo $form->dropDownlist($model,'medium',CHtml::listData(UserAcademicMedium::model()->findAll(),'id','title'),array('empty'=>'Please Select','class'=>'form-control'));
+									echo $form->error($model,'medium');?>
                                     <div class="pd4"></div>
                                     <?php echo $form->passwordField($model,'password',array('class'=>'form-control','placeholder'=>'Password','autofocus'=>true));
                                     echo $form->error($model,'password');?>
@@ -288,7 +292,21 @@
 (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://widget.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({ c: 'd8b20beb-a91e-4b1c-afad-56b496250b24', f: true }); done = true; } }; })();
 </script>-->
 
-<script type='text/javascript'>(function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://widget.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({ c: '87b04e16-7b9c-4d0e-afbd-42f97c59e435', f: true }); done = true; } }; })();</script>
+<script type='text/javascript'>
+function afterResponse($data){
+	var $response	=	jQuery.parseJSON($data);
+	console.log($response.status);
+	if($response.status==1)
+	{
+		$('#class_register').html($response.data);
+		
+	}
+	 
+		else{alert($response.data);$('#Register_gudaak_id').val('');}
+}
+
+
+(function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://widget.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({ c: '87b04e16-7b9c-4d0e-afbd-42f97c59e435', f: true }); done = true; } }; })();</script>
 
 <!--Add the following script at the bottom of the web page-->
 <!--<script type="text/javascript" src="https://mylivechat.com/chatinline.aspx?hccid=72556058"></script>-->

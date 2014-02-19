@@ -53,7 +53,7 @@
 		 
 </div>
 	
-	<div class="col-md-2 pd0 fl">
+	<div class="news pd0 fl">
 		<?php  $this->Widget('WidgetNews'); ?>
 	</div>
 			

@@ -22,6 +22,6 @@
 													),
 												)); ?>
 </div>
-<div class="col-md-3 pd0 pull-left">
+<div class="news pd0 pull-left">
 	<?php  $this->Widget('WidgetNews'); ?>
 </div>

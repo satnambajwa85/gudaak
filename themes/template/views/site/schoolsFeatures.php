@@ -7,7 +7,7 @@
 					</p>
 					<ul>
 						<li><i class=" icon-play"></i><p>Application designed for school to supervise the program effectively. </p></li>
-						<li><i class=" icon-play"></i><p>Face to Face Counselling workshops and seminars geld in school premises</p></li>
+						<li><i class=" icon-play"></i><p>Face to Face Counselling workshops and seminars held in school premises</p></li>
 						<li><i class=" icon-play"></i><p>Whole program is carried out with the association of school.</p></li>
 						<li><i class=" icon-play"></i><p>School gets updates of the status and necessary actions to be taken.</p></li>
 						<li><i class=" icon-play"></i><p>Any time support right from the school's desktop.</p></li>

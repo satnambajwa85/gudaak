@@ -31,6 +31,7 @@ class Schools extends CActiveRecord
 	/**
 	 * @return string the associated database table name
 	 */
+	 public $states_id,$countries_id;
 	public function tableName()
 	{
 		return 'schools';

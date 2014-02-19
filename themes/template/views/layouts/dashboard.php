@@ -39,7 +39,7 @@ Yii::app()->clientScript->registerScript(
 	<?php  $this->Widget('WidgetDashboardMenu'); ?>
 	<section class="main-section">
 		<div class="left-main">
-			<div class="col-md-12 fl color">
+			<div class="w100 fl color">
 						
 						<div class="pull-right">
 							<ul class="nav  top-nav-left pull-left">
@@ -109,6 +109,9 @@ Yii::app()->clientScript->registerScript(
 <!-- jquery jcarousel --> 
 
 <!-- end Scripts --> 
+
+<?php  $this->Widget('WidgetUserProfile'); ?>
+	
 
 
   </body>

@@ -107,12 +107,28 @@ class StreamController extends Controller
 				}
 				$model->image	=	$fileName;
 			}
-			if($model->save())
+			if($model->save()){
+				if(!empty($_POST['Stream']['subjects']))
+				foreach($_POST['Stream']['subjects'] as $subject=>$val){
+					if($val){
+						$modl				=	new StreamHasSubjects;
+						$modl->subjects_id	=	$subject;
+						$modl->stream_id	=	$model->id;
+						$modl->add_date		=	date('Y-m-d H:i:s');
+						$modl->status		=	1;
+						$modl->save();
+					}
+				}
+				
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
+		$subjectList	=	array();
+		foreach($model->streamHasSubjects as $sub)
+			$subjectList[]	=	$sub->subjects_id;
 
 		$this->render('create',array(
-			'model'=>$model,
+			'model'=>$model,'subjectList'=>$subjectList,
 		));
 	}
 
@@ -175,12 +191,27 @@ class StreamController extends Controller
 					@unlink($targetFolder1.'small/'.$_POST['Stream']['oldImage']);
 				}
 			}
-			if($model->save())
+			if($model->save()){
+				if(!empty($_POST['Stream']['subjects']))
+				foreach($_POST['Stream']['subjects'] as $subject=>$val){
+					if($val){
+						$modl				=	new StreamHasSubjects;
+						$modl->subjects_id	=	$subject;
+						$modl->stream_id	=	$model->id;
+						$modl->add_date		=	date('Y-m-d H:i:s');
+						$modl->status		=	1;
+						$modl->save();
+					}
+				}
 				$this->redirect(array('view','id'=>$model->id));
+			}
 		}
+		$subjectList	=	array();
+		foreach($model->streamHasSubjects as $sub)
+			$subjectList[]	=	$sub->subjects_id;
 
 		$this->render('update',array(
-			'model'=>$model,
+			'model'=>$model,'subjectList'=>$subjectList,
 		));
 	}
 

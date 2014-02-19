@@ -22,19 +22,10 @@
 class TestReports extends CActiveRecord
 {
 	/**
-	 * Returns the static model of the specified AR class.
-	 * @param string $className active record class name.
-	 * @return TestReports the static model class
-	 */
-	public $career_categories_id;
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
-	}
-
-	/**
 	 * @return string the associated database table name
 	 */
+	  public $career_categories_id;
+	
 	public function tableName()
 	{
 		return 'test_reports';
@@ -48,12 +39,12 @@ class TestReports extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('questions_id, question_options_id, user_profiles_id', 'required'),
+			array('questions_id, question_options_id, user_profiles_id, test_category', 'required'),
 			array('status, activation, questions_id, question_options_id, user_profiles_id, test_category', 'numerical', 'integerOnly'=>true),
 			array('comments', 'length', 'max'=>100),
 			array('add_date', 'safe'),
 			// The following rule is used by search().
-			// Please remove those attributes that should not be searched.
+			// @todo Please remove those attributes that should not be searched.
 			array('id, comments, status, activation, questions_id, question_options_id, user_profiles_id, add_date, test_category', 'safe', 'on'=>'search'),
 		);
 	}
@@ -92,12 +83,19 @@ class TestReports extends CActiveRecord
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
-	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+	 *
+	 * Typical usecase:
+	 * - Initialize the model fields with values from filter form.
+	 * - Execute this method to get CActiveDataProvider instance which will filter
+	 * models according to data in model fields.
+	 * - Pass data provider to CGridView, CListView or any similar widget.
+	 *
+	 * @return CActiveDataProvider the data provider that can return the models
+	 * based on the search/filter conditions.
 	 */
 	public function search()
 	{
-		// Warning: Please modify the following code to remove attributes that
-		// should not be searched.
+		// @todo Please modify the following code to remove attributes that should not be searched.
 
 		$criteria=new CDbCriteria;
 
@@ -114,5 +112,16 @@ class TestReports extends CActiveRecord
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
+	}
+
+	/**
+	 * Returns the static model of the specified AR class.
+	 * Please note that you should have this exact method in all your CActiveRecord descendants!
+	 * @param string $className active record class name.
+	 * @return TestReports the static model class
+	 */
+	public static function model($className=__CLASS__)
+	{
+		return parent::model($className);
 	}
 }

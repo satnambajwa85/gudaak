@@ -76,7 +76,43 @@ class SiteController extends Controller
 	 * when an action is not explicitly requested by users.
 	 */
  
-	
+	public function actionAutoCompleteLookup()
+	{  
+		$getId = '';
+		if(!empty($_POST['Register']['gudaak_id'])) {
+			$getId	 		= $_POST['Register']['gudaak_id'];
+			$record_exists	= GenerateGudaakIds::model()->exists('gudaak_id  = :gudaak ', array(':gudaak'=>$getId ));
+			$gudaakId		=	GenerateGudaakIds::model()->findByAttributes(array('gudaak_id'=>$getId));	
+			if($record_exists==1 AND $getId !='' ){
+				$findGudakID			=	UserProfiles::model()->exists('generate_gudaak_ids_id= :GDK ', array(':GDK'=>$gudaakId->id)); 
+				if($findGudakID==1){
+					$response	=	array();
+					$response['status']=0;
+					$response['data']='Gudaak ID already in use';
+					echo json_encode($response); 
+					die;
+				}
+				else{
+					$data	=	  UserClass::model()->findAll('id =:id',array(':id'=>(int) $gudaakId->user_class_id));
+					$data	=	CHtml::listData($data,'id','title');
+					foreach($data as $value=>$name){
+						$response	=	array();
+						$response['status']=1;
+						$response['data']=CHtml::tag('option', array('value'=>$value),CHtml::encode($name),true);
+						echo json_encode($response); 
+						die;
+					}
+				}
+			}
+			else{
+				$response	=	array();
+				$response['status']=0;
+				$response['data']='Please fill correct Gudaak Id';
+				echo json_encode($response); 
+				die;
+			}
+		}
+	}
 	public function actionUserRegister()
 	{	
 		$this->layout='//layouts/main2';
@@ -84,81 +120,77 @@ class SiteController extends Controller
 			$this->redirect(array('site/'));
 		}
 		$model	=	new Register;
-		
-			if(isset($_POST['Register']))
-			{
-				$model->attributes		=	$_POST['Register'];
-				$model->display_name	=	$model->first_name.' '.$model->last_name;
-				$model->image			=	'noimage.jpg';
-				$gender					=	$_POST['Register']['gender'];
-					if($gender==1){
-					$model->gender			=	'Male';
-					}
-					if($gender==0){
-					$model->gender			=	'Female';
-					}
-				$model->add_date		=	date('Y-m-d H:i:s');
-				$model->semd_mail		=	1;
+		if(isset($_POST['Register']))
+		{	
+			$model->attributes		=	$_POST['Register'];
+			$model->display_name	=	$model->first_name.' '.$model->last_name;
+			$model->image			=	'noimage.jpg';
+			$model->user_class_id	=	$_POST['Register']['class'];
+			$model->user_academic_id=	$_POST['Register']['medium'];
+			$gender					=	$_POST['Register']['gender'];
+			if($gender==1){
+			$model->gender			=	'Male';
+			}
+			if($gender==0){
+			$model->gender			=	'Female';
+			}
+			if($model->user_class_id==1||$model->user_class_id==2||$model->user_class_id==3){
+			$userRole				=	2;
+			}
+			if($model->user_class_id==4||$model->user_class_id==5){
+			$userRole				=	3;
+			}
+			$model->add_date		=	date('Y-m-d H:i:s');
+			$model->semd_mail		=	1;
+			$gudaak_id				=	$_POST['Register']['gudaak_id'];
+			$record_exists = GenerateGudaakIds::model()->exists('gudaak_id  = :gudaak ', array(':gudaak'=>$gudaak_id )); 
+			$gudaakId	=	GenerateGudaakIds::model()->findByAttributes(array('gudaak_id'=>$gudaak_id));
+			if($record_exists==1 AND $gudaak_id !='' ){
+				$findGudakID			=	UserProfiles::model()->exists('generate_gudaak_ids_id= :GDK ', array(':GDK'=>$gudaakId->id)); 
+				 if($findGudakID==1){
 				
-				$gudaak_id				=	$model->gudaak_id;
-			
-				
-					$record_exists = GenerateGudaakIds::model()->exists('gudaak_id  = :gudaak ', array(':gudaak'=>$gudaak_id )); 
-					$gudaakId	=	GenerateGudaakIds::model()->findByAttributes(array('gudaak_id'=>$gudaak_id));
-					 
-					if($record_exists==1 AND $gudaak_id !='' ){
-						$findGudakID			=	UserProfiles::model()->exists('generate_gudaak_ids_id= :GDK ', array(':GDK'=>$gudaakId->id)); 
-						 if($findGudakID==1){
-							 	Yii::app()->user->setFlash('create','Gudaak ID already in use.');
-								$this->redirect(array('site/userRegister'));
-						}
-						else{
-						$user	 = new  UserLogin();
-						$user->username			=	$_POST['Register']['email'];
-						$user->password			=	md5($_POST['Register']['password']);
-						$user->add_date			=	date('Y-m-d H:i:s');
-						$user->block			=	0;
-						$Uclass					=	$_POST['Register']['class'];
-						$user->activation		=	1;
-						if($Uclass<=10){
-							$user->user_role_id		=	4;
-						}
-						if($Uclass>=11){
-							$user->user_role_id		=	3;
-						}
-						
-						$model->user_login_id	=	1;
-						$model->generate_gudaak_ids_id	=	1;
-						
-						$valid					=	$model->validate();
-						$valid					=	$user->validate() && $valid;
-						
-					if($valid){
-						if($user->save()){
-							
-							$model->user_login_id			=	$user->id;
-							$model->generate_gudaak_ids_id	=	$gudaakId->id;
-							
-							if($model->save()){
-								//Start  mail Function 
-								$data['name']		=	$model->display_name;
-								$data['email']		=	$user->username;
-								$data['password']	=	$user->password;
-								$this->sendMail($data,'register'); 
-								//End  mail Function  
-								Yii::app()->user->setFlash('create','Thank you for join us check your email.');
-								$this->redirect(array('site/login'));
-								die;
-							}
-							else {
-									
-								Yii::app()->user->setFlash('error','Please fill up carefully all field are mandatory.');
-								$this->redirect(array('site/userRegister'));
-								die;
-							}
-						}
-					}
+						Yii::app()->user->setFlash('create','Gudaak ID already in use.');
+						$this->redirect(array('site/userRegister'));
 				}
+				else{
+					$user					= new  UserLogin();
+					$user->username			=	$_POST['Register']['email'];
+					$user->password			=	md5($_POST['Register']['password']);
+					$user->add_date			=	date('Y-m-d H:i:s');
+					$user->block			=	0;
+					$Uclass					=	$_POST['Register']['class'];
+					$user->activation		=	1;
+					$user->user_role_id		=	$userRole;
+					$model->user_login_id	=	1;
+					$model->generate_gudaak_ids_id	=	1;
+					$valid					=	$model->validate();
+					$valid					=	$user->validate() && $valid;
+					if($valid){
+					if($user->save()){
+						
+						$model->user_login_id			=	$user->id;
+						$model->generate_gudaak_ids_id	=	$gudaakId->id;
+						
+						if($model->save()){
+							//Start  mail Function 
+							$data['name']		=	$model->display_name;
+							$data['email']		=	$user->username;
+							$data['password']	=	$user->password;
+							$this->sendMail($data,'register'); 
+							//End  mail Function  
+							Yii::app()->user->setFlash('create','Thank you for join us check your email.');
+							$this->redirect(array('site/login'));
+							die;
+						}
+						else {
+								
+							Yii::app()->user->setFlash('error','Please fill up carefully all field are mandatory.');
+							$this->redirect(array('site/userRegister'));
+							die;
+						}
+					}
+			}
+		}
 				}
 				else{
 						Yii::app()->user->setFlash('create','Please fill accurate information.');
@@ -301,42 +333,30 @@ class SiteController extends Controller
 		if(isset($_POST['LoginForm']))
 		{
 			$model->attributes=$_POST['LoginForm'];
-			// validate user input and redirect to the previous page if valid
-			 
 			if($model->login()){
-				if(!isset(Yii::app()->user->userType)){
-					Yii::app()->user->setFlash('login','Email or password not valid.');
-					$this->redirect(array('site/login'));
-					die;
-				}
-				if(Yii::app()->user->userType=='admin'){
-					$this->redirect(Yii::app()->createUrl('/admin/admin'));
-					
-				}
-				if(Yii::app()->user->userType=='school'){
-					
-					$this->redirect(Yii::app()->createUrl('/school/'));
-					
-				}
-				if(Yii::app()->user->userType=='user'){
-					$this->redirect(Yii::app()->createUrl('/user/'));
-					
-				}
-				if(Yii::app()->user->userType=='smallUser'){
-				 
-					$this->redirect(Yii::app()->createUrl('/user/'));
+				if(isset(Yii::app()->user->userType)){
+					if(Yii::app()->user->userType=='admin'){
+						$this->redirect(Yii::app()->createUrl('/admin/admin'));
+					}
+					if(Yii::app()->user->userType=='school'){
+						$this->redirect(Yii::app()->createUrl('/school/'));
+					}
+					if(Yii::app()->user->userType=='upper11th'|| Yii::app()->user->userType=='below10th'){
+						$this->redirect(Yii::app()->createUrl('/user/'));
+					}
 					
 				}
 				else{
+					Yii::app()->user->setFlash('login','Email or password not valid.');
+					}
+			}
+			else{
 				Yii::app()->user->setFlash('login','Email or password not valid.');
-			}
+				$this->redirect(Yii::app()->createUrl('/site/login'));
 			}
 			
-			
 		}
-		else{	
-				
-		}
+		
 		$this->render('login',array('model'=>$model));
 	}
 	

@@ -32,7 +32,7 @@ class GenerateGudaakIdsController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','admin','delete'),
+				'actions'=>array('create','update','admin','delete','DynamicList'),
 				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -68,18 +68,27 @@ class GenerateGudaakIdsController extends Controller
 		// $this->performAjaxValidation($model);
 
 		if(isset($_POST['GenerateGudaakIds']))
-		{
-			$model->attributes	=	$_POST['GenerateGudaakIds'];
-			$model->gudaak_id	=	$_POST['GenerateGudaakIds']['gudaak_id'];
-			$model->schools_id	=	$_POST['GenerateGudaakIds']['schools_id'];
-			$model->cities_id	=	$_POST['GenerateGudaakIds']['cities_id'];
-			$random_number 		= 	rand(999,9999);
-			$gudaakID			=	$model->gudaak_id.'-S'.$model->schools_id.'-C'.$model->cities_id.'-'.$random_number;
-			$model->gudaak_id	=	$gudaakID;
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
-		}
+		{	
+			$number_of_user_Ids	=	$_POST['GenerateGudaakIds']['number_of_user_Ids'];
+			if(empty($number_of_user_Ids)){
+				Yii::app()->user->setFlash('error',"Please fill carefully.");
+				$this->redirect(array('create'));
+				die;
+			}
+				
+			for ($x=1; $x<=$number_of_user_Ids; $x++)
+			{	
+				$rendT	=	 rand(5, 99999999);
+				$GDKid				=	new GenerateGudaakIds;
+				$GDKid->attributes	=	$_POST['GenerateGudaakIds'];
+				$gudaakID			=	'GDK-S'.$_POST['GenerateGudaakIds']['schools_id'].'-C'.$_POST['GenerateGudaakIds']['cities_id'].'-'.$rendT;
+				$GDKid->gudaak_id	=	$gudaakID;
+				$GDKid->add_date 	=	date('Y-m-d H:i:s');
+				$GDKid->save();
+		    }
 
+		} 
+		
 		$this->render('create',array(
 			'model'=>$model,
 		));
@@ -175,5 +184,20 @@ class GenerateGudaakIdsController extends Controller
 			echo CActiveForm::validate($model);
 			Yii::app()->end();
 		}
+	}
+	public function actionDynamicList()
+	{	 echo 'hello';die;
+		$getId = '';
+		if(!empty($_POST['GenerateGudaakIds']['cities_id'])) 
+			$getId	 = $_POST['GenerateGudaakIds']['cities_id'];
+			$data	=	 Schools::model()->findAll('cities_id =:parent_id',array(':parent_id'=>(int) $getId));
+			$data	=	CHtml::listData($data,'id','title');
+			foreach($data as $value=>$name){
+				echo CHtml::tag('option', array('value'=>$value),CHtml::encode($name),true);
+				
+			}
+		die;
+
+			 
 	}
 }

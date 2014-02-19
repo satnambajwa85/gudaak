@@ -30,6 +30,7 @@ class Subjects extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('title', 'required'),
+			array('title', 'unique'),
 			array('published, status', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>255),
 			array('description, add_date', 'safe'),

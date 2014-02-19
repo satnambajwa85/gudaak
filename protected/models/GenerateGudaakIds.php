@@ -5,16 +5,18 @@
  *
  * The followings are the available columns in table 'generate_gudaak_ids':
  * @property integer $id
- * @property integer $gudaak_id
+ * @property string $gudaak_id
  * @property integer $cities_id
  * @property integer $schools_id
  * @property string $add_date
  * @property integer $activation
  * @property integer $status
+ * @property integer $user_role_id
  *
  * The followings are the available model relations:
  * @property Cities $cities
  * @property Schools $schools
+ * @property UserRole $userRole
  * @property UserProfiles[] $userProfiles
  */
 class GenerateGudaakIds extends CActiveRecord
@@ -22,6 +24,7 @@ class GenerateGudaakIds extends CActiveRecord
 	/**
 	 * @return string the associated database table name
 	 */
+	 public $number_of_user_Ids;
 	public function tableName()
 	{
 		return 'generate_gudaak_ids';
@@ -35,12 +38,13 @@ class GenerateGudaakIds extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('gudaak_id, cities_id, schools_id, add_date', 'required'),
-			array('gudaak_id', 'unique'),
-			array('gudaak_id, cities_id, schools_id, activation, status', 'numerical', 'integerOnly'=>true),
+			array('gudaak_id, cities_id, schools_id, add_date, user_role_id,user_class_id,number_of_user_Ids', 'required'),
+			array('number_of_user_Ids', 'required','message' => 'Please enter numerical value.'), 
+			array('cities_id, schools_id, activation, status, user_role_id,user_class_id', 'numerical', 'integerOnly'=>true),
+			array('gudaak_id', 'length', 'max'=>245),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, gudaak_id, cities_id, schools_id, add_date, activation, status', 'safe', 'on'=>'search'),
+			array('id, gudaak_id, cities_id, schools_id, add_date, activation, status, user_role_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -54,6 +58,8 @@ class GenerateGudaakIds extends CActiveRecord
 		return array(
 			'cities' => array(self::BELONGS_TO, 'Cities', 'cities_id'),
 			'schools' => array(self::BELONGS_TO, 'Schools', 'schools_id'),
+			'userRole' => array(self::BELONGS_TO, 'UserRole', 'user_role_id'),
+			'userClass' => array(self::BELONGS_TO, 'userClass', 'user_class_id'),
 			'userProfiles' => array(self::HAS_MANY, 'UserProfiles', 'generate_gudaak_ids_id'),
 		);
 	}
@@ -71,6 +77,8 @@ class GenerateGudaakIds extends CActiveRecord
 			'add_date' => 'Add Date',
 			'activation' => 'Activation',
 			'status' => 'Status',
+			'user_role_id' => 'User Role',
+			'user_class_id' => 'User class',
 		);
 	}
 
@@ -93,12 +101,14 @@ class GenerateGudaakIds extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('gudaak_id',$this->gudaak_id);
+		$criteria->compare('gudaak_id',$this->gudaak_id,true);
 		$criteria->compare('cities_id',$this->cities_id);
 		$criteria->compare('schools_id',$this->schools_id);
 		$criteria->compare('add_date',$this->add_date,true);
 		$criteria->compare('activation',$this->activation);
 		$criteria->compare('status',$this->status);
+		$criteria->compare('user_role_id',$this->user_role_id);
+		$criteria->compare('user_class_id',$this->user_class_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

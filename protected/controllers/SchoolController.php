@@ -22,7 +22,7 @@ class SchoolController extends Controller
 			),
 		);
 	}
-	public function beforeAction() 
+	public function beforeAction($action) 
 	{
 		$data		=	SiteSetting::model()->findByAttributes(array('status'=>1,'published'=>1));
 		Yii::app()->session['setting']	=	array('site_meta'=>$data->site_meta,

@@ -42,7 +42,7 @@
 													<?php if(!empty($question['option'])){ ?>
 														<?php 
 														echo $form->radioButtonList($model,'question_options_id['.$question['id'].']',$question['option'],
-array('template'=>"{input} {label}", 'separator'=>' ','onchange' => 'answer(this.value,testId='.$question['testId'].' ,QID='. $question['id'].');')); 
+array('template'=>"{input} {label}", 'separator'=>' ','class'=>'required','onchange' => 'answer(this.value,testId='.$question['testId'].' ,QID='. $question['id'].');')); 
 														?>
 														<script type="text/javascript">
 															$(document).ready(function(){

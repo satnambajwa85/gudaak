@@ -1,14 +1,4 @@
 $(document).ready(function () {
-			function checkCheckBoxes(theForm) {
-				if (
-				theForm.MyCheckbox.checked == false) 
-				{
-					alert ('You didn\'t choose any of the checkboxes!');
-					return false;
-				} else {    
-					return true;
-				}
-			}
 			//accessScroll start 
 			var $accessScroll = $('#accessScroll'),
 				i = 1;
@@ -164,16 +154,6 @@ $(document).ready(function () {
 				$(this).addClass('white-text');
 				e.preventDefault();
 			});
-		$(".counsellor-comment").on("click", function() { // wire up the OK button to dismiss the modal when shown
-			$("#myModal").modal({ // wire up the actual modal functionality and show the dialog
-			"backdrop" : "static",
-			"keyboard" : true,
-			"show" : true // ensure the modal is shown immediately
-			});
-		});
-
-		
-		
 		
 	});
 

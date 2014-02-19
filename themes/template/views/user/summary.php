@@ -54,7 +54,7 @@
 								<?php echo CHtml::link('Online','#')?>
 							</div>
 							<div class="col-md-3 pull-left pd0">
-								<p><?php echo $list->comments;?></p>
+								<p><?php echo $list->orientItems->title ;?></p>
 							</div>
 							<div class="col-md-3 pull-left pd0">
 								<p><?php echo Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse($list->add_date, 'yyyy-MM-dd'),'medium',null);?></p>
@@ -77,7 +77,7 @@
 </div>
 
 	
-	<div class="col-md-2 pd0 fl">
+	<div class="news pd0 fl">
 		<?php  $this->Widget('WidgetNews'); ?>
 	</div>
 			

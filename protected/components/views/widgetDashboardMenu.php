@@ -22,7 +22,7 @@
 			<div class="user-nav">
 				<ul>
 					<li class="border-right">
-						<?php echo CHtml::Link('<i class="glyphicon glyphicon-user"></i>Profile',array('user/index'));?>
+						<?php echo CHtml::Link('<i class="glyphicon glyphicon-user"></i>Profile','javaScript:void(0);',array('class'=>'profile-details'));?>
 						
 					</li>
 					<li class="border-right"><?php echo CHtml::Link('<i class="glyphicon glyphicon-cog"></i>Setting',array('user/changePassword'));?>
@@ -55,7 +55,7 @@ $getId=$_REQUEST['id'];
 							<li><?php echo CHtml::link('Detailed Report',array('user/DetailedReport'))?></li>
 						</ul>					
 					</li>
-					<?php if(Yii::app()->user->id && Yii::app()->user->userType=='user'){?>
+					<?php if(Yii::app()->user->id && Yii::app()->user->userType=='upper11th'){?>
 					<li><?php  echo CHtml::link('<i class="glyphicon glyphicon-eye-open"></i>Explore',array('user/explore'),array('title'=>'Explore','class'=>''.($action=='career'|| $action == 'liveChat' || $action == 'explore' || $action =='articlesList')?'slidebg':''.''))?>
 					
 					
@@ -87,7 +87,7 @@ $getId=$_REQUEST['id'];
 					<?php } ?>
 					
 				
-					<?php if(Yii::app()->user->id && Yii::app()->user->userType=='user'){?>
+					<?php if(Yii::app()->user->id && Yii::app()->user->userType=='upper11th'){?>
 					<li>
 						<?php echo CHtml::link('<i class="glyphicon glyphicon-flag"></i>Finalized Career',array('user/finalizedCareer'),array('class'=>''.($action=='finalizedCareer')?'slidebg':''.''));?>
 					

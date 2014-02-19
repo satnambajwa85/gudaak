@@ -1,4 +1,4 @@
-	<div class=" pull-left">
+	<div class="career-bot pull-left">
 						<?php if(Yii::app()->user->hasFlash('sccess')): ?>
 						<div class="alert alert-success">
 						  <button data-dismiss="alert" class="close" type="button">×</button>
@@ -30,17 +30,18 @@
 				<div id="scrollBar">
                 <?php foreach($data as $list){ ?>
 				<div class="col-md-12 fl pd0 br-all">
-							<div class="col-md-4 pull-left fl pd0">
-									<div class="col-md-12 fl pd0 br-right">
-										<div class="col-md-12 pull-left pd0 stream-img user-streams-list">
+							<div class="col-md-5 pull-left fl pd0">
+									<div class="br-right">
+										<div class="col-md-12 pull-left pd0 stream-img">
 										<?php echo CHtml::link('<img  src="'.Yii::app()->baseUrl.'/uploads/stream/small/'.$list['image'].'" />',array('user/stream','id'=>$list['id']));?>
-                                        <h1><?php echo CHtml::link($list['name'],array('user/stream','id'=>$list['id']));?></h1>
-										</div>
+										<?php echo CHtml::link('<h1 class="stream-img-title">'.$list['name'].'</h1>',array('user/stream','id'=>$list['id']));?>
 										
+										</div>
+										 
 									</div>
 						
 							</div>
-            <div class="col-md-4 pull-left stream-ratting pd5">
+            <div class="col-md-3 pull-left stream-ratting pd5">
         		<span>Your rating for this stream</span>
                		   	 <ul class="star-rating" style="margin:0px;">
 							<div id="user-rating<?php echo $list['id'];?>"  ></div>
@@ -59,11 +60,19 @@
             <div class="col-md-4 pull-left stream-ratting pd5 br-left">
         		<span>Do you think this is the best stream for you</span>
                 <div class="clear"></div>
+				<?php if ($list['updated_by']==0){?>
 				<?php echo CHtml::ajaxLink('Make Final',array('user/finalizedStream','id'=>$list['id']),
-												array('type'=>'POST','success'=>'function(retval){$("#insider_div").attr("style",retval);}'),
+												array('type'=>'POST','success'=>'function(data){alert(data)}'),
 												array('confirm'=>'Are you sure you want to make final this item?',
 														'class'=>'white-text btn btn-warning',
 														'id'=>'final_item-'.$list['id']));  ?>
+				<?php }else{ ?>
+				<?php echo CHtml::ajaxLink('Finalized','javaScript:void(0)',
+												array('type'=>'POST'),
+												array('confirm'=>'Already Finalized.',
+														'class'=>'white-text btn btn-warning',
+														'id'=>'final_item-'.$list['id']));  ?>
+				<?php } ?>
 	        </div>
         
         </div>
@@ -138,7 +147,7 @@
 				</div>
 		   </div>
             <?php } else{  ?>
-				<div class="mr0 col-md-4 fl ">
+				<div class="mr0 col-md-6 fl ">
 					
 						<div class="mr0  pull-left middle-format-left">
 							<h1>Counsellor has not recommend any stream yet.</h1>
@@ -147,12 +156,12 @@
 						</div>
 				</div>
 			<?php } ?>
-		<div class="col-md-2 pd0 pull-right">
+		
+</div>
+</div>
+	<div class="news pd0 fl">
 		<?php  $this->Widget('WidgetNews'); ?>
-</div>
-</div>
-
-    
+	</div>
 <script type="text/javascript">
 function saveRating(cid,rate){
 	var url	=	'<?php echo Yii::app()->createUrl('/user/UserStreamRaitng');?>';

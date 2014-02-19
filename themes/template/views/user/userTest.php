@@ -10,7 +10,7 @@
 						<?php  $count=1;
 								foreach($testContent as $list){ 
 								if($count%2 == 0)
-									$css='middle-format-right';
+									$css='middle-format-left';
 								else 
 									$css='middle-format-left';			 
 									$count= $count+1;
@@ -18,7 +18,7 @@
 								?>
 					
 						<div class="mr0 col-md-6 pull-left <?php echo $css;?>">
-							<h1><?php echo $list->title;?> Test</h1>
+							<h1><?php echo $list->title;?></h1>
 							<p><?php echo substr($list->description,0,225);?>..</p>
 							<!--<a href="#">Konw more about stream explore</a>-->
 						</div>
@@ -69,13 +69,61 @@
 								
 								<div align="center" class="mar-bottom mt94">							 
 									
-									<?php	echo CHtml::link('Retake Test','javaScript:void(0);',array('class'=>'btn retake btn-warning'));?>
+									<?php	echo CHtml::link('Retake Test','javaScript:void(0);',array('class'=>'btn retake'.$list->title.' btn-warning'));?>
 									<?php	echo CHtml::Ajaxlink('Summary',array('user/summaryDetails','id'=>$list->id),array('update'=>'#summeryRecodes'),array('class'=>'btn Summary-details btn-warning ml15'));?>
 									 
 									
 								</div>
 							</div>
 						</div>
+						<div id="retake<?php echo $list->id;?>" class="modal fade">
+    	<div class="modal-dialog">
+        	<div class="modal-content">
+            <!-- dialog body -->
+            	<div class="modal-body">
+                		<div class="site-logo"></div>
+						<div class="row white ">
+                        	<div class="col-md-12 pd13 ">
+                            	  <div  class="col-md-12 pull-left">
+								<a data-dismiss="modal" class="btn btn-info pull-right ">close</a>
+								
+                                    <div id="">
+                                        <?php   
+                                        $form=$this->beginWidget('CActiveForm', array(
+                                                                        'id'=>'retake-test-form',
+																		 'action'=>Yii::app()->createUrl('/user/retakeTest'),
+                                                                        'enableClientValidation'=>true,
+                                                                        'clientOptions'=>array('validateOnSubmit'=>true,)));?>
+                                    <?php echo $form->hiddenField($model,'orient_items_id',array('value'=>''.$list->id.''));
+                                   ?>
+                                    <h4 class="form-signin-heading ">Send Request To Retake To Test</h4>
+                                    <?php echo $form->textField($model,'title',array('class'=>'form-control','placeholder'=>'Title','autofocus'=>true));
+                                    echo $form->error($model,'title');?>
+                                    <div class="pd4"></div>
+                                    <?php echo $form->textArea($model,'description',array('class'=>'form-control','placeholder'=>'description'));
+                                    echo $form->error($model,'description');?>
+                                    <div class="pd4"></div>
+                                     
+                                    <div class="clearfix"></div>
+                                    <div align="center" class="col-md-3  pd0 ">
+                                        <?php echo CHtml::submitButton('Submit',array('class'=>'btn btn-warning fl login'));?>
+                                        <div class="clearfix"></div>
+                                        <!--<div class="or">or</div>-->
+                                        <?php //echo CHtml::link('<i class="posi-bt icon-facebook"></i>Login with your<br/><strong>Facebook Account</strong>',array('/site/forgetPassword'),array('class'=>'btn btn-lg btn-primary fb'));?>
+                                        </div>
+                                        <?php $this->endWidget(); ?>
+                            
+                                </div>
+                                 </div>
+                               
+							</div>
+						</div>
+	   			</div>
+		<!-- dialog buttons -->
+		 
+		</div>
+	</div>
+    </div>
 						<?php  }else{ ?>
 							<div class="col-md-6 pull-left">
 							<div class="col-md-12 pull-left border-box">
@@ -101,53 +149,7 @@
 					<?php  $this->Widget('WidgetNews'); ?>
 				</div>
 </div>
-<div id="myModal" class="modal fade">
-    	<div class="modal-dialog">
-        	<div class="modal-content border-layer">
-            <!-- dialog body -->
-            	<div class="modal-body">
-                		<div class="site-logo"></div>
-						<div class="row white ">
-                        	<div class="col-md-12 pd13 ">
-                            	<div class="hide-overflow2" style="top:-20px;z-index:0"></div>
-                                <div  class="col-md-12 login-box pull-left">
-								<a data-dismiss="modal" class="btn btn-info pull-right ">close</a>
-								
-                                    <div id="">
-                                        <?php   
-                                        $form=$this->beginWidget('CActiveForm', array(
-                                                                        'id'=>'retake-test-form',
-                                                                        'enableClientValidation'=>true,
-                                                                        'clientOptions'=>array('validateOnSubmit'=>true,)));?>
-                                   
-                                    <h4 class="form-signin-heading ">Send Request To Retake To Test</h4>
-                                    <?php echo $form->textField($model,'title',array('class'=>'form-control','placeholder'=>'Title','autofocus'=>true));
-                                    echo $form->error($model,'title');?>
-                                    <div class="pd4"></div>
-                                    <?php echo $form->textArea($model,'description',array('class'=>'form-control','placeholder'=>'description'));
-                                    echo $form->error($model,'description');?>
-                                    <div class="pd4"></div>
-                                     
-                                    <div class="clearfix"></div>
-                                    <div align="center" class="top-stats-icons mt50">
-                                        <?php echo CHtml::submitButton('Submit',array('class'=>'btn btn-warning login'));?>
-                                        <div class="clearfix"></div>
-                                        <!--<div class="or">or</div>-->
-                                        <?php //echo CHtml::link('<i class="posi-bt icon-facebook"></i>Login with your<br/><strong>Facebook Account</strong>',array('/site/forgetPassword'),array('class'=>'btn btn-lg btn-primary fb'));?>
-                                        </div>
-                                        <?php $this->endWidget(); ?>
-                            
-                                </div>
-                                 </div>
-                               
-							</div>
-						</div>
-	   			</div>
-		<!-- dialog buttons -->
-		 
-		</div>
-	</div>
-    </div>
+
 <div id="Summary-details" class="modal fade">
     	<div class="modal-dialog">
         	<div class="modal-content">

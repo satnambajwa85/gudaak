@@ -395,10 +395,14 @@ background-image: url("../images/01_Home_Slider_1.jpg");
     border-color: #D6E9C6;
     clear: both;
     color: #468847;
-    height: 82px;
+    height: 52px;
     position: relative;
     z-index: 9999;}
 .mb11{margin-bottom:11px !important;}
 strong {
     font-family: open sans !important;
+}
+.user-edu {
+    font-size: 9px;
+    font-weight: normal !important;
 }

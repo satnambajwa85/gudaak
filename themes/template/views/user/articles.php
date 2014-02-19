@@ -21,7 +21,7 @@
 				 </div>
 				  <div class="clear"></div>
 				<p>
-				<?php echo substr($articles->description,0,5000);?>	
+				<?php echo substr($articles->description,0,3000);?>	
 				</p>
 				 <h2 class="about-author">About the author</h2>
 				 <p>	

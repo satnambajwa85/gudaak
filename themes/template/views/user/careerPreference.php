@@ -30,11 +30,11 @@
 						
 
 					</div>
-				<div class="col-md-12 fl">
-				<div id="scrollBar">
+				<div class="col-md-12 pdleft  fl">
+				<div id="scrollBar" style="max-height:249px;">
                 	<?php foreach($data as $list){?>
 					
-						<div class="col-md-12 pull-left fl  pd-b10">
+						<div class="col-md-12 pdleft  pull-left fl  pd-b10">
 						<div class="col-md-12 fl pd0 ">
 							<div class="pull-left pd0 prefered-stream-img">
 							<?php 
@@ -42,9 +42,9 @@
 									 $path=Yii::getPathOfAlias('webroot.uploads.career_options.small') . '/';
 									$file=$path.$filename;
 									if (file_exists($file)){ ?>
-									<?php echo CHtml::link('<img src="'.Yii::app()->baseUrl.'/uploads/career_options/small/'.$list['image'].'"/>',array('user/careerDetails','id'=>''.$list['image'].''));?>
+									<?php echo CHtml::link('<img src="'.Yii::app()->baseUrl.'/uploads/career_options/small/'.$list['image'].'"/>',array('user/careerDetails','id'=>''.$list['id'].''));?>
 									<?php 	}else{ ?>
-									<?php echo CHtml::link('<img src="'.Yii::app()->baseUrl.'/uploads/career_options/small/noimage.jpg"/>',array('user/careerDetails','id'=>''.$list['image'].''));?>
+									<?php echo CHtml::link('<img src="'.Yii::app()->baseUrl.'/uploads/career_options/small/noimage.jpg"/>',array('user/careerDetails','id'=>''.$list['id'].''));?>
 								
 							<?php } ?>
 								
@@ -57,8 +57,19 @@
 										<div id="user-rating<?php echo $list['id'];?>"  ></div>
 									</ul>
 									<div id="update-final-list">
-									<?php echo CHtml::Ajaxlink('<span>Make Final</span>',array('user/finalizedCareer','id'=>''.$list['id'].''),array('update'=>'#flashMessage'));?>
-					
+									<?php if($list['updated_by']==0){?>
+									<?php echo CHtml::ajaxLink('Make Final',array('user/finalizedCareer','id'=>$list['id']),
+																		array('type'=>'POST','success'=>'function(data){alert(data)}'),
+																		array('confirm'=>'Are you sure you want to make final this item?',
+																				'class'=>'fr',
+																				'id'=>'final_item-'.$list['id']));  ?>
+									<?php }else{ ?>
+									<?php echo CHtml::ajaxLink('Finalized','javaScript:void(0);',
+																		array('type'=>'POST','success'=>'function(data){alert(data)}'),
+																		array('confirm'=>'Already Finalized.',
+																				'class'=>'fr',
+																				'id'=>'final_item-'.$list['id']));  ?>
+									<?php } ?>
 							  		</div>
 									<script type="text/javascript">
 										$(document).ready(function(){
@@ -81,7 +92,7 @@
 					<?php //echo CHtml::link('Still confused',array('user/'),array('class'=>'white-text btn btn-warning'));?>
 				</div>-->
 				
-				<div class="col-md-12 pull-left user-feedback">
+				<div class="col-md-12 pd0 pull-left user-feedback">
 					<h1>Feedback</h1>
 					<p>Your valuable idea about this stream Explore. </p>
 					<span class="fl">1.Weather counselling with counselor satisfactory?</span>
@@ -185,19 +196,7 @@
 			<?php } ?>
 		
 </div>
-
-	
-	<!--<script type="text/javascript">
-function saveRating(cid,rate){
-	var url	=	'<?php //echo Yii::app()->createUrl('/user/UserRaitng');?>';
-	$.ajax({
-		type: "POST",
-		url: url+'&id='+cid+'&rating='+rate,
-		data: 'rating',
-		dataType:'json',
-		success:function(data){
-				$('.s').html(data.want_to_join);
-			}
-	});
-}
-</script>-->
+</div>
+	<div class="news pd0 pull-right">
+		<?php  $this->Widget('WidgetNews'); ?>
+	</div>

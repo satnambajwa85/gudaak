@@ -10,4 +10,7 @@
 			
 		</div>
 </div>
-		
+		<div class="news pd0 fl">
+		<?php  $this->Widget('WidgetNews'); ?>
+	</div>
+				

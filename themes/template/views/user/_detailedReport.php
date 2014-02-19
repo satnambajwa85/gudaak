@@ -1,5 +1,7 @@
 <script type="text/javascript"  src="<?php echo Yii::app()->theme->baseUrl;?>/js/dashboard-custom.js"></script>		
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl;?>/js/jquery.flot.min.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl;?>/js/jquery.knob.js"></script>
+
 <div id="scrollBar" style="max-height:400px">
 <div class="pull-left">
 		<div class="mr0 col-md-12 fl">
@@ -58,32 +60,16 @@
 						</div>
                         <div class="clear"></div>
                         <?php if($report['id']==3){?>
-                        
-<script type="text/javascript">
-google.load("visualization", '1.1', {packages:['corechart']});
-google.setOnLoadCallback(drawChart);
-function drawChart() {
-var data = google.visualization.arrayToDataTable([
-['Career', 'Score'],
-<?php foreach($report['results1'] as $result1){
-	foreach($result1 as $result){
-	?>
-['<?php echo $result['title'];?>', <?php echo $result['score'];?>],
-<?php } }?>
-]);
-var options = {
-title: "Score of interest test for Career",
-//width: 600,
-//height: 400,
-bar: {groupWidth: '95%'},
-legend: { position: 'none' },
-};
-var chart = new google.visualization.BarChart(document.getElementById('chart_div'));
-chart.draw(data, options);
-}
-</script>
-                        <div id="chart_div" style="width: 90%;"></div>
-                        <?php } 
+<div class="sec1">
+	<?php foreach($report['results1'] as $result){?>
+    <div>
+		<div class="w20 fl"><?php echo $result['title'];?></div>
+		<div class="w80 progress<?php echo $result['id'];?>"><span style="width:<?php echo ($result['score']/0.4);?>%"></span></div>
+	</div>
+    <?php  }?>
+</div>                        
+
+<?php } 
                         
  foreach($report['results'] as $result){?>
 	<div class="">
@@ -92,14 +78,17 @@ chart.draw(data, options);
 		<p  class="description-content"><?php echo $result['description'];?></p>
     	<div class="border_b"></div>
 	</div>
-    <?php if($report['id']==3){?>
-	<div class="col-md-12 pd0 fl">
+    <?php 
+ }
+ foreach($report['results'] as $result){
+	if($report['id']==3){?>
+	
 	<?php
 		$listCar	=	Career::model()->findAllByAttributes(array('career_categories_id'=>$result['id']));
 		foreach($listCar as $data){		?>
 		
-        
-<div class="col-md-6 pdleft career-lib">
+<div class="col-md-4 pd0 fl">        
+<div class="col-md-12 pdleft career-lib">
 	<?php 
 			$filename = ''.$data->image.'';
 			 $path=Yii::getPathOfAlias('webroot.uploads.career.small') . '/';
@@ -115,48 +104,19 @@ chart.draw(data, options);
 	<p><?php echo substr($data->description,0,70);?></p>
 	<div class="col-md-12 career-hot-links">
 	<?php echo CHtml::link('Read more..',array('user/readFull','id'=>''.$data->id.''),array('class'=>'pull-left','title'=>'Read Full.'));?>
-		<span class="pull-right"><i class="icon-eye-open"></i>19021</span>
+		<span class="pull-right"><i class="icon-eye-open"></i></span>
 	</div>
 </div>
-
+    </div>
 
 	<?php	}?>
     
-    </div>
+
     <?php 
 		}
 	}
 } ?>
-                       
-  <!--Table-->                     
-<!--<div class="table_w">
-  <div class="table_row table_head t_border_bt">
-     <div class="table_col">sasa</div>
-     <div class="table_col">sasa</div>
-     <div class="table_col_last">sasa</div>
-  </div>
- <div class="table_row t_border_bt ">
-     <div class="table_col">sasa</div>
-     <div class="table_col">sasa</div>
-     <div class="table_col_last">sasa</div>
-  </div>
-   <div class="table_row t_border_bt ">
-     <div class="table_col">sasa</div>
-     <div class="table_col">sasa</div>
-     <div class="table_col_last">sasa</div>
-  </div>
-   <div class="table_row ">
-     <div class="table_col">sasa</div>
-     <div class="table_col">sasa</div>
-     <div class="table_col_last">sasa</div>
-  </div>
-
-</div>  --> 
- <!--Table end-->                     
-                       
-
-
-                       
+     
                        
 					</div>
 					

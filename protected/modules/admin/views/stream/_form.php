@@ -71,7 +71,20 @@
 		<?php echo $form->error($model,'status'); ?>
 	</div>
 
-	 
+	<div class="form-group">
+		<?php
+		echo $form->labelEx($model,'subjects'); ?>
+		<?php 
+		$subjects	=	Subjects::model()->findAllByAttributes(array('status'=>1));
+		foreach($subjects as $subject){
+		echo '<div style="width:10%;float:left;">'.$form->CheckBox($model,'subjects['.$subject->id.']',array('checked'=>(in_array($subject->id,$subjectList))?'checked':''));
+		echo $subject->title.'</div>';
+		}
+		?>
+		<?php echo $form->error($model,'subjects'); ?>
+	</div>
+
+    	 
 
 	<div class="form-group buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

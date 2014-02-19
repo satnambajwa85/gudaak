@@ -40,12 +40,12 @@
 	</tr>
 	<tr>
 		<td>
-			Dear User 
+			Dear User ?>,
 		</td>	
 	</tr>
 	<tr>
 		<td>
-			Thank you for setting up an account with www.gudaak.com<br />
+			Thank you for setting up an account with www.weddingplanner24x7.com<br />
 		Your Credentials are as follows:
 		</td>	
 	</tr>
@@ -58,7 +58,7 @@
 	<tr>
 		<td>
 			Regards
-			Gudaak
+			WP24x7
 		</td>	
 	</tr>
 </table>

@@ -88,76 +88,81 @@
 				<?php echo CHtml::link('Back to home',array('/site'),array('class'=>'btn btn-info back-bt2'));?>
 				</div>
 			 <div class="col-md-6 visibale-area pull-right">	
-			<?php 
-				$form=$this->beginWidget('CActiveForm', array(
-														'id'=>'user-register',
-															'enableClientValidation'=>true,
-															'clientOptions'=>array(
-																'validateOnSubmit'=>true,
-															),
-														));?>
-			  
-				<i class="glyphicon glyphicon-edit orange pull-left"></i>
-				<h4 class="form-signin-heading ">Enroll your future!!!</h4>
-				<?php echo $form->textField($model,'first_name',array('class'=>'form-control','placeholder'=>'First Name','autofocus'=>true));
-				echo $form->error($model,'first_name');?>
-				
-				<div class="pd4"></div>
-				<?php echo $form->textField($model,'last_name',array('class'=>'form-control','placeholder'=>'Last Name','autofocus'=>true));
-				echo $form->error($model,'last_name');
-				?>
-				<div class="pd4"></div>
-				<?php $this->widget('zii.widgets.jui.CJuiDatePicker',array(
-																'model'=>$model,
-																'attribute'=>'date_of_birth',
-																'options'=>array('dateFormat'=>'yy-mm-dd',
-																				'changeMonth'=>'true',
-																				'changeYear'=>'true',),
-																'htmlOptions'=>array('class'=>'dob form-control pull-left',
-																					'placeholder'=>'DOB','autofocus'=>true),
-																
-																));
-				
-				?>
- 
-
-			 
-			 
-				<?php echo $form->checkBox($model,'gender',array('id'=>'dimension-switch'));?>
-				
-				<div class="clearfix"></div>
-				<?php echo $form->error($model,'date_of_birth');?>
-				<div class="pd4"></div>
-				<?php echo $form->textField($model,'email',array('class'=>'form-control','placeholder'=>'Email','autofocus'=>true));
-				echo $form->error($model,'email');
-				?>
-				<div class="pd4"></div>
-				<?php echo $form->textField($model,'mobile_no',array('class'=>'form-control','placeholder'=>'Mobile','autofocus'=>true));
-				echo $form->error($model,'mobile_no');
-				?>
-				<div class="pd4"></div>
-				 <?php echo $form->dropDownList($model,'class',array('10'=>'10th','11'=>'11th','12'=>'12th'),array('class'=>'form-control','placeholder'=>'Mobile','autofocus'=>true));
-                                    echo $form->error($model,'class');?>
+				 <?php  $form=$this->beginWidget('CActiveForm', array(
+                                                            'id'=>'user-register',
+                                                             'enableClientValidation'=>true,
+                                                            'clientOptions'=>array('validateOnSubmit'=>true,)));?>
+                                    <i class="glyphicon glyphicon-edit orange pull-left"></i>
+                                    <h4 class="form-signin-heading ">Enroll your future!!!</h4>
+									   <?php 	echo $form->textField($model,'gudaak_id',
+								
+								array('class'=>'form-control','placeholder'=>'Gudaak ID','ajax' => array('type'=>'POST',
+									'url'=>CController::createUrl('site/AutoCompleteLookup'), //url to call.
+									'success'=>'function(data){afterResponse(data)}',
+									//'update'=>'#Register_class',
+									
+									
+										)));?>
+								 
+                                    <?php /*echo CHtml::ajaxLink('Check User', CHtml::normalizeUrl(array('site/CheckUser')), array('data'=>'js:jQuery(this).parents("form").serialize()+"&isAjaxRequest=1"','success'=>'function(data){$("#searchResult").html(data);$("#searchResult").fadeIn();return false;}'),array('id'=>'ajaxSubmit','class'=>'btn btn-primary pull-right','name'=>'ajaxSubmit'));echo '<div class="span4 pull-right alert alert-info" id="searchResult" style="display:none;"></div>';*/
+                                    
+									//echo $form->textField($model,'gudaak_id',array('class'=>'form-control','placeholder'=>'Gudaak ID','autofocus'=>true));
+                                    echo $form->error($model,'gudaak_id');?>
+									  <div class="pd4"></div>
+                                    <?php echo $form->textField($model,'first_name',array('class'=>'form-control','placeholder'=>'First Name','autofocus'=>true));
+                                    echo $form->error($model,'first_name');?>
                                     <div class="pd4"></div>
-				<?php echo $form->textField($model,'gudaak_id',array('class'=>'form-control','placeholder'=>'Gudaak ID','autofocus'=>true));
-				echo $form->error($model,'gudaak_id');
-				?>
-				<div class="pd4"></div>
-				<?php echo $form->passwordField($model,'password',array('class'=>'form-control','placeholder'=>'Password','autofocus'=>true));
-				echo $form->error($model,'password');
-				?>
-				<div class="pd4"></div>
-				<?php echo $form->passwordField($model,'confirmpass',array('class'=>'form-control','placeholder'=>'confirmpass','autofocus'=>true));
-				echo $form->error($model,'confirmpass');
-				?>
-				<div class="pd4"></div>
+                                    <?php echo $form->textField($model,'last_name',array('class'=>'form-control','placeholder'=>'Last Name','autofocus'=>true));
+                                    echo $form->error($model,'last_name');?>
+                                    <div class="pd4"></div>
+                                    <?php $this->widget('zii.widgets.jui.CJuiDatePicker',array(
+                                                                    'model'=>$model,
+                                                                    'attribute'=>'date_of_birth',
+                                                                    'options'=>array('dateFormat'=>'yy-mm-dd',
+                                                                                    'changeMonth'=>'true',
+                                                                                    'changeYear'=>'true',),
+                                                                    'htmlOptions'=>array('class'=>'dob form-control pull-left',
+                                                                                        'placeholder'=>'DOB','autofocus'=>true),));?>
+                                    <?php echo $form->checkBox($model,'gender',array('id'=>'dimension-switch'));?>
+                                    <!--<input type="checkbox" id="dimension-switch" checked>-->
+                                    <div class="clearfix"></div>
+                                    <?php echo $form->error($model,'date_of_birth');?>
+                                    <div class="pd4"></div>
+                                    <?php echo $form->textField($model,'email',array('class'=>'form-control','placeholder'=>'Email','autofocus'=>true));
+                                    echo $form->error($model,'email');?>
+                                    <div class="pd4"></div>
+                                    <?php echo $form->textField($model,'mobile_no',array('class'=>'form-control','placeholder'=>'Mobile','autofocus'=>true));
+                                    echo $form->error($model,'mobile_no');?>
+                                    <div class="pd4"></div>
+									<?php echo $form->dropDownlist($model,'class',array('empty'=>'Please Select'),array('id'=>'class_register','class'=>'form-control'));
+									echo $form->error($model,'class');?>
+                                    <div class="pd4"></div>
+									<?php echo $form->dropDownlist($model,'medium',CHtml::listData(UserAcademicMedium::model()->findAll(),'id','title'),array('empty'=>'Please Select','class'=>'form-control'));
+									echo $form->error($model,'medium');?>
+                                    <div class="pd4"></div>
+                                    <?php echo $form->passwordField($model,'password',array('class'=>'form-control','placeholder'=>'Password','autofocus'=>true));
+                                    echo $form->error($model,'password');?>
+                                    <div class="pd4"></div>
+                                    <?php echo $form->passwordField($model,'confirmpass',array('class'=>'form-control','placeholder'=>'confirmpass','autofocus'=>true));
+                                    echo $form->error($model,'confirmpass');?>
+                                    <div class="pd4"></div>
+                                    <div align="center"><?php echo CHtml::submitButton('Register',array('class'=>'btn btn-warning login mt'));?></div>
+                                <?php $this->endWidget();?>
 				
-				<div align="center">
-				<?php echo CHtml::submitButton('Register',array('class'=>'mb11 btn btn-warning login mt'));?>
-				</div>
-			  <?php $this->endWidget();?>
 			</div>
 				
 			</div>
 	   </div>
-	   
+<script type='text/javascript'>
+function afterResponse($data){
+	var $response	=	jQuery.parseJSON($data);
+	console.log($response.status);
+	if($response.status==1)
+	{
+		$('#class_register').html($response.data);
+		
+	}
+	else
+		alert($response.data);	
+}
+</script>

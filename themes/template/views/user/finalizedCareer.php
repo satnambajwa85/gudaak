@@ -20,10 +20,10 @@
 			<?php if(!empty($data)) {?>
             <div class="mr0 col-md-12 fl br-right">
 			<div id="scrollBar">
-				<div class="col-md-12 fl">
+				<div class="col-md-12 pdleft fl">
 				  	<?php foreach($data as $list){ ?>
 					
-						<div class="col-md-6 pull-left fl  pd-b10">
+						<div class="col-md-6 pdleft pull-left fl  pd-b10">
 						<div class="col-md-12 fl pd0 ">
 							<div class="pull-left pd0 prefered-stream-img">
 							<?php 
@@ -31,9 +31,10 @@
 						 $path=Yii::getPathOfAlias('webroot.uploads.career.small') . '/';
 						$file=$path.$filename;
 						if (file_exists($file)){ ?>
-							<img  src="<?php echo Yii::app()->baseUrl;?>/uploads/career_options/small/<?php echo (!empty($list['image']))?''.$list['image'].'':'noimage.jpg';?>" />
+							<?php echo CHtml::link('<img  src="'.Yii::app()->baseUrl.'/uploads/career_options/small/'.$list['image'].'" />',array('user/careerDetails','id'=>$list['id']));?>
 						<?php 	}else{ ?>
-								<img  src="<?php echo Yii::app()->baseUrl;?>/uploads/career_options/small/noimage.jpg" />
+									<?php echo CHtml::link('<img  src="'.Yii::app()->baseUrl.'/uploads/career_options/small/noimage.jpg" />',array('user/careerDetails','id'=>$list['id']));?>
+						
 							<?php } ?>
 							</div>
 							<div class="col-md-9 pull-left  stream-description">
@@ -48,7 +49,7 @@
 									 
 										<script type="text/javascript">
 										$(document).ready(function(){
-											$('#user-rating<?php echo $list['id'];?>').raty({readonly:true, score:'<?php echo $list['rating'];?>'});
+											$('#user-rating<?php echo $list['id'];?>').raty({readOnly:true, score:'<?php echo $list['rating'];?>'});
 												
 										});
 									</script>
@@ -116,7 +117,7 @@
 </div>
 
 	
-	<div class="col-md-2 pd0 fl">
+	<div class="news pd0 fl">
 		<?php  $this->Widget('WidgetNews'); ?>
 	</div>
 			
