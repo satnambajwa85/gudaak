@@ -90,7 +90,21 @@
 		<?php echo $form->error($model,'status'); ?>
 	</div>
 
-
+	<div class="form-group">
+		<?php
+		echo $form->labelEx($model,'subjects'); ?>
+		<?php 
+		$subjects	=	Subjects::model()->findAllByAttributes(array('status'=>1));
+		foreach($subjects as $subject){
+		echo '<div style="width:10%;float:left;border:1px solid green;"><div>'.$form->CheckBox($model,'subjects['.$subject->id.']',array('checked'=>(in_array($subject->id,$subjectList))?'checked':''));
+		echo $subject->title.'</div>';
+		$valueRating=array('compulsory'=>'compulsory','optional'=>'optional');
+		echo CHtml::radioButtonList('subjects['.$subject->id.']','compulsory',$valueRating,array('separator'=>'','labelOptions'=>array('class'=>'textarea_skill'), )).'</div>';
+		}
+		?>
+		<?php echo $form->error($model,'subjects'); ?>
+	</div>
+    
 	<div class="form-group buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

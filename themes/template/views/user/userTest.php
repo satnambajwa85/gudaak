@@ -4,7 +4,14 @@
 					  <li><a href="#">Assessment</a></li>
 					 
 					</ol>
-				</div>
+	</div>
+					<?php if(Yii::app()->user->hasFlash('updated')): ?>
+						<div class="alert alert-success">
+						  <button data-dismiss="alert" class="close" type="button">×</button>
+						  <strong><?php echo Yii::app()->user->getFlash('updated'); ?></strong>
+						</div>
+							 
+					<?php endif; ?>	
 				<div class="col-md-10 pull-left">
 					<div class="mr0 col-md-12 fl">
 						<?php  $count=1;
@@ -90,8 +97,8 @@
                                     <div id="">
                                         <?php   
                                         $form=$this->beginWidget('CActiveForm', array(
-                                                                        'id'=>'retake-test-form',
-																		 'action'=>Yii::app()->createUrl('/user/retakeTest'),
+                                                                        'id'=>'retake-test-form'.$list->id.'',
+																		 'action'=>Yii::app()->createUrl('/user/retakeTest&id='.''.$list->id.''),
                                                                         'enableClientValidation'=>true,
                                                                         'clientOptions'=>array('validateOnSubmit'=>true,)));?>
                                     <?php echo $form->hiddenField($model,'orient_items_id',array('value'=>''.$list->id.''));

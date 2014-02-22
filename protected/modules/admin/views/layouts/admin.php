@@ -58,14 +58,17 @@
 	 
     <div class="col-md-12">
 		<div class="left-menu">
-				<?php $this->widget('zii.widgets.CMenu',array(
+				<?php $action=$this->id.'/'.$this->action->id;
+					//echo $action.'/----generateGudaakIds/admin';die;
+					$this->widget('zii.widgets.CMenu',array(
                     'htmlOptions'=>array('class'=>'nav nav-pills nav-stacked admin-menu'),
                     'submenuHtmlOptions'=>array('class'=>'span3 dropdown-menu'),
 					'itemCssClass'=>'item-test',
                     'encodeLabel'=>false,
                     'items'=>array(
                        	array('label'=>'Home', 'url'=>array('/admin/admin/index')),
-                       	array('label'=>'Generate Gudaak IDs', 'url'=>array('/admin/GenerateGudaakIds/admin')),
+                       	array('label'=>'Generate Gudaak IDs', 'url'=>array('/admin/generateGudaakIds/admin'),
+						'active'=>(($action=='generateGudaakIds/admin')||($action=='generateGudaakIds/create')||($action=='generateGudaakIds/update')||($action=='generateGudaakIds/view'))),
                        	array('label'=>'Site Setting', 'url'=>array('/admin/siteSetting/admin')),
                        	array('label'=>'Articles', 'url'=>array('/admin/articles/admin')),
                        	array('label'=>'News', 'url'=>array('/admin/news/admin')),
@@ -83,6 +86,8 @@
     </div>
 	 
 </section>
+<div class="clear"></div>
+<div class="marb-50"></div>
 
 <!-- Require the footer -->
 <?php require_once('tpl_footer.php')?>

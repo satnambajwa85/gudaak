@@ -4,9 +4,9 @@
 			<?php echo CHtml::link('<img alt="" src="'.$path.'/images/dashboard-logo.png">',array('/site'));?>
 		</div><!-- Logo -->
 		<div class="welcome-user">
-			<?php echo CHtml::link('<img alt="'.$userinfo->display_name.'" src="'.Yii::app()->baseUrl.'/uploads/user/small/'.$userinfo->image.'">',array('user/'),array('class'=>'userImage'));?>
+			<?php echo CHtml::link('<img alt="'.$userinfo->first_name.' '.$userinfo->last_name.'" src="'.Yii::app()->baseUrl.'/uploads/user/small/'.$userinfo->image.'">',array('user/'),array('class'=>'userImage'));?>
 			<p>Welcome</p>
-			<?php echo CHtml::link('<span>'.$userinfo->display_name.'</span>',array('user/'));?>
+			<?php echo CHtml::link('<span>'.$userinfo->first_name.' '.$userinfo->last_name.'</span>',array('user/'));?>
 			<div class="clear"></div>
 			<div class="progress fl ">
 			  <div style="width:<?php echo $completeProfile;?> !important;" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
@@ -43,7 +43,7 @@ $getId=$_REQUEST['id'];
 }
 		 
 ?>
-					<li><?php echo CHtml::link('<i class="icon-desktop"></i>Orientation Tour',array('user/tour'),array('title'=>'Acess','class'=>''.($action=='tour')?'slidebg':''.''))?>
+					<li><?php echo CHtml::link('<i class="icon-desktop"></i>Orientation Tour',array('user/index'),array('title'=>'Acess','class'=>''.($action=='index')?'slidebg':''.''))?>
 					</li>
 					<li><?php echo CHtml::link('<i class="glyphicon glyphicon-record"></i>Acess',array('user/tests'),array('title'=>'Acess','class'=>''.($action=='tests')?'slidebg':''.''))?>
 				
@@ -56,10 +56,10 @@ $getId=$_REQUEST['id'];
 						</ul>					
 					</li>
 					<?php if(Yii::app()->user->id && Yii::app()->user->userType=='upper11th'){?>
-					<li><?php  echo CHtml::link('<i class="glyphicon glyphicon-eye-open"></i>Explore',array('user/explore'),array('title'=>'Explore','class'=>''.($action=='career'|| $action == 'liveChat' || $action == 'explore' || $action =='articlesList')?'slidebg':''.''))?>
+					<li><?php  echo CHtml::link('<i class="glyphicon glyphicon-eye-open"></i>Explore',array('user/explore'),array('title'=>'Explore','class'=>''.($action=='career'|| $action == 'liveChat' || $action == 'careerList' || $action == 'explore' || $action =='articlesList')?'slidebg':''.''))?>
 					
 					
-						<ul style="<?php echo ($action=='career'||$action=='liveChat' || $action=='explore' || $action=='articlesList')?'display:block':'';?>">
+						<ul style="<?php echo ($action=='career'||$action=='liveChat' || $action=='explore' || $action=='careerList' || $action=='articlesList')?'display:block':'';?>">
 							<li><?php echo CHtml::link('Career library',array('user/career'),array('class'=>''.($action == 'career' || $action ==  'careerList' || $action ==  'careerDetails')?'currentLink':''.''))?></li>
 							<!--<li><?php //echo CHtml::link('Online Chat',array('user/liveChat'),array('class'=>''.($action=='liveChat')?'currentLink':''.''));?></li>--> 	
 							<li><?php echo CHtml::link('Articles',array('user/articlesList'),array('class'=>''.($action=='articlesList')?'currentLink':''.''));?></li>
@@ -71,7 +71,7 @@ $getId=$_REQUEST['id'];
 						 					
 					</li>
 					<?php } else { ?>
-					<li><?php echo CHtml::link('<i class="glyphicon glyphicon-eye-open"></i>Explore',array('user/streamExplore'),array('title'=>'Explore','class'=>''.($action=='streamList'|| $action == 'stream' || $action =='articlesList')?'slidebg':''.''))?>
+					<li><?php echo CHtml::link('<i class="glyphicon glyphicon-eye-open"></i>Explore',array('user/streamExplore'),array('title'=>'Explore','class'=>''.($action=='streamList'|| $action=='streamExplore'|| $action == 'stream' || $action =='articlesList')?'slidebg':''.''))?>
 					
 					
 						<ul style="<?php echo ($action=='streamList'|| $action == 'stream' || $action == 'streamPreference' || $action =='articlesList')?'display:block':'';?>">

@@ -10,13 +10,13 @@ class UserController extends Controller
 				'actions'=>array('index','editProfile','test','tests','detailedReport','collage','liveChat',
 							'articlesList','articles','summary','newsUpdates',
 							'exploreColleges','shortListedColleges','dynamicCourse','dynamicSearchResult','userShortlistCollage',
-							'search','changePassword','application','questionsAnswer','retakeTest','news','readEvent','summaryDetails',
+							'search','changePassword','application','questionsAnswer','userProfileUpdate','retakeTest','news','readEvent','summaryDetails',
 				),
 				'users' => array('@')
 					
 				),
 				array('allow', // allow admin user to perform 'admin' and 'delete' actions
-					'actions'=>array('index','streamPreference','userStreamRaitng','streamExplore','userPreffredStream','streamCareerOptions','finalizedStream',
+					'actions'=>array('index','streamPreference','userStreamRaitng','userPrefferdCareer','streamExplore','userPreffredStream','streamCareerOptions','finalizedStream',
 									'streamList','stream','readFullStream'),
 					'expression' =>"Yii::app()->user->userType ==  'below10th'",
 
@@ -89,6 +89,141 @@ class UserController extends Controller
 			}
 		}
 		$this->render('index',array('model'=>$model));
+	}
+	public function actionUserProfileUpdate()
+	{	
+		if(isset($_REQUEST['Rid'])){
+			if($_REQUEST['Rid']=='language'){
+				$user					=	UserProfiles::model()->findByPk(Yii::app()->user->profileId);
+				$user->language_known	=	$_REQUEST['profileData'];
+				if($user->save()){
+					$response		=	array('message'=>'sccessfully updated to language Knows.');
+					echo json_encode($response);die;
+				}
+			}
+			if($_REQUEST['Rid']=='medium'){
+				$user						=	UserProfiles::model()->findByPk(Yii::app()->user->profileId);
+				$user->medium_instruction	=	$_REQUEST['profileData'];
+				if($user->save()){
+					$response		=	array('message'=>'sccessfully updated to medium instruction.');
+					echo json_encode($response);die;
+				}
+			}
+		
+		}
+		if(isset($_REQUEST['interestID'])){
+			$inId					=	$_REQUEST['interestID'];
+			echo $inId;die;
+			$interest				=	Interests::model()->findByPk($inId);
+			$interest->title		=	$_REQUEST['interestValue'];
+			$interest->add_date 	=	date('Y-m-d H:i:s');
+			$interest->published 	=	1; 	 
+			$interest->status	 	=	1;
+			if($interest->save()){
+				$response		=	array('message'=>'sccessfully updated to '.$interest->title.'.');
+				echo json_encode($response);die;
+			}
+		}
+		if(isset($_REQUEST['userInterest'])){
+			$interest2				=	new	Interests;
+			$interest2->title		=	$_REQUEST['userInterest'];
+			$interest2->description	=	'Description here';
+			$interest2->add_date 	=	date('Y-m-d H:i:s');
+			$interest2->published 	=	1; 	 
+			$interest2->status	 	=	1;
+			if($interest2->save()){
+				$userInterest					=	new UserProfilesHasInterests;
+				$userInterest->user_profiles_id =	Yii::app()->user->profileId;
+				$userInterest->interests_id 	 =	$interest2->id;
+				$userInterest->add_date 	 	 =	date('Y-m-d H:i:s');
+				$userInterest->status  	 	 	=	1;
+				if($userInterest->save()){
+					$response		=	array('message'=>'Saved user interest.');
+					echo json_encode($response);die;
+				}
+			}
+			//CVarDumper::dump($interest2,10,1);die;
+		}
+		if(isset($_REQUEST['subjectId'])){
+			$sId					=	$_REQUEST['subjectId'];
+			$subjects				=		UserSubjects::model()->findByPk($sId);
+			$subjects->title		=	$_REQUEST['subjectIdValue'];
+			if($subjects->save()){
+				$response		=	array('message'=>'updated existing record.');
+				echo json_encode($response);die;
+			}
+			
+		}
+		if(isset($_REQUEST['UserProfiles'])){
+			$model					=	 UserProfiles::model()->findByPk(Yii::app()->user->profileId);
+			$model->attributes		=	$_POST['UserProfiles'];
+			if($model->save()){
+				Yii::app()->user->setFlash('updated',"Profile scessfully updated.");die;
+			}
+		}
+		if(isset($_REQUEST['subject'])){
+			$subjects				=	new	UserSubjects;
+			$subjects->title		=	$_REQUEST['subject'];
+			$subjects->description	=	'';
+			$subjects->add_date		=	date('Y-m-d H:i:s');
+			$subjects->published	=	1;
+			$subjects->status		=	1;
+			if($subjects->save()){
+				$uSubjects						=	new	UserProfilesHasUserSubjects;
+				$uSubjects->user_profiles_id	=	Yii::app()->user->profileId;
+				$uSubjects->user_subjects_id	=	$subjects->id;
+				$uSubjects->add_date			=	date('Y-m-d H:i:s');
+				$uSubjects->status 				=	1;
+				$uSubjects->is_favorite			=	0;
+				if($uSubjects->save()){
+					$response		=	array('message'=>'Sucessfully updated current subject.');
+					echo json_encode($response);die;
+					
+				}
+			}
+		
+		}if(isset($_REQUEST['favorite'])){
+			$subjects				=	new	UserSubjects;
+			$subjects->title		=	$_REQUEST['favorite'];
+			$subjects->description	=	'';
+			$subjects->add_date		=	date('Y-m-d H:i:s');
+			$subjects->published	=	1;
+			$subjects->status		=	1;
+			if($subjects->save()){
+				$uSubjects						=	new	UserProfilesHasUserSubjects;
+				$uSubjects->user_profiles_id	=	Yii::app()->user->profileId;
+				$uSubjects->user_subjects_id	=	$subjects->id;
+				$uSubjects->add_date			=	date('Y-m-d H:i:s');
+				$uSubjects->is_favorite			=	1;
+				if($uSubjects->save()){
+					$response		=	array('message'=>'Sucessfully updated favourite.');
+					echo json_encode($response);die;
+					
+				}
+			}
+		
+		}if(isset($_REQUEST['lestFavorite'])){
+			$subjects				=	new	UserSubjects;
+			$subjects->title		=	$_REQUEST['lestFavorite'];
+			$subjects->description	=	'';
+			$subjects->add_date		=	date('Y-m-d H:i:s');
+			$subjects->published	=	1;
+			$subjects->status		=	1;
+			if($subjects->save()){
+				$uSubjects						=	new	UserProfilesHasUserSubjects;
+				$uSubjects->user_profiles_id	=	Yii::app()->user->profileId;
+				$uSubjects->user_subjects_id	=	$subjects->id;
+				$uSubjects->add_date			=	date('Y-m-d H:i:s');
+				$uSubjects->least_favourite		=	1;
+				if($uSubjects->save()){
+					$response		=	array('message'=>'Sucessfully updated Least favourite.');
+					echo json_encode($response);die;
+					
+				}
+			}
+		
+		}
+ 
 	}
 	public function actionEditProfile()
 	{	
@@ -184,6 +319,14 @@ class UserController extends Controller
 		}
 		$model	=	new TestReports;
 		if(isset($_POST['TestReports'])||isset($_POST['testReports'])){
+			$testReport		=	TestReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'test_category'=>$id));
+			$total	=	count($testReport);
+			if($total!=60){
+				$response['status']=0;
+				$response['message']='Plsease don not skip any question please.';
+				echo json_encode($response); 
+				die;
+			}
 			$model->attributes 				= 	(isset($_POST['TestReports']))?$_POST['TestReports']:$_POST['testReports'];
 			$model->questions_id 			= 	(isset($_POST['TestReports']))?$_POST['TestReports']['question_options_id']:$_POST['testReports']['question_options_id'];
 			$model->career_categories_id	= 	(isset($_POST['TestReports']))?$_POST['TestReports']['career_categories_id']:$_POST['testReports']['career_categories_id'];
@@ -227,7 +370,11 @@ class UserController extends Controller
 			$userTest->status			 	=	1;
 			$userTest->activation			=	1;
 			$userTest->save();
-			$this->redirect(Yii::app()->createUrl('/user/tests'));
+			$response['status']=1;
+			$response['message']='Plsease wait.';
+			echo json_encode($response); 
+			die;
+			
 		}
 		$this->render('test', array('questions'=>$quest,'model'=>$model,'testContent'=>$testContent,'preTestReport'=>$preTestReport));
 	}
@@ -250,27 +397,34 @@ class UserController extends Controller
 		
 		$this->render('userTest',array('testContent'=>$testContent,'userTest'=>$tests,'model'=>$model));
 	}
-	public function actionRetakeTest()
-	{
-		$model		=	 new RetakeTestRequest;
-		if(isset($_POST['RetakeTestRequest']))
-		{
-			$model->attributes			=	$_POST['RetakeTestRequest'];
-			$model->orient_items_id		=	$_POST['RetakeTestRequest']['orient_items_id'];
-			$model->user_profiles_id	=	Yii::app()->user->profileId;
-			$model->add_date			=	date('Y-m-d H:i:s');
-			$model->status				=	1;
-			if($model->save()){
-				Yii::app()->user->setFlash('updated',"Sccesfully sent your request thank you.");
-				$this->redirect(Yii::app()->createUrl('/user/tests'));
-			}
-			
+	public function actionRetakeTest($id)
+	{	
+		$findRequest		=	 RetakeTestRequest::model()->countByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'orient_items_id'=>$id));
+		if($findRequest==1){
+			Yii::app()->user->setFlash('updated',"you have already sent request to administrator.");
+				$this->redirect(array('user/tests'));
+			echo '';
+			die;
 		}
 		else{
-				Yii::app()->user->setFlash('updated',"Error occure.");
-				$this->redirect(Yii::app()->createUrl('/user/tests'));
+			$model		=	 new RetakeTestRequest;
+			if(isset($_POST['RetakeTestRequest']))
+			{
+				$model->attributes			=	$_POST['RetakeTestRequest'];
+				$model->orient_items_id		=	$_POST['RetakeTestRequest']['orient_items_id'];
+				$model->user_profiles_id	=	Yii::app()->user->profileId;
+				$model->add_date			=	date('Y-m-d H:i:s');
+				$model->status				=	1;
+				if($model->save()){
+					Yii::app()->user->setFlash('updated',"Sccessfully sent.");
+					$this->redirect(array('user/tests'));
+					die;
+				}
+				
+			}
+			 
+			
 		}
-		
 	}
 	public function actionQuestionsAnswer()
 	{	 

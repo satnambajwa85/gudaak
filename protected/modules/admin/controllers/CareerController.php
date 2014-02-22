@@ -32,8 +32,8 @@ class CareerController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','admin','delete'),
-				'users'=>array('@'),
+				'actions'=>array('create','update','admin','delete','adminView','createNew'),
+				'expression' =>"Yii::app()->user->userType ==  'admin'",
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete'),
@@ -107,12 +107,28 @@ class CareerController extends Controller
 				}
 				$model->image	=	$fileName;
 			}
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			if($model->save()){
+				if(!empty($_POST['Career']['streams']))
+				foreach($_POST['Career']['streams'] as $subject=>$val){
+					if($val){
+						$modl				=	new StreamHasCareer;
+						$modl->career_id	=	$model->id;
+						$modl->stream_id	=	$subject;
+						$modl->add_date		=	date('Y-m-d H:i:s');
+						$modl->status		=	1;
+						$modl->published	=	1;
+						$modl->save();
+					}
+				}
+				$this->redirect(array('adminView','id'=>$model->career_categories_id));
+			}
 		}
+		$streams	=	array();
+		foreach($model->streamHasCareers as $sub)
+			$streams[]	=	$sub->stream_id;
 
 		$this->render('create',array(
-			'model'=>$model,
+			'model'=>$model,'streams'=>$streams
 		));
 	}
 
@@ -176,13 +192,32 @@ class CareerController extends Controller
 					@unlink($targetFolder1.'small/'.$_POST['Career']['oldImage']);
 				}
 			}
+			else
+				$model->image	=	$_POST['Career']['oldImage'];
 			
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			if($model->save()){
+				StreamHasCareer::model()->deleteAllByAttributes(array('stream_id'=>$model->id));
+				if(!empty($_POST['Career']['streams']))
+				foreach($_POST['Career']['streams'] as $subject=>$val){
+					if($val){
+						$modl				=	new StreamHasCareer;
+						$modl->career_id	=	$model->id;
+						$modl->stream_id	=	$subject;
+						$modl->add_date		=	date('Y-m-d H:i:s');
+						$modl->status		=	1;
+						$modl->published	=	1;
+						$modl->save();
+					}
+				}
+				$this->redirect(array('adminView','id'=>$model->career_categories_id));
+			}//$this->redirect(array('view','id'=>$model->id));
 		}
+		$streams	=	array();
+		foreach($model->streamHasCareers as $sub)
+			$streams[]	=	$sub->stream_id;
 
 		$this->render('update',array(
-			'model'=>$model,
+			'model'=>$model,'streams'=>$streams
 		));
 	}
 
@@ -193,6 +228,7 @@ class CareerController extends Controller
 	 */
 	public function actionDelete($id)
 	{
+		StreamHasCareer::model()->deleteAllByAttributes(array('stream_id'=>$id));		
 		$this->loadModel($id)->delete();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
@@ -214,15 +250,97 @@ class CareerController extends Controller
 	/**
 	 * Manages all models.
 	 */
+	public function actionCreateNew($id)
+	{
+		$model=new Career;
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['Career']))
+		{
+			$model->attributes=$_POST['Career'];
+			$targetFolder = Yii::app()->request->baseUrl.'/uploads/career/';
+			if (!empty($_FILES['Career']['name']['image'])) {
+				$tempFile = $_FILES['Career']['tmp_name']['image'];
+				$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
+				$targetFile = $targetPath.'/'.$_FILES['Career']['name']['image'];
+				$pat = $targetFile;
+				move_uploaded_file($tempFile,$targetFile);
+				$absoPath = $pat;
+				$newName = time();
+				$img = Yii::app()->imagemod->load($pat);
+				# ORIGINAL
+				$img->file_max_size = 5000000; // 5 MB
+				$img->file_new_name_body = $newName;
+				$img->process('uploads/career/original/');
+				$img->processed;
+				#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
+				if ($img->processed) {
+					#THUMB Image
+					$img->image_resize      = true;
+					$img->image_y         	= 304;
+					$img->image_x           = 304;
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/career/large/');
+					
+					#STHUMB Image
+					$img->image_resize      = true;
+					$img->image_y         	= 115;
+					$img->image_x           = 265;
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/career/small/');
+				 
+					$fileName	=	$img->file_dst_name;
+					$img->clean();
+	
+				}
+				$model->image	=	$fileName;
+			}
+			if($model->save()){
+				if(!empty($_POST['Career']['streams']))
+				foreach($_POST['Career']['streams'] as $subject=>$val){
+					if($val){
+						$modl				=	new StreamHasCareer;
+						$modl->career_id	=	$model->id;
+						$modl->stream_id	=	$subject;
+						$modl->add_date		=	date('Y-m-d H:i:s');
+						$modl->status		=	1;
+						$modl->published	=	1;
+						$modl->save();
+					}
+				}
+				$this->redirect(array('adminView','id'=>$model->career_categories_id));
+			}
+		}
+		$streams	=	array();
+		foreach($model->streamHasCareers as $sub)
+			$streams[]	=	$sub->stream_id;
+
+		$this->render('form',array('model'=>$model,'id'=>$id,'streams'=>$streams));
+	}
 	public function actionAdmin()
 	{
 		$model=new Career('search');
-		$model->unsetAttributes();  // clear any default values
+		$model->unsetAttributes();// clear any default values
 		if(isset($_GET['Career']))
 			$model->attributes=$_GET['Career'];
 
 		$this->render('admin',array(
 			'model'=>$model,
+		));
+	}
+	public function actionAdminView()
+	{
+		$id	=	$_REQUEST['id'];
+		$model=new Career('search');
+		if(isset($id))
+			$model->career_categories_id=$id;  // clear any default values
+		if(isset($_GET['Career']))
+			$model->attributes=$_GET['Career'];
+
+		$this->render('admin',array(
+			'model'=>$model,'id'=>$id
 		));
 	}
 

@@ -38,10 +38,9 @@ class GenerateGudaakIds extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('gudaak_id, cities_id, schools_id, add_date, user_role_id,user_class_id,number_of_user_Ids', 'required'),
-			array('number_of_user_Ids', 'required','message' => 'Please enter numerical value.'), 
-			array('cities_id, schools_id, activation, status, user_role_id,user_class_id', 'numerical', 'integerOnly'=>true),
-			array('gudaak_id', 'length', 'max'=>245),
+			array('gudaak_id, number_of_user_Ids,cities_id, schools_id, add_date, user_role_id', 'required'),
+			array('cities_id, schools_id, activation, status, user_role_id', 'numerical', 'integerOnly'=>true),
+			array('gudaak_id', 'length', 'max'=>100),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
 			array('id, gudaak_id, cities_id, schools_id, add_date, activation, status, user_role_id', 'safe', 'on'=>'search'),
@@ -59,7 +58,6 @@ class GenerateGudaakIds extends CActiveRecord
 			'cities' => array(self::BELONGS_TO, 'Cities', 'cities_id'),
 			'schools' => array(self::BELONGS_TO, 'Schools', 'schools_id'),
 			'userRole' => array(self::BELONGS_TO, 'UserRole', 'user_role_id'),
-			'userClass' => array(self::BELONGS_TO, 'userClass', 'user_class_id'),
 			'userProfiles' => array(self::HAS_MANY, 'UserProfiles', 'generate_gudaak_ids_id'),
 		);
 	}
@@ -78,7 +76,6 @@ class GenerateGudaakIds extends CActiveRecord
 			'activation' => 'Activation',
 			'status' => 'Status',
 			'user_role_id' => 'User Role',
-			'user_class_id' => 'User class',
 		);
 	}
 
@@ -108,7 +105,6 @@ class GenerateGudaakIds extends CActiveRecord
 		$criteria->compare('activation',$this->activation);
 		$criteria->compare('status',$this->status);
 		$criteria->compare('user_role_id',$this->user_role_id);
-		$criteria->compare('user_class_id',$this->user_class_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

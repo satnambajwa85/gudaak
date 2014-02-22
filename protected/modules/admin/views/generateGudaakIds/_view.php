@@ -33,5 +33,11 @@
 	<?php echo CHtml::encode($data->status); ?>
 	<br />
 
+	<?php /*
+	<b><?php echo CHtml::encode($data->getAttributeLabel('user_role_id')); ?>:</b>
+	<?php echo CHtml::encode($data->user_role_id); ?>
+	<br />
+
+	*/ ?>
 
 </div>

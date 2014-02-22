@@ -50,6 +50,11 @@ $('.search-form form').submit(function(){
 		'status',
 		*/
 		array(
+			'type'=>'raw',
+			'name'=>'Add Records',
+            'value'=>'CHtml::link("Data",array("/admin/career/adminView","id"=>$data->id))',
+            ),
+		array(
 			'class'=>'CButtonColumn',
 		),
 	),

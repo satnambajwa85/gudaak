@@ -33,7 +33,7 @@ class SubjectsController extends Controller
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('create','update','admin','delete'),
-				'users'=>array('@'),
+				'expression' =>"Yii::app()->user->userType ==  'admin'",
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete'),
@@ -70,6 +70,44 @@ class SubjectsController extends Controller
 		if(isset($_POST['Subjects']))
 		{
 			$model->attributes=$_POST['Subjects'];
+			$model->add_date	=date('Y-m-d H:i:s');
+				$targetFolder = Yii::app()->request->baseUrl.'/uploads/subjects/';
+			if (!empty($_FILES['Subjects']['name']['image'])) {
+				$tempFile = $_FILES['Subjects']['tmp_name']['image'];
+				$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
+				$targetFile = $targetPath.'/'.$_FILES['Subjects']['name']['image'];
+				$pat = $targetFile;
+				move_uploaded_file($tempFile,$targetFile);
+				$absoPath = $pat;
+				$newName = time();
+				$img = Yii::app()->imagemod->load($pat);
+				# ORIGINAL
+				$img->file_max_size = 5000000; // 5 MB
+				$img->file_new_name_body = $newName;
+				$img->process('uploads/subjects/original/');
+				$img->processed;
+				#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
+				if ($img->processed) {
+					#THUMB Image
+					$img->image_resize      = true;
+					$img->image_y         	= 304;
+					$img->image_x           = 304;
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/subjects/large/');
+					
+					#STHUMB Image
+					$img->image_resize      = true;
+					$img->image_y         	= 115;
+					$img->image_x           = 265;
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/subjects/small/');
+				 
+					$fileName	=	$img->file_dst_name;
+					$img->clean();
+	
+				}
+				$model->image	=	$fileName;
+			}
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -94,6 +132,52 @@ class SubjectsController extends Controller
 		if(isset($_POST['Subjects']))
 		{
 			$model->attributes=$_POST['Subjects'];
+						$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/uploads/subjects/';
+					$targetFolder = Yii::app()->request->baseUrl.'/uploads/subjects/';
+				if (!empty($_FILES['Subjects']['name']['image'])) {
+					$tempFile = $_FILES['Subjects']['tmp_name']['image'];
+					$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
+					$targetFile = $targetPath.'/'.$_FILES['Subjects']['name']['image'];
+					$pat = $targetFile;
+					move_uploaded_file($tempFile,$targetFile);
+					$absoPath = $pat;
+					$newName = time();
+					$img = Yii::app()->imagemod->load($pat);
+					# ORIGINAL
+					$img->file_max_size = 5000000; // 5 MB
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/subjects/original/');
+					$img->processed;
+					#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
+				if ($img->processed) {
+					#THUMB Image
+					$img->image_resize      = true;
+					$img->image_y         	= 304;
+					$img->image_x           = 304;
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/subjects/large/');
+					
+					#STHUMB Image
+					$img->image_resize      = true;
+					$img->image_y         	= 115;
+					$img->image_x           = 265;
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/subjects/small/');
+					
+					 
+					$fileName	=	$img->file_dst_name;
+					$img->clean();
+	
+				}
+				$model->image	=	$fileName;
+				if(isset($_POST['Subjects']['oldImage'])){
+					@unlink($targetFolder1.'original/'.$_POST['Subjects']['oldImage']);
+					@unlink($targetFolder1.'large/'.$_POST['Subjects']['oldImage']);
+					@unlink($targetFolder1.'small/'.$_POST['Subjects']['oldImage']);
+				}
+			}
+			else
+				$model->image	=	$_POST['Subjects']['oldImage'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}

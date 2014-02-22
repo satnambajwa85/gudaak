@@ -33,7 +33,7 @@ class StreamController extends Controller
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('create','update','admin','delete'),
-				'users'=>array('@'),
+				'expression' =>"Yii::app()->user->userType ==  'admin'",
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete'),
@@ -114,6 +114,7 @@ class StreamController extends Controller
 						$modl				=	new StreamHasSubjects;
 						$modl->subjects_id	=	$subject;
 						$modl->stream_id	=	$model->id;
+						$modl->type_subjects=	$_POST['subjects'][$subject];
 						$modl->add_date		=	date('Y-m-d H:i:s');
 						$modl->status		=	1;
 						$modl->save();
@@ -191,13 +192,18 @@ class StreamController extends Controller
 					@unlink($targetFolder1.'small/'.$_POST['Stream']['oldImage']);
 				}
 			}
+			else
+				$model->image	=	$_POST['Stream']['oldImage'];
+				
 			if($model->save()){
+				StreamHasSubjects::model()->deleteAllByAttributes(array('stream_id'=>$model->id));
 				if(!empty($_POST['Stream']['subjects']))
 				foreach($_POST['Stream']['subjects'] as $subject=>$val){
 					if($val){
 						$modl				=	new StreamHasSubjects;
 						$modl->subjects_id	=	$subject;
 						$modl->stream_id	=	$model->id;
+						$modl->type_subjects=	$_POST['subjects'][$subject];
 						$modl->add_date		=	date('Y-m-d H:i:s');
 						$modl->status		=	1;
 						$modl->save();

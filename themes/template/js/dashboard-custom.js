@@ -123,7 +123,8 @@ $(document).ready(function () {
 		$('#stream-user-tabs li a').removeClass('current-tab');
 		$('.stream-user-active:visible').hide();
 		$(this.hash).show();
-		$(this).addClass('currrent-tab');
+		$('li.currrent-tab').removeClass('currrent-tab');
+		$(this).parent().addClass('currrent-tab');
 		e.preventDefault();
 	}).filter(':first').click();	
 	$( "#tabs" ).tabs();
@@ -134,8 +135,15 @@ $(document).ready(function () {
 		
 	}); 	
 	//ends here 
-		$(".retake").on("click", function() { // wire up the OK button to dismiss the modal when shown
-			$("#myModal").modal({ // wire up the actual modal functionality and show the dialog
+		$(".retakePersonality").on("click", function() { // wire up the OK button to dismiss the modal when shown
+			$("#retake2").modal({ // wire up the actual modal functionality and show the dialog
+			"backdrop" : "static",
+			"keyboard" : true,
+			"show" : true // ensure the modal is shown immediately
+			});
+		}); 
+		$(".retakeInterest").on("click", function() { // wire up the OK button to dismiss the modal when shown
+			$("#retake3").modal({ // wire up the actual modal functionality and show the dialog
 			"backdrop" : "static",
 			"keyboard" : true,
 			"show" : true // ensure the modal is shown immediately
@@ -174,5 +182,10 @@ $(document).ready(function () {
 		
 			 
 		});
+		  $("#add-more").click(function () {
+		  $('.profileHide input').clone().insertBefore(".profileHide");
+			//$('.tab2_form_box').clone();
+		});
+		//$( "#add-more" ).clone().prependTo( "tab2_form_box" );
 
 });

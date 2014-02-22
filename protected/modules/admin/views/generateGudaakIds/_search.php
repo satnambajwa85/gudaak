@@ -18,7 +18,7 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'gudaak_id'); ?>
-		<?php echo $form->textField($model,'gudaak_id'); ?>
+		<?php echo $form->textField($model,'gudaak_id',array('size'=>60,'maxlength'=>245)); ?>
 	</div>
 
 	<div class="row">
@@ -44,6 +44,11 @@
 	<div class="row">
 		<?php echo $form->label($model,'status'); ?>
 		<?php echo $form->textField($model,'status'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'user_role_id'); ?>
+		<?php echo $form->textField($model,'user_role_id'); ?>
 	</div>
 
 	<div class="row buttons">

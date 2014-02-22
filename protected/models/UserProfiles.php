@@ -5,12 +5,15 @@
  *
  * The followings are the available columns in table 'user_profiles':
  * @property integer $id
+ * @property string $gudaak_id
  * @property string $display_name
  * @property string $first_name
  * @property string $last_name
  * @property string $class
  * @property string $email
  * @property string $gender
+ * @property string $language_known
+ * @property string $medium_instruction
  * @property string $date_of_birth
  * @property string $image
  * @property string $mobile_no
@@ -33,12 +36,13 @@
  * @property UserCareerPreference[] $userCareerPreferences
  * @property UserEducation[] $userEducations
  * @property GenerateGudaakIds $generateGudaakIds
- * @property UserLogin $userLogin
  * @property UserAcademicMedium $userAcademic
  * @property UserClass $userClass
+ * @property UserLogin $userLogin
  * @property UserProfilesHasInstitutes[] $userProfilesHasInstitutes
  * @property UserProfilesHasInterests[] $userProfilesHasInterests
  * @property UserProfilesHasStream[] $userProfilesHasStreams
+ * @property UserProfilesHasUserSubjects[] $userProfilesHasUserSubjects
  * @property UserRating[] $userRatings
  * @property UserReports[] $userReports
  * @property UserScores[] $userScores
@@ -50,6 +54,10 @@ class UserProfiles extends CActiveRecord
 	/**
 	 * @return string the associated database table name
 	 */
+	public $currentSubject;
+	public $favorite;
+	public $Lestfavorite;
+	public $interest;
 	public function tableName()
 	{
 		return 'user_profiles';
@@ -63,17 +71,19 @@ class UserProfiles extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('display_name, first_name, last_name, email, gender, date_of_birth, mobile_no, add_date, generate_gudaak_ids_id, user_login_id, user_academic_id, user_class_id', 'required'),
+			array('gudaak_id, display_name, first_name, last_name, email, gender, date_of_birth, mobile_no, add_date, generate_gudaak_ids_id, user_login_id, user_academic_id, user_class_id', 'required'),
 			array('semd_mail, status, generate_gudaak_ids_id, user_login_id, user_academic_id, user_class_id', 'numerical', 'integerOnly'=>true),
-			array('display_name, email', 'length', 'max'=>100),
+			array('gudaak_id, display_name, email', 'length', 'max'=>100),
 			array('first_name, last_name', 'length', 'max'=>50),
 			array('class, gender, image', 'length', 'max'=>45),
+			array('language_known', 'length', 'max'=>500),
 			array('mobile_no', 'length', 'max'=>10),
 			array('address, user_info', 'length', 'max'=>600),
 			array('postcode', 'length', 'max'=>6),
+			array('medium_instruction', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, display_name, first_name, last_name, class, email, gender, date_of_birth, image, mobile_no, address, postcode, user_info, add_date, semd_mail, status, generate_gudaak_ids_id, user_login_id, user_academic_id, user_class_id', 'safe', 'on'=>'search'),
+			array('id, gudaak_id, display_name, first_name, last_name, class, email, gender, language_known, medium_instruction, date_of_birth, image, mobile_no, address, postcode, user_info, add_date, semd_mail, status, generate_gudaak_ids_id, user_login_id, user_academic_id, user_class_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -92,12 +102,13 @@ class UserProfiles extends CActiveRecord
 			'userCareerPreferences' => array(self::HAS_MANY, 'UserCareerPreference', 'user_profiles_id'),
 			'userEducations' => array(self::HAS_MANY, 'UserEducation', 'user_profiles_id'),
 			'generateGudaakIds' => array(self::BELONGS_TO, 'GenerateGudaakIds', 'generate_gudaak_ids_id'),
-			'userLogin' => array(self::BELONGS_TO, 'UserLogin', 'user_login_id'),
 			'userAcademic' => array(self::BELONGS_TO, 'UserAcademicMedium', 'user_academic_id'),
 			'userClass' => array(self::BELONGS_TO, 'UserClass', 'user_class_id'),
+			'userLogin' => array(self::BELONGS_TO, 'UserLogin', 'user_login_id'),
 			'userProfilesHasInstitutes' => array(self::HAS_MANY, 'UserProfilesHasInstitutes', 'user_profiles_id'),
 			'userProfilesHasInterests' => array(self::HAS_MANY, 'UserProfilesHasInterests', 'user_profiles_id'),
 			'userProfilesHasStreams' => array(self::HAS_MANY, 'UserProfilesHasStream', 'user_profiles_id'),
+			'userProfilesHasUserSubjects' => array(self::HAS_MANY, 'UserProfilesHasUserSubjects', 'user_profiles_id'),
 			'userRatings' => array(self::HAS_MANY, 'UserRating', 'user_profiles_id'),
 			'userReports' => array(self::HAS_MANY, 'UserReports', 'user_profiles_id'),
 			'userScores' => array(self::HAS_MANY, 'UserScores', 'user_profiles_id'),
@@ -113,12 +124,15 @@ class UserProfiles extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
+			'gudaak_id' => 'Gudaak',
 			'display_name' => 'Display Name',
 			'first_name' => 'First Name',
 			'last_name' => 'Last Name',
 			'class' => 'Class',
 			'email' => 'Email',
 			'gender' => 'Gender',
+			'language_known' => 'Language Known',
+			'medium_instruction' => 'Medium Instruction',
 			'date_of_birth' => 'Date Of Birth',
 			'image' => 'Image',
 			'mobile_no' => 'Mobile No',
@@ -154,12 +168,15 @@ class UserProfiles extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
+		$criteria->compare('gudaak_id',$this->gudaak_id,true);
 		$criteria->compare('display_name',$this->display_name,true);
 		$criteria->compare('first_name',$this->first_name,true);
 		$criteria->compare('last_name',$this->last_name,true);
 		$criteria->compare('class',$this->class,true);
 		$criteria->compare('email',$this->email,true);
 		$criteria->compare('gender',$this->gender,true);
+		$criteria->compare('language_known',$this->language_known,true);
+		$criteria->compare('medium_instruction',$this->medium_instruction,true);
 		$criteria->compare('date_of_birth',$this->date_of_birth,true);
 		$criteria->compare('image',$this->image,true);
 		$criteria->compare('mobile_no',$this->mobile_no,true);

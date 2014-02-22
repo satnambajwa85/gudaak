@@ -41,6 +41,7 @@ $('.search-form form').submit(function(){
 	//'filter'=>$model,
 	'columns'=>array(
 		'id',
+		'gudaak_id',
 		'display_name',
 		'first_name',
 		'last_name',

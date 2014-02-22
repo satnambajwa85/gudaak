@@ -28,5 +28,6 @@ $this->menu=array(
 		'add_date',
 		'activation',
 		'status',
+		'user_role_id',
 	),
 )); ?>

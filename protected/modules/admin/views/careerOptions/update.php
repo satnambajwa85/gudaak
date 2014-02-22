@@ -18,4 +18,4 @@ $this->menu=array(
 
 <h1>Update CareerOptions <?php echo $model->id; ?></h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php $this->renderPartial('_form', array('model'=>$model,'subjectList'=>$subjectList)); ?>

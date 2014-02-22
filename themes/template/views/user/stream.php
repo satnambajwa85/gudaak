@@ -9,15 +9,16 @@
 		</div>
         <div class="col-md-12 fl pd0 br-area ">
 			<ul id="stream-user-tabs">
-				<li class="first-tab"><a href="#subjects">Subject</a></li>
-				<li class="tab-curb"><a href="#careeroptions">Career Options</a></li>
+				<li class="first-tab "><a href="#subjects">Subject</a></li>
+				<li class="first-tab"><a href="#careeroptions">Career Options</a></li>
                <div class="center rating-align">
 					
-					<ul class="star-rating pull-left pd5" style="margin:0px;">
-						<li><a class="pull-left" href="#rating">Your Rating</a></li>
-						<li><div id="stream-rating"  ></div></li>
+					<div class="star-rating pull-left pd5" style="margin:0px;">
+							<span class="user-rating-title fl">Your Rating</span>
+						 
+						<div id="stream-rating" class="fr"></div>
 						
-					</ul>
+					</div>
 				</div>
 			</ul>
 			<div id="subjects" class="col-md-12 fl pd0 stream-tabing br-top stream-user-active">
@@ -25,9 +26,18 @@
 				<?php foreach($subjects as $subject){?>
 					<div class="col-md-12 pull-left pd0 stream-grid br-all">
                         <div class="col-md-10 pull-left pd0 stream-grid br-right">
-                        <img src="<?php echo Yii::app()->baseUrl;?>/uploads/subjects/small/<?php echo (!empty($subject['image']))?''.$subject['image'].'':'noimage.jpg';?>" />
+                        <?php 
+								$filename = ''.$subject['image'].'';
+								 $path=Yii::getPathOfAlias('webroot.uploads.subjects.small') . '/';
+								$file=$path.$filename;
+								if (file_exists($file)){ ?>
+								 <img src="<?php echo Yii::app()->baseUrl;?>/uploads/subjects/small/<?php echo (!empty($subject['image']))?''.$subject['image'].'':'noimage.jpg';?>" />
+							<?php 	}else{ ?>
+								 <img src="<?php echo Yii::app()->baseUrl;?>/uploads/subjects/small/noimage.jpg" />
+							<?php } ?>
+						
 						<h3><?php echo $subject['title']?></h3>	
-					    <p><?php echo $subject['description']?></p>
+					    <p><?php echo substr($subject['description'],0,150);?></p>
                         <?php echo CHtml::link('Read More....');?>
                         </div>
                         <div class="col-md-2 pull-left pd0 right-stream-box ">

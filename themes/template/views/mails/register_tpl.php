@@ -27,7 +27,7 @@
 	</tr>
 	<tr>
 		<td>
-			Thank you for setting up an account with Venturepact.com <br />
+			Thank you for setting up an account with Gudaak.com <br />
             Your Credentials are as follows:
 		</td>	
 	</tr>
@@ -35,6 +35,11 @@
 		<td>
 			Username: <span><?php echo $email; ?></span><br />
 			Password: <span><?php echo preg_replace('/(?!^)\S/', '*', $password);?></span>
+		</td>	
+	</tr>
+	<tr>
+		<td>
+			Click here to active your account <span><?php echo $code; ?></span>
 		</td>	
 	</tr>
 	<tr>

@@ -7709,6 +7709,7 @@ top:115px;width: 252px;background:#FAFFFF;background-color:#FAFFFF;z-index:999;}
 .navbar-right li {
     margin: 1px 0 0 34px;
 }
+.complete-test-show{display:none;}
 .navigation-bt{list-style:none;}
 .navigation-bt li{float:left;margin:0 0 0 7px;}
 .home-tabing{min-height:475px;padding-top:75px;}
@@ -8370,3 +8371,4 @@ height:19px !important;
 .w20{width:29% !important}
 .w80{width:70% !important}
 .fl{float:left !important}
+.profileHide{display:none;}

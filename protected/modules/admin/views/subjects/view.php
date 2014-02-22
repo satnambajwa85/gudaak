@@ -24,6 +24,12 @@ $this->menu=array(
 		'id',
 		'title',
 		'description',
+		 array(
+            'name'=>'image',
+            'type'=>'raw',
+             'value' => '<img src="'.Yii::app()->baseUrl.'/uploads/subjects/small/'.$model->image.'"/>'
+
+        ),
 		'add_date',
 		'published',
 		'status',

@@ -6,10 +6,15 @@
  * The followings are the available columns in table 'subjects':
  * @property integer $id
  * @property string $title
+ * @property string $image
  * @property string $description
  * @property string $add_date
  * @property integer $published
  * @property integer $status
+ *
+ * The followings are the available model relations:
+ * @property CareerOptionsHasSubjects[] $careerOptionsHasSubjects
+ * @property StreamHasSubjects[] $streamHasSubjects
  */
 class Subjects extends CActiveRecord
 {
@@ -30,13 +35,13 @@ class Subjects extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('title', 'required'),
-			array('title', 'unique'),
 			array('published, status', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>255),
+			array('image', 'length', 'max'=>50),
 			array('description, add_date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, title, description, add_date, published, status', 'safe', 'on'=>'search'),
+			array('id, title, image, description, add_date, published, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -48,6 +53,8 @@ class Subjects extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
+			'careerOptionsHasSubjects' => array(self::HAS_MANY, 'CareerOptionsHasSubjects', 'subjects_id'),
+			'streamHasSubjects' => array(self::HAS_MANY, 'StreamHasSubjects', 'subjects_id'),
 		);
 	}
 
@@ -59,6 +66,7 @@ class Subjects extends CActiveRecord
 		return array(
 			'id' => 'ID',
 			'title' => 'Title',
+			'image' => 'Image',
 			'description' => 'Description',
 			'add_date' => 'Add Date',
 			'published' => 'Published',
@@ -86,6 +94,7 @@ class Subjects extends CActiveRecord
 
 		$criteria->compare('id',$this->id);
 		$criteria->compare('title',$this->title,true);
+		$criteria->compare('image',$this->image,true);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('add_date',$this->add_date,true);
 		$criteria->compare('published',$this->published);

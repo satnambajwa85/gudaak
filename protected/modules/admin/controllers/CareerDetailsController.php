@@ -32,8 +32,8 @@ class CareerDetailsController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','DynamicCareer','DynamicCareerList','admin','delete'),
-				'users'=>array('@'),
+				'actions'=>array('create','update','DynamicCareer','DynamicCareerList','admin','delete','adminView','createNew'),
+				'expression' =>"Yii::app()->user->userType ==  'admin'",
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete','DynamicCareer','DynamicCareerList'),
@@ -70,7 +70,7 @@ class CareerDetailsController extends Controller
 		if(isset($_POST['CareerDetails']))
 		{
 			$model->attributes=$_POST['CareerDetails'];
-				$targetFolder = Yii::app()->request->baseUrl.'/uploads/career_details/';
+			$targetFolder = Yii::app()->request->baseUrl.'/uploads/career_details/';
 			if (!empty($_FILES['CareerDetails']['name']['image'])) {
 				$tempFile = $_FILES['CareerDetails']['tmp_name']['image'];
 				$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
@@ -108,11 +108,74 @@ class CareerDetailsController extends Controller
 				$model->image	=	$fileName;
 			}
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('adminView','id'=>$model->career_options_id));//$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('create',array(
 			'model'=>$model,
+		));
+	}
+
+	public function actionCreateNew($id)
+	{
+		$model=new CareerDetails;
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['CareerDetails']))
+		{
+			$model->attributes=$_POST['CareerDetails'];
+			$cut	=	CareerDetails::model()->findByAttributes(array('title'=>$model->title,'career_options_id'=>$model->career_options_id));
+			if(empty($cut)){
+				
+			
+				$targetFolder = Yii::app()->request->baseUrl.'/uploads/career_details/';
+				if (!empty($_FILES['CareerDetails']['name']['image'])) {
+					$tempFile = $_FILES['CareerDetails']['tmp_name']['image'];
+					$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
+					$targetFile = $targetPath.'/'.$_FILES['CareerDetails']['name']['image'];
+					$pat = $targetFile;
+					move_uploaded_file($tempFile,$targetFile);
+					$absoPath = $pat;
+					$newName = time();
+					$img = Yii::app()->imagemod->load($pat);
+					# ORIGINAL
+					$img->file_max_size = 5000000; // 5 MB
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/career_details/original/');
+					$img->processed;
+					#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
+					if ($img->processed) {
+						#THUMB Image
+						$img->image_resize      = true;
+						$img->image_y         	= 304;
+						$img->image_x           = 304;
+						$img->file_new_name_body = $newName;
+						$img->process('uploads/career_details/large/');
+						
+						#STHUMB Image
+						$img->image_resize      = true;
+						$img->image_y         	= 115;
+						$img->image_x           = 265;
+						$img->file_new_name_body = $newName;
+						$img->process('uploads/career_details/small/');
+					 
+						$fileName	=	$img->file_dst_name;
+						$img->clean();
+		
+					}
+					$model->image	=	$fileName;
+				}
+				if($model->save())
+					$this->redirect(array('adminView','id'=>$model->career_options_id));//$this->redirect(array('view','id'=>$model->id));
+			}
+			else
+				Yii::app()->user->setFlash('error', "Title already exists");
+		}
+
+		$this->render('form',array(
+			'model'=>$model,'id'=>$id
 		));
 	}
 
@@ -131,7 +194,9 @@ class CareerDetailsController extends Controller
 		if(isset($_POST['CareerDetails']))
 		{
 			$model->attributes=$_POST['CareerDetails'];
-			$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/uploads/career_details/';
+			$cut	=	CareerDetails::model()->findByAttributes(array('title'=>$model->title,'career_options_id'=>$model->career_options_id));
+			if(empty($cut) || $cut->id==$model->id){
+				$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/uploads/career_details/';
 					$targetFolder = Yii::app()->request->baseUrl.'/uploads/career_details/';
 				if (!empty($_FILES['CareerDetails']['name']['image'])) {
 					$tempFile = $_FILES['CareerDetails']['tmp_name']['image'];
@@ -174,9 +239,15 @@ class CareerDetailsController extends Controller
 					@unlink($targetFolder1.'large/'.$_POST['CareerDetails']['oldImage']);
 					@unlink($targetFolder1.'small/'.$_POST['CareerDetails']['oldImage']);
 				}
+				 
 			}
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			else
+				$model->image	=	$_POST['CareerDetails']['oldImage'];
+				if($model->save())
+					$this->redirect(array('adminView','id'=>$model->career_options_id));//$this->redirect(array('careerDetails/adminView','id'=>$model->id));
+			}
+			else
+				Yii::app()->user->setFlash('error', "Title already exists");
 		}
 
 		$this->render('update',array(
@@ -221,6 +292,19 @@ class CareerDetailsController extends Controller
 
 		$this->render('admin',array(
 			'model'=>$model,
+		));
+	}
+
+	public function actionAdminView($id)
+	{
+		$model=new CareerDetails('search');
+		$model->unsetAttributes();  // clear any default values
+		$model->career_options_id=$id;
+		if(isset($_GET['CareerDetails']))
+			$model->attributes=$_GET['CareerDetails'];
+
+		$this->render('admin',array(
+			'model'=>$model,'id'=>$id
 		));
 	}
 

@@ -28,7 +28,7 @@
 							<div class="pull-left pd0 prefered-stream-img">
 							<?php 
 						$filename = ''.$list['image'].'';
-						 $path=Yii::getPathOfAlias('webroot.uploads.career.small') . '/';
+						 $path=Yii::getPathOfAlias('webroot.uploads.career_options.small') . '/';
 						$file=$path.$filename;
 						if (file_exists($file)){ ?>
 							<?php echo CHtml::link('<img  src="'.Yii::app()->baseUrl.'/uploads/career_options/small/'.$list['image'].'" />',array('user/careerDetails','id'=>$list['id']));?>

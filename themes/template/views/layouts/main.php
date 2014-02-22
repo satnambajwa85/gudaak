@@ -210,13 +210,13 @@
                                                             'enableClientValidation'=>true,
                                                             'clientOptions'=>array('validateOnSubmit'=>true,)));?>
                                     <i class="glyphicon glyphicon-edit orange pull-left"></i>
-                                    <h4 class="form-signin-heading ">Enroll your future!!!</h4>
+                                    <h4 class="form-signin-heading ">Enroll !!!</h4>
 									   <?php 	echo $form->textField($model,'gudaak_id',
 								
 								array('class'=>'form-control','placeholder'=>'Gudaak ID','ajax' => array('type'=>'POST',
 									'url'=>CController::createUrl('site/AutoCompleteLookup'), //url to call.
 									'success'=>'function(data){afterResponse(data)}',
-									//'update'=>'#Register_class',
+									//'update'=>'#class_register',
 									
 									
 										)));?>
@@ -254,7 +254,7 @@
 									<?php echo $form->dropDownlist($model,'class',array('empty'=>'Please Select'),array('id'=>'class_register','class'=>'form-control'));
 									echo $form->error($model,'class');?>
                                     <div class="pd4"></div>
-									<?php echo $form->dropDownlist($model,'medium',CHtml::listData(UserAcademicMedium::model()->findAll(),'id','title'),array('empty'=>'Please Select','class'=>'form-control'));
+									<?php echo $form->dropDownlist($model,'medium',array('empty'=>'Please Select'),array('id'=>'medium_register','class'=>'form-control'));
 									echo $form->error($model,'medium');?>
                                     <div class="pd4"></div>
                                     <?php echo $form->passwordField($model,'password',array('class'=>'form-control','placeholder'=>'Password','autofocus'=>true));
@@ -299,6 +299,7 @@ function afterResponse($data){
 	if($response.status==1)
 	{
 		$('#class_register').html($response.data);
+		$('#medium_register').html($response.medium);
 		
 	}
 	 

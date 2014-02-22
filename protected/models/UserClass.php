@@ -9,6 +9,7 @@
  * @property string $description
  * @property string $add_date
  * @property integer $published
+ * @property integer $orderBy
  * @property integer $status
  *
  * The followings are the available model relations:
@@ -34,12 +35,12 @@ class UserClass extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('title, add_date', 'required'),
-			array('published, status', 'numerical', 'integerOnly'=>true),
+			array('published, orderBy, status', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>100),
 			array('description', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, title, description, add_date, published, status', 'safe', 'on'=>'search'),
+			array('id, title, description, add_date, published, orderBy, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -67,6 +68,7 @@ class UserClass extends CActiveRecord
 			'description' => 'Description',
 			'add_date' => 'Add Date',
 			'published' => 'Published',
+			'orderBy' => 'Order By',
 			'status' => 'Status',
 		);
 	}
@@ -94,6 +96,7 @@ class UserClass extends CActiveRecord
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('add_date',$this->add_date,true);
 		$criteria->compare('published',$this->published);
+		$criteria->compare('orderBy',$this->orderBy);
 		$criteria->compare('status',$this->status);
 
 		return new CActiveDataProvider($this, array(

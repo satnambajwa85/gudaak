@@ -42,7 +42,13 @@ $('.search-form form').submit(function(){
 	'columns'=>array(
 		'id',
 		'title',
-		'description',
+		array(
+		'name'=>'image',
+		'type'=>'raw',
+		 'value' => 'CHtml::image(Yii::app()->baseUrl . "/uploads/subjects/small/" . $data->image)'
+
+		),
+		//'description',
 		'add_date',
 		'published',
 		'status',

@@ -526,3 +526,49 @@ footer {
   filter: progid:dximagetransform.microsoft.gradient(enabled=false);
 }
 #CareerOptionsHasStream_career_options_id label{display: inline;}
+.odd >td >img{width:41px;}
+.even >td >img{width:41px;}
+
+
+.left-menu {
+    float: left;
+    padding: 23px;
+    width: 13%;
+}
+
+.right-menu {
+    float: left;
+    width: 82%;
+	padding:23px 0 0 0;
+}
+
+.active {background-color:#F5F5F5 !important;}
+
+
+.right-menu h1 {
+    font-size: 18px;
+    font-weight: normal;
+    margin: 0;
+}
+.admin-menu li{ border-radius: 5px; border: 1px solid #F5F5F5;color: #666666;margin: 4px 0 0;}
+.admin-menu li a{color: #666666;}
+.grid-view .summary {
+    float: left;
+    margin: 0 0 5px;
+    text-align: right;
+}
+.main-body {
+    min-height: 1000px;
+}
+
+#GenerateGudaakIds_activation > label {
+    float: left;
+}
+
+#GenerateGudaakIds_status > label {
+    float: left;
+}
+.table-bordered{background-color:#FAFAFA}
+.even.selected{background: none repeat scroll 0 0 #304186 !important;color:#F5F5F5}
+.odd.selected{background: none repeat scroll 0 0 #304186 !important;color:#F5F5F5}
+

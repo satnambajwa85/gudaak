@@ -40,15 +40,15 @@ $('.search-form form').submit(function(){
 		'id',
 		array(
             'name'=>'Career Categories ',
-            'value'=>'$data->careerOptions->career->careerCategories->title'
+            'value'=>'$data->career->careerCategories->title'
         ),
 		array(
             'name'=>'Career',
-            'value'=>'$data->careerOptions->career->title'
+            'value'=>'$data->career->title'
         ),
 		array(
             'name'=>'Career',
-            'value'=>'$data->careerOptions->title'
+            'value'=>'$data->title'
         ),
 		'title',
 		//'description',

@@ -100,6 +100,7 @@ Yii::app()->clientScript->registerScript(
     <!-- Placed at the end of the document so the pages load faster -->
     
     <script src="<?php echo $path;?>/js/bootstrap.min.js"></script>
+	<script src="<?php echo $path;?>/js/profle-pop-up.js"></script>
 	<script src="<?php echo $path;?>/js/jquery-ui-1.10.3.custom.js"></script>
 	<script type="text/javascript"  src="<?php echo $path;?>/js/dashboard-custom.js"></script>
 	<script type="text/javascript"  src="<?php echo $path;?>/js/rating.js"></script>
@@ -109,7 +110,10 @@ Yii::app()->clientScript->registerScript(
 <!-- jquery jcarousel --> 
 
 <!-- end Scripts --> 
-
+<script type="text/javascript">
+ var url	=	'<?php echo Yii::app()->createUrl('/user/userProfileUpdate');?>';
+ var test	=	'<?php echo Yii::app()->createUrl('user/test');?>';
+</script>
 <?php  $this->Widget('WidgetUserProfile'); ?>
 	
 

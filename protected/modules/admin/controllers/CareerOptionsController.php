@@ -28,12 +28,12 @@ class CareerOptionsController extends Controller
 	{
 		return array(
 			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view','admin','delete','DynamicCareer','createDetails','createDetailsView'),
+				'actions'=>array('index','view','admin','delete','DynamicCareer','createNew','adminView'),
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('create','update','DynamicCareer'),
-				'users'=>array('@'),
+				'expression' =>"Yii::app()->user->userType ==  'admin'",
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete','DynamicCareer'),
@@ -107,42 +107,98 @@ class CareerOptionsController extends Controller
 				}
 				$model->image	=	$fileName;
 			}
+			
+			
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('adminView','id'=>$model->career_id));//$this->redirect(array('view','id'=>$model->id));
 		}
-
+		foreach($model->careerOptionsHasSubjects as $sub)
+			$subjectList[]	=	$sub->subjects_id;
 		$this->render('create',array(
-			'model'=>$model,
+			'model'=>$model,'subjectList'=>$subjectList
 		));
 	}
 	
-	public function actionCreateDetails($id)
+	public function actionCreateNew($id)
 	{
-		$model=new CareerDetails;
+		$model=new CareerOptions;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['CareerDetails']))
+		if(isset($_POST['CareerOptions']))
 		{
-			$model->attributes=$_POST['CareerDetails'];
-			if($model->save())
-				$this->redirect(array('createDetailsView','id'=>$id));
+			$model->attributes=$_POST['CareerOptions'];
+			$targetFolder = Yii::app()->request->baseUrl.'/uploads/career_options/';
+			if (!empty($_FILES['CareerOptions']['name']['image'])) {
+				$tempFile = $_FILES['CareerOptions']['tmp_name']['image'];
+				$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
+				$targetFile = $targetPath.'/'.$_FILES['CareerOptions']['name']['image'];
+				$pat = $targetFile;
+				move_uploaded_file($tempFile,$targetFile);
+				$absoPath = $pat;
+				$newName = time();
+				$img = Yii::app()->imagemod->load($pat);
+				# ORIGINAL
+				$img->file_max_size = 5000000; // 5 MB
+				$img->file_new_name_body = $newName;
+				$img->process('uploads/career_options/original/');
+				$img->processed;
+				#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
+				if ($img->processed) {
+					#THUMB Image
+					$img->image_resize      = true;
+					$img->image_y         	= 304;
+					$img->image_x           = 304;
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/career_options/large/');
+					
+					#STHUMB Image
+					$img->image_resize      = true;
+					$img->image_y         	= 115;
+					$img->image_x           = 265;
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/career_options/small/');
+				 
+					$fileName	=	$img->file_dst_name;
+					$img->clean();
+	
+				}
+				$model->image	=	$fileName;
+			}
+			if($model->save()){
+				
+				if(!empty($_POST['CareerOptions']['subjects']))
+				foreach($_POST['CareerOptions']['subjects'] as $subject=>$val){
+					if($val){
+						$modl						=	new CareerOptionsHasSubjects;
+						$modl->subjects_id			=	$subject;
+						$modl->career_options_id	=	$model->id;
+						$modl->subject_type 		=	$_POST['subjects'][$subject];
+						//$modl->add_date				=	date('Y-m-d H:i:s');
+						//$modl->status				=	1;
+						$modl->save();
+					}
+				}
+				$this->redirect(array('adminView','id'=>$model->career_id));
+			}
 		}
-
-		$this->render('createDetails',array('model'=>$model,'id'=>$id));
+		$subjectList	=	array();
+		foreach($model->careerOptionsHasSubjects as $sub)
+			$subjectList[]	=	$sub->subjects_id;
+		$this->render('form',array('model'=>$model,'id'=>$id,'subjectList'=>$subjectList));
 	}
 	
-	public function actionCreateDetailsView($id)
+	public function actionAdminView($id)
 	{
-		$model=new CareerDetails('search');
+		$model=new CareerOptions('search');
 		$model->unsetAttributes();  // clear any default values
-		$model->career_options_id	=	$id;
+		$model->career_id	=	$id;
 		
-		if(isset($_GET['CareerDetails']))
-			$model->attributes=$_GET['CareerDetails'];
+		if(isset($_GET['CareerOptions']))
+			$model->attributes=$_GET['CareerOptions'];
 
-		$this->render('createDetailsView',array('model'=>$model,'id'=>$id));
+		$this->render('admin',array('model'=>$model,'id'=>$id));
 	}
 
 	/**
@@ -205,13 +261,33 @@ class CareerOptionsController extends Controller
 					@unlink($targetFolder1.'small/'.$_POST['CareerOptions']['oldImage']);
 				}
 			}
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			else
+				$model->image	=	$_POST['CareerOptions']['oldImage'];
+				
+			if($model->save()){
+				CareerOptionsHasSubjects::model()->deleteAllByAttributes(array('career_options_id'=>$model->id));
+				if(!empty($_POST['CareerOptions']['subjects']))
+				foreach($_POST['CareerOptions']['subjects'] as $subject=>$val){
+					if($val){
+						$modl						=	new CareerOptionsHasSubjects;
+						$modl->subjects_id			=	$subject;
+						$modl->career_options_id	=	$model->id;
+						$modl->subject_type 		=	$_POST['subjects'][$subject];
+						//$modl->add_date				=	date('Y-m-d H:i:s');
+						//$modl->status				=	1;
+						$modl->save();
+					}
+				}
+				
+				$this->redirect(array('adminView','id'=>$model->career_id));//$this->redirect(array('view','id'=>$model->id));
+			}
 		}
 
-		$this->render('update',array(
-			'model'=>$model,
-		));
+		$subjectList	=	array();
+		foreach($model->careerOptionsHasSubjects as $sub)
+			$subjectList[]	=	$sub->subjects_id;
+		$this->render('update',array('model'=>$model,'subjectList'=>$subjectList));
+		
 	}
 
 	/**

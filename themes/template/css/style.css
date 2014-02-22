@@ -67,7 +67,7 @@ a,img{ outline:none;}
 .profile_tab1_left input{ border: 1px solid #CCCCCC; border-radius: 4px;float: left;margin-right: 10px; margin-bottom:10px;min-height: 43px; padding: 8px 20px; width: 46%;}
 .profile_tab1_left .big_index{width: 94.5%;}
 .profile_tab1_left select{ border: 1px solid #CCCCCC; border-radius: 4px;float: left;margin-right: 10px; margin-bottom:10px;min-height: 43px; padding: 8px 20px; width: 46%; color:#999;}
-.profile_tab1_right{ float:right; width:50%; margin-top:52px;}
+.profile_tab1_right{ float:right; width:50%; margin-top:0px;}
 .profile_tab1_right input{ border: 1px solid #CCCCCC; border-radius: 4px;float: right;margin-left: 10px;
  margin-bottom:10px;min-height: 43px; padding: 8px 20px; width: 47%;}
 .profile_tab1_right .big_index{width: 94.5%;}
@@ -90,3 +90,4 @@ a,img{ outline:none;}
 
 .uClass{float:left;margin-left: 28px;
     width: 47%;}
+.margin-top27{margin-top:27px;}

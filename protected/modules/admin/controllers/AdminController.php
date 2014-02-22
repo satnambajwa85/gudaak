@@ -9,7 +9,7 @@ class adminController extends Controller
 		$this->render('index',array('activeMember'=>$activeMember));
 		die;
 		}
-		$this->redirect(array('/site/error'));
+		$this->redirect(array('/site/'));
 	}
 	public function actionGraph()
 	{	if(Yii::app()->user->id && Yii::app()->user->userType=='admin'){
@@ -17,7 +17,7 @@ class adminController extends Controller
 		$this->render('graph');
 		die;
 		}
-		$this->redirect(array('/site/error'));
+		$this->redirect(array('/site/'));
 	}
 	public function actionAccountUpdate()
 	{	if(Yii::app()->user->id && Yii::app()->user->userType=='admin'){

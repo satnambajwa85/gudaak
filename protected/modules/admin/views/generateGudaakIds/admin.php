@@ -37,6 +37,7 @@ $('.search-form form').submit(function(){
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'generate-gudaak-ids-grid',
+	'itemsCssClass'=>'table table-bordered',
 	'dataProvider'=>$model->search(),
 	//'filter'=>$model,
 	'columns'=>array(
@@ -49,6 +50,10 @@ $('.search-form form').submit(function(){
 		array(
             'name'=>'Schools',
             'value'=>'$data->schools->name'
+        ),
+		array(
+            'name'=>'User Role Id',
+            'value'=>'$data->userRole->title'
         ),
 		'add_date',
 		'activation',

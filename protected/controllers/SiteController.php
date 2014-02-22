@@ -93,15 +93,27 @@ class SiteController extends Controller
 					die;
 				}
 				else{
-					$data	=	  UserClass::model()->findAll('id =:id',array(':id'=>(int) $gudaakId->user_class_id));
-					$data	=	CHtml::listData($data,'id','title');
+					$dataR	=	UserClass::model()->findAll('orderBy =:orderBy',array(':orderBy'=>(int) $gudaakId->user_role_id));
+					$data	=	CHtml::listData($dataR,'id','title');
+					
+					$classes	=	array();
+					$response	=	array();
+					$response['status']=1;
+					$response['data']='';
 					foreach($data as $value=>$name){
-						$response	=	array();
-						$response['status']=1;
-						$response['data']=CHtml::tag('option', array('value'=>$value),CHtml::encode($name),true);
-						echo json_encode($response); 
-						die;
+						$response['data'].=CHtml::tag('option', array('value'=>$value),CHtml::encode($name),true);
 					}
+					foreach($dataR as $aa){
+						$classes[]=$aa->id;
+					}
+					$response['medium']='';	
+					$medimumR	=	UserAcademicMedium::model()->findAllByAttributes(array('user_class_id'=>$classes));
+					$medimum	=	CHtml::listData($medimumR,'id','title');
+					foreach($medimum as $value=>$name){
+						$response['medium'].=CHtml::tag('option', array('value'=>$value),CHtml::encode($name),true);
+					}
+					echo json_encode($response); 
+					die;
 				}
 			}
 			else{
@@ -172,13 +184,17 @@ class SiteController extends Controller
 						$model->generate_gudaak_ids_id	=	$gudaakId->id;
 						
 						if($model->save()){
+							 
 							//Start  mail Function 
-							$data['name']		=	$model->display_name;
-							$data['email']		=	$user->username;
-							$data['password']	=	$user->password;
-							$this->sendMail($data,'register'); 
+							$body = $this->renderPartial('/mails/register_tpl',array('name'=>$model->display_name,'code'=>'dnfskjdfnjsndjfnjsdfnjsdnfjaksoskaokoa','email'=>$_POST['Register']['email'],'password'=>$_POST['Register']['password']), true);
+							$to = $_POST['Register']['email'];
+							$headers  = 'MIME-Version: 1.0' . "\r\n";
+							$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+							$headers .= "From: ".Yii::app()->params['adminEmail']."\r\nReply-To: ".Yii::app()->params['adminEmail'];  
+							$subject = "Account Details";
+							mail($to,$subject,$body,$headers);
 							//End  mail Function  
-							Yii::app()->user->setFlash('create','Thank you for join us check your email.');
+							Yii::app()->user->setFlash('login','Thank you for join us check your email and activate your account.');
 							$this->redirect(array('site/login'));
 							die;
 						}
@@ -397,12 +413,12 @@ class SiteController extends Controller
 		$from		=	Yii::app()->params['adminEmail'];
 		$to			=	$data['email'];
 		$mail		=	Yii::app()->Smtpmail;
-        $mail->SetFrom($from,'Venturepact');
+        $mail->SetFrom($from,'Gudaak');
         $mail->Subject	=	$subject;
         $mail->MsgHTML($body);
         $mail->AddAddress($to, "");		
         if(!$mail->Send()) {
-            return 0;
+           echo 'No';die; return 0;
         }else {
 			return 1;
         }

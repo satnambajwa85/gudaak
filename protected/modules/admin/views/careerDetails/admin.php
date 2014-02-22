@@ -7,6 +7,14 @@ $this->breadcrumbs=array(
 	'Manage',
 );
 
+
+$this->breadcrumbs=array('Careers Categories'=>array('/admin/careerCategories/admin'),'Careers'=>array('/admin/career/adminView','id'=>$model->careerOptions->career->career_categories_id),'Careers Options'=>array('/admin/careerOptions/adminView','id'=>$model->careerOptions->career_id),'Careers Options',);
+$this->widget('zii.widgets.CBreadcrumbs', array('links'=>$this->breadcrumbs,));
+
+
+
+
+
 $this->menu=array(
 	array('label'=>'List CareerDetails', 'url'=>array('index')),
 	array('label'=>'Create CareerDetails', 'url'=>array('create')),
@@ -32,7 +40,7 @@ $('.search-form form').submit(function(){
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,
 )); ?>
-</div><?php echo CHtml::link('Create',array('/admin/careerDetails/create'),array('class'=>'pull-right btn btn-s-md btn-success')); ?>
+</div><?php echo CHtml::link('Create',array('/admin/careerDetails/createNew','id'=>$id),array('class'=>'pull-right btn btn-s-md btn-success')); ?>
 	
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'career-details-grid',
@@ -44,9 +52,13 @@ $('.search-form form').submit(function(){
             'name'=>'Career Categories ',
             'value'=>'$data->careerOptions->career->careerCategories->title'
         ),
-			array(
+		array(
             'name'=>'Career',
             'value'=>'$data->careerOptions->career->title'
+        ),
+		array(
+            'name'=>'Career Options',
+            'value'=>'$data->careerOptions->title'
         ),
 		'title',
 		//'description',

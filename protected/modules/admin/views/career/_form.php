@@ -72,6 +72,22 @@
 	</div>
 
 
+	<div class="form-group">
+		<?php
+		echo $form->labelEx($model,'streams'); ?>
+		<?php
+		$subjects	=	Stream::model()->findAllByAttributes(array('status'=>1));
+		foreach($subjects as $stream){
+		echo '<div style="width:20%;float:left;"><div>'.$form->CheckBox($model,'streams['.$stream->id.']',array('checked'=>(in_array($stream->id,$streams))?'checked':''));
+		echo $stream->name.'</div></div>';
+		}
+		?>
+		<?php echo $form->error($model,'subjects'); ?>
+	</div>
+	<div class="clear"></div>
+    
+
+
 	<div class="form-group buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 	</div>

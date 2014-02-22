@@ -13,6 +13,7 @@
 	// There is a call to performAjaxValidation() commented in generated controller code.
 	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
+	'htmlOptions'=>array('enctype'=>'multipart/form-data'),
 )); ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
@@ -36,16 +37,14 @@
 		<?php echo $form->error($model,'description'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'add_date'); ?>
-		<?php	$this->widget('zii.widgets.jui.CJuiDatePicker',array(
-									'model'=>$model,
-									'attribute'=>'add_date',
-									'options'=>array('dateFormat'=>'yy-mm-dd','minDate'=>0),
-									'htmlOptions'=>array('class'=>'form-control'),
-									'value'=>date('Y-m-d', strtotime('+2 day', strtotime(date('Y-m-d')))),
-									));?>
-		<?php echo $form->error($model,'add_date'); ?>
+	<div class="form-group">
+		<?php echo $form->labelEx($model,'image'); ?>
+		<?php echo $form->fileField($model,'image',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->error($model,'image'); ?>
+		<?php if(isset($model->image)){ ?> 
+		<?php echo $form->hiddenField($model,'oldImage',array('value'=>$model->image)); ?>
+		<img width="100" height="100" src="<?php echo Yii::app()->request->baseUrl.'/uploads/subjects/small/'.$model->image;?>" alt="image"/>
+		<?php }?>
 	</div>
 	<div class="row">
 		<?php echo $form->labelEx($model,'published'); ?>

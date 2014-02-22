@@ -1,11 +1,16 @@
 <?php
 /* @var $this CareerController */
 /* @var $model Career */
-
 $this->breadcrumbs=array(
 	'Careers'=>array('index'),
 	'Manage',
 );
+
+
+$this->breadcrumbs=array('Careers Categories'=>array('/admin/careerCategories/admin'),'Manage Careers',);
+$this->widget('zii.widgets.CBreadcrumbs', array('links'=>$this->breadcrumbs,));
+
+
 
 $this->menu=array(
 	array('label'=>'List Career', 'url'=>array('index')),
@@ -32,7 +37,7 @@ $('.search-form form').submit(function(){
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,
 )); ?>
-</div><?php echo CHtml::link('Create',array('/admin/career/create'),array('class'=>'pull-right btn btn-s-md btn-success')); ?>
+</div><?php echo (!isset($id))?CHtml::link('Create',array('/admin/career/create'),array('class'=>'pull-right btn btn-s-md btn-success')):CHtml::link('Create',array('/admin/career/createNew','id'=>$id),array('class'=>'pull-right btn btn-s-md btn-success')); ?>
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'career-grid',
@@ -54,6 +59,11 @@ $('.search-form form').submit(function(){
 		'status',
 		'career_categories_id',
 		*/
+		array(
+			'type'=>'raw',
+			'name'=>'Add Records',
+            'value'=>'CHtml::link("Data",array("/admin/careerOptions/adminView","id"=>$data->id))',
+            ),
 		array(
 			'class'=>'CButtonColumn',
 		),

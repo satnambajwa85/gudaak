@@ -17,6 +17,14 @@
 )); ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
+<?php if(Yii::app()->user->hasFlash('error')): ?>
+ 
+<div class="flash-success">
+    <?php echo Yii::app()->user->getFlash('error'); ?>
+</div>
+ 
+<?php endif; ?>
+
 
 	<?php echo $form->errorSummary($model); ?>
 	 <div class="form-group">
@@ -52,7 +60,12 @@
 	</div>
 	<div class="form-group">
 		<?php echo $form->labelEx($model,'title'); ?>
-		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>100,'class'=>'form-control')); ?>
+		<?php 
+		$list=array('Overview'=>'Overview','Neature Of Work'=>'Neature Of Work','Skills/Traits'=>'Skills/Traits','The Payoff'=>'The Payoff','Getting There'=>'Getting There','Opportunities'=>'Opportunities','Major Institutes'=>'Major Institutes','Pros And Cons'=>'Pros And Cons','Hall Of Fame'=>'Hall Of Fame','Misconceptions'=>'Misconceptions');
+		
+		echo $form->dropDownlist($model,'title',$list,array('class'=>'form-control')); ?>
+        
+        <?php //echo $form->textField($model,'title',array('size'=>60,'maxlength'=>100,'class'=>'form-control')); ?>
 		<?php echo $form->error($model,'title'); ?>
 	</div>
 

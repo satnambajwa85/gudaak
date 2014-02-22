@@ -1,11 +1,13 @@
 <?php
 /* @var $this CareerOptionsController */
 /* @var $model CareerOptions */
+$this->breadcrumbs=array('Careers Categories'=>array('/admin/careerCategories/admin'),'Careers'=>array('/admin/career/adminView','id'=>$model->career->career_categories_id),'Careers Options',);
+$this->widget('zii.widgets.CBreadcrumbs', array('links'=>$this->breadcrumbs,));
 
-$this->breadcrumbs=array(
-	'Career Options'=>array('index'),
-	'Manage',
-);
+
+
+
+
 
 $this->menu=array(
 	array('label'=>'List CareerOptions', 'url'=>array('index')),
@@ -33,7 +35,7 @@ $('.search-form form').submit(function(){
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,
 )); ?>
-</div><?php echo CHtml::link('Create',array('/admin/careerOptions/create'),array('class'=>'pull-right btn btn-s-md btn-success')); ?>
+</div><?php echo CHtml::link('Create',array('/admin/careerOptions/createNew','id'=>$id),array('class'=>'pull-right btn btn-s-md btn-success')); ?>
 	
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'career-options-grid',
@@ -64,6 +66,11 @@ $('.search-form form').submit(function(){
 		'status',
 		'career_id',
 		*/
+		array(
+			'type'=>'raw',
+			'name'=>'Add Records',
+            'value'=>'CHtml::link("Data",array("/admin/careerDetails/adminView","id"=>$data->id))',
+        ),
 		array(
 			'class'=>'CButtonColumn',
 		),

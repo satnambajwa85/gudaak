@@ -33,7 +33,7 @@ class QuestionsController extends Controller
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('create','update','admin','delete'),
-				'users'=>array('@'),
+				'expression' =>"Yii::app()->user->userType ==  'admin'",
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete'),
@@ -187,6 +187,8 @@ class QuestionsController extends Controller
 			 
 				}
 			}
+			else
+				$model->image	=	$_POST['Questions']['oldImage'];
 			if($model->save()){
 					foreach($model->options as $optionsList){
 					$option	=	new QuestionsHasQuestionOptions;

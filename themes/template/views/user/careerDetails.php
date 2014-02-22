@@ -8,12 +8,12 @@
 			<div class="pd0 col-md-12 pull-left ">
 			<div class="border">
 					<ol class="breadcrumb">
-					  <li><a href="javascript:void(0)">Career Details</a></li>
-					  <li class="pull-right">
-							<ul class="star-rating pull-left pd5" style="margin:0px;">
-								<li><span class="rating-title2">Your Rating</span></li>
-								<li><div id="career-rating"  ></div></li>
-							</ul>
+						<li><a href="javascript:void(0)">Career Details</a></li>
+                    	<li class="pull-right">
+							<div class="star-rating pull-left pd5" style="margin:0px;">
+								<span class="rating-title2 fl">Your Rating</span>
+								<div id="career-rating" class="fr"></div>
+							</div>
 						</li>	
 					 
 					</ol>
@@ -22,7 +22,9 @@
 					<ul>
 						<?php $counter=1;$css='';?>
 						<?php foreach($careerDetailsList as $list){ ?>
-							<?php if($counter==1){
+							<?php 
+							$css='icon-info';
+							if($counter==1){
 								$css='icon-info';
 							}  
 							  if($counter==2){
@@ -65,9 +67,8 @@
 				<div class="pd0 col-md-9  pull-left">
 					<?php foreach($careerDetailsList as $list){ ?>
 					<div id="tab<?php echo $list->id;?>" class="career-tab-section">
-						<h1><?php echo $list->title?></h1> 
-							<?php echo $list->description;?>						
-						
+                    	<h1><?php echo $list->title?></h1>
+							<?php echo ($list->title=='Video')?'<iframe width="560" height="315" src="'.$list->description.'" frameborder="0" allowfullscreen></iframe>':$list->description;?>
 					</div>
 					<?php } ?>
 				</div>						

@@ -16,6 +16,7 @@
  *
  * The followings are the available model relations:
  * @property CareerOptionsHasStream[] $careerOptionsHasStreams
+ * @property StreamHasCareer[] $streamHasCareers
  * @property StreamHasSubjects[] $streamHasSubjects
  * @property UserEducation[] $userEducations
  * @property UserProfilesHasStream[] $userProfilesHasStreams
@@ -24,6 +25,16 @@
  */
 class Stream extends CActiveRecord
 {
+	/**
+	 * Returns the static model of the specified AR class.
+	 * @param string $className active record class name.
+	 * @return Stream the static model class
+	 */
+	public static function model($className=__CLASS__)
+	{
+		return parent::model($className);
+	}
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -46,7 +57,7 @@ class Stream extends CActiveRecord
 			array('rating', 'length', 'max'=>10),
 			array('add_date', 'safe'),
 			// The following rule is used by search().
-			// @todo Please remove those attributes that should not be searched.
+			// Please remove those attributes that should not be searched.
 			array('id, name, description, image, add_date, featured, rating, status, activation', 'safe', 'on'=>'search'),
 		);
 	}
@@ -60,6 +71,7 @@ class Stream extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'careerOptionsHasStreams' => array(self::HAS_MANY, 'CareerOptionsHasStream', 'stream_id'),
+			'streamHasCareers' => array(self::HAS_MANY, 'StreamHasCareer', 'stream_id'),
 			'streamHasSubjects' => array(self::HAS_MANY, 'StreamHasSubjects', 'stream_id'),
 			'userEducations' => array(self::HAS_MANY, 'UserEducation', 'stream_id'),
 			'userProfilesHasStreams' => array(self::HAS_MANY, 'UserProfilesHasStream', 'stream_id'),
@@ -88,19 +100,12 @@ class Stream extends CActiveRecord
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
-	 *
-	 * Typical usecase:
-	 * - Initialize the model fields with values from filter form.
-	 * - Execute this method to get CActiveDataProvider instance which will filter
-	 * models according to data in model fields.
-	 * - Pass data provider to CGridView, CListView or any similar widget.
-	 *
-	 * @return CActiveDataProvider the data provider that can return the models
-	 * based on the search/filter conditions.
+	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
 	 */
 	public function search()
 	{
-		// @todo Please modify the following code to remove attributes that should not be searched.
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
 
 		$criteria=new CDbCriteria;
 
@@ -117,16 +122,5 @@ class Stream extends CActiveRecord
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
-	}
-
-	/**
-	 * Returns the static model of the specified AR class.
-	 * Please note that you should have this exact method in all your CActiveRecord descendants!
-	 * @param string $className active record class name.
-	 * @return Stream the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
 	}
 }
