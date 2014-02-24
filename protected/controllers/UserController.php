@@ -673,6 +673,7 @@ class UserController extends Controller
 
 	public function actionStream($id)
 	{
+		
 		$streamData		=	array();
 		$stream			=	Stream::model()->findByPk($id);
 		$userStream		=	UserProfilesHasStream::model()->findByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'stream_id'=>$id));
@@ -681,9 +682,6 @@ class UserController extends Controller
 		$careerSubjets	=	array();
 		$optionList		=	array();
 		$result			=	array();
-		$criteria = new CDbCriteria();
-		$criteria->distinct = true;
-		
 		$StreamHasSubjects	=	StreamHasSubjects::model()->findAllByAttributes(array('stream_id'=>$id));
 		foreach($StreamHasSubjects as $subject){
 			$subjectList[]	=	$subject->subjects_id;
