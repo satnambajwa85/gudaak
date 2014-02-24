@@ -35,40 +35,7 @@
 		<?php echo $form->passwordField($model,'password',array('size'=>50,'maxlength'=>50,'class'=>'form-control')); ?>
 		<?php echo $form->error($model,'password'); ?>
 	</div>
-
-	
-
 	<div class="form-group">
-		<?php echo $form->labelEx($model,'add_date'); ?>
-		<?php	$this->widget('zii.widgets.jui.CJuiDatePicker',array(
-									'model'=>$model,
-									'attribute'=>'add_date',
-									'options'=>array('dateFormat'=>'yy-mm-dd','minDate'=>0),
-									'htmlOptions'=>array('class'=>'form-control'),
-									'value'=>date('Y-m-d', strtotime('+2 day', strtotime(date('Y-m-d')))),
-									));?>
-		<?php echo $form->error($model,'add_date'); ?>
-	</div>
-
-	<div class="form-group">
-		<?php echo $form->labelEx($model,'last_login'); ?>
-		<?php	$this->widget('zii.widgets.jui.CJuiDatePicker',array(
-									'model'=>$model,
-									'attribute'=>'last_login',
-									'options'=>array('dateFormat'=>'yy-mm-dd','minDate'=>0),
-									'htmlOptions'=>array('class'=>'form-control'),
-									'value'=>date('Y-m-d', strtotime('+2 day', strtotime(date('Y-m-d')))),
-									));?>
-		<?php echo $form->error($model,'last_login'); ?>
-	</div>
-
-	<div class="form-group">
-		<?php echo $form->labelEx($model,'login_status'); ?>
-		<?php echo $form->radioButtonlist($model,'login_status',array('1'=>'Yes','0'=>'No'),array('separator'=>'')); ?>
-		<?php echo $form->error($model,'login_status'); ?>
-	</div>
-
-	<div class="clear">
 		<?php echo $form->labelEx($model,'block'); ?>
 		<?php echo $form->radioButtonlist($model,'block',array('1'=>'Yes','0'=>'No'),array('separator'=>'')); ?>
 		<?php echo $form->error($model,'block'); ?>

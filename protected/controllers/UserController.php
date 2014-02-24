@@ -690,11 +690,33 @@ class UserController extends Controller
 			$Subjects[$subject->subjects->id]['image']		=	$subject->subjects->image;
 			$Subjects[$subject->subjects->id]['type']		=	$subject->type_subjects;
 			$Subjects[$subject->subjects->id]['description']=	$subject->subjects->description;
+			if($Subjects[$subject->subjects->id]['type']=='compulsory')
+				$careerSubjets[]	=	$subject->subjects_id;
+			
 		}
-		$careerOptions	=	  CareerOptionsHasSubjects::model()->findAllByAttributes(array('subjects_id'=>$subjectList));
+		//$careerOptions	=	  CareerOptionsHasSubjects::model()->findAllByAttributes(array('subjects_id'=>$careerSubjet));
+		//echo '<pre>';
+		//print_r($careerSubjets);
 		$list	=	array();
-		foreach($careerOptions as $careerOption){
-			$list[$careerOption->careerOptions->id]	=	$careerOption->careerOptions->title;
+		//$list2	=	array();
+		foreach($careerSubjets as $careerSubjet){
+			$allSubjectCareer	=	CareerOptionsHasSubjects::model()->findAllByAttributes(array('subjects_id'=>$careerSubjet));
+			$codeS	=	1;
+			foreach($allSubjectCareer as $subj){
+				$datSubs	=	CareerOptionsHasSubjects::model()->findAllByAttributes(array('career_options_id'=>$subj->career_options_id));
+				
+				if(count($datSubs)>=count($careerSubjets))
+				foreach($datSubs as $datSub){
+					if(in_array($datSub->subjects_id,$careerSubjets))
+						{$codeS	=	1*$codeS;}
+					else
+						$codeS	=	0*$codeS;
+				}else
+				$codeS	=	0;
+				
+				if($codeS==1)
+					$list[$subj->career_options_id]	=	$subj->careerOptions->title;				
+			}	
 		}
 		$this->render('stream',array('stream'=>$stream,'subjects'=>$Subjects,'careerOption'=>$list,'streamData'=>$userStream));
 	}
@@ -750,12 +772,17 @@ class UserController extends Controller
 	}
 	public function actionFinalizedStream()
 	{	
+		
 		if(isset($_REQUEST['id'])){
-			if(isset($_REQUEST['id'])){
-				$stream	=	 UserProfilesHasStream::model()->findAllByAttributes(array('status'=>1,'updated_by'=>1,'user_profiles_id'=>Yii::app()->user->profileId));
-				$count			=	count($stream);
+				$stream	=	 UserProfilesHasStream::model()->findByAttributes(array('status'=>1,'updated_by'=>1,'user_profiles_id'=>Yii::app()->user->profileId));
+				$count	=	count($stream);
+				$data	=	array();
 				if($count==1){
-					echo 'Your have limit to finalized stream is one if you want to exceed more please contact to admin';die;
+					$data['status']=0;
+					if($stream->stream_id == $_REQUEST['id'])
+						$data['message']='Already Finalized.';
+					else
+						$data['message']='Your have limit to finalized stream is one if you want to exceed more please contact to admin.';
 				}
 				else{
 					$id		=	$_REQUEST['id'];
@@ -764,11 +791,13 @@ class UserController extends Controller
 					$model->status				=	1;
 					$model->updated_by			=	1;
 					if($model->save()){
-						echo 'Thank you to final to stream.';die;
+						$data['status']=1;
+						$data['message']='Thank you to final to stream.';
 					}
 				}
+				echo json_encode($data);
+				die;
 			}
-		}
 		$model	=	new UserStreamComments;
 		if(isset($_POST['UserStreamComments']))
 		{	

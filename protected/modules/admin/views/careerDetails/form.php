@@ -37,7 +37,7 @@ $this->menu=array(
 <?php endif; ?>
 	<?php echo $form->errorSummary($model); ?>
 	 <div class="form-group">
-	<?php echo $form->labelEx($model,'career_categories_id'); ?>
+	<?php /*echo $form->labelEx($model,'career_categories_id'); ?>
 			 <?php 	echo $form->dropDownList($model,'career_categories_id',
 								CHtml::listData(CareerCategories::model()->findAll(),'id','title'),
 								array('ajax' => array('type'=>'POST',
@@ -59,7 +59,7 @@ $this->menu=array(
 									
 									
 										)));?>
-	<?php echo $form->error($model,'career_id'); ?>
+	<?php echo $form->error($model,'career_id'); */?>
 		
 	</div>
 	<div class="row">
@@ -70,7 +70,7 @@ $this->menu=array(
 	<div class="form-group">
 		<?php echo $form->labelEx($model,'title'); ?>
         <?php 
-		$list=array('Overview'=>'Overview','Neature Of Work'=>'Neature Of Work','Skills/Traits'=>'Skills/Traits','The Payoff'=>'The Payoff','Getting There'=>'Getting There','Opportunities'=>'Opportunities','Major Institutes'=>'Major Institutes','Pros And Cons'=>'Pros And Cons','Hall Of Fame'=>'Hall Of Fame','Misconceptions'=>'Misconceptions','Video'=>'Video URL');
+		$list=array('Overview'=>'Overview','Nature Of Work'=>'Nature Of Work','Skills/Traits'=>'Skills/Traits','The Payoff'=>'The Payoff','Getting There'=>'Getting There','Opportunities'=>'Opportunities','Major Institutes'=>'Major Institutes','Pros And Cons'=>'Pros And Cons','Hall Of Fame'=>'Hall Of Fame','Misconceptions'=>'Misconceptions','Video'=>'Video URL');
 		
 		echo $form->dropDownlist($model,'title',$list,array('class'=>'form-control')); ?>
         

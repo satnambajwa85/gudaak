@@ -13,7 +13,7 @@
 		
 		?>
           <div class="nav-collapse">
-			<?php $this->widget('zii.widgets.CMenu',array(
+			<?php  $action=$this->id;$this->widget('zii.widgets.CMenu',array(
                     'htmlOptions'=>array('class'=>'pull-right nav'),
                     'submenuHtmlOptions'=>array('class'=>'span3 dropdown-menu'),
 					'itemCssClass'=>'item-test',
@@ -23,18 +23,20 @@
 						 array('label'=>'Users', 'url'=>'#','itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"),
 						 
 						  'items'=>array(
-							array('label'=>'Schools', 'url'=>array('/admin/Schools/admin/')),
 							array('label'=>'<span class="badge '.$roleResult.' pull-right">'.$userRole.'</span>User Role', 'url'=>array('/admin/userRole/admin/')),
 							array('label'=>'<span class="badge '.$loginResult.' pull-right">'.$userlogin.'</span>User login', 'url'=>array('/admin/userlogin/admin/')),
 							array('label'=>'<span class="badge '.$uProResult.' pull-right">'.$userProfiles.'</span>User Profiles', 'url'=>array('/admin/userProfiles/admin/')),)), 
 							
-						array('label'=>'Locations', 'url'=>'#','itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"),
+						/*array('label'=>'Locations', 'url'=>'#','itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"),
 						  'items'=>array(
 								 array('label'=>'<span class="badge '.$result.' pull-right">'.$countries.'</span>Countries', 'url'=>array('/admin/countries/admin/')),
 								array('label'=>'<span class="badge '.$Sresult.' pull-right">'.$states.'</span>States', 'url'=>array('/admin/states/admin/')),
 								array('label'=>'<span class="badge '.$Ciresult.' pull-right">'.$cities.'</span>Cities', 'url'=>array('/admin/cities/admin/')),
-								),), 
-						 array('label'=>'Manage Career', 'url'=>array('/admin/careerCategories/admin/') ,),
+								),), */
+						array('label'=>'Manage Schools', 'url'=>array('/admin/states/admin/') ,
+						 'active'=>(($action=='states/admin')||($action=='generateGudaakIds/create')||($action=='generateGudaakIds/update')||($action=='generateGudaakIds/view'))),
+						 array('label'=>'Manage Career', 'url'=>array('/admin/careerCategories/admin/') ,
+						 'active'=>(($action=='generateGudaakIds/admin')||($action=='generateGudaakIds/create')||($action=='generateGudaakIds/update')||($action=='generateGudaakIds/view'))),
 						/*array('label'=>'Manage Career', 'url'=>'#','itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"),
 						  'items'=>array(
 								array('label'=>'Career Cluster', 'url'=>array('/admin/careerCategories/admin/')),

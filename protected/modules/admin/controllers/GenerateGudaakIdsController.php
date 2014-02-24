@@ -32,7 +32,7 @@ class GenerateGudaakIdsController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','admin','delete','DynamicList'),
+				'actions'=>array('create','update','admin','delete','dynamicList','adminView','createNew'),
 				'expression' =>"Yii::app()->user->userType ==  'admin'",
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -62,8 +62,8 @@ class GenerateGudaakIdsController extends Controller
 	 */
 	public function actionCreate()
 	{
+		
 		$model=new GenerateGudaakIds;
-
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
@@ -92,6 +92,39 @@ class GenerateGudaakIdsController extends Controller
 		$this->render('create',array(
 			'model'=>$model,
 		));
+	}
+	public function actionCreateNew($id)
+	{
+		$school		=	Schools::model()->findByPk($id);
+		$model=new GenerateGudaakIds;
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['GenerateGudaakIds']))
+		{	
+			$number_of_user_Ids	=	$_POST['GenerateGudaakIds']['number_of_user_Ids'];
+			if(empty($number_of_user_Ids)){
+				Yii::app()->user->setFlash('error',"Please fill carefully.");
+				$this->redirect(array('create'));
+				die;
+			}
+				
+			for ($x=1; $x<=$number_of_user_Ids; $x++)
+			{	
+				$rendT	=	 rand(5, 99999999);
+				$GDKid				=	new GenerateGudaakIds;
+				$GDKid->attributes	=	$_POST['GenerateGudaakIds'];
+				$gudaakID			=	'GDK-S'.$_POST['GenerateGudaakIds']['schools_id'].'-C'.$_POST['GenerateGudaakIds']['cities_id'].'-'.$rendT;
+				$GDKid->gudaak_id	=	$gudaakID;
+				$GDKid->activation	=1;
+				$GDKid->add_date 	=	date('Y-m-d H:i:s');
+				$GDKid->save();
+		    }
+		
+		} 
+		
+		$this->render('createNew',array('model'=>$model,'school'=>$school));
 	}
 
 	/**
@@ -172,7 +205,21 @@ class GenerateGudaakIdsController extends Controller
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
 	}
+	public function actionAdminView()
+	{
+		$id	=	$_REQUEST['id'];
+		$school		=	Schools::model()->findByPk($id);
+		$model=new GenerateGudaakIds('search');
+		if(isset($id))
+			$model->schools_id=$id; 
+			$model->activation=1;
+		if(isset($_GET['GenerateGudaakIds']))
+			$model->attributes=$_GET['GenerateGudaakIds'];
 
+		$this->render('admin2',array(
+			'model'=>$model,'id'=>$id,'school'=>$school
+		));
+	}
 	/**
 	 * Performs the AJAX validation.
 	 * @param GenerateGudaakIds $model the model to be validated
@@ -186,12 +233,13 @@ class GenerateGudaakIdsController extends Controller
 		}
 	}
 	public function actionDynamicList()
-	{	 echo 'hello';die;
+	{	 
 		$getId = '';
-		if(!empty($_POST['GenerateGudaakIds']['cities_id'])) 
-			$getId	 = $_POST['GenerateGudaakIds']['cities_id'];
-			$data	=	 Schools::model()->findAll('cities_id =:parent_id',array(':parent_id'=>(int) $getId));
-			$data	=	CHtml::listData($data,'id','title');
+		if(!empty($_POST['GenerateGudaakIds']['schools_id'])) 
+			$getId	 	= $_POST['GenerateGudaakIds']['schools_id'];
+			$data		=	 Schools::model()->findByAttributes(array('id'=>$getId));
+			$data		=	 Cities::model()->findAll('id =:id',array(':id'=>(int) $data->cities_id));
+			$data		=	CHtml::listData($data,'id','title');
 			foreach($data as $value=>$name){
 				echo CHtml::tag('option', array('value'=>$value),CHtml::encode($name),true);
 				

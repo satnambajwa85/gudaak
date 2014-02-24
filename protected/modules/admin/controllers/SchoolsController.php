@@ -32,7 +32,7 @@ class SchoolsController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','admin','delete'),
+				'actions'=>array('create','update','admin','delete','adminView'),
 				'expression' =>"Yii::app()->user->userType ==  'admin'",
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -60,24 +60,77 @@ class SchoolsController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
+	public function actionCreate($id)
 	{
 		$model=new Schools;
-
-		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
-
 		if(isset($_POST['Schools']))
-		{
+		{	
 			$model->attributes=$_POST['Schools'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			$testEmail			=	$_POST['Schools']['email'];
+			$model->add_date=date('Y:m:d H:i:s');
+			$model->password	=	md5($_POST['Schools']['password']);
+			$model->email		=	$_POST['Schools']['email'];
+			$targetFolder = Yii::app()->request->baseUrl.'/uploads/schools/';
+			if (!empty($_FILES['Schools']['name']['images'])) {
+				$tempFile = $_FILES['Schools']['tmp_name']['images'];
+				$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
+				$targetFile = $targetPath.'/'.$_FILES['Schools']['name']['images'];
+				$pat = $targetFile;
+				move_uploaded_file($tempFile,$targetFile);
+				$absoPath = $pat;
+				$newName = time();
+				$img = Yii::app()->imagemod->load($pat);
+				# ORIGINAL
+				$img->file_max_size = 5000000; // 5 MB
+				$img->file_new_name_body = $newName;
+				$img->process('uploads/schools/original/');
+				$img->processed;
+				#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
+				if ($img->processed) {
+					#THUMB Image
+					$img->image_resize      = true;
+					$img->image_y         	= 304;
+					$img->image_x           = 304;
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/schools/large/');
+					
+					#STHUMB Image
+					$img->image_resize      = true;
+					$img->image_y         	= 115;
+					$img->image_x           = 265;
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/schools/small/');
+				 
+					$fileName	=	$img->file_dst_name;
+					$img->clean();
+	
+				}
+				$model->images	=	$fileName;
+			}
+			if($model->save()){ 
+				$schoolUser					=	new UserLogin;
+				$schoolUser->username		=	$model->email;
+				$schoolUser->password		=	$model->password;
+				$schoolUser->activation		=	1;
+				$schoolUser->user_role_id	=	4;
+				$schoolUser->add_date		=	date('Y-m-d H:i:s');
+				if($schoolUser->save()){
+					$schoolLogin	=	new SchoolsHasUserLogin;
+					$schoolLogin->schools_id	=	$model->id;
+					$schoolLogin->user_login_id	=	$schoolUser->id;
+					$schoolLogin->add_date		=	date('Y-m-d H:i:s');
+					if($schoolLogin->save()){ 
+						$this->redirect(array('adminView','id'=>$model->cities_id));
+					}
+				}
+			 
+				 
+			}
 		}
 
-		$this->render('create',array(
-			'model'=>$model,
-		));
+		$this->render('form',array('model'=>$model,'id'=>$id));
 	}
+
 
 	/**
 	 * Updates a particular model.
@@ -93,9 +146,72 @@ class SchoolsController extends Controller
 
 		if(isset($_POST['Schools']))
 		{
-			$model->attributes=$_POST['Schools'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+			$model->attributes	=$_POST['Schools'];
+			$model->password	=123456;
+			$model->modification_date 	=date('Y:m:d H:i:s');
+			$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/uploads/schools/';
+					$targetFolder = Yii::app()->request->baseUrl.'/uploads/schools/';
+				if (!empty($_FILES['Schools']['name']['images'])) {
+					$tempFile = $_FILES['Schools']['tmp_name']['images'];
+					$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
+					$targetFile = $targetPath.'/'.$_FILES['Schools']['name']['images'];
+					$pat = $targetFile;
+					move_uploaded_file($tempFile,$targetFile);
+					$absoPath = $pat;
+					$newName = time();
+					$img = Yii::app()->imagemod->load($pat);
+					# ORIGINAL
+					$img->file_max_size = 5000000; // 5 MB
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/schools/original/');
+					$img->processed;
+					#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
+				if ($img->processed) {
+					#THUMB Image
+					$img->image_resize      = true;
+					$img->image_y         	= 304;
+					$img->image_x           = 304;
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/schools/large/');
+					
+					#STHUMB Image
+					$img->image_resize      = true;
+					$img->image_y         	= 115;
+					$img->image_x           = 265;
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/schools/small/');
+					
+					 
+					$fileName	=	$img->file_dst_name;
+					$img->clean();
+	
+				}
+				$model->images	=	$fileName;
+				if(isset($_POST['Schools']['oldImage'])){
+					@unlink($targetFolder1.'original/'.$_POST['Schools']['oldImage']);
+					@unlink($targetFolder1.'large/'.$_POST['Schools']['oldImage']);
+					@unlink($targetFolder1.'small/'.$_POST['Schools']['oldImage']);
+				}
+			}
+			else
+				$model->images	=	$_POST['Schools']['oldImage'];
+				//CVarDumper::dump($model,10,1);die;
+			if($model->save()){
+				 $school					=	SchoolsHasUserLogin::model()->findByAttributes(array('schools_id'=>$id));
+				 $school->published 		=	1;
+				$school->add_date  		  	=	date('Y-m-d H:i:s');
+				if($school->save()){
+					$schoolUser					=	UserLogin::model()->findByPk($school->user_login_id);
+					$schoolUser->username		=	$school->userLogin->username;
+					$schoolUser->password		=	$school->userLogin->password;
+					$schoolUser->activation		=	1;
+					$schoolUser->user_role_id	=	4;
+					$schoolUser->add_date		=	date('Y-m-d H:i:s');
+					$this->redirect(array('adminView','id'=>$model->cities_id));
+				}
+			
+			}
+				
 		}
 
 		$this->render('update',array(
@@ -150,6 +266,16 @@ class SchoolsController extends Controller
 	 * @return Schools the loaded model
 	 * @throws CHttpException
 	 */
+	public function actionAdminView()
+	{
+		$id	=	$_REQUEST['id'];
+		$model=new Schools('search');
+		if(isset($id))
+			$model->cities_id=$id; 
+		if(isset($_GET['Schools']))
+			$model->attributes=$_GET['Schools'];
+		$this->render('admin',array('model'=>$model,'id'=>$id));
+	}
 	public function loadModel($id)
 	{
 		$model=Schools::model()->findByPk($id);

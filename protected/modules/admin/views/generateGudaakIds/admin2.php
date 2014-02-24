@@ -29,14 +29,14 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Generate Gudaak Ids</h1>
+<h1>Manage <?php echo $school->name;?>  Gudaak Ids</h1>
 
 <!--<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>-->
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,
 )); ?>
-</div><?php echo CHtml::link('Create',array('/admin/states/admin'),array('class'=>'pull-right btn btn-s-md btn-success')); ?>
+</div><?php echo CHtml::link('Create',array('/admin/generateGudaakIds/createNew','id'=>$id),array('class'=>'pull-right btn btn-s-md btn-success')); ?>
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'generate-gudaak-ids-grid',

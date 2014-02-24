@@ -17,7 +17,7 @@ function send()
 	  });
 	 
 	}
- function testFormSend(id)
+function testFormSend(id)
 {	
 	var data=$("#user-person-test-form").serialize();
 	  $.ajax({
@@ -27,8 +27,10 @@ function send()
 		success:function(data){ 
 				var $response	=	jQuery.parseJSON(data);
 				if($response.status==1){
-					$(".test-hide").hide();
-					$(".complete-test-show").show();
+					//$(".test-hide").hide();
+					//$(".complete-test-show").show();
+					location.reload();
+					//window.location.replace("<?php echo ?>");
 					
 				}
 				 else{

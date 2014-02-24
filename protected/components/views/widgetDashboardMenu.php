@@ -43,9 +43,9 @@ $getId=$_REQUEST['id'];
 }
 		 
 ?>
-					<li><?php echo CHtml::link('<i class="icon-desktop"></i>Orientation Tour',array('user/index'),array('title'=>'Acess','class'=>''.($action=='index')?'slidebg':''.''))?>
+					<li><?php echo CHtml::link('<i class="icon-desktop"></i>Orientation Tour',array('user/index'),array('title'=>'Orientation Tour','class'=>''.($action=='index')?'slidebg':''.''))?>
 					</li>
-					<li><?php echo CHtml::link('<i class="glyphicon glyphicon-record"></i>Acess',array('user/tests'),array('title'=>'Acess','class'=>''.($action=='tests')?'slidebg':''.''))?>
+					<li><?php echo CHtml::link('<i class="glyphicon glyphicon-record"></i>Asses',array('user/tests'),array('title'=>'Asses','class'=>''.($action=='tests')?'slidebg':''.''))?>
 				
 				
 						<ul style="<?php echo ($action=='tests'||$action=='DetailedReport')?'display:block':'';?>">

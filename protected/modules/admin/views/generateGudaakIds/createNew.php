@@ -1,3 +1,20 @@
+<?php
+/* @var $this GenerateGudaakIdsController */
+/* @var $model GenerateGudaakIds */
+
+$this->breadcrumbs=array(
+	'Generate Gudaak Ids'=>array('index'),
+	'Create',
+);
+
+$this->menu=array(
+	array('label'=>'List GenerateGudaakIds', 'url'=>array('index')),
+	array('label'=>'Manage GenerateGudaakIds', 'url'=>array('admin')),
+);
+?>
+
+<h1><?php echo $school->cities->states->countries->title.'/'.$school->cities->states->title.'/'.$school->cities->title.'/'.$school->name;?> </h1>
+
     <div class="span11">
     <?php
 	$this->beginWidget('zii.widgets.CPortlet', array(
@@ -26,7 +43,7 @@
 	echo $form->hiddenField($model,'cities_id',array('value'=>''.$school->cities_id.''));
 	echo $form->hiddenField($model,'schools_id',array('value'=>''.$school->id.''));
 	echo $form->labelEx($model,'user_role_id');
-	echo $form->dropDownlist($model,'user_role_id',CHtml::listData(UserRole::model()->findAll(),'id','title'),array('empty'=>'Please Select','class'=>'form-control'));
+	echo $form->dropDownlist($model,'user_role_id',array('2'=>'Stream','3'=>'Career'),array('empty'=>'Please Select','class'=>'form-control'));
 	//echo $form->labelEx($model,'user_class_id');
 	//echo $form->dropDownlist($model,'user_class_id',CHtml::listData(UserClass::model()->findAll(),'id','title'),array('empty'=>'Please Select','class'=>'form-control'));
 	echo $form->labelEx($model,'number_of_user_Ids');

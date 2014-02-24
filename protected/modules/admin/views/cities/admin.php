@@ -1,11 +1,11 @@
 <?php
-/* @var $this CitiesController */
-/* @var $model Cities */
+/* @var $this CareerOptionsController */
+/* @var $model CareerOptions */
+$this->breadcrumbs=array('States'=>array('/admin/states/admin'),'Cities'=>array('/admin/cities/adminView','id'=>$model->states_id));
+$this->widget('zii.widgets.CBreadcrumbs', array('links'=>$this->breadcrumbs,));
 
-$this->breadcrumbs=array(
-	'Cities'=>array('index'),
-	'Manage',
-);
+
+
 
 $this->menu=array(
 	array('label'=>'List Cities', 'url'=>array('index')),
@@ -34,10 +34,11 @@ $('.search-form form').submit(function(){
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,
 )); ?>
-</div><?php echo CHtml::link('Create',array('/admin/cities/create'),array('class'=>'pull-right btn btn-s-md btn-success')); ?>
+</div><?php echo CHtml::link('Create',array('/admin/cities/create','id'=>$id),array('class'=>'pull-right btn btn-s-md btn-success')); ?>
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'cities-grid',
+	'itemsCssClass'=>'table table-bordered',
 	'dataProvider'=>$model->search(),
 	//'filter'=>$model,
 	'columns'=>array(
@@ -54,7 +55,12 @@ $('.search-form form').submit(function(){
 		'alias',
 		'description',
 		'image',
-		'add_date',
+			array(
+		'type'=>'raw',
+		'name'=>'Add Records',
+		'value'=>'CHtml::link("Data",array("/admin/schools/adminView","id"=>$data->id))',
+		),
+		//'add_date',
 		/*
 		'published',
 		'status',

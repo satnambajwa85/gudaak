@@ -194,8 +194,8 @@ class SiteController extends Controller
 							$subject = "Account Details";
 							mail($to,$subject,$body,$headers);
 							//End  mail Function  
-							Yii::app()->user->setFlash('login','Thank you for join us check your email and activate your account.');
-							$this->redirect(array('site/login'));
+							Yii::app()->user->setFlash('create','Thank you for join us check your email and activate your account.');
+							$this->redirect(array('site/userRegister'));
 							die;
 						}
 						else {

@@ -7229,14 +7229,14 @@ header {
 
 .top-stats-icons i {
   background: none repeat scroll 0 0 #FFFFFF;
-    color: #21C4C1;
+   color: #21C4C1;
     cursor: pointer;
     float: left;
     font-size: 13px;
     height: 26px;
     line-height: 28px;
-    margin: 5px 0 0 11px;
-    padding: 0 11px;
+    margin: 5px 0 0 7px;
+    padding: 0 8px;
     text-align: center;
     width: 27px;
 	-webkit-border-radius: 23px;
@@ -7641,7 +7641,7 @@ top:115px;width: 252px;background:#FAFFFF;background-color:#FAFFFF;z-index:999;}
 .preferred-career-active{border-right:2px solid #F7A944;cursor:pointer;background-color:#FCEAD2;}
 .preferred-career-info h2{margin:0px;padding:7px;color: #FFFFFF;font-size: 14px;background:#21C4C1;background-color:#21C4C1;}
 .overview-title{color:#F7A944;fomt-size:}
-.career-lib{margin-bottom:29px;}
+.career-lib{margin-bottom:29px;height:175px !important}
 .career-lib a >img{width:100%; border:1px solid #fff;}
 
 .career-lib a{text-decoration:none;}
@@ -8240,8 +8240,8 @@ height:19px !important;
 #test-area {padding:0;list-style:none;}
 #test-area li {padding:0;list-style:none;}
 #test-form{width:100%;}
-.test-area{width:50%;float:left; border-bottom: 1px solid #EEEEEE;
-    border-right: 1px solid #EEEEEE;padding:19px;}
+.test-area{width:50%;float:left; border-bottom: 1px solid #F5F5F5;
+    border-right: 1px solid #F5F5F5;padding:19px;}
 .ans_set >span>label{color: #666666 !important;
     display: inline;
     font-family: robotomedium !important;
@@ -8252,7 +8252,7 @@ height:19px !important;
     padding-left: 19px !important;
    }
 .gray2 {
-    background: none repeat scroll 0 0 #F5F4F4;}
+    background: none repeat scroll 0 0 #F5F5F5;}
 .rating-align{ margin-left: 214px;float:left;
     margin-top: 1px;}
 #stream-rating {margin: 0px 0 0 16px;}

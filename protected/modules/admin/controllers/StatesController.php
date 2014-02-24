@@ -32,7 +32,7 @@ class StatesController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','admin','delete'),
+				'actions'=>array('create','update','admin','delete','adminView'),
 				'expression' =>"Yii::app()->user->userType ==  'admin'",
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -225,6 +225,19 @@ class StatesController extends Controller
 
 		$this->render('admin',array(
 			'model'=>$model,
+		));
+	}
+	public function actionAdminView()
+	{
+		$id	=	$_REQUEST['id'];
+		$model=new States('search');
+		if(isset($id))
+			$model->cities_id=$id;  // clear any default values
+		if(isset($_GET['States']))
+			$model->attributes=$_GET['States'];
+
+		$this->render('admin',array(
+			'model'=>$model,'id'=>$id
 		));
 	}
 

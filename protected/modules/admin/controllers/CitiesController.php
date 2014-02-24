@@ -32,7 +32,7 @@ class CitiesController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','admin','delete'),
+				'actions'=>array('create','update','admin','delete','adminView'),
 				'expression' =>"Yii::app()->user->userType ==  'admin'",
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -60,8 +60,8 @@ class CitiesController extends Controller
 	 * Creates a new model.
 	 * If creation is successful, the browser will be redirected to the 'view' page.
 	 */
-	public function actionCreate()
-	{
+	public function actionCreate($id)
+	{	
 		$model=new Cities;
 
 		// Uncomment the following line if AJAX validation is needed
@@ -108,12 +108,10 @@ class CitiesController extends Controller
 				$model->image	=	$fileName;
 			}
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('adminView','id'=>$model->states_id));
 		}
 
-		$this->render('create',array(
-			'model'=>$model,
-		));
+		$this->render('form',array('model'=>$model,'id'=>$id));
 	}
 
 	/**
@@ -178,7 +176,7 @@ class CitiesController extends Controller
 			else
 				$model->image	=	$_POST['Cities']['oldImage'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('adminView','id'=>$model->states_id));
 		}
 
 		$this->render('update',array(
@@ -221,11 +219,23 @@ class CitiesController extends Controller
 		if(isset($_GET['Cities']))
 			$model->attributes=$_GET['Cities'];
 
-		$this->render('admin',array(
+		$this->render('admin2',array(
 			'model'=>$model,
 		));
 	}
+	public function actionAdminView()
+	{
+		$id	=	$_REQUEST['id'];
+		$model=new Cities('search');
+		if(isset($id))
+			$model->states_id=$id;  // clear any default values
+		if(isset($_GET['Cities']))
+			$model->attributes=$_GET['Cities'];
 
+		$this->render('admin',array(
+			'model'=>$model,'id'=>$id
+		));
+	}
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.

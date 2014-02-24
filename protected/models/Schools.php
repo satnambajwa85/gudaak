@@ -21,6 +21,7 @@
  * @property string $modification_date
  * @property string $add_date
  * @property integer $status
+ * @property integer $cities_id
  *
  * The followings are the available model relations:
  * @property GenerateGudaakIds[] $generateGudaakIds
@@ -31,7 +32,7 @@ class Schools extends CActiveRecord
 	/**
 	 * @return string the associated database table name
 	 */
-	 public $states_id,$countries_id;
+	public $password;
 	public function tableName()
 	{
 		return 'schools';
@@ -45,17 +46,22 @@ class Schools extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name', 'required'),
-			array('activation, status', 'numerical', 'integerOnly'=>true),
+			array('email', 'required'),
+			array('email', 'email'),
+			array('password', 'required'),
+			array('password', 'length', 'max' => 50, 'min' => 6, 'tooShort' => 'Password must have at least 6 chars'),
+			array('name, cities_id', 'required'),
+			array('activation, status, cities_id', 'numerical', 'integerOnly'=>true),
 			array('name, display_name, address, address2, website', 'length', 'max'=>500),
 			array('email', 'length', 'max'=>150),
+			array('email', 'unique'),
 			array('mobile_no, fax, telephone_no', 'length', 'max'=>15),
 			array('postcode', 'length', 'max'=>6),
 			array('images', 'length', 'max'=>45),
 			array('description, modification_date, add_date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, name, description, display_name, email, mobile_no, fax, address, address2, postcode, activation, telephone_no, images, website, modification_date, add_date, status', 'safe', 'on'=>'search'),
+			array('id, name, description, display_name, email, mobile_no, fax, address, address2, postcode, activation, telephone_no, images, website, modification_date, add_date, status, cities_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -68,6 +74,7 @@ class Schools extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'generateGudaakIds' => array(self::HAS_MANY, 'GenerateGudaakIds', 'schools_id'),
+			'cities' => array(self::BELONGS_TO, 'cities', 'cities_id'),
 			'schoolsHasUserLogins' => array(self::HAS_MANY, 'SchoolsHasUserLogin', 'schools_id'),
 		);
 	}
@@ -95,6 +102,7 @@ class Schools extends CActiveRecord
 			'modification_date' => 'Modification Date',
 			'add_date' => 'Add Date',
 			'status' => 'Status',
+			'cities_id' => 'Cities',
 		);
 	}
 
@@ -133,6 +141,7 @@ class Schools extends CActiveRecord
 		$criteria->compare('modification_date',$this->modification_date,true);
 		$criteria->compare('add_date',$this->add_date,true);
 		$criteria->compare('status',$this->status);
+		$criteria->compare('cities_id',$this->cities_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

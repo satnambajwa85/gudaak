@@ -26,7 +26,7 @@
 <?php endif; ?>
 
 
-	<?php echo $form->errorSummary($model); ?>
+	<?php /*echo $form->errorSummary($model); ?>
 	 <div class="form-group">
 	<?php echo $form->labelEx($model,'career_categories_id'); ?>
 			 <?php 	echo $form->dropDownList($model,'career_categories_id',
@@ -42,7 +42,7 @@
 	</div>
 	 <div class="form-group">
 	<?php echo $form->labelEx($model,'career_id'); ?>
-			 <?php 	echo $form->dropDownList($model,'career_id',
+	<?php 	echo $form->dropDownList($model,'career_id',
 								CHtml::listData(Career::model()->findAll(),'id','title'),
 								array('ajax' => array('type'=>'POST',
 									'url'=>CController::createUrl('DynamicCareerList'), //url to call.
@@ -50,7 +50,7 @@
 									
 									
 										)));?>
-	<?php echo $form->error($model,'career_id'); ?>
+	<?php echo $form->error($model,'career_id'); */?>
 		
 	</div>
 	<div class="row">
@@ -61,7 +61,7 @@
 	<div class="form-group">
 		<?php echo $form->labelEx($model,'title'); ?>
 		<?php 
-		$list=array('Overview'=>'Overview','Neature Of Work'=>'Neature Of Work','Skills/Traits'=>'Skills/Traits','The Payoff'=>'The Payoff','Getting There'=>'Getting There','Opportunities'=>'Opportunities','Major Institutes'=>'Major Institutes','Pros And Cons'=>'Pros And Cons','Hall Of Fame'=>'Hall Of Fame','Misconceptions'=>'Misconceptions');
+		$list=array('Overview'=>'Overview','Nature Of Work'=>'Nature Of Work','Skills/Traits'=>'Skills/Traits','The Payoff'=>'The Payoff','Getting There'=>'Getting There','Opportunities'=>'Opportunities','Major Institutes'=>'Major Institutes','Pros And Cons'=>'Pros And Cons','Hall Of Fame'=>'Hall Of Fame','Misconceptions'=>'Misconceptions');
 		
 		echo $form->dropDownlist($model,'title',$list,array('class'=>'form-control')); ?>
         

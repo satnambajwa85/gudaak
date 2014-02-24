@@ -132,7 +132,7 @@ class SubjectsController extends Controller
 		if(isset($_POST['Subjects']))
 		{
 			$model->attributes=$_POST['Subjects'];
-						$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/uploads/subjects/';
+			$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/uploads/subjects/';
 					$targetFolder = Yii::app()->request->baseUrl.'/uploads/subjects/';
 				if (!empty($_FILES['Subjects']['name']['image'])) {
 					$tempFile = $_FILES['Subjects']['tmp_name']['image'];

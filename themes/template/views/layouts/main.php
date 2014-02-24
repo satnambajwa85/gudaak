@@ -201,7 +201,7 @@
                                         </div>
                                     <?php $this->endWidget(); ?>
                                 </div>
-                                    <?php echo CHtml::link('Back to home','',array('class'=>'btn btn-info back-bt','data-dismiss'=>'modal'));?>
+                                    <?php echo CHtml::link('Back','',array('class'=>'btn btn-info back-bt','data-dismiss'=>'modal'));?>
                                 </div>
                                 <div class="col-md-6  pull-right">
                                 <?php $model=new Register; $form=$this->beginWidget('CActiveForm', array(
@@ -236,6 +236,7 @@
                                                                     'model'=>$model,
                                                                     'attribute'=>'date_of_birth',
                                                                     'options'=>array('dateFormat'=>'yy-mm-dd',
+																					'yearRange'=>'1970:2014',
                                                                                     'changeMonth'=>'true',
                                                                                     'changeYear'=>'true',),
                                                                     'htmlOptions'=>array('class'=>'dob form-control pull-left',
@@ -260,7 +261,7 @@
                                     <?php echo $form->passwordField($model,'password',array('class'=>'form-control','placeholder'=>'Password','autofocus'=>true));
                                     echo $form->error($model,'password');?>
                                     <div class="pd4"></div>
-                                    <?php echo $form->passwordField($model,'confirmpass',array('class'=>'form-control','placeholder'=>'confirmpass','autofocus'=>true));
+                                    <?php echo $form->passwordField($model,'confirmpass',array('class'=>'form-control','placeholder'=>'Confirm Password','autofocus'=>true));
                                     echo $form->error($model,'confirmpass');?>
                                     <div class="pd4"></div>
                                     <div align="center"><?php echo CHtml::submitButton('Register',array('class'=>'btn btn-warning login mt'));?></div>

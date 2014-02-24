@@ -18,13 +18,19 @@
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
-	<?php echo $form->errorSummary($model); ?>
+	 <div class="form-group">
+	 		<?php echo $form->hiddenField($model,'cities_id',array('value'=>$id)); ?>
+ </div>
+ 
 	<div class="form-group">
-		<?php echo $form->labelEx($model,'cities_id '); ?>
-		<?php echo $form->dropDownList($model,'cities_id', CHtml::listData(Cities::model()->findAll(array('condition'=>'status=1')), 'id', 'title'), array('empty'=>'Please Select')) ?>
-		
-		<?php //echo $form->dropDownlist($model,'user_login_id ',CHtml::listData(UserLogin::model()->findAllByAttributes(array('user_role_id'=>4)),'id','username'),array('class'=>'form-control')); ?>
-		<?php echo $form->error($model,'cities_id '); ?>
+		<?php echo $form->labelEx($model,'email'); ?>
+		<?php echo $form->textField($model,'email',array('size'=>60,'maxlength'=>500)); ?>
+		<?php echo $form->error($model,'email'); ?>
+	</div>
+	<div class="form-group">
+		<?php echo $form->labelEx($model,'password'); ?>
+		<?php echo $form->passwordField($model,'password',array('size'=>60,'maxlength'=>500)); ?>
+		<?php echo $form->error($model,'password'); ?>
 	</div>
 	<div class="form-group">
 		<?php echo $form->labelEx($model,'name'); ?>
@@ -34,7 +40,12 @@
 
 	<div class="form-group">
 		<?php echo $form->labelEx($model,'description'); ?>
-		<?php echo $form->textArea($model,'description',array('form-groups'=>6, 'cols'=>50)); ?>
+	<?php $this->widget('application.extensions.ckeditor.CKEditor', array(
+												'model'=>$model,
+												'attribute'=>'description',
+												'language'=>'en',
+												'editorTemplate'=>'full',
+												)); ?>
 		<?php echo $form->error($model,'description'); ?>
 	</div>
 
@@ -42,12 +53,6 @@
 		<?php echo $form->labelEx($model,'display_name'); ?>
 		<?php echo $form->textField($model,'display_name',array('size'=>60,'maxlength'=>500)); ?>
 		<?php echo $form->error($model,'display_name'); ?>
-	</div>
-
-	<div class="form-group">
-		<?php echo $form->labelEx($model,'email'); ?>
-		<?php echo $form->textField($model,'email',array('size'=>60,'maxlength'=>150)); ?>
-		<?php echo $form->error($model,'email'); ?>
 	</div>
 
 	<div class="form-group">

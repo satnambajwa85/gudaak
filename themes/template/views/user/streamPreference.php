@@ -60,9 +60,16 @@
             <div class="col-md-4 pull-left stream-ratting pd5 br-left">
         		<span>Do you think this is the best stream for you</span>
                 <div class="clear"></div>
-				<?php if ($list['updated_by']==0){?>
+				<?php if ($list['updated_by']!=1){?>
 				<?php echo CHtml::ajaxLink('Make Final',array('user/finalizedStream','id'=>$list['id']),
-												array('type'=>'POST','success'=>'function(data){alert(data)}'),
+												array(	'type'=>'POST',
+														'success'=>'function(data){
+																		var $dataR	=	jQuery.parseJSON(data)
+																		if($dataR.status==1)
+																			$("#final_item-'.$list['id'].'").html("Finalized");
+																		else
+																			alert($dataR.message);
+																	}'),
 												array('confirm'=>'Are you sure you want to make final this item?',
 														'class'=>'white-text btn btn-warning',
 														'id'=>'final_item-'.$list['id']));  ?>
