@@ -7931,6 +7931,7 @@ top:115px;width: 252px;background:#FAFFFF;background-color:#FAFFFF;z-index:999;}
 .right-section ul li.lastRow{color: #666;font-size: 12px;font-family: robotomedium;padding:10px;border:none;border-left:1px solid  #21C4C1;} 
 #report-bottom-area{list-style:none;padding:0px;}
 #report-bottom-area li {color: #666;font-size: 15px;font-family: robotomedium;border-bottom: 2px solid #21C4C1;padding: 8px 0 0 10px;}
+#report-bottom-area li ol li {color: #666;font-size: 15px;font-family: robotomedium;border-bottom: none;padding: 8px 0 0 10px;}
 #report-bottom-area li h1{ color: #21C4C1;font-family: robotomedium;font-size: 15px;margin: 0; padding: 0; text-align: left;}
 #report-bottom-area li p{color: #666;font-size: 12px;font-family: robotomedium;}
 .inner-padding{padding-top:20px;padding-bottom:50px;}

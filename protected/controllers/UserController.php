@@ -673,12 +673,14 @@ class UserController extends Controller
 
 	public function actionStream($id)
 	{
-		$streamData			=	array();
+		$streamData		=	array();
 		$stream			=	Stream::model()->findByPk($id);
-		$userStream			=	UserProfilesHasStream::model()->findByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'stream_id'=>$id));
+		$userStream		=	UserProfilesHasStream::model()->findByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'stream_id'=>$id));
 		$Subjects		=	array();
 		$subjectList	=	array();
-		
+		$careerSubjets	=	array();
+		$optionList		=	array();
+		$result			=	array();
 		$criteria = new CDbCriteria();
 		$criteria->distinct = true;
 		
@@ -694,30 +696,31 @@ class UserController extends Controller
 				$careerSubjets[]	=	$subject->subjects_id;
 			
 		}
-		//$careerOptions	=	  CareerOptionsHasSubjects::model()->findAllByAttributes(array('subjects_id'=>$careerSubjet));
-		//echo '<pre>';
-		//print_r($careerSubjets);
 		$list	=	array();
-		//$list2	=	array();
+		if(count($careerSubjets))
 		foreach($careerSubjets as $careerSubjet){
-			$allSubjectCareer	=	CareerOptionsHasSubjects::model()->findAllByAttributes(array('subjects_id'=>$careerSubjet));
-			$codeS	=	1;
-			foreach($allSubjectCareer as $subj){
-				$datSubs	=	CareerOptionsHasSubjects::model()->findAllByAttributes(array('career_options_id'=>$subj->career_options_id));
-				
-				if(count($datSubs)>=count($careerSubjets))
-				foreach($datSubs as $datSub){
-					if(in_array($datSub->subjects_id,$careerSubjets))
-						{$codeS	=	1*$codeS;}
-					else
-						$codeS	=	0*$codeS;
-				}else
-				$codeS	=	0;
-				
-				if($codeS==1)
-					$list[$subj->career_options_id]	=	$subj->careerOptions->title;				
-			}	
+			$allSubjectCareers	=	CareerOptionsHasSubjects::model()->findAllByAttributes(array('subjects_id'=>$careerSubjet));
+			foreach($allSubjectCareers as $allSubjectCareer){
+				$optionList[$careerSubjet][$allSubjectCareer->career_options_id]=$allSubjectCareer->career_options_id;
+			}
 		}
+		$countID=0;
+		if(count($optionList))
+		foreach($optionList as $key=>$val){
+			
+			if($countID==0)
+				$result = $optionList[$key];
+			else	
+				$result = array_intersect($optionList[$key], $result);
+			$countID++;	
+		}
+		
+		$codeS	=	1;
+		if(count($result))
+		foreach($result as $subj){
+			$datSubs	=	CareerOptions::model()->findByPk($subj);
+			$list[$datSubs->id]	=	$datSubs->title;
+		}	
 		$this->render('stream',array('stream'=>$stream,'subjects'=>$Subjects,'careerOption'=>$list,'streamData'=>$userStream));
 	}
 	public function actionFinalizedCareer()
@@ -1008,29 +1011,25 @@ class UserController extends Controller
 		$this->render('explore',array('data'=>$catList));
 	}
 	public function actionStreamExplore()
-	{	$userReports	=	UserReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
+	{	
+		$userReports	=	UserReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
 		$catList		=	array();
 		$index	=	0;
-		$subject=array();
+		$CareerOptionsList=array();
 		foreach($userReports as $report){
 			$userTests	=		UserScores::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'test_category'=>$report->orient_items_id),array('order'=>'score DESC'));
 		 	$COUT	=	0;
 			foreach($userTests as $userTest){
 				if($COUT >= 3)
 					break;	
-			$Career		=	Career::model()->findAllByAttributes(array('career_categories_id'=>$userTest->career_categories_id));
+				$Career		=	Career::model()->findAllByAttributes(array('career_categories_id'=>$userTest->career_categories_id));
 				foreach($Career as $subCat){
 					$subCa		=	CareerOptions::model()->findAllByAttributes(array('career_id'=>$subCat->id));
 					foreach($subCa as $subjects){
-						$subCats1S		=	CareerOptionsHasSubjects::model()->findAllByAttributes(array('career_options_id'=>$subjects->id));
-						foreach($subCats1S as $subCats1){
-							$subject[]=$subCats1->subjects_id;	
-						
-						}
+						$CareerOptionsList[]=$subjects->id;
 					}
 				}
-				
-				$subCats1S		=	StreamHasSubjects::model()->findAllByAttributes(array('subjects_id'=>$subject));
+				$subCats1S		=	CareerOptionsHasStream::model()->findAllByAttributes(array('career_options_id'=>$CareerOptionsList));
 				foreach($subCats1S as $subCat){
 					$catList[$subCat->stream_id]['id']	=	$subCat->stream_id;
 					$catList[$subCat->stream_id]['title']	=	$subCat->stream->name;
