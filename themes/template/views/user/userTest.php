@@ -41,7 +41,7 @@
 						<div class="col-md-6 pull-left">
 							<div class="col-md-12 pull-left min-height-fix border-box">
 								<div align="center">
-                                <span class='btn btn-info center-bt'>
+                                <span class='btn btn-info2 center-bt'>
 								Take <?php echo $list->title;?> </span>
 									
 								</div>
@@ -136,12 +136,11 @@
 							<div class="col-md-12 pull-left border-box">
 							
 								<div align="center">
-                                <span class='btn btn-info center-bt'>
+                                <span class='btn btn-info2 center-bt'>
 								Take <?php echo $list->title;?> </span>
 									
 								</div>
-								<?php echo $list-> test_faqs ;?>
-								<a href="#" class="more-faqs">More FAQs</a>
+								<?php echo $list->test_features ;?>
 								<div align="center" class="mar-bottom">							 
 									<?php  
 										echo CHtml::link('Take Test',array('user/test','id'=>$list->id),array('class'=>'btn btn-warning'));?>
