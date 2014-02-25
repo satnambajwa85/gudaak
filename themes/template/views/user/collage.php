@@ -1,3 +1,6 @@
+<?php $this->pageTitle=Yii::app()->name . ' -Colleges Explore';
+$this->breadcrumbs=array('Colleges Explore'=>array('/user/exploreColleges'));
+?>
 <div class="career-bot pull-left">
           <div class="mr0 col-md-12 fl">
           <div class="my_profile_outr">

@@ -1,3 +1,5 @@
+<?php $this->pageTitle=Yii::app()->name . ' - Detailed Report';
+$this->breadcrumbs=array('Detailed Report'=>array('/user/detailedReport'));?>
 <script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <div class="career-bot pull-left">
 		<div class="mr0 col-md-12 fl">
@@ -11,9 +13,10 @@
 			
 		</div>
 		<div class="col-md-12 pull-left br-all inner-padding">
+			<div id="scrollBar" style="max-height:490px">
 			<div class="col-md-10 col-sm-offset-1 pull-left  pd0">
 					<div class="col-md-12 fl details-report">
-						<h1>Profile Summery</h1>
+						<h1>Profile Summary</h1>
 					</div>
 					<div class="col-md-12  pull-left report-border pd0">
 						<div class="col-md-6  pull-left left-section pd0">
@@ -141,6 +144,7 @@
 			</div>
 			
 			
+			</div>
 			</div>
 		
 		</div>

@@ -1,3 +1,5 @@
+<?php $this->pageTitle=Yii::app()->name . ' - Articles';
+$this->breadcrumbs=array('Articles'=>array('/user/articlesList'));?>
 	<div class="career-bot pull-left">
 		<div class="mr0 col-md-12 pd0 fl">
 			
@@ -72,7 +74,7 @@
 		 
 </div>
 	
-	<div class="news pd0 fl">
+	<div class="news pd0 fr">
 		<?php  $this->Widget('WidgetNews'); ?>
 	</div>
 			

@@ -13,7 +13,7 @@
 		<div class="col-md-12 pull-left br-all inner-padding">
 			<div class="col-md-10 col-sm-offset-1 pull-left  pd0">
 					<div class="col-md-12 fl details-report">
-						<h1>Profile Summery</h1>
+						<h1>Profile Summary</h1>
 					</div>
 					<div class="col-md-12  pull-left report-border pd0">
 						<div class="col-md-6  pull-left left-section pd0">

@@ -1,3 +1,6 @@
+<?php $this->pageTitle=Yii::app()->name . ' - Career';
+$this->breadcrumbs=array('Career'=>array('/user/career'),'Career List'=>array('/user/careerList/','id'=>$dataBYId->id));
+array('Career'=>array('user/career'));?>
 <div class="careerList pull-left">
 		<div class="mr0 col-md-12 fl">
 			<div class="mr0  pull-left middle-format-left">
@@ -5,12 +8,12 @@
 				<?php echo substr($dataBYId->description,0,500);?>
 				<div class="clear"></div>
 				<div id="flashMessage"></div>
-				<?php echo CHtml::ajaxLink('Konw more about Career Library',array(''));?>
+				<?php //echo CHtml::ajaxLink('Konw more about Career Library',array(''));?>
 			</div>
 			
 		</div>
 		<div class="clear"></div>
-		<div id="scrollBar" style="max-height:475px">
+		<div id="scrollBar" style="max-height:555px">
 		<div class="col-md-12 pdleft fl">
 		
 		<ul class="educationbot">
@@ -31,14 +34,18 @@
 				<?php } ?>
 					<div class="clear"></div>
 					<?php echo CHtml::link('<h1>'.$data->title.'</h1>',array('user/careerDetails','id'=>''.$data->id.''),array('title'=>$data->title));?>
-					<?php echo substr($data->description,0,100);?>..
+					<?php if(!empty($data->description)){?>
+					<?php echo substr($data->description,0,100);?>
+					<?php }else{ ?>
+					<p></p>
+					<?php } ?>
 					<div class="fl options-explore">
-						<!--<ul>
-							<?php //$options		=	CareerOptionsHasSubjects::model()->FindAllByAttributes(array('career_options_id'=>$data->id));?>
-							<?php //foreach ($options as $list){ ?>
-							<li><?php //echo CHtml::link('<i class="icon-play"></i>'.$list->subjects->title.'</li>',array('user/stream','id'=>$list->subjects->id));?>
-							<?php //}?>
-						</ul>-->
+						<ul>
+							<?php $options		=	CareerOptionsHasSubjects::model()->FindAllByAttributes(array('career_options_id'=>$data->id));?>
+							<?php foreach ($options as $list){ ?>
+							<li><i class="icon-play"></i><?php echo $list->subjects->title;?></li>
+							<?php }?>
+						</ul>
 					</div>
 
 					<div class="col-md-12 career-hot-links">

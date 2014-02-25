@@ -1,4 +1,6 @@
-
+<?php $this->pageTitle=Yii::app()->name . ' - Career Preference';
+$this->breadcrumbs=array('Career Preference'=>array('/user/careerPreference'));
+?>
 	<div class="career-bot pull-left">
 						<?php if(Yii::app()->user->hasFlash('sccess')): ?>
 						<div class="alert alert-success">
@@ -32,7 +34,7 @@
 					</div>
 				<div class="col-md-12 pdleft  fl">
 			
-				<div id="scrollBar">
+				<div id="scrollBar" style="max-height:450px;">
                 <?php foreach($data as $list){ ?>
 				<div class="col-md-12 fl pd0 br-all mt-10">
 							<div class="col-md-5 pull-left fl pd0">
@@ -100,12 +102,12 @@
 					<?php //echo CHtml::link('Still confused',array('user/'),array('class'=>'white-text btn btn-warning'));?>
 				</div>-->
 				
-				<div class="col-md-12 pd0 pull-left user-feedback">
+				<!--<div class="col-md-12 pd0 pull-left user-feedback">
 					<h1>Feedback</h1>
 					<p>Your valuable idea about this Career Explore. </p>
 					<span class="fl">1.Weather counselling with counselor satisfactory?</span>
 					<div class="clear"></div>
-					<?php $form=$this->beginWidget('CActiveForm', array(
+					<?php /*$form=$this->beginWidget('CActiveForm', array(
 																		'id'=>'comment-info-form',
 																		    'enableClientValidation'=>true,
 																			'clientOptions'=>array(
@@ -128,8 +130,8 @@
 							 <?php echo $form->error($model,'comments');?>	
 							</div>
 							<?php echo CHtml::submitButton('submit',array('class'=>'btn btn-warning fr','id'=>'comment-info-form-btn'));?>
-					<?php $this->endWidget();?>
-				</div>
+					<?php $this->endWidget();*/?>
+				</div>-->
 				
 				
 			</div>

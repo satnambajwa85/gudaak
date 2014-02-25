@@ -1,3 +1,5 @@
+<?php $this->pageTitle=Yii::app()->name . ' - Stream Explore';
+$this->breadcrumbs=array('Explore'=>array('/user/streamExplore'));?>
 	<div class="col-md-10 pull-left">
 						<?php if(Yii::app()->user->hasFlash('sccess')): ?>
 						<div class="alert alert-success">

@@ -1,3 +1,5 @@
+<?php $this->pageTitle=Yii::app()->name . ' - Summary';
+$this->breadcrumbs=array('Summary'=>array('/user/summary'));?>
 	<div class="career-bot pull-left">
 						<?php if(Yii::app()->user->hasFlash('sccess')): ?>
 						<div class="alert alert-success">

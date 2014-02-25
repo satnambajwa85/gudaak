@@ -1,9 +1,5 @@
-<?php
-	$this->pageTitle=Yii::app()->name . ' - Change Password';
-$this->breadcrumbs=array(
-	'Error',
-);
-?>
+<?php $this->pageTitle=Yii::app()->name . ' - Change Password';
+$this->breadcrumbs=array('Change Password'=>array('/user/changePassword'));?>
 <!-- left side menu start -->
 		   <div class="spacer15">
 					<?php if(Yii::app()->user->hasFlash('updated')): ?>

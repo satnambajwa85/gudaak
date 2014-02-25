@@ -1,3 +1,5 @@
+<?php $this->pageTitle=Yii::app()->name . ' - Stream Preference';
+$this->breadcrumbs=array('Stream Preference'=>array('/user/streamPreference'));?>	
 	<div class="career-bot pull-left">
 						<?php if(Yii::app()->user->hasFlash('sccess')): ?>
 						<div class="alert alert-success">
@@ -48,7 +50,7 @@
 						</ul>
 								 	  	<script type="text/javascript">
 										$(document).ready(function(){
-											$('#user-rating<?php echo $list['id'];?>').raty({ score:'<?php echo $list['Urate'];?>'});
+											$('#user-rating<?php echo $list['id'];?>').raty({readOnly:true, score:'<?php echo $list['Urate'];?>'});
 											$('#user-rating<?php echo $list['id'];?> img').click(function(){saveRating(<?php echo $list['id'];?> ,$(this).attr('alt'));});
 											
 										});

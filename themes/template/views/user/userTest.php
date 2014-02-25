@@ -1,3 +1,5 @@
+<?php $this->pageTitle=Yii::app()->name . ' - Asses';
+$this->breadcrumbs=array('Asses'=>array('/user/tests'));?>
 <div id="partial-render">
 	<div class="border">
 					<ol class="breadcrumb">
@@ -133,14 +135,14 @@
     </div>
 						<?php  }else{ ?>
 							<div class="col-md-6 pull-left">
-							<div class="col-md-12 pull-left border-box">
+							<div class="col-md-12 pull-left border-box test_features">
 							
 								<div align="center">
                                 <span class='btn btn-info2 center-bt'>
 								Take <?php echo $list->title;?> </span>
 									
 								</div>
-								<?php echo $list->test_features ;?>
+								<p><?php echo $list->test_features ;?></p>
 								<div align="center" class="mar-bottom">							 
 									<?php  
 										echo CHtml::link('Take Test',array('user/test','id'=>$list->id),array('class'=>'btn btn-warning'));?>

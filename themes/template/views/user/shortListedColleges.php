@@ -1,3 +1,5 @@
+<?php $this->pageTitle=Yii::app()->name . ' - ShortListed Colleges';
+$this->breadcrumbs=array('ShortListed Colleges'=>array('/user/shortListedColleges'));?>
 	<div class="col-md-10 pull-left col-page-title">
 		 <h1>Shortlisted & recomeded colleges</h1>
 		 <div class="col-md-12 pull-left pd0 ">

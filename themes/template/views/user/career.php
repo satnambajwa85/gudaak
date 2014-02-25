@@ -1,3 +1,4 @@
+<?php $this->pageTitle=Yii::app()->name . ' - Career'; $this->breadcrumbs=array('Career'=>array('user/career'));?>
 	<div class="career-bot pull-left">
 		<div class="mr0 pd0 col-md-12 fl">
 			<div class="mr0  pull-left middle-format-left">
@@ -11,7 +12,7 @@
 		</div>
 		<div class="clear"></div>
 		<div class="career-area fl">
-		<div id="scrollBar" style="max-height:475px">
+		<div id="scrollBar" style="max-height:555px">
 			<?php $count=0;foreach($data	as $data){?>
 				<div class="career pd0 career-lib">
 				<?php 
@@ -27,8 +28,8 @@
 								
 			 
 					<div class="clear"></div>
-					<?php echo CHtml::link('<h1>'.substr($data->title,0,35).'..</h1>',array('user/careerList','id'=>''.$data->id.''),array('title'=>$data->title));?>
-					<p><?php echo substr($data->description,0,70);?></p>
+					<?php echo CHtml::link('<h1>'.substr($data->title,0,100).'</h1>',array('user/careerList','id'=>''.$data->id.''),array('title'=>$data->title));?>
+						<p><?php echo substr($data->description,0,70);?></p>
 					<div class="col-md-12 career-hot-links">
 					<?php echo CHtml::link('Read more..',array('user/readFull','id'=>''.$data->id.''),array('class'=>'pull-left','title'=>'Read Full.'));?>
 						<span class="pull-right"><i class="icon-eye-open"></i>19021</span>

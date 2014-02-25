@@ -1,3 +1,7 @@
+<?php $this->pageTitle=Yii::app()->name . ' - Finalized Career';
+$this->breadcrumbs=array('Finalized Career'=>array('/user/finalizedCareer'));
+?>
+
 	<div class="career-bot pull-left">
 						<?php if(Yii::app()->user->hasFlash('sccess')): ?>
 						<div class="alert alert-success">
@@ -71,12 +75,12 @@
 					<?php //echo CHtml::link('Still confused',array('user/'),array('class'=>'white-text btn btn-warning'));?>
 			</div>-->
 				
-				<div class="col-md-12 pull-left user-feedback">
+				<!--<div class="col-md-12 pull-left user-feedback">
 					<h1>Feedback</h1>
 					<p>Your valuable idea about this stream Explore. </p>
 					<span class="fl">1.Weather counselling with counselor satisfactory?</span>
 					<div class="clear"></div>
-					<?php $form=$this->beginWidget('CActiveForm', array(
+					<?php /*$form=$this->beginWidget('CActiveForm', array(
 																		'id'=>'comment-info-form',
 																		    'enableClientValidation'=>true,
 																			'clientOptions'=>array(
@@ -99,8 +103,8 @@
 							  <?php echo $form->error($model,'comments');?>	
 							</div>
 							<?php echo CHtml::submitButton('submit',array('class'=>'btn btn-warning fr','id'=>'comment-info-form-btn'));?>
-					<?php $this->endWidget();?>
-				</div>
+					<?php $this->endWidget();*/?>
+				</div>-->
 			</div>	
 		  <?php } else{ ?>
 			<div class="mr0 col-md-6 fl ">

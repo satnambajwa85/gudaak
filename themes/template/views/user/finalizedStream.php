@@ -1,3 +1,6 @@
+<?php $this->pageTitle=Yii::app()->name . ' - Finalized Stream';
+$this->breadcrumbs=array('Finalized Stream'=>array('/user/finalizedStream'));
+?>
 	<div class="career-bot pull-left">
 						<?php if(Yii::app()->user->hasFlash('sccess')): ?>
 						<div class="alert alert-success">

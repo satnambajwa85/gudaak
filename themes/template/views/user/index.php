@@ -1,3 +1,5 @@
+<?php $this->pageTitle=Yii::app()->name . ' - Tour';
+$this->breadcrumbs=array('Tour'=>array('/user/'));?>
 	<div class="career-bot pull-left">
 		<div class="mr0 col-md-12 fl">
 			<div class="mr0  pull-left stream-pref">

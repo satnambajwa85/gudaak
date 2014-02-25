@@ -1,3 +1,5 @@
+<?php $this->pageTitle=Yii::app()->name . ' - Stream Library ';
+$this->breadcrumbs=array('Stream Library '=>array('/user/streamList'));?>
 	<div class="career-bot pull-left">
 		<div class="mr0 col-md-12 pd0 fl">
 			<div class="mr0  pull-left stream-pref">

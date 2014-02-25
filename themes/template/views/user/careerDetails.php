@@ -1,3 +1,22 @@
+<?php if (Yii::app()->request->urlReferrer==Yii::app()->request->hostInfo.Yii::app()->createUrl('user/finalizedCareer')){?>
+<?php $this->pageTitle=Yii::app()->name . ' - Finalized Career';
+$this->breadcrumbs=array('Finalized Career'=>array('/user/finalizedCareer'));
+?>
+<?php } ?>
+<?php if (Yii::app()->request->urlReferrer==Yii::app()->request->hostInfo.Yii::app()->createUrl('user/careerPreference')){?>
+<?php $this->pageTitle=Yii::app()->name . ' - Career Preference';
+$this->breadcrumbs=array('Career Preference '=>array('/user/careerPreference'));
+?>
+<?php } ?>
+<?php if(Yii::app()->request->urlReferrer==Yii::app()->request->hostInfo.Yii::app()->createUrl('user/careerList/',array('id'=>$careerDetails->career_id))){?>
+ <?php $this->pageTitle=Yii::app()->name . ' - Career';
+$this->breadcrumbs=array('Career'=>array('/user/career'),'Career List'=>array('/user/careerList/','id'=>$careerDetails->career_id),
+''.$careerDetails->title.'');
+  ?>
+<?php } ?>
+
+ 
+
 <div class="col-md-9 pull-left">
 		<div class="mr0 col-md-12">
 			<div class="mr0  pull-left middle-format-left">

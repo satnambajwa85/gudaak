@@ -1,3 +1,5 @@
+<?php $this->pageTitle=Yii::app()->name . ' - Articles';
+$this->breadcrumbs=array('Articles'=>array('/user/articlesList'),''.$articles->title.'');?>
 	<div class="career-bot pull-left">
 		<div class="mr0 col-md-12 pd0 fl">
 			<div class="mr0 col-md-9 pd0 fl artical">
