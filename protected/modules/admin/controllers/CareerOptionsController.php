@@ -114,9 +114,8 @@ class CareerOptionsController extends Controller
 		}
 		foreach($model->careerOptionsHasSubjects as $sub)
 			$subjectList[]	=	$sub->subjects_id;
-		$this->render('create',array(
-			'model'=>$model,'subjectList'=>$subjectList
-		));
+
+		$this->render('create',array('model'=>$model,'subjectList'=>$subjectList));
 	}
 	
 	public function actionCreateNew($id)
