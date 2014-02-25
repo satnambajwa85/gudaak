@@ -2,6 +2,8 @@
 /* @var $this CareerOptionsController */
 /* @var $model CareerOptions */
 /* @var $form CActiveForm */
+
+
 ?>
 
 <div class="form">
@@ -97,9 +99,13 @@
 		$subjects	=	Subjects::model()->findAllByAttributes(array('status'=>1));
 		foreach($subjects as $subject){
 		echo '<div style="width:10%;float:left;border:1px solid green;"><div>'.$form->CheckBox($model,'subjects['.$subject->id.']',array('checked'=>(in_array($subject->id,$subjectList))?'checked':''));
-		echo $subject->title.'</div>';
+		echo $subject->title.'</div><div>';
 		$valueRating=array('compulsory'=>'compulsory','optional'=>'optional');
-		echo CHtml::radioButtonList('subjects['.$subject->id.']','compulsory',$valueRating,array('separator'=>'','labelOptions'=>array('class'=>'textarea_skill'), )).'</div>';
+		$subjects[$subject->id]	=	(in_array($subject->id,$subjectList))?'compulsory':'optional';
+		echo CHtml::radioButtonList('subjects['.$subject->id.']',$subjects[$subject->id],$valueRating,array('separator'=>'','labelOptions'=>array('class'=>'textarea_skill'), ));
+		
+		
+		echo'</div></div>';
 		}
 		?>
 		<?php echo $form->error($model,'subjects'); ?>
