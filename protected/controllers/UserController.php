@@ -16,7 +16,7 @@ class UserController extends Controller
 					
 				),
 				array('allow', // allow admin user to perform 'admin' and 'delete' actions
-					'actions'=>array('index','streamPreference','userStreamRaitng','userPrefferdCareer','streamExplore','userPreffredStream','streamCareerOptions','finalizedStream',
+					'actions'=>array('index','streamPreference','userStreamRaitng','userPrefferdCareer','subjectsDetails','streamExplore','userPreffredStream','streamCareerOptions','finalizedStream',
 									'streamList','stream','readFullStream'),
 					'expression' =>"Yii::app()->user->userType ==  'below10th'",
 
@@ -673,7 +673,7 @@ class UserController extends Controller
 
 	public function actionStream($id)
 	{
-		
+				
 		$streamData		=	array();
 		$stream			=	Stream::model()->findByPk($id);
 		$userStream		=	UserProfilesHasStream::model()->findByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'stream_id'=>$id));
@@ -694,6 +694,7 @@ class UserController extends Controller
 				$careerSubjets[]	=	$subject->subjects_id;
 			
 		}
+		
 		$list	=	array();
 		if(count($careerSubjets))
 		foreach($careerSubjets as $careerSubjet){
@@ -720,6 +721,7 @@ class UserController extends Controller
 			$list[$datSubs->id]	=	$datSubs->title;
 		}	
 		$this->render('stream',array('stream'=>$stream,'subjects'=>$Subjects,'careerOption'=>$list,'streamData'=>$userStream));
+		
 	}
 	public function actionFinalizedCareer()
 	{	
@@ -1040,6 +1042,11 @@ class UserController extends Controller
 		 
 		$this->render('streamExplore',array('data'=>$catList));
 	}
+	public function actionSubjectsDetails($id)
+	{
+		$subject	=	 Subjects::model()->findByPk($id);
+	    $this->renderPartial('_subjectDetails',array('subject'=> $subject), false, true);
+	}
 	public function actionReadFullStream($id)
 	{
 		$readFullStream		=	Stream::model()->FindByPk($id);
@@ -1238,7 +1245,7 @@ class UserController extends Controller
 			if(!empty($_POST['Institutes']['cities_id'])) 
 				$city 					= $_POST['Institutes']['cities_id'];
 				$courses 				= $_POST['Institutes']['courses_id'];
-				$specialisation 		= $_POST['Institutes']['specialisation'];
+				//$specialisation 		= $_POST['Institutes']['specialisation'];
 				$criteria				=	new CDbCriteria();
 				$criteria->condition	= '(activation =:activation  and status =:status and cities_id =:cities_id)';
 				$criteria->params	 	= array('activation'=>1,'status'=>1,'cities_id'=>$city);
