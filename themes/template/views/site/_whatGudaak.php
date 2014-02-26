@@ -1,4 +1,4 @@
-<div class="col-md-12 mb86 inner-min-height pull-left mt10 ">
+ <div class="col-md-12 mb86 inner-min-height pull-left mt10 ">
 			<div  class="col-md-5 pull-left content-left">
 					<h1 class="fs22">What is <strong class="orange">Gudaak</strong></h1> 
 					<p>	"Gudaak"-An Awakening, is an endeavour of likeminded people who with their vast experience in the different sectors of education industry have teamed up to bring a unique and satisfying experience to our 21st Century learners.
