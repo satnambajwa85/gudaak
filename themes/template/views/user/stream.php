@@ -81,7 +81,7 @@ $this->breadcrumbs=array('Stream Library'=>array('/user/streamList'),'Stream Sub
 				</div>
 			</div>
 			<div id="careeroptions" class="col-md-12 fl pd0 stream-tabing br-top stream-user-active p_padding">
-              <div class="c_option">Career Option - Art & Design </div>
+              <div class="c_option"></div>
 				<div class="col-md-3 pd0 pull-left preferred-career pc_border">
                 	
 					<h2>Preferred Careers</h2>

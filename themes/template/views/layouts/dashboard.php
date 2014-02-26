@@ -40,16 +40,23 @@ Yii::app()->clientScript->registerScript(
 	<section class="main-section">
 		<div class="left-main">
 			<div class="w100 fl color">
+						<div class="breadcrumbs fl">
+						<?php $this->widget('zii.widgets.CBreadcrumbs', array(
+                'homeLink'=>'Dashboard',
+                'links'=>$this->breadcrumbs,
+        )); ?><!-- breadcrumbs -->
+
 						
-						<div class="pull-right">
+						</div>
+						<div class="pull-right dashbord-top-nav ">
 							<ul class="nav  top-nav-left pull-left">
-							  <li><i class="icon-microphone icon-top"></i><a href="#">Talk to Counsellor</a></li>
-							  <li><i class="glyphicon glyphicon-list-alt icon-top"></i><?php echo CHtml::link('News and Updates',array('user/newsUpdates'));?></li>
-							  <li><i class="glyphicon glyphicon-list-alt icon-top"></i><?php echo CHtml::link('Summary',array('user/summary'));?></li>
+							  <li><i class="icon-microphone icon-top talk-icon"></i><a href="#">Talk to Counsellor</a></li>
+							  <li><i class="news-icon"></i><?php echo CHtml::link('News and Updates',array('user/newsUpdates'));?></li>
+							  <li><i class="summary-icon"></i><?php echo CHtml::link('Summary',array('user/summary'));?></li>
 							 
 							  
 							</ul>
-							<div class="top-stats-icons fr mr12">
+							<div class="top-stats-icons fr social-icon-links mr12">
 								<a href="<?php echo Yii::app()->session['setting']['fb_link'];?>" target="_blank">
 									<i class="icon-facebook"></i>
 								</a>

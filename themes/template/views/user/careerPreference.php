@@ -78,7 +78,7 @@ $this->breadcrumbs=array('Career Preference'=>array('/user/careerPreference'));
 				<?php if($list['updated_by']==0){?>
 									<?php echo CHtml::ajaxLink('Make Final',array('user/finalizedCareer','id'=>$list['id']),
 																		array('type'=>'POST','success'=>'function(data){alert(data)}'),
-																		array('confirm'=>'Are you sure you want to make final this item?',
+																		array('confirm'=>'Are you sure you want to finalize this career?',
 																				'class'=>'white-text btn btn-warning',
 																				'id'=>'final_item-'.$list['id']));  ?>
 									<?php }else{ ?>

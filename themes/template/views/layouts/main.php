@@ -69,7 +69,7 @@
 					<li><?php echo CHtml::link('&nbsp;<i class="glyphicon glyphicon-off"></i> Logout',array('site/logout'),array('class'=>'join_us'));?></li>
 							<?php } else{ ?>
 					<li><?php echo CHtml::link('Join Us!','javaScript:void(0);',array('class'=>'join_us home-login-box'));?></li>
-					<li><?php echo CHtml::link('Login','#',array('class'=>'join_us home-login-box login_us'));?></li>
+					<li><?php echo CHtml::link('Login','#',array('class'=>'join_us login-boot-box login_us'));?></li>
 						<?php	} ?>       
 			 
 					
@@ -138,7 +138,6 @@
 	 
 
 	 </div>
-<?php if(!isset(Yii::app()->user->id)) { ?>
 	<!-- set up the modal to start hidden and fade in and out -->
     <div id="myModal" class="modal fade">
     	<div class="modal-dialog">
@@ -149,11 +148,119 @@
 						<div class="row white ">
                         	<div class="col-md-12 pd13 ">
                             	<div class="hide-overflow2" style="top:-20px;z-index:0"></div>
-                                <div  class="col-md-6 login-box pull-left">
+								<div id="alert-confirm-gudaak-id " class=" col-md-12 login-box confirm-gudaak">
+									<h2> Do you have Gudaak ID?</h2>
+									
+									<a id="gudaakIdYes" href="javaScript:void(0);" class="white-text btn btn-warning ">Yes</a>
+									<a id="gudaakIdNo" data-dismiss="modal" data-trigger="expand" href="javaScript:void(0);" class="white-text btn btn-warning ">No</a>
+								</div>
+								<div id="confirm-gudaak-id">
+                                
+                                <div class="col-md-12  pull-right">
+                                <?php $model=new Register; $form=$this->beginWidget('CActiveForm', array(
+                                                            'id'=>'user-register',
+                                                            'action'=>Yii::app()->createUrl('/site/UserRegister'),
+                                                            'enableClientValidation'=>true,
+                                                            'clientOptions'=>array('validateOnSubmit'=>true,)));?>
+                                    <i class="glyphicon glyphicon-edit orange pull-left"></i>
+                                    <h4 class="form-signin-heading ">Enroll !!!</h4>
+									  
+									 <div class="col-md-6 input-mar pull-left">
+										<?php 	echo $form->textField($model,'gudaak_id',
+																	array('class'=>'form-control mar-b16','placeholder'=>'Gudaak ID','ajax' => array('type'=>'POST',
+																	'url'=>CController::createUrl('site/AutoCompleteLookup'), //url to call.
+																	'success'=>'function(data){afterResponse(data)}',
+																	//'update'=>'#class_register',
+																	)));?>
+										<?php     echo $form->error($model,'gudaak_id');?>
+									</div>
+								 	   <div class="col-md-6 input-mar pull-left">
+                                    <?php echo $form->textField($model,'first_name',array('class'=>'form-control mar-b16','placeholder'=>'First Name','autofocus'=>true));
+                                    echo $form->error($model,'first_name');?>
+									</div>
+									<div class="clear"></div>
+                                    <div class="col-md-6 input-mar pull-left">
+										<?php echo $form->textField($model,'last_name',array('class'=>'form-control mar-b16','placeholder'=>'Last Name','autofocus'=>true));
+										echo $form->error($model,'last_name');?>
+									</div>
+									 <div class="col-md-6 input-mar pull-left ">
+                                     <div class="col-md-9 pd0 pull-left">
+                                    <?php $this->widget('zii.widgets.jui.CJuiDatePicker',array(
+                                                                    'model'=>$model,
+                                                                    'attribute'=>'date_of_birth',
+                                                                    'options'=>array('dateFormat'=>'yy-mm-dd',
+																					'yearRange'=>'1970:2014',
+                                                                                    'changeMonth'=>'true',
+                                                                                    'changeYear'=>'true',),
+                                                                    'htmlOptions'=>array('class'=>'dob form-control mar-b16','style'=>'width:72%',
+                                                                                        'placeholder'=>'DOB','autofocus'=>false),));?>	
+																						 <?php echo $form->error($model,'date_of_birth');?>
+									</div>
+									<div class="fr dimension-box">
+                                    <?php echo $form->checkBox($model,'gender',array('id'=>'dimension-switch'));?>
+									</div>
+									</div>
+                                   <div class="clear"></div>
+                                    <div class="col-md-6 input-mar pull-left">
+                                    <?php echo $form->textField($model,'email',array('class'=>'form-control mar-b16','placeholder'=>'Email','autofocus'=>true));
+                                    echo $form->error($model,'email');?>
+									</div>
+                                    <div class="col-md-6 input-mar pull-left">
+                                    <?php echo $form->textField($model,'mobile_no',array('class'=>'form-control mar-b16','placeholder'=>'Mobile','autofocus'=>true));
+                                    echo $form->error($model,'mobile_no');?>
+									</div>
+                                    <div class="col-md-6 input-mar pull-left">
+									<?php echo $form->dropDownlist($model,'class',array('empty'=>'Please Select'),array('id'=>'class_register','class'=>'mar-b16 form-control'));
+									echo $form->error($model,'class');?>
+									</div>
+                                    <div class="col-md-6 input-mar pull-left">
+									<?php echo $form->dropDownlist($model,'medium',array('empty'=>'Please Select'),array('id'=>'medium_register','class'=>'mar-b16 form-control'));
+									echo $form->error($model,'medium');?>
+									</div>
+                                    <div class="col-md-6 input-mar pull-left">
+                                    <?php echo $form->passwordField($model,'password',array('class'=>'form-control mar-b16','placeholder'=>'Password','autofocus'=>true));
+                                    echo $form->error($model,'password');?>
+									</div>
+                                    <div class="col-md-6 input-mar pull-left">
+                                    <?php echo $form->passwordField($model,'confirmpass',array('class'=>'form-control mar-b16','placeholder'=>'confirm password','autofocus'=>true));
+                                    echo $form->error($model,'confirmpass');?>
+									</div>
+                                    
+                                    <div class="col-md-12">
+									 <div class="col-md-4 pull-left pd0">
+										  <?php echo CHtml::link('Back','',array('class'=>'btn fl back-register-bt btn-info','data-dismiss'=>'modal'));?>
+									</div>
+									 <div class="col-md-4 pull-right pd0">
+									    <?php echo CHtml::submitButton('Register',array('class'=>'btn fr btn-warning login '));?>
+									</div>
+									</div>
+								 
+                                <?php $this->endWidget();?>
+                            </div>
+								</div>
+							</div>
+						</div>
+	   			</div>
+		<!-- dialog buttons -->
+		 
+		</div>
+	</div>
+    </div>
+ <div id="login-boot-box" class="modal fade">
+    	<div class="modal-dialog">
+        	<div class="modal-content border-layer">
+            <!-- dialog body -->
+            	<div class="modal-body">
+                		<div class="site-logo"></div>
+						<div class="row white ">
+                        	<div class="col-md-12 pd13 ">
+                            	<div class="hide-overflow2" style="top:-20px;z-index:0"></div>
+								
+								<div  class="col-md-6 login-box pull-left col-md-offset-3 min-height-login">
                                     <div id="">
                                         <?php $login=new LoginForm;  
                                         $form=$this->beginWidget('CActiveForm', array(
-                                                                        'id'=>'login-form',
+                                                                        'id'=>'login-form2',
                                                                         'action'=>Yii::app()->createUrl('/site/login'),
                                                                         'enableClientValidation'=>true,
                                                                         'clientOptions'=>array('validateOnSubmit'=>true,)));?>
@@ -165,10 +272,10 @@
                                     <?php echo $form->PasswordField($login,'password',array('class'=>'form-control','placeholder'=>'Password'));
                                     echo $form->error($login,'password');?>
                                     <div class="pd4"></div>
-                                    <?php echo CHtml::Link("Forgot password?",'javascript:void(0);',array('class'=>'forget pull-left','id'=>'forget'));?>
+                                    <?php echo CHtml::Link("Forgot password?",'javascript:void(0);',array('class'=>'forget2 pull-left','id'=>'forget2'));?>
                                     
                                     <div class="clearfix"></div>
-                                    <div align="center" class="top-stats-icons mt50">
+                                    <div align="center" class="top-stats-icons ">
                                         <?php echo CHtml::submitButton('Login',array('class'=>'btn btn-warning login'));?>
                                         <div class="clearfix"></div>
                                         <!--<div class="or">or</div>-->
@@ -176,7 +283,7 @@
                                         </div>
                                         <?php $this->endWidget(); ?>
                                         <?php $forgetPass=new ForgotpasswordForm;
-                                            $form=$this->beginWidget('CActiveForm', array('id'=>'forget-form','action'=>Yii::app()->createUrl('/site/ForgetPassword'),'enableClientValidation'=>true,'clientOptions'=>array('validateOnSubmit'=>true,)));?> 
+                                            $form=$this->beginWidget('CActiveForm', array('id'=>'forget-form2','action'=>Yii::app()->createUrl('/site/ForgetPassword'),'enableClientValidation'=>true,'clientOptions'=>array('validateOnSubmit'=>true,)));?> 
                                             <i class="icon-key orange pull-left"></i>
                                             <h4 class="form-signin-heading ">Get your forget password</h4>
                                             <?php echo $form->textField($forgetPass,'email',array('class'=>'form-control','placeholder'=>'Email address','autofocus'=>true));
@@ -191,7 +298,7 @@
                                             </div>
                                         <?php endif; ?>
                                         <div class="pd4"></div>
-                                        <?php echo CHtml::Link("Back to login",'javascript:void(0);',array('class'=>'forget pull-left login-visible'));?>
+                                        <?php echo CHtml::Link("Back to login",'javascript:void(0);',array('class'=>' backto forget pull-left login-visible'));?>
                                         <div class="clearfix"></div>
                                         <div align="center" class="top-stats-icons">
                                             <?php echo CHtml::submitButton('Submit',array('class'=>'btn btn-warning login'));?>
@@ -203,70 +310,7 @@
                                 </div>
                                     <?php echo CHtml::link('Back','',array('class'=>'btn btn-info back-bt','data-dismiss'=>'modal'));?>
                                 </div>
-                                <div class="col-md-6  pull-right">
-                                <?php $model=new Register; $form=$this->beginWidget('CActiveForm', array(
-                                                            'id'=>'user-register',
-                                                            'action'=>Yii::app()->createUrl('/site/UserRegister'),
-                                                            'enableClientValidation'=>true,
-                                                            'clientOptions'=>array('validateOnSubmit'=>true,)));?>
-                                    <i class="glyphicon glyphicon-edit orange pull-left"></i>
-                                    <h4 class="form-signin-heading ">Enroll !!!</h4>
-									   <?php 	echo $form->textField($model,'gudaak_id',
-								
-								array('class'=>'form-control','placeholder'=>'Gudaak ID','ajax' => array('type'=>'POST',
-									'url'=>CController::createUrl('site/AutoCompleteLookup'), //url to call.
-									'success'=>'function(data){afterResponse(data)}',
-									//'update'=>'#class_register',
-									
-									
-										)));?>
-								 
-                                    <?php /*echo CHtml::ajaxLink('Check User', CHtml::normalizeUrl(array('site/CheckUser')), array('data'=>'js:jQuery(this).parents("form").serialize()+"&isAjaxRequest=1"','success'=>'function(data){$("#searchResult").html(data);$("#searchResult").fadeIn();return false;}'),array('id'=>'ajaxSubmit','class'=>'btn btn-primary pull-right','name'=>'ajaxSubmit'));echo '<div class="span4 pull-right alert alert-info" id="searchResult" style="display:none;"></div>';*/
-                                    
-									//echo $form->textField($model,'gudaak_id',array('class'=>'form-control','placeholder'=>'Gudaak ID','autofocus'=>true));
-                                    echo $form->error($model,'gudaak_id');?>
-									  <div class="pd4"></div>
-                                    <?php echo $form->textField($model,'first_name',array('class'=>'form-control','placeholder'=>'First Name','autofocus'=>true));
-                                    echo $form->error($model,'first_name');?>
-                                    <div class="pd4"></div>
-                                    <?php echo $form->textField($model,'last_name',array('class'=>'form-control','placeholder'=>'Last Name','autofocus'=>true));
-                                    echo $form->error($model,'last_name');?>
-                                    <div class="pd4"></div>
-                                    <?php $this->widget('zii.widgets.jui.CJuiDatePicker',array(
-                                                                    'model'=>$model,
-                                                                    'attribute'=>'date_of_birth',
-                                                                    'options'=>array('dateFormat'=>'yy-mm-dd',
-																					'yearRange'=>'1970:2014',
-                                                                                    'changeMonth'=>'true',
-                                                                                    'changeYear'=>'true',),
-                                                                    'htmlOptions'=>array('class'=>'dob form-control pull-left',
-                                                                                        'placeholder'=>'DOB','autofocus'=>false),));?>
-                                    <?php echo $form->checkBox($model,'gender',array('id'=>'dimension-switch'));?>
-                                    <!--<input type="checkbox" id="dimension-switch" checked>-->
-                                    <div class="clearfix"></div>
-                                    <?php echo $form->error($model,'date_of_birth');?>
-                                    <div class="pd4"></div>
-                                    <?php echo $form->textField($model,'email',array('class'=>'form-control','placeholder'=>'Email','autofocus'=>true));
-                                    echo $form->error($model,'email');?>
-                                    <div class="pd4"></div>
-                                    <?php echo $form->textField($model,'mobile_no',array('class'=>'form-control','placeholder'=>'Mobile','autofocus'=>true));
-                                    echo $form->error($model,'mobile_no');?>
-                                    <div class="pd4"></div>
-									<?php echo $form->dropDownlist($model,'class',array('empty'=>'Please Select'),array('id'=>'class_register','class'=>'form-control'));
-									echo $form->error($model,'class');?>
-                                    <div class="pd4"></div>
-									<?php echo $form->dropDownlist($model,'medium',array('empty'=>'Please Select'),array('id'=>'medium_register','class'=>'form-control'));
-									echo $form->error($model,'medium');?>
-                                    <div class="pd4"></div>
-                                    <?php echo $form->passwordField($model,'password',array('class'=>'form-control','placeholder'=>'Password','autofocus'=>true));
-                                    echo $form->error($model,'password');?>
-                                    <div class="pd4"></div>
-                                    <?php echo $form->passwordField($model,'confirmpass',array('class'=>'form-control','placeholder'=>'Confirm Password','autofocus'=>true));
-                                    echo $form->error($model,'confirmpass');?>
-                                    <div class="pd4"></div>
-                                    <div align="center"><?php echo CHtml::submitButton('Register',array('class'=>'btn btn-warning login mt'));?></div>
-                                <?php $this->endWidget();?>
-                            </div>
+                       		
 							</div>
 						</div>
 	   			</div>
@@ -276,8 +320,7 @@
 	</div>
     </div>
 	
-<?php } else{ ?>
-<?php } ?>
+ 
   <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
@@ -287,6 +330,7 @@
 	<script src="<?php echo $path?>/js/bootstrap-switch.min.js"></script>
     <script src="<?php echo $path?>/js/index.js"></script>
     <script src="<?php echo $path?>/js/custom.js"></script>
+    <script src="<?php echo $path?>/js/custom2.js"></script>
 	<script src="<?php echo Yii::app()->theme->baseUrl;?>/js/jquery.scrollbox.js" type="text/javascript"></script>
 <!-- sometime later, probably inside your on load event callback -->
 <!--<script type='text/javascript'>
@@ -294,20 +338,6 @@
 </script>-->
 
 <script type='text/javascript'>
-function afterResponse($data){
-	var $response	=	jQuery.parseJSON($data);
-	console.log($response.status);
-	if($response.status==1)
-	{
-		$('#class_register').html($response.data);
-		$('#medium_register').html($response.medium);
-		
-	}
-	 
-		else{alert($response.data);$('#Register_gudaak_id').val('');}
-}
-
-
 (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://widget.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({ c: '87b04e16-7b9c-4d0e-afbd-42f97c59e435', f: true }); done = true; } }; })();</script>
 
 <!--Add the following script at the bottom of the web page-->
@@ -315,3 +345,9 @@ function afterResponse($data){
 
   </body>
 </html>
+<div id="icon-move" style="position:absolute; top:100px;left:800px;">
+	<!--<div class="talktoAdmin">
+	Let's talk to get Gudaak ID.
+	</div>-->
+	<img src="<?php echo Yii::app()->theme->baseUrl;?>/images/action_arrow.gif"/>
+</div>

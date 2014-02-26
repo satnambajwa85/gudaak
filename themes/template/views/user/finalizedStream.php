@@ -21,7 +21,7 @@ $this->breadcrumbs=array('Finalized Stream'=>array('/user/finalizedStream'));
 		</div>
 		<div class="col-md-12 fl pd0">
 			<?php if(!empty($data)) {?>
-            <div class="mr0 col-md-12 fl br-right">
+            <div class="mr0 col-md-12 fl ">
 			<div id="scrollBar">
 				<div class="col-md-12 fl">
 				  	<?php foreach($data as $list){ ?>
@@ -120,7 +120,7 @@ $this->breadcrumbs=array('Finalized Stream'=>array('/user/finalizedStream'));
 </div>
 
 	
-	<div class="news pd0 fl">
+	<div class="news pd0 fr">
 		<?php  $this->Widget('WidgetNews'); ?>
 	</div>
 			

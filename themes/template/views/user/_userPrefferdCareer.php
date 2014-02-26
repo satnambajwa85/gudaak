@@ -27,3 +27,4 @@ Yii::app()->clientScript->registerScript(
 	}).filter(':first').click();	",
 		CClientScript::POS_READY
 	);?>
+<?php Yii::app()->clientscript->scriptMap['jquery.js'] = false;?>	

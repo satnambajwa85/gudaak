@@ -17,7 +17,7 @@ $this->breadcrumbs=array('Explore'=>array('/user/explore'));?>
 
 			</div>
 			<?php foreach($data as $list){ ?>
-			<div class="col-md-3 career-lib">
+			<div class="col-md-3 career-lib mb0">
 			<?php 
 						$filename = ''.$list['image'].'';
 						 $path=Yii::getPathOfAlias('webroot.uploads.career.small') . '/';
@@ -42,6 +42,6 @@ $this->breadcrumbs=array('Explore'=>array('/user/explore'));?>
 		</div>
 
 </div>
-			<div class="news pd0 pull-left">
+			<div class="news pd0 fr">
 		<?php  $this->Widget('WidgetNews'); ?>
 	</div>      

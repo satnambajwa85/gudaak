@@ -72,7 +72,7 @@ $this->breadcrumbs=array('Stream Preference'=>array('/user/streamPreference'));?
 																		else
 																			alert($dataR.message);
 																	}'),
-												array('confirm'=>'Are you sure you want to make final this item?',
+												array('confirm'=>'Are you sure you want to finalize this stream?',
 														'class'=>'white-text btn btn-warning',
 														'id'=>'final_item-'.$list['id']));  ?>
 				<?php }else{ ?>
