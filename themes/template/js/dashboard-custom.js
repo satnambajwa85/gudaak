@@ -197,6 +197,11 @@ $(document).ready(function () {
 		  $('.profileHide input').clone().insertBefore(".profileHide");
 			//$('.tab2_form_box').clone();
 		});
+		$(".ans_set span label").on("click", function() {
+			$(this).parent().parent().parent().css( "backgroundColor", "" );
+		});
+	 
+		
 		/*$(".subject-details").on("click", function() { 
 			 $(".s-details").modal({ // wire up the actual modal functionality and show the dialog
 			"backdrop" : "static",
