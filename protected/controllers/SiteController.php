@@ -188,10 +188,21 @@ class SiteController extends Controller
 							//Start  mail Function 
 							$body = $this->renderPartial('/mails/register_tpl',array('name'=>$model->display_name,'code'=>'dnfskjdfnjsndjfnjsdfnjsdnfjaksoskaokoa','email'=>$_POST['Register']['email'],'password'=>$_POST['Register']['password']), true);
 							$to = $_POST['Register']['email'];
+							if($this->sendMail('register')){
+								Yii::app()->user->setFlash('create','Thank you for join us check your email and activate your account.');
+								$this->redirect(array('site/userRegister'));
+							}
+							else{
+								echo 'error ';
+							}
+							
+							
 							$headers  = 'MIME-Version: 1.0' . "\r\n";
 							$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
 							$headers .= "From: ".Yii::app()->params['adminEmail']."\r\nReply-To: ".Yii::app()->params['adminEmail'];  
 							$subject = "Account Details";
+							
+							
 							mail($to,$subject,$body,$headers);
 							//End  mail Function  
 							Yii::app()->user->setFlash('create','Thank you for join us check your email and activate your account.');

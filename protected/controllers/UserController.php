@@ -10,7 +10,7 @@ class UserController extends Controller
 				'actions'=>array('index','editProfile','test','tests','detailedReport','collage','liveChat',
 							'articlesList','articles','summary','newsUpdates',
 							'exploreColleges','shortListedColleges','dynamicCourse','dynamicSearchResult','userShortlistCollage',
-							'search','changePassword','application','questionsAnswer','userProfileUpdate','retakeTest','news','readEvent','summaryDetails',
+							'search','changePassword','application','questionsAnswer','userProfileUpdate','retakeTest','news','readEvent','summaryDetails','pdfReport',
 				),
 				'users' => array('@')
 					
@@ -460,7 +460,77 @@ class UserController extends Controller
 			$data[$report->orient_items_id]['id']=$report->orient_items_id;
 			$data[$report->orient_items_id]['name']=$report->orientItems->title;
 			$data[$report->orient_items_id]['description']=$report->orientItems->description;
-			$userTests	=	UserScores::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'test_category'=>$report->orient_items_id),array('order'=>'score DESC'));
+			$userTests	=	UserScores::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'test_category'=>$report->orient_items_id));
+			
+			foreach($userTests as $cur){
+				$score	=	$cur->score;
+				foreach($cur->careerCategories->careerAssessments as $asswssment){
+					if($score >= $asswssment->score_start && $score <= $asswssment->score_end){
+						$userTest[$asswssment->value][$cur->id]['value']		=	$asswssment->value;
+						$userTest[$asswssment->value][$cur->id]['score']		=	$score;	
+						$userTest[$asswssment->value][$cur->id]['id']			=	$cur->careerCategories->id;
+						$userTest[$asswssment->value][$cur->id]['title']		=	$cur->careerCategories->title;
+						$userTest[$asswssment->value][$cur->id]['title2']		=	$asswssment->title;
+						$userTest[$asswssment->value][$cur->id]['description']	=	$asswssment->description;
+					}
+				}
+				
+			}
+		if($report->orient_items_id==3){
+			$highCount	=	0;
+			$midCount	=	0;
+			$final		=	array();
+			if(isset($userTest['high'])){
+				$highCount	=	count($userTest['high']);
+				$final		=	$userTest['high'];
+				$final1		=	$userTest['high'];
+			}
+			if(isset($userTest['moderate']))
+				$midCount	=	count($userTest['moderate']);
+			if(isset($userTest['moderate']))
+				$final1		=	array_merge($final,array_slice($userTest['moderate'], 0, 5));
+			
+			
+			if($highCount ==	0 && isset($userTest['moderate']))
+				$final		=	$userTest['moderate'];
+			if($highCount>0 && $highCount < 2 && isset($userTest['moderate']))
+				$final		=	array_merge($final,array_slice($userTest['moderate'], 0, 1));
+			if(isset($userTest['low']))
+				$final1		=	array_merge($final,array_slice($userTest['low'], 0, 5));
+			$total	=	$highCount+$midCount;
+			$data[$report->orient_items_id]['results1']=$final1;
+			$data[$report->orient_items_id]['results']=$final;
+		}else{
+				$final		=	array();
+				if(isset($userTest['high'])){
+					$final		=	$userTest['high'];
+				}
+				if(isset($userTest['moderate']))
+					$final		=	array_merge($final,array_slice($userTest['moderate'],0,5));
+				if(isset($userTest['low']))
+					$final		=	array_merge($final,array_slice($userTest['low'],0,5));
+				$data[$report->orient_items_id]['results']=$final;
+			}
+		}
+		$profile		=	 UserProfiles::model()->findByPk(Yii::app()->user->profileId);
+		if(Yii::app()->user->userType ==  'below10th')
+			$this->render('detailedReport2',array('reports'=>$data,'profile'=>$profile));
+		else
+			$this->render('detailedReport',array('reports'=>$data,'profile'=>$profile));
+	
+	}
+	
+	public function actionPdfReport()
+	{	
+		$userReports			=	UserReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
+		$data	=	array();
+		
+		foreach($userReports as $report){
+			$userTest	=	array();
+			$data[$report->orient_items_id]['id']=$report->orient_items_id;
+			$data[$report->orient_items_id]['name']=$report->orientItems->title;
+			$data[$report->orient_items_id]['description']=$report->orientItems->description;
+			$userTests	=	UserScores::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'test_category'=>$report->orient_items_id));
 			
 			foreach($userTests as $cur){
 				$score	=	$cur->score;
@@ -515,12 +585,21 @@ class UserController extends Controller
 			
 		}
 		$profile		=	 UserProfiles::model()->findByPk(Yii::app()->user->profileId);
-		if(Yii::app()->user->userType ==  'below10th')
-			$this->render('detailedReport2',array('reports'=>$data,'profile'=>$profile));
+		
+		$html2pdf = Yii::app()->ePdf->mPDF();
+        if(Yii::app()->user->userType ==  'below10th')
+			$html	=	$this->renderPartial('detailedReport2',array('reports'=>$data,'profile'=>$profile));
 		else
-			$this->render('detailedReport',array('reports'=>$data,'profile'=>$profile));
+			$html	=	$this->renderPartial('detailedReport',array('reports'=>$data,'profile'=>$profile));
+		$html2pdf->WriteHTML($html);
+        $html2pdf->Output();
+		die('deon');
+		
+		
 	
 	}
+	
+	
 	public function actionSummaryDetails()
 	{	
 		$reportId	=	$_REQUEST['id'];
