@@ -25,22 +25,19 @@ function testFormSend(id)
 		url: test+'&id='+id,
 	   data:data,
 		success:function(data){ 
-				var $response	=	jQuery.parseJSON(data);
-				if($response.status==1){
-					location.reload();
-					
-				}
-				 else{
-						//var data_length = ;
-						$.each($response.message, function(i, obj) {
-						  //use obj.id and obj.name here, for example:
-						  alert(obj);
-						});
-					 
-					
-					//$('#bio_color').css('backgroundColor', '#' + hex);
-				}
-					  },
+			var $response	=	jQuery.parseJSON(data);
+			if($response.status==1){
+				location.reload();
+				
+			}
+			else{
+					alert('Plsease don not skip any question please.');
+					$.each($response.message, function(i, obj) {
+					  //use obj.id and obj.name here, for example:
+					  $('.required'+obj).css( "backgroundColor", "#E9D1D4" );
+					});
+			}
+		},
 		   error: function(data) { // if error occured
 				 alert("Error occured.please try again");
 				 alert(data);

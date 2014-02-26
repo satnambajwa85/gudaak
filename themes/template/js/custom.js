@@ -126,7 +126,9 @@ $(document).ready(function () {
 		e.preventDefault();
 	}).filter(':first').click();
 	
-		$(".home-login-box ").on("click", function() { // wire up the OK button to dismiss the modal when shown
+		$(".home-login-box ").on("click", function() { 
+		$("#confirm-gudaak-id").hide();
+		 $(".remove").show();
 		 $("#myModal").modal({ // wire up the actual modal functionality and show the dialog
 		"backdrop" : "static",
 		"keyboard" : true,
@@ -140,7 +142,9 @@ $(document).ready(function () {
 			"show" : true // ensure the modal is shown immediately
 			});
 			});
-		$(".login-boot-box").on("click", function() { // wire up the OK button to dismiss the modal when shown
+		$(".login-boot-box").on("click", function() {
+			 $("#alert-confirm-gudaak-id2").show();
+			 $(".min-height-login").hide();
 			 $("#login-boot-box").modal({ // wire up the actual modal functionality and show the dialog
 			"backdrop" : "static",
 			"keyboard" : true,
@@ -167,10 +171,29 @@ $(document).ready(function () {
 			 
 		});	
 		$("#gudaakIdYes").on("click", function() { 
-			 $(".confirm-gudaak").hide();
-			 $("#confirm-gudaak-id").fadeIn();
+			 $(".remove").hide();
+			 $("#confirm-gudaak-id").show();
+			 
 			 
 		});	
+		$("#loginGudaakIdNo").on("click", function() { 
+			 $("#alert-confirm-gudaak-id2").hide();
+			 $(".min-height-login").fadeIn();
+			 
+		});	
+		$("#loginGudaakIdYes").on("click", function() {
+			 $(".talktoAdmin").hide();
+			 $("#icon-move").show();
+			$("#icon-move").animate({top: "+=520",left: "-=100"}, 2000);
+			$("#icon-move").animate({top: "-=170",left: "-=100"}, 2000);
+			$("#icon-move").animate({top: "+=170",left: "-=100"}, 2000);
+			$("#icon-move").animate({top: "-=170",left: "-=100"}, 2000);
+			$("#icon-move").animate({top: "+=180",left: "-=90"}, 2000);
+			$("#icon-move").fadeOut(200);
+			$(".purechat-expanded").show(300);
+			$("#icon-move").animate({top: "-=520",left: "+=490"}, 2000);	
+			 
+		});
 		$("#gudaakIdNo").on("click", function() {
 			 $(".talktoAdmin").hide();
 			 $("#icon-move").show();
@@ -192,7 +215,7 @@ $(document).ready(function () {
 				$(this).addClass('white-text');
 				e.preventDefault();
 			});
-		
+
 		
 	});
 

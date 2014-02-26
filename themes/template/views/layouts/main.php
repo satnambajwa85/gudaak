@@ -148,7 +148,7 @@
 						<div class="row white ">
                         	<div class="col-md-12 pd13 ">
                             	<div class="hide-overflow2" style="top:-20px;z-index:0"></div>
-								<div id="alert-confirm-gudaak-id " class=" col-md-12 login-box confirm-gudaak">
+								<div id="alert-confirm-gudaak-id " class=" col-md-12 login-box confirm-gudaak remove">
 									<h2> Do you have Gudaak ID?</h2>
 									
 									<a id="gudaakIdYes" href="javaScript:void(0);" class="white-text btn btn-warning ">Yes</a>
@@ -255,7 +255,12 @@
 						<div class="row white ">
                         	<div class="col-md-12 pd13 ">
                             	<div class="hide-overflow2" style="top:-20px;z-index:0"></div>
-								
+								<div id="alert-confirm-gudaak-id2" class=" col-md-12 login-box confirm-gudaak">
+									<h2>Don't have Gudaak ID?</h2>
+									
+									<a id="loginGudaakIdYes" data-dismiss="modal" data-trigger="expand"  href="javaScript:void(0);" class="white-text btn btn-warning ">Yes</a>
+									<a id="loginGudaakIdNo" href="javaScript:void(0);" class="white-text btn btn-warning ">No</a>
+								</div>
 								<div  class="col-md-6 login-box pull-left col-md-offset-3 min-height-login">
                                     <div id="">
                                         <?php $login=new LoginForm;  

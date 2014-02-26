@@ -7588,7 +7588,7 @@ header {
 .white-text-color{color:#fff;}
 .categories-tab{border:1px solid #F1F1F3;float:left;color: #666;position: absolute;right: 0px;
 top:115px;width: 252px;background:#FAFFFF;background-color:#FAFFFF;z-index:999;}
-.current{display:block;}
+.current{display:block;color:#F7A944}
 .categories-tab li {margin: 2px 14px 6px 5px;}
 .categories-tab li > label {text-transform: capitalize;margin-left:8px;}
 #mycarouseltwo {
@@ -7738,7 +7738,7 @@ top:115px;width: 252px;background:#FAFFFF;background-color:#FAFFFF;z-index:999;}
     float: left;
     width: 79.6%;
 }
-.preferred-career-info { border: 1px solid #EEEEEE;}
+.preferred-career-info {}
 .p_padding{ padding:10px; padding-left:0px;}
 
 .crumb-title{color: #F5F5F5;float: left;font-size: 15px;margin: 0;padding: 14px;}
@@ -7919,7 +7919,7 @@ top:115px;width: 252px;background:#FAFFFF;background-color:#FAFFFF;z-index:999;}
 .br-top{border:1px solid #eee;}
 .br-area{border-left:1px solid #eee;border-right:1px solid #eee;border-bottom:1px solid #eee;}
 #career-description-tabs {padding:0px;list-style:none;}
-#career-description-tabs > li {float: left;color: #666;font-size: 11px;margin-top: 7px;text-align: justify;margin:0px;border: 1px solid #EEEEEE; padding: 6px;}
+#career-description-tabs > li {float: left;color: #666;font-size: 12px;margin-top: 7px;text-align: justify;margin:0px;border: 1px solid #EEEEEE; padding: 6px;}
 .details-report h1{color: #666;font-size: 25px;font-family: robotomedium; text-align: center;}
 .report-border{border:1px solid  #21C4C1;}
 .left-section ul {list-style:none;padding:0px;}
