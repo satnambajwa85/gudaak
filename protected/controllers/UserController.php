@@ -392,10 +392,17 @@ class UserController extends Controller
 		$tests	=	array();
 		foreach($userTest as $test){
 			$tests[]	=	$test->orient_items_id;
+			$detials[$test->orient_items_id]['id']=$test->orient_items_id;
+			$detials[$test->orient_items_id]['date']=$test->add_date;
+			$detials[$test->orient_items_id]['count']=60;
+			$detials[$test->orient_items_id]['duration']=60;
+			
+			
+			
 		}
 		
 		
-		$this->render('userTest',array('testContent'=>$testContent,'userTest'=>$tests,'model'=>$model));
+		$this->render('userTest',array('testContent'=>$testContent,'userTest'=>$tests,'detials'=>$detials,'model'=>$model));
 	}
 	public function actionRetakeTest($id)
 	{	
@@ -480,23 +487,23 @@ class UserController extends Controller
 			$highCount	=	0;
 			$midCount	=	0;
 			$final		=	array();
+			$final1		=	array();
 			if(isset($userTest['high'])){
 				$highCount	=	count($userTest['high']);
 				$final		=	$userTest['high'];
 				$final1		=	$userTest['high'];
 			}
-			if(isset($userTest['moderate']))
+			if(isset($userTest['moderate'])){
 				$midCount	=	count($userTest['moderate']);
-			if(isset($userTest['moderate']))
-				$final1		=	array_merge($final,array_slice($userTest['moderate'], 0, 5));
-			
+				$final1		=	array_merge($final1,array_slice($userTest['moderate'], 0, 5));
+			}
 			
 			if($highCount ==	0 && isset($userTest['moderate']))
-				$final		=	$userTest['moderate'];
+				$final		=	array_merge($final,array_slice($userTest['moderate'], 0, 2));
 			if($highCount>0 && $highCount < 2 && isset($userTest['moderate']))
 				$final		=	array_merge($final,array_slice($userTest['moderate'], 0, 1));
 			if(isset($userTest['low']))
-				$final1		=	array_merge($final,array_slice($userTest['low'], 0, 5));
+				$final1		=	array_merge($final1,array_slice($userTest['low'], 0, 5));
 			$total	=	$highCount+$midCount;
 			$data[$report->orient_items_id]['results1']=$final1;
 			$data[$report->orient_items_id]['results']=$final;
@@ -549,23 +556,23 @@ class UserController extends Controller
 			$highCount	=	0;
 			$midCount	=	0;
 			$final		=	array();
+			$final1		=	array();
 			if(isset($userTest['high'])){
 				$highCount	=	count($userTest['high']);
 				$final		=	$userTest['high'];
 				$final1		=	$userTest['high'];
 			}
-			if(isset($userTest['moderate']))
+			if(isset($userTest['moderate'])){
 				$midCount	=	count($userTest['moderate']);
-			if(isset($userTest['moderate']))
-				$final1		=	array_merge($final,array_slice($userTest['moderate'], 0, 5));
-			
+				$final1		=	array_merge($final1,array_slice($userTest['moderate'], 0, 5));
+			}
 			
 			if($highCount ==	0 && isset($userTest['moderate']))
 				$final		=	array_merge($final,array_slice($userTest['moderate'], 0, 2));
 			if($highCount>0 && $highCount < 2 && isset($userTest['moderate']))
 				$final		=	array_merge($final,array_slice($userTest['moderate'], 0, 1));
 			if(isset($userTest['low']))
-				$final1		=	array_merge($final,array_slice($userTest['low'], 0, 5));
+				$final1		=	array_merge($final1,array_slice($userTest['low'], 0, 5));
 			$total	=	$highCount+$midCount;
 			$data[$report->orient_items_id]['results1']=$final1;
 			$data[$report->orient_items_id]['results']=$final;

@@ -21,11 +21,11 @@ $this->breadcrumbs=array('Stream Library '=>array('/user/streamList'));?>
 <?php foreach ($data as $data) {?>	
 <div class="stream-cat pull-left fl  pd-b10" >
 <div class="col-md-12 fl pd0 ">
-	<div class="pull-left pd0 prefered-stream-img">
+	<div class="col-md-6 pull-left pd0 prefered-stream-img">
 	<?php echo CHtml::link('<img  src="'.Yii::app()->baseUrl.'/uploads/stream/small/'.$data['image'].'" />
 	',array('user/stream','id'=>$data['id']));?>
 	</div>
-	<div class="col-md-9 pull-left  stream-description">
+	<div class="col-md-6 pull-right  stream-description">
 		<?php echo CHtml::link('<h1>'.substr($data['name'],0,30).'</h1>',array('user/stream','id'=>$data['id']));?>
 		<p><?php echo substr($data['description'],0,90);?>..</p>
 			 <ul class="star-rating" style="margin:0px;">
