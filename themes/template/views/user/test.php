@@ -11,9 +11,10 @@
     
 			<div class="col-md-12  pull-left jcarousel-skin-tango-two">
             		<div class="clear"></div>
-			<div class="complete-test-show my_profile_outr" align="center">
-				<h1 class="mt50">You have done your test successfully.thank you!</h1>
-			</div>
+				<div id="popup_box">    <!-- OUR PopupBox DIV-->
+						<h1>Your Test has been submitted successfully.</h1>
+						<p>Please Wait...</p>
+				</div>
             	<div class="col-md-12 border pd0 fl test-hide">
 					<?php if(Yii::app()->user->hasFlash('inComplete')): ?>
 						<div class="alert alert-success">
@@ -40,7 +41,7 @@
 						 
 						  <?php $counter=1;$count=0;$counterId=1;?>
 									<?php foreach($questions as $question){	?>
-											<div class="test-area <?php echo ($count)?'gray2':'';?>">
+											<div class=" required<?php echo $question['id'] ?> test-area <?php echo ($count)?'gray2':'';?>">
 												<?php echo $form->hiddenField($model,'career_categories_id['.$question['career_categories_id'].']',array('value'=>''.$question['career_categories_id'].'')); ?>
 												<p class="questionTitle"><?php	echo $counter.'. '. $question['title'];?></p>
 												<div class="ans_set">
