@@ -396,6 +396,7 @@ class UserController extends Controller
 		$testContent			=	OrientItems::model()->findAll($criteria);
 		$userTest				=	UserReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
 		$tests	=	array();
+		$detials	=	array();
 		foreach($userTest as $test){
 			$tests[]	=	$test->orient_items_id;
 			$detials[$test->orient_items_id]['id']=$test->orient_items_id;
