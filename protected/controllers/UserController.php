@@ -87,6 +87,7 @@ class UserController extends Controller
 			if($model->save()){
 				Yii::app()->user->setFlash('updated',"Sccessfully updated.");
 			}
+
 		}
 		$this->render('index',array('model'=>$model));
 	}
