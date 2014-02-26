@@ -406,3 +406,24 @@ strong {
     font-size: 9px;
     font-weight: normal !important;
 }
+#confirm-gudaak-id{display:none;}
+.confirm-gudaak{text-align: center;padding-bottom: 90px;
+    padding-top: 90px;}
+.confirm-gudaak h2{font-size:14px;}
+#forget-form2{display:none;}
+#icon-move{display:none;}
+.talktoAdmin{background: url("../images/testi-bg.png") no-repeat scroll 0 0 / 195px 99px rgba(0, 0, 0, 0);
+    color: #FFFFFF;
+    height: 81px;
+    padding: 12px;
+    text-align: center;
+    width: 201px;}
+.pd0{padding:0px !important;}
+.dimension-box{position: absolute;right: 10px;top: 1px;}
+.input-mar {
+    height: 59px;
+}
+.min-height-login{min-height:313px !important;}
+.back-register-bt{ left: -48px;
+    position: relative;}
+.min-height-login{display:none;}

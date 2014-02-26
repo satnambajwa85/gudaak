@@ -7689,11 +7689,12 @@ top:115px;width: 252px;background:#FAFFFF;background-color:#FAFFFF;z-index:999;}
 .career-list-view {border-right:1px solid #CDCDCD;min-height:430px;margin-bottom:57px;}
 .career-list-view ul{list-style:none;padding:0px;}
 .career-list-view.pull-left li{margin:9px 0 0 0;text-transform:capitalize;}
+.li-active{background: url("../images/active-tab.png") no-repeat scroll 186px 0 rgba(0, 0, 0, 0);}
 .career-list-view li a{    color: #21C4C1;
     font-family: open sans !important;
-    font-size: 12px;
+    font-size: 13px;
     text-decoration: none;}
-.career-list-view li a.currentTab {color:#F7A944;content: '\203a';}
+.career-list-view li a.currentTab {color:#F7A944;}
 .career-list-view li a.currentTab > i{color:#F7A944;}
 .career-list-view li a.currentTab > i{color:#F7A944;}
 .career-list-view li a i{color:#666;margin:0 10px 0 0;}
@@ -7737,11 +7738,7 @@ top:115px;width: 252px;background:#FAFFFF;background-color:#FAFFFF;z-index:999;}
     float: left;
     width: 79.6%;
 }
-.preferred-career-info {
-    border: 1px solid #EEEEEE;
-    min-height: 300px;
-    padding: 0; width:70%; margin-left:20px;
-}
+.preferred-career-info { border: 1px solid #EEEEEE;}
 .p_padding{ padding:10px; padding-left:0px;}
 
 .crumb-title{color: #F5F5F5;float: left;font-size: 15px;margin: 0;padding: 14px;}
@@ -7872,7 +7869,7 @@ top:115px;width: 252px;background:#FAFFFF;background-color:#FAFFFF;z-index:999;}
 .stream-ratting{text-align:center;}
 .prefered-stream-img img {   height: 118px;
     width: 100%;}
-.stream-description{position:absolute;background:none repeat scroll 0 0 rgba(0, 0, 0, 0.66);right:0;height:100%;width:54%;padding:7px;}
+.stream-description{position:absolute;background:none repeat scroll 0 0 rgba(0, 0, 0, 0.66);right:0;height:100%;width:50%;padding:7px;}
 .stream-description h1{margin:0;color: #fff;font-size: 12px;font-weight: bold;text-transform: capitalize;font-family: open sans}
 .stream-description p{color: #F5F5F5;font-size: 11px;margin-top: 7px;text-align: justify;margin:0px;}
 .stream-description a{color: #21C4C1;font-size: 11px;margin-top: 7px;text-align: justify;}
