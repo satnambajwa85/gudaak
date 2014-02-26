@@ -52,16 +52,16 @@ $this->breadcrumbs=array('Asses'=>array('/user/tests'));?>
 									<h1>Last test summery</h1>
 									<span>Test Date:</span>
 									<datetime>	
-										<?php echo Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse($list->add_date, 'yyyy-MM-dd H:s:i'),'medium',null);?>
+										<?php echo date(strtotime($detials[$list->id]['date']), 'yyyy-MM-dd H:s:i');?>
 										</datetime>
 									<div class="clear"></div>
 									<span>Duration:</span>
-									<datetime>1hr 30mins</datetime>
+									<datetime><?php echo $detials[$list->id]['duration'];?></datetime>
 									<div class="clear"></div>
 									<span>Questions:</span>
-									<datetime>60</datetime>
+									<datetime><?php echo $detials[$list->id]['count'];?></datetime>
 									<div class="clear"></div>
-									<span>Score:</span>
+									<!--<span>Score:</span>
 									<div class="progress2 fl ">
 										<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar2" style="width:10% !important;">
 										</div>
@@ -70,7 +70,7 @@ $this->breadcrumbs=array('Asses'=>array('/user/tests'));?>
 											
 											</span>
 										</span>
-									</div>
+									</div>-->
 									<div class="clear"></div>
 									<!--<a href="#" class="more-faqs">Test Questions & Answer</a>-->
 								</div>
