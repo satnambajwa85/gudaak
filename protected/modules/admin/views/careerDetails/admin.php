@@ -8,7 +8,7 @@ $this->breadcrumbs=array(
 );
 
 
-$this->breadcrumbs=array('Careers Categories'=>array('/admin/careerCategories/admin'),'Careers'=>array('/admin/career/adminView','id'=>$model->careerOptions->career->career_categories_id),'Careers Options'=>array('/admin/careerOptions/adminView','id'=>$model->careerOptions->career_id),'Careers Options',);
+$this->breadcrumbs=array('Careers Categories'=>array('/admin/careerCategories/admin'),'Interest'=>array('/admin/career/adminView','id'=>$model->careerOptions->career->career_categories_id),'Careers'=>array('/admin/careerOptions/adminView','id'=>$model->careerOptions->career_id),'Careers Details',);
 $this->widget('zii.widgets.CBreadcrumbs', array('links'=>$this->breadcrumbs,));
 
 

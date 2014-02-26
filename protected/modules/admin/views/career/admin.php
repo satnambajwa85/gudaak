@@ -7,7 +7,7 @@ $this->breadcrumbs=array(
 );
 
 
-$this->breadcrumbs=array('Careers Categories'=>array('/admin/careerCategories/admin'),'Manage Careers',);
+$this->breadcrumbs=array('Careers Categories'=>array('/admin/careerCategories/admin'),'Manage Careers Interest ',);
 $this->widget('zii.widgets.CBreadcrumbs', array('links'=>$this->breadcrumbs,));
 
 
@@ -31,7 +31,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Careers</h1>
+<h1>Manage Careers Interest</h1>
 <!--<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>-->
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(

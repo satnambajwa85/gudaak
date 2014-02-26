@@ -56,7 +56,7 @@ $('.search-form form').submit(function(){
         ),
 		array(
             'name'=>'User Role Id',
-            'value'=>'$data->userRole->title'
+            'value'=>'$data->userRole->description'
         ),
 		'add_date',
 		'activation',

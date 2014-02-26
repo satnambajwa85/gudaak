@@ -322,8 +322,14 @@ class UserController extends Controller
 			$testReport		=	TestReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'test_category'=>$id));
 			$total	=	count($testReport);
 			if($total!=60){
+				$list		=	array();
+				foreach($_POST['TestReports']['question_options_id'] as $key=>$val){
+					if(empty($val))
+					$list[]	=	 $key;
+				}
 				$response['status']=0;
-				$response['message']='Plsease don not skip any question please.';
+				$response['total']=	count($list);
+				$response['message']=$list;
 				echo json_encode($response); 
 				die;
 			}
@@ -392,10 +398,17 @@ class UserController extends Controller
 		$tests	=	array();
 		foreach($userTest as $test){
 			$tests[]	=	$test->orient_items_id;
+			$detials[$test->orient_items_id]['id']=$test->orient_items_id;
+			$detials[$test->orient_items_id]['date']=$test->add_date;
+			$detials[$test->orient_items_id]['count']=60;
+			$detials[$test->orient_items_id]['duration']=60;
+			
+			
+			
 		}
 		
 		
-		$this->render('userTest',array('testContent'=>$testContent,'userTest'=>$tests,'model'=>$model));
+		$this->render('userTest',array('testContent'=>$testContent,'userTest'=>$tests,'detials'=>$detials,'model'=>$model));
 	}
 	public function actionRetakeTest($id)
 	{	
@@ -460,7 +473,7 @@ class UserController extends Controller
 			$data[$report->orient_items_id]['id']=$report->orient_items_id;
 			$data[$report->orient_items_id]['name']=$report->orientItems->title;
 			$data[$report->orient_items_id]['description']=$report->orientItems->description;
-			$userTests	=	UserScores::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'test_category'=>$report->orient_items_id),array('order'=>'score DESC'));
+			$userTests	=	UserScores::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'test_category'=>$report->orient_items_id));
 			
 			foreach($userTests as $cur){
 				$score	=	$cur->score;
@@ -480,23 +493,23 @@ class UserController extends Controller
 			$highCount	=	0;
 			$midCount	=	0;
 			$final		=	array();
+			$final1		=	array();
 			if(isset($userTest['high'])){
 				$highCount	=	count($userTest['high']);
 				$final		=	$userTest['high'];
 				$final1		=	$userTest['high'];
 			}
-			if(isset($userTest['moderate']))
+			if(isset($userTest['moderate'])){
 				$midCount	=	count($userTest['moderate']);
-			if(isset($userTest['moderate']))
-				$final1		=	array_merge($final,array_slice($userTest['moderate'], 0, 5));
-			
+				$final1		=	array_merge($final1,array_slice($userTest['moderate'], 0, 5));
+			}
 			
 			if($highCount ==	0 && isset($userTest['moderate']))
-				$final		=	$userTest['moderate'];
+				$final		=	array_merge($final,array_slice($userTest['moderate'], 0, 2));
 			if($highCount>0 && $highCount < 2 && isset($userTest['moderate']))
 				$final		=	array_merge($final,array_slice($userTest['moderate'], 0, 1));
 			if(isset($userTest['low']))
-				$final1		=	array_merge($final,array_slice($userTest['low'], 0, 5));
+				$final1		=	array_merge($final1,array_slice($userTest['low'], 0, 5));
 			$total	=	$highCount+$midCount;
 			$data[$report->orient_items_id]['results1']=$final1;
 			$data[$report->orient_items_id]['results']=$final;
@@ -530,7 +543,7 @@ class UserController extends Controller
 		$data[$report->orient_items_id]['id']=$report->orient_items_id;
 		$data[$report->orient_items_id]['name']=$report->orientItems->title;
 		$data[$report->orient_items_id]['description']=$report->orientItems->description;
-		$userTests	=	UserScores::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'test_category'=>$report->orient_items_id),array('order'=>'score DESC'));
+		$userTests	=	UserScores::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'test_category'=>$report->orient_items_id));
 		foreach($userTests as $cur){
 			$score	=	$cur->score;
 			foreach($cur->careerCategories->careerAssessments as $asswssment){
@@ -549,23 +562,23 @@ class UserController extends Controller
 			$highCount	=	0;
 			$midCount	=	0;
 			$final		=	array();
+			$final1		=	array();
 			if(isset($userTest['high'])){
 				$highCount	=	count($userTest['high']);
 				$final		=	$userTest['high'];
 				$final1		=	$userTest['high'];
 			}
-			if(isset($userTest['moderate']))
+			if(isset($userTest['moderate'])){
 				$midCount	=	count($userTest['moderate']);
-			if(isset($userTest['moderate']))
-				$final1		=	array_merge($final,array_slice($userTest['moderate'], 0, 5));
-			
+				$final1		=	array_merge($final1,array_slice($userTest['moderate'], 0, 5));
+			}
 			
 			if($highCount ==	0 && isset($userTest['moderate']))
-				$final		=	$userTest['moderate'];
+				$final		=	array_merge($final,array_slice($userTest['moderate'], 0, 2));
 			if($highCount>0 && $highCount < 2 && isset($userTest['moderate']))
 				$final		=	array_merge($final,array_slice($userTest['moderate'], 0, 1));
 			if(isset($userTest['low']))
-				$final1		=	array_merge($final,array_slice($userTest['low'], 0, 5));
+				$final1		=	array_merge($final1,array_slice($userTest['low'], 0, 5));
 			$total	=	$highCount+$midCount;
 			$data[$report->orient_items_id]['results1']=$final1;
 			$data[$report->orient_items_id]['results']=$final;
@@ -694,7 +707,6 @@ class UserController extends Controller
 				$careerSubjets[]	=	$subject->subjects_id;
 			
 		}
-		
 		$list	=	array();
 		if(count($careerSubjets))
 		foreach($careerSubjets as $careerSubjet){

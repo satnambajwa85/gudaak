@@ -1,7 +1,7 @@
 <?php
 /* @var $this CareerOptionsController */
 /* @var $model CareerOptions */
-$this->breadcrumbs=array('Careers Categories'=>array('/admin/careerCategories/admin'),'Careers'=>array('/admin/career/adminView','id'=>$model->career->career_categories_id),'Careers Options',);
+$this->breadcrumbs=array('Careers Categories'=>array('/admin/careerCategories/admin'),'Interest'=>array('/admin/career/adminView','id'=>$model->career->career_categories_id),'Careers',);
 $this->widget('zii.widgets.CBreadcrumbs', array('links'=>$this->breadcrumbs,));
 
 
@@ -28,7 +28,7 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Career Options</h1>
+<h1>Manage Careers</h1>
 
 <!--<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>-->
 <div class="search-form" style="display:none">
