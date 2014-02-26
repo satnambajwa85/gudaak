@@ -133,27 +133,66 @@ $(document).ready(function () {
 		"show" : true // ensure the modal is shown immediately
 		});
 		});
-			$(".home-login-box2").on("click", function() { // wire up the OK button to dismiss the modal when shown
+		$(".home-login-box2").on("click", function() { // wire up the OK button to dismiss the modal when shown
 			 $("#myModal").modal({ // wire up the actual modal functionality and show the dialog
 			"backdrop" : "static",
 			"keyboard" : true,
 			"show" : true // ensure the modal is shown immediately
 			});
 			});
+		$(".login-boot-box").on("click", function() { // wire up the OK button to dismiss the modal when shown
+			 $("#login-boot-box").modal({ // wire up the actual modal functionality and show the dialog
+			"backdrop" : "static",
+			"keyboard" : true,
+			"show" : true // ensure the modal is shown immediately
+			});
+			});
+	
 		$("#forget").on("click", function() { // wire up the OK button to dismiss the modal when shown
 			 $("#login-form").hide();
 			 $("#forget-form").show();
 		});	
-		$(".login-visible").on("click", function() { // wire up the OK button to dismiss the modal when shown
+		$("#forget2").on("click", function() { // wire up the OK button to dismiss the modal when shown
+			 $("#login-form2").hide();
+			 $("#forget-form2").show();
+		});	
+		$(".backto").on("click", function() { // wire up the OK button to dismiss the modal when shown
+			  $("#forget-form2").hide();
+			 $("#login-form2").show();
+			
+		});	
+		$(".login-visible").on("click", function() { 
 			 $("#forget-form").hide();
 			 $("#login-form").show();
 			 
+		});	
+		$("#gudaakIdYes").on("click", function() { 
+			 $(".confirm-gudaak").hide();
+			 $("#confirm-gudaak-id").fadeIn();
+			 
+		});	
+		$("#gudaakIdNo").on("click", function() {
+			 $(".talktoAdmin").hide();
+			 $("#icon-move").show();
+			$("#icon-move").animate({top: "+=520",left: "-=100"}, 2000);
+			$("#icon-move").animate({top: "-=170",left: "-=100"}, 2000);
+			$("#icon-move").animate({top: "+=170",left: "-=100"}, 2000);
+			$("#icon-move").animate({top: "-=170",left: "-=100"}, 2000);
+			$("#icon-move").animate({top: "+=180",left: "-=90"}, 2000);
+			$("#icon-move").fadeOut(200);
+			$(".purechat-expanded").show(300);
+			$("#icon-move").animate({top: "-=520",left: "+=490"}, 2000);	
+			 
+		});	
+		$(".purechat-button-expand").on("click", function() {
+			 $("#icon-move").hide();
 		});
 		$('.left_nav li a').bind('click', function(e){
 				$('.left_nav li a').removeClass('white-text');
 				$(this).addClass('white-text');
 				e.preventDefault();
 			});
+		
 		
 	});
 

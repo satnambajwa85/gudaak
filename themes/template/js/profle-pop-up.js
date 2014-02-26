@@ -27,14 +27,18 @@ function testFormSend(id)
 		success:function(data){ 
 				var $response	=	jQuery.parseJSON(data);
 				if($response.status==1){
-					//$(".test-hide").hide();
-					//$(".complete-test-show").show();
 					location.reload();
-					//window.location.replace("<?php echo ?>");
 					
 				}
 				 else{
-					alert('Please dont skip blank any question.');
+						//var data_length = ;
+						$.each($response.message, function(i, obj) {
+						  //use obj.id and obj.name here, for example:
+						  alert(obj);
+						});
+					 
+					
+					//$('#bio_color').css('backgroundColor', '#' + hex);
 				}
 					  },
 		   error: function(data) { // if error occured
