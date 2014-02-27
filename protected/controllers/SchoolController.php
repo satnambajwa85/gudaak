@@ -54,12 +54,17 @@ class SchoolController extends Controller
 		}
 		$GudaakId	=array();
 		$userGudaakIds		=	GenerateGudaakIds::model()->findAllByAttributes(array('schools_id'=>Yii::app()->user->profileId,'activation'=>1));
-		foreach($userGudaakIds as $List){
-			$GudaakId['id']	=	 $List->id;
-			
-		}
 		$model=new UserProfiles('search');
-	$model->generate_gudaak_ids_id		=	 $List->id;
+		foreach($userGudaakIds as $list){
+		
+		}
+		
+		if(isset($_POST['sort'])){
+			$model->generateGudaakIds->user_role_id==$_POST['sort'];
+			 
+		}
+		
+	//$model->generate_gudaak_ids_id		=	 $List->id;
 		if(isset($_GET['UserProfiles']))
 			$model->attributes=$_GET['UserProfiles'];
 
@@ -161,7 +166,8 @@ class SchoolController extends Controller
 			$data[$report->orient_items_id]['results']=$final;
 		}
 		$profile		=	 UserProfiles::model()->findByPk($userId);
-		if(Yii::app()->user->userType ==  'below10th')
+		$role	=	$profile->userLogin->user_role_id;
+		if($profile->userLogin->user_role_id==2)
 			$this->renderPartial('_detailedReport2',array('reports'=>$data,'profile'=>$profile), false, true);
 		else
 			$this->renderPartial('_detailedReport',array('reports'=>$data,'profile'=>$profile), false, true);
