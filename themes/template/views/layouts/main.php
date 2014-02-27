@@ -347,12 +347,8 @@
 
 <!--Add the following script at the bottom of the web page-->
 <!--<script type="text/javascript" src="https://mylivechat.com/chatinline.aspx?hccid=72556058"></script>-->
-
+	<div id="popup_box">    <!-- OUR PopupBox DIV-->
+			<img src="<?php echo Yii::app()->theme->baseUrl;?>/images/gudaak-pointer.png"/>
+	</div>
   </body>
 </html>
-<div id="icon-move" style="position:absolute; top:100px;left:800px;">
-	<!--<div class="talktoAdmin">
-	Let's talk to get Gudaak ID.
-	</div>-->
-	<img src="<?php echo Yii::app()->theme->baseUrl;?>/images/action_arrow.gif"/>
-</div>
