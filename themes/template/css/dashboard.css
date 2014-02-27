@@ -4720,7 +4720,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .pager li > a,
 .pager li > span {
   display: inline-block;
-  padding: 5px 14px;
+  padding:0 2px;
 }
 
 .pager li > a:hover,
@@ -7763,9 +7763,9 @@ top:115px;width: 252px;background:#FAFFFF;background-color:#FAFFFF;z-index:999;}
 .selected a{color:#21C4C1;}
 .skyblue{color:#21C4C1;}
 .backskyblue{background:#21C4C1;background-color:#21C4C1;}
-.btn-td a{background-color: #F7A944;border-radius: 5px;color: #FFFFFF;height: 20px; padding: 5% 31%;text-align: center;-webkit-border-radius: 5px;	-moz-border-radius: 5px;-1ms-border-radius: 5px;-o-border-radius: 5px;border-radius: 5px;}
+.btn-td a{background-color: #F7A944;border-radius: 5px;color: #FFFFFF;height: 20px; padding: 2% 22%;text-align: center;-webkit-border-radius: 5px;	-moz-border-radius: 5px;-1ms-border-radius: 5px;-o-border-radius: 5px;border-radius: 5px;}
 .icon-caret-right{font-size:18px;}
-.grid-view table.items th, .grid-view table.items td { border: 1px solid #FFFFFF;font-size: 0.9em; padding: 1.3em; width: 10%;}
+.grid-view table.items th, .grid-view table.items td {text-align: center; border: 1px solid #FFFFFF;font-size: 0.9em; padding: 7px; width: 10%;}
 .top-nav-section ul li{margin:0px;float:left;padding-left:20px;padding-bottom:10px;border-left:1px solid #fff;}
 .top-nav-section ul li a {color:#F5F5F5;font-size:14px;font-weight:normal;}
 .top-nav-section ul li:hover{background:#fff;}
@@ -7868,7 +7868,9 @@ top:115px;width: 252px;background:#FAFFFF;background-color:#FAFFFF;z-index:999;}
 .br-all{border:1px solid #eee;}
 .stream-ratting{text-align:center;}
 .prefered-stream-img img {   height: 118px;
-    width: 60%;}
+    width: 100%;}
+	.prefered-stream-img2 img {   height: 118px;
+    width: 53%;}
 .stream-description{position:absolute;background:none repeat scroll 0 0 rgba(0, 0, 0, 0.66);right:0;height:100%;width:50%;padding:7px;}
 .stream-description h1{margin:0;color: #fff;font-size: 12px;font-weight: bold;text-transform: capitalize;font-family: open sans}
 .stream-description p{color: #F5F5F5;font-size: 11px;margin-top: 7px;text-align: justify;margin:0px;}
@@ -8437,3 +8439,4 @@ opacity: 0.85;
     
 	}
  .cons-pop{min-height: 359px !important;}
+ .stream-pref-min-height{min-height:200px;}
