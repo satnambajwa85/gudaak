@@ -52,8 +52,14 @@ class SchoolController extends Controller
 		if(!Yii::app()->user->id){
 			$this->redirect(Yii::app()->createUrl('/site'));
 		}
+		$GudaakId	=array();
+		$userGudaakIds		=	GenerateGudaakIds::model()->findAllByAttributes(array('schools_id'=>Yii::app()->user->profileId,'activation'=>1));
+		foreach($userGudaakIds as $List){
+			$GudaakId['id']	=	 $List->id;
+			
+		}
 		$model=new UserProfiles('search');
-		$model->unsetAttributes();  // clear any default values
+	$model->generate_gudaak_ids_id		=	 $List->id;
 		if(isset($_GET['UserProfiles']))
 			$model->attributes=$_GET['UserProfiles'];
 
@@ -64,42 +70,102 @@ class SchoolController extends Controller
 		if(!Yii::app()->user->id){
 			$this->redirect(Yii::app()->createUrl('/site'));
 		}
+		$userSummery		=			UserReports::model()->findAllByAttributes(array('user_profiles_id'=>$id,'status'=>1,'activation'=>1));
 		$index	=	0;
 		$index2	=	0;
 		$uRate	=	array();
 		$uRate2	=	array();
 		$userInfo			=	UserProfiles::model()->findByPk($id);
-		$userFinalStream	=	UserProfilesHasStream::model()->findAllByAttributes(array('user_profiles_id'=>$id,'self'=>1));
-		foreach($userFinalStream as $list){
-			$rating	=$list->stream_id;
-			$userStreamRating	=	UserStreamRating::model()->findAllByAttributes(array('user_profiles_id'=>$id,'stream_id'=>$rating));
-			foreach($userStreamRating as $userStreamRate){
-				$uRate[$index]['rating']	=	$userStreamRate->rating;
-				$uRate[$index]['stream_id']	=	$userStreamRate->stream_id;
-				 
-				$index++;
-				 
-			}
-			 
-		}		
-		$CounsRecoStream	=	UserProfilesHasStream::model()->findAllByAttributes(array('user_profiles_id'=>$id,'self'=>1,'reccomended'=>1));
-		foreach($CounsRecoStream as $CounsReco){
-			$rating	=$CounsReco->stream_id;
-			$userStreamRating2	=	UserStreamRating::model()->findAllByAttributes(array('user_profiles_id'=>$id,'stream_id'=>$rating));
-			foreach($userStreamRating2 as $userStreamRate2){
-				$uRate2[$index2]['rating2']	=	$userStreamRate2->rating;
-				$uRate2[$index2]['sId']	=	$userStreamRate2->stream_id;
-				 
-				$index2++;
-				 
-			}
-			 
+		$userType=$userInfo->userLogin->user_role_id;
+		if($userInfo->userLogin->user_role_id==2){
+			$userFinalStream	=	UserProfilesHasStream::model()->findAllByAttributes(array('user_profiles_id'=>$id,'updated_by'=>1));		
+			$CounsRecoStream	=	UserProfilesHasStream::model()->findAllByAttributes(array('user_profiles_id'=>$id,'reccomended'=>1));
+			$ratingHistory		=	UserProfilesHasStream::model()->findAllByAttributes(array('user_profiles_id'=>$id));
 		}
-		$userSummery		=			UserReports::model()->findAllByAttributes(array('user_profiles_id'=>$id,'status'=>1,'activation'=>1));
-		$ratingHistory		=	 		UserStreamRating::model()->findAllByAttributes(array('user_profiles_id'=>$id));
-		$this->render('studentDetail',array('userInfo'=>$userInfo,'userFinalStream'=>$userFinalStream,
-						'counsRecoStream'=>$CounsRecoStream,'uRate2'=>$uRate2,'userStreamRating'=>$uRate,
-						'summaryDetails'=>$userSummery,'ratingHistory'=>$ratingHistory));
+		else{
+			$userFinalStream	=	UserCareerPreference::model()->findAllByAttributes(array('user_profiles_id'=>$id,'updated_by'=>1));		
+			$CounsRecoStream	=	UserCareerPreference::model()->findAllByAttributes(array('user_profiles_id'=>$id,'reccomended'=>1));
+			$ratingHistory		=	UserCareerPreference::model()->findAllByAttributes(array('user_profiles_id'=>$id));
+
+	
+		}
+
+		
+		$this->render('studentDetail',array('userInfo'=>$userInfo,'userFinalStream'=>$userFinalStream,'counsRecoStream'=>$CounsRecoStream,
+						'summaryDetails'=>$userSummery,'ratingHistory'=>$ratingHistory,'userType'=>$userType));
+	}
+		
+	public function actionSummaryDetails()
+	{	
+		$orient_items_id	=	$_REQUEST['orient_items_id'];
+		$userId				=	$_REQUEST['userId'];
+		$userReports			=	UserReports::model()->findAllByAttributes(array('user_profiles_id'=>$userId));
+		$data	=	array();
+		foreach($userReports as $report){ 
+			$userTest	=	array();
+			$data[$report->orient_items_id]['id']=$report->orient_items_id;
+			$data[$report->orient_items_id]['name']=$report->orientItems->title;
+			$data[$report->orient_items_id]['description']=$report->orientItems->description;
+			$userTests	=	UserScores::model()->findAllByAttributes(array('user_profiles_id'=>$userId,'test_category'=>$report->$orient_items_id));
+			foreach($userTests as $cur){
+				$score	=	$cur->score;
+				foreach($cur->careerCategories->careerAssessments as $asswssment){
+					if($score >= $asswssment->score_start && $score <= $asswssment->score_end){
+						$userTest[$asswssment->value][$cur->id]['value']		=	$asswssment->value;
+						$userTest[$asswssment->value][$cur->id]['score']		=	$score;	
+						$userTest[$asswssment->value][$cur->id]['id']			=	$cur->careerCategories->id;
+						$userTest[$asswssment->value][$cur->id]['title']		=	$cur->careerCategories->title;
+						$userTest[$asswssment->value][$cur->id]['title2']		=	$asswssment->title;
+						$userTest[$asswssment->value][$cur->id]['description']	=	$asswssment->description;
+					}
+				}
+			}
+		 
+		if($report->orient_items_id==3){
+			$highCount	=	0;
+			$midCount	=	0;
+			$final		=	array();
+			if(isset($userTest['high'])){
+				$highCount	=	count($userTest['high']);
+				$final		=	$userTest['high'];
+				$final1		=	$userTest['high'];
+			}
+			if(isset($userTest['moderate']))
+				$midCount	=	count($userTest['moderate']);
+			if(isset($userTest['moderate']))
+				$final1		=	array_merge($final,array_slice($userTest['moderate'], 0, 5));
+			
+			
+			if($highCount ==	0 && isset($userTest['moderate']))
+				$final		=	$userTest['moderate'];
+			if($highCount>0 && $highCount < 2 && isset($userTest['moderate']))
+				$final		=	array_merge($final,array_slice($userTest['moderate'], 0, 1));
+			if(isset($userTest['low']))
+				$final1		=	array_merge($final,array_slice($userTest['low'], 0, 5));
+			$total	=	$highCount+$midCount;
+			$data[$report->orient_items_id]['results1']=$final1;
+			$data[$report->orient_items_id]['results']=$final;
+		}
+		else{	
+				$final		=	array();
+				if(isset($userTest['high'])){
+					$final		=	$userTest['high'];
+				}
+				if(isset($userTest['moderate']))
+					$final		=	array_merge($final,array_slice($userTest['moderate'],0,5));
+				if(isset($userTest['low']))
+					$final		=	array_merge($final,array_slice($userTest['low'],0,5));
+				
+				$data[$report->orient_items_id]['results']=$final;
+			}
+		}	
+		
+		$profile		=	 UserProfiles::model()->findByPk($userId);
+		if(Yii::app()->user->userType ==  'below10th')
+			$this->render('_detailedReport2',array('reports'=>$data,'profile'=>$profile));
+		else
+			$this->render('_detailedReport',array('reports'=>$data,'profile'=>$profile));
+	
 	}
 	public function actionProfile()
 	{		

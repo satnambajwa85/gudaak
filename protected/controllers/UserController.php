@@ -10,7 +10,7 @@ class UserController extends Controller
 				'actions'=>array('index','editProfile','test','tests','detailedReport','collage','liveChat',
 							'articlesList','articles','summary','newsUpdates',
 							'exploreColleges','shortListedColleges','dynamicCourse','dynamicSearchResult','userShortlistCollage',
-							'search','changePassword','application','questionsAnswer','userProfileUpdate','retakeTest','news','readEvent','summaryDetails',
+							'search','changePassword','application','questionsAnswer','testMail','userProfileUpdate','retakeTest','news','readEvent','summaryDetails',
 				),
 				'users' => array('@')
 					
@@ -351,12 +351,15 @@ class UserController extends Controller
 				$testReport->test_category				=	$id;
 				$testReport->user_profiles_id	 		=	Yii::app()->user->profileId;
 				$testReport->save();
-				if(!isset($score[$testReport->questions->career_categories_id]))
+				if(!isset($score[$testReport->questions->career_categories_id])){
 					$score[$testReport->questions->career_categories_id]	=	0;
+				}
 				else{
 					$cate			=	$testReport->questions->career_categories_id;
+					if(isset($interestVal)){
 					$interestVal	=	$testReport->questionOptions->interest_value;
 					$score[$cate]	+=	$interestVal;
+					}
 				}
 			}
 			unset($score['1']);
@@ -389,6 +392,8 @@ class UserController extends Controller
 		if(!Yii::app()->user->id){
 			$this->redirect(Yii::app()->createUrl('/site'));
 		}
+		$start_time 	=	'';
+		$end_time 	=	'';
 		$model	=	new RetakeTestRequest;
 		$criteria				=	new CDbCriteria();
 		$criteria->condition 	=	'published  = :published  and status=:status';
@@ -403,11 +408,24 @@ class UserController extends Controller
 			$detials[$test->orient_items_id]['date']=$test->add_date;
 			$detials[$test->orient_items_id]['count']=60;
 			$detials[$test->orient_items_id]['duration']=60;
-			
-			
-			
-		}
+			$userTestDuration		=	 TestReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'test_category'=>$test->orient_items_id));
+			foreach($userTestDuration as $time){
+			  if ($time === reset($userTestDuration))
+					$start_time= $time->add_date;
+
+				if ($time === end($userTestDuration))
+					$end_time	= $time->add_date;
+					
+				//$duration['time']		=	$time->add_date;
+			}
+			$TimeStart = strtotime($start_time);
+			$TimeEnd = strtotime($end_time);
+			$Difference = ($TimeEnd - $TimeStart);
+			$detials[$test->orient_items_id]['duration']= gmdate('H:i:s',$Difference);
 		
+		}
+		 
+	
 		
 		$this->render('userTest',array('testContent'=>$testContent,'userTest'=>$tests,'detials'=>$detials,'model'=>$model));
 	}
@@ -467,7 +485,7 @@ class UserController extends Controller
 	public function actionDetailedReport()
 	{	
 		$userReports			=	UserReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
-		$data	=	array();
+		$data			=	array();
 		
 		foreach($userReports as $report){
 			$userTest	=	array();
@@ -475,58 +493,61 @@ class UserController extends Controller
 			$data[$report->orient_items_id]['name']=$report->orientItems->title;
 			$data[$report->orient_items_id]['description']=$report->orientItems->description;
 			$userTests	=	UserScores::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'test_category'=>$report->orient_items_id));
-			
 			foreach($userTests as $cur){
 				$score	=	$cur->score;
 				foreach($cur->careerCategories->careerAssessments as $asswssment){
 					if($score >= $asswssment->score_start && $score <= $asswssment->score_end){
-						$userTest[$asswssment->value][$cur->id]['value']		=	$asswssment->value;
-						$userTest[$asswssment->value][$cur->id]['score']		=	$score;	
-						$userTest[$asswssment->value][$cur->id]['id']			=	$cur->careerCategories->id;
-						$userTest[$asswssment->value][$cur->id]['title']		=	$cur->careerCategories->title;
-						$userTest[$asswssment->value][$cur->id]['title2']		=	$asswssment->title;
-						$userTest[$asswssment->value][$cur->id]['description']	=	$asswssment->description;
+						$userTest[$asswssment->value][$cur->career_categories_id]['value']		=	$asswssment->value;
+						$userTest[$asswssment->value][$cur->career_categories_id]['score']		=	$score;	
+						$userTest[$asswssment->value][$cur->career_categories_id]['id']			=	$cur->careerCategories->id;
+						$userTest[$asswssment->value][$cur->career_categories_id]['title']		=	$cur->careerCategories->title;
+						$userTest[$asswssment->value][$cur->career_categories_id]['title2']		=	$asswssment->title;
+						$userTest[$asswssment->value][$cur->career_categories_id]['description']=	$asswssment->description;
 					}
 				}
 				
 			}
-		if($report->orient_items_id==3){
-			$highCount	=	0;
-			$midCount	=	0;
-			$final		=	array();
-			$final1		=	array();
-			if(isset($userTest['high'])){
-				$highCount	=	count($userTest['high']);
-				$final		=	$userTest['high'];
-				$final1		=	$userTest['high'];
-			}
-			if(isset($userTest['moderate'])){
-				$midCount	=	count($userTest['moderate']);
-				$final1		=	array_merge($final1,array_slice($userTest['moderate'], 0, 5));
-			}
-			
-			if($highCount ==	0 && isset($userTest['moderate']))
-				$final		=	array_merge($final,array_slice($userTest['moderate'], 0, 2));
-			if($highCount>0 && $highCount < 2 && isset($userTest['moderate']))
-				$final		=	array_merge($final,array_slice($userTest['moderate'], 0, 1));
-			if(isset($userTest['low']))
-				$final1		=	array_merge($final1,array_slice($userTest['low'], 0, 5));
-			$total	=	$highCount+$midCount;
-			$data[$report->orient_items_id]['results1']=$final1;
-			$data[$report->orient_items_id]['results']=$final;
-		}else{
+			if($report->orient_items_id==3){
+				$highCount	=	0;
+				$midCount	=	0;
 				$final		=	array();
+				$final1		=	array();
+				if(isset($userTest['high'])){
+					$highCount	=	count($userTest['high']);
+					$final		=	$userTest['high'];
+					$final1		=	$userTest['high'];
+				}
+				if(isset($userTest['moderate'])){
+					$midCount	=	count($userTest['moderate']);
+					$final1		=	array_merge($final1,array_slice($userTest['moderate'], 0, 5));
+				}
+				
+				if($highCount ==	0 && isset($userTest['moderate']))
+					$final		=	array_merge($final,array_slice($userTest['moderate'], 0, 2));
+				if($highCount>0 && $highCount < 2 && isset($userTest['moderate']))
+					$final		=	array_merge($final,array_slice($userTest['moderate'], 0, 1));
+				if(isset($userTest['low']))
+					$final1		=	array_merge($final1,array_slice($userTest['low'], 0, 5));
+				$total	=	$highCount+$midCount;
+				//Sorting accounding to category id
+				ksort($final1);
+				ksort($final);
+				$data[$report->orient_items_id]['results1']=$final1;
+				$data[$report->orient_items_id]['results']=$final;
+			}else{
+				$final		=	array();
+				
 				if(isset($userTest['high'])){
 					$final		=	$userTest['high'];
 				}
 				if(isset($userTest['moderate']))
-					$final		=	array_merge($final,array_slice($userTest['moderate'],0,5));
+					$final		=	$final+$userTest['moderate'];
+					
 				if(isset($userTest['low']))
-					$final		=	array_merge($final,array_slice($userTest['low'],0,5));
-				
+					$final		=	$final+$userTest['low'];
+				ksort($final);
 				$data[$report->orient_items_id]['results']=$final;
 			}
-			
 		}
 		$profile		=	 UserProfiles::model()->findByPk(Yii::app()->user->profileId);
 		if(Yii::app()->user->userType ==  'below10th')
@@ -535,7 +556,8 @@ class UserController extends Controller
 			$this->render('detailedReport',array('reports'=>$data,'profile'=>$profile));
 	
 	}
-	public function actionSummaryDetails()
+	
+		public function actionSummaryDetails()
 	{	
 		$reportId	=	$_REQUEST['id'];
 		$report			=	UserReports::model()->findByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'orient_items_id'=>$reportId));
@@ -549,12 +571,12 @@ class UserController extends Controller
 			$score	=	$cur->score;
 			foreach($cur->careerCategories->careerAssessments as $asswssment){
 				if($score >= $asswssment->score_start && $score <= $asswssment->score_end){
-					$userTest[$asswssment->value][$cur->id]['value']		=	$asswssment->value;
-					$userTest[$asswssment->value][$cur->id]['score']		=	$score;	
-					$userTest[$asswssment->value][$cur->id]['id']			=	$cur->careerCategories->id;
-					$userTest[$asswssment->value][$cur->id]['title']		=	$cur->careerCategories->title;
-					$userTest[$asswssment->value][$cur->id]['title2']		=	$asswssment->title;
-					$userTest[$asswssment->value][$cur->id]['description']	=	$asswssment->description;
+					$userTest[$asswssment->value][$cur->career_categories_id]['value']		=	$asswssment->value;
+						$userTest[$asswssment->value][$cur->career_categories_id]['score']		=	$score;	
+						$userTest[$asswssment->value][$cur->career_categories_id]['id']			=	$cur->careerCategories->id;
+						$userTest[$asswssment->value][$cur->career_categories_id]['title']		=	$cur->careerCategories->title;
+						$userTest[$asswssment->value][$cur->career_categories_id]['title2']		=	$asswssment->title;
+						$userTest[$asswssment->value][$cur->career_categories_id]['description']=	$asswssment->description;
 				}
 			}
 			
@@ -581,19 +603,22 @@ class UserController extends Controller
 			if(isset($userTest['low']))
 				$final1		=	array_merge($final1,array_slice($userTest['low'], 0, 5));
 			$total	=	$highCount+$midCount;
+			
+			ksort($final1);
+			ksort($final);
 			$data[$report->orient_items_id]['results1']=$final1;
 			$data[$report->orient_items_id]['results']=$final;
 		}
 		else{
 			$final		=	array();
-			if(isset($userTest['high'])){
+			if(isset($userTest['high']))
 				$final		=	$userTest['high'];
-			}
 			if(isset($userTest['moderate']))
-				$final		=	array_merge($final,array_slice($userTest['moderate'],0,5));
+				$final		=	$final+$userTest['moderate'];
+				
 			if(isset($userTest['low']))
-				$final		=	array_merge($final,array_slice($userTest['low'],0,5));
-			
+				$final		=	$final+$userTest['low'];
+			ksort($final);
 			$data[$report->orient_items_id]['results']=$final;
 		}
 		$profile		=	 UserProfiles::model()->findByPk(Yii::app()->user->profileId);
@@ -999,60 +1024,117 @@ class UserController extends Controller
 	}
 	public function actionExplore()
 	{	 
-		$userReports	=	UserReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
-		$catList		=	array();
-		$index	=	0;
+		$userReports			=	UserReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
+		$data	=	array();
+		
 		foreach($userReports as $report){
-			$userTests	=		UserScores::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'test_category'=>$report->orient_items_id),array('order'=>'score DESC'));
-		 	$COUT	=	0;
-			foreach($userTests as $userTest){
-				if($COUT >= 3)
-					break;				
-				$subCats		=	Career::model()->findAllByAttributes(array('career_categories_id'=>$userTest->career_categories_id));
-				foreach($subCats as $subCat){
-					$catList[$index]['id']	=	$subCat->id;
-					$catList[$index]['title']	=	$subCat->title;
-					$catList[$index]['description']	=	$subCat->description;
-					$catList[$index]['image']	=	$subCat->image;
-					//$catList[]['id']	=	$subCat->id;
-					$index++;
+			$userTest	=	array();
+			$data[$report->orient_items_id]['id']=$report->orient_items_id;
+			$data[$report->orient_items_id]['name']=$report->orientItems->title;
+			$data[$report->orient_items_id]['description']=$report->orientItems->description;
+			$userTests	=	UserScores::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'test_category'=>$report->orient_items_id));
+			foreach($userTests as $cur){
+				$score	=	$cur->score;
+				foreach($cur->careerCategories->careerAssessments as $asswssment){
+					if($score >= $asswssment->score_start && $score <= $asswssment->score_end){
+						$userTest[$asswssment->value][$cur->id]['id']			=	$cur->careerCategories->id;
+						$userTest[$asswssment->value][$cur->id]['title']		=	$cur->careerCategories->title;
+						$userTest[$asswssment->value][$cur->id]['description']	=	$cur->careerCategories->description;
+						$userTest[$asswssment->value][$cur->id]['image']		=	$cur->careerCategories->image;
+					}
 				}
-				$COUT++;
+			}
+			if($report->orient_items_id==3){
+				$highCount	=	0;
+				$midCount	=	0;
+				$final		=	array();
+				if(isset($userTest['high'])){
+					$highCount	=	count($userTest['high']);
+					$final		=	$userTest['high'];
+				}
+				if(isset($userTest['moderate'])){
+					$midCount	=	count($userTest['moderate']);
+				}
+				
+				if($highCount ==	0 && isset($userTest['moderate']))
+					$final		=	array_merge($final,array_slice($userTest['moderate'], 0, 2));
+				if($highCount>0 && $highCount < 2 && isset($userTest['moderate']))
+					$final		=	array_merge($final,array_slice($userTest['moderate'], 0, 1));
+				$total	=	$highCount+$midCount;
+				$data[$report->orient_items_id]['results']=$final;
 			}
 		}
-		//CVarDumper::dump($catList,10,1);die;
+		$catList	=	array();
+		foreach($data[$report->orient_items_id]['results'] as $result){
+			$subCats		=	Career::model()->findAllByAttributes(array('career_categories_id'=>$result['id']));
+			foreach($subCats as $subCat){
+				$catList[$subCat->id]['id']	=	$subCat->id;
+				$catList[$subCat->id]['title']	=	$subCat->title;
+				$catList[$subCat->id]['description']	=	$subCat->description;
+				$catList[$subCat->id]['image']	=	$subCat->image;
+			}
+		}
 		$this->render('explore',array('data'=>$catList));
 	}
 	public function actionStreamExplore()
 	{	
-		$userReports	=	UserReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
-		$catList		=	array();
-		$index	=	0;
-		$CareerOptionsList=array();
+		$userReports			=	UserReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
+		$data	=	array();
+		
 		foreach($userReports as $report){
-			$userTests	=		UserScores::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'test_category'=>$report->orient_items_id),array('order'=>'score DESC'));
-		 	$COUT	=	0;
-			foreach($userTests as $userTest){
-				if($COUT >= 3)
-					break;	
-				$Career		=	Career::model()->findAllByAttributes(array('career_categories_id'=>$userTest->career_categories_id));
-				foreach($Career as $subCat){
-					$subCa		=	CareerOptions::model()->findAllByAttributes(array('career_id'=>$subCat->id));
-					foreach($subCa as $subjects){
-						$CareerOptionsList[]=$subjects->id;
+			$userTest	=	array();
+			$data[$report->orient_items_id]['id']=$report->orient_items_id;
+			$data[$report->orient_items_id]['name']=$report->orientItems->title;
+			$data[$report->orient_items_id]['description']=$report->orientItems->description;
+			$userTests	=	UserScores::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'test_category'=>$report->orient_items_id));
+			foreach($userTests as $cur){
+				$score	=	$cur->score;
+				foreach($cur->careerCategories->careerAssessments as $asswssment){
+					if($score >= $asswssment->score_start && $score <= $asswssment->score_end){
+						$userTest[$asswssment->value][$cur->id]['id']			=	$cur->careerCategories->id;
+						$userTest[$asswssment->value][$cur->id]['title']		=	$cur->careerCategories->title;
+						$userTest[$asswssment->value][$cur->id]['description']	=	$cur->careerCategories->description;
+						$userTest[$asswssment->value][$cur->id]['image']		=	$cur->careerCategories->image;
 					}
 				}
-				$subCats1S		=	CareerOptionsHasStream::model()->findAllByAttributes(array('career_options_id'=>$CareerOptionsList));
-				foreach($subCats1S as $subCat){
-					$catList[$subCat->stream_id]['id']	=	$subCat->stream_id;
-					$catList[$subCat->stream_id]['title']	=	$subCat->stream->name;
-					$catList[$subCat->stream_id]['description']	=	$subCat->stream->description;
-					$catList[$subCat->stream_id]['image']	=	$subCat->stream->image;
+			}
+			if($report->orient_items_id==3){
+				$highCount	=	0;
+				$midCount	=	0;
+				$final		=	array();
+				if(isset($userTest['high'])){
+					$highCount	=	count($userTest['high']);
+					$final		=	$userTest['high'];
 				}
-				$COUT++;
+				if(isset($userTest['moderate'])){
+					$midCount	=	count($userTest['moderate']);
+				}
+				
+				if($highCount ==	0 && isset($userTest['moderate']))
+					$final		=	array_merge($final,array_slice($userTest['moderate'], 0, 2));
+				if($highCount>0 && $highCount < 2 && isset($userTest['moderate']))
+					$final		=	array_merge($final,array_slice($userTest['moderate'], 0, 1));
+				$total	=	$highCount+$midCount;
+				$data[$report->orient_items_id]['results']=$final;
 			}
 		}
-		 
+		$catList	=	array();
+		foreach($data[$report->orient_items_id]['results'] as $result){
+			$Career		=	Career::model()->findAllByAttributes(array('career_categories_id'=>$result['id']));
+			foreach($Career as $subCat){
+				$subCa		=	CareerOptions::model()->findAllByAttributes(array('career_id'=>$subCat->id));
+				foreach($subCa as $subjects){
+					$CareerOptionsList[]=$subjects->id;
+				}
+			}
+			$subCats1S		=	CareerOptionsHasStream::model()->findAllByAttributes(array('career_options_id'=>$CareerOptionsList));
+			foreach($subCats1S as $subCat){
+				$catList[$subCat->stream_id]['id']			=	$subCat->stream_id;
+				$catList[$subCat->stream_id]['title']		=	$subCat->stream->name;
+				$catList[$subCat->stream_id]['description']	=	$subCat->stream->description;
+				$catList[$subCat->stream_id]['image']		=	$subCat->stream->image;
+			}
+		}
 		$this->render('streamExplore',array('data'=>$catList));
 	}
 	public function actionSubjectsDetails($id)
@@ -1377,6 +1459,21 @@ class UserController extends Controller
 	}
 	//Forgot password
 		//Change password 
+	public function actionTestMail()
+	{
+			$to      = 'jagraj2007@hotmail.com';
+			$subject = 'Test Mail';
+			$message = 'If we can read this, it means that our fake Sendmail setup works!';
+			$headers = 'From: admin@gudaak.com' . "\r\n" .
+					   'Reply-To: myemail@gmail.com' . "\r\n" .
+					   'X-Mailer: PHP/' . phpversion();
+
+			if(mail($to, $subject, $message, $headers)) {
+				$this->redirect(Yii::app()->createUrl('user/'));
+			} 
+
+	
+	}
 	public function actionChangePassword()
 	{	
 		$id=Yii::app()->user->userId;
@@ -1410,4 +1507,5 @@ class UserController extends Controller
 		} //isset ends
 		$this->render('changepassword',array('model'=>$model));
 	}
+	
 }
