@@ -181,7 +181,8 @@ $(document).ready(function () {
 			 $(".min-height-login").fadeIn();
 			 
 		});	
-		$("#loginGudaakIdYes").on("click", function() {
+ 
+		/*$("#gudaakIdNo").on("click", function() {
 			 $(".talktoAdmin").hide();
 			 $("#icon-move").show();
 			$("#icon-move").animate({top: "+=520",left: "-=100"}, 2000);
@@ -193,20 +194,22 @@ $(document).ready(function () {
 			$(".purechat-expanded").show(300);
 			$("#icon-move").animate({top: "-=520",left: "+=490"}, 2000);	
 			 
-		});
+		});	*/
 		$("#gudaakIdNo").on("click", function() {
-			 $(".talktoAdmin").hide();
-			 $("#icon-move").show();
-			$("#icon-move").animate({top: "+=520",left: "-=100"}, 2000);
-			$("#icon-move").animate({top: "-=170",left: "-=100"}, 2000);
-			$("#icon-move").animate({top: "+=170",left: "-=100"}, 2000);
-			$("#icon-move").animate({top: "-=170",left: "-=100"}, 2000);
-			$("#icon-move").animate({top: "+=180",left: "-=90"}, 2000);
-			$("#icon-move").fadeOut(200);
-			$(".purechat-expanded").show(300);
-			$("#icon-move").animate({top: "-=520",left: "+=490"}, 2000);	
-			 
-		});	
+			$('#popup_box').fadeIn("slow");
+			$("#container").css({ // this is just for style
+				"opacity": "0.3" 
+			}); 
+		});
+		$("#loginGudaakIdYes").on("click", function() {
+			$('#popup_box').fadeIn("slow");
+			$("#container").css({ // this is just for style
+				"opacity": "0.3" 
+			}); 
+		});
+		   $("#popup_box").click(function() { 
+				 $("#popup_box").fadeOut();
+			});
 		$(".purechat-button-expand").on("click", function() {
 			 $("#icon-move").hide();
 		});
