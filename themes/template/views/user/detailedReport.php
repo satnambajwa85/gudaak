@@ -1,6 +1,5 @@
 <?php $this->pageTitle=Yii::app()->name . ' - Detailed Report';
 $this->breadcrumbs=array('Detailed Report'=>array('/user/detailedReport'));?>
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <div class="career-bot pull-left">
 		<div class="mr0 col-md-12 fl">
 			<div class="mr0  pull-left stream-pref">
