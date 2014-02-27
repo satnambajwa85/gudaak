@@ -52,7 +52,7 @@ $this->breadcrumbs=array('Asses'=>array('/user/tests'));?>
 									<h1>Last test summery</h1>
 									<span>Test Date:</span>
 									<datetime>	
-										<?php echo date(strtotime($detials[$list->id]['date']), 'yyyy-MM-dd H:s:i');?>
+										<?php echo date('D M, Y',strtotime($detials[$list->id]['date']));?>
 										</datetime>
 									<div class="clear"></div>
 									<span>Duration:</span>
@@ -61,16 +61,7 @@ $this->breadcrumbs=array('Asses'=>array('/user/tests'));?>
 									<span>Questions:</span>
 									<datetime><?php echo $detials[$list->id]['count'];?></datetime>
 									<div class="clear"></div>
-									<!--<span>Score:</span>
-									<div class="progress2 fl ">
-										<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar2" style="width:10% !important;">
-										</div>
-										<span class="sr-only">
-											<span>
-											
-											</span>
-										</span>
-									</div>-->
+									
 									<div class="clear"></div>
 									<!--<a href="#" class="more-faqs">Test Questions & Answer</a>-->
 								</div>
@@ -117,8 +108,6 @@ $this->breadcrumbs=array('Asses'=>array('/user/tests'));?>
                                     <div align="center" class="col-md-3  pd0 ">
                                         <?php echo CHtml::submitButton('Submit',array('class'=>'btn btn-warning fl login'));?>
                                         <div class="clearfix"></div>
-                                        <!--<div class="or">or</div>-->
-                                        <?php //echo CHtml::link('<i class="posi-bt icon-facebook"></i>Login with your<br/><strong>Facebook Account</strong>',array('/site/forgetPassword'),array('class'=>'btn btn-lg btn-primary fb'));?>
                                         </div>
                                         <?php $this->endWidget(); ?>
                             

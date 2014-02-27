@@ -49,11 +49,16 @@ class SchoolController extends Controller
 	}
 	public function actionStudentDetails()
 	{
-		if(!Yii::app()->user->id){
+		if(!Yii::app()->user->id)
 			$this->redirect(Yii::app()->createUrl('/site'));
-		}
+		
+		$gud	=	GenerateGudaakIds::model()->findAllByAttributes(array('schools_id'=>Yii::app()->user->profileId,'user_role_id'=>array(2,3)));
+		foreach($gud as $rec)
+			$gudIdList[]	=	$rec->id;
+		
 		$model=new UserProfiles('search');
-		$model->unsetAttributes();  // clear any default values
+		$model->unsetAttributes();
+		$model->generate_gudaak_ids_id	=	$gudIdList;
 		if(isset($_GET['UserProfiles']))
 			$model->attributes=$_GET['UserProfiles'];
 
