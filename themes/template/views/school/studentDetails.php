@@ -19,7 +19,6 @@ $this->breadcrumbs=array('studentDetails',);
 														),
 													// 'filter'=>$model,
 													'columns'=>array(
-														'id',
 														array(
 															'name'=>'Gudaak_ID 	',
 															'value'=>'$data->generateGudaakIds->gudaak_id'
@@ -28,10 +27,15 @@ $this->breadcrumbs=array('studentDetails',);
 															'name'=>'Career',
 															'value'=>'$data->career->title'
 														),*/
-														'display_name',
-														//'description',
-														'class',
-														'email',
+															array(
+															'name'=>'Student_Name',
+															'value'=>'$data->first_name." ".$data->last_name'
+														),
+														array(
+															'name'=>'Service',
+															'value'=>'$data->generateGudaakIds->userRole->description'
+														),
+													 
 														/*
 														'published',
 														'status',

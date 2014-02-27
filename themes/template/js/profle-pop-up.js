@@ -35,6 +35,7 @@ function testFormSend(id)
 					alert('Plsease don not skip any question please.');
 					$.each($response.message, function(i, obj) {
 					  //use obj.id and obj.name here, for example:
+					 // $('#user-person-test-form').offset({top('.required141').offset().top});
 					  $('.required'+obj).css( "backgroundColor", "#E9D1D4" );
 					});
 			}

@@ -39,7 +39,7 @@
 	</tr>
 	<tr>
 		<td>
-			Click here to active your account <span><?php echo $code; ?></span>
+			Click here to active your account <span><a href="<?php echo $code;?>"/><?php echo $code; ?></span>
 		</td>	
 	</tr>
 	<tr>

@@ -143,8 +143,6 @@ $(document).ready(function () {
 			});
 			});
 		$(".login-boot-box").on("click", function() {
-			 $("#alert-confirm-gudaak-id2").show();
-			 $(".min-height-login").hide();
 			 $("#login-boot-box").modal({ // wire up the actual modal functionality and show the dialog
 			"backdrop" : "static",
 			"keyboard" : true,

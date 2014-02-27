@@ -255,12 +255,7 @@
 						<div class="row white ">
                         	<div class="col-md-12 pd13 ">
                             	<div class="hide-overflow2" style="top:-20px;z-index:0"></div>
-								<div id="alert-confirm-gudaak-id2" class=" col-md-12 login-box confirm-gudaak">
-									<h2>Don't have Gudaak ID?</h2>
-									
-									<a id="loginGudaakIdYes" data-dismiss="modal" data-trigger="expand"  href="javaScript:void(0);" class="white-text btn btn-warning ">Yes</a>
-									<a id="loginGudaakIdNo" href="javaScript:void(0);" class="white-text btn btn-warning ">No</a>
-								</div>
+							
 								<div  class="col-md-6 login-box pull-left col-md-offset-3 min-height-login">
                                     <div id="">
                                         <?php $login=new LoginForm;  
@@ -278,6 +273,7 @@
                                     echo $form->error($login,'password');?>
                                     <div class="pd4"></div>
                                     <?php echo CHtml::Link("Forgot password?",'javascript:void(0);',array('class'=>'forget2 pull-left','id'=>'forget2'));?>
+                                     <?php echo CHtml::Link("New user?",'javascript:void(0);',array('class'=>'home-login-box pull-right','data-dismiss'=>'modal'));?>
                                     
                                     <div class="clearfix"></div>
                                     <div align="center" class="top-stats-icons ">
@@ -343,12 +339,13 @@
 </script>-->
 
 <script type='text/javascript'>
-(function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://widget.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({ c: '87b04e16-7b9c-4d0e-afbd-42f97c59e435', f: true }); done = true; } }; })();</script>
+//(function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://widget.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({ c: '87b04e16-7b9c-4d0e-afbd-42f97c59e435', f: true }); done = true; } }; })();</script>
 
 <!--Add the following script at the bottom of the web page-->
 <!--<script type="text/javascript" src="https://mylivechat.com/chatinline.aspx?hccid=72556058"></script>-->
 	<div id="popup_box">    <!-- OUR PopupBox DIV-->
-			<img src="<?php echo Yii::app()->theme->baseUrl;?>/images/gudaak-pointer.png"/>
+			<img src="<?php echo Yii::app()->theme->
+			baseUrl;?>/images/gudaak-pointer.png"/>
 	</div>
   </body>
 </html>

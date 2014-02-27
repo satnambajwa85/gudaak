@@ -34,7 +34,7 @@
 	</tr>
 	<tr>
 		<td>
-			Thank you for setting up an account with Venturepact.com<br />
+			Thank you for setting up an account with Gudaak.com<br />
 		Your Credentials are as follows:
 		</td>	
 	</tr>
@@ -47,7 +47,7 @@
 	<tr>
 		<td>
 			Regards
-			Venturepact
+			Gudaak
 		</td>	
 	</tr>
 </table>

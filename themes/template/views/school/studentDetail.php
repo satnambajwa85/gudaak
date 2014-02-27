@@ -20,7 +20,7 @@ $this->breadcrumbs=array('Detail',);
 							 
 							<script type="text/javascript">
 								$(document).ready(function(){
-									$('#rating-histroy<?php echo $historyList->stream_id;?>').raty({readOnly: true, score:'<?php echo $historyList->rating;?>'});
+									$('#rating-histroy<?php echo $historyList->stream_id;?>').raty({readOnly: true, score:'<?php echo $historyList->self;?>'});
 									
 								});
 							</script>
@@ -47,16 +47,14 @@ $this->breadcrumbs=array('Detail',);
 										<h1><?php echo $selfSel->stream->name;?></h1>
 										<p><?php echo substr($selfSel->stream->description,0,65);?></p>
 										 <ul class="star-rating" style="margin:0px;">
-										<div id="user-rating<?php echo $selfSel->stream_id;?>"  ></div>
+										<div id="user-rating-final<?php echo $selfSel->stream_id;?>"  ></div>
 										</ul>
-										<?php foreach($userStreamRating as $rating){ ?>
 										<script type="text/javascript">
 											$(document).ready(function(){
-												$('#user-rating<?php echo $rating['stream_id'];?>').raty({readOnly: true, score:'<?php echo $rating['rating'];?>'});
+												$('#user-rating-final<?php echo $selfSel->stream_id;?>').raty({readOnly: true, score:'<?php echo $selfSel->self;?>'});
 												
 											});
 										</script>
-										<?php } ?>
 										<div class="clear"></div>
 										<span><?php echo ($selfSel->stream->featured)?'Featured':'';?></span>
 								   </div>
@@ -88,20 +86,22 @@ $this->breadcrumbs=array('Detail',);
 										 <ul class="star-rating" style="margin:0px;">
 										<div id="user-rate<?php echo $counsellorList->stream_id;?>"  ></div>
 										</ul>
-										<?php foreach($uRate2 as $rating){ ?>
 											<script type="text/javascript">
 											$(document).ready(function(){
-												$('#user-rate<?php echo $rating['sId'];?>').raty({readOnly: true, score:'<?php echo $rating['rating2'];?>'});
+												$('#user-rate<?php echo $counsellorList->stream_id;?>').raty({readOnly: true, score:'<?php echo $counsellorList->self;?>'});
 												
 											});
 										</script>
-										<?php } ?>
 										<div class="clear"></div>
 										<span><?php echo ($counsellorList->stream->featured)?'Featured':'';?></span>
 								   </div>
 								</div>
 							</div>
-							<?php echo CHtml::link('<i class="glyphicon glyphicon-comment"></i>Counsellor Comments','javascript:void(0);',array('class'=>'counsellor-comment'));?>
+							<?php echo CHtml::ajaxLink('<i class="glyphicon glyphicon-comment"></i>Counsellor Comments',
+							Yii::app()->createUrl('/school/counsellorComments' ),array('data' =>array( 'userId' =>$counsellorList->user_profiles_id,
+							'stream_id'=>$counsellorList->stream_id),'update'=>'#counsellorComments'),array('class'=>'counsellor-comment')); ?>
+								
+							 
 							<?php } ?>
 						</div>
 						<?php }else{ ?>
@@ -155,7 +155,11 @@ $this->breadcrumbs=array('Detail',);
 									<p><?php echo Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse($list->add_date, 'yyyy-MM-dd'),'medium',null);?></p>
 								</div>
 								<div class="col-md-3 center pull-left mar-top10 pd0">
-									<?php echo CHtml::link('Summery','#',array('class'=>'summery-left-btn'))?>
+								<?php echo CHtml::ajaxLink('Summary', Yii::app()->createUrl('/school/summaryDetails' ),array('data' =>array( 'userId' =>$list->user_profiles_id,'orient_items_id'=>$list->orient_items_id),'update'=>'#summeryRecodes'),array('class'=>'summery-left-btn Summary-details')); ?>
+								<?php	//echo CHtml::Ajaxlink('Summary',array('school/summaryDetails'),array('id'=>$list->user_profiles_id,'orient_items_id'=>$list->orient_items_id ),array('update'=>'#summeryRecodes'),array('class'=>''));?>
+									 
+									
+									<?php //echo CHtml::link('Summery','#',array('class'=>''))?>
 								</div>
 							</div>
 							
@@ -177,15 +181,41 @@ $this->breadcrumbs=array('Detail',);
 		<div class="modal-dialog">
         	<div class="modal-content border-layer">
             <!-- dialog body -->
-            	<div class="modal-body">
+            	<div class="modal-body cons-pop ">
 				<a data-dismiss="modal" class="btn schoo-bt-color pull-right">Go Back</a>
     	
-					<div class="col-md-12 ">
-						<p>snbjkasbdkaskm</p>
+					<div class="col-md-12  " id="counsellorComments">
+					 
 					</div>
 				</div>
 			<!-- dialog buttons -->
 			 
 			</div>
 		</div>
+    </div>
+	
+<div id="Summary-details" class="modal fade">
+    	<div class="modal-dialog">
+        	<div class="modal-content">
+            <!-- dialog body -->
+            	<div class="modal-body">
+                		<div class="site-logo"></div>
+						<div class="row white ">
+                        	<div class="col-md-12 pd13 ">
+							<a data-dismiss="modal" class="btn schoo-bt-color pull-right">Go Back</a>
+    		
+                            	 <div  class="col-md-12 pd0 login-box pull-left">
+									<div id="summeryRecodes">
+									
+									</div>
+									 
+                                 </div>
+                               
+							</div>
+						</div>
+	   			</div>
+		<!-- dialog buttons -->
+		 
+		</div>
+	</div>
     </div>

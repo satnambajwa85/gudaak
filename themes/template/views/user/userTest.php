@@ -48,7 +48,7 @@ $this->breadcrumbs=array('Asses'=>array('/user/tests'));?>
 									
 								</div>
 								
-								<div class="retaketest mt50">
+								<div class="retaketest ">
 									<h1>Last test summery</h1>
 									<span>Test Date:</span>
 									<datetime>	
@@ -56,11 +56,13 @@ $this->breadcrumbs=array('Asses'=>array('/user/tests'));?>
 										</datetime>
 									<div class="clear"></div>
 									<span>Duration:</span>
-									<datetime><?php echo $detials[$list->id]['duration'];?></datetime>
+									<datetime><?php echo $detials[$list->id]['duration'];?>&nbsp;mins</datetime>
 									<div class="clear"></div>
 									<span>Questions:</span>
 									<datetime><?php echo $detials[$list->id]['count'];?></datetime>
 									<div class="clear"></div>
+									<h1>Will give you on feedback question soon</h1>
+									
 									<!--<span>Score:</span>
 									<div class="progress2 fl ">
 										<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar2" style="width:10% !important;">
