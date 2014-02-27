@@ -178,42 +178,40 @@ class SiteController extends Controller
 					$valid					=	$model->validate();
 					$valid					=	$user->validate() && $valid;
 					if($valid){
-					if($user->save()){
-						
-						$model->user_login_id			=	$user->id;
-						$model->generate_gudaak_ids_id	=	$gudaakId->id;
-						
-						if($model->save()){
-							 
-							//Start  mail Function 
-							$body = $this->renderPartial('/mails/register_tpl',array('name'=>$model->display_name,'code'=>'dnfskjdfnjsndjfnjsdfnjsdnfjaksoskaokoa','email'=>$_POST['Register']['email'],'password'=>$_POST['Register']['password']), true);
-							$to = $_POST['Register']['email'];
-							$headers  = 'MIME-Version: 1.0' . "\r\n";
-							$headers .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
-							$headers .= "From: ".Yii::app()->params['adminEmail']."\r\nReply-To: ".Yii::app()->params['adminEmail'];  
-							$subject = "Account Details";
-							mail($to,$subject,$body,$headers);
-							//End  mail Function  
-							Yii::app()->user->setFlash('create','Thank you for join us check your email and activate your account.');
-							$this->redirect(array('site/userRegister'));
-							die;
-						}
-						else {
-								
-							Yii::app()->user->setFlash('error','Please fill up carefully all field are mandatory.');
-							$this->redirect(array('site/userRegister'));
-							die;
+						if($user->save()){
+							
+							$model->user_login_id			=	$user->id;
+							$model->generate_gudaak_ids_id	=	$gudaakId->id;
+							
+							if($model->save()){
+								 
+								//Start  mail Function 
+								$data['name']		=	$model->display_name;
+								$data['email']		=	$user->username;
+								$data['password']	=	$user->password;
+								$data['code']	=	$this->createAbsoluteUrl('site/checkUser',array('email'=>base64_encode($user->username)));
+								$this->sendMail($data,'register');
+								//End  mail Function  
+								Yii::app()->user->setFlash('create','Thank you for join us check your email and activate your account.');
+								$this->redirect(array('site/userRegister'));
+								die;
+							}
+							else {
+									
+								Yii::app()->user->setFlash('error','Please fill up carefully all field are mandatory.');
+								$this->redirect(array('site/userRegister'));
+								die;
+							}
 						}
 					}
+				}
 			}
-		}
-				}
-				else{
-						Yii::app()->user->setFlash('create','Please fill accurate information.');
-						$this->redirect(array('site/userRegister'));
-						
-			
-				}
+			else{
+					Yii::app()->user->setFlash('create','Please fill accurate information.');
+					$this->redirect(array('site/userRegister'));
+					
+		
+			}
 			
 			
 		}
@@ -221,24 +219,24 @@ class SiteController extends Controller
 		$this->render('userRegister',array('model'=>$model));
 	}
 	public function actionCheckUser()
-	{//echo 'hello1';die;
+	{	
+		$user		=	base64_decode($_REQUEST['email']);
+		$record_exists = UserLogin::model()->exists('username = :email', array(':email'=>$user));   				
+		if($record_exists==1){ 
+			$record = UserLogin::model()->findByAttributes(array('username'=>$user)); 
+			$record->activation	=	1;
+			if($record->save()){
+				Yii::app()->user->setFlash('sccess','Your new account is activated.');
+				$this->refresh();
+			
+			}
+			 
+		}else{
 		
-		$user		=	$_GET['Register']['username'];
-			$record_exists = UserLogin::model()->exists('username = :username', array(':username'=>$user));   			
-			if($user !=''){
-				if($record_exists==1){
-					$result		=	'User is not available.';
-					echo CJSON::encode($result); exit;
-				}
-				else{
-					$result		=	'User is  available.';
-					echo CJSON::encode($result); exit;
-				}
-			}
-			else{
-					$result		=	'Please fill user first.';
-					echo CJSON::encode($result); exit;
-			}
+			Yii::app()->user->setFlash('error','Not record found.');
+			$this->refresh();
+		}
+		
 			
 		
 	}
