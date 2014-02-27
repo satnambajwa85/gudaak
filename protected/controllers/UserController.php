@@ -557,7 +557,7 @@ class UserController extends Controller
 	
 	}
 	
-		public function actionSummaryDetails()
+	public function actionSummaryDetails()
 	{	
 		$reportId	=	$_REQUEST['id'];
 		$report			=	UserReports::model()->findByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'orient_items_id'=>$reportId));
@@ -1080,7 +1080,8 @@ class UserController extends Controller
 	{	
 		$userReports			=	UserReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
 		$data	=	array();
-		
+		$catList	=	array();
+		if(!empty($userReports)){
 		foreach($userReports as $report){
 			$userTest	=	array();
 			$data[$report->orient_items_id]['id']=$report->orient_items_id;
@@ -1134,6 +1135,7 @@ class UserController extends Controller
 				$catList[$subCat->stream_id]['description']	=	$subCat->stream->description;
 				$catList[$subCat->stream_id]['image']		=	$subCat->stream->image;
 			}
+		}
 		}
 		$this->render('streamExplore',array('data'=>$catList));
 	}
@@ -1461,18 +1463,13 @@ class UserController extends Controller
 		//Change password 
 	public function actionTestMail()
 	{
-			$to      = 'jagraj2007@hotmail.com';
-			$subject = 'Test Mail';
-			$message = 'If we can read this, it means that our fake Sendmail setup works!';
-			$headers = 'From: admin@gudaak.com' . "\r\n" .
-					   'Reply-To: myemail@gmail.com' . "\r\n" .
-					   'X-Mailer: PHP/' . phpversion();
-
-			if(mail($to, $subject, $message, $headers)) {
-				$this->redirect(Yii::app()->createUrl('user/'));
-			} 
-
-	
+	 
+		$data['name']		=	'Dear user';
+		$data['email']		=	'jagraj2007@hotmail.com';
+		$data['password']	=	'kjsdfjds';
+		$data['code']	=	$this->createAbsoluteUrl('site/checkUser',array('email'=>base64_encode('jagraj2009@hotmail.com')));
+		 $this->sendMail($data,'register'); die;
+		
 	}
 	public function actionChangePassword()
 	{	
@@ -1506,6 +1503,45 @@ class UserController extends Controller
 			} //validate ends
 		} //isset ends
 		$this->render('changepassword',array('model'=>$model));
+	}
+		public function sendMail($data,$type)
+	{
+		switch($type){
+			case 'contact':
+				$subject = 'Contact Us';
+				$body = $this->renderPartial('/mails/contact_tpl',
+										array('name' => $data['name']), true);
+			break;
+			case 'forget':
+				$subject = 'Forgot Password';
+				$body = $this->renderPartial('/mails/forgot_tpl',
+										array(	'name' => $data['name'],
+												'email'=>$data['email'],
+												'password'=>$data['password']), true);
+			break;
+			case 'register':
+				$subject = 'Register';
+				$body = $this->renderPartial('/mails/register_tpl',
+										array(	'name' => $data['name'],
+												'email'=>$data['email'],
+												'code'=>$data['code'],
+												'password'=>$data['password']), true);
+			break;
+			default:
+			break;			
+		}
+		$from		=	Yii::app()->params['adminEmail'];
+		$to			=	$data['email'];
+		$mail		=	Yii::app()->Smtpmail;
+        $mail->SetFrom($from,'Gudaak');
+        $mail->Subject	=	$subject;
+        $mail->MsgHTML($body);
+        $mail->AddAddress($to, "");		
+        if(!$mail->Send()) {
+           echo 'No';die; return 0;
+        }else {
+			return 1;
+        }
 	}
 	
 }
