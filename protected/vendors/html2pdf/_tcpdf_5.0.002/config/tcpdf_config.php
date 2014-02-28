@@ -28,8 +28,11 @@
  * @license http://www.gnu.org/copyleft/lesser.html LGPL
  * @since 2004-10-27
  */
+
 // If you define the constant K_TCPDF_EXTERNAL_CONFIG, the following settings will be ignored.
+
 if (!defined('K_TCPDF_EXTERNAL_CONFIG')) {
+
 	// DOCUMENT_ROOT fix for IIS Webserver
 	if ((!isset($_SERVER['DOCUMENT_ROOT'])) OR (empty($_SERVER['DOCUMENT_ROOT']))) {
 		if(isset($_SERVER['SCRIPT_FILENAME'])) {
@@ -41,16 +44,19 @@ if (!defined('K_TCPDF_EXTERNAL_CONFIG')) {
 			$_SERVER['DOCUMENT_ROOT'] = '/var/www';
 		}
 	}
+
 	// Automatic calculation for the following K_PATH_MAIN constant
 	$k_path_main = str_replace( '\\', '/', realpath(substr(dirname(__FILE__), 0, 0-strlen('config'))));
 	if (substr($k_path_main, -1) != '/') {
 		$k_path_main .= '/';
 	}
+
 	/**
 	 * Installation path (/var/www/tcpdf/).
 	 * By default it is automatically calculated but you can also set it as a fixed string to improve performances.
 	 */
 	define ('K_PATH_MAIN', $k_path_main);
+
 	// Automatic calculation for the following K_PATH_URL constant
 	$k_path_url = $k_path_main; // default value for console mode
 	if (isset($_SERVER['HTTP_HOST']) AND (!empty($_SERVER['HTTP_HOST']))) {
