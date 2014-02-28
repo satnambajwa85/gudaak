@@ -12,6 +12,11 @@
 				</p>
 
 			</div>
+			<?php if(isset($reports)){?>
+					<?php echo CHtml::link('Download PDF',array('user/DetailedReport&download=1'),array('target'=>'_blank','class'=>'btn btn-info2 center-bt fr'))?>
+			<?php }else{
+			
+			} ?>
 			
 		</div>
 		<div class="col-md-12 pull-left inner-padding">
@@ -161,4 +166,7 @@ foreach($report['results'] as $result){
 		
 
 
-	 
+	 	<div class="news pd0 pull-right">
+		<?php  $this->Widget('WidgetNews'); ?>
+	</div>
+			

@@ -23,14 +23,12 @@ $this->breadcrumbs=array('Finalized Career'=>array('/user/finalizedCareer'));
 		<div class="col-md-12 fl pd0">
 			<?php if(!empty($data)) {?>
             <div class="mr0 col-md-12 fl br-right">
-			<div id="scrollBar">
-				<div class="col-md-12 pdleft fl">
-				  	<?php foreach($data as $list){ ?>
-					
-						<div class="col-md-6 pdleft pull-left fl  pd-b10">
-						<div class="col-md-12 fl pd0 ">
-							<div class="pull-left pd0 prefered-stream-img">
-							<?php 
+			<div id="scrollBar" style="max-height: 475px;">
+			<?php foreach($data as $list){ ?>
+			<div class="stream-cat pull-left fl  pd-b10">
+				<div class="col-md-12 fl pd0 ">
+					<div class="pull-left pd0 prefered-stream-img">
+						<?php 
 						$filename = ''.$list['image'].'';
 						 $path=Yii::getPathOfAlias('webroot.uploads.career_options.small') . '/';
 						$file=$path.$filename;
@@ -40,33 +38,29 @@ $this->breadcrumbs=array('Finalized Career'=>array('/user/finalizedCareer'));
 									<?php echo CHtml::link('<img  src="'.Yii::app()->baseUrl.'/uploads/career_options/small/noimage.jpg" />',array('user/careerDetails','id'=>$list['id']));?>
 						
 							<?php } ?>
-							</div>
-							<div class="col-md-9 pull-left  stream-description">
-								<h1><?php echo substr($list['title'],0,30);?></h1>
-								<p><?php echo substr($list['description'],0,100);?>..</p>
-								   	 <ul class="star-rating" style="margin:0px;">
-										<div id="user-rating<?php echo $list['id'];?>"  ></div>
-									</ul>
-									<div id="update-final-list">
-										<span>Finalized</span>
-									</div>
-									 
-										<script type="text/javascript">
-										$(document).ready(function(){
-											$('#user-rating<?php echo $list['id'];?>').raty({readOnly:true, score:'<?php echo $list['rating'];?>'});
-												
-										});
-									</script>
-								<div class="clear"></div>
-								<span></span>
-						   </div>
-						</div>
 					</div>
-		        <?php } ?>
-			 
-				
-				
+					<div class="col-md-9 pull-left  stream-description" style="right:7px;">
+						<h1><?php echo substr($list['title'],0,30);?></h1>
+						<p><?php echo substr($list['description'],0,70);?>..</p>
+								
+							 <ul class="star-rating rating-position" style="margin:0px;">
+										<div id="user-rating<?php echo $list['id'];?>"  ></div>
+							</ul>
+							
+							<script type="text/javascript">
+									$(document).ready(function(){
+										$('#user-rating<?php echo $list['id'];?>').raty({readOnly:true, score:'<?php echo $list['rating'];?>'});
+											
+									});
+								</script>	
+						 
+						<div class="clear"></div>
+						<span></span>
+				   </div>
+				</div>
 			</div>
+			<?php } ?>
+			 
 			</div>
          </div>
 		 <div class="col-md-6 fl">
@@ -121,7 +115,7 @@ $this->breadcrumbs=array('Finalized Career'=>array('/user/finalizedCareer'));
 </div>
 
 	
-	<div class="news pd0 fl">
+	<div class="news pd0 fr">
 		<?php  $this->Widget('WidgetNews'); ?>
 	</div>
 			

@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'Guddak- Design your career path',
+	'name'=>'Gudaak- Design your career path',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -33,6 +33,7 @@ return array(
 			'ipFilters'=>array('127.0.0.1','::1'),
 		),
 		 'admin',
+		
 	),
 
 	// application components
@@ -41,22 +42,7 @@ return array(
 			 //alias to dir, where you unpacked extension
 			'class' => 'application.extensions.imagemodifier.CImageModifier',
 		),
-		'user'=>array(
-			// enable cookie-based authentication
-			'allowAutoLogin'=>true,
-		),
-		'Smtpmail'=>array(
-            'class'=>'application.extensions.smtpmail.PHPMailer',
-            'Host'=>"smtp.gmail.com",
-            'Username'=>'jagraj.singh0001@gmail.com',
-            'Password'=>'luckysinghsaini@123',
-            'Mailer'=>'smtp',
-			'SMTPSecure' => "ssl",
-            'Port'=>465,
-            'SMTPAuth'=>true,
-			'IsHTML'=>true,
-        ),
-		 'ePdf' => array(
+				'ePdf' => array(
         'class'         => 'ext.EYiiPdf.EYiiPdf',
         'params'        => array(
             'mpdf'     => array(
@@ -80,31 +66,34 @@ return array(
                 )*/
             ),
             'HTML2PDF' => array(
-                'librarySourcePath' => 'application.vendors.mPDF.*',
+                'librarySourcePath' => 'application.vendors.html2pdf.*',
                 'classFile'         => 'html2pdf.class.php', // For adding to Yii::$classMap
-                /*'defaultParams'     => array( // More info: http://wiki.spipu.net/doku.php?id=html2pdf:en:v4:accueil
+                'defaultParams'     => array( // More info: http://wiki.spipu.net/doku.php?id=html2pdf:en:v4:accueil
                     'orientation' => 'P', // landscape or portrait orientation
                     'format'      => 'A4', // format A4, A5, ...
                     'language'    => 'en', // language: fr, en, it ...
                     'unicode'     => true, // TRUE means clustering the input text IS unicode (default = true)
                     'encoding'    => 'UTF-8', // charset encoding; Default is UTF-8
                     'marges'      => array(5, 5, 5, 8), // margins by default, in order (left, top, right, bottom)
-                )*/
+                )
             )
         ),
     ),
-    	
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
-		
+		'user'=>array(
+			// enable cookie-based authentication
+			'allowAutoLogin'=>true,
+		),
+		'Smtpmail'=>array(
+            'class'=>'application.extensions.smtpmail.PHPMailer',
+            'Host'=>"smtp.gmail.com",
+            'Username'=>'satnambajwa85@gmail.com',
+            'Password'=>'gurpreet87',
+            'Mailer'=>'smtp',
+			'SMTPSecure' => "ssl",
+            'Port'=>465,
+            'SMTPAuth'=>true,
+			'IsHTML'=>true,
+        ),
 		// uncomment the following to enable URLs in path-format
 		/*
 		'urlManager'=>array(
@@ -152,7 +141,7 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'admin@gudaak.com',
+		'adminEmail'=>'satnambajwa85@gmail.com',
 	),
 	'theme'=>'template'
 );

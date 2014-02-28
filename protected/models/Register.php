@@ -22,7 +22,8 @@ class Register extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			
+			array('confirmpass', 'required','message' => 'Please confirm new password.'), 
+            array('password', 'compare', 'compareAttribute'=>'confirmpass'), 
 		    array('gudaak_id', 'required','message' => 'Please enter Gudaak ID.'), 
 			array('gudaak_id, display_name, first_name, last_name, email, gender, date_of_birth, mobile_no, add_date, generate_gudaak_ids_id, user_login_id, user_academic_id, user_class_id', 'required'),
 			array('semd_mail, status, generate_gudaak_ids_id, user_login_id, user_academic_id, user_class_id', 'numerical', 'integerOnly'=>true),
@@ -31,6 +32,7 @@ class Register extends CActiveRecord
 		    array('class', 'required','message' => 'Please fill  your class.'), 
 		    array('medium', 'required','message' => 'Please fill  your medium.'), 
 			array('password', 'length', 'max' => 50, 'min' => 6, 'tooShort' => 'Password must have at least 6 chars'),
+			array('mobile_no', 'length', 'max' => 10, 'min' => 10, 'tooShort' => 'Mobile no must have at least 10 number'),
 		    array('email', 'email'), 
 			array('email','unique'), 
 			array('gudaak_id','unique'), 

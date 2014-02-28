@@ -25,18 +25,20 @@ function testFormSend(id)
 		url: test+'&id='+id,
 	   data:data,
 		success:function(data){ 
-				var $response	=	jQuery.parseJSON(data);
-				if($response.status==1){
-					//$(".test-hide").hide();
-					//$(".complete-test-show").show();
-					location.reload();
-					//window.location.replace("<?php echo ?>");
-					
-				}
-				 else{
-					alert('Please dont skip blank any question.');
-				}
-					  },
+			var $response	=	jQuery.parseJSON(data);
+			if($response.status==1){
+				loadPopupBox();
+				location.reload();
+				
+			}
+			else{
+					alert('Plsease don not skip any question please.');
+					$.each($response.message, function(i, obj) {
+					  //use obj.id and obj.name here, for example:
+					  $('.required'+obj).css( "backgroundColor", "#E9D1D4" );
+					});
+			}
+		},
 		   error: function(data) { // if error occured
 				 alert("Error occured.please try again");
 				 alert(data);
@@ -44,7 +46,13 @@ function testFormSend(id)
 		 
 		  dataType:'html'
 	  });
-}
+}    
+        function loadPopupBox() {    // To Load the Popupbox
+            $('#popup_box').fadeIn("slow");
+            $("#container").css({ // this is just for style
+                "opacity": "0.3" 
+            });        
+        }  		
 function sendTestRequest()
 	 {
 	   var data=$("#retake-test-form").serialize();

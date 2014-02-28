@@ -1916,9 +1916,9 @@ textarea.input-lg {
        -o-user-select: none;
           user-select: none;
 }
-.back-bt{   left: -18px;
+.back-bt{left: -151px;
     position: absolute;
-    top: 396px;}
+    top: 284px;}
 .btn:focus {
   outline: thin dotted #333;
   outline: 5px auto -webkit-focus-ring-color;

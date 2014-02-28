@@ -1,11 +1,13 @@
 	<?php if (!empty($list)){ ?>
 	<h2>Preferred Careers</h2>
+		<div class="tabs-width">
 		<ul id="career-description-tabs">
 			<?php foreach($list as $data){ ?>
 			 <li><a href="#tab<?php echo $data->id;?>"><?php echo $data->title;?></a></li>
 			<?php } ?>
 		 
 		</ul>
+		</div>
 		<div class="clear"></div>
 		<?php foreach($list as $data){ ?>
 		<div id="tab<?php echo $data->id;?>" class="tab-visible">
@@ -24,6 +26,17 @@ Yii::app()->clientScript->registerScript(
 		$(this.hash).slideToggle();
 		$(this).addClass('current');
 		e.preventDefault();
-	}).filter(':first').click();	",
+	}).filter(':first').click();",
 		CClientScript::POS_READY
 	);?>
+<script>
+$(document).ready(function(){
+	$('#career-description-tabs li').mouseover( function(e){
+		$('.tabs-width').css("overflow-x","scroll");
+	});
+	$('.tabs-width').hover( function(e){
+		$('.tabs-width').css("overflow","hidden");
+	});
+});
+</script>
+<?php Yii::app()->clientscript->scriptMap['jquery.js'] = false;?>	

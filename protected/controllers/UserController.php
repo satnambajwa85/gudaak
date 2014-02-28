@@ -10,7 +10,7 @@ class UserController extends Controller
 				'actions'=>array('index','editProfile','test','tests','detailedReport','collage','liveChat',
 							'articlesList','articles','summary','newsUpdates',
 							'exploreColleges','shortListedColleges','dynamicCourse','dynamicSearchResult','userShortlistCollage',
-							'search','changePassword','application','questionsAnswer','userProfileUpdate','retakeTest','news','readEvent','summaryDetails',
+							'search','changePassword','application','questionsAnswer','testMail','userProfileUpdate','retakeTest','news','readEvent','summaryDetails',
 				),
 				'users' => array('@')
 					
@@ -322,8 +322,14 @@ class UserController extends Controller
 			$testReport		=	TestReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'test_category'=>$id));
 			$total	=	count($testReport);
 			if($total!=60){
+				$list		=	array();
+				foreach($_POST['TestReports']['question_options_id'] as $key=>$val){
+					if(empty($val))
+					$list[]	=	 $key;
+				}
 				$response['status']=0;
-				$response['message']='Plsease don not skip any question please.';
+				$response['total']=	count($list);
+				$response['message']=$list;
 				echo json_encode($response); 
 				die;
 			}
@@ -345,12 +351,15 @@ class UserController extends Controller
 				$testReport->test_category				=	$id;
 				$testReport->user_profiles_id	 		=	Yii::app()->user->profileId;
 				$testReport->save();
-				if(!isset($score[$testReport->questions->career_categories_id]))
+				if(!isset($score[$testReport->questions->career_categories_id])){
 					$score[$testReport->questions->career_categories_id]	=	0;
+				}
 				else{
 					$cate			=	$testReport->questions->career_categories_id;
+					
 					$interestVal	=	$testReport->questionOptions->interest_value;
 					$score[$cate]	+=	$interestVal;
+					
 				}
 			}
 			unset($score['1']);
@@ -383,13 +392,15 @@ class UserController extends Controller
 		if(!Yii::app()->user->id){
 			$this->redirect(Yii::app()->createUrl('/site'));
 		}
+		$start_time 	=	'';
+		$end_time 	=	'';
 		$model	=	new RetakeTestRequest;
 		$criteria				=	new CDbCriteria();
 		$criteria->condition 	=	'published  = :published  and status=:status';
 		$criteria->params 		=	array(':published'=>1,':status'=>1);
 		$testContent			=	OrientItems::model()->findAll($criteria);
 		$userTest				=	UserReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
-		$tests		=	array();
+		$tests	=	array();
 		$detials	=	array();
 		foreach($userTest as $test){
 			$tests[]	=	$test->orient_items_id;
@@ -397,11 +408,24 @@ class UserController extends Controller
 			$detials[$test->orient_items_id]['date']=$test->add_date;
 			$detials[$test->orient_items_id]['count']=60;
 			$detials[$test->orient_items_id]['duration']=60;
-			
-			
-			
-		}
+			$userTestDuration		=	 TestReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'test_category'=>$test->orient_items_id));
+			foreach($userTestDuration as $time){
+			  if ($time === reset($userTestDuration))
+					$start_time= $time->add_date;
+
+				if ($time === end($userTestDuration))
+					$end_time	= $time->add_date;
+					
+				//$duration['time']		=	$time->add_date;
+			}
+			$TimeStart = strtotime($start_time);
+			$TimeEnd = strtotime($end_time);
+			$Difference = ($TimeEnd - $TimeStart);
+			$detials[$test->orient_items_id]['duration']= gmdate('H:i:s',$Difference);
 		
+		}
+		 
+	
 		
 		$this->render('userTest',array('testContent'=>$testContent,'userTest'=>$tests,'detials'=>$detials,'model'=>$model));
 	}
@@ -440,7 +464,7 @@ class UserController extends Controller
 		$Uans			=	$_REQUEST['ans'];	
 		$test			=	$_REQUEST['QID'];
 		//print_r($_REQUEST);die;
-		$score	=	array();
+		$score			=	array();
 		$testReport1	=	 TestReports::model()->findByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'questions_id'=>$Qid));
 		if(!isset($testReport1))
 			$testReport1	=	new TestReports;
@@ -461,7 +485,7 @@ class UserController extends Controller
 	public function actionDetailedReport()
 	{	
 		$userReports			=	UserReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
-		$data			=	array();
+		$data	=	array();
 		
 		foreach($userReports as $report){
 			$userTest	=	array();
@@ -469,67 +493,87 @@ class UserController extends Controller
 			$data[$report->orient_items_id]['name']=$report->orientItems->title;
 			$data[$report->orient_items_id]['description']=$report->orientItems->description;
 			$userTests	=	UserScores::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'test_category'=>$report->orient_items_id));
+			
 			foreach($userTests as $cur){
 				$score	=	$cur->score;
 				foreach($cur->careerCategories->careerAssessments as $asswssment){
 					if($score >= $asswssment->score_start && $score <= $asswssment->score_end){
-						$userTest[$asswssment->value][$cur->career_categories_id]['value']		=	$asswssment->value;
-						$userTest[$asswssment->value][$cur->career_categories_id]['score']		=	$score;	
-						$userTest[$asswssment->value][$cur->career_categories_id]['id']			=	$cur->careerCategories->id;
-						$userTest[$asswssment->value][$cur->career_categories_id]['title']		=	$cur->careerCategories->title;
-						$userTest[$asswssment->value][$cur->career_categories_id]['title2']		=	$asswssment->title;
-						$userTest[$asswssment->value][$cur->career_categories_id]['description']=	$asswssment->description;
+						$userTest[$asswssment->value][$cur->id]['value']		=	$asswssment->value;
+						$userTest[$asswssment->value][$cur->id]['score']		=	$score;	
+						$userTest[$asswssment->value][$cur->id]['id']			=	$cur->careerCategories->id;
+						$userTest[$asswssment->value][$cur->id]['title']		=	$cur->careerCategories->title;
+						$userTest[$asswssment->value][$cur->id]['title2']		=	$asswssment->title;
+						$userTest[$asswssment->value][$cur->id]['description']	=	$asswssment->description;
 					}
 				}
 				
 			}
-			if($report->orient_items_id==3){
-				$highCount	=	0;
-				$midCount	=	0;
+		if($report->orient_items_id==3){
+			$highCount	=	0;
+			$midCount	=	0;
+			$final		=	array();
+			$final1		=	array();
+			if(isset($userTest['high'])){
+				$highCount	=	count($userTest['high']);
+				$final		=	$userTest['high'];
+				$final1		=	$userTest['high'];
+			}
+			if(isset($userTest['moderate']))
+				$midCount	=	count($userTest['moderate']);
+			if(isset($userTest['moderate']))
+				$final1		=	array_merge($final,array_slice($userTest['moderate'], 0, 5));
+			
+			
+			if($highCount ==	0 && isset($userTest['moderate']))
+				$final		=	$userTest['moderate'];
+			if($highCount>0 && $highCount < 2 && isset($userTest['moderate']))
+				$final		=	array_merge($final,array_slice($userTest['moderate'], 0, 1));
+			if(isset($userTest['low']))
+				$final1		=	array_merge($final,array_slice($userTest['low'], 0, 5));
+			$total	=	$highCount+$midCount;
+			$data[$report->orient_items_id]['results1']=$final1;
+			$data[$report->orient_items_id]['results']=$final;
+		}else{
 				$final		=	array();
-				$final1		=	array();
-				if(isset($userTest['high'])){
-					$highCount	=	count($userTest['high']);
-					$final		=	$userTest['high'];
-					$final1		=	$userTest['high'];
-				}
-				if(isset($userTest['moderate'])){
-					$midCount	=	count($userTest['moderate']);
-					$final1		=	array_merge($final1,array_slice($userTest['moderate'], 0, 5));
-				}
-				
-				if($highCount ==	0 && isset($userTest['moderate']))
-					$final		=	array_merge($final,array_slice($userTest['moderate'], 0, 2));
-				if($highCount>0 && $highCount < 2 && isset($userTest['moderate']))
-					$final		=	array_merge($final,array_slice($userTest['moderate'], 0, 1));
-				if(isset($userTest['low']))
-					$final1		=	array_merge($final1,array_slice($userTest['low'], 0, 5));
-				$total	=	$highCount+$midCount;
-				//Sorting accounding to category id
-				ksort($final1);
-				ksort($final);
-				$data[$report->orient_items_id]['results1']=$final1;
-				$data[$report->orient_items_id]['results']=$final;
-			}else{
-				$final		=	array();
-				
 				if(isset($userTest['high'])){
 					$final		=	$userTest['high'];
 				}
 				if(isset($userTest['moderate']))
-					$final		=	$final+$userTest['moderate'];
-					
+					$final		=	array_merge($final,array_slice($userTest['moderate'],0,5));
 				if(isset($userTest['low']))
-					$final		=	$final+$userTest['low'];
-				ksort($final);
+					$final		=	array_merge($final,array_slice($userTest['low'],0,5));
+				
 				$data[$report->orient_items_id]['results']=$final;
 			}
+			
 		}
 		$profile		=	 UserProfiles::model()->findByPk(Yii::app()->user->profileId);
+		
+		
+		if(isset($_REQUEST['download']) && $_REQUEST['download']==1){
+			//ob_clean(); 
+			
+			
+			$html2pdf = Yii::app()->ePdf->HTML2PDF();
+			ob_end_clean();
+			if(Yii::app()->user->userType ==  'below10th')
+				$html =	'detailedReport2';
+			else
+				$html =	'detailedReport';
+			$html='pdfReport';
+			$html2pdf->WriteHTML($this->renderPartial($html,array('reports'=>$data,'profile'=>$profile),true));
+			
+			$html2pdf->Output();
+			//ob_end_flush();
+			die;
+		}
 		if(Yii::app()->user->userType ==  'below10th')
 			$this->render('detailedReport2',array('reports'=>$data,'profile'=>$profile));
 		else
 			$this->render('detailedReport',array('reports'=>$data,'profile'=>$profile));
+		
+		
+		
 	
 	}
 	public function actionSummaryDetails()
@@ -687,6 +731,7 @@ class UserController extends Controller
 
 	public function actionStream($id)
 	{
+				
 		$streamData		=	array();
 		$stream			=	Stream::model()->findByPk($id);
 		$userStream		=	UserProfilesHasStream::model()->findByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'stream_id'=>$id));
@@ -1054,7 +1099,8 @@ class UserController extends Controller
 	{	
 		$userReports			=	UserReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
 		$data	=	array();
-		
+		$catList	=	array();
+		if(!empty($userReports)){
 		foreach($userReports as $report){
 			$userTest	=	array();
 			$data[$report->orient_items_id]['id']=$report->orient_items_id;
@@ -1108,6 +1154,7 @@ class UserController extends Controller
 				$catList[$subCat->stream_id]['description']	=	$subCat->stream->description;
 				$catList[$subCat->stream_id]['image']		=	$subCat->stream->image;
 			}
+		}
 		}
 		$this->render('streamExplore',array('data'=>$catList));
 	}
@@ -1236,6 +1283,11 @@ class UserController extends Controller
 	public function actionSummary()
 	{	
 		$summaryDetails=UserReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'activation'=>1,'status'=>1));
+		/*$summaryDetails=UserReports::model()->findAll(array(
+			'select'=>'t.comments',
+			'group'=>'t.comments',
+			'distinct'=>true,
+		),array('user_profiles_id'=>Yii::app()->user->profileId,));*/
 		$this->render('summary',array('summaryDetails'=>$summaryDetails));
 	}
 	
@@ -1428,6 +1480,16 @@ class UserController extends Controller
 	}
 	//Forgot password
 		//Change password 
+	public function actionTestMail()
+	{
+	 
+		$data['name']		=	'Dear user';
+		$data['email']		=	'jagraj2007@hotmail.com';
+		$data['password']	=	'kjsdfjds';
+		$data['code']	=	$this->createAbsoluteUrl('site/checkUser',array('email'=>base64_encode('jagraj2009@hotmail.com')));
+		 $this->sendMail($data,'register'); die;
+		
+	}
 	public function actionChangePassword()
 	{	
 		$id=Yii::app()->user->userId;
@@ -1461,4 +1523,44 @@ class UserController extends Controller
 		} //isset ends
 		$this->render('changepassword',array('model'=>$model));
 	}
+		public function sendMail($data,$type)
+	{
+		switch($type){
+			case 'contact':
+				$subject = 'Contact Us';
+				$body = $this->renderPartial('/mails/contact_tpl',
+										array('name' => $data['name']), true);
+			break;
+			case 'forget':
+				$subject = 'Forgot Password';
+				$body = $this->renderPartial('/mails/forgot_tpl',
+										array(	'name' => $data['name'],
+												'email'=>$data['email'],
+												'password'=>$data['password']), true);
+			break;
+			case 'register':
+				$subject = 'Register';
+				$body = $this->renderPartial('/mails/register_tpl',
+										array(	'name' => $data['name'],
+												'email'=>$data['email'],
+												'code'=>$data['code'],
+												'password'=>$data['password']), true);
+			break;
+			default:
+			break;			
+		}
+		$from		=	Yii::app()->params['adminEmail'];
+		$to			=	$data['email'];
+		$mail		=	Yii::app()->Smtpmail;
+        $mail->SetFrom($from,'Gudaak');
+        $mail->Subject	=	$subject;
+        $mail->MsgHTML($body);
+        $mail->AddAddress($to, "");		
+        if(!$mail->Send()) {
+           echo 'No';die; return 0;
+        }else {
+			return 1;
+        }
+	}
+	
 }

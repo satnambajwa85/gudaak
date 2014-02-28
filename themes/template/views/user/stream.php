@@ -66,9 +66,11 @@ $this->breadcrumbs=array('Stream Library'=>array('/user/streamList'),'Stream Sub
 						
 							<?php } ?>
 						
-						<?php echo CHtml::AjaxLink('<h3>'.$subject['title'].'</h3>',array('user/subjectsDetails','id'=>$subject['id']),array('update'=>'#single-details'),array('class'=>'subject-details'));?>
-					    <p><?php echo substr($subject['description'],0,150);?></p>
-                        <?php echo CHtml::AjaxLink('Read More....',array('user/subjectsDetails','id'=>$subject['id']),array('update'=>'#single-details'),array('class'=>'subject-details'));?>
+						<h3><?php echo $subject['title'];?></h3>
+						<div id="single-details<?php echo $subject['id']?>" class="align-text-description">
+							<p><?php echo substr($subject['description'],0,150);?></p>
+						</div>
+                        <?php echo CHtml::AjaxLink('Read More....',array('user/subjectsDetails','id'=>$subject['id']),array('update'=>'#single-details'.$subject['id'].''),array('class'=>'subject-details'));?>
                         </div>
                         <div class="col-md-2 pull-left pd0 right-stream-box ">
                         	<h1>Type of subject </h1>

@@ -4720,7 +4720,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .pager li > a,
 .pager li > span {
   display: inline-block;
-  padding: 5px 14px;
+  padding:0 2px;
 }
 
 .pager li > a:hover,
@@ -7588,7 +7588,7 @@ header {
 .white-text-color{color:#fff;}
 .categories-tab{border:1px solid #F1F1F3;float:left;color: #666;position: absolute;right: 0px;
 top:115px;width: 252px;background:#FAFFFF;background-color:#FAFFFF;z-index:999;}
-.current{display:block;}
+.current{display:block;color:#F7A944}
 .categories-tab li {margin: 2px 14px 6px 5px;}
 .categories-tab li > label {text-transform: capitalize;margin-left:8px;}
 #mycarouseltwo {
@@ -7689,11 +7689,12 @@ top:115px;width: 252px;background:#FAFFFF;background-color:#FAFFFF;z-index:999;}
 .career-list-view {border-right:1px solid #CDCDCD;min-height:430px;margin-bottom:57px;}
 .career-list-view ul{list-style:none;padding:0px;}
 .career-list-view.pull-left li{margin:9px 0 0 0;text-transform:capitalize;}
+.li-active{background: url("../images/active-tab.png") no-repeat scroll 186px 0 rgba(0, 0, 0, 0);}
 .career-list-view li a{    color: #21C4C1;
     font-family: open sans !important;
-    font-size: 12px;
+    font-size: 13px;
     text-decoration: none;}
-.career-list-view li a.currentTab {color:#F7A944;content: '\203a';}
+.career-list-view li a.currentTab {color:#F7A944;}
 .career-list-view li a.currentTab > i{color:#F7A944;}
 .career-list-view li a.currentTab > i{color:#F7A944;}
 .career-list-view li a i{color:#666;margin:0 10px 0 0;}
@@ -7737,7 +7738,7 @@ top:115px;width: 252px;background:#FAFFFF;background-color:#FAFFFF;z-index:999;}
     float: left;
     width: 79.6%;
 }
-.preferred-career-info { border: 1px solid #EEEEEE;}
+.preferred-career-info {}
 .p_padding{ padding:10px; padding-left:0px;}
 
 .crumb-title{color: #F5F5F5;float: left;font-size: 15px;margin: 0;padding: 14px;}
@@ -7762,9 +7763,9 @@ top:115px;width: 252px;background:#FAFFFF;background-color:#FAFFFF;z-index:999;}
 .selected a{color:#21C4C1;}
 .skyblue{color:#21C4C1;}
 .backskyblue{background:#21C4C1;background-color:#21C4C1;}
-.btn-td a{background-color: #F7A944;border-radius: 5px;color: #FFFFFF;height: 20px; padding: 5% 31%;text-align: center;-webkit-border-radius: 5px;	-moz-border-radius: 5px;-1ms-border-radius: 5px;-o-border-radius: 5px;border-radius: 5px;}
+.btn-td a{background-color: #F7A944;border-radius: 5px;color: #FFFFFF;height: 20px; padding: 2% 22%;text-align: center;-webkit-border-radius: 5px;	-moz-border-radius: 5px;-1ms-border-radius: 5px;-o-border-radius: 5px;border-radius: 5px;}
 .icon-caret-right{font-size:18px;}
-.grid-view table.items th, .grid-view table.items td { border: 1px solid #FFFFFF;font-size: 0.9em; padding: 1.3em; width: 10%;}
+.grid-view table.items th, .grid-view table.items td {text-align: center; border: 1px solid #FFFFFF;font-size: 0.9em; padding: 7px; width: 10%;}
 .top-nav-section ul li{margin:0px;float:left;padding-left:20px;padding-bottom:10px;border-left:1px solid #fff;}
 .top-nav-section ul li a {color:#F5F5F5;font-size:14px;font-weight:normal;}
 .top-nav-section ul li:hover{background:#fff;}
@@ -7868,6 +7869,8 @@ top:115px;width: 252px;background:#FAFFFF;background-color:#FAFFFF;z-index:999;}
 .stream-ratting{text-align:center;}
 .prefered-stream-img img {   height: 118px;
     width: 100%;}
+	.prefered-stream-img2 img {   height: 118px;
+    width: 53%;}
 .stream-description{position:absolute;background:none repeat scroll 0 0 rgba(0, 0, 0, 0.66);right:0;height:100%;width:50%;padding:7px;}
 .stream-description h1{margin:0;color: #fff;font-size: 12px;font-weight: bold;text-transform: capitalize;font-family: open sans}
 .stream-description p{color: #F5F5F5;font-size: 11px;margin-top: 7px;text-align: justify;margin:0px;}
@@ -7918,7 +7921,7 @@ top:115px;width: 252px;background:#FAFFFF;background-color:#FAFFFF;z-index:999;}
 .br-top{border:1px solid #eee;}
 .br-area{border-left:1px solid #eee;border-right:1px solid #eee;border-bottom:1px solid #eee;}
 #career-description-tabs {padding:0px;list-style:none;}
-#career-description-tabs > li {float: left;color: #666;font-size: 11px;margin-top: 7px;text-align: justify;margin:0px;border: 1px solid #EEEEEE; padding: 6px;}
+#career-description-tabs > li {float: left;color: #666;font-size: 12px;margin-top: 7px;text-align: justify;margin:0px;border: 1px solid #EEEEEE; padding: 6px;}
 .details-report h1{color: #666;font-size: 25px;font-family: robotomedium; text-align: center;}
 .report-border{border:1px solid  #21C4C1;}
 .left-section ul {list-style:none;padding:0px;}
@@ -8217,7 +8220,7 @@ input[type="radio"]:checked + label
 .retaketest datetime{float:left;font-size:12px; color:#21C4C1; font-family:open sans;}
 .retaketest a{text-decoration:underline;font-size:12px;font-family:open sans;}
 .retaketest{float:lft;width:100%;}
-.min-height-fix{min-height:364px;}
+.min-height-fix{min-height:298px;}
 .scrollbox-wrapper {position: relative;overflow: hidden;}
 .scrollbox-rail,
 .scrollbox-bar {display: none;position: absolute;top: 0;right: 0;z-index: 10;width: 8px;-webkit-border-radius: 8px;-khtml-border-radius: 8px;-moz-border-radius: 8px;border-radius: 8px;background-color: #333;}
@@ -8399,3 +8402,41 @@ height:19px !important;
     line-height: 20px;
     margin-top: 7px;
     text-align: justify;}
+
+.tabs-width {float: left;overflow: hidden;width: 639px;}
+#career-description-tabs {float: left;width: 1000px;}
+.align-text-description {
+    float: left;
+    text-align: justify;
+    width: 77%;
+}
+#popup_box {
+    display:none; /* Hide the DIV */
+    position:fixed;  
+    _position:absolute; /* hack for internet explorer 6 */  
+    height:100%;  
+    width:100%;
+  background:#000;
+opacity: 0.85;  
+   
+	 text-align: center;
+    left: 0;
+    top: 0;
+    z-index:100; /* Layering ( on-top of others), if you have lots of layers: I just maximized, you can change it yourself */
+   
+    /* additional features, can be omitted */
+       
+    padding:166px;  
+    font-size:15px;  
+  
+   
+}
+#popup_box h1{ 
+    font-size: 15px;
+	 text-align: center;
+    line-height: 48px;
+    padding-top: 47px;
+    
+	}
+ .cons-pop{min-height: 359px !important;}
+ .stream-pref-min-height{min-height:200px;}

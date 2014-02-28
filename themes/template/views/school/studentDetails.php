@@ -17,26 +17,26 @@ $this->breadcrumbs=array('studentDetails',);
 														'lastPageLabel'=>false,
 													
 														),
-													'filter'=>$model,
+													// 'filter'=>$model,
 													'columns'=>array(
 														array(
-															'name'=>'gudaak_id',
+															'name'=>'Gudaak_ID 	',
 															'value'=>'$data->generateGudaakIds->gudaak_id'
 														),
-														'first_name',
-														'last_name',
-														array(
-															'name'=>'class',
-															'value'=>'$data->userClass->title'
+														/*	array(
+															'name'=>'Career',
+															'value'=>'$data->career->title'
+														),*/
+															array(
+															'name'=>'Student_Name',
+															'value'=>'$data->first_name." ".$data->last_name'
 														),
 														array(
-															'name'=>'user_role',
-															'value'=>'$data->userLogin->userRole->title'
+															'name'=>'Service',
+															'value'=>'$data->generateGudaakIds->userRole->description'
 														),
+													 
 														/*
-														'id',
-														'description',
-														'email',
 														'published',
 														'status',
 														'career_id',

@@ -97,9 +97,11 @@ $(document).ready(function () {
 	//$('.tab-description').hide();
 	$('.career-list-view ul li a').bind('click', function(e){
 		$('.career-list-view ul li a.currentTab').removeClass('currentTab');
+		$('.career-list-view ul li.li-active').removeClass('li-active');
 		$('.career-tab-section:visible').hide();
 		$(this.hash).slideToggle();
 		$(this).addClass('currentTab');
+		$(this).parent().addClass('li-active');
 		e.preventDefault();
 	}).filter(':first').click();	
 	//$('.tab-description').hide();
@@ -119,6 +121,15 @@ $(document).ready(function () {
 		$(this).addClass('orange');
 		e.preventDefault();
 	}).filter(':first').click();	
+	$('.subject-details').bind('click', function(e){
+		$(this).hide();
+	});
+	//Stream tabs
+	$('.preferred-career ul li a').bind('click', function(e){
+		$('.preferred-career ul li a').removeClass('activeCareer');
+		$(this).addClass('activeCareer');
+		e.preventDefault();
+	});	
 		$('#stream-user-tabs li a').bind('click', function(e){
 		$('#stream-user-tabs li a').removeClass('current-tab');
 		$('.stream-user-active:visible').hide();
@@ -186,6 +197,18 @@ $(document).ready(function () {
 		  $('.profileHide input').clone().insertBefore(".profileHide");
 			//$('.tab2_form_box').clone();
 		});
+		$(".ans_set span label").on("click", function() {
+			$(this).parent().parent().parent().css( "backgroundColor", "" );
+		});
+		 
+	
+		/*$(".subject-details").on("click", function() { 
+			 $(".s-details").modal({ // wire up the actual modal functionality and show the dialog
+			"backdrop" : "static",
+			"keyboard" : true,
+			"show" : true // ensure the modal is shown immediately
+			});
+		});*/
 		//$( "#add-more" ).clone().prependTo( "tab2_form_box" );
 
 });

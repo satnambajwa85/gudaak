@@ -1,8 +1,7 @@
 <?php $this->pageTitle=Yii::app()->name . ' - Detailed Report';
 $this->breadcrumbs=array('Detailed Report'=>array('/user/detailedReport'));?>
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <div class="career-bot pull-left">
-		<div class="mr0 col-md-12 fl">
+		<div class="mr0 col-md-12 pd0 fl">
 			<div class="mr0  pull-left stream-pref">
 				<h1>Detailed Report </h1>
 				<p>It is long established fact a reader will be It is long established fact a reader will be
@@ -10,8 +9,12 @@ $this->breadcrumbs=array('Detailed Report'=>array('/user/detailedReport'));?>
 				</p>
 
 			</div>
+			<?php if(isset($reports)){?>
+					<?php echo CHtml::link('Download PDF',array('user/DetailedReport&download=1'),array('target'=>'_blank','class'=>'btn btn-info2 center-bt fr'))?>
+			<?php }else{
 			
-		</div>
+			} ?>
+			</div>
 		<div class="col-md-12 pull-left br-all inner-padding">
 			<div id="scrollBar" style="max-height:490px">
 			<div class="col-md-10 col-sm-offset-1 pull-left  pd0">

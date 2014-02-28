@@ -1,12 +1,13 @@
 <?php
-/* @var $this GenerateGudaakIdsController */
-/* @var $model GenerateGudaakIds */
+if(Yii::app()->controller->action->id=='admin'){
 
-$this->breadcrumbs=array(
-	'Generate Gudaak Ids'=>array('index'),
-	'Create',
-);
+}else{
+$this->breadcrumbs=array('States'=>array('/admin/states/admin'),'Cities'=>array('/admin/cities/adminView','id'=>$school->cities->states_id),
+'Schools'=>array('/admin/schools/adminView','id'=>$school->cities->id),
+'Back to Gudaak id view'=>array('/admin/generateGudaakIds/adminView','id'=>$_REQUEST['id']));
+$this->widget('zii.widgets.CBreadcrumbs', array('links'=>$this->breadcrumbs,));
 
+}
 $this->menu=array(
 	array('label'=>'List GenerateGudaakIds', 'url'=>array('index')),
 	array('label'=>'Manage GenerateGudaakIds', 'url'=>array('admin')),

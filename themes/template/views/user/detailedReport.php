@@ -160,7 +160,7 @@ foreach($report['results'] as $result){
 
 
 	
-	<div class="col-md-2 pd0 pull-right">
+	<div class="news pd0 pull-right">
 		<?php  $this->Widget('WidgetNews'); ?>
 	</div>
 			

@@ -58,13 +58,6 @@ class UserProfiles extends CActiveRecord
 	public $favorite;
 	public $Lestfavorite;
 	public $interest;
-	
-	public $user_role;
-	public $class;
-	
-	
-	
-	
 	public function tableName()
 	{
 		return 'user_profiles';

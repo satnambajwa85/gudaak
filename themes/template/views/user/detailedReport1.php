@@ -8,7 +8,11 @@
 				</p>
 
 			</div>
+			<?php if(isset($reports)){?>
+					<?php echo CHtml::link('Download PDF',array('user/DetailedReport&download=1'),array('target'=>'_blank','class'=>'btn btn-info2 center-bt fr'))?>
+			<?php }else{
 			
+			} ?>
 		</div>
 		<div class="col-md-12 pull-left br-all inner-padding">
 			<div class="col-md-10 col-sm-offset-1 pull-left  pd0">
