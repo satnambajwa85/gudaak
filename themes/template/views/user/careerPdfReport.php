@@ -3,7 +3,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>PDF Report</title>
-
 </head>
 
 <body>
@@ -34,7 +33,7 @@ Wishing you all the best in all your future endeavours!
 
 						</div>
                     </div>	
-               <div style="float:left; width:90%; background:url(./image/img_icon.jpg) no-repeat;height:129px; background-position:center; margin-top:8%; margin-bottom:8%;"></div>
+               <div style="float:left; width:95%; background:url(./image/img_icon.jpg) no-repeat;height:129px; background-position:center; margin-top:8%; margin-bottom:8%;"></div>
                 
                 
                 </div>	
@@ -213,49 +212,33 @@ Wishing you all the best in all your future endeavours!
 	 
     <?php 
 	} ?><div>
+	
     <?php
 	$listArr	=	array();
 	foreach($report['results'] as $result){
 	if($report['id']==3){?>
-	
+	<div class="col-md-12 pd0  fl">
 	<?php
 		$listCar	=	Career::model()->findAllByAttributes(array('career_categories_id'=>$result['id']));
-		$streams	=	array();
-		foreach($listCar as $subCat){
-			$subCa		=	StreamHasCareer::model()->findAllByAttributes(array('career_id'=>$subCat->id));
-			foreach($subCa as $subjects){
-					$streams[]=$subjects->stream_id;	
-				
-			}
-		}
+		foreach($listCar as $data){		?>
 		
-		$streamList		=	Stream::model()->findAllByAttributes(array('id'=>$streams));
-		
-		foreach($streamList as $streamRec){
-			if(!in_array($streamRec->id,$listArr))
-				{
-				$listArr[]=$streamRec->id;
-			
-			
-			?>
+        
 <div style="color: #666666;font-size: 12px; margin-top: 10px;width:30%;float:left !important;text-align:left;">
-	 <div><img src="./uploads/stream/small/<?php echo $streamRec->image;?>" style="width:250px;float:left"/></div>
-	 	<?php echo $streamRec->name;?><br/>
-		<?php echo $streamRec->description;?>
+	 <div><img src="./uploads/career/small/<?php echo $data->image;?>" style="width:250px;float:left"/></div>
+	 	<?php echo $data->title;?><br/>
+		<?php echo $data->description;?>
 	  
 </div>
-<?php }
-}
 
 
-?>
+	<?php	}?>
     
-    
+    </div>
     <?php 
 		}}?>
         
         </div>
-        <div class="clear"></div>
+        
 <?php } ?>
 				</div>    
                 </div>

@@ -164,9 +164,3 @@ foreach($report['results'] as $result){
  </div>       
 
 		
-
-
-	 	<div class="news pd0 pull-right">
-		<?php  $this->Widget('WidgetNews'); ?>
-	</div>
-			

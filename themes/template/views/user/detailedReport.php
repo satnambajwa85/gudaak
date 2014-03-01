@@ -1,15 +1,24 @@
 <?php $this->pageTitle=Yii::app()->name . ' - Detailed Report';
 $this->breadcrumbs=array('Detailed Report'=>array('/user/detailedReport'));?>
-<script type="text/javascript" src="https://www.google.com/jsapi"></script>
 <div class="career-bot pull-left">
 		<div class="mr0 col-md-12 fl">
 			<div class="mr0  pull-left stream-pref">
-				<h1>Detailed Report </h1>
-				<p>It is long established fact a reader will be It is long established fact a reader will be
-					It is long established fact a reader will be It is long established fact a reader will beIt is long established fact a reader will be
+				<h1>Gudaak IPC Report </h1>
+				<p>Welcome to the world of Designing Career Path with Gudaak! The test you have taken just now is one of the numerous “Interest-Personality “Tests available online and offline but our uniqueness lies in the interpretation. We at Gudaak believe in the holistic approach towards life and careers. This report has been prepared with utmost care, keeping in mind the various factors that come into play when you are making a decision for life.<br/>
+Any suitable career can only be predicted with a combination of client’s academic assessments, interests, personality, values and attitudes when assessed in congenial environment. So, to succeed in life- Keep reading the literature on career and explore the possibilities that can help you reach your dreams and goals.<br/>
+The career recommendations made here are based on how genuinely you have answered the test. We hope that this report will lead to a greater understanding of yourself and at every step we are there to guide you.
+Remember! “There are no such things as limits to growth, because there are no limits on the human capacity for intelligence, imagination and wonder."
+
+Wishing you all the best in all your future endeavours!
+
 				</p>
 
 			</div>
+			<?php if(isset($reports)){?>
+					<?php echo CHtml::link('Download PDF',array('user/DetailedReport&download=1'),array('target'=>'_blank','class'=>'btn btn-info2 center-bt fr'))?>
+			<?php }else{
+			
+			} ?>
 			
 		</div>
 		<div class="col-md-12 pull-left br-all inner-padding">
