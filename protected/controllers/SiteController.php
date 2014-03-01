@@ -218,23 +218,23 @@ class SiteController extends Controller
 				
 		$this->render('userRegister',array('model'=>$model));
 	}
-	public function actionCheckUser()
+	public function actionCheckUser($email)
 	{	
-		$user		=	base64_decode($_REQUEST['email']);
+		$user		=	base64_decode($email);
 		$record_exists = UserLogin::model()->exists('username = :email', array(':email'=>$user));   				
 		if($record_exists==1){ 
 			$record = UserLogin::model()->findByAttributes(array('username'=>$user)); 
 			$record->activation	=	1;
 			if($record->save()){
-				Yii::app()->user->setFlash('sccess','Your new account is activated.');
-				$this->refresh();
+				Yii::app()->user->setFlash('login','Thank you for join us your account is activated.');
+				$this->redirect(array('site/login'));
 			
 			}
 			 
 		}else{
 		
-			Yii::app()->user->setFlash('error','Not record found.');
-			$this->refresh();
+			Yii::app()->user->setFlash('create','Not record found.');
+			$this->redirect(array('site/userRegister'));
 		}
 		
 			
@@ -403,6 +403,7 @@ class SiteController extends Controller
 				$body = $this->renderPartial('/mails/register_tpl',
 										array(	'name' => $data['name'],
 												'email'=>$data['email'],
+												'code'=>$data['code'],
 												'password'=>$data['password']), true);
 			break;
 			default:

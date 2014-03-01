@@ -498,12 +498,12 @@ class UserController extends Controller
 				$score	=	$cur->score;
 				foreach($cur->careerCategories->careerAssessments as $asswssment){
 					if($score >= $asswssment->score_start && $score <= $asswssment->score_end){
-						$userTest[$asswssment->value][$cur->career_categories_id]['value']		=	$asswssment->value;
-						$userTest[$asswssment->value][$cur->career_categories_id]['score']		=	$score;	
-						$userTest[$asswssment->value][$cur->career_categories_id]['id']			=	$cur->careerCategories->id;
-						$userTest[$asswssment->value][$cur->career_categories_id]['title']		=	$cur->careerCategories->title;
-						$userTest[$asswssment->value][$cur->career_categories_id]['title2']		=	$asswssment->title;
-						$userTest[$asswssment->value][$cur->career_categories_id]['description']=	$asswssment->description;
+						$userTest[$asswssment->value][$cur->id]['value']		=	$asswssment->value;
+						$userTest[$asswssment->value][$cur->id]['score']		=	$score;	
+						$userTest[$asswssment->value][$cur->id]['id']			=	$cur->careerCategories->id;
+						$userTest[$asswssment->value][$cur->id]['title']		=	$cur->careerCategories->title;
+						$userTest[$asswssment->value][$cur->id]['title2']		=	$asswssment->title;
+						$userTest[$asswssment->value][$cur->id]['description']	=	$asswssment->description;
 					}
 				}
 				
@@ -535,41 +535,14 @@ class UserController extends Controller
 			$data[$report->orient_items_id]['results']=$final;
 		}else{
 				$final		=	array();
-				$final1		=	array();
-				if(isset($userTest['high'])){
-					$highCount	=	count($userTest['high']);
-					$final		=	$userTest['high'];
-					$final1		=	$userTest['high'];
-				}
-				if(isset($userTest['moderate'])){
-					$midCount	=	count($userTest['moderate']);
-					$final1		=	array_merge($final1,array_slice($userTest['moderate'], 0, 5));
-				}
-				
-				if($highCount ==	0 && isset($userTest['moderate']))
-					$final		=	array_merge($final,array_slice($userTest['moderate'], 0, 2));
-				if($highCount>0 && $highCount < 2 && isset($userTest['moderate']))
-					$final		=	array_merge($final,array_slice($userTest['moderate'], 0, 1));
-				if(isset($userTest['low']))
-					$final1		=	array_merge($final1,array_slice($userTest['low'], 0, 5));
-				$total	=	$highCount+$midCount;
-				//Sorting accounding to category id
-				ksort($final1);
-				ksort($final);
-				$data[$report->orient_items_id]['results1']=$final1;
-				$data[$report->orient_items_id]['results']=$final;
-			}else{
-				$final		=	array();
-				
 				if(isset($userTest['high'])){
 					$final		=	$userTest['high'];
 				}
 				if(isset($userTest['moderate']))
-					$final		=	$final+$userTest['moderate'];
-					
+					$final		=	array_merge($final,array_slice($userTest['moderate'],0,5));
 				if(isset($userTest['low']))
-					$final		=	$final+$userTest['low'];
-				ksort($final);
+					$final		=	array_merge($final,array_slice($userTest['low'],0,5));
+				
 				$data[$report->orient_items_id]['results']=$final;
 			}
 			
@@ -578,13 +551,18 @@ class UserController extends Controller
 		
 		
 		if(isset($_REQUEST['download']) && $_REQUEST['download']==1){
-			$html2pdf = Yii::app()->ePdf->HTML2PDF();
+			//ob_clean(); 
+			
+			//$html2pdf = new HTML2PDF('P', 'A4', 'fr');
+			$html2pdf = new HTML2PDF('P', 'A4', 'fr');
 			ob_end_clean();
-			if(Yii::app()->user->userType ==  'below10th')
+			if(Yii::app()->user->userType ==  'below10th'){
 				$html =	'detailedReport2';
-			else
+				$html='pdfReport';
+			}else{
 				$html =	'detailedReport';
-			$html='pdfReport';
+			$html='careerPdfReport';
+			}
 			$html2pdf->WriteHTML($this->renderPartial($html,array('reports'=>$data,'profile'=>$profile),true));
 			
 			$html2pdf->Output();
@@ -1030,11 +1008,8 @@ class UserController extends Controller
 			$data2[$fCounselor->stream_id]['name']			=	$fCounselor->stream->name;
 			$data2[$fCounselor->stream_id]['description']	=	$fCounselor->stream->description;
 			$data2[$fCounselor->stream_id]['image']			=	$fCounselor->stream->image;
-			$rating2		=	UserStreamRating::model()->findAllByAttributes(array('stream_id'=>$fCounselor->stream_id,'user_profiles_id'=>Yii::app()->user->profileId));
-			foreach($rating2 as $list2){
-				$data2[$fCounselor->stream_id]['uCrate']			=	$list2->rating;
-				 
-			}
+			$data2[$fCounselor->stream_id]['uCrate']		=	$fCounselor->self;
+		 
 	 	}
 		//CVarDumper::dump($finalCounselor,10,1);die;
 		$this->render('streamPreference',array('data'=>$data,'data2'=>$data2,'model'=>$model,'finalCounselor'=>$finalCounselor));
@@ -1581,7 +1556,7 @@ class UserController extends Controller
         $mail->MsgHTML($body);
         $mail->AddAddress($to, "");		
         if(!$mail->Send()) {
-           echo 'No';die; return 0;
+		 echo 'No';die; return 0;
         }else {
 			return 1;
         }
