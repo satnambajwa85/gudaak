@@ -19,7 +19,7 @@
 	font-style:italic;
 }
 </style>
-<table cellpadding="0" cellspacing="0" border="0" class="mail_set">	
+<table cellpadding="0" cellspacing="0" border="0" class="mail_set" width="100%">	
 	<tr>
 		<td>
 			Dear <?php echo $name; ?>,<br /><br />
@@ -39,7 +39,7 @@
 	</tr>
 	<tr>
 		<td>
-			Click here to active your account <span><?php echo $code; ?></span>
+			Click here to active your account <span><a href="<?php echo $code;?>"/><?php echo $code; ?></span>
 		</td>	
 	</tr>
 	<tr>
