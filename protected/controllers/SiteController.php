@@ -171,7 +171,7 @@ class SiteController extends Controller
 					$user->add_date			=	date('Y-m-d H:i:s');
 					$user->block			=	0;
 					$Uclass					=	$_POST['Register']['class'];
-					$user->activation		=	1;
+					$user->activation		=	0;
 					$user->user_role_id		=	$userRole;
 					$model->user_login_id	=	1;
 					$model->generate_gudaak_ids_id	=	1;

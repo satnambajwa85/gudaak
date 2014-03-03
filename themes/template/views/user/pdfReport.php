@@ -7,16 +7,82 @@
 </head>
 
 <body>
-   
-	    <div class="wrapper">
-			<div style="float:left; width:96%; margin-top:17px; margin-bottom:50px; background:#1acccc; height:39px; padding-top:14px; text-align:right; font-size:18px; color:#fff; padding-right:10%; font-family:Arial, Helvetica, sans-serif;">Profile Summary&nbsp;
-				<div style=" position:absolute; width:200px; height:139px; top:0; left:15%;  "><img alt="" src="./image/small.jpg"></div>                    
+   <table width="800px" border="0" cellspacing="0" cellpadding="0" style=" font-family:Arial, Helvetica, sans-serif; color:#666; font-size:18px; ">
+	<tr>
+		<td>
+			<div style="float:left; width:100%; margin-top:17px; margin-bottom:50px; background:#1acccc; height:39px; padding-top:14px; text-align:right; font-size:18px; color:#fff; padding-right:10%; font-family:Arial, Helvetica, sans-serif;">
+			Profile Summary&nbsp;
+				<div style=" position:absolute; width:200px; height:139px; top:0; left:15%;">
+					<img alt="" src="./image/small.jpg">
+				</div>                    
 			</div>
-    				<div style="float:left; width:100%; min-height:700px; " >
-                	<div style="float:left; width:95%; padding-left:3%; font-size:18px; color:#21C4C1; margin-top:10%;   font-family:Arial, Helvetica, sans-serif; ">
+		</td>
+	</tr>
+	
+	</table>
+
+		<table width="800px" border="0" cellspacing="0" cellpadding="0" style=" font-family:Arial, Helvetica, sans-serif; color:#666; font-size:18px; ">
+
+  <tr>
+    <td width="200px" align="left" valign="left" style="border-left:1px solid #fff;font-size:12px; background-color:#F5F5F5; border-top:1px solid #fff; border-bottom:1px solid #fff; ">
+   <div style="width:200px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#fff; ">
+    Name
+    </div>
+	 
+	 <div style="width:200px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#F5F5F5; ">
+     Class
+     </div> 
+	  <div style="width:200px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#fff; ">
+   School
+     </div> 
+	  <div style="width:200px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#F5F5F5; ">
+	Gudaak ID
+	 </div> 
+	  <div style="width:200px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#fff; ">
+	Test Completed On
+	 </div> 
+ 
+	 </td>
+    <td width="200px" align="left" valign="left" style="font-size:12px; background-color:#F5F5F5;border-right:1px solid #fff; border-bottom:1px solid #fff; border-top:1px solid #fff;"> 
+	<div style="width:510px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#fff; ">
+	<?php echo $profile->first_name.' '.$profile->last_name;?>
+   </div> 
+    
+   <div style="width:510px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#F5F5F5; ">
+	
+    <?php echo $profile->userClass->title;?>
+     </div> 
+	 <div style="width:510px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#fff; ">
+	
+    <?php echo $profile->generateGudaakIds->schools->name;?>
+	 </div> 
+      <div style="width:510px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#F5F5F5; ">
+	
+    <?php echo $profile->generateGudaakIds->gudaak_id;?> 
+	 </div> 
+	 <div style="width:510px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#fff; ">
+	
+	<?php echo date('d M,Y',strtotime($userTestDate->add_date));?>
+	 </div> 
+
+	</td>
+    </tr>
+
+ </table>
+   <table border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td><div style="padding:10px;"></div></td>
+	</tr>
+  </table>
+     <table width="800px" border="0" cellspacing="0" cellpadding="0" style=" font-family:Arial, Helvetica, sans-serif; color:#666; font-size:18px; ">
+	<tr>
+		<td>
+			 				  
+					
+                	<div style="float:left; width:97%; font-size:18px; color:#21C4C1; margin-top:10%;   font-family:Arial, Helvetica, sans-serif; ">
                     	Gudaak IPC Report
                     </div>
-                	<div style="float:left; width:95%; padding-left:3%; font-size:14px; color:#666; text-align:justify; line-height:22px; font-family:, Helvetica, sans-serif;  ">
+                	<div style="float:left; width:97%; font-size:14px; color:#666; text-align:justify; line-height:22px; font-family:, Helvetica, sans-serif;  ">
                     	<p>Welcome to the world of Designing Career Path with Gudaak! The test you have taken just now is one of the numerous “Interest-Personality “Tests available online and offline but our uniqueness lies in the interpretation. We at Gudaak believe in the holistic approach towards life and careers. This report has been prepared with utmost care, keeping in mind the various factors that come into play when you are making a decision for life.<br/><br/>
 Any suitable career can only be predicted with a combination of client’s academic assessments, interests, personality, values and attitudes when assessed in congenial environment. So, to succeed in life- Keep reading the literature on career and explore the possibilities that can help you reach your dreams and goals.<br/><br/>
 The career recommendations made here are based on how genuinely you have answered the test. We hope that this report will lead to a greater understanding of yourself and at every step we are there to guide you.<br/><br/>
@@ -34,73 +100,19 @@ Wishing you all the best in all your future endeavours!
 
 						</div>
                     </div>	
-               <div style="float:left; width:90%; background:url(./image/img_icon.jpg) no-repeat;height:129px; background-position:center; margin-top:8%; margin-bottom:8%;"></div>
-                
-                
-                </div>	
-					<table width="800px" border="0" cellspacing="0" cellpadding="0" style=" font-family:Arial, Helvetica, sans-serif; color:#666; font-size:18px; ">
-
-  <tr>
-    <td width="20%" align="left" valign="middle" style="border-left:1px solid #21C4C1; background-color:#F5F5F5; border-top:1px solid #21C4C1; border-bottom:1px solid #21C4C1; ">
-   <div style="width:200px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#fff; ">
-    Name
-    </div>
+		</td>
+	</tr>
+	<tr>
+		<td>
+               <div style="float:left; width:95%; background:url(./image/img_icon.jpg) no-repeat;height:129px; background-position:center; margin-top:8%; margin-bottom:8%;"></div>
+        </td>
+	</tr>
 	 
-	 <div style="width:200px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#F5F5F5; ">
-     Gender
-     </div> 
-	  <div style="width:200px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#fff; ">
-    Date of birth
-     </div> 
-	  <div style="width:200px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#F5F5F5; ">
-	Class
-	 </div> 
-	  <div style="width:200px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#fff; ">
-	School
-	 </div> 
-	  <div style="width:200px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#F5F5F5; ">
-	Email
-    </div> 
-	 </td>
-    <td width="20%" align="left" valign="middle" style="background-color:#F5F5F5;border-right:1px solid #21C4C1; border-bottom:1px solid #21C4C1; border-top:1px solid #21C4C1;"> 
-	<div style="width:85%;text-align:left; height:20px;margin:0px;padding:10px;background-color:#fff; ">
-	<?php echo $profile->first_name.' '.$profile->last_name;?>
-   </div> 
-   <div style="width:85%;text-align:left; height:20px;margin:0px;padding:10px;background-color:#F5F5F5; ">
-	
-    <?php echo $profile->gender;?>
-     </div> 
-	 <div style="width:85%;text-align:left; height:20px;margin:0px;padding:10px;background-color:#fff; ">
-	
-    <?php echo $profile->date_of_birth;?>
-	 </div> 
-      <div style="width:85%;text-align:left; height:20px;margin:0px;padding:10px;background-color:#F5F5F5; ">
-	
-    <?php echo $profile->userClass->title;?> 
-	 </div> 
-	 <div style="width:85%;text-align:left; height:20px;margin:0px;padding:10px;background-color:#fff; ">
-	
-	<?php echo $profile->generateGudaakIds->schools->name;?>
-	 </div> 
-	 <div style="width:85%;text-align:left; height:20px;margin:0px;padding:10px;background-color:#F5F5F5; ">
-	
-	<?php echo $profile->email;?>	
-	 </div> 
-	</td>
-    </tr>
-                  </table>
- 	
-        
- <div style="float:left; width:100%; min-height:700px; " >
-
- 
-              
-                <div style="float:left; width:95.50%; height:438px; margin:20% 20%; " >
-				
-	                  <?php foreach($reports as $report){?>
+	</table>
+                  <?php foreach($reports as $report){?>
 						<?php if($report['id']==2){ ?>
 						<div style="float:left; width:100%; min-height:700px; " >
-						<div style="float:left; width:98%; margin-top:5%;margin-bottom:120px;background:#1acccc; height:40px; padding-top:14px; text-align:right; font-size:18px; color:#fff; padding-right:10%; font-family:Arial, Helvetica, sans-serif;">
+						<div style="float:left; width:100%; margin-top:5%;margin-bottom:10px;background:#1acccc; height:40px; padding-top:14px; text-align:right; font-size:18px; color:#fff; padding-right:10%; font-family:Arial, Helvetica, sans-serif;">
 							Personality Test Summary &nbsp;
 						</div>
 							
@@ -116,7 +128,7 @@ Wishing you all the best in all your future endeavours!
 									This section of the report will show you how you stack up on 5 major dimensions of personality:
 								</p>
 								
-								<!--<p>
+								<p>
 									•	<span style="font-weight:bold;">Openness to Experience -</span> How much do you enjoy abstract ideas and artistic expression?<br/><br/>
 									•	<span style="font-weight:bold;">Conscientiousness -</span> How much do you put off immediate gratification in order to achieve long-term goals?<br/><br/>
 									•	<span style="font-weight:bold;">Extraversion -</span> How much do you turn to the outside world for stimulation and excitement?<br/><br/>
@@ -124,7 +136,7 @@ Wishing you all the best in all your future endeavours!
 									•	<span style="font-weight:bold;">Neuroticism - </span>How likely are you to bounce back from stressful events?<br/><br/>
 
 
-								</p>-->
+								</p>
 							</div>	
 					   
 						
@@ -137,7 +149,7 @@ Wishing you all the best in all your future endeavours!
 						   
 							<div style="margin-top:50px;">
 								<div style="float:left; width:100%; min-height:700px; " >
-								<div style="float:left; width:98%; margin-top:5%;margin-bottom:50px;background:#1acccc; height:40px; padding-top:14px; text-align:right; font-size:18px; color:#fff; padding-right:10%; font-family:Arial, Helvetica, sans-serif;">
+								<div style="float:left; width:100%; margin-top:5%;margin-bottom:10px;background:#1acccc; height:40px; padding-top:14px; text-align:right; font-size:18px; color:#fff; padding-right:10%; font-family:Arial, Helvetica, sans-serif;">
 							Interest Test Summary &nbsp;
 						</div>
 							<div style="float:left; width:95%; padding-left:3%; font-size:18px; color:#21C4C1; margin-top:10%;   font-family:Arial, Helvetica, sans-serif; ">
@@ -213,6 +225,9 @@ Wishing you all the best in all your future endeavours!
 	 
     <?php 
 	} ?><div>
+	   <table width="800px" border="0" cellspacing="0" cellpadding="0" style=" font-family:Arial, Helvetica, sans-serif; color:#666; font-size:18px; ">
+	<tr>
+		
     <?php
 	$listArr	=	array();
 	foreach($report['results'] as $result){
@@ -238,12 +253,18 @@ Wishing you all the best in all your future endeavours!
 			
 			
 			?>
-<div style="color: #666666;font-size: 12px; margin-top: 10px;width:30%;float:left !important;text-align:left;">
-	 <div><img src="./uploads/stream/small/<?php echo $streamRec->image;?>" style="width:250px;float:left"/></div>
-	 	<?php echo $streamRec->name;?><br/>
-		<?php echo $streamRec->description;?>
-	  
-</div>
+		<td width="200px">
+			<div style="color: #666666;font-size: 12px;width:30%;float:left !important;text-align:left;">
+				<img src="./uploads/stream/small/<?php echo $streamRec->image;?>" style="width:250px;float:left"/>
+			</div>
+			 <div style="color: #666666;font-size: 12px;width:200px;float:left !important;text-align:left;">
+				<?php echo $streamRec->name;?><br/>
+				<?php echo $streamRec->description;?>
+			  
+			</div>
+		</td>
+		 
+
 <?php }
 }
 
@@ -253,38 +274,36 @@ Wishing you all the best in all your future endeavours!
     
     <?php 
 		}}?>
-        
+
+		 
+	</tr>
+	
+	</table>      
         </div>
         <div class="clear"></div>
 <?php } ?>
-				</div>    
+
+     			 
+               <div style="float:left; width:100%; margin:5% 0 15% 0;">
+				   <table width="800px" border="0" cellspacing="0" cellpadding="0">
+					<tr>
+						<td><div style=" float:left; width:212px; height:159px;"><img alt="" src="./image/img_whitebg.jpg"></div></td>
+						<td>
+							 <div style="float:left; width:80.80%; height:159px; background:#1acccc; padding-right:8px; text-align:center; vertical-align:middle;  ">
+								<div style="float:right; width:50%;text-align:center; margin-right:2%; color:#fff; font-size:17px; line-height:22px; font-family:Arial, Helvetica, sans-serif; margin-top:7%;">
+									
+								Call: +91 8786 76545,  <br>
+								Email: info@gudaak.com &nbsp;&nbsp; Website: www.gudaak.com 
+								</div>
+							
+							</div>
+						</td>
+					</tr>
+				   </table>
+                	
+                   
                 </div>
- 
- 			 
      
-    <!--Page NO. 1 End-->
-    </div>
- 
-      <div class="wrapper">
-      
-			 	<div style="float:left; width:100%; min-height:700px; " >
-                <div style="float:left; width:100%; margin:5% 0 15% 0;">
-                	<div style=" float:left; width:212px; height:159px;"><!--<img src="images/img_whitebg.jpg" alt="" />--></div>
-                    <div style="float:left; width:100%; height:159px; background:#1acccc; padding-right:8px; text-align:right; vertical-align:middle;  "  >
-                    	<div style="text-align:center; width:50%; margin-right:2%; color:#fff; font-size:17px; line-height:22px; font-family:Arial, Helvetica, sans-serif; margin-top:7%;">
-                        	
-                        Call: +91 8786 76545, +91 7654 763592 <br/>
-                        Email: info@gudaak.com &nbsp;&nbsp; Website: www.gudaak.com 
-                        </div>
-                    
-                    </div>
-                </div>  
-                </div>
- 
- 				<div style="float:left; width:100%; background:#1acccc; height:30px;"></div>	
-     
-    <!--Page NO. 1 End-->
-    </div>
     
 </body>
 </html>

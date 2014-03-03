@@ -485,8 +485,8 @@ class UserController extends Controller
 	public function actionDetailedReport()
 	{	
 		$userReports			=	UserReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
-		$data	=	array();
-		
+		$data					=	array();
+		$userTestDate			=	UserReports::model()->findByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
 		foreach($userReports as $report){
 			$userTest	=	array();
 			$data[$report->orient_items_id]['id']=$report->orient_items_id;
@@ -544,7 +544,7 @@ class UserController extends Controller
 					$final		=	array_merge($final,array_slice($userTest['low'],0,5));
 				
 				$data[$report->orient_items_id]['results']=$final;
-			}
+			}	
 			
 		}
 		$profile		=	 UserProfiles::model()->findByPk(Yii::app()->user->profileId);
@@ -563,16 +563,16 @@ class UserController extends Controller
 				$html =	'detailedReport';
 			$html='careerPdfReport';
 			}
-			$html2pdf->WriteHTML($this->renderPartial($html,array('reports'=>$data,'profile'=>$profile),true));
+			$html2pdf->WriteHTML($this->renderPartial($html,array('reports'=>$data,'profile'=>$profile,'userTestDate'=>$userTestDate),true));
 			
 			$html2pdf->Output();
 			//ob_end_flush();
 			die;
 		}
 		if(Yii::app()->user->userType ==  'below10th')
-			$this->render('detailedReport2',array('reports'=>$data,'profile'=>$profile));
+			$this->render('detailedReport2',array('reports'=>$data,'profile'=>$profile,'userTestDate'=>$userTestDate));
 		else
-			$this->render('detailedReport',array('reports'=>$data,'profile'=>$profile));
+			$this->render('detailedReport',array('reports'=>$data,'profile'=>$profile,'userTestDate'=>$userTestDate));
 		
 		
 		
@@ -754,12 +754,11 @@ class UserController extends Controller
 				$careerSubjets[]	=	$subject->subjects_id;
 			
 		}
-		$list	=	array();
 		if(count($careerSubjets))
 		foreach($careerSubjets as $careerSubjet){
 			$allSubjectCareers	=	CareerOptionsHasSubjects::model()->findAllByAttributes(array('subjects_id'=>$careerSubjet));
 			foreach($allSubjectCareers as $allSubjectCareer){
-				$optionList[$careerSubjet][$allSubjectCareer->career_options_id]=$allSubjectCareer->career_options_id;
+				$optionList[$careerSubjet][$allSubjectCareer->career_options_id]=$allSubjectCareer->careerOptions->career_id;
 			}
 		}
 		$countID=0;
@@ -775,10 +774,12 @@ class UserController extends Controller
 		
 		$codeS	=	1;
 		if(count($result))
+		$list	=	array();
 		foreach($result as $subj){
-			$datSubs	=	CareerOptions::model()->findByPk($subj);
+			$datSubs	=	Career::model()->findByPk($subj);
 			$list[$datSubs->id]	=	$datSubs->title;
-		}	
+		}
+				
 		$this->render('stream',array('stream'=>$stream,'subjects'=>$Subjects,'careerOption'=>$list,'streamData'=>$userStream));
 		
 	}

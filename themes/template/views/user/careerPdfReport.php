@@ -6,16 +6,81 @@
 </head>
 
 <body>
-   
-	    <div class="wrapper">
-			<div style="float:left; width:96%; margin-top:17px; margin-bottom:50px; background:#1acccc; height:39px; padding-top:14px; text-align:right; font-size:18px; color:#fff; padding-right:10%; font-family:Arial, Helvetica, sans-serif;">Profile Summary&nbsp;
-				<div style=" position:absolute; width:200px; height:139px; top:0; left:15%;  "><img alt="" src="./image/small.jpg"></div>                    
+   <table width="800px" border="0" cellspacing="0" cellpadding="0" style=" font-family:Arial, Helvetica, sans-serif; color:#666; font-size:18px; ">
+	<tr>
+		<td>
+			<div style="float:left; width:100%; margin-top:17px; margin-bottom:50px; background:#1acccc; height:39px; padding-top:14px; text-align:right; font-size:18px; color:#fff; padding-right:10%; font-family:Arial, Helvetica, sans-serif;">
+			Profile Summary&nbsp;
+				<div style=" position:absolute; width:200px; height:139px; top:0; left:15%;">
+					<img alt="" src="./image/small.jpg">
+				</div>                    
 			</div>
-    				<div style="float:left; width:100%; min-height:700px; " >
-                	<div style="float:left; width:95%; padding-left:3%; font-size:18px; color:#21C4C1; margin-top:10%;   font-family:Arial, Helvetica, sans-serif; ">
+		</td>
+	</tr>
+	
+	</table>
+	<table width="800px" border="0" cellspacing="0" cellpadding="0" style=" font-family:Arial, Helvetica, sans-serif; color:#666; font-size:18px; ">
+
+  <tr>
+    <td width="200px" align="left" valign="left" style="border-left:1px solid #fff;font-size:12px; background-color:#F5F5F5; border-top:1px solid #fff; border-bottom:1px solid #fff; ">
+   <div style="width:200px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#fff; ">
+    Name
+    </div>
+	 
+	 <div style="width:200px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#F5F5F5; ">
+     Class
+     </div> 
+	  <div style="width:200px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#fff; ">
+   School
+     </div> 
+	  <div style="width:200px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#F5F5F5; ">
+	Gudaak ID
+	 </div> 
+	  <div style="width:200px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#fff; ">
+	Test Completed On
+	 </div> 
+ 
+	 </td>
+    <td width="200px" align="left" valign="left" style="font-size:12px; background-color:#F5F5F5;border-right:1px solid #fff; border-bottom:1px solid #fff; border-top:1px solid #fff;"> 
+	<div style="width:510px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#fff; ">
+	<?php echo $profile->first_name.' '.$profile->last_name;?>
+   </div> 
+    
+   <div style="width:510px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#F5F5F5; ">
+	
+    <?php echo $profile->userClass->title;?>
+     </div> 
+	 <div style="width:510px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#fff; ">
+	
+    <?php echo $profile->generateGudaakIds->schools->name;?>
+	 </div> 
+      <div style="width:510px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#F5F5F5; ">
+	
+    <?php echo $profile->generateGudaakIds->gudaak_id;?> 
+	 </div> 
+	 <div style="width:510px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#fff; ">
+	
+	<?php echo date('d M,Y',strtotime($userTestDate->add_date));?>
+	 </div> 
+
+	</td>
+    </tr>
+
+ </table>
+  <table border="0" cellspacing="0" cellpadding="0">
+	<tr>
+		<td><div style="padding:10px;"></div></td>
+	</tr>
+  </table>
+   <table width="800px" border="0" cellspacing="0" cellpadding="0" style=" font-family:Arial, Helvetica, sans-serif; color:#666; font-size:18px; ">
+	<tr>
+		<td>
+			 				  
+					
+                	<div style="float:left; width:97%; font-size:18px; color:#21C4C1; margin-top:10%;   font-family:Arial, Helvetica, sans-serif; ">
                     	Gudaak IPC Report
                     </div>
-                	<div style="float:left; width:95%; padding-left:3%; font-size:14px; color:#666; text-align:justify; line-height:22px; font-family:, Helvetica, sans-serif;  ">
+                	<div style="float:left; width:97%; font-size:14px; color:#666; text-align:justify; line-height:22px; font-family:, Helvetica, sans-serif;  ">
                     	<p>Welcome to the world of Designing Career Path with Gudaak! The test you have taken just now is one of the numerous “Interest-Personality “Tests available online and offline but our uniqueness lies in the interpretation. We at Gudaak believe in the holistic approach towards life and careers. This report has been prepared with utmost care, keeping in mind the various factors that come into play when you are making a decision for life.<br/><br/>
 Any suitable career can only be predicted with a combination of client’s academic assessments, interests, personality, values and attitudes when assessed in congenial environment. So, to succeed in life- Keep reading the literature on career and explore the possibilities that can help you reach your dreams and goals.<br/><br/>
 The career recommendations made here are based on how genuinely you have answered the test. We hope that this report will lead to a greater understanding of yourself and at every step we are there to guide you.<br/><br/>
@@ -33,73 +98,22 @@ Wishing you all the best in all your future endeavours!
 
 						</div>
                     </div>	
+		</td>
+	</tr>
+	<tr>
+		<td>
                <div style="float:left; width:95%; background:url(./image/img_icon.jpg) no-repeat;height:129px; background-position:center; margin-top:8%; margin-bottom:8%;"></div>
-                
-                
-                </div>	
-					<table width="800px" border="0" cellspacing="0" cellpadding="0" style=" font-family:Arial, Helvetica, sans-serif; color:#666; font-size:18px; ">
-
-  <tr>
-    <td width="20%" align="left" valign="middle" style="border-left:1px solid #21C4C1; background-color:#F5F5F5; border-top:1px solid #21C4C1; border-bottom:1px solid #21C4C1; ">
-   <div style="width:200px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#fff; ">
-    Name
-    </div>
+        </td>
+	</tr>
 	 
-	 <div style="width:200px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#F5F5F5; ">
-     Gender
-     </div> 
-	  <div style="width:200px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#fff; ">
-    Date of birth
-     </div> 
-	  <div style="width:200px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#F5F5F5; ">
-	Class
-	 </div> 
-	  <div style="width:200px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#fff; ">
-	School
-	 </div> 
-	  <div style="width:200px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#F5F5F5; ">
-	Email
-    </div> 
-	 </td>
-    <td width="20%" align="left" valign="middle" style="background-color:#F5F5F5;border-right:1px solid #21C4C1; border-bottom:1px solid #21C4C1; border-top:1px solid #21C4C1;"> 
-	<div style="width:85%;text-align:left; height:20px;margin:0px;padding:10px;background-color:#fff; ">
-	<?php echo $profile->first_name.' '.$profile->last_name;?>
-   </div> 
-   <div style="width:85%;text-align:left; height:20px;margin:0px;padding:10px;background-color:#F5F5F5; ">
-	
-    <?php echo $profile->gender;?>
-     </div> 
-	 <div style="width:85%;text-align:left; height:20px;margin:0px;padding:10px;background-color:#fff; ">
-	
-    <?php echo $profile->date_of_birth;?>
-	 </div> 
-      <div style="width:85%;text-align:left; height:20px;margin:0px;padding:10px;background-color:#F5F5F5; ">
-	
-    <?php echo $profile->userClass->title;?> 
-	 </div> 
-	 <div style="width:85%;text-align:left; height:20px;margin:0px;padding:10px;background-color:#fff; ">
-	
-	<?php echo $profile->generateGudaakIds->schools->name;?>
-	 </div> 
-	 <div style="width:85%;text-align:left; height:20px;margin:0px;padding:10px;background-color:#F5F5F5; ">
-	
-	<?php echo $profile->email;?>	
-	 </div> 
-	</td>
-    </tr>
-                  </table>
- 	
-        
- <div style="float:left; width:100%; min-height:700px; " >
-
- 
+	</table>
+  
               
-                <div style="float:left; width:95.50%; height:438px; margin:20% 20%; " >
-				
+              
 	                  <?php foreach($reports as $report){?>
 						<?php if($report['id']==2){ ?>
 						<div style="float:left; width:100%; min-height:700px; " >
-						<div style="float:left; width:98%; margin-top:5%;margin-bottom:120px;background:#1acccc; height:40px; padding-top:14px; text-align:right; font-size:18px; color:#fff; padding-right:10%; font-family:Arial, Helvetica, sans-serif;">
+						<div style="float:left; width:98%; margin-top:5%;margin-bottom:10px;background:#1acccc; height:40px; padding-top:14px; text-align:right; font-size:18px; color:#fff; padding-right:10%; font-family:Arial, Helvetica, sans-serif;">
 							Personality Test Summary &nbsp;
 						</div>
 							
@@ -115,7 +129,7 @@ Wishing you all the best in all your future endeavours!
 									This section of the report will show you how you stack up on 5 major dimensions of personality:
 								</p>
 								
-								<!--<p>
+								<p>
 									•	<span style="font-weight:bold;">Openness to Experience -</span> How much do you enjoy abstract ideas and artistic expression?<br/><br/>
 									•	<span style="font-weight:bold;">Conscientiousness -</span> How much do you put off immediate gratification in order to achieve long-term goals?<br/><br/>
 									•	<span style="font-weight:bold;">Extraversion -</span> How much do you turn to the outside world for stimulation and excitement?<br/><br/>
@@ -123,7 +137,7 @@ Wishing you all the best in all your future endeavours!
 									•	<span style="font-weight:bold;">Neuroticism - </span>How likely are you to bounce back from stressful events?<br/><br/>
 
 
-								</p>-->
+								</p>
 							</div>	
 					   
 						
@@ -136,7 +150,7 @@ Wishing you all the best in all your future endeavours!
 						   
 							<div style="margin-top:50px;">
 								<div style="float:left; width:100%; min-height:700px; " >
-								<div style="float:left; width:98%; margin-top:5%;margin-bottom:50px;background:#1acccc; height:40px; padding-top:14px; text-align:right; font-size:18px; color:#fff; padding-right:10%; font-family:Arial, Helvetica, sans-serif;">
+								<div style="float:left; width:98%; margin-top:5%;margin-bottom:10px;background:#1acccc; height:40px; padding-top:14px; text-align:right; font-size:18px; color:#fff; padding-right:10%; font-family:Arial, Helvetica, sans-serif;">
 							Interest Test Summary &nbsp;
 						</div>
 							<div style="float:left; width:95%; padding-left:3%; font-size:18px; color:#21C4C1; margin-top:10%;   font-family:Arial, Helvetica, sans-serif; ">
@@ -211,44 +225,50 @@ Wishing you all the best in all your future endeavours!
     	<div class="border_b"></div>
 	 
     <?php 
-	} ?><div>
-	
+	} ?><div style="width:100%;">
+	   <table width="700px" border="0" cellspacing="0" cellpadding="0" style=" font-family:Arial, Helvetica, sans-serif; color:#666; font-size:18px; ">
+	<tr>
     <?php
 	$listArr	=	array();
+	$counter=1;
 	foreach($report['results'] as $result){
 	if($report['id']==3){?>
-	<div class="col-md-12 pd0  fl">
-	<?php
+	 <?php
 		$listCar	=	Career::model()->findAllByAttributes(array('career_categories_id'=>$result['id']));
 		foreach($listCar as $data){		?>
 		
-        
-<div style="color: #666666;font-size: 12px; margin-top: 10px;width:30%;float:left !important;text-align:left;">
-	 <div><img src="./uploads/career/small/<?php echo $data->image;?>" style="width:250px;float:left"/></div>
-	 	<?php echo $data->title;?><br/>
-		<?php echo $data->description;?>
-	  
-</div>
-
-
-	<?php	}?>
+		<td width="200px">
+		
+			<div style="color: #666666;font-size: 12px;width:200px;float:left !important;text-align:left;">
+				<img src="./uploads/career/small/<?php echo $data->image;?>" />
+			</div>
+			 <div style="color: #666666;font-size: 12px;width:200px;float:left !important;text-align:left;">
+				<?php echo $data->title;?><br/>
+				<?php echo $data->description;?>
+			  
+			</div>
+		</td>      
+	 <?php if($counter%3==0){?>
+	 <tr>
+	 
+	</tr>
+	 
+	 <?php } ?>
+	<?php	$counter++;  }?>
     
-    </div>
+    
     <?php 
 		}}?>
-        
+    
+		 
+	</tr>
+	
+	</table>  
         </div>
         
 <?php } ?>
-				</div>    
-                </div>
- 
- 			 
-     
-    <!--Page NO. 1 End-->
-    </div>
- 
-      <div class="wrapper">
+			 
+     <div class="wrapper">
       
 			 	<div style="float:left; width:100%; min-height:700px; " >
                 <div style="float:left; width:100%; margin:5% 0 15% 0;">

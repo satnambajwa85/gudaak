@@ -119,12 +119,13 @@ class CareerController extends Controller
 						$modl->published	=	1;
 						$modl->save();
 					}
+					 
 				}
 				$this->redirect(array('adminView','id'=>$model->career_categories_id));
 			}
 		}
 		$streams	=	array();
-		foreach($model->streamHasCareers as $sub)
+		foreach($model->streamHasCareer as $sub)
 			$streams[]	=	$sub->stream_id;
 
 		$this->render('create',array(
@@ -196,7 +197,7 @@ class CareerController extends Controller
 				$model->image	=	$_POST['Career']['oldImage'];
 			
 			if($model->save()){
-				StreamHasCareer::model()->deleteAllByAttributes(array('stream_id'=>$model->id));
+				StreamHasCareer::model()->deleteAllByAttributes(array('career_id'=>$model->id));
 				if(!empty($_POST['Career']['streams']))
 				foreach($_POST['Career']['streams'] as $subject=>$val){
 					if($val){
