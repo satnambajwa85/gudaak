@@ -32,6 +32,8 @@ class CareerOptions extends CActiveRecord
 	 * @return CareerOptions the static model class
 	 */
 	public $career_categories_id;
+	public $streams;
+	public $subjects;
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);

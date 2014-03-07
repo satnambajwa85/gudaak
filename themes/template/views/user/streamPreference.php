@@ -35,8 +35,17 @@ $this->breadcrumbs=array('Stream Preference'=>array('/user/streamPreference'));?
 							<div class="col-md-5 pull-left fl pd0">
 									<div class="br-right">
 										<div class="col-md-12 pull-left pd0 stream-img">
-										<?php echo CHtml::link('<img  src="'.Yii::app()->baseUrl.'/uploads/stream/small/'.$list['image'].'" />',array('user/stream','id'=>$list['id']));?>
-										<?php echo CHtml::link('<h1 class="stream-img-title">'.$list['name'].'</h1>',array('user/stream','id'=>$list['id']));?>
+										<?php 
+											$filename = $list['image'];
+											 $path=Yii::getPathOfAlias('webroot.uploads.stream.small') . '/';
+											$file=$path.$filename;
+											if (file_exists($file)){ ?>
+											<?php echo CHtml::link('<img  src="'.Yii::app()->baseUrl.'/uploads/stream/small/'.$list['image'].'" />',array('user/stream','id'=>$list['id']));?>
+															<?php 	}else{ ?>
+											<?php echo CHtml::link('<img src="'.Yii::app()->baseUrl.'/uploads/stream/small/noimage.jpg"/>',array('user/stream','id'=>''.$list['id'].''));?>
+										
+										<?php } ?>
+					<?php echo CHtml::link('<h1 class="stream-img-title">'.$list['name'].'</h1>',array('user/stream','id'=>$list['id']));?>
 										
 										</div>
 										 
@@ -105,7 +114,7 @@ $this->breadcrumbs=array('Stream Preference'=>array('/user/streamPreference'));?
 			</div>
 			<?php } ?>
 		<?php if(!empty($data2)){ ?>
-			<div class="col-md-4 pull-left">
+			<div class="col-md-6 pull-left">
 				<div class="col-md-12 fl">
 					<div class="mr0  pull-left middle-format-left">
 						<h1>Counselor  Prefered career options </h1>
@@ -118,9 +127,19 @@ $this->breadcrumbs=array('Stream Preference'=>array('/user/streamPreference'));?
 					<div class="col-md-12 pull-left fl pd-b10">
 						<div class="col-md-12 fl pd0 ">
 							<div class="pull-left pd0 prefered-stream-img">
-	 
-								<img  src="<?php echo Yii::app()->baseUrl;?>/uploads/stream/small/<?php echo $selfSel['image'];?>" />
-							</div>
+								<?php 
+									$filename = $list['image'];
+									 $path=Yii::getPathOfAlias('webroot.uploads.stream.small') . '/';
+									$file=$path.$filename;
+									if (file_exists($file)){ ?>
+										<img  src="<?php echo Yii::app()->baseUrl;?>/uploads/stream/small/<?php echo $selfSel['image'];?>" />
+										<?php 	}else{ ?>
+											<img  src="<?php echo Yii::app()->baseUrl;?>/uploads/stream/small/noimage.jpg" />
+						
+								
+								<?php } ?>
+
+								</div>
 							<div class="col-md-9 pull-left  stream-description">
 								<h1><?php echo $selfSel['name'];?></h1>
 							
@@ -168,7 +187,7 @@ $this->breadcrumbs=array('Stream Preference'=>array('/user/streamPreference'));?
 		
 </div>
 </div>
-	<div class="news pd0 fl">
+	<div class="news pd0 fr">
 		<?php  $this->Widget('WidgetNews'); ?>
 	</div>
 <script type="text/javascript">

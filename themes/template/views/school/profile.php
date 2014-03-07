@@ -6,18 +6,25 @@ $this->breadcrumbs=array('Forms',);?>
 			<?php 
 				$form=$this->beginWidget('CActiveForm', array(
 														'id'=>'school-profile',
-													    'enableClientValidation'=>true,
+													    'enableClientValidation'=>false,
 														'clientOptions'=>array(
 																'validateOnSubmit'=>true,
 																
-															)
+															),
+															'htmlOptions'=>array('enctype'=>'multipart/form-data'),
 														));?>
 				<div class="col-md-4 pull-left">
 					<div class="school-img">
-						<img src="<?php echo Yii::app()->baseUrl?>/images/school.jpg" />
+						<img src="<?php echo Yii::app()->baseUrl?>/uploads/schools/large/<?php echo $model->images;?>" />
 					</div>
-					<?php //echo $form->fileField($model,'images',array('class'=>'form-control','placeholder'=>'images','autofocus'=>true));
-				//echo $form->error($model,'images');?>
+					<div class="form-group">
+						<?php echo $form->labelEx($model,'images'); ?>
+						<?php echo $form->fileField($model,'images',array('size'=>45,'maxlength'=>45)); ?>
+						<?php echo $form->error($model,'images'); ?>
+						<?php if(isset($model->images)){ ?> 
+						<?php echo $form->hiddenField($model,'images',array('value'=>$model->images)); ?>
+						<?php }?>
+					</div>
 				</div>
 			  	<div class="col-md-8 pull-right right-pad">
 				<?php echo $form->textField($model,'name',array('class'=>'form-control','placeholder'=>'School Name','autofocus'=>true));

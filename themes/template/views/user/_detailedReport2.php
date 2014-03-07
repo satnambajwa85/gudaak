@@ -12,6 +12,11 @@
 				</p>
 
 			</div>
+			<?php if(isset($reports)){?>
+					<?php //echo CHtml::link('Download PDF',array('user/DetailedReport&download=1'),array('target'=>'_blank','class'=>'btn btn-info2 center-bt fr'))?>
+			<?php }else{
+			
+			} ?>
 			
 		</div>
 		<div class="col-md-12 pull-left inner-padding">
@@ -19,7 +24,7 @@
 					<div class="col-md-12 fl details-report">
 						<h1>Profile Summary</h1>
 					</div>
-					<div class="col-md-12  pull-left report-border pd0">
+					<!--<div class="col-md-12  pull-left report-border pd0">
 						<div class="col-md-6  pull-left left-section pd0">
 							<ul>
 								<li>Name</li>
@@ -35,14 +40,14 @@
 								<li><?php echo $profile->first_name.' '.$profile->last_name;?></li>
 								<li><?php echo $profile->gender;?></li>
 								<li><?php echo $profile->date_of_birth;?></li>
-								<li><?php echo $profile->class;?><i class="user-edu">th</i></li>
+								<li><?php echo $profile->userClass->title?></li>
 								<li class="capitalize"><?php echo $profile->generateGudaakIds->schools->name;?></li>
 								<li class="lastRow"><?php echo $profile->email;?></li>
 							</ul>
 						</div>
 						<div class="col-md-6  pull-left">
 						</div>
-					</div>
+					</div>-->
 					<div class="col-md-12">
                        <div class="clear"></div>
                        <br /><br />
@@ -159,6 +164,3 @@ foreach($report['results'] as $result){
  </div>       
 
 		
-
-
-	 

@@ -50,7 +50,9 @@ Yii::app()->clientScript->registerScript(
 						</div>
 						<div class="pull-right dashbord-top-nav ">
 							<ul class="nav  top-nav-left pull-left">
-							  <li><i class="icon-microphone icon-top talk-icon"></i><a href="#">Talk to Counsellor</a></li>
+							  <li>
+                              <?php echo CHtml::Link('<i class="icon-microphone icon-top talk-icon"></i>Talk to Counsellor','javaScript:void(0);',array('class'=>'talk-to-counsellor'));?>
+                              </li>
 							  <li><i class="news-icon"></i><?php echo CHtml::link('News and Updates',array('user/newsUpdates'));?></li>
 							  <li><i class="summary-icon"></i><?php echo CHtml::link('Summary',array('user/summary'));?></li>
 							 
@@ -121,7 +123,8 @@ Yii::app()->clientScript->registerScript(
  var url	=	'<?php echo Yii::app()->createUrl('/user/userProfileUpdate');?>';
  var test	=	'<?php echo Yii::app()->createUrl('user/test');?>';
 </script>
-<?php  $this->Widget('WidgetUserProfile'); ?>
+<?php $this->Widget('WidgetUserProfile'); ?>
+<?php //$this->Widget('WidgetTalk'); ?>
 	
 
 

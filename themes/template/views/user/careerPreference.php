@@ -36,7 +36,7 @@ $this->breadcrumbs=array('Career Preference'=>array('/user/careerPreference'));
 			
 				<div id="scrollBar" style="max-height:450px;">
                 <?php foreach($data as $list){ ?>
-				<div class="col-md-12 fl pd0 br-all mt-10">
+				<div class="col-md-12 fl pd0 br-all mt-10 remove-link<?php echo $list['id']?>">
 							<div class="col-md-5 pull-left fl pd0">
 									<div class="br-right">
 										<div class="col-md-12 pull-left pd0 stream-img">
@@ -76,18 +76,41 @@ $this->breadcrumbs=array('Career Preference'=>array('/user/careerPreference'));
         		<span>Do you think this is the best career for you</span>
                 <div class="clear"></div>
 				<?php if($list['updated_by']==0){?>
-									<?php echo CHtml::ajaxLink('Make Final',array('user/finalizedCareer','id'=>$list['id']),
-																		array('type'=>'POST','success'=>'function(data){alert(data)}'),
-																		array('confirm'=>'Are you sure you want to finalize this career?',
-																				'class'=>'white-text btn btn-warning',
-																				'id'=>'final_item-'.$list['id']));  ?>
+				<?php echo CHtml::ajaxLink('Make Final',array('user/finalizedCareer','id'=>$list['id']),
+												array(	'type'=>'POST',
+														'success'=>'function(data){
+																		var $dataR	=	jQuery.parseJSON(data)
+																		if($dataR.status==1){
+																			$("#final_item-'.$list['id'].'").html("Finalized");
+																			$("#remove-'.$list['id'].'").css("display","block");
+																		}
+																		else{
+																			alert($dataR.message);
+																			}
+																	}'),
+												array('confirm'=>'Are you sure you want to finalize this career?',
+														'class'=>'white-text btn btn-warning',
+														'id'=>'final_item-'.$list['id']));  ?>
 									<?php }else{ ?>
-									<?php echo CHtml::ajaxLink('Finalized','javaScript:void(0);',
-																		array('type'=>'POST','success'=>'function(data){alert(data)}'),
-																		array('confirm'=>'Already Finalized.',
-																				'class'=>'white-text btn btn-warning',
-																				'id'=>'final_item-'.$list['id']));  ?>
-									<?php } ?>
+				
+			 
+			 			<?php echo CHtml::ajaxLink('Finalized',array('user/finalizedCareer','id'=>$list['id']),
+												array(	'type'=>'POST',
+														'success'=>'function(data){
+																		var $dataR	=	jQuery.parseJSON(data)
+																		if($dataR.status==1){
+																			$("#final_item-'.$list['id'].'").html("Finalized");
+																			$("#remove-'.$list['id'].'").css("display","block");
+																		}
+																		else{
+																			alert($dataR.message);
+																			}
+																	}'),
+												array('confirm'=>'Already finalized this career?',
+														'class'=>'white-text btn btn-warning',
+														'id'=>'final_item-'.$list['id']));  ?>	
+				 
+				<?php } ?>
 	        </div>
         
         </div>

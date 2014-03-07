@@ -5,12 +5,6 @@ $this->breadcrumbs=array('studentDetails',);
 <div class="container">
 <div class="col-md-10 pop-up-border fl col-lg-offset-1 ">
 	<div class="row test-bot">School Details</div>
-		<div><span class="fl">Sort by service</span>
-			<?php $form=$this->beginWidget('CActiveForm',array('id'=>'sort-by-service','action'=>$this->createUrl('/school/studentDetails')));
-							echo CHTML::dropDownlist('sort',Yii::app()->session['sort'],array('2'=>'Stream','3'=>'Career'),array('onchange'=>'document.currency-form.submit()',));
-							?>
-							 <?php $this->endWidget(); ?>
-		</div>
 		<?php $this->widget('zii.widgets.grid.CGridView', array(
 													'id'=>'career-options-grid',
 													'dataProvider'=>$model->search(),
@@ -23,28 +17,26 @@ $this->breadcrumbs=array('studentDetails',);
 														'lastPageLabel'=>false,
 													
 														),
-													// 'filter'=>$model,
+													'filter'=>$model,
 													'columns'=>array(
 														array(
-															'name'=>'Gudaak_ID 	',
+															'name'=>'gudaak_id',
 															'value'=>'$data->generateGudaakIds->gudaak_id'
 														),
-														/*	array(
-															'name'=>'Career',
-															'value'=>'$data->career->title'
-														),*/
-														
-															array(
-															'name'=>'Student_Name',
-															'value'=>'$data->first_name." ".$data->last_name'
-														),
-														'class', 
+														'first_name',
+														'last_name',
 														array(
-															'name'=>'Service',
-															'value'=>'$data->generateGudaakIds->userRole->description'
+															'name'=>'class',
+															'value'=>'$data->userClass->title'
 														),
-													 
+														array(
+															'name'=>'user_role',
+															'value'=>'$data->userLogin->userRole->description'
+														),
 														/*
+														'id',
+														'description',
+														'email',
 														'published',
 														'status',
 														'career_id',

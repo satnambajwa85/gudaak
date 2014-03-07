@@ -2,10 +2,16 @@
 $this->pageTitle=Yii::app()->name . ' - '.$userInfo->display_name.' Details';
 $this->breadcrumbs=array('Detail',);
 ?>
+
 <?php if($userType==2){ ?>
 <div class="container">
 <div class="col-md-10 	 pop-up-border fl col-lg-offset-1 ">
-	<div class="row test-bot"><?php echo $userInfo->display_name;?> <span><?php echo $userInfo->generateGudaakIds->gudaak_id;?></span></div>
+	<div class="row test-bot">
+		<?php echo $userInfo->display_name;?> <span><?php echo $userInfo->generateGudaakIds->gudaak_id;?></span>
+    	<div class="pull-right back-btn">
+    		<?php echo CHtml::link('Back', Yii::app()->createUrl('/school/studentDetails' ));?>
+    	</div>
+    </div>
 		<div class="row  fl">
 			<div class="col-md-3 pd0 fl">
 				<div class="rating-history">
@@ -228,7 +234,11 @@ $this->breadcrumbs=array('Detail',);
 <?php } else{ ?>
 <div class="container">
 <div class="col-md-10 	 pop-up-border fl col-lg-offset-1 ">
-	<div class="row test-bot"><?php echo $userInfo->display_name;?> <span><?php echo $userInfo->generateGudaakIds->gudaak_id;?></span></div>
+	<div class="row test-bot"><?php echo $userInfo->display_name;?> <span><?php echo $userInfo->generateGudaakIds->gudaak_id;?></span>
+    	<div class="pull-right back-btn">
+    		<?php echo CHtml::link('Back', Yii::app()->createUrl('/school/studentDetails' ));?>
+    	</div>
+    </div>
 		<div class="row  fl">
 			<div class="col-md-3 pd0 fl">
 				<div class="rating-history">

@@ -115,6 +115,25 @@ $this->menu=array(
 	</div>
     
     <div class="clear"></div>
+    
+     <div class="form-group">
+		<?php
+		echo $form->labelEx($model,'streams'); ?>
+		<?php 
+		$streamL	=	Stream::model()->findAllByAttributes(array('status'=>1));
+		foreach($streamL as $stream){
+		echo '<div style="width:10%;float:left;border:1px solid green;"><div>'.$form->CheckBox($model,'streams['.$stream->id.']',array('checked'=>(in_array($stream->id,$streams))?'checked':''));
+		echo $stream->name.'</div><div>';
+		echo'</div></div>';
+		}
+		?>
+		<?php echo $form->error($model,'streams'); ?>
+	</div>
+    <div class="clear"></div>
+    
+    
+    
+    
 	<div class="form-group buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array('class'=>'btn btn-s-md btn-success')); ?>
 	</div>

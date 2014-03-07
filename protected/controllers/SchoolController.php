@@ -49,22 +49,16 @@ class SchoolController extends Controller
 	}
 	public function actionStudentDetails()
 	{
-		if(!Yii::app()->user->id){
+		if(!Yii::app()->user->id)
 			$this->redirect(Yii::app()->createUrl('/site'));
-		}
-		$GudaakId	=array();
-		$userGudaakIds		=	GenerateGudaakIds::model()->findAllByAttributes(array('schools_id'=>Yii::app()->user->profileId,'activation'=>1));
+		
+		$gud	=	GenerateGudaakIds::model()->findAllByAttributes(array('schools_id'=>Yii::app()->user->profileId,'user_role_id'=>array(2,3)));
+		foreach($gud as $rec)
+			$gudIdList[]	=	$rec->id;
+		
 		$model=new UserProfiles('search');
-		foreach($userGudaakIds as $list){
-		
-		}
-		
-		if(isset($_POST['sort'])){
-			$model->generateGudaakIds->user_role_id==$_POST['sort'];
-			 
-		}
-		
-	//$model->generate_gudaak_ids_id		=	 $List->id;
+		$model->unsetAttributes();
+		$model->generate_gudaak_ids_id	=	$gudIdList;
 		if(isset($_GET['UserProfiles']))
 			$model->attributes=$_GET['UserProfiles'];
 
@@ -191,16 +185,22 @@ class SchoolController extends Controller
 			$this->redirect(Yii::app()->createUrl('/site/'));
 		}
 		 
-		$model		=	  Schools::model()->findByPk(Yii::app()->user->profileId);
+		$model		=	   Schools::model()->findByPk(Yii::app()->user->profileId);
+		// CVarDumper::dump($model,10,1);die;
 		if(isset($_POST['Schools']))
 		{	 
 			$model->attributes		=	$_POST['Schools'];
+			$model->password		=	123456;
+			$model->states_id		=	1;
+			$model->countries_id	=	1;
+	
+			
 			$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/uploads/schools/';
-					$targetFolder = Yii::app()->request->baseUrl.'/uploads/user/';
-				if (!empty($_FILES['Schools']['name']['image'])) {
-					$tempFile = $_FILES['Schools']['tmp_name']['image'];
+					$targetFolder = Yii::app()->request->baseUrl.'/uploads/schools/';
+				if (!empty($_FILES['Schools']['name']['images'])) {
+					$tempFile = $_FILES['Schools']['tmp_name']['images'];
 					$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
-					$targetFile = $targetPath.'/'.$_FILES['Schools']['name']['image'];
+					$targetFile = $targetPath.'/'.$_FILES['Schools']['name']['images'];
 					$pat = $targetFile;
 					move_uploaded_file($tempFile,$targetFile);
 					$absoPath = $pat;
@@ -215,8 +215,13 @@ class SchoolController extends Controller
 				if ($img->processed) {
 					#STHUMB Image
 					$img->image_resize      = true;
-					$img->image_y         	= 50;
-					$img->image_x           = 50;
+					$img->image_y         	= 129;
+					$img->image_x           = 190;
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/schools/large/');	#STHUMB Image
+					$img->image_resize      = true;
+					$img->image_y         	= 200;
+					$img->image_x           = 200;
 					$img->file_new_name_body = $newName;
 					$img->process('uploads/schools/small/');
 					
@@ -225,15 +230,19 @@ class SchoolController extends Controller
 					$img->clean();
 	
 				}
-				$model->image	=	$fileName;
-				if($_POST['Schools']['oldImage']!=''){
-					@unlink($targetFolder1.'original/'.$_POST['Schools']['oldImage']);
-					@unlink($targetFolder1.'small/'.$_POST['Schools']['oldImage']);
+				$model->images	=	$fileName;
+				if($_POST['Schools']['images']!=''){
+					@unlink($targetFolder1.'original/'.$_POST['Schools']['images']);
+					@unlink($targetFolder1.'small/'.$_POST['Schools']['images']);
+					@unlink($targetFolder1.'large/'.$_POST['Schools']['images']);
 				}
 			}
+			else
+				$model->images	=	$_POST['Schools']['images'];
 			if($model->save())
 				$this->redirect(array('school/profile'));
 		}
+		 
 		$this->render('Profile', array('model'=>$model));
 	}
 	
