@@ -50,7 +50,8 @@ Yii::app()->clientScript->registerScript(
 						</div>
 						<div class="pull-right dashbord-top-nav ">
 							<ul class="nav  top-nav-left pull-left">
-							  <li><i class="icon-microphone icon-top talk-icon"></i><a href="#">Talk to Counsellor</a></li>
+							  <!--<li id="talk-btn"><i class="icon-microphone icon-top talk-icon"></i><a href="#">Talk to Counsellor</a></li>-->
+							  <li><i class="icon-microphone icon-top talk-icon"></i><?php echo CHtml::link('Talk to Counsellor',array('user/talk'));?></li>
 							  <li><i class="news-icon"></i><?php echo CHtml::link('News and Updates',array('user/newsUpdates'));?></li>
 							  <li><i class="summary-icon"></i><?php echo CHtml::link('Summary',array('user/summary'));?></li>
 							 
@@ -123,7 +124,60 @@ Yii::app()->clientScript->registerScript(
 </script>
 <?php  $this->Widget('WidgetUserProfile'); ?>
 	
-
+<div id="talk-coun" class="modal fade">
+    	<div class="modal-dialog">
+        	<div class="modal-content">
+            <!-- dialog body -->
+            	<div class="modal-body">
+                		<div class="site-logo"></div>
+						<div class="row white ">
+                        	<div class="col-md-12 pd13 ">
+                            	  <div  class="col-md-12 pull-left">
+								<a data-dismiss="modal" class="btn btn-info pull-right ">close</a>
+								kdsnfklsdjfklsdklfjksdjf
+								fsd
+								fsd
+								fs
+								df
+								sdf
+								
+                                    <div id="">
+                                        <?php /*  
+                                        $form=$this->beginWidget('CActiveForm', array(
+                                                                        'id'=>'retake-test-form'.$list->id.'',
+																		 'action'=>Yii::app()->createUrl('/user/retakeTest&id='.''.$list->id.''),
+                                                                        'enableClientValidation'=>true,
+                                                                        'clientOptions'=>array('validateOnSubmit'=>true,)));?>
+                                    <?php echo $form->hiddenField($model,'orient_items_id',array('value'=>''.$list->id.''));
+                                   ?>
+                                    <h4 class="form-signin-heading ">Send Request To Retake To Test</h4>
+                                    <?php echo $form->textField($model,'title',array('class'=>'form-control','placeholder'=>'Title','autofocus'=>true));
+                                    echo $form->error($model,'title');?>
+                                    <div class="pd4"></div>
+                                    <?php echo $form->textArea($model,'description',array('class'=>'form-control','placeholder'=>'description'));
+                                    echo $form->error($model,'description');?>
+                                    <div class="pd4"></div>
+                                     
+                                    <div class="clearfix"></div>
+                                    <div align="center" class="col-md-3  pd0 ">
+                                        <?php echo CHtml::submitButton('Submit',array('class'=>'btn btn-warning fl login'));?>
+                                        <div class="clearfix"></div>
+                                        <!--<div class="or">or</div>-->
+                                        <?php //echo CHtml::link('<i class="posi-bt icon-facebook"></i>Login with your<br/><strong>Facebook Account</strong>',array('/site/forgetPassword'),array('class'=>'btn btn-lg btn-primary fb'));?>
+                                        </div>
+                                        <?php $this->endWidget(); */?>
+                            
+                                </div>
+                                 </div>
+                               
+							</div>
+						</div>
+	   			</div>
+		<!-- dialog buttons -->
+		 
+		</div>
+	</div>
+    </div>
 
   </body>
 </html>

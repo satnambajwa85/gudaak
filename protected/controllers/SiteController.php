@@ -71,6 +71,25 @@ class SiteController extends Controller
 		$this->render('_whyGudaak');
 	
 	}
+	public function actionArticles(){
+		$criteria			=	new CDbCriteria();
+		$criteria->condition= '(published =:published and status =:status )';
+		$criteria->params 	= array('published'=>1,'status'=>1);
+		$count				=	Articles::model()->count($criteria);
+		$pages				=	new CPagination($count);
+		$pages->pageSize	=	5;
+		$pages->applyLimit($criteria);
+		$articles			=	Articles::model()->findAll($criteria);
+		
+		$this->render('articals',array('articles'=>$articles,'pages'=>$pages));
+	}
+	
+	public function actionArticle($id)
+	{	
+		$result				=	 Articles::model()->findByAttributes(array('id'=>$id));
+		
+		$this->render('article',array('articles'=>$result));
+	}
 	/**
 	 * This is the Register  User 'userRegister' action that is invoked
 	 * when an action is not explicitly requested by users.

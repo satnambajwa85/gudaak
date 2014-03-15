@@ -47,8 +47,9 @@
 												<div class="ans_set">
 													<?php if(!empty($question['option'])){ ?>
 														<?php 
-														echo $form->radioButtonList($model,'question_options_id['.$question['id'].']',$question['option'],
-array('template'=>"{input} {label}", 'separator'=>' ','class'=>'required','onchange' => 'answer(this.value,testId='.$question['testId'].' ,QID='. $question['id'].');')); 
+														echo CHtml::radioButtonList('TestReports[question_options_id]['.$question['id'].']',(isset($testAns[$question['id']]))?$testAns[$question['id']]:'',$question['option'],array('template'=>"{input} {label}", 'separator'=>' ','class'=>'required','onchange' => 'answer(this.value,testId='.$question['testId'].' ,QID='. $question['id'].');'));
+														
+														//echo $form->radioButtonList($model,'question_options_id['.$question['id'].']',$question['option'],array('template'=>"{input} {label}", 'separator'=>' ','class'=>'required','onchange' => 'answer(this.value,testId='.$question['testId'].' ,QID='. $question['id'].');')); 
 														?>
 														
 													<?php }else{ ?>

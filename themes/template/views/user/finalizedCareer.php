@@ -13,8 +13,7 @@ $this->breadcrumbs=array('Finalized Career'=>array('/user/finalizedCareer'));
 		<div class="mr0 col-md-12 fl">
 			<div class="mr0  pull-left stream-pref">
 				<h1>Finalized Career</h1>
-				<p>It is long established fact a reader will be It is long established fact a reader will be
-					It is long established fact a reader will be It is long established fact a reader will beIt is long established fact a reader will be
+				<p>Are you satisfied with your finalized career choices or Having doubts or a change in your plans? Feel like re-analyzing and reviewing your choice for the finalized careers? You can always edit your list and add a new option!
 				</p>
 
 			</div>
@@ -27,7 +26,7 @@ $this->breadcrumbs=array('Finalized Career'=>array('/user/finalizedCareer'));
 			<?php foreach($data as $list){ ?>
 			<div class="stream-cat pull-left fl  pd-b10">
 				<div class="col-md-12 fl pd0 ">
-					<div class="pull-left pd0 prefered-stream-img">
+					<div class="col-md-6 pull-left pd0 prefered-stream-img">
 						<?php 
 						$filename = ''.$list['image'].'';
 						 $path=Yii::getPathOfAlias('webroot.uploads.career_options.small') . '/';
@@ -39,7 +38,18 @@ $this->breadcrumbs=array('Finalized Career'=>array('/user/finalizedCareer'));
 						
 							<?php } ?>
 					</div>
-					<div class="col-md-9 pull-left  stream-description" style="right:7px;">
+					<div class="col-md-6 pull-right  stream-description" style="right:7px;">
+                    	 <?php echo CHtml::ajaxLink('<img alt="Delete" title="Remove from list" src="'.Yii::app()->theme->baseUrl.'/images/delete.png">',array('user/removeFinalCareer','id'=>$list['id']),
+												array(	'type'=>'POST',
+														'success'=>'function(data){
+																		var $dataR	=	jQuery.parseJSON(data)
+																		if($dataR.status==1)
+																			$("#remove-'.$list['id'].'").hide();
+																			$("#remove-'.$list['id'].'").parent().parent().parent().hide();
+																	}'),
+												array('confirm'=>'Are you sure you want to remove this career?',
+														'style'=>'display: block;float: right;margin-top: 0;width: 15px;',
+														'id'=>'remove-'.$list['id']));  ?>
 						<h1><?php echo substr($list['title'],0,30);?></h1>
 						<p><?php echo substr($list['description'],0,70);?>..</p>
 								
@@ -53,7 +63,8 @@ $this->breadcrumbs=array('Finalized Career'=>array('/user/finalizedCareer'));
 											
 									});
 								</script>	
-						 
+						
+                                                        
 						<div class="clear"></div>
 						<span></span>
 				   </div>

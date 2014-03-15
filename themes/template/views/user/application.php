@@ -4,8 +4,7 @@ $this->breadcrumbs=array('Application'=>array('/user/application'));?>
 		<div class="mr0 col-md-12 fl">
 			<div class="mr0  pull-left stream-pref">
 				<h1>Applications </h1>
-				<p>It is long established fact a reader will be It is long established fact a reader will be
-					It is long established fact a reader will be It is long established fact a reader will beIt is long established fact a reader will be
+				<p>Read about the latest information related to different entrance exams relevant to your shortlisted career preferences and colleges.
 				</p>
 
 			</div>

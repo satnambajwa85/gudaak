@@ -21,33 +21,10 @@ $this->breadcrumbs=array('Detailed Report'=>array('/user/detailedReport'));?>
 			<div class="summary-report-title1">Profile Summary&nbsp;
 				<div class="report-log-img"><img alt="" src="./image/small.jpg"></div>                    
 			</div>
-    				<div class="w100" >
-                	<div class="report-title1">
-                    	Gudaak IPC Report
-                    </div>
-                	<div style="float:left; width:100%; font-size:14px; color:#666; text-align:justify; line-height:22px; font-family:, Helvetica, sans-serif;  ">
-                    	<p>Welcome to the world of Designing Career Path with Gudaak! The test you have taken just now is one of the numerous “Interest-Personality “Tests available online and offline but our uniqueness lies in the interpretation. We at Gudaak believe in the holistic approach towards life and careers. This report has been prepared with utmost care, keeping in mind the various factors that come into play when you are making a decision for life.<br/><br/>
-Any suitable career can only be predicted with a combination of client’s academic assessments, interests, personality, values and attitudes when assessed in congenial environment. So, to succeed in life- Keep reading the literature on career and explore the possibilities that can help you reach your dreams and goals.<br/><br/>
-The career recommendations made here are based on how genuinely you have answered the test. We hope that this report will lead to a greater understanding of yourself and at every step we are there to guide you.<br/><br/>
-Remember! “There are no such things as limits to growth, because there are no limits on the human capacity for intelligence, imagination and wonder."<br/><br/>
-
-Wishing you all the best in all your future endeavours!
-<br/>
-                        </p>
-						<div class="def-title">This report contains the following:<br/>
-								<ul class="def-list">
-								<li>• A personalized personality profile</li>
-								<li>• An interest profile</li>
-								<li>• Career Recommendations</li>
-								</ul>
-
-						</div>
-                    </div>	
-               <div style="float:left; width:90%; background:url(./image/img_icon.jpg) no-repeat;height:129px; background-position:center; margin-top:8%; margin-bottom:8%;"></div>
-                
-                
-                </div>	
-<div class="user-report-info  pull-left report-border pd0">
+				<div class="w100" >
+                    <div class="reportLogo"><img alt="" src="./image/logo_large.png" /></div>
+                    
+                    <div class="user-report-info  pull-left report-border pd0">
 						<div class="col-md-6  pull-left left-section pd0">
 							<ul>
 								<li>Name</li>
@@ -71,6 +48,32 @@ Wishing you all the best in all your future endeavours!
 						<div class="col-md-6  pull-left">
 						</div>
 					</div>
+                	<div class="report-title1">
+                    	Gudaak IPC Report
+                    </div>
+                	<div style="float:left; width:100%; font-size:14px; color:#666; text-align:justify; line-height:22px; font-family:, Helvetica, sans-serif;  ">
+                    	<p>Welcome to the world of Designing Career Path with Gudaak! The test you have taken just now is one of the numerous “Interest-Personality “Tests available online and offline but our uniqueness lies in the interpretation. We at Gudaak believe in the holistic approach towards life and careers. This report has been prepared with utmost care, keeping in mind the various factors that come into play when you are making a decision for life.<br/><br/>
+Any suitable career can only be predicted with a combination of client’s academic assessments, interests, personality, values and attitudes when assessed in congenial environment. So, to succeed in life- Keep reading the literature on career and explore the possibilities that can help you reach your dreams and goals.<br/><br/>
+The career recommendations made here are based on how genuinely you have answered the test. We hope that this report will lead to a greater understanding of yourself and at every step we are there to guide you.<br/><br/>
+Remember! “There are no such things as limits to growth, because there are no limits on the human capacity for intelligence, imagination and wonder."<br/><br/>
+
+Wishing you all the best in all your future endeavours!
+<br/>
+                        </p>
+						<div class="def-title">This report contains the following:<br/>
+								<ul class="def-list">
+								<li>• A personalized personality profile</li>
+								<li>• An interest profile</li>
+								<li>• Career Recommendations</li>
+								</ul>
+
+						</div>
+                    </div>	
+               
+                
+                
+                </div>	
+					
  	
         
  <div style="float:left; width:100%; min-height:700px; " >
@@ -134,14 +137,8 @@ Wishing you all the best in all your future endeavours!
 
 										</p>
 										<p>The Interest Test you have taken maps you on the five traits. Read out in details here:<br/><br/><br/></p>
-										 
-										
-							
 									</div>	
-							   
-								
-								
-								</div>
+							   </div>
 						 <div class="user-report-info" >
 							<?php foreach($report['results1'] as $result){?>
 								     <div >
@@ -183,18 +180,13 @@ Wishing you all the best in all your future endeavours!
 			$subCa		=	StreamHasCareer::model()->findAllByAttributes(array('career_id'=>$subCat->id));
 			foreach($subCa as $subjects){
 					$streams[]=$subjects->stream_id;	
-				
 			}
 		}
-		
 		$streamList		=	Stream::model()->findAllByAttributes(array('id'=>$streams));
-		
 		foreach($streamList as $streamRec){
 			if(!in_array($streamRec->id,$listArr))
-						{
+			{
 				$listArr[]=$streamRec->id;
-			
-			
 			?>
 	<div class="col-md-4 pd0  fl">				
 	<div class="col-md-12 pdleft fl career-lib">
@@ -218,19 +210,9 @@ Wishing you all the best in all your future endeavours!
 </div>
 </div>
 <?php }
-					
-					
-				}
-				
-				
-				
-		
-		
-		?>
-    
-    
-    <?php 
-		}}?>
+		}
+	}
+}?>
         
         </div>
         <div class="clear"></div>
@@ -267,12 +249,6 @@ Wishing you all the best in all your future endeavours!
 		
 		</div>
 		</div>
-        
-		
-
-
-	
 	<div class="news pd0 pull-right">
 		<?php  $this->Widget('WidgetNews'); ?>
 	</div>
-			

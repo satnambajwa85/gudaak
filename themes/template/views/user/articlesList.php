@@ -6,7 +6,9 @@ $this->breadcrumbs=array('Articles'=>array('/user/articlesList'));?>
 			<div class="mr0 col-md-6  fl newsupdates">
 				<div class="mr0 pd0 col-md-12   artical">
 					 <h1>Articles</h1>
-					 
+					 <p>
+                     Read the articles about different careers to update your knowledge and information. These are a crucial part of your Exploration stage!<br /><br />
+                     </p>
 				</div>
 				<ul>
 					<?php if(!empty($articles)){?>

@@ -167,6 +167,13 @@ $(document).ready(function () {
 			"show" : true // ensure the modal is shown immediately
 			});
 		});
+		$("#talk-btn").on("click", function() { // wire up the OK button to dismiss the modal when shown
+			$("#talk-coun").modal({ // wire up the actual modal functionality and show the dialog
+			"backdrop" : "static",
+			"keyboard" : true,
+			"show" : true // ensure the modal is shown immediately
+			});
+		});
 		$(".profile-details").on("click", function() { // wire up the OK button to dismiss the modal when shown
 			$("#profile-details").modal({ // wire up the actual modal functionality and show the dialog
 			"backdrop" : "static",
@@ -200,8 +207,8 @@ $(document).ready(function () {
 		$(".ans_set span label").on("click", function() {
 			$(this).parent().parent().parent().css( "backgroundColor", "" );
 		});
-		 
-	
+	 
+		
 		/*$(".subject-details").on("click", function() { 
 			 $(".s-details").modal({ // wire up the actual modal functionality and show the dialog
 			"backdrop" : "static",

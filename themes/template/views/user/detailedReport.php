@@ -22,16 +22,18 @@ $this->breadcrumbs=array('Detailed Report'=>array('/user/detailedReport'));?>
 				<div class="report-log-img"><img alt="" src="./image/small.jpg"></div>                    
 			</div>
 			
-    				<div class="w100" >
-					<div class="user-report-info  pull-left report-border pd0">
+    			<div class="w100" >
+                	<div class="reportLogo"><img alt="" src="./image/logo_large.png" /></div>
+					<div class="user-report-info col-md-12 pull-left report-border pd0">
 						<div class="col-md-6  pull-left left-section pd0">
 							<ul>
 								<li>Name</li>
 								<li>Class</li>
 								<li>School</li>
 								<li>Gudaak ID</li>
+                                <?php if(isset($userTestDate->add_date)){?>
 								<li class="lastRow">Test Completed On</li>
-								
+								<?php } ?>
 							</ul>
 						</div>	
 						<div class="col-md-6  pull-left right-section pd0">
@@ -40,7 +42,9 @@ $this->breadcrumbs=array('Detailed Report'=>array('/user/detailedReport'));?>
 								<li><?php echo $profile->userClass->title;?></li>
 								<li><?php echo $profile->generateGudaakIds->schools->name;?></li>
 								<li><?php echo $profile->generateGudaakIds->gudaak_id;?></li>
+                                <?php if(isset($userTestDate->add_date)){?>
 								<li class="lastRow"><?php echo date('d M,Y',strtotime($userTestDate->add_date));?></li>
+                                <?php } ?>
 							</ul>
 						</div>
 						<div class="col-md-6  pull-left">
@@ -67,8 +71,7 @@ Wishing you all the best in all your future endeavours!
 
 						</div>
                     </div>	
-               <div style="float:left; width:90%; background:url(./image/img_icon.jpg) no-repeat;height:129px; background-position:center; margin-top:8%; margin-bottom:8%;"></div>
-                
+               
                 
                 </div>	
 
@@ -179,8 +182,6 @@ Wishing you all the best in all your future endeavours!
 	<?php
 		$listCar	=	Career::model()->findAllByAttributes(array('career_categories_id'=>$result['id']));
 		foreach($listCar as $data){		?>
-		
-        
 <div class="col-md-4 pdleft career-lib">
 	<?php 
 			$filename = ''.$data->image.'';

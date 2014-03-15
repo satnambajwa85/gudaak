@@ -2039,3 +2039,563 @@ Stack trace:
 REQUEST_URI=/index.php?r=user/streamExplore
 in C:\xampp\htdocs\gudaak\protected\controllers\UserController.php (1142)
 in C:\xampp\htdocs\gudaak\index.php (13)
+2014/03/03 06:35:52 [error] [php] Undefined variable: list (C:\xampp\htdocs\gudaak\protected\controllers\UserController.php:789)
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\gudaak\framework\web\CController.php(309): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#3 C:\xampp\htdocs\gudaak\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#4 C:\xampp\htdocs\gudaak\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\gudaak\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#6 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#7 C:\xampp\htdocs\gudaak\framework\web\CController.php(292): CFilterChain->run()
+#8 C:\xampp\htdocs\gudaak\framework\web\CController.php(266): UserController->runActionWithFilters()
+#9 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): UserController->run()
+#10 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#11 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=user/stream&id=4
+in C:\xampp\htdocs\gudaak\protected\controllers\UserController.php (789)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/03/03 06:35:58 [error] [php] Undefined variable: list (C:\xampp\htdocs\gudaak\protected\controllers\UserController.php:789)
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#1 C:\xampp\htdocs\gudaak\framework\web\CController.php(309): CInlineAction->runWithParams()
+#2 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#3 C:\xampp\htdocs\gudaak\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#4 C:\xampp\htdocs\gudaak\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#5 C:\xampp\htdocs\gudaak\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#6 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#7 C:\xampp\htdocs\gudaak\framework\web\CController.php(292): CFilterChain->run()
+#8 C:\xampp\htdocs\gudaak\framework\web\CController.php(266): UserController->runActionWithFilters()
+#9 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): UserController->run()
+#10 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#11 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#12 C:\xampp\htdocs\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=user/stream&id=5
+in C:\xampp\htdocs\gudaak\protected\controllers\UserController.php (789)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/03/03 06:36:30 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\gudaak\themes\template\views\user\stream.php:17)
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\CController.php(870): UserController->renderFile()
+#1 C:\xampp\htdocs\gudaak\framework\web\CController.php(783): UserController->renderPartial()
+#2 C:\xampp\htdocs\gudaak\protected\controllers\UserController.php(790): UserController->render()
+#3 unknown(0): UserController->actionStream()
+#4 C:\xampp\htdocs\gudaak\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#5 C:\xampp\htdocs\gudaak\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#6 C:\xampp\htdocs\gudaak\framework\web\CController.php(309): CInlineAction->runWithParams()
+#7 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#8 C:\xampp\htdocs\gudaak\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#9 C:\xampp\htdocs\gudaak\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#10 C:\xampp\htdocs\gudaak\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#11 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#12 C:\xampp\htdocs\gudaak\framework\web\CController.php(292): CFilterChain->run()
+#13 C:\xampp\htdocs\gudaak\framework\web\CController.php(266): UserController->runActionWithFilters()
+#14 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): UserController->run()
+#15 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#16 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=user/stream&id=5
+in C:\xampp\htdocs\gudaak\themes\template\views\user\stream.php (17)
+in C:\xampp\htdocs\gudaak\protected\controllers\UserController.php (790)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/03/03 06:39:51 [warning] [application] Failed to set unsafe attribute "oldImage" of "Career".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerController.php (150)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/03/03 06:39:51 [warning] [application] Failed to set unsafe attribute "streams" of "Career".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerController.php (150)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/03/04 18:29:38 [error] [php] Undefined variable: report (C:\xampp\htdocs\gudaak\protected\controllers\UserController.php:1119)
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#1 C:\xampp\htdocs\gudaak\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#2 C:\xampp\htdocs\gudaak\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\gudaak\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#4 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\xampp\htdocs\gudaak\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\xampp\htdocs\gudaak\framework\web\CController.php(266): UserController->runActionWithFilters()
+#7 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): UserController->run()
+#8 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=user/explore
+in C:\xampp\htdocs\gudaak\protected\controllers\UserController.php (1119)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/03/05 06:13:07 [error] [php] Undefined index: results (C:\xampp\htdocs\gudaak\protected\controllers\UserController.php:1123)
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#1 C:\xampp\htdocs\gudaak\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#2 C:\xampp\htdocs\gudaak\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\gudaak\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#4 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\xampp\htdocs\gudaak\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\xampp\htdocs\gudaak\framework\web\CController.php(266): UserController->runActionWithFilters()
+#7 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): UserController->run()
+#8 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=user/explore
+in C:\xampp\htdocs\gudaak\protected\controllers\UserController.php (1123)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/03/05 06:13:30 [error] [php] Undefined index: results (C:\xampp\htdocs\gudaak\protected\controllers\UserController.php:1123)
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#1 C:\xampp\htdocs\gudaak\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#2 C:\xampp\htdocs\gudaak\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\gudaak\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#4 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\xampp\htdocs\gudaak\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\xampp\htdocs\gudaak\framework\web\CController.php(266): UserController->runActionWithFilters()
+#7 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): UserController->run()
+#8 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=user/explore
+in C:\xampp\htdocs\gudaak\protected\controllers\UserController.php (1123)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/03/06 11:28:55 [warning] [application] Failed to set unsafe attribute "states_id" of "Schools".
+in C:\xampp\htdocs\gudaak\protected\controllers\SchoolController.php (192)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/03/06 11:28:55 [warning] [application] Failed to set unsafe attribute "countries_id" of "Schools".
+in C:\xampp\htdocs\gudaak\protected\controllers\SchoolController.php (192)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/03/07 13:05:09 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "articles".' in C:\xampp\htdocs\gudaak\framework\web\CController.php:879
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\CController.php(783): CController->renderPartial('articles', Array, true)
+#1 C:\xampp\htdocs\gudaak\protected\controllers\SiteController.php(91): CController->render('articles', Array)
+#2 [internal function]: SiteController->actionArticles('1')
+#3 C:\xampp\htdocs\gudaak\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 C:\xampp\htdocs\gudaak\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 C:\xampp\htdocs\gudaak\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 C:\xampp\htdocs\gudaak\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 C:\xampp\htdocs\gudaak\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): CController->run('articles')
+#9 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('site/articles')
+#10 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php?r=site/articles&id=1
+HTTP_REFERER=http://www.gudaak.com/index.php?r=site/articals
+---
+2014/03/07 13:05:41 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "articles".' in C:\xampp\htdocs\gudaak\framework\web\CController.php:879
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\CController.php(783): CController->renderPartial('articles', Array, true)
+#1 C:\xampp\htdocs\gudaak\protected\controllers\SiteController.php(91): CController->render('articles', Array)
+#2 [internal function]: SiteController->actionArticles('1')
+#3 C:\xampp\htdocs\gudaak\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 C:\xampp\htdocs\gudaak\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 C:\xampp\htdocs\gudaak\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 C:\xampp\htdocs\gudaak\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 C:\xampp\htdocs\gudaak\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): CController->run('articles')
+#9 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('site/articles')
+#10 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php?r=site/articles&id=1
+HTTP_REFERER=http://www.gudaak.com/index.php?r=site/articals
+---
+2014/03/07 13:07:35 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "articles".' in C:\xampp\htdocs\gudaak\framework\web\CController.php:879
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\CController.php(783): CController->renderPartial('articles', Array, true)
+#1 C:\xampp\htdocs\gudaak\protected\controllers\SiteController.php(91): CController->render('articles', Array)
+#2 [internal function]: SiteController->actionArticles('1')
+#3 C:\xampp\htdocs\gudaak\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 C:\xampp\htdocs\gudaak\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 C:\xampp\htdocs\gudaak\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 C:\xampp\htdocs\gudaak\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 C:\xampp\htdocs\gudaak\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): CController->run('articles')
+#9 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('site/articles')
+#10 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php?r=site/articles&id=1
+HTTP_REFERER=http://www.gudaak.com/index.php?r=site/articals
+---
+2014/03/07 13:08:39 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "site/articles".' in C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('site/articles')
+#1 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=site/articles&id=1
+HTTP_REFERER=http://www.gudaak.com/index.php?r=site/articals
+---
+2014/03/09 09:32:22 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.userType" is not defined.' in C:\xampp\htdocs\gudaak\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\auth\CWebUser.php(141): CComponent->__get('userType')
+#1 C:\xampp\htdocs\gudaak\framework\base\CComponent.php(607) : eval()'d code(1): CWebUser->__get('userType')
+#2 C:\xampp\htdocs\gudaak\framework\base\CComponent.php(607): eval()
+#3 C:\xampp\htdocs\gudaak\framework\web\auth\CAccessControlFilter.php(340): CComponent->evaluateExpression('Yii::app()->use...', Array)
+#4 C:\xampp\htdocs\gudaak\framework\web\auth\CAccessControlFilter.php(244): CAccessRule->isExpressionMatched(Object(CWebUser))
+#5 C:\xampp\htdocs\gudaak\framework\web\auth\CAccessControlFilter.php(116): CAccessRule->isUserAllowed(Object(CWebUser), Object(UserController), Object(CInlineAction), '59.89.44.13', 'GET')
+#6 C:\xampp\htdocs\gudaak\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#7 C:\xampp\htdocs\gudaak\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\gudaak\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\gudaak\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\xampp\htdocs\gudaak\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): CController->run('')
+#13 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('user')
+#14 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=user
+HTTP_REFERER=http://gudaak.com/index.php?r=site/articles&id=1
+---
+2014/03/09 12:35:50 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.userType" is not defined.' in C:\xampp\htdocs\gudaak\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\auth\CWebUser.php(141): CComponent->__get('userType')
+#1 C:\xampp\htdocs\gudaak\framework\base\CComponent.php(607) : eval()'d code(1): CWebUser->__get('userType')
+#2 C:\xampp\htdocs\gudaak\framework\base\CComponent.php(607): eval()
+#3 C:\xampp\htdocs\gudaak\framework\web\auth\CAccessControlFilter.php(340): CComponent->evaluateExpression('Yii::app()->use...', Array)
+#4 C:\xampp\htdocs\gudaak\framework\web\auth\CAccessControlFilter.php(244): CAccessRule->isExpressionMatched(Object(CWebUser))
+#5 C:\xampp\htdocs\gudaak\framework\web\auth\CAccessControlFilter.php(116): CAccessRule->isUserAllowed(Object(CWebUser), Object(UserController), Object(CInlineAction), '59.89.46.193', 'GET')
+#6 C:\xampp\htdocs\gudaak\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#7 C:\xampp\htdocs\gudaak\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 C:\xampp\htdocs\gudaak\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\gudaak\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\xampp\htdocs\gudaak\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): CController->run('')
+#13 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('user')
+#14 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=user
+---
+2014/03/11 08:26:09 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\gudaak\themes\template\views\user\careerPdfReport.php:68)
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\CController.php(870): UserController->renderFile()
+#1 C:\xampp\htdocs\gudaak\protected\controllers\UserController.php(586): UserController->renderPartial()
+#2 C:\xampp\htdocs\gudaak\framework\web\actions\CInlineAction.php(50): UserController->actionDetailedReport()
+#3 C:\xampp\htdocs\gudaak\framework\web\CController.php(309): CInlineAction->runWithParams()
+#4 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#5 C:\xampp\htdocs\gudaak\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 C:\xampp\htdocs\gudaak\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#7 C:\xampp\htdocs\gudaak\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#8 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#9 C:\xampp\htdocs\gudaak\framework\web\CController.php(292): CFilterChain->run()
+#10 C:\xampp\htdocs\gudaak\framework\web\CController.php(266): UserController->runActionWithFilters()
+#11 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): UserController->run()
+#12 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#13 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=user/DetailedReport&download=1
+in C:\xampp\htdocs\gudaak\themes\template\views\user\careerPdfReport.php (68)
+in C:\xampp\htdocs\gudaak\protected\controllers\UserController.php (586)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/03/11 08:26:44 [error] [php] Undefined variable: report (C:\xampp\htdocs\gudaak\protected\controllers\UserController.php:1144)
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#1 C:\xampp\htdocs\gudaak\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#2 C:\xampp\htdocs\gudaak\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#3 C:\xampp\htdocs\gudaak\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#4 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\xampp\htdocs\gudaak\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\xampp\htdocs\gudaak\framework\web\CController.php(266): UserController->runActionWithFilters()
+#7 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): UserController->run()
+#8 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=user/explore
+in C:\xampp\htdocs\gudaak\protected\controllers\UserController.php (1144)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/03/11 10:50:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/userscores/admin".' in C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/userscore...')
+#1 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=admin/userscores/admin
+---
+2014/03/11 10:50:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/userscore/admin".' in C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/userscore...')
+#1 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=admin/userscore/admin
+---
+2014/03/11 10:50:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/userscore/".' in C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/userscore...')
+#1 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=admin/userscore/
+---
+2014/03/11 10:51:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/userscores".' in C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/userscore...')
+#1 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=admin/userscores
+---
+2014/03/11 10:51:07 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/userscore/".' in C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/userscore...')
+#1 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=admin/userscore/
+---
+2014/03/11 10:51:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/users".' in C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/users')
+#1 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=admin/users
+---
+2014/03/11 10:51:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/user".' in C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/user')
+#1 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=admin/user
+---
+2014/03/11 10:51:56 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/userScores".' in C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/userScore...')
+#1 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=admin/userScores
+---
+2014/03/11 10:52:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/userScores/admin".' in C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/userScore...')
+#1 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=admin/userScores/admin
+---
+2014/03/11 10:52:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin/userScores/create".' in C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/userScore...')
+#1 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=admin/userScores/create
+---
+2014/03/11 11:02:10 [error] [exception.CException] exception 'CException' with message 'Property "Register.medium" is not defined.' in C:\xampp\htdocs\gudaak\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\db\ar\CActiveRecord.php(144): CComponent->__get('medium')
+#1 C:\xampp\htdocs\gudaak\framework\web\helpers\CHtml.php(2044): CActiveRecord->__get('medium')
+#2 C:\xampp\htdocs\gudaak\framework\web\helpers\CHtml.php(1402): CHtml::resolveValue(Object(Register), 'medium')
+#3 C:\xampp\htdocs\gudaak\framework\web\widgets\CActiveForm.php(674): CHtml::activeDropDownList(Object(Register), 'medium', Array, Array)
+#4 C:\xampp\htdocs\gudaak\themes\template\views\layouts\main.php(218): CActiveForm->dropDownList(Object(Register), 'medium', Array, Array)
+#5 C:\xampp\htdocs\gudaak\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#6 C:\xampp\htdocs\gudaak\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#7 C:\xampp\htdocs\gudaak\framework\web\widgets\CContentDecorator.php(77): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#8 C:\xampp\htdocs\gudaak\framework\web\widgets\CContentDecorator.php(55): CContentDecorator->decorate('<div class="spa...')
+#9 C:\xampp\htdocs\gudaak\framework\web\widgets\COutputProcessor.php(45): CContentDecorator->processOutput('<div class="spa...')
+#10 C:\xampp\htdocs\gudaak\framework\web\CBaseController.php(207): COutputProcessor->run()
+#11 C:\xampp\htdocs\gudaak\framework\web\CBaseController.php(301): CBaseController->endWidget('CContentDecorat...')
+#12 C:\xampp\htdocs\gudaak\protected\views\layouts\column2.php(22): CBaseController->endContent()
+#13 C:\xampp\htdocs\gudaak\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#14 C:\xampp\htdocs\gudaak\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#15 C:\xampp\htdocs\gudaak\framework\web\CController.php(785): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#16 C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\UserScoresController.php(133): CController->render('index', Array)
+#17 C:\xampp\htdocs\gudaak\framework\web\actions\CInlineAction.php(50): UserScoresController->actionIndex()
+#18 C:\xampp\htdocs\gudaak\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#19 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#20 C:\xampp\htdocs\gudaak\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#21 C:\xampp\htdocs\gudaak\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#22 C:\xampp\htdocs\gudaak\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#23 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#24 C:\xampp\htdocs\gudaak\framework\web\CController.php(292): CFilterChain->run()
+#25 C:\xampp\htdocs\gudaak\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#26 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): CController->run('')
+#27 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/userScore...')
+#28 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#29 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#30 {main}
+REQUEST_URI=/index.php?r=admin/userScores
+HTTP_REFERER=http://localhost/index.php?r=gii/crud
+---
+2014/03/11 11:02:36 [error] [exception.CException] exception 'CException' with message 'Property "Register.medium" is not defined.' in C:\xampp\htdocs\gudaak\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\db\ar\CActiveRecord.php(144): CComponent->__get('medium')
+#1 C:\xampp\htdocs\gudaak\framework\web\helpers\CHtml.php(2044): CActiveRecord->__get('medium')
+#2 C:\xampp\htdocs\gudaak\framework\web\helpers\CHtml.php(1402): CHtml::resolveValue(Object(Register), 'medium')
+#3 C:\xampp\htdocs\gudaak\framework\web\widgets\CActiveForm.php(674): CHtml::activeDropDownList(Object(Register), 'medium', Array, Array)
+#4 C:\xampp\htdocs\gudaak\themes\template\views\layouts\main.php(218): CActiveForm->dropDownList(Object(Register), 'medium', Array, Array)
+#5 C:\xampp\htdocs\gudaak\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#6 C:\xampp\htdocs\gudaak\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#7 C:\xampp\htdocs\gudaak\framework\web\widgets\CContentDecorator.php(77): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#8 C:\xampp\htdocs\gudaak\framework\web\widgets\CContentDecorator.php(55): CContentDecorator->decorate('<div class="spa...')
+#9 C:\xampp\htdocs\gudaak\framework\web\widgets\COutputProcessor.php(45): CContentDecorator->processOutput('<div class="spa...')
+#10 C:\xampp\htdocs\gudaak\framework\web\CBaseController.php(207): COutputProcessor->run()
+#11 C:\xampp\htdocs\gudaak\framework\web\CBaseController.php(301): CBaseController->endWidget('CContentDecorat...')
+#12 C:\xampp\htdocs\gudaak\protected\views\layouts\column2.php(22): CBaseController->endContent()
+#13 C:\xampp\htdocs\gudaak\framework\web\CBaseController.php(127): require('C:\xampp\htdocs...')
+#14 C:\xampp\htdocs\gudaak\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\xampp\htdocs...', Array, true)
+#15 C:\xampp\htdocs\gudaak\framework\web\CController.php(785): CBaseController->renderFile('C:\xampp\htdocs...', Array, true)
+#16 C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\UserScoresController.php(133): CController->render('index', Array)
+#17 C:\xampp\htdocs\gudaak\framework\web\actions\CInlineAction.php(50): UserScoresController->actionIndex()
+#18 C:\xampp\htdocs\gudaak\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#19 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#20 C:\xampp\htdocs\gudaak\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#21 C:\xampp\htdocs\gudaak\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#22 C:\xampp\htdocs\gudaak\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#23 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#24 C:\xampp\htdocs\gudaak\framework\web\CController.php(292): CFilterChain->run()
+#25 C:\xampp\htdocs\gudaak\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#26 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): CController->run('')
+#27 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/userScore...')
+#28 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#29 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#30 {main}
+REQUEST_URI=/index.php?r=admin/userScores
+---
+2014/03/11 11:07:47 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\xampp\htdocs\gudaak\framework\web\auth\CAccessControlFilter.php:157
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\auth\CAccessControlFilter.php(120): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\xampp\htdocs\gudaak\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\xampp\htdocs\gudaak\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\xampp\htdocs\gudaak\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\xampp\htdocs\gudaak\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\xampp\htdocs\gudaak\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): CController->run('admin')
+#8 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/userScore...')
+#9 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=admin/userScores/admin
+---
+2014/03/12 09:10:42 [error] [php] include(Tickets.php): failed to open stream: No such file or directory (C:\xampp\htdocs\gudaak\framework\YiiBase.php:418)
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\protected\controllers\UserController.php(91): spl_autoload_call()
+#1 C:\xampp\htdocs\gudaak\framework\web\actions\CInlineAction.php(50): UserController->actionTalk()
+#2 C:\xampp\htdocs\gudaak\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#4 C:\xampp\htdocs\gudaak\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#5 C:\xampp\htdocs\gudaak\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#6 C:\xampp\htdocs\gudaak\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#7 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#8 C:\xampp\htdocs\gudaak\framework\web\CController.php(292): CFilterChain->run()
+#9 C:\xampp\htdocs\gudaak\framework\web\CController.php(266): UserController->runActionWithFilters()
+#10 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): UserController->run()
+#11 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#12 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 C:\xampp\htdocs\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=user/talk
+in C:\xampp\htdocs\gudaak\protected\controllers\UserController.php (91)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/03/13 06:46:31 [error] [php] Trying to get property of non-object (C:\xampp\htdocs\gudaak\themes\template\views\user\articles.php:2)
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\CController.php(870): UserController->renderFile()
+#1 C:\xampp\htdocs\gudaak\framework\web\CController.php(783): UserController->renderPartial()
+#2 C:\xampp\htdocs\gudaak\protected\controllers\UserController.php(1365): UserController->render()
+#3 unknown(0): UserController->actionArticles()
+#4 C:\xampp\htdocs\gudaak\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#5 C:\xampp\htdocs\gudaak\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#6 C:\xampp\htdocs\gudaak\framework\web\CController.php(309): CInlineAction->runWithParams()
+#7 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#8 C:\xampp\htdocs\gudaak\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#9 C:\xampp\htdocs\gudaak\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#10 C:\xampp\htdocs\gudaak\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#11 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#12 C:\xampp\htdocs\gudaak\framework\web\CController.php(292): CFilterChain->run()
+#13 C:\xampp\htdocs\gudaak\framework\web\CController.php(266): UserController->runActionWithFilters()
+#14 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): UserController->run()
+#15 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#16 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=user/articles&id=2
+in C:\xampp\htdocs\gudaak\themes\template\views\user\articles.php (2)
+in C:\xampp\htdocs\gudaak\protected\controllers\UserController.php (1365)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/03/13 10:40:26 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.schoolsId" is not defined.' in C:\xampp\htdocs\gudaak\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\auth\CWebUser.php(141): CComponent->__get('schoolsId')
+#1 C:\xampp\htdocs\gudaak\protected\controllers\UserController.php(952): CWebUser->__get('schoolsId')
+#2 C:\xampp\htdocs\gudaak\framework\web\actions\CInlineAction.php(50): UserController->actionRemoveFinalStream()
+#3 C:\xampp\htdocs\gudaak\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#5 C:\xampp\htdocs\gudaak\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 C:\xampp\htdocs\gudaak\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#7 C:\xampp\htdocs\gudaak\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\xampp\htdocs\gudaak\framework\web\CController.php(292): CFilterChain->run()
+#10 C:\xampp\htdocs\gudaak\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): CController->run('removeFinalStre...')
+#12 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('user/removeFina...')
+#13 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#14 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/index.php?r=user/removeFinalStream&id=3
+HTTP_REFERER=http://gudaak.com/index.php?r=user/finalizedStream
+---
+2014/03/14 17:45:10 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "talk".' in C:\xampp\htdocs\gudaak\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\CController.php(271): CController->missingAction('talk')
+#1 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): CController->run('talk')
+#2 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('user/talk')
+#3 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=user/talk
+HTTP_REFERER=http://www.gudaak.com/index.php?r=user/streamPreference
+---
+2014/03/14 17:47:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "talk".' in C:\xampp\htdocs\gudaak\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\CController.php(271): CController->missingAction('talk')
+#1 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): CController->run('talk')
+#2 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('user/talk')
+#3 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=user/talk
+HTTP_REFERER=http://www.gudaak.com/index.php?r=user/newsUpdates
+---
+2014/03/14 17:50:16 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "talk".' in C:\xampp\htdocs\gudaak\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\CController.php(271): CController->missingAction('talk')
+#1 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): CController->run('talk')
+#2 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('user/talk')
+#3 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=user/talk
+HTTP_REFERER=http://www.gudaak.com/index.php?r=user/newsUpdates
+---
+2014/03/14 17:50:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "talk".' in C:\xampp\htdocs\gudaak\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\CController.php(271): CController->missingAction('talk')
+#1 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): CController->run('talk')
+#2 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('user/talk')
+#3 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=user/talk
+HTTP_REFERER=http://www.gudaak.com/index.php?r=user/newsUpdates
+---
+2014/03/14 17:50:41 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "talk".' in C:\xampp\htdocs\gudaak\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\CController.php(271): CController->missingAction('talk')
+#1 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): CController->run('talk')
+#2 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('user/talk')
+#3 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=user/talk
+HTTP_REFERER=http://www.gudaak.com/index.php?r=user/finalizedStream
+---
+2014/03/14 17:50:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "talk".' in C:\xampp\htdocs\gudaak\framework\web\CController.php:484
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\CController.php(271): CController->missingAction('talk')
+#1 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): CController->run('talk')
+#2 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('user/talk')
+#3 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=user/talk
+HTTP_REFERER=http://www.gudaak.com/index.php?r=user/newsUpdates
+---

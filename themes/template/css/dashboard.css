@@ -1638,7 +1638,26 @@ input[type="number"]::-webkit-inner-spin-button {
 		  font-size:12px;
 		  
 }
-
+.form-control2 {
+  display: block;
+  width: 90%;
+  height: 34px;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.428571429;
+  color: #999;
+  vertical-align: middle;
+  background-color: #ffffff;
+  border: 1px solid #cccccc;
+  border-radius: 4px;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+          box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+          transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+		  fon-family:robotothin;
+		  font-size:12px;
+		  
+}
 .form-control:focus {
   border-color: #66afe9;
   outline: 0;
@@ -4577,7 +4596,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .breadcrumb > li + li:before {
   padding: 0 5px;
   color: #cccccc;
-  content: "/\00a0";
+  /*content: "/\00a0";*/
 }
 
 .breadcrumb > .active {
@@ -7849,7 +7868,7 @@ top:115px;width: 252px;background:#FAFFFF;background-color:#FAFFFF;z-index:999;}
 .dashboard-footer li a{color:#fff;font-family: robotomedium;font-size:12px; }
 .user-nav{float:left;border-top:1px solid #626256; background:#2F3A2C; width:96%;}
 .changePassword{margin-top:164px;}
-.alert-success > strong {color: #666666;font-family: robotothin;font-size: 15px;text-transform: capitalize;}
+.alert-success > strong {color: #666666;font-family: robotothin;font-size: 15px;text-transform: none;}
 .editProfile{margin-top:99px;}
 .mt40{margin-top:40px;}
 .stream-pref{padding:0 20px 0 0;}
@@ -8457,4 +8476,9 @@ opacity: 0.85;
 .def-title{ color:#666; font-size:18px;margin-top:3%; }
 .cat-align{float:left; color: #666;width:100%;font-size:18px;  }
 .cat-def{float:left; width:100%; font-size:14px; color:#666; text-align:justify; line-height:22px; font-family:Arial, Helvetica, sans-serif;  }
-.r-footer{float:left; width:100%; height:159px; background:#1acccc; padding-right:8px; text-align:center; margin-top:70px;vertical-align:middle;  }
+.r-footer{float:left; width:100%; height:159px; background:#1acccc; padding-right:8px; text-align:center; margin-top:70px;vertical-align:middle;}
+.pd2{padding:2px;}
+.back-btn{background: none repeat scroll 0 0 #F7AA43;border:none;border-radius: 3px;color: #FFFFFF !important;font-size: 13px;margin-right: 20px;padding: 2px 12px !important;}
+.back-btn a{color: #FFFFFF !important;}
+.reportLogo{margin-top: 140px;margin-left: 150px;}
+.mt30{margin-top:30px;}

@@ -109,14 +109,44 @@ class CareerOptionsController extends Controller
 			}
 			
 			
-			if($model->save())
-				$this->redirect(array('adminView','id'=>$model->career_id));//$this->redirect(array('view','id'=>$model->id));
+			if($model->save()){	
+				if(!empty($_POST['CareerOptions']['subjects']))
+				foreach($_POST['CareerOptions']['subjects'] as $subject=>$val){
+					if($val){
+						$modl						=	new CareerOptionsHasSubjects;
+						$modl->subjects_id			=	$subject;
+						$modl->career_options_id	=	$model->id;
+						$modl->subject_type 		=	$_POST['subjects'][$subject];
+						$modl->save();
+					}
+				}
+				if(!empty($_POST['CareerOptions']['streams']))
+				foreach($_POST['CareerOptions']['streams'] as $subject=>$val){
+					if($val){
+						$modl						=	new CareerOptionsHasStream;
+						$modl->career_options_id	=	$model->id;
+						$modl->stream_id			=	$subject;
+						$modl->add_date				=	date('Y-m-d H:i:s');
+						$modl->status				=	1;
+						$modl->published			=	1;
+						$modl->save();
+					}
+				}
+				$this->redirect(array('adminView','id'=>$model->career_id));
+			}
+				
 		}
+		$subjectList	=	array();
 		foreach($model->careerOptionsHasSubjects as $sub)
 			$subjectList[]	=	$sub->subjects_id;
-		$this->render('create',array(
-			'model'=>$model,'subjectList'=>$subjectList
-		));
+		
+		$streams	=	array();
+		foreach($model->streamHasCareer as $sub)
+			$streams[]	=	$sub->stream_id;	
+			
+			
+			
+		$this->render('create',array('model'=>$model,'subjectList'=>$subjectList,'streams'=>$streams));
 	}
 	
 	public function actionCreateNew($id)
@@ -175,11 +205,24 @@ class CareerOptionsController extends Controller
 						$modl->subjects_id			=	$subject;
 						$modl->career_options_id	=	$model->id;
 						$modl->subject_type 		=	$_POST['subjects'][$subject];
-						//$modl->add_date				=	date('Y-m-d H:i:s');
-						//$modl->status				=	1;
 						$modl->save();
 					}
 				}
+				if(!empty($_POST['CareerOptions']['streams']))
+				foreach($_POST['CareerOptions']['streams'] as $subject=>$val){
+					if($val){
+						$modl						=	new CareerOptionsHasStream;
+						$modl->career_options_id	=	$model->id;
+						$modl->stream_id			=	$subject;
+						$modl->add_date				=	date('Y-m-d H:i:s');
+						$modl->status				=	1;
+						$modl->published			=	1;
+						$modl->save();
+					}
+				}
+				
+				
+				
 				$this->redirect(array('adminView','id'=>$model->career_id));
 			}
 		}
@@ -263,7 +306,7 @@ class CareerOptionsController extends Controller
 			}
 			else
 				$model->image	=	$_POST['CareerOptions']['oldImage'];
-				
+			
 			if($model->save()){
 				CareerOptionsHasSubjects::model()->deleteAllByAttributes(array('career_options_id'=>$model->id));
 				if(!empty($_POST['CareerOptions']['subjects']))
@@ -273,11 +316,26 @@ class CareerOptionsController extends Controller
 						$modl->subjects_id			=	$subject;
 						$modl->career_options_id	=	$model->id;
 						$modl->subject_type 		=	$_POST['subjects'][$subject];
-						//$modl->add_date				=	date('Y-m-d H:i:s');
-						//$modl->status				=	1;
 						$modl->save();
 					}
 				}
+				
+				CareerOptionsHasStream::model()->deleteAllByAttributes(array('career_options_id'=>$model->id));
+				if(!empty($_POST['CareerOptions']['streams']))
+				foreach($_POST['CareerOptions']['streams'] as $subject=>$val){
+					if($val){
+						$modl1						=	new CareerOptionsHasStream;
+						$modl1->career_options_id	=	$model->id;
+						$modl1->stream_id			=	$subject;
+						$modl1->add_date				=	date('Y-m-d H:i:s');
+						$modl1->status				=	1;
+						$modl1->published			=	1;
+						$modl1->save();						
+					}
+				}
+				
+				
+				
 				
 				$this->redirect(array('adminView','id'=>$model->career_id));//$this->redirect(array('view','id'=>$model->id));
 			}
@@ -286,7 +344,12 @@ class CareerOptionsController extends Controller
 		$subjectList	=	array();
 		foreach($model->careerOptionsHasSubjects as $sub)
 			$subjectList[]	=	$sub->subjects_id;
-		$this->render('update',array('model'=>$model,'subjectList'=>$subjectList));
+		
+		$streams	=	array();
+		foreach($model->careerOptionsHasStreams as $sub)
+			$streams[]	=	$sub->stream_id;	
+		
+		$this->render('update',array('model'=>$model,'subjectList'=>$subjectList,'streams'=>$streams));
 		
 	}
 

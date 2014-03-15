@@ -3,7 +3,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>PDF Report</title>
-
 </head>
 
 <body>
@@ -22,7 +21,11 @@
 	</table>
 
 		<table width="800px" border="0" cellspacing="0" cellpadding="0" style=" font-family:Arial, Helvetica, sans-serif; color:#666; font-size:18px; ">
-
+	<tr>
+    <td colspan="2">
+    	<div style="margin-top: 140px;margin-bottom: 100px;margin-left: 150px;"><img alt="" src="./image/logo_large.png" /></div>
+    </td>
+    </tr>
   <tr>
     <td width="200px" align="left" valign="left" style="border-left:1px solid #fff;font-size:12px; background-color:#F5F5F5; border-top:1px solid #fff; border-bottom:1px solid #fff; ">
    <div style="width:200px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#fff; ">
@@ -79,7 +82,7 @@
 		<td>
 			 				  
 					
-                	<div style="float:left; width:97%; font-size:18px; color:#21C4C1; margin-top:10%;   font-family:Arial, Helvetica, sans-serif; ">
+                	<div style="float:left; width:97%; font-size:18px; color:#21C4C1; margin-top:50px 0 50px 0;   font-family:Arial, Helvetica, sans-serif; ">
                     	Gudaak IPC Report
                     </div>
                 	<div style="float:left; width:97%; font-size:14px; color:#666; text-align:justify; line-height:22px; font-family:, Helvetica, sans-serif;  ">
@@ -104,7 +107,7 @@ Wishing you all the best in all your future endeavours!
 	</tr>
 	<tr>
 		<td>
-               <div style="float:left; width:95%; background:url(./image/img_icon.jpg) no-repeat;height:129px; background-position:center; margin-top:8%; margin-bottom:8%;"></div>
+               <div style="float:left; width:95%; background:url(./image/img_icon.jpg) no-repeat;height:129px; background-position:center; margin-top:80px; margin-bottom:10px;"></div>
         </td>
 	</tr>
 	 
@@ -137,16 +140,10 @@ Wishing you all the best in all your future endeavours!
 
 
 								</p>
-							</div>	
-					   
-						
-						
+							</div>
 						</div>
-						<?php } ?>
-					
-					 
-                        <?php if($report['id']==3){?>
-						   
+						<?php } 
+						if($report['id']==3){?> 
 							<div style="margin-top:50px;">
 								<div style="float:left; width:100%; min-height:700px; " >
 								<div style="float:left; width:100%; margin-top:5%;margin-bottom:10px;background:#1acccc; height:40px; padding-top:14px; text-align:right; font-size:18px; color:#fff; padding-right:10%; font-family:Arial, Helvetica, sans-serif;">
@@ -161,16 +158,9 @@ Wishing you all the best in all your future endeavours!
 
 								</p>
 								<p>The Interest Test you have taken maps you on the five traits. Read out in details here:<br/><br/><br/></p>
-								 
-								
-					
-							</div>	
-					   
-						
-						
+							</div>
 						</div>
 								<table width="100%" border="0" cellspacing="0" cellpadding="0" style="border:1px solid #e4e4e4; font-family:Arial, Helvetica, sans-serif; color:#666; font-size:18px; ">
-								
 								<?php foreach($report['results1'] as $result){?>
 								<tr>
 									<td width="20%" height="40" style="color:#21C4C1;" ><?php echo $result['title'];?></td>
@@ -195,8 +185,6 @@ Wishing you all the best in all your future endeavours!
 												if($result['id']==9){
 													$color='1acca4';
 												}
-												
-												
 												?>
 										<div style="background: none repeat scroll 0 0 #FFFFFF;border: 1px solid #CCCCCC;float: left;height: 25px; margin-bottom: 10px;width: 85%;">
 										<div style="width:<?php echo ($result['score']/0.4);?>%;background: none repeat scroll 0 0 #<?php echo $color;?>;float: left;height: 25px;">									                    
@@ -204,55 +192,40 @@ Wishing you all the best in all your future endeavours!
 									</div>
 									</td>
 								 </tr>
-							 
-							 <?php  }?>
+							<?php  }?>
 							   </table>
 							</div>
-
                         <?php } ?>
-                        
- <?php foreach($report['results'] as $result){?>
-		     <div style="float:left; color: #666;width:95%; padding-left:3%; font-size:18px;  margin-top:10%;   font-family:Arial, Helvetica, sans-serif; ">
+	<div>
+<?php	foreach($report['results'] as $result){?>
+			<div style="float:left; color: #666;width:95%; padding-left:3%; font-size:18px;  margin-top:7px; font-family:Arial, Helvetica, sans-serif; ">
 				<?php echo ($report['id']==3)?'<h4>'.$result['title'].'</h4>':'<h4>'.$result['title2'].'</h4>';?>
 			</div>
 			<div style="float:left; width:100%; padding-left:3%; font-size:14px; color:#666; text-align:justify; line-height:22px; font-family:Arial, Helvetica, sans-serif;  ">
 			<p><?php echo $result['description'];?></p>
-			
 			</div>	
+		<?php 
+		} ?>
 		
-		<p class="description-content"></p>
-    	<div class="border_b"></div>
-	 
-    <?php 
-	} ?><div>
-	   <table width="800px" border="0" cellspacing="0" cellpadding="0" style=" font-family:Arial, Helvetica, sans-serif; color:#666; font-size:18px; ">
+	<table width="800px" border="0" cellspacing="0" cellpadding="0" style="margin-top: 80px;font-family:Arial, Helvetica, sans-serif; color:#666; font-size:18px; ">
 	<tr>
-		
     <?php
 	$listArr	=	array();
 	foreach($report['results'] as $result){
-	if($report['id']==3){?>
-	
-	<?php
+	if($report['id']==3){
 		$listCar	=	Career::model()->findAllByAttributes(array('career_categories_id'=>$result['id']));
 		$streams	=	array();
 		foreach($listCar as $subCat){
 			$subCa		=	StreamHasCareer::model()->findAllByAttributes(array('career_id'=>$subCat->id));
 			foreach($subCa as $subjects){
 					$streams[]=$subjects->stream_id;	
-				
 			}
 		}
-		
 		$streamList		=	Stream::model()->findAllByAttributes(array('id'=>$streams));
-		
 		foreach($streamList as $streamRec){
 			if(!in_array($streamRec->id,$listArr))
 				{
-				$listArr[]=$streamRec->id;
-			
-			
-			?>
+				$listArr[]=$streamRec->id;?>
 		<td width="200px">
 			<div style="color: #666666;font-size: 12px;width:30%;float:left !important;text-align:left;">
 				<img src="./uploads/stream/small/<?php echo $streamRec->image;?>" style="width:250px;float:left"/>
@@ -260,38 +233,23 @@ Wishing you all the best in all your future endeavours!
 			 <div style="color: #666666;font-size: 12px;width:200px;float:left !important;text-align:left;">
 				<?php echo $streamRec->name;?><br/>
 				<?php echo $streamRec->description;?>
-			  
 			</div>
 		</td>
-		 
-
-<?php }
-}
-
-
-?>
-    
-    
-    <?php 
-		}}?>
-
-		 
+<?php		}
+		}
+	}
+}?>
 	</tr>
-	
-	</table>      
-        </div>
-        <div class="clear"></div>
+	</table>
+</div>
 <?php } ?>
-
-     			 
-               <div style="float:left; width:100%; margin:5% 0 15% 0;">
+              <div style="float:left; width:100%; margin:80px 0 0 0;">
 				   <table width="800px" border="0" cellspacing="0" cellpadding="0">
 					<tr>
 						<td><div style=" float:left; width:212px; height:159px;"><img alt="" src="./image/img_whitebg.jpg"></div></td>
 						<td>
 							 <div style="float:left; width:80.80%; height:159px; background:#1acccc; padding-right:8px; text-align:center; vertical-align:middle;  ">
 								<div style="float:right; width:50%;text-align:center; margin-right:2%; color:#fff; font-size:17px; line-height:22px; font-family:Arial, Helvetica, sans-serif; margin-top:7%;">
-									
 								Call: +91 8786 76545,  <br>
 								Email: info@gudaak.com &nbsp;&nbsp; Website: www.gudaak.com 
 								</div>
@@ -300,10 +258,6 @@ Wishing you all the best in all your future endeavours!
 						</td>
 					</tr>
 				   </table>
-                	
-                   
                 </div>
-     
-    
 </body>
 </html>

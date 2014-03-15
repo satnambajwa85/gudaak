@@ -12,12 +12,13 @@
 		</div>
 		<div class="clear"></div>
 		<div class="career-area fl">
-		<div id="scrollBar" style="max-height:555px">
-			<?php $count=0;foreach($data	as $data){?>
-				<div class="career pd0 career-lib">
+		<div id="scrollBar" class="col-md-12">
+			<?php $count=0;
+			foreach($data	as $data){?>
+				<div class="col-md-3 pd0 career-lib career-lib2 pd2">
 				<?php 
 						$filename = ''.$data->image.'';
-						 $path=Yii::getPathOfAlias('webroot.uploads.career.small') . '/';
+						$path=Yii::getPathOfAlias('webroot.uploads.career.small') . '/';
 						$file=$path.$filename;
 						if (file_exists($file)){ ?>
 						<?php echo CHtml::link('<img src="'.Yii::app()->baseUrl.'/uploads/career/small/'.$data->image.'"/>',array('user/careerList','id'=>''.$data->id.''),array('class'=>'fl'));?>
