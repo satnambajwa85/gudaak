@@ -86,7 +86,7 @@ class UserController extends Controller
 				$log->event_id			=	Yii::app()->user->profileId;
 				$log->topic				=	'Profile';
 				$log->event				=	'Updated Profile';
-				$log->remarks			=	'User Sccessfully updated his profile information';
+				$log->remarks			=	'User sccessfully updated his profile information';
 				$log->add_date			=	date('Y-m-d H:i:s');
 				$log->status			=	1;
 				$log->save();
@@ -107,8 +107,19 @@ class UserController extends Controller
 			$model->receiver_id	=	$user->generateGudaakIds->schools_id;
 			$model->status		=	1;
 			$model->add_date	=	date('Y-m-d H:i:s');
-			if($model->save())
+			if($model->save()){
+				$log					=	new Summary;
+				$log->user_profile_id	=	Yii::app()->user->profileId;
+				$log->schools_id		=	Yii::app()->user->schoolsId;
+				$log->event_id			=	$model->id;
+				$log->topic				=	'Talk to Counsellor';
+				$log->event				=	'Asked query to counsellor';
+				$log->remarks			=	'User submitted his/her query request to counsellor sccessfully.';
+				$log->add_date			=	date('Y-m-d H:i:s');
+				$log->status			=	1;
+				$log->save();
 				$this->refresh();
+			}
 		}
 		$model->unsetAttributes();
 		$model->sender_id	=	Yii::app()->user->profileId;
@@ -311,7 +322,7 @@ class UserController extends Controller
 				$log->event_id			=	Yii::app()->user->profileId;
 				$log->topic				=	'Profile';
 				$log->event				=	'Updated Profile';
-				$log->remarks			=	'User Sccessfully updated his profile information';
+				$log->remarks			=	'User sccessfully updated his profile information';
 				$log->add_date			=	date('Y-m-d H:i:s');
 				$log->status			=	1;
 				$log->save();
@@ -425,7 +436,7 @@ class UserController extends Controller
 			$log->event_id			=	$userTest->id;
 			$log->topic				=	'Test';
 			$log->event				=	'Test Submitted';
-			$log->remarks			=	'User submitted his/her test Sccessfully.';
+			$log->remarks			=	'User submitted his/her test sccessfully.';
 			$log->add_date			=	date('Y-m-d H:i:s');
 			$log->status			=	1;
 			$log->save();
@@ -510,7 +521,7 @@ class UserController extends Controller
 					$log->event_id			=	$model->id;
 					$log->topic				=	'Test';
 					$log->event				=	'Test retake request';
-					$log->remarks			=	'User submitted his/her retake request Sccessfully.';
+					$log->remarks			=	'User submitted his/her retake request sccessfully.';
 					$log->add_date			=	date('Y-m-d H:i:s');
 					$log->status			=	1;
 					$log->save();
@@ -890,7 +901,7 @@ class UserController extends Controller
 				$log->event_id			=	$id;
 				$log->topic				=	'Career';
 				$log->event				=	'Finalized Career';
-				$log->remarks			=	'User finalized '.$finalCareer->careerOptions->title.' as career option Sccessfully.';
+				$log->remarks			=	'User finalized '.$finalCareer->careerOptions->title.' as career option sccessfully.';
 				$log->add_date			=	date('Y-m-d H:i:s');
 				$log->status			=	1;
 				$log->save();
@@ -911,7 +922,7 @@ class UserController extends Controller
 			$model->stream_id			=	$_POST['UserCareerComments']['stream_id'];
 			
 			if($model->save()){
-				Yii::app()->user->setFlash('sccess','Sccessfully send your comment.');
+				Yii::app()->user->setFlash('sccess','sccessfully send your comment.');
 			}
 		}
 		$criteria			=	new CDbCriteria();
@@ -1067,7 +1078,7 @@ class UserController extends Controller
 			$model->stream_id			=	$_POST['UserStreamComments']['stream_id'];
 			
 			if($model->save()){
-				Yii::app()->user->setFlash('sccess','Sccessfully send your comment.');
+				Yii::app()->user->setFlash('sccess','sccessfully send your comment.');
 			}
 		}
 		$data	=	array();
@@ -1113,7 +1124,7 @@ class UserController extends Controller
 				$preffred->default				=	0;
 				$preffred->status				=	0;
 				if($preffred->save()){
-					echo 'Sccessfully added '.$options->title.' career';die;
+					echo 'sccessfully added '.$options->title.' career';die;
 				}
 	
 			}
@@ -1153,7 +1164,7 @@ class UserController extends Controller
 			$model->user_profiles_id	=	Yii::app()->user->profileId;
 			$model->career_id			=	$_POST['UserCareerComments']['career_id'];
 			if($model->save()){
-				Yii::app()->user->setFlash('sccess','Sccessfully send your comment.');
+				Yii::app()->user->setFlash('sccess','sccessfully send your comment.');
 			}
 		}
 		$data2	=array();
@@ -1196,7 +1207,7 @@ class UserController extends Controller
 			$model->stream_id			=	$_POST['UserStreamComments']['stream_id'];
 			
 			if($model->save()){
-				Yii::app()->user->setFlash('sccess','Sccessfully send your comment.');
+				Yii::app()->user->setFlash('sccess','sccessfully send your comment.');
 			}
 		}
 		$data2	=	array();
@@ -1228,7 +1239,7 @@ class UserController extends Controller
 				$preffred->default				=	0;
 				$preffred->status				=	1;
 				if($preffred->save()){
-					echo 'Sccessfully added '.$preffred->careerOptions->title.' career';die;
+					echo 'sccessfully added '.$preffred->careerOptions->title.' career';die;
 				}
 	
 			}
@@ -1401,7 +1412,7 @@ class UserController extends Controller
 				$preffred->default 				=	0;
 				$preffred->status	  			=	0;
 				if($preffred->save()){
-					echo 'Sccessfully added '.$stream->name.' stream';die;
+					echo 'sccessfully added '.$stream->name.' stream';die;
 				}
 	
 			}
@@ -1439,7 +1450,7 @@ class UserController extends Controller
 			$UserRating->user_profiles_id	=	Yii::app()->user->profileId;
 			$UserRating->career_options_id 	=	$careeroptions_id;
 			if($UserRating->save()){
-				$response	=	 array('message'=>'Sccessfully rating.');
+				$response	=	 array('message'=>'sccessfully rating.');
 				echo CJSON::encode($response);die;
 				 	
 			}
@@ -1456,7 +1467,7 @@ class UserController extends Controller
 			$UserRating->user_profiles_id	=	Yii::app()->user->profileId;
 			$UserRating->stream_id		 	=	$stream_id;
 			if($UserRating->save()){
-				$response	=	 array('message'=>'Sccessfully rating.');
+				$response	=	 array('message'=>'sccessfully rating.');
 				echo CJSON::encode($response);die;
 			}
 	}
@@ -1640,7 +1651,7 @@ class UserController extends Controller
 				$preffred->status				=	1;
 				$preffred->published			=	1;
 				if($preffred->save()){
-					echo '<h1>Sccessfully added '.$stream->name.'College</h1>';die;
+					echo '<h1>sccessfully added '.$stream->name.'College</h1>';die;
 				}
 	
 			}
@@ -1732,7 +1743,7 @@ class UserController extends Controller
 		} //isset ends
 		$this->render('changepassword',array('model'=>$model));
 	}
-		public function sendMail($data,$type)
+	public function sendMail($data,$type)
 	{
 		switch($type){
 			case 'contact':

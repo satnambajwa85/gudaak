@@ -32,7 +32,7 @@ class Tickets extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('sender_id, receiver_id', 'required'),
+			array('sender_id, receiver_id,title, problem', 'required'),
 			array('sender_id, receiver_id, status', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>500),
 			array('problem, solution, add_date, modification_date', 'safe'),
@@ -63,7 +63,7 @@ class Tickets extends CActiveRecord
 			'sender_id' => 'Sender',
 			'receiver_id' => 'Receiver',
 			'title' => 'Title',
-			'problem' => 'Problem',
+			'problem' => 'Description',
 			'solution' => 'Solution',
 			'status' => 'Status',
 			'add_date' => 'Add Date',
