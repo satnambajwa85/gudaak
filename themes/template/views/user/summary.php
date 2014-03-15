@@ -58,7 +58,7 @@ $this->breadcrumbs=array('Summary'=>array('/user/summary'));?>
 								<p><?php echo $list->topic;?></p>
 							</div>
 							<div class="col-md-3 pull-left pd0">
-								<p><?php echo Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse($list->add_date, 'yyyy-MM-dd'),'medium',null);?></p>
+								<p><?php echo date('M d, Y',strtotime($list->add_date));?></p>
 							</div>
 							<div class="col-md-3 center pull-left mar-top10 pd0">
 								<?php echo CHtml::ajaxLink('Summery',array('/user/summaryData','id'=>$list->id),

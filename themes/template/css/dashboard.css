@@ -8482,3 +8482,13 @@ opacity: 0.85;
 .back-btn a{color: #FFFFFF !important;}
 .reportLogo{margin-top: 140px;margin-left: 150px;}
 .mt30{margin-top:30px;}
+.table-bordered th {
+    background-color: #EDFFFF;
+    border-right: 1px solid #D9D9D9;
+    color: #666666;
+    font-family: robotomedium;
+    font-size: 13px;
+    margin: 0;
+    padding: 9px 0;
+    text-align: center;
+}
