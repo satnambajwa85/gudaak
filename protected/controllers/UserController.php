@@ -96,6 +96,24 @@ class UserController extends Controller
 		}
 		$this->render('index',array('model'=>$model));
 	}
+	public function actionTalk()
+	{
+		
+		$model	=	new Tickets('search');
+		if(isset($_POST['Tickets'])){
+			$user	=	UserProfiles::model()->findByPk(Yii::app()->user->profileId);
+			$model->attributes	=	$_POST['Tickets'];
+			$model->sender_id	=	Yii::app()->user->profileId;
+			$model->receiver_id	=	$user->generateGudaakIds->schools_id;
+			$model->status		=	1;
+			$model->add_date	=	date('Y-m-d H:i:s');
+			if($model->save())
+				$this->refresh();
+		}
+		$model->unsetAttributes();
+		$model->sender_id	=	Yii::app()->user->profileId;
+		$this->render('talk',array('model'=>$model));
+	}
 	public function actionUserProfileUpdate()
 	{	
 		if(isset($_REQUEST['Rid'])){
