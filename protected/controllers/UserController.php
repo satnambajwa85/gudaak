@@ -557,8 +557,7 @@ class UserController extends Controller
 					echo 'You have answer to '.$testReport1->questions->title;die;
 			}
 		 
-	}
-	
+	}	
 	public function actionDetailedReport()
 	{	
 		$userReports			=	UserReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId),array('order'=> 'orient_items_id ASC'));
@@ -742,19 +741,13 @@ class UserController extends Controller
 	}
 	public function actionCollage()
 	{	
-		
 		$this->render('collage',true);
-	
 	}
-	
-	
-
 	public function actionLiveChat()
 	{	
 		if(!Yii::app()->user->id){
 			$this->redirect(Yii::app()->createUrl('/site'));
 		}
-		
 		$this->render('LiveChat');
 	}
 	public function actionCareer()
@@ -768,8 +761,7 @@ class UserController extends Controller
 		$dataProvider				=	Career::model()->findAll($criteria);
 		
 		$this->render('career',array('data'=>$dataProvider));
-	}
-	
+	}	
 	public function actionCareerList($id)
 	{	
 		if(!Yii::app()->user->id){
@@ -821,7 +813,6 @@ class UserController extends Controller
 		//echo '<pre>';print_r($data);die;
 		$this->render('streamList',array('data'=>$data));
 	}
-
 	public function actionStream($id)
 	{
 				
@@ -1423,8 +1414,7 @@ class UserController extends Controller
 		
 		$preffred	=	 UserProfilesHasStream::model()->findByAttributes(array('stream_id'=>$id));
 		
-	}
-	
+	}	
 	public function actionStreamCareerOptions($id)
 	{	
 		$criteria 		= new CDbCriteria;
@@ -1501,7 +1491,8 @@ class UserController extends Controller
 		$summaryDetails=Summary::model()->findAllByAttributes(array('user_profile_id'=>Yii::app()->user->profileId,'status'=>1));
 		$this->render('summary',array('summaryDetails'=>$summaryDetails));
 	}
-	public function actionSummaryData($id){
+	public function actionSummaryData($id)
+	{
 		$summaryDetails=Summary::model()->findByPk($id);
 		echo '<table width="90%" class="pull-right" cellpadding="10" border="1">
                 	<tr class="light-gray"><td width="25%"><span>Event</span></td><td width="75%"><span>'.$summaryDetails->event.'</span></td></tr>
@@ -1531,8 +1522,6 @@ class UserController extends Controller
 		$events				=	Events::model()->findAll($criteria2);
 		$this->render('newsUpdates',array('news'=>$news,'pages'=>$pages,'pages2'=>$pages2,'events'=>$events));
 	}
-
-	
 	public function actionCareerOptionsAjax($id)
 	{	
 		
@@ -1665,8 +1654,7 @@ class UserController extends Controller
 	{	
 		$career					=	CareerDetails::model()->findAllByAttributes(array('status'=>1,'published'=>1,'career_options_id'=>$id));
 		$this->renderPartial('_userPrefferdCareer',array('list'=>$career), false,true);
-	}
-		
+	}		
 	public function actionNews($id)
 	{	
 		
@@ -1675,7 +1663,6 @@ class UserController extends Controller
 	}
 	public function actionApplication()
 	{
-	
 		$this->render('application');
 	}
 	public function actionReadEvent($id)
@@ -1698,8 +1685,6 @@ class UserController extends Controller
 		
 		$this->render('search',array('fech_result'=>$dataProvider));
 	}
-	//Forgot password
-		//Change password 
 	public function actionTestMail()
 	{
 	 
