@@ -31,6 +31,11 @@
 								<ul class="nav pull-left ">
 									<li class="<?php echo (Yii::app()->controller->action->id=='studentDetail' || Yii::app()->controller->action->id=='studentDetails')?'pull-left active-link':'pull-left'?>">
 										<i class="pull-left mar-top10 icon-microphone icon-top"></i>
+											<?php echo CHtml::link('Talk to Admin',array('school/talk'),array('class'=>'pull-left'));?>
+											
+									</li>
+                                    <li class="<?php echo (Yii::app()->controller->action->id=='studentDetail' || Yii::app()->controller->action->id=='studentDetails')?'pull-left active-link':'pull-left'?>">
+										<i class="pull-left mar-top10 icon-microphone icon-top"></i>
 											<?php echo CHtml::link('Student Details',array('school/studentDetails'),array('class'=>'pull-left'));?>
 											
 									</li>

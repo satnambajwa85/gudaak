@@ -104,7 +104,7 @@ class UserController extends Controller
 			$user	=	UserProfiles::model()->findByPk(Yii::app()->user->profileId);
 			$model->attributes	=	$_POST['Tickets'];
 			$model->sender_id	=	Yii::app()->user->profileId;
-			$model->receiver_id	=	$user->generateGudaakIds->schools_id;
+			$model->receiver_id	=	Yii::app()->user->schoolsId;
 			$model->status		=	1;
 			$model->add_date	=	date('Y-m-d H:i:s');
 			if($model->save()){
