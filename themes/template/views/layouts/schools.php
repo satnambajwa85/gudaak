@@ -28,7 +28,7 @@
 	<footer id="footer" class="row color mr0">
 		 <div class="container">
 	
-			 <ul class="footer nav navbar-nav">
+			<!-- <ul class="footer nav navbar-nav">
             
 				<li><a class="pull-left" href="#about">Home</a><i class="pull-right border-l">|</i></li>
 				<li><a class="pull-left" href="#about">About</a><i class="pull-right border-l">|</i></li>
@@ -41,7 +41,7 @@
 				<li><?php echo CHtml::Ajaxlink('Contacts',array('site/contact'),array('class'=>'pull-left'));?></li>
 				
 				
-			</ul>
+			</ul>-->
 		</div>
       </footer>
 
