@@ -270,10 +270,11 @@ class UserController extends Controller
 		{
 			
 			$model->attributes		=	$_POST['UserProfiles'];
+			$model->gudaak_id		=	$model->gudaak_id;
 			$model->display_name 	=	$_POST['UserProfiles']['first_name'].' '.$_POST['UserProfiles']['last_name'];
 			$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/uploads/user/';
-					$targetFolder = Yii::app()->request->baseUrl.'/uploads/user/';
-				if (!empty($_FILES['UserProfiles']['name']['image'])) {
+			$targetFolder = Yii::app()->request->baseUrl.'/uploads/user/';
+			if (!empty($_FILES['UserProfiles']['name']['image'])) {
 					$tempFile = $_FILES['UserProfiles']['tmp_name']['image'];
 					$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
 					$targetFile = $targetPath.'/'.$_FILES['UserProfiles']['name']['image'];
@@ -330,8 +331,11 @@ class UserController extends Controller
 				Yii::app()->user->setFlash('updated',"Sccessfully updated.");
 				$this->redirect(array('user/editProfile'));
 			}
+			else{
+				CVarDumper::dump($model,10,1);die;
+			}
 		}
-		$this->render('editProfile', array('model'=>$model));
+		//$this->render('editProfile', array('model'=>$model));
 	}
 	public function actionTest($id)
 	{									
