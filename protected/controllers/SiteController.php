@@ -374,6 +374,9 @@ class SiteController extends Controller
 					if(Yii::app()->user->userType=='school'){
 						$this->redirect(Yii::app()->createUrl('/school/'));
 					}
+					if(Yii::app()->user->userType=='counsellor'){
+						$this->redirect(Yii::app()->createUrl('/counsellor/'));
+					}
 					if(Yii::app()->user->userType=='upper11th'|| Yii::app()->user->userType=='below10th'){
 						$this->redirect(Yii::app()->createUrl('/user/'));
 					}

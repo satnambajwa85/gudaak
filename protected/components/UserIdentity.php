@@ -22,6 +22,12 @@ class UserIdentity extends CUserIdentity
 					return 2;
 				$this->setState('profileId',$userInfo->schools_id);
 				$this->setState('schoolsId',$userInfo->schools_id);
+			}elseif($record->userRole->title == 'counsellor'){
+				$userInfo	=	Counselor::model()->findByAttributes(array('user_login_id'=>$record->id));
+				if(empty($userInfo))
+					return 2;
+				$this->setState('profileId',$userInfo->id);
+				$this->setState('schoolsId',1);
 			}else{
 				$userInfo	=	UserProfiles::model()->findByAttributes(array('user_login_id'=>$record->id));
 				$this->setState('profileId',$userInfo->id);

@@ -1,5 +1,5 @@
 <?php
-class WidgetSchoolMenu extends CWidget
+class WidgetCounsellorMenu extends CWidget
 {
    public $visible=true;
  

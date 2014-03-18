@@ -29,28 +29,28 @@
 								<ul class="nav pull-left ">
 									<li class="<?php echo (Yii::app()->controller->action->id=='studentDetail' || Yii::app()->controller->action->id=='studentDetails')?'pull-left active-link':'pull-left'?>">
 										<i class="pull-left mar-top10 icon-microphone icon-top"></i>
-											<?php echo CHtml::link('Talk to Admin',array('school/talk'),array('class'=>'pull-left'));?>
+											<?php echo CHtml::link('Talk to Admin',array('counsellor/talk'),array('class'=>'pull-left'));?>
 									</li>
                                     <li class="<?php echo (Yii::app()->controller->action->id=='studentDetail' || Yii::app()->controller->action->id=='studentDetails')?'pull-left active-link':'pull-left'?>">
 										<i class="pull-left mar-top10 icon-microphone icon-top"></i>
-											<?php echo CHtml::link('Student Details',array('school/studentDetails'),array('class'=>'pull-left'));?>
+											<?php echo CHtml::link('Student Details',array('counsellor/studentDetails'),array('class'=>'pull-left'));?>
 									</li>
 									<li class="<?php echo (Yii::app()->controller->action->id=='profile')?'pull-left active-link':'pull-left'?>">
 										<i class="pull-left mar-top10 icon-microphone icon-top"></i>
-										<?php echo CHtml::link('School Profile',array('school/profile'),array('class'=>'pull-left'));?>
+										<?php echo CHtml::link('School Profile',array('counsellor/profile'),array('class'=>'pull-left'));?>
 									</li>
 								</ul>
 								<div class="pd0 pull-left col-md-6 ">
 											<div class="pd0 col-md-12 pull-left">
 												<div class="welcome-school  col-md-9">
 											<?php 
-													$filename = ''.$counselor->images 	.'';
+													$filename = ''.$counselor->image.'';
 													$path=Yii::getPathOfAlias('webroot.uploads.user.small') . '/';
 													$file=$path.$filename;
 													if (file_exists($file)){ ?>
-												<?php echo CHtml::link('<img src="'.Yii::app()->baseUrl.'/uploads/user/small/noimage.jpg"/>',array('school/'),array('class'=>'userImage pull-left'));
+												<?php echo CHtml::link('<img src="'.Yii::app()->baseUrl.'/uploads/user/small/noimage.jpg"/>',array('counsellor/'),array('class'=>'userImage pull-left'));
 													}else{
-														echo CHtml::link('<img src="'.Yii::app()->baseUrl.'/uploads/user/small/noimage.jpg"/>',array('school/'),array('class'=>'userImage pull-left'));
+														echo CHtml::link('<img src="'.Yii::app()->baseUrl.'/uploads/user/small/noimage.jpg"/>',array('counsellor/'),array('class'=>'userImage pull-left'));
 													} ?>
 													<span>Welcome</span>
 													<h3><?php echo $counselor->first_name.' '.$counselor->last_name;?></h3>
