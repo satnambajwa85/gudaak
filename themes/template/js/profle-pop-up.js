@@ -1,4 +1,4 @@
-function send()
+function send(url)
 	 {
 	   var data=$("#person-form-edit_person-form").serialize();
 	  $.ajax({
