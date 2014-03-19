@@ -74,7 +74,7 @@ class Articles extends CActiveRecord
 			'status' => 'Status',
 			'user_login_id' => 'User Login',
 			'author' => 'Author',
-			'role' => 'Role',
+			'role' => 'About Author',
 		);
 	}
 
