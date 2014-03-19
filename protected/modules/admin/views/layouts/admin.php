@@ -71,6 +71,7 @@
 						'active'=>(($action=='generateGudaakIds/admin')||($action=='generateGudaakIds/create')||($action=='generateGudaakIds/update')||($action=='generateGudaakIds/view'))),
                        	array('label'=>'Site Setting', 'url'=>array('/admin/siteSetting/admin')),
                        	array('label'=>'Articles', 'url'=>array('/admin/articles/admin')),
+                       	array('label'=>'Images', 'url'=>array('/admin/images/admin')),
                        	array('label'=>'News', 'url'=>array('/admin/news/admin')),
                        	array('label'=>'Events', 'url'=>array('/admin/events/admin')),
     
