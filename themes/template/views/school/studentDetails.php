@@ -15,16 +15,16 @@ $this->breadcrumbs=array('studentDetails',);
 	'method'=>'get',
 )); ?>
 	
-    <div class="row" style="margin:10px 0">
+    <div class="row" style="margin:36px 0px 0px 50px; ">
 		<table width="100%">
 <tbody>
 <tr>
-<td width="16%"><?php echo $form->textField($model,'gudaak_id',array('placeholder'=>'Gudaak Id','class'=>'form-control2 mar-b16')); ?></td>
-<td width="16%"><?php echo $form->textField($model,'first_name',array('placeholder'=>'First Name','class'=>'form-control2 mar-b16')); ?></td>
-<td width="16%"><?php echo $form->textField($model,'last_name',array('placeholder'=>'Last Name','class'=>'form-control2 mar-b16')); ?></td>
-<td width="16%"><?php echo $form->dropDownlist($model,'class',CHtml::listData(UserClass::model()->findAll(),'id','title'),array('prompt'=>'All','class'=>'mar-b16 form-control2'));?></td>
-<td width="16%"> <?php //echo $form->dropDownlist($model,'class',CHtml::listData(UserClass::model()->findAll(),'id','title'),array('id'=>'class_register','class'=>'mar-b16 form-control'));?></td>
-<td  width="16%"><?php echo CHtml::submitButton('Search',array('class'=>'back-btn')); ?></td>
+<td width="20%"><?php echo $form->textField($model,'gudaak_id',array('placeholder'=>'Gudaak Id','class'=>'form-control2 mar-b16')); ?></td>
+<td width="20%"><?php echo $form->textField($model,'first_name',array('placeholder'=>'First Name','class'=>'form-control2 mar-b16')); ?></td>
+<td width="20%"><?php echo $form->textField($model,'last_name',array('placeholder'=>'Last Name','class'=>'form-control2 mar-b16')); ?></td>
+<td width="20%"><?php echo $form->dropDownlist($model,'class',CHtml::listData(UserClass::model()->findAll(),'id','title'),array('prompt'=>'All','class'=>'mar-b16 form-control2'));?></td>
+<td width="5%"> <?php //echo $form->dropDownlist($model,'class',CHtml::listData(UserClass::model()->findAll(),'id','title'),array('id'=>'class_register','class'=>'mar-b16 form-control'));?></td>
+<td  width="20%"><?php echo CHtml::submitButton('Search',array('class'=>'back-btn')); ?></td>
 </tr>
 </tbody>
 </table>

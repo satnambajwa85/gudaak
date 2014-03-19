@@ -1,6 +1,6 @@
 <?php
 
-class ArticlesController extends Controller
+class ImagesController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -27,13 +27,10 @@ class ArticlesController extends Controller
 	public function accessRules()
 	{
 		return array(
-			array('allow',  // allow all users to perform 'index' and 'view' actions
-				'actions'=>array('index','view'),
-				'users'=>array('*'),
-			),
+			
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','admin','delete'),
-				'expression' =>"Yii::app()->user->userType ==  'admin'",
+				'actions'=>array('create','update','admin','delete','index','view'),
+				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
 				'actions'=>array('admin','delete'),
@@ -62,19 +59,18 @@ class ArticlesController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Articles;
-
+		$model	=	new Images;
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Articles']))
+		if(isset($_POST['Images']))
 		{
-			$model->attributes=$_POST['Articles'];
-			$targetFolder = Yii::app()->request->baseUrl.'/uploads/articles/';
-			if (!empty($_FILES['Articles']['name']['image'])) {
-				$tempFile = $_FILES['Articles']['tmp_name']['image'];
+			$model->attributes=$_POST['Images'];
+			$targetFolder = Yii::app()->request->baseUrl.'/uploads/images/';
+			if (!empty($_FILES['Images']['name']['name'])) {
+				$tempFile = $_FILES['Images']['tmp_name']['name'];
 				$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
-				$targetFile = $targetPath.'/'.$_FILES['Articles']['name']['image'];
+				$targetFile = $targetPath.'/'.$_FILES['Images']['name']['name'];
 				$pat = $targetFile;
 				move_uploaded_file($tempFile,$targetFile);
 				$absoPath = $pat;
@@ -83,7 +79,7 @@ class ArticlesController extends Controller
 				# ORIGINAL
 				$img->file_max_size = 5000000; // 5 MB
 				$img->file_new_name_body = $newName;
-				$img->process('uploads/articles/original/');
+				$img->process('uploads/images/original/');
 				$img->processed;
 				#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
 				if ($img->processed) {
@@ -92,26 +88,24 @@ class ArticlesController extends Controller
 					$img->image_y         	= 115;
 					$img->image_x           = 265;
 					$img->file_new_name_body = $newName;
-					$img->process('uploads/articles/large/');
+					$img->process('uploads/images/large/');
 					
 					#STHUMB Image
 					$img->image_resize      = true;
 					$img->image_y         	= 100;
 					$img->image_x           = 100;
 					$img->file_new_name_body = $newName;
-					$img->process('uploads/articles/small/');
+					$img->process('uploads/images/small/');
 				 
 					$fileName	=	$img->file_dst_name;
 					$img->clean();
 	
 				}
-				$model->image	=	$fileName;
+				$model->name	=	$fileName;
 			}
 			
-			$model->user_login_id=Yii::app()->user->userId;
 			if($model->save())
 				$this->redirect(array('admin'));
-				//$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('create',array(
@@ -131,18 +125,17 @@ class ArticlesController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['Articles']))
+		if(isset($_POST['Images']))
 		{
-			
-			$fileName	=	$model->image;
+			$fileName	=	$model->name;
 			$oldName	=	$fileName;
-			$model->attributes=$_POST['Articles'];
-			$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/uploads/articles/';
-			$targetFolder = Yii::app()->request->baseUrl.'/uploads/articles/';
-			if (!empty($_FILES['Articles']['name']['image'])) {
-				$tempFile = $_FILES['Articles']['tmp_name']['image'];
+			$model->attributes=$_POST['Images'];
+			$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/uploads/images/';
+			$targetFolder = Yii::app()->request->baseUrl.'/uploads/images/';
+			if (!empty($_FILES['Images']['name']['name'])) {
+				$tempFile = $_FILES['Images']['tmp_name']['name'];
 				$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
-				$targetFile = $targetPath.'/'.$_FILES['Articles']['name']['image'];
+				$targetFile = $targetPath.'/'.$_FILES['Images']['name']['name'];
 				$pat = $targetFile;
 				move_uploaded_file($tempFile,$targetFile);
 				$absoPath = $pat;
@@ -151,7 +144,7 @@ class ArticlesController extends Controller
 				# ORIGINAL
 				$img->file_max_size = 5000000; // 5 MB
 				$img->file_new_name_body = $newName;
-				$img->process('uploads/articles/original/');
+				$img->process('uploads/images/original/');
 				$img->processed;
 				#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
 				if ($img->processed) {
@@ -160,14 +153,14 @@ class ArticlesController extends Controller
 					$img->image_y         	= 115;
 					$img->image_x           = 265;
 					$img->file_new_name_body = $newName;
-					$img->process('uploads/articles/large/');
+					$img->process('uploads/images/large/');
 					
 					#STHUMB Image
 					$img->image_resize      = true;
 					$img->image_y         	= 100;
 					$img->image_x           = 100;
 					$img->file_new_name_body = $newName;
-					$img->process('uploads/articles/small/');
+					$img->process('uploads/images/small/');
 				 
 					$fileName	=	$img->file_dst_name;
 					$img->clean();
@@ -177,8 +170,7 @@ class ArticlesController extends Controller
 				@unlink($targetFolder1.'large/'.$oldName);
 				@unlink($targetFolder1.'small/'.$oldName);
 			}
-			$model->image	=	$fileName;
-			$model->user_login_id=Yii::app()->user->userId;
+			$model->name	=	$fileName;
 			if($model->save())
 				$this->redirect(array('admin'));
 		}
@@ -195,12 +187,8 @@ class ArticlesController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		$model	=	$this->loadModel($id);
-		$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/uploads/articles/';
-		@unlink($targetFolder1.'original/'.$model->image);
-		@unlink($targetFolder1.'large/'.$model->image);
-		@unlink($targetFolder1.'small/'.$model->image);
-		$model->delete();
+		$this->loadModel($id)->delete();
+
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
@@ -211,7 +199,7 @@ class ArticlesController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('Articles');
+		$dataProvider=new CActiveDataProvider('Images');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -222,10 +210,10 @@ class ArticlesController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Articles('search');
+		$model=new Images('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Articles']))
-			$model->attributes=$_GET['Articles'];
+		if(isset($_GET['Images']))
+			$model->attributes=$_GET['Images'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -236,12 +224,12 @@ class ArticlesController extends Controller
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
 	 * @param integer $id the ID of the model to be loaded
-	 * @return Articles the loaded model
+	 * @return Images the loaded model
 	 * @throws CHttpException
 	 */
 	public function loadModel($id)
 	{
-		$model=Articles::model()->findByPk($id);
+		$model=Images::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -249,11 +237,11 @@ class ArticlesController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param Articles $model the model to be validated
+	 * @param Images $model the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='articles-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='images-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

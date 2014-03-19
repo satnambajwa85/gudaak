@@ -3,7 +3,6 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>PDF Report</title>
-
 </head>
 
 <body>
@@ -198,18 +197,18 @@ Wishing you all the best in all your future endeavours!
 							</div>
                         <?php } ?>
 	<div>
-	<?php	foreach($report['results'] as $result){?>
-				 <div style="float:left; color: #666;width:95%; padding-left:3%; font-size:18px;  margin-top:7px; font-family:Arial, Helvetica, sans-serif; ">
-					<?php echo ($report['id']==3)?'<h4>'.$result['title'].'</h4>':'<h4>'.$result['title2'].'</h4>';?>
-				</div>
-				<div style="float:left; width:100%; padding-left:3%; font-size:14px; color:#666; text-align:justify; line-height:22px; font-family:Arial, Helvetica, sans-serif;  ">
-				<p><?php echo $result['description'];?></p>
-				</div>
+<?php	foreach($report['results'] as $result){?>
+			<div style="float:left; color: #666;width:95%; padding-left:3%; font-size:18px;  margin-top:7px; font-family:Arial, Helvetica, sans-serif; ">
+				<?php echo ($report['id']==3)?'<h4>'.$result['title'].'</h4>':'<h4>'.$result['title2'].'</h4>';?>
+			</div>
+			<div style="float:left; width:100%; padding-left:3%; font-size:14px; color:#666; text-align:justify; line-height:22px; font-family:Arial, Helvetica, sans-serif;  ">
+			<p><?php echo $result['description'];?></p>
+			</div>	
 		<?php 
 		} ?>
 		
 	<table width="800px" border="0" cellspacing="0" cellpadding="0" style="margin-top: 80px;font-family:Arial, Helvetica, sans-serif; color:#666; font-size:18px; ">
-	<tr>		
+	<tr>
     <?php
 	$listArr	=	array();
 	foreach($report['results'] as $result){
@@ -243,8 +242,7 @@ Wishing you all the best in all your future endeavours!
 	</tr>
 	</table>
 </div>
-	
-	<?php } ?>
+<?php } ?>
               <div style="float:left; width:100%; margin:80px 0 0 0;">
 				   <table width="800px" border="0" cellspacing="0" cellpadding="0">
 					<tr>

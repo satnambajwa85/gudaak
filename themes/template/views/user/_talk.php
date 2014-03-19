@@ -4,7 +4,7 @@
 /* @var $form CActiveForm */
 ?>
 
-<div class="profile_tab1_left">
+<div class="profile_tab1_left_new">
 
 <?php $form=$this->beginWidget('CActiveForm', array('id'=>'tickets-form','enableAjaxValidation'=>false,)); ?>
 	<div class="row">

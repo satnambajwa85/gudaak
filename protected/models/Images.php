@@ -1,31 +1,23 @@
 <?php
 
 /**
- * This is the model class for table "articles".
+ * This is the model class for table "images".
  *
- * The followings are the available columns in table 'articles':
+ * The followings are the available columns in table 'images':
  * @property integer $id
- * @property string $title
- * @property string $description
- * @property string $add_date
- * @property string $image
- * @property integer $published
+ * @property string $name
+ * @property string $path
  * @property integer $status
- * @property integer $user_login_id
- * @property string $autor
- * @property string $role
- *
- * The followings are the available model relations:
- * @property UserLogin $userLogin
+ * @property string $add_date
  */
-class Articles extends CActiveRecord
+class Images extends CActiveRecord
 {
 	/**
 	 * @return string the associated database table name
 	 */
 	public function tableName()
 	{
-		return 'articles';
+		return 'images';
 	}
 
 	/**
@@ -36,14 +28,13 @@ class Articles extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, description, add_date, user_login_id', 'required'),
-			array('published, status, user_login_id', 'numerical', 'integerOnly'=>true),
-			array('title', 'length', 'max'=>500),
-			array('image', 'length', 'max'=>45),
-			array('autor, role', 'length', 'max'=>255),
+			array('name', 'required'),
+			array('status', 'numerical', 'integerOnly'=>true),
+			array('name, path', 'length', 'max'=>255),
+			array('add_date', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, title, description, add_date, image, published, status, user_login_id, autor, role', 'safe', 'on'=>'search'),
+			array('id, name, path, status, add_date', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -55,7 +46,6 @@ class Articles extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'userLogin' => array(self::BELONGS_TO, 'UserLogin', 'user_login_id'),
 		);
 	}
 
@@ -66,15 +56,10 @@ class Articles extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'title' => 'Title',
-			'description' => 'Description',
-			'add_date' => 'Add Date',
-			'image' => 'Image',
-			'published' => 'Published',
+			'name' => 'Name',
+			'path' => 'Path',
 			'status' => 'Status',
-			'user_login_id' => 'User Login',
-			'autor' => 'Autor',
-			'role' => 'Role',
+			'add_date' => 'Add Date',
 		);
 	}
 
@@ -97,15 +82,10 @@ class Articles extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('title',$this->title,true);
-		$criteria->compare('description',$this->description,true);
-		$criteria->compare('add_date',$this->add_date,true);
-		$criteria->compare('image',$this->image,true);
-		$criteria->compare('published',$this->published);
+		$criteria->compare('name',$this->name,true);
+		$criteria->compare('path',$this->path,true);
 		$criteria->compare('status',$this->status);
-		$criteria->compare('user_login_id',$this->user_login_id);
-		$criteria->compare('autor',$this->autor,true);
-		$criteria->compare('role',$this->role,true);
+		$criteria->compare('add_date',$this->add_date,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
@@ -116,7 +96,7 @@ class Articles extends CActiveRecord
 	 * Returns the static model of the specified AR class.
 	 * Please note that you should have this exact method in all your CActiveRecord descendants!
 	 * @param string $className active record class name.
-	 * @return Articles the static model class
+	 * @return Images the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
