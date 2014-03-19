@@ -12,7 +12,7 @@
  * @property integer $published
  * @property integer $status
  * @property integer $user_login_id
- * @property string $autor
+ * @property string $author
  * @property string $role
  *
  * The followings are the available model relations:
@@ -40,10 +40,10 @@ class Articles extends CActiveRecord
 			array('published, status, user_login_id', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>500),
 			array('image', 'length', 'max'=>45),
-			array('autor, role', 'length', 'max'=>255),
+			array('author, role', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, title, description, add_date, image, published, status, user_login_id, autor, role', 'safe', 'on'=>'search'),
+			array('id, title, description, add_date, image, published, status, user_login_id, author, role', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -73,7 +73,7 @@ class Articles extends CActiveRecord
 			'published' => 'Published',
 			'status' => 'Status',
 			'user_login_id' => 'User Login',
-			'autor' => 'Autor',
+			'author' => 'Author',
 			'role' => 'Role',
 		);
 	}
@@ -104,7 +104,7 @@ class Articles extends CActiveRecord
 		$criteria->compare('published',$this->published);
 		$criteria->compare('status',$this->status);
 		$criteria->compare('user_login_id',$this->user_login_id);
-		$criteria->compare('autor',$this->autor,true);
+		$criteria->compare('author',$this->author,true);
 		$criteria->compare('role',$this->role,true);
 
 		return new CActiveDataProvider($this, array(
