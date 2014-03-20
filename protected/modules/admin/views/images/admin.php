@@ -38,12 +38,12 @@ $('.search-form form').submit(function(){
 		array(
         	'name'=>'name',
         	'type'=>'html',
-        	'value'=>'CHtml::image("uploads/images/small/$data->name", "", array("width"=>200))',
+        	'value'=>'CHtml::image("uploads/images/large/$data->name", "", array("width"=>200))',
 		),
 		array(
         	'name'=>'path',
         	'type'=>'html',
-        	'value'=>'"uploads/images/small/$data->name"',
+        	'value'=>'"uploads/images/large/$data->name"',
 		),
 		
 		//'path',
