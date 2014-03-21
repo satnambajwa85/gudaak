@@ -7852,7 +7852,7 @@ top:115px;width: 252px;background:#FAFFFF;background-color:#FAFFFF;z-index:999;}
 .scrollbox-rail,
 .scrollbox-bar {display: none;position: absolute;top: 0;right: 0;z-index: 10;width: 8px;-webkit-border-radius: 8px;-khtml-border-radius: 8px;-moz-border-radius: 8px;border-radius: 8px;background-color: #333;}
 .scrollbox-rail-in,.scrollbox-bar-in {display: block;}.scrollbox-rail {height: 100%;opacity: .2;filter: alpha(opacity=20);}.scrollbox-bar {min-height: 30px;opacity: .4;filter: alpha(opacity=40);}.scroll-text-pd{padding:0 19px 0 0 ;}
-#accessScroll {max-height: 200px;}#exploreScroll {max-height: 200px;}#approachScroll {max-height: 200px;}#scrollBar {max-height: 308px;}
+#accessScroll {max-height: 200px;}#exploreScroll {max-height: 200px;}#approachScroll {max-height: 200px;}#scrollBar {max-height: 575px;}
 #access-Links h2{font-size:12px;}.top-logo {background:url("../images/home-logo.png") no-repeat scroll -1px 9px #FFFFFF;border-radius: 75px;height: 150px;left: 43%;position: absolute;top: -21px;width: 150px;}
 .padding-right {box-shadow: 9px -1px 9px -11px #333;padding: 0 93px 0 0;text-align: justify;}.padding-left {padding: 0 75px 0 81px;text-align: justify;}
 .right-tab-content h3{font-size:16px; color:#E88B2D;margin:10px 0 10px 0 ;}
@@ -8005,6 +8005,7 @@ filter: alpha(opacity=30);}
 .newsupdates ul li:hover{margin-bottom:10px;border:1px solid #F7A944;}
 .newsupdates ul li h1{font-size:12px;margin:0px;background-color:#F7F7F7; padding: 7px;}
 .newsupdates ul li span{font-size:12px; background-color: #F7A944;color: #FFFFFF;left: 300px;padding:6px 11px 4px 13px;position: relative;top: -24px;}
+.newsupdates ul li p.MsoNormal span{font-size:12px;background-color:fff;}
 .newsupdates ul li p{font-size:11px;color:#999;margin-top:-14px;padding:0 0 0 7px;font-weight:normal;}
 .newsupdates ul li a{color:#F7A944;padding:0 0 0 7px;font-size:11px;font-weight:normal;}
 .events ul{list-style:none;padding:0px;}

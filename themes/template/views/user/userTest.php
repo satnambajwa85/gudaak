@@ -27,7 +27,7 @@ $this->breadcrumbs=array('Assess'=>array('/user/tests'));?>
 								?>
 					<?php if(Yii::app()->user->hasFlash('updated')): ?>
                     <script type="text/javascript">
-                    alert('Your request has been submitted. You will soon receive the response to your query.<?php //echo Yii::app()->user->getFlash('updated'); ?>');
+                   // alert('Your request has been submitted. You will soon receive the response to your query.<?php //echo Yii::app()->user->getFlash('updated'); ?>');
                     </script>
 					<!--<div class="alert alert-success">
 						<button data-dismiss="alert" class="close" type="button">×</button>

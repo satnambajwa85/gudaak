@@ -13,11 +13,11 @@ $this->breadcrumbs=array('Articles'=>array('/user/articlesList'));?>
 				<ul>
 					<?php if(!empty($articles)){?>
 					 <?php foreach($articles as $list){ ?>
-					<li>
+					<li style="overflow:hidden">
 						<div class="pd0 col-md-12">
 							<h1><?php echo $list->title;?></h1>
 							<span><?php echo Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse($list->add_date, 'yyyy-MM-dd'),'medium',null);?></span>
-							<p><?php echo substr($list->description,0,230);?>..</p>
+							<p><?php echo substr(preg_replace("/<img[^>]+\>/i", "(image) ", $list->description),0,230);?>..</p>
 							<?php echo CHtml::link('Read Full..',array('user/articles','id'=>$list->id));?>
 						</div>
 					
