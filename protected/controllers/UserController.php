@@ -529,7 +529,7 @@ class UserController extends Controller
 					$log->add_date			=	date('Y-m-d H:i:s');
 					$log->status			=	1;
 					$log->save();
-					Yii::app()->user->setFlash('updated',"Sccessfully sent.");
+					Yii::app()->user->setFlash('updated',"Your request has been submitted. You will soon receive the response to your query.");
 					$this->redirect(array('user/tests'));
 					die;
 				}
