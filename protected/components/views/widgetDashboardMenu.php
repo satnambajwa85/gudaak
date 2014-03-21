@@ -33,7 +33,7 @@
 				</ul>
 			</div>
 			<div class="side-navigation">
-				<h4>My Progress</h4>
+				<h4 style="background-color:#E88B2D">My Progress</h4>
 				<ul>
 					<?php
 $action	=	Yii::app()->controller->action->id;
@@ -45,7 +45,7 @@ $getId=$_REQUEST['id'];
 ?>
 					<li><?php echo CHtml::link('<i class="icon-desktop"></i>Orientation Tour',array('user/index'),array('title'=>'Orientation Tour','class'=>''.($action=='index')?'slidebg':''.''))?>
 					</li>
-					<li><?php echo CHtml::link('<i class="glyphicon glyphicon-record"></i>Asses',array('user/tests'),array('title'=>'Asses','class'=>''.($action=='tests')?'slidebg':''.''))?>
+					<li><?php echo CHtml::link('<i class="glyphicon glyphicon-record"></i>Assess',array('user/tests'),array('title'=>'Asses','class'=>''.($action=='tests')?'slidebg':''.''))?>
 				
 				
 						<ul style="<?php echo ($action=='tests'||$action=='DetailedReport')?'display:block':'';?>">
