@@ -30,8 +30,11 @@ $this->breadcrumbs=array('Career'=>array('/user/career'),'Career List'=>array('/
 						<li><a href="javascript:void(0)">Career Details</a></li>
                     	<li class="pull-right">
 							<div class="star-rating pull-left pd5" style="margin:0px;">
-								<span class="rating-title2 fl">Your Rating</span>
+                            	<span class="rating-title2 fl">Your Rating</span>
 								<div id="career-rating" class="fr"></div>
+                                <div style="margin-top:-10px;color:#E88B2D;font-size:10px;font-weight:bold;">
+                                <marquee class="row">Please Rate this Career Option</marquee>
+                                </div>
 							</div>
 						</li>	
 					 

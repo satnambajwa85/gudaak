@@ -26,10 +26,13 @@ $this->breadcrumbs=array('Assess'=>array('/user/tests'));?>
 								
 								?>
 					<?php if(Yii::app()->user->hasFlash('updated')): ?>
-					<div class="alert alert-success">
+                    <script type="text/javascript">
+                    alert('Your request has been submitted. You will soon receive the response to your query.<?php //echo Yii::app()->user->getFlash('updated'); ?>');
+                    </script>
+					<!--<div class="alert alert-success">
 						<button data-dismiss="alert" class="close" type="button">×</button>
-						<strong><?php echo Yii::app()->user->getFlash('updated'); ?></strong>
-					</div>
+						<strong><?php //echo Yii::app()->user->getFlash('updated'); ?></strong>
+					</div>-->
 				<?php endif; ?>
 						<div class="mr0 col-md-6 pull-left <?php echo $css;?>">
 							<h1><?php echo $list->title;?></h1>
