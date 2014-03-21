@@ -1,7 +1,8 @@
-<?php $this->pageTitle=Yii::app()->name . ' - Asses';
-$this->breadcrumbs=array('Asses'=>array('/user/tests'));?>
+<?php $this->pageTitle=Yii::app()->name . ' - Assess';
+$this->breadcrumbs=array('Assess'=>array('/user/tests'));?>
 <div id="partial-render">
-	<div class="border">
+	<div class="col-md-10 pull-left pd0">
+    <div class="border pd0">
 					<ol class="breadcrumb">
 					  <li><a href="#">Assessment</a></li>
 						<li>
@@ -11,8 +12,9 @@ $this->breadcrumbs=array('Asses'=>array('/user/tests'));?>
                     
 	</div>
     
-					
-				<div class="col-md-10 pull-left">
+                
+                
+                
 					<div class="mr0 col-md-12 fl">
 						<?php  $count=1;
 								foreach($testContent as $list){ 
@@ -31,7 +33,7 @@ $this->breadcrumbs=array('Asses'=>array('/user/tests'));?>
 				<?php endif; ?>
 						<div class="mr0 col-md-6 pull-left <?php echo $css;?>">
 							<h1><?php echo $list->title;?></h1>
-							<p><?php echo substr($list->description,0,225);?>..</p>
+							<p><?php //echo substr($list->description,0,225);?></p>
 							<!--<a href="#">Konw more about stream explore</a>-->
 						</div>
 					<?php } ?>
@@ -46,10 +48,10 @@ $this->breadcrumbs=array('Asses'=>array('/user/tests'));?>
 							<div class="col-md-12 pull-left min-height-fix border-box">
 								<div align="center">
                                 <span class='btn btn-info2 center-bt'>
-								Take <?php echo $list->title;?> </span>
+								<?php echo $list->title;?> </span>
 								</div>
 								<div class="retaketest ">
-									<h1>Last test summery</h1>
+									<h1>Last test summary</h1>
 									<span>Test Date:</span>
 									<datetime>	
 										<?php echo date('d M,Y',strtotime($detials[$list->id]['date']));?>
