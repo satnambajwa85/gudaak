@@ -198,15 +198,21 @@ Wishing you all the best in all your future endeavours!
                         <?php } ?>
 	<div>
 <?php	foreach($report['results'] as $result){?>
-			<div style="float:left; color: #666;width:95%; padding-left:3%; font-size:18px;  margin-top:7px; font-family:Arial, Helvetica, sans-serif; ">
-				<?php echo ($report['id']==3)?'<h4>'.$result['title'].'</h4>':'<h4>'.$result['title2'].'</h4>';?>
+			<div style="float:left; width:100%; margin-top:3px;">
+             <img alt="" src="./image/<?php echo $result['image'];?>">
+            </div> 
+            <!--<div style="float:left; color: #666;width:95%; padding-left:3%; font-size:18px;  margin-top:7px; font-family:Arial, Helvetica, sans-serif; ">
+				<?php //echo ($report['id']==3)?'<h4>'.$result['title'].'</h4>':'<h4>'.$result['title2'].'</h4>';?>
 			</div>
 			<div style="float:left; width:100%; padding-left:3%; font-size:14px; color:#666; text-align:justify; line-height:22px; font-family:Arial, Helvetica, sans-serif;  ">
-			<p><?php echo $result['description'];?></p>
-			</div>	 
-    <?php 
-	} ?>
-
+			<p><?php //echo $result['description'];?>
+            
+            </p>
+            
+			</div>	-->
+		<?php 
+		} ?>
+		
 	<table width="800px" border="0" cellspacing="0" cellpadding="0" style="margin-top: 80px;font-family:Arial, Helvetica, sans-serif; color:#666; font-size:18px; ">
 	<tr>
     <?php

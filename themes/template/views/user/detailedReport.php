@@ -165,7 +165,10 @@ Wishing you all the best in all your future endeavours!
 				<?php echo ($report['id']==3)?'<h3 class="process-title">'.$result['title'].'</h3>':'<h3 class="process-title">'.$result['title2'].'</h3>';?>
 			</div>
 			<div class="cat-def">
-			<p><?php echo $result['description'];?></p>
+			<p>
+			<?php //echo $result['description'];?>
+            <img alt="" src="./image/<?php echo $result['image'];?>">
+           </p>
 			
 			</div>	
 		

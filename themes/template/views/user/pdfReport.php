@@ -202,7 +202,10 @@ Wishing you all the best in all your future endeavours!
 				<?php echo ($report['id']==3)?'<h4>'.$result['title'].'</h4>':'<h4>'.$result['title2'].'</h4>';?>
 			</div>
 			<div style="float:left; width:100%; padding-left:3%; font-size:14px; color:#666; text-align:justify; line-height:22px; font-family:Arial, Helvetica, sans-serif;  ">
-			<p><?php echo $result['description'];?></p>
+			<p><?php //echo $result['description'];?>
+             <img alt="" src="./image/<?php echo $result['image'];?>">
+            </p>
+            
 			</div>	
 		<?php 
 		} ?>
