@@ -583,7 +583,8 @@ class UserController extends Controller
 						$userTest[$asswssment->value][$cur->career_categories_id]['id']			=	$cur->careerCategories->id;
 						$userTest[$asswssment->value][$cur->career_categories_id]['title']		=	$cur->careerCategories->title;
 						$userTest[$asswssment->value][$cur->career_categories_id]['title2']		=	$asswssment->title;
-						$userTest[$asswssment->value][$cur->career_categories_id]['description']	=	$asswssment->description;
+						$userTest[$asswssment->value][$cur->career_categories_id]['description']=	$asswssment->description;
+						$userTest[$asswssment->value][$cur->career_categories_id]['image']		=	$asswssment->image;
 					}
 				}
 				
