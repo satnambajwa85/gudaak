@@ -26,7 +26,6 @@ class WidgetDashboardMenu extends CWidget
 		$userProfileProcess2=	UserProfilesHasInterests::model()->countByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId)); 
 		$tests				=	OrientItems::model()->findAllByAttributes(array('published'=>1,'status'=>1),array('order'=>'title ASC '));
 		$userTest		 	=  UserReports::model()->countByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId)); 
-		 
 		if($userTest==1){
 			$completeProfile	=	'50%'; 
 		}

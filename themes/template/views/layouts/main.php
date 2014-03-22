@@ -31,7 +31,7 @@
 	if($action=='index'){
 		$css	=	'index';
 	}	
-	if($action=='schools'||$action=='students'||$action=='why'||$action=='what'||$action=='error'){
+	if($action=='schools'||$action=='students'||$action=='why'||$action=='what'||$action=='error'||$action=='articals'){
 		$css	=	'erternalPages';
 	}
 	
@@ -113,16 +113,17 @@
 						
                         <?php } ?>
                     </span>
-                   <!-- <ul>
-                        <li><?php echo CHtml::link('Home',array('site/'))?></li>
+                   <ul>
+					<li><?php //echo CHtml::link('Articles',array('site/articles'))?></li>
+                        <!-- <li><?php echo CHtml::link('Home',array('site/'))?></li>
 						<li><a href="javascript:void(0);">|</a></li>
 						<li><?php echo CHtml::link('About',array('site/about'))?></li>
                       	<li><a href="javascript:void(0);">|</a></li>
                         <li><?php echo CHtml::Ajaxlink('FAQs','javascript:void(0);');?>
                         </li>
                         <li><a href="javascript:void(0);">|</a></li>
-                        <li><?php echo CHtml::link('Contact',array('site/contact'))?></li>
-                    </ul>-->
+                        <li><?php echo CHtml::link('Contact',array('site/contact'))?></li>-->
+                    </ul>
                 </div>
                 <div class="footer_2right">
                 	<ul>

@@ -10,7 +10,7 @@ class UserController extends Controller
 				'actions'=>array('index','editProfile','test','tests','detailedReport','collage','liveChat',
 							'articlesList','articles','summary','newsUpdates',
 							'exploreColleges','shortListedColleges','dynamicCourse','dynamicSearchResult','userShortlistCollage',
-							'search','changePassword','application','questionsAnswer','testMail','userProfileUpdate','retakeTest','news','readEvent','summaryDetails',
+							'search','changePassword','application','questionsAnswer','upload','testMail','userProfileUpdate','retakeTest','news','readEvent','summaryDetails','summaryData','talk',
 				),
 				'users' => array('@')
 					
@@ -80,10 +80,50 @@ class UserController extends Controller
 		if(isset($_POST['UserProfiles'])){
 			$model->attributes		=	$_POST['UserProfiles'];
 			if($model->save()){
+				$log					=	new Summary;
+				$log->user_profile_id	=	Yii::app()->user->profileId;
+				$log->schools_id		=	Yii::app()->user->schoolsId;
+				$log->event_id			=	Yii::app()->user->profileId;
+				$log->topic				=	'Profile';
+				$log->event				=	'Updated Profile';
+				$log->remarks			=	'User sccessfully updated his profile information';
+				$log->add_date			=	date('Y-m-d H:i:s');
+				$log->status			=	1;
+				$log->save();
+				
 				Yii::app()->user->setFlash('updated',"Sccessfully updated.");
 			}
 		}
 		$this->render('index',array('model'=>$model));
+	}
+	public function actionTalk()
+	{
+		
+		$model	=	new Tickets('search');
+		if(isset($_POST['Tickets'])){
+			$user	=	UserProfiles::model()->findByPk(Yii::app()->user->profileId);
+			$model->attributes	=	$_POST['Tickets'];
+			$model->sender_id	=	Yii::app()->user->profileId;
+			$model->receiver_id	=	Yii::app()->user->schoolsId;
+			$model->status		=	1;
+			$model->add_date	=	date('Y-m-d H:i:s');
+			if($model->save()){
+				$log					=	new Summary;
+				$log->user_profile_id	=	Yii::app()->user->profileId;
+				$log->schools_id		=	Yii::app()->user->schoolsId;
+				$log->event_id			=	$model->id;
+				$log->topic				=	'Talk to Counsellor';
+				$log->event				=	'Asked query to counsellor';
+				$log->remarks			=	'User submitted his/her query request to counsellor sccessfully.';
+				$log->add_date			=	date('Y-m-d H:i:s');
+				$log->status			=	1;
+				$log->save();
+				$this->refresh();
+			}
+		}
+		$model->unsetAttributes();
+		$model->sender_id	=	Yii::app()->user->profileId;
+		$this->render('talk',array('model'=>$model));
 	}
 	public function actionUserProfileUpdate()
 	{	
@@ -230,10 +270,11 @@ class UserController extends Controller
 		{
 			
 			$model->attributes		=	$_POST['UserProfiles'];
+			$model->gudaak_id		=	$model->gudaak_id;
 			$model->display_name 	=	$_POST['UserProfiles']['first_name'].' '.$_POST['UserProfiles']['last_name'];
 			$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/uploads/user/';
-					$targetFolder = Yii::app()->request->baseUrl.'/uploads/user/';
-				if (!empty($_FILES['UserProfiles']['name']['image'])) {
+			$targetFolder = Yii::app()->request->baseUrl.'/uploads/user/';
+			if (!empty($_FILES['UserProfiles']['name']['image'])) {
 					$tempFile = $_FILES['UserProfiles']['tmp_name']['image'];
 					$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
 					$targetFile = $targetPath.'/'.$_FILES['UserProfiles']['name']['image'];
@@ -275,11 +316,26 @@ class UserController extends Controller
 					@unlink($targetFolder1.'small/'.$_POST['UserProfiles']['oldImage']);
 				}
 			}
-			if($model->save())
+			if($model->save()){
+				$log					=	new Summary;
+				$log->user_profile_id	=	Yii::app()->user->profileId;
+				$log->schools_id		=	$model->generateGudaakIds->schools_id;
+				$log->event_id			=	Yii::app()->user->profileId;
+				$log->topic				=	'Profile';
+				$log->event				=	'Updated Profile';
+				$log->remarks			=	'User sccessfully updated his profile information';
+				$log->add_date			=	date('Y-m-d H:i:s');
+				$log->status			=	1;
+				$log->save();
+				
 				Yii::app()->user->setFlash('updated',"Sccessfully updated.");
 				$this->redirect(array('user/editProfile'));
+			}
+			else{
+				CVarDumper::dump($model,10,1);die;
+			}
 		}
-		$this->render('editProfile', array('model'=>$model));
+		//$this->render('editProfile', array('model'=>$model));
 	}
 	public function actionTest($id)
 	{									
@@ -377,6 +433,17 @@ class UserController extends Controller
 			$userTest->status			 	=	1;
 			$userTest->activation			=	1;
 			$userTest->save();
+			
+			$log					=	new Summary;
+			$log->user_profile_id	=	Yii::app()->user->profileId;
+			$log->schools_id		=	Yii::app()->user->schoolsId;
+			$log->event_id			=	$userTest->id;
+			$log->topic				=	'Test';
+			$log->event				=	'Test Submitted';
+			$log->remarks			=	'User submitted his/her test sccessfully.';
+			$log->add_date			=	date('Y-m-d H:i:s');
+			$log->status			=	1;
+			$log->save();
 			$response['status']=1;
 			$response['message']='Plsease wait.';
 			echo json_encode($response); 
@@ -388,9 +455,7 @@ class UserController extends Controller
 		if(isset($testAvswe))
 		foreach($testAvswe as $anw){
 			$testAns[$anw->questions_id]=$anw->question_options_id;
-		}		
-		//CVarDumper::dump($testAns,10,1);
-		//die;
+		}
 		$this->render('test', array('questions'=>$quest,'model'=>$model,'testContent'=>$testContent,'testAns'=>$testAns));
 	}
 	public function actionTests()
@@ -454,7 +519,17 @@ class UserController extends Controller
 				$model->add_date			=	date('Y-m-d H:i:s');
 				$model->status				=	1;
 				if($model->save()){
-					Yii::app()->user->setFlash('updated',"Sccessfully sent.");
+					$log					=	new Summary;
+					$log->user_profile_id	=	Yii::app()->user->profileId;
+					$log->schools_id		=	Yii::app()->user->schoolsId;
+					$log->event_id			=	$model->id;
+					$log->topic				=	'Test';
+					$log->event				=	'Test retake request';
+					$log->remarks			=	'User submitted his/her retake request sccessfully.';
+					$log->add_date			=	date('Y-m-d H:i:s');
+					$log->status			=	1;
+					$log->save();
+					Yii::app()->user->setFlash('updated',"Your request has been submitted. You will soon receive the response to your query.");
 					$this->redirect(array('user/tests'));
 					die;
 				}
@@ -486,8 +561,7 @@ class UserController extends Controller
 					echo 'You have answer to '.$testReport1->questions->title;die;
 			}
 		 
-	}
-	
+	}	
 	public function actionDetailedReport()
 	{	
 		$userReports			=	UserReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId),array('order'=> 'orient_items_id ASC'));
@@ -509,7 +583,8 @@ class UserController extends Controller
 						$userTest[$asswssment->value][$cur->career_categories_id]['id']			=	$cur->careerCategories->id;
 						$userTest[$asswssment->value][$cur->career_categories_id]['title']		=	$cur->careerCategories->title;
 						$userTest[$asswssment->value][$cur->career_categories_id]['title2']		=	$asswssment->title;
-						$userTest[$asswssment->value][$cur->career_categories_id]['description']	=	$asswssment->description;
+						$userTest[$asswssment->value][$cur->career_categories_id]['description']=	$asswssment->description;
+						$userTest[$asswssment->value][$cur->career_categories_id]['image']		=	$asswssment->image;
 					}
 				}
 				
@@ -671,19 +746,13 @@ class UserController extends Controller
 	}
 	public function actionCollage()
 	{	
-		
 		$this->render('collage',true);
-	
 	}
-	
-	
-
 	public function actionLiveChat()
 	{	
 		if(!Yii::app()->user->id){
 			$this->redirect(Yii::app()->createUrl('/site'));
 		}
-		
 		$this->render('LiveChat');
 	}
 	public function actionCareer()
@@ -697,8 +766,7 @@ class UserController extends Controller
 		$dataProvider				=	Career::model()->findAll($criteria);
 		
 		$this->render('career',array('data'=>$dataProvider));
-	}
-	
+	}	
 	public function actionCareerList($id)
 	{	
 		if(!Yii::app()->user->id){
@@ -750,7 +818,6 @@ class UserController extends Controller
 		//echo '<pre>';print_r($data);die;
 		$this->render('streamList',array('data'=>$data));
 	}
-
 	public function actionStream($id)
 	{
 				
@@ -824,6 +891,16 @@ class UserController extends Controller
 			$finalCareer->modified_date		=	date('Y-m-d H:i:s');
 			$finalCareer->updated_by 		=	1;
 			if($finalCareer->save()){
+				$log					=	new Summary;
+				$log->user_profile_id	=	Yii::app()->user->profileId;
+				$log->schools_id		=	Yii::app()->user->schoolsId;
+				$log->event_id			=	$id;
+				$log->topic				=	'Career';
+				$log->event				=	'Finalized Career';
+				$log->remarks			=	'User finalized '.$finalCareer->careerOptions->title.' as career option sccessfully.';
+				$log->add_date			=	date('Y-m-d H:i:s');
+				$log->status			=	1;
+				$log->save();
 				$data['status']=1;
 				$data['message']='Thank you to final to career.';
 				echo json_encode($data);
@@ -840,7 +917,7 @@ class UserController extends Controller
 			$model->stream_id			=	$_POST['UserCareerComments']['stream_id'];
 			
 			if($model->save()){
-				Yii::app()->user->setFlash('sccess','Sccessfully send your comment.');
+				Yii::app()->user->setFlash('sccess','sccessfully send your comment.');
 			}
 		}
 		$criteria			=	new CDbCriteria();
@@ -870,6 +947,16 @@ class UserController extends Controller
 		$finalCareer->modified_date		=	date('Y-m-d H:i:s');
 		$finalCareer->updated_by 		=	0;
 		if($finalCareer->save()){
+			$log					=	new Summary;
+			$log->user_profile_id	=	Yii::app()->user->profileId;
+			$log->schools_id		=	Yii::app()->user->schoolsId;
+			$log->event_id			=	$id;
+			$log->topic				=	'Career';
+			$log->event				=	'Removed from finalized Career';
+			$log->remarks			=	'User Removed career option '.$finalCareer->careerOptions->title.' from his/her finalized career.';
+			$log->add_date			=	date('Y-m-d H:i:s');
+			$log->status			=	1;
+			$log->save();
 			$data['status']=1;
 			$data['message']='Sccessfuly removed to career.';
 			echo json_encode($data);
@@ -884,12 +971,59 @@ class UserController extends Controller
 		$finalCareer->modified_date		=	date('Y-m-d H:i:s');
 		$finalCareer->updated_by 		=	0;
 		if($finalCareer->save()){
+			$log					=	new Summary;
+			$log->user_profile_id	=	Yii::app()->user->profileId;
+			$log->schools_id		=	Yii::app()->user->schoolsId;
+			$log->event_id			=	$id;
+			$log->topic				=	'Stream';
+			$log->event				=	'Removed from finalized stream';
+			$log->remarks			=	'User removed stream '.$finalCareer->stream->name.' from his/her finalized streams.';
+			$log->add_date			=	date('Y-m-d H:i:s');
+			$log->status			=	1;
+			$log->save();
+			
 			$data['status']=1;
 			$data['message']='Sccessfuly removed to career.';
 			echo json_encode($data);
 			die;
 			 
 		}
+	}
+	public function actionUpload()
+	{   
+		$img		=	 UserProfiles::model()->findByPk(Yii::app()->user->profileId);
+		$targetFolder1	=	Yii::app()->baseUrl.'/uploads/user/small/'.$img->image.'';
+		@unlink($targetFolder1);
+		$path	=	Yii::app()->baseUrl.'/uploads/user/small/';
+		Yii::import("ext.EAjaxUpload.qqFileUploader");
+        $folder='uploads/user/small/';// folder for uploaded files
+        $allowedExtensions = array("jpg");//array("jpg","jpeg","gif","exe","mov" and etc...
+        $sizeLimit = 2 * 1024 * 1024;// maximum file size in bytes
+        $minSizeLimit = 0 * 1024 * 1024;// maximum file size in bytes
+        $uploader = new qqFileUploader($allowedExtensions, $sizeLimit, $minSizeLimit);
+        $result = $uploader->handleUpload($folder);
+        $return = htmlspecialchars(json_encode($result), ENT_NOQUOTES);
+        $fileSize=filesize($folder.$result['filename']);//GETTING FILE SIZE
+        $fileName=$result['filename'];//GETTING FILE NAME\
+			$model	=	 UserProfiles::model()->findByPk(Yii::app()->user->profileId);
+			$model->image	=$fileName;
+			if($model->save()){
+					$log					=	new UserLog;
+					$log->name				=	Yii::app()->user->userName;
+					$log->description		=	'UPDATED user profile picture';
+					$log->image				=	$path.$fileName;
+					
+				 	$log->login_id			=	Yii::app()->user->userId;
+					$log->add_date			=	date('Y:m:d H:i:s');
+					
+				if($log->save()){
+				 
+					Yii::app()->user->setFlash('image','Your have changed your profile image');
+				}
+				
+				
+			}
+		 echo $return;// it's array
 	}
 	public function actionFinalizedStream()
 	{	
@@ -911,6 +1045,18 @@ class UserController extends Controller
 					$model->modified_date		=	date('Y-m-d H:i:s');
 					$model->updated_by			=	1;
 					if($model->save()){
+						$log					=	new Summary;
+						$log->user_profile_id	=	Yii::app()->user->profileId;
+						$log->schools_id		=	Yii::app()->user->schoolsId;
+						$log->event_id			=	$id;
+						$log->topic				=	'Stream';
+						$log->event				=	'Add finalized stream';
+						$log->remarks			=	'User added stream '.$model->stream->name.' to his/her finalized streams.';
+						$log->add_date			=	date('Y-m-d H:i:s');
+						$log->status			=	1;
+						$log->save();
+						
+						
 						$data['status']=1;
 						$data['message']='Thank you to final to stream.';
 					}
@@ -927,7 +1073,7 @@ class UserController extends Controller
 			$model->stream_id			=	$_POST['UserStreamComments']['stream_id'];
 			
 			if($model->save()){
-				Yii::app()->user->setFlash('sccess','Sccessfully send your comment.');
+				Yii::app()->user->setFlash('sccess','sccessfully send your comment.');
 			}
 		}
 		$data	=	array();
@@ -973,7 +1119,7 @@ class UserController extends Controller
 				$preffred->default				=	0;
 				$preffred->status				=	0;
 				if($preffred->save()){
-					echo 'Sccessfully added '.$options->title.' career';die;
+					echo 'sccessfully added '.$options->title.' career';die;
 				}
 	
 			}
@@ -1013,7 +1159,7 @@ class UserController extends Controller
 			$model->user_profiles_id	=	Yii::app()->user->profileId;
 			$model->career_id			=	$_POST['UserCareerComments']['career_id'];
 			if($model->save()){
-				Yii::app()->user->setFlash('sccess','Sccessfully send your comment.');
+				Yii::app()->user->setFlash('sccess','sccessfully send your comment.');
 			}
 		}
 		$data2	=array();
@@ -1056,7 +1202,7 @@ class UserController extends Controller
 			$model->stream_id			=	$_POST['UserStreamComments']['stream_id'];
 			
 			if($model->save()){
-				Yii::app()->user->setFlash('sccess','Sccessfully send your comment.');
+				Yii::app()->user->setFlash('sccess','sccessfully send your comment.');
 			}
 		}
 		$data2	=	array();
@@ -1088,7 +1234,7 @@ class UserController extends Controller
 				$preffred->default				=	0;
 				$preffred->status				=	1;
 				if($preffred->save()){
-					echo 'Sccessfully added '.$preffred->careerOptions->title.' career';die;
+					echo 'sccessfully added '.$preffred->careerOptions->title.' career';die;
 				}
 	
 			}
@@ -1261,7 +1407,7 @@ class UserController extends Controller
 				$preffred->default 				=	0;
 				$preffred->status	  			=	0;
 				if($preffred->save()){
-					echo 'Sccessfully added '.$stream->name.' stream';die;
+					echo 'sccessfully added '.$stream->name.' stream';die;
 				}
 	
 			}
@@ -1272,8 +1418,7 @@ class UserController extends Controller
 		
 		$preffred	=	 UserProfilesHasStream::model()->findByAttributes(array('stream_id'=>$id));
 		
-	}
-	
+	}	
 	public function actionStreamCareerOptions($id)
 	{	
 		$criteria 		= new CDbCriteria;
@@ -1299,7 +1444,7 @@ class UserController extends Controller
 			$UserRating->user_profiles_id	=	Yii::app()->user->profileId;
 			$UserRating->career_options_id 	=	$careeroptions_id;
 			if($UserRating->save()){
-				$response	=	 array('message'=>'Sccessfully rating.');
+				$response	=	 array('message'=>'sccessfully rating.');
 				echo CJSON::encode($response);die;
 				 	
 			}
@@ -1316,7 +1461,7 @@ class UserController extends Controller
 			$UserRating->user_profiles_id	=	Yii::app()->user->profileId;
 			$UserRating->stream_id		 	=	$stream_id;
 			if($UserRating->save()){
-				$response	=	 array('message'=>'Sccessfully rating.');
+				$response	=	 array('message'=>'sccessfully rating.');
 				echo CJSON::encode($response);die;
 			}
 	}
@@ -1343,20 +1488,24 @@ class UserController extends Controller
 	public function actionArticles($id)
 	{	
 		$result				=	 Articles::model()->findByAttributes(array('id'=>$id));
-		
 		$this->render('articles',array('articles'=>$result));
 	}
 	public function actionSummary()
 	{	
-		$summaryDetails=UserReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'activation'=>1,'status'=>1));
-		/*$summaryDetails=UserReports::model()->findAll(array(
-			'select'=>'t.comments',
-			'group'=>'t.comments',
-			'distinct'=>true,
-		),array('user_profiles_id'=>Yii::app()->user->profileId,));*/
+		$summaryDetails=Summary::model()->findAllByAttributes(array('user_profile_id'=>Yii::app()->user->profileId,'status'=>1));
 		$this->render('summary',array('summaryDetails'=>$summaryDetails));
 	}
-	
+	public function actionSummaryData($id)
+	{
+		$summaryDetails=Summary::model()->findByPk($id);
+		echo '<table width="90%" class="pull-right" cellpadding="10" border="1">
+                	<tr class="light-gray"><td width="25%"><span>Event</span></td><td width="75%"><span>'.$summaryDetails->event.'</span></td></tr>
+                	<tr><td><span>Title</span></td><td><span>'.$summaryDetails->topic.'</span></td></tr>
+                	<tr class="light-gray"><td><span>Add Date</span></td><td><span>'.date('d M, Y',strtotime($summaryDetails->add_date)).'</span></td></tr>
+                	<tr><td><span>Details</span></td><td><span>'.$summaryDetails->remarks.'</span></td></tr>
+                	
+                </table>';
+	}
 	public function actionNewsUpdates()
 	{	
 		$criteria			=	new CDbCriteria();
@@ -1377,8 +1526,6 @@ class UserController extends Controller
 		$events				=	Events::model()->findAll($criteria2);
 		$this->render('newsUpdates',array('news'=>$news,'pages'=>$pages,'pages2'=>$pages2,'events'=>$events));
 	}
-
-	
 	public function actionCareerOptionsAjax($id)
 	{	
 		
@@ -1497,7 +1644,7 @@ class UserController extends Controller
 				$preffred->status				=	1;
 				$preffred->published			=	1;
 				if($preffred->save()){
-					echo '<h1>Sccessfully added '.$stream->name.'College</h1>';die;
+					echo '<h1>sccessfully added '.$stream->name.'College</h1>';die;
 				}
 	
 			}
@@ -1511,8 +1658,7 @@ class UserController extends Controller
 	{	
 		$career					=	CareerDetails::model()->findAllByAttributes(array('status'=>1,'published'=>1,'career_options_id'=>$id));
 		$this->renderPartial('_userPrefferdCareer',array('list'=>$career), false,true);
-	}
-		
+	}		
 	public function actionNews($id)
 	{	
 		
@@ -1521,7 +1667,6 @@ class UserController extends Controller
 	}
 	public function actionApplication()
 	{
-	
 		$this->render('application');
 	}
 	public function actionReadEvent($id)
@@ -1544,8 +1689,6 @@ class UserController extends Controller
 		
 		$this->render('search',array('fech_result'=>$dataProvider));
 	}
-	//Forgot password
-		//Change password 
 	public function actionTestMail()
 	{
 	 
@@ -1589,7 +1732,7 @@ class UserController extends Controller
 		} //isset ends
 		$this->render('changepassword',array('model'=>$model));
 	}
-		public function sendMail($data,$type)
+	public function sendMail($data,$type)
 	{
 		switch($type){
 			case 'contact':

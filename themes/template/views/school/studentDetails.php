@@ -3,8 +3,49 @@ $this->pageTitle=Yii::app()->name . ' -  Student Details';
 $this->breadcrumbs=array('studentDetails',);
 ?>
 <div class="container">
+
+
+
 <div class="col-md-10 pop-up-border fl col-lg-offset-1 ">
 	<div class="row test-bot">School Details</div>
+    <div class="wide form">
+
+<?php $form=$this->beginWidget('CActiveForm', array(
+	'action'=>Yii::app()->createUrl($this->route),
+	'method'=>'get',
+)); ?>
+	
+    <div class="row" style="margin:10px 0">
+		<table width="100%">
+<tbody>
+<tr>
+<td width="16%"><?php echo $form->textField($model,'gudaak_id',array('placeholder'=>'Gudaak Id','class'=>'form-control2 mar-b16')); ?></td>
+<td width="16%"><?php echo $form->textField($model,'first_name',array('placeholder'=>'First Name','class'=>'form-control2 mar-b16')); ?></td>
+<td width="16%"><?php echo $form->textField($model,'last_name',array('placeholder'=>'Last Name','class'=>'form-control2 mar-b16')); ?></td>
+<td width="16%"><?php echo $form->dropDownlist($model,'class',CHtml::listData(UserClass::model()->findAll(),'id','title'),array('prompt'=>'All','class'=>'mar-b16 form-control2'));?></td>
+<td width="16%"> <?php //echo $form->dropDownlist($model,'class',CHtml::listData(UserClass::model()->findAll(),'id','title'),array('id'=>'class_register','class'=>'mar-b16 form-control'));?></td>
+<td  width="16%"><?php echo CHtml::submitButton('Search',array('class'=>'back-btn')); ?></td>
+</tr>
+</tbody>
+</table>
+        
+        
+		
+		
+		
+		
+		
+		
+	    
+		
+	
+		
+	</div>
+
+<?php $this->endWidget(); ?>
+
+</div>
+    
 		<?php $this->widget('zii.widgets.grid.CGridView', array(
 													'id'=>'career-options-grid',
 													'dataProvider'=>$model->search(),
@@ -17,7 +58,11 @@ $this->breadcrumbs=array('studentDetails',);
 														'lastPageLabel'=>false,
 													
 														),
+<<<<<<< HEAD
 													'filter'=>$model,
+=======
+													//'filter'=>$model,
+>>>>>>> 1279c3defb076de0d6ec381dd9fb5ee2f5bae04d
 													'columns'=>array(
 														array(
 															'name'=>'gudaak_id',

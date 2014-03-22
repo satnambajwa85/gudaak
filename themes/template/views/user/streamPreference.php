@@ -11,8 +11,7 @@ $this->breadcrumbs=array('Stream Preference'=>array('/user/streamPreference'));?
 		<div class="mr0 col-md-12 fl">
 			<div class="mr0  pull-left stream-pref">
 				<h1>Preferred Stream </h1>
-				<p>It is long established fact a reader will be It is long established fact a reader will be
-					It is long established fact a reader will be It is long established fact a reader will beIt is long established fact a reader will be
+				<p>Based on the available inputs from the counselor and your own preferences go on upgrading your two most preferred stream by clicking on the button ‘Make Final’.<br />
 				</p>
 
 			</div>

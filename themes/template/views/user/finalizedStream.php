@@ -12,8 +12,7 @@ $this->breadcrumbs=array('Finalized Stream'=>array('/user/finalizedStream'));
 		<div class="mr0 col-md-12 fl">
 			<div class="mr0  pull-left stream-pref">
 				<h1>Finalized Stream</h1>
-				<p>It is long established fact a reader will be It is long established fact a reader will be
-					It is long established fact a reader will be It is long established fact a reader will beIt is long established fact a reader will be
+				<p>Are you satisfied with your finalized stream choices or Having doubts or a change in your plans? Feel like re-analyzing and reviewing your choice for the finalized stream? You can always edit your list and add a new option!
 				</p>
 
 			</div>

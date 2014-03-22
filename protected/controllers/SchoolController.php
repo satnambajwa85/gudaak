@@ -47,6 +47,36 @@ class SchoolController extends Controller
 
 		$this->render('index');
 	}
+	
+	public function actionTalk()
+	{
+		
+		$model	=	new Tickets('search');
+		if(isset($_POST['Tickets'])){
+			$user	=	UserProfiles::model()->findByPk(Yii::app()->user->profileId);
+			$model->attributes	=	$_POST['Tickets'];
+			$model->sender_id	=	Yii::app()->user->profileId;
+			$model->receiver_id	=	Yii::app()->user->schoolsId;
+			$model->status		=	1;
+			$model->add_date	=	date('Y-m-d H:i:s');
+			if($model->save()){
+				$log					=	new Summary;
+				$log->user_profile_id	=	Yii::app()->user->profileId;
+				$log->schools_id		=	Yii::app()->user->schoolsId;
+				$log->event_id			=	$model->id;
+				$log->topic				=	'Talk to Counsellor';
+				$log->event				=	'Asked query to counsellor';
+				$log->remarks			=	'User submitted his/her query request to counsellor sccessfully.';
+				$log->add_date			=	date('Y-m-d H:i:s');
+				$log->status			=	1;
+				$log->save();
+				$this->refresh();
+			}
+		}
+		$model->unsetAttributes();
+		$model->sender_id	=	Yii::app()->user->profileId;
+		$this->render('talk',array('model'=>$model));
+	}
 	public function actionStudentDetails()
 	{
 		if(!Yii::app()->user->id)

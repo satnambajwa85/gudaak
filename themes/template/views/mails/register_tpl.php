@@ -19,7 +19,7 @@
 	font-style:italic;
 }
 </style>
-<table cellpadding="0" cellspacing="0" border="0" class="mail_set">	
+<table cellpadding="0" cellspacing="0" border="0" class="mail_set" width="100%">	
 	<tr>
 		<td>
 			Dear <?php echo $name; ?>,<br /><br />

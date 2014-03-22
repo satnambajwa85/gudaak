@@ -39,6 +39,9 @@ $this->breadcrumbs=array('Stream Library'=>array('/user/streamList'),'Stream Sub
 							<span class="user-rating-title fl">Your Rating</span>
 						 
 						<div id="stream-rating" class="fr"></div>
+                         <div style="margin-top:-10px;color:#E88B2D;font-size:10px;font-weight:bold;">
+                                <marquee class="row">Please Rate this Career Option</marquee>
+                                </div>
 						
 					</div>
 				</div>

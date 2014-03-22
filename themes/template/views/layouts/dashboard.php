@@ -41,18 +41,30 @@ Yii::app()->clientScript->registerScript(
 		<div class="left-main">
 			<div class="w100 fl color">
 						<div class="breadcrumbs fl">
+<<<<<<< HEAD
 						<?php $this->widget('zii.widgets.CBreadcrumbs', array(
                 'homeLink'=>'Dashboard',
                 'links'=>$this->breadcrumbs,
         )); ?><!-- breadcrumbs -->
+=======
+						<?php 
+						echo $this->pageTitle;
+						//$this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,)); ?>
+                        <!-- breadcrumbs -->
+>>>>>>> 1279c3defb076de0d6ec381dd9fb5ee2f5bae04d
 
 						
 						</div>
 						<div class="pull-right dashbord-top-nav ">
 							<ul class="nav  top-nav-left pull-left">
+<<<<<<< HEAD
 							  <li>
                               <?php echo CHtml::Link('<i class="icon-microphone icon-top talk-icon"></i>Talk to Counsellor','javaScript:void(0);',array('class'=>'talk-to-counsellor'));?>
                               </li>
+=======
+							  <!--<li id="talk-btn"><i class="icon-microphone icon-top talk-icon"></i><a href="#">Talk to Counsellor</a></li>-->
+							  <li><i class="icon-microphone icon-top talk-icon"></i><?php echo CHtml::link('Talk to Counsellor',array('user/talk'));?></li>
+>>>>>>> 1279c3defb076de0d6ec381dd9fb5ee2f5bae04d
 							  <li><i class="news-icon"></i><?php echo CHtml::link('News and Updates',array('user/newsUpdates'));?></li>
 							  <li><i class="summary-icon"></i><?php echo CHtml::link('Summary',array('user/summary'));?></li>
 							 
@@ -123,10 +135,14 @@ Yii::app()->clientScript->registerScript(
  var url	=	'<?php echo Yii::app()->createUrl('/user/userProfileUpdate');?>';
  var test	=	'<?php echo Yii::app()->createUrl('user/test');?>';
 </script>
+<<<<<<< HEAD
 <?php $this->Widget('WidgetUserProfile'); ?>
 <?php //$this->Widget('WidgetTalk'); ?>
 	
 
 
+=======
+<?php  $this->Widget('WidgetUserProfile'); ?>
+>>>>>>> 1279c3defb076de0d6ec381dd9fb5ee2f5bae04d
   </body>
 </html>

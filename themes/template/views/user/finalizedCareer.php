@@ -13,8 +13,7 @@ $this->breadcrumbs=array('Finalized Career'=>array('/user/finalizedCareer'));
 		<div class="mr0 col-md-12 fl">
 			<div class="mr0  pull-left stream-pref">
 				<h1>Finalized Career</h1>
-				<p>It is long established fact a reader will be It is long established fact a reader will be
-					It is long established fact a reader will be It is long established fact a reader will beIt is long established fact a reader will be
+				<p>Are you satisfied with your finalized career choices or Having doubts or a change in your plans? Feel like re-analyzing and reviewing your choice for the finalized careers? You can always edit your list and add a new option!
 				</p>
 
 			</div>

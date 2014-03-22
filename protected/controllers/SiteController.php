@@ -71,7 +71,7 @@ class SiteController extends Controller
 		$this->render('_whyGudaak');
 	
 	}
-	public function actionArticals(){
+	public function actionArticles(){
 		$criteria			=	new CDbCriteria();
 		$criteria->condition= '(published =:published and status =:status )';
 		$criteria->params 	= array('published'=>1,'status'=>1);
@@ -84,6 +84,12 @@ class SiteController extends Controller
 		$this->render('articals',array('articles'=>$articles,'pages'=>$pages));
 	}
 	
+	public function actionArticle($id)
+	{	
+		$result				=	 Articles::model()->findByAttributes(array('id'=>$id));
+		
+		$this->render('article',array('articles'=>$result));
+	}
 	/**
 	 * This is the Register  User 'userRegister' action that is invoked
 	 * when an action is not explicitly requested by users.
@@ -367,6 +373,9 @@ class SiteController extends Controller
 					}
 					if(Yii::app()->user->userType=='school'){
 						$this->redirect(Yii::app()->createUrl('/school/'));
+					}
+					if(Yii::app()->user->userType=='counsellor'){
+						$this->redirect(Yii::app()->createUrl('/counsellor/'));
 					}
 					if(Yii::app()->user->userType=='upper11th'|| Yii::app()->user->userType=='below10th'){
 						$this->redirect(Yii::app()->createUrl('/user/'));
