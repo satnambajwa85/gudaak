@@ -8004,7 +8004,7 @@ filter: alpha(opacity=30);}
 .newsupdates ul li{margin-bottom:10px;border:1px solid #eee;}
 .newsupdates ul li:hover{margin-bottom:10px;border:1px solid #F7A944;}
 .newsupdates ul li h1{font-size:12px;margin:0px;background-color:#F7F7F7; padding: 7px;}
-.newsupdates ul li span{font-size:12px; background-color: #F7A944;color: #FFFFFF;left: 300px;padding:6px 11px 4px 13px;position: relative;top: -24px;}
+.newsupdates ul li span{font-size:12px; background-color: #F7A944;color: #FFFFFF;left: 80%;padding:6px 11px 4px 13px;position: relative;top: -24px;}
 .newsupdates ul li p.MsoNormal span{font-size:12px;background-color:fff;}
 .newsupdates ul li p{font-size:11px;color:#999;margin-top:-14px;padding:0 0 0 7px;font-weight:normal;}
 .newsupdates ul li a{color:#F7A944;padding:0 0 0 7px;font-size:11px;font-weight:normal;}
@@ -8415,8 +8415,8 @@ height:19px !important;
 .talk-icon {padding:5px 5px 4px 7px !important;width:19px;}
 .social-icon-links{ border-left: 1px solid #92E2E1;margin:0px !important;
     padding:4px 39px 8px 22px;}
-.breadcrumbs {color: #FFFFFF; padding:4px 0 4.20px 5px ;}
-.breadcrumbs a{color: #FFFFFF; padding: 2px;}
+.breadcrumbs {color: #000; padding:4px 0 4.20px 5px ;}
+.breadcrumbs a{color: #000; padding: 2px;}
 .icon-play{color:#F7A944}
 .test_features p{  color: #666666;
     font-size: 12px;
@@ -8494,5 +8494,6 @@ opacity: 0.85;
     padding: 9px 0;
     text-align: center;
 }
-
 .margin_t{ margin-top:15px; float:left; margin-bottom:15px;}
+.art-class{overflow:hidden;}
+.mla{margin-left:20px;}

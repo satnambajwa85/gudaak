@@ -41,10 +41,10 @@ Yii::app()->clientScript->registerScript(
 		<div class="left-main">
 			<div class="w100 fl color">
 						<div class="breadcrumbs fl">
-						<?php $this->widget('zii.widgets.CBreadcrumbs', array(
-                'homeLink'=>'Dashboard',
-                'links'=>$this->breadcrumbs,
-        )); ?><!-- breadcrumbs -->
+						<?php 
+						echo $this->pageTitle;
+						//$this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,)); ?>
+                        <!-- breadcrumbs -->
 
 						
 						</div>
