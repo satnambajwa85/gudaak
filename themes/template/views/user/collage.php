@@ -5,6 +5,9 @@ $this->breadcrumbs=array('Colleges Explore'=>array('/user/exploreColleges'));
           <div class="mr0 col-md-12 fl">
           <div class="my_profile_outr">
               <h1>Explore colleges with Gudaak</h1>
+              <p>
+              Explore the colleges and short list the right colleges where you would like to see your self after college!
+              </p>
             </div>
 			<div class="pull-right my_profile_outr" id="messagePrint">
              

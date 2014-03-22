@@ -13,6 +13,7 @@
 	// There is a call to performAjaxValidation() commented in generated controller code.
 	// See class documentation of CActiveForm for details on this.
 	'enableAjaxValidation'=>false,
+	'htmlOptions'=>array('enctype'=>'multipart/form-data'),
 )); ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
@@ -57,7 +58,8 @@
 		<img width="100" height="100" src="<?php echo Yii::app()->request->baseUrl.'/uploads/articles/small/'.$model->image;?>" alt="image"/>
 		<?php }?>
 	</div>
-
+	
+    
 	<div class="form-group">
 		<?php echo $form->labelEx($model,'published'); ?>
 		<?php echo $form->radioButtonlist($model,'published',array('1'=>'Yes','0'=>'No'),array('separator'=>'')); ?>
@@ -69,6 +71,18 @@
 		<?php echo $form->error($model,'status'); ?>
 	</div>
 
+
+	<div class="form-group">
+		<?php echo $form->labelEx($model,'author'); ?>
+		<?php echo $form->textField($model,'author',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'author'); ?>
+	</div>
+
+	<div class="form-group">
+		<?php echo $form->labelEx($model,'role'); ?>
+		<?php echo $form->textField($model,'role',array('size'=>60,'maxlength'=>255)); ?>
+		<?php echo $form->error($model,'role'); ?>
+	</div>
 
 	<div class="form-group buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>

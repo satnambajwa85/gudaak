@@ -5,7 +5,7 @@ $this->breadcrumbs=array('Articles'=>array('/user/articlesList'),''.$articles->t
 			<div class="mr0 col-md-9 pd0 fl artical">
 				 <h1>Gudaak helps you to fullfill articles</h1>
 				 <h3><?php echo $articles->title;?></h3>
-				 <span>by admin</span>
+				 <span>by <?php echo $articles->author;?></span>
 				 <div class="clear"></div>
 				 <div class="col-md-12 br-all pd0  fl">
 					<div class="col-md-3 pd0 post-info fl">
@@ -14,22 +14,24 @@ $this->breadcrumbs=array('Articles'=>array('/user/articlesList'),''.$articles->t
 							<?php echo Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse($articles->add_date, 'yyyy-MM-dd'),'medium',null);?>
 						</datetime>
 					</div>
-					<div class="col-md-3  post-info fl">
+					<!--<div class="col-md-3  post-info fl">
 						<span>Views</span>
 						<datetime class="date-time fl">
 							12,398
 						</datetime>
-					</div>
+					</div>-->
 				 </div>
 				  <div class="clear"></div>
 				<p>
 				<?php echo substr($articles->description,0,3000);?>	
 				</p>
-				 <h2 class="about-author">About the author</h2>
+				<?php if(!empty($articles->role)){?>
+                <h2 class="about-author">About the author</h2>
 				 <p>	
-					It is long established fact a reader will be It is long established fact a reader will b
+					<?php echo $articles->role;?>	
 					
 				</p>
+                <?php } ?>
 			</div>
 			<div class="mr0 col-md-3 mt20 fl">
 				 <div class="mr0 col-md-12 color-light-green related-article fl">

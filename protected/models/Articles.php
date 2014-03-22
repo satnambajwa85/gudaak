@@ -12,12 +12,24 @@
  * @property integer $published
  * @property integer $status
  * @property integer $user_login_id
+ * @property string $author
+ * @property string $role
  *
  * The followings are the available model relations:
  * @property UserLogin $userLogin
  */
 class Articles extends CActiveRecord
 {
+	/**
+	 * Returns the static model of the specified AR class.
+	 * @param string $className active record class name.
+	 * @return Articles the static model class
+	 */
+	public static function model($className=__CLASS__)
+	{
+		return parent::model($className);
+	}
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -38,9 +50,11 @@ class Articles extends CActiveRecord
 			array('published, status, user_login_id', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>500),
 			array('image', 'length', 'max'=>45),
+			array('author', 'length', 'max'=>255),
+			array('role', 'safe'),
 			// The following rule is used by search().
-			// @todo Please remove those attributes that should not be searched.
-			array('id, title, description, add_date, image, published, status, user_login_id', 'safe', 'on'=>'search'),
+			// Please remove those attributes that should not be searched.
+			array('id, title, description, add_date, image, published, status, user_login_id, author, role', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -70,24 +84,19 @@ class Articles extends CActiveRecord
 			'published' => 'Published',
 			'status' => 'Status',
 			'user_login_id' => 'User Login',
+			'author' => 'Author',
+			'role' => 'About Author',
 		);
 	}
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
-	 *
-	 * Typical usecase:
-	 * - Initialize the model fields with values from filter form.
-	 * - Execute this method to get CActiveDataProvider instance which will filter
-	 * models according to data in model fields.
-	 * - Pass data provider to CGridView, CListView or any similar widget.
-	 *
-	 * @return CActiveDataProvider the data provider that can return the models
-	 * based on the search/filter conditions.
+	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
 	 */
 	public function search()
 	{
-		// @todo Please modify the following code to remove attributes that should not be searched.
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
 
 		$criteria=new CDbCriteria;
 
@@ -99,20 +108,11 @@ class Articles extends CActiveRecord
 		$criteria->compare('published',$this->published);
 		$criteria->compare('status',$this->status);
 		$criteria->compare('user_login_id',$this->user_login_id);
+		$criteria->compare('author',$this->author,true);
+		$criteria->compare('role',$this->role,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
-	}
-
-	/**
-	 * Returns the static model of the specified AR class.
-	 * Please note that you should have this exact method in all your CActiveRecord descendants!
-	 * @param string $className active record class name.
-	 * @return Articles the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
 	}
 }

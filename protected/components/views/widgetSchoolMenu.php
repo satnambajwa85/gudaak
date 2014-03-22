@@ -18,7 +18,7 @@
 					<!-- start Navigation -->
 					<div class="col-md-10  pull-left">
 						<div class="col-md-12 fl pd0">
-							<div class="col-md-4 pd0 pull-left">
+							<div class="col-md-2 pd0 pull-left">
 								<h1 class="crumb-title">School Admin-
 										<?php if(isset($this->breadcrumbs)):?>
 											<?php $this->widget('zii.widgets.CBreadcrumbs', array(
@@ -27,9 +27,14 @@
 										<?php endif?>
 								</h1>
 							</div>
-							<div class="pd0 col-md-8 pull-left top-nav-section">
-								<ul class="nav pull-left ">
+							<div class="pd0 col-md-10 pull-left top-nav-section">
+								<ul class="nav pull-left col-md-7  ">
 									<li class="<?php echo (Yii::app()->controller->action->id=='studentDetail' || Yii::app()->controller->action->id=='studentDetails')?'pull-left active-link':'pull-left'?>">
+										<i class="pull-left mar-top10 icon-microphone icon-top"></i>
+											<?php echo CHtml::link('Talk to Admin',array('school/talk'),array('class'=>'pull-left'));?>
+											
+									</li>
+                                    <li class="<?php echo (Yii::app()->controller->action->id=='studentDetail' || Yii::app()->controller->action->id=='studentDetails')?'pull-left active-link':'pull-left'?>">
 										<i class="pull-left mar-top10 icon-microphone icon-top"></i>
 											<?php echo CHtml::link('Student Details',array('school/studentDetails'),array('class'=>'pull-left'));?>
 											
@@ -42,9 +47,9 @@
 											
 									</li>
 								</ul>
-								<div class="pd0 pull-left col-md-6 ">
+								<div class="pd0 pull-left col-md-5 ">
 											<div class="pd0 col-md-12 pull-left">
-												<div class="welcome-school  col-md-9">
+												<div class="welcome-school  col-md-8">
 											<?php 
 													$filename = ''.$schoolInfo->images 	.'';
 													 $path=Yii::getPathOfAlias('webroot.uploads.user.small') . '/';

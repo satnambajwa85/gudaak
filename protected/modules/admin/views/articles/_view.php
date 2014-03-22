@@ -33,5 +33,19 @@
 	<?php echo CHtml::encode($data->status); ?>
 	<br />
 
+	<?php /*
+	<b><?php echo CHtml::encode($data->getAttributeLabel('user_login_id')); ?>:</b>
+	<?php echo CHtml::encode($data->user_login_id); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('author')); ?>:</b>
+	<?php echo CHtml::encode($data->author); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('role')); ?>:</b>
+	<?php echo CHtml::encode($data->role); ?>
+	<br />
+
+	*/ ?>
 
 </div>
