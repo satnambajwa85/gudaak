@@ -658,6 +658,7 @@ class UserController extends Controller
 				$html =	'detailedReport';
 			$html='careerPdfReport';
 			}
+			
 			$html2pdf->WriteHTML($this->renderPartial($html,array('reports'=>$data,'profile'=>$profile,'userTestDate'=>$userTestDate),true));
 			
 			$html2pdf->Output();

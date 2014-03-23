@@ -2714,3 +2714,127 @@ REQUEST_URI=/gudaak/index.php?r=user/DetailedReport
 in C:\wamp\www\gudaak\themes\template\views\user\detailedReport2.php (198)
 in C:\wamp\www\gudaak\protected\controllers\UserController.php (598)
 in C:\wamp\www\gudaak\index.php (13)
+2014/03/22 18:32:16 [error] [exception.CException] exception 'CException' with message 'Property "CareerAssessment.image" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('image')
+#1 C:\wamp\www\gudaak\protected\controllers\UserController.php(587): CActiveRecord->__get('image')
+#2 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionDetailedReport()
+#3 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#7 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#10 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('DetailedReport')
+#12 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/DetailedRe...')
+#13 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#14 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/gudaak/index.php?r=user/DetailedReport
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/tests
+---
+2014/03/22 18:32:41 [error] [exception.CException] exception 'CException' with message 'Property "Articles.author" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('author')
+#1 C:\wamp\www\gudaak\themes\template\views\user\articles.php(8): CActiveRecord->__get('author')
+#2 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\gud...')
+#3 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, true)
+#4 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\gud...', Array, true)
+#5 C:\wamp\www\framework\web\CController.php(783): CController->renderPartial('articles', Array, true)
+#6 C:\wamp\www\gudaak\protected\controllers\UserController.php(1491): CController->render('articles', Array)
+#7 [internal function]: UserController->actionArticles('1')
+#8 C:\wamp\www\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(UserController), Array)
+#9 C:\wamp\www\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(UserController), Object(ReflectionMethod), Array)
+#10 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#13 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#17 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('articles')
+#19 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/articles')
+#20 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#21 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/gudaak/index.php?r=user/articles&id=1
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/articlesList
+---
+2014/03/22 18:38:30 [error] [exception.CException] exception 'CException' with message 'Property "CareerAssessment.image" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('image')
+#1 C:\wamp\www\gudaak\protected\controllers\UserController.php(587): CActiveRecord->__get('image')
+#2 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionDetailedReport()
+#3 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#7 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#10 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('DetailedReport')
+#12 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/DetailedRe...')
+#13 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#14 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/gudaak/index.php?r=user/DetailedReport
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/finalizedStream
+---
+2014/03/23 03:47:20 [error] [exception.CException] exception 'CException' with message 'Property "Articles.author" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('author')
+#1 C:\wamp\www\gudaak\themes\template\views\user\articles.php(8): CActiveRecord->__get('author')
+#2 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\gud...')
+#3 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, true)
+#4 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\gud...', Array, true)
+#5 C:\wamp\www\framework\web\CController.php(783): CController->renderPartial('articles', Array, true)
+#6 C:\wamp\www\gudaak\protected\controllers\UserController.php(1491): CController->render('articles', Array)
+#7 [internal function]: UserController->actionArticles('1')
+#8 C:\wamp\www\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(UserController), Array)
+#9 C:\wamp\www\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(UserController), Object(ReflectionMethod), Array)
+#10 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#13 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#17 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('articles')
+#19 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/articles')
+#20 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#21 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/gudaak/index.php?r=user/articles&id=1
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/articlesList
+---
+2014/03/23 04:17:13 [error] [exception.HTML2PDF_exception] <span style="color: #AA0000; font-weight: bold;">ERREUR n°6</span><br>Fichier : C:\wamp\www\gudaak\protected\extensions\html2pdf\HTML2PDF.php<br>Ligne : 1319<br><br>Impossible de charger l'image <b>./image/18_log.png</b>
+REQUEST_URI=/gudaak/index.php?r=user/DetailedReport&download=1
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/DetailedReport
+---
+2014/03/23 04:23:06 [error] [exception.HTML2PDF_exception] <span style="color: #AA0000; font-weight: bold;">ERREUR n°4</span><br>Fichier : C:\wamp\www\gudaak\protected\extensions\html2pdf\_class\parsingHtml.class.php<br>Ligne : 119<br><br>Code HTML non valide, les balises ne sont pas fermées dans le bon ordre.<br>Etat : <pre>Array
+(
+    [0] => page
+    [1] => div
+)
+</pre><br><br>HTML : ...ble&gt;
+                &lt;/div&gt;
+&lt;/page&gt;...
+REQUEST_URI=/gudaak/index.php?r=user/DetailedReport&download=1
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/DetailedReport
+---
+2014/03/23 04:26:30 [error] [exception.HTML2PDF_exception] <span style="color: #AA0000; font-weight: bold;">ERREUR n°4</span><br>Fichier : C:\wamp\www\gudaak\protected\extensions\html2pdf\_class\parsingHtml.class.php<br>Ligne : 119<br><br>Code HTML non valide, les balises ne sont pas fermées dans le bon ordre.<br>Etat : <pre>Array
+(
+    [0] => page
+    [1] => div
+)
+</pre><br><br>HTML : ...ble&gt;
+                &lt;/div&gt;
+&lt;/page&gt;...
+REQUEST_URI=/gudaak/index.php?r=user/DetailedReport&download=1
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/DetailedReport
+---
