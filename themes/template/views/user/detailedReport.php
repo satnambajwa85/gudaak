@@ -21,6 +21,7 @@ $this->breadcrumbs=array('Detailed Report'=>array('/user/detailedReport'));?>
 			<div class="summary-report-title1">Profile Summary&nbsp;
 				<div class="report-log-img"><img alt="" src="./image/small.jpg"></div>                    
 			</div>
+			
     			<div class="w100" >
                 	<div class="reportLogo"><img alt="" src="./image/logo_large.png" /></div>
 					<div class="user-report-info col-md-12 pull-left report-border pd0">
@@ -70,6 +71,8 @@ Wishing you all the best in all your future endeavours!
 
 						</div>
                     </div>	
+               
+                
                 </div>	
 
  	
@@ -162,10 +165,7 @@ Wishing you all the best in all your future endeavours!
 				<?php echo ($report['id']==3)?'<h3 class="process-title">'.$result['title'].'</h3>':'<h3 class="process-title">'.$result['title2'].'</h3>';?>
 			</div>
 			<div class="cat-def">
-			<p>
-			<?php //echo $result['description'];?>
-            <img alt="" src="./image/<?php echo $result['image'];?>">
-           </p>
+			<p><?php echo $result['description'];?></p>
 			
 			</div>	
 		
@@ -208,7 +208,6 @@ Wishing you all the best in all your future endeavours!
     </div>
     <?php 
 		}
-
 		
 		}?>
         
@@ -248,36 +247,10 @@ Wishing you all the best in all your future endeavours!
 		</div>
 		</div>
         
-        </div>
-        <div class="clear"></div>
-<?php } ?>
-				</div>    
-                </div>
- 
- 			 
-     
-    <!--Page NO. 1 End-->
-    </div>
- 
-      <div class="wrapper">
-      
-			       <div style="float:left; width:100%; margin:5% 0 15% 0;">
-                	<div style=" float:left; width:212px; height:159px;"><img alt="" src="./image/img_whitebg.jpg"></div>
-                    <div style="float:left; width:75%; height:159px; background:#1acccc; padding-right:8px; text-align:right; vertical-align:middle;  ">
-                    	<div style="float:right; width:80%; margin-right:2%; color:#fff; font-size:17px; line-height:22px; font-family:Arial, Helvetica, sans-serif; margin-top:7%;">
-                        	
-                        Call: +91 8786 76545, <span class="skype_c2c_print_container">+91 7654 763592</span><span skype_menu_props="{&quot;numberToCall&quot;:&quot;+917654763592&quot;,&quot;isFreecall&quot;:false,&quot;isMobile&quot;:false,&quot;isRtl&quot;:false}" onmouseout="SkypeClick2Call.MenuInjectionHandler.hideMenu(event)" onmouseover="SkypeClick2Call.MenuInjectionHandler.showMenu(this, event)" tabindex="-1" dir="ltr" class="skype_c2c_container"><span skypeaction="skype_dropdown" dir="ltr" class="skype_c2c_highlighting_inactive_common"><span class="skype_c2c_textarea_span"><img src="resource://skype_ff_extension-at-jetpack/skype_ff_extension/data/call_skype_logo.png" class="skype_c2c_logo_img"><span class="skype_c2c_text_span">+91 7654 763592</span><span class="skype_c2c_free_text_span"></span></span></span></span> <br>
-                        Email: info@gudaak.com &nbsp;&nbsp; Website: www.gudaak.com 
-                        </div>
-                    
-                    </div>
-               
-     
-				<!--Page NO. 1 End-->
-				</div>
-    
 		
 
+
+	
 	<div class="news pd0 pull-right">
 		<?php  $this->Widget('WidgetNews'); ?>
 	</div>
