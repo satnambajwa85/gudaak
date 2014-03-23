@@ -1,11 +1,13 @@
-<?php $this->pageTitle=Yii::app()->name . ' - Assess';
+<?php $this->pageTitle='Assessment';
 $this->breadcrumbs=array('Assess'=>array('/user/tests'));?>
 <div id="partial-render">
 	<div class="col-md-10 pull-left pd0">
     <div class="border pd0">
-					<ol class="breadcrumb">
-					  <li><a href="#">Assessment</a></li>
-						<li>
+    	<!--<h1>Tour</h1>-->
+        
+                	<ol class="breadcrumb">
+                    <li><?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?></li>
+					 <li>
                         <p>Click here to see the video, which explains the purpose of taking up these tests and will be helpful to understand the concepts on the basis of which the test results will be explained.</p>
                         </li>
 					</ol>
@@ -53,14 +55,8 @@ $this->breadcrumbs=array('Assess'=>array('/user/tests'));?>
                                 <span class='btn btn-info2 center-bt'>
 								<?php echo $list->title;?> </span>
 								</div>
-<<<<<<< HEAD
-								
-								<div class="retaketest ">
-									<h1>Last test summery</h1>
-=======
 								<div class="retaketest ">
 									<h1>Last test summary</h1>
->>>>>>> 1279c3defb076de0d6ec381dd9fb5ee2f5bae04d
 									<span>Test Date:</span>
 									<datetime>	
 										<?php echo date('d M,Y',strtotime($detials[$list->id]['date']));?>
@@ -73,20 +69,6 @@ $this->breadcrumbs=array('Assess'=>array('/user/tests'));?>
 									<datetime><?php echo $detials[$list->id]['count'];?></datetime>
 									<div class="clear"></div>
 									<h1>Will give you on feedback question soon</h1>
-<<<<<<< HEAD
-									
-									<!--<span>Score:</span>
-									<div class="progress2 fl ">
-										<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar2" style="width:10% !important;">
-										</div>
-										<span class="sr-only">
-											<span>
-											
-											</span>
-										</span>
-									</div>-->
-=======
->>>>>>> 1279c3defb076de0d6ec381dd9fb5ee2f5bae04d
 									<div class="clear"></div>
 								</div>
 								<div align="center" class="mar-bottom mt30">

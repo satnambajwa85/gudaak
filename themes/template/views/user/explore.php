@@ -1,4 +1,4 @@
-<?php $this->pageTitle=Yii::app()->name . ' - Explore';
+<?php $this->pageTitle	=	'Explore Career';
 $this->breadcrumbs=array('Explore'=>array('/user/explore'));?>
 	<div class="career-bot pull-left">
 						<?php if(Yii::app()->user->hasFlash('sccess')): ?>
@@ -10,7 +10,8 @@ $this->breadcrumbs=array('Explore'=>array('/user/explore'));?>
 					<?php endif; ?>	
 		<div class="mr0 col-md-12 fl">
 			<div class="mr0  pull-left stream-pref">
-				<h1>Explore Career </h1>
+				<!--<h1>Explore Career </h1>-->
+                <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
 				<p>Explore different career options here with well researched and easy to understand description and interesting videos.<br />
 <strong>Don’t forget to fill the star rating option given on the right side for each of the careers that will be important when you set your preferences at the later stage.</strong><br /><br />
 				</p>

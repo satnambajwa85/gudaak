@@ -2,6 +2,7 @@
 	<div class="mr0 col-md-12 fl">
 		<div class="mr0  pull-left middle-format-left">
 			<h1><?php echo $career->title;?></h1>
+            <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
 			<img src="<?php echo Yii::app()->baseUrl;?>/uploads/career/small/<?php echo $career->image;?>" class="fl mr-l"/>
 			<?php echo $career->description;?>
 		</div>

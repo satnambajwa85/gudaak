@@ -1,10 +1,11 @@
-<?php $this->pageTitle=Yii::app()->name . ' - Career';
+<?php $this->pageTitle=$dataBYId->title;
 $this->breadcrumbs=array('Career'=>array('/user/career'),'Career List'=>array('/user/careerList/','id'=>$dataBYId->id));
 array('Career'=>array('user/career'));?>
 <div class="careerList pull-left">
 		<div class="mr0 col-md-12 fl">
 			<div class="mr0  pull-left middle-format-left">
-				<h1><?php echo $dataBYId->title;?></h1>
+				<!--<h1><?php echo $dataBYId->title;?></h1>-->
+                <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
 				<?php echo substr($dataBYId->description,0,500);?>
 				<div class="clear"></div>
 				<div id="flashMessage"></div>

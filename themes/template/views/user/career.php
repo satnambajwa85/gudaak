@@ -1,8 +1,9 @@
-<?php $this->pageTitle=Yii::app()->name . ' - Career'; $this->breadcrumbs=array('Career'=>array('user/career'));?>
+<?php $this->pageTitle='Career Library'; $this->breadcrumbs=array('Career'=>array('user/career'));?>
 	<div class="career-bot pull-left">
 		<div class="mr0 pd0 col-md-12 fl">
 			<div class="mr0  pull-left middle-format-left">
-				<h1>Career library</h1>
+				<!--<h1>Career library</h1>-->
+                <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
 				<p>It is long established fact a reader will be It is long established fact a reader will be
 					It is long established fact a reader will be It is long established fact a reader will beIt is long established fact a reader will be
 				</p>

@@ -1,5 +1,5 @@
 <?php if (Yii::app()->request->urlReferrer==Yii::app()->request->hostInfo.Yii::app()->createUrl('user/finalizedCareer')){?>
-<?php $this->pageTitle=Yii::app()->name . ' - Finalized Career';
+<?php $this->pageTitle=$careerDetails->title;
 $this->breadcrumbs=array('Finalized Career'=>array('/user/finalizedCareer'));
 ?>
 <?php } ?>
@@ -20,7 +20,9 @@ $this->breadcrumbs=array('Career'=>array('/user/career'),'Career List'=>array('/
 <div class="col-md-9 pull-left">
 		<div class="mr0 col-md-12">
 			<div class="mr0  pull-left middle-format-left">
-				<h1><?php echo $careerDetails->title;?></h1>
+				<!--<h1><?php //echo $careerDetails->title;?></h1>-->
+                <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
+                
 				<p><?php echo substr($careerDetails->description,0,250);?></p>
 				<?php echo CHtml::ajaxLink('Konw more about Career Library',array(''));?>
 			</div>

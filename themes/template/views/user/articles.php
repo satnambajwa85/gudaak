@@ -1,17 +1,10 @@
-<?php $this->pageTitle='Gudaak helps you to fullfill articles';
+<?php $this->pageTitle	=	$articles->title;
 $this->breadcrumbs=array('Articles'=>array('/user/articlesList'),''.$articles->title.'');?>
 	<div class="career-bot pull-left">
 		<div class="mr0 col-md-12 pd0 fl">
-<<<<<<< HEAD
-			<div class="mr0 col-md-9 pd0 fl artical">
-				 <h1>Gudaak helps you to fullfill articles</h1>
-				 <h3><?php echo $articles->title;?></h3>
-=======
 			<div class="mr0 col-md-9  pd0 fl artical">
 				<h1><?php //echo $articles->title;?></h1>
                  <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
-				 
->>>>>>> 1279c3defb076de0d6ec381dd9fb5ee2f5bae04d
 				 <span>by <?php echo $articles->author;?></span>
 				 <div class="clear"></div>
 				 <div class="col-md-12 pd0  fl">

@@ -21,13 +21,8 @@ $this->breadcrumbs=array('Detailed Report'=>array('/user/detailedReport'));?>
 			<div class="summary-report-title1">Profile Summary&nbsp;
 				<div class="report-log-img"><img alt="" src="./image/small.jpg"></div>                    
 			</div>
-			
-<<<<<<< HEAD
-    				<div class="w100" >
-=======
     			<div class="w100" >
                 	<div class="reportLogo"><img alt="" src="./image/logo_large.png" /></div>
->>>>>>> 1279c3defb076de0d6ec381dd9fb5ee2f5bae04d
 					<div class="user-report-info col-md-12 pull-left report-border pd0">
 						<div class="col-md-6  pull-left left-section pd0">
 							<ul>
@@ -75,13 +70,6 @@ Wishing you all the best in all your future endeavours!
 
 						</div>
                     </div>	
-<<<<<<< HEAD
-               <!--<div style="float:left; width:90%; background:url(./image/img_icon.jpg) no-repeat;height:129px; background-position:center; margin-top:8%; margin-bottom:8%;"></div>-->
-                
-=======
-               
->>>>>>> 1279c3defb076de0d6ec381dd9fb5ee2f5bae04d
-                
                 </div>	
 
  	
@@ -174,14 +162,10 @@ Wishing you all the best in all your future endeavours!
 				<?php echo ($report['id']==3)?'<h3 class="process-title">'.$result['title'].'</h3>':'<h3 class="process-title">'.$result['title2'].'</h3>';?>
 			</div>
 			<div class="cat-def">
-<<<<<<< HEAD
-			<p><?php echo $result['description'];?></p>
-=======
 			<p>
 			<?php //echo $result['description'];?>
             <img alt="" src="./image/<?php echo $result['image'];?>">
            </p>
->>>>>>> 1279c3defb076de0d6ec381dd9fb5ee2f5bae04d
 			
 			</div>	
 		
@@ -224,10 +208,7 @@ Wishing you all the best in all your future endeavours!
     </div>
     <?php 
 		}
-<<<<<<< HEAD
-		
-		}?>
-=======
+
 		
 		}?>
         
@@ -266,7 +247,6 @@ Wishing you all the best in all your future endeavours!
 		
 		</div>
 		</div>
->>>>>>> 1279c3defb076de0d6ec381dd9fb5ee2f5bae04d
         
         </div>
         <div class="clear"></div>
@@ -297,18 +277,7 @@ Wishing you all the best in all your future endeavours!
 				</div>
     
 		
-<<<<<<< HEAD
-			</div>
-					
-			</div>
-		
-		</div>
-		</div>
-=======
 
-
-	
->>>>>>> 1279c3defb076de0d6ec381dd9fb5ee2f5bae04d
 	<div class="news pd0 pull-right">
 		<?php  $this->Widget('WidgetNews'); ?>
 	</div>

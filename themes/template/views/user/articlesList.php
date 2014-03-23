@@ -3,36 +3,21 @@ $this->breadcrumbs=array('Articles'=>array('/user/articlesList'));?>
 	<div class="career-bot pull-left">
 		<div class="mr0 col-md-12 pd0 fl">
 			
-<<<<<<< HEAD
-			<div class="mr0 col-md-6  fl newsupdates">
-				<div class="mr0 pd0 col-md-12   artical">
-					 <h1>Articles</h1>
-=======
 			<div class="mr0 col-md-12  fl newsupdates">
 				<div class="mr0 pd0 col-md-12 artical">
 					 <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
->>>>>>> 1279c3defb076de0d6ec381dd9fb5ee2f5bae04d
 					 <p>
                      Read the articles about different careers to update your knowledge and information. These are a crucial part of your Exploration stage!<br /><br />
                      </p>
 				</div>
 				<ul>
 					<?php if(!empty($articles)){?>
-<<<<<<< HEAD
-					 <?php foreach($articles as $list){ ?>
-					<li style="overflow:hidden">
-						<div class="pd0 col-md-12">
-							<h1><?php echo $list->title;?></h1>
-							<span><?php echo Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse($list->add_date, 'yyyy-MM-dd'),'medium',null);?></span>
-							<p><?php echo substr(preg_replace("/<img[^>]+\>/i", " ", $list->description),0,230);?>..</p>
-=======
 					 <?php $count=0; foreach($articles as $list){ $count=abs($count-1);?>
 					<li class="col-md-6 row pd0 art-class <?php echo (!$count)?'mla':'';?>">
 						<div class="pd0 col-md-12">
 							<h1><?php echo $list->title;?></h1>
 							<span><?php echo Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse($list->add_date, 'yyyy-MM-dd'),'medium',null);?></span>
 							<p><?php echo substr(preg_replace("/<img[^>]+\>/i", " ", $list->description),0,230);?></p>
->>>>>>> 1279c3defb076de0d6ec381dd9fb5ee2f5bae04d
 							<?php echo CHtml::link('Read Full..',array('user/articles','id'=>$list->id));?>
 						</div>
 					
