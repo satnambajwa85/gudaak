@@ -40,7 +40,7 @@ Yii::app()->clientScript->registerScript(
 	<section class="main-section">
 		<div class="left-main">
 			<div class="w100 fl color">
-						<div class="breadcrumbs fl">
+						<div class="white-text mt10 fl">
 
 						<?php /*$this->widget('zii.widgets.CBreadcrumbs', array(
                 'homeLink'=>'Dashboard',
@@ -69,12 +69,12 @@ Yii::app()->clientScript->registerScript(
 								<a href="<?php echo Yii::app()->session['setting']['fb_link'];?>" target="_blank">
 									<i class="icon-facebook"></i>
 								</a>
-								<a href="<?php echo Yii::app()->session['setting']['twittwe_link'];?>" target="_blank">
+								<!--<a href="<?php echo Yii::app()->session['setting']['twittwe_link'];?>" target="_blank">
 									<i class="icon-twitter"></i>
 								</a>
 								<a href="<?php echo Yii::app()->session['setting']['linkedin_link'];?>" target="_blank">
 									<i class="icon-linkedin"></i>
-								</a>
+								</a>-->
 					
 								 
 								

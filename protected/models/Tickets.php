@@ -9,6 +9,9 @@
  * @property integer $receiver_id
  * @property string $title
  * @property string $problem
+ * @property string $mode
+ * @property string $language
+ * @property string $available
  * @property string $solution
  * @property integer $status
  * @property string $add_date
@@ -16,6 +19,16 @@
  */
 class Tickets extends CActiveRecord
 {
+	/**
+	 * Returns the static model of the specified AR class.
+	 * @param string $className active record class name.
+	 * @return Tickets the static model class
+	 */
+	public static function model($className=__CLASS__)
+	{
+		return parent::model($className);
+	}
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -32,13 +45,14 @@ class Tickets extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('sender_id, receiver_id,title, problem', 'required'),
+			array('sender_id, receiver_id, title, problem', 'required'),
 			array('sender_id, receiver_id, status', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>500),
-			array('problem, solution, add_date, modification_date', 'safe'),
+			array('mode, language', 'length', 'max'=>100),
+			array('available, solution, add_date, modification_date', 'safe'),
 			// The following rule is used by search().
-			// @todo Please remove those attributes that should not be searched.
-			array('id, sender_id, receiver_id, title, problem, solution, status, add_date, modification_date', 'safe', 'on'=>'search'),
+			// Please remove those attributes that should not be searched.
+			array('id, sender_id, receiver_id, title, problem, mode, language, available, solution, status, add_date, modification_date', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -63,7 +77,10 @@ class Tickets extends CActiveRecord
 			'sender_id' => 'Sender',
 			'receiver_id' => 'Receiver',
 			'title' => 'Title',
-			'problem' => 'Description',
+			'problem' => 'Problem',
+			'mode' => 'Mode',
+			'language' => 'Language',
+			'available' => 'Available',
 			'solution' => 'Solution',
 			'status' => 'Status',
 			'add_date' => 'Add Date',
@@ -73,19 +90,12 @@ class Tickets extends CActiveRecord
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
-	 *
-	 * Typical usecase:
-	 * - Initialize the model fields with values from filter form.
-	 * - Execute this method to get CActiveDataProvider instance which will filter
-	 * models according to data in model fields.
-	 * - Pass data provider to CGridView, CListView or any similar widget.
-	 *
-	 * @return CActiveDataProvider the data provider that can return the models
-	 * based on the search/filter conditions.
+	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
 	 */
 	public function search()
 	{
-		// @todo Please modify the following code to remove attributes that should not be searched.
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
 
 		$criteria=new CDbCriteria;
 
@@ -94,6 +104,9 @@ class Tickets extends CActiveRecord
 		$criteria->compare('receiver_id',$this->receiver_id);
 		$criteria->compare('title',$this->title,true);
 		$criteria->compare('problem',$this->problem,true);
+		$criteria->compare('mode',$this->mode,true);
+		$criteria->compare('language',$this->language,true);
+		$criteria->compare('available',$this->available,true);
 		$criteria->compare('solution',$this->solution,true);
 		$criteria->compare('status',$this->status);
 		$criteria->compare('add_date',$this->add_date,true);
@@ -102,16 +115,5 @@ class Tickets extends CActiveRecord
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
-	}
-
-	/**
-	 * Returns the static model of the specified AR class.
-	 * Please note that you should have this exact method in all your CActiveRecord descendants!
-	 * @param string $className active record class name.
-	 * @return Tickets the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
 	}
 }

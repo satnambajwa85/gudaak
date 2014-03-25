@@ -2838,3 +2838,326 @@ HTTP_REFERER=http://localhost/gudaak/index.php?r=user/DetailedReport
 REQUEST_URI=/gudaak/index.php?r=user/DetailedReport&download=1
 HTTP_REFERER=http://localhost/gudaak/index.php?r=user/DetailedReport
 ---
+2014/03/23 12:39:00 [error] [exception.CException] exception 'CException' with message 'Property "Articles.author" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('author')
+#1 C:\wamp\www\gudaak\themes\template\views\user\articles.php(8): CActiveRecord->__get('author')
+#2 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\gud...')
+#3 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, true)
+#4 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\gud...', Array, true)
+#5 C:\wamp\www\framework\web\CController.php(783): CController->renderPartial('articles', Array, true)
+#6 C:\wamp\www\gudaak\protected\controllers\UserController.php(1492): CController->render('articles', Array)
+#7 [internal function]: UserController->actionArticles('1')
+#8 C:\wamp\www\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(UserController), Array)
+#9 C:\wamp\www\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(UserController), Object(ReflectionMethod), Array)
+#10 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#13 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#17 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('articles')
+#19 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/articles')
+#20 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#21 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/gudaak/index.php?r=user/articles&id=1
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/articlesList
+---
+2014/03/23 13:35:21 [error] [exception.HTML2PDF_exception] <span style="color: #AA0000; font-weight: bold;">ERREUR n°4</span><br>Fichier : C:\wamp\www\gudaak\protected\extensions\html2pdf\_class\parsingHtml.class.php<br>Ligne : 119<br><br>Code HTML non valide, les balises ne sont pas fermées dans le bon ordre.<br>Etat : <pre>Array
+(
+    [0] => page
+)
+</pre><br><br>HTML : ...&quot; src=&quot;./image/18_low.png&quot;&gt;
+	&lt;/div&gt;	&lt;table width=&quot;800px&quot; border=&quot;0&quot; c...
+REQUEST_URI=/gudaak/index.php?r=user/DetailedReport&download=1
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/DetailedReport
+---
+2014/03/23 15:22:43 [error] [php] Object of class Tickets could not be converted to string (C:\wamp\www\framework\web\helpers\CHtml.php:1712)
+Stack trace:
+#0 C:\wamp\www\gudaak\themes\template\views\user\_talk.php(18): radioButtonList()
+#1 C:\wamp\www\framework\web\CBaseController.php(127): require()
+#2 C:\wamp\www\framework\web\CBaseController.php(96): UserController->renderInternal()
+#3 C:\wamp\www\framework\web\CController.php(870): UserController->renderFile()
+#4 C:\wamp\www\gudaak\themes\template\views\user\talk.php(14): UserController->renderPartial()
+#5 C:\wamp\www\framework\web\CBaseController.php(127): require()
+#6 C:\wamp\www\framework\web\CBaseController.php(96): UserController->renderInternal()
+#7 C:\wamp\www\framework\web\CController.php(870): UserController->renderFile()
+#8 C:\wamp\www\framework\web\CController.php(783): UserController->renderPartial()
+#9 C:\wamp\www\gudaak\protected\controllers\UserController.php(126): UserController->render()
+#10 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionTalk()
+#11 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#12 C:\wamp\www\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#13 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#14 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#15 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#16 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#17 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#18 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#19 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#20 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#21 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#22 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/talk
+in C:\wamp\www\gudaak\themes\template\views\user\_talk.php (18)
+in C:\wamp\www\gudaak\themes\template\views\user\talk.php (14)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (126)
+2014/03/23 15:23:08 [error] [php] Object of class Tickets could not be converted to string (C:\wamp\www\framework\web\helpers\CHtml.php:1712)
+Stack trace:
+#0 C:\wamp\www\gudaak\themes\template\views\user\_talk.php(18): radioButtonList()
+#1 C:\wamp\www\framework\web\CBaseController.php(127): require()
+#2 C:\wamp\www\framework\web\CBaseController.php(96): UserController->renderInternal()
+#3 C:\wamp\www\framework\web\CController.php(870): UserController->renderFile()
+#4 C:\wamp\www\gudaak\themes\template\views\user\talk.php(14): UserController->renderPartial()
+#5 C:\wamp\www\framework\web\CBaseController.php(127): require()
+#6 C:\wamp\www\framework\web\CBaseController.php(96): UserController->renderInternal()
+#7 C:\wamp\www\framework\web\CController.php(870): UserController->renderFile()
+#8 C:\wamp\www\framework\web\CController.php(783): UserController->renderPartial()
+#9 C:\wamp\www\gudaak\protected\controllers\UserController.php(126): UserController->render()
+#10 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionTalk()
+#11 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#12 C:\wamp\www\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#13 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#14 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#15 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#16 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#17 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#18 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#19 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#20 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#21 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#22 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/talk
+in C:\wamp\www\gudaak\themes\template\views\user\_talk.php (18)
+in C:\wamp\www\gudaak\themes\template\views\user\talk.php (14)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (126)
+2014/03/23 15:23:29 [error] [php] Object of class Tickets could not be converted to string (C:\wamp\www\framework\web\helpers\CHtml.php:1712)
+Stack trace:
+#0 C:\wamp\www\gudaak\themes\template\views\user\_talk.php(18): radioButtonList()
+#1 C:\wamp\www\framework\web\CBaseController.php(127): require()
+#2 C:\wamp\www\framework\web\CBaseController.php(96): UserController->renderInternal()
+#3 C:\wamp\www\framework\web\CController.php(870): UserController->renderFile()
+#4 C:\wamp\www\gudaak\themes\template\views\user\talk.php(14): UserController->renderPartial()
+#5 C:\wamp\www\framework\web\CBaseController.php(127): require()
+#6 C:\wamp\www\framework\web\CBaseController.php(96): UserController->renderInternal()
+#7 C:\wamp\www\framework\web\CController.php(870): UserController->renderFile()
+#8 C:\wamp\www\framework\web\CController.php(783): UserController->renderPartial()
+#9 C:\wamp\www\gudaak\protected\controllers\UserController.php(126): UserController->render()
+#10 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionTalk()
+#11 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#12 C:\wamp\www\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#13 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#14 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#15 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#16 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#17 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#18 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#19 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#20 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#21 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#22 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/talk
+in C:\wamp\www\gudaak\themes\template\views\user\_talk.php (18)
+in C:\wamp\www\gudaak\themes\template\views\user\talk.php (14)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (126)
+2014/03/23 15:23:47 [error] [php] Object of class Tickets could not be converted to string (C:\wamp\www\framework\web\helpers\CHtml.php:1712)
+Stack trace:
+#0 C:\wamp\www\gudaak\themes\template\views\user\_talk.php(18): radioButtonList()
+#1 C:\wamp\www\framework\web\CBaseController.php(127): require()
+#2 C:\wamp\www\framework\web\CBaseController.php(96): UserController->renderInternal()
+#3 C:\wamp\www\framework\web\CController.php(870): UserController->renderFile()
+#4 C:\wamp\www\gudaak\themes\template\views\user\talk.php(14): UserController->renderPartial()
+#5 C:\wamp\www\framework\web\CBaseController.php(127): require()
+#6 C:\wamp\www\framework\web\CBaseController.php(96): UserController->renderInternal()
+#7 C:\wamp\www\framework\web\CController.php(870): UserController->renderFile()
+#8 C:\wamp\www\framework\web\CController.php(783): UserController->renderPartial()
+#9 C:\wamp\www\gudaak\protected\controllers\UserController.php(126): UserController->render()
+#10 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionTalk()
+#11 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#12 C:\wamp\www\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#13 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#14 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#15 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#16 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#17 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#18 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#19 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#20 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#21 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#22 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/talk
+in C:\wamp\www\gudaak\themes\template\views\user\_talk.php (18)
+in C:\wamp\www\gudaak\themes\template\views\user\talk.php (14)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (126)
+2014/03/23 15:23:48 [error] [php] Object of class Tickets could not be converted to string (C:\wamp\www\framework\web\helpers\CHtml.php:1712)
+Stack trace:
+#0 C:\wamp\www\gudaak\themes\template\views\user\_talk.php(18): radioButtonList()
+#1 C:\wamp\www\framework\web\CBaseController.php(127): require()
+#2 C:\wamp\www\framework\web\CBaseController.php(96): UserController->renderInternal()
+#3 C:\wamp\www\framework\web\CController.php(870): UserController->renderFile()
+#4 C:\wamp\www\gudaak\themes\template\views\user\talk.php(14): UserController->renderPartial()
+#5 C:\wamp\www\framework\web\CBaseController.php(127): require()
+#6 C:\wamp\www\framework\web\CBaseController.php(96): UserController->renderInternal()
+#7 C:\wamp\www\framework\web\CController.php(870): UserController->renderFile()
+#8 C:\wamp\www\framework\web\CController.php(783): UserController->renderPartial()
+#9 C:\wamp\www\gudaak\protected\controllers\UserController.php(126): UserController->render()
+#10 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionTalk()
+#11 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#12 C:\wamp\www\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#13 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#14 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#15 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#16 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#17 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#18 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#19 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#20 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#21 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#22 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/talk
+in C:\wamp\www\gudaak\themes\template\views\user\_talk.php (18)
+in C:\wamp\www\gudaak\themes\template\views\user\talk.php (14)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (126)
+2014/03/23 15:24:12 [error] [php] Invalid argument supplied for foreach() (C:\wamp\www\framework\web\helpers\CHtml.php:946)
+Stack trace:
+#0 C:\wamp\www\gudaak\themes\template\views\user\_talk.php(18): CActiveForm->radioButtonList()
+#1 C:\wamp\www\framework\web\CBaseController.php(127): require()
+#2 C:\wamp\www\framework\web\CBaseController.php(96): UserController->renderInternal()
+#3 C:\wamp\www\framework\web\CController.php(870): UserController->renderFile()
+#4 C:\wamp\www\gudaak\themes\template\views\user\talk.php(14): UserController->renderPartial()
+#5 C:\wamp\www\framework\web\CBaseController.php(127): require()
+#6 C:\wamp\www\framework\web\CBaseController.php(96): UserController->renderInternal()
+#7 C:\wamp\www\framework\web\CController.php(870): UserController->renderFile()
+#8 C:\wamp\www\framework\web\CController.php(783): UserController->renderPartial()
+#9 C:\wamp\www\gudaak\protected\controllers\UserController.php(126): UserController->render()
+#10 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionTalk()
+#11 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#12 C:\wamp\www\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#13 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#14 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#15 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#16 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#17 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#18 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#19 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#20 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#21 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#22 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/talk
+in C:\wamp\www\gudaak\themes\template\views\user\_talk.php (18)
+in C:\wamp\www\gudaak\themes\template\views\user\talk.php (14)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (126)
+2014/03/23 15:24:18 [error] [php] Invalid argument supplied for foreach() (C:\wamp\www\framework\web\helpers\CHtml.php:946)
+Stack trace:
+#0 C:\wamp\www\gudaak\themes\template\views\user\_talk.php(18): CActiveForm->radioButtonList()
+#1 C:\wamp\www\framework\web\CBaseController.php(127): require()
+#2 C:\wamp\www\framework\web\CBaseController.php(96): UserController->renderInternal()
+#3 C:\wamp\www\framework\web\CController.php(870): UserController->renderFile()
+#4 C:\wamp\www\gudaak\themes\template\views\user\talk.php(14): UserController->renderPartial()
+#5 C:\wamp\www\framework\web\CBaseController.php(127): require()
+#6 C:\wamp\www\framework\web\CBaseController.php(96): UserController->renderInternal()
+#7 C:\wamp\www\framework\web\CController.php(870): UserController->renderFile()
+#8 C:\wamp\www\framework\web\CController.php(783): UserController->renderPartial()
+#9 C:\wamp\www\gudaak\protected\controllers\UserController.php(126): UserController->render()
+#10 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionTalk()
+#11 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#12 C:\wamp\www\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#13 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#14 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#15 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#16 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#17 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#18 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#19 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#20 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#21 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#22 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/talk
+in C:\wamp\www\gudaak\themes\template\views\user\_talk.php (18)
+in C:\wamp\www\gudaak\themes\template\views\user\talk.php (14)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (126)
+2014/03/23 15:26:54 [error] [exception.CException] exception 'CException' with message 'Property "Articles.author" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('author')
+#1 C:\wamp\www\gudaak\themes\template\views\user\articles.php(8): CActiveRecord->__get('author')
+#2 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\gud...')
+#3 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, true)
+#4 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\gud...', Array, true)
+#5 C:\wamp\www\framework\web\CController.php(783): CController->renderPartial('articles', Array, true)
+#6 C:\wamp\www\gudaak\protected\controllers\UserController.php(1492): CController->render('articles', Array)
+#7 [internal function]: UserController->actionArticles('1')
+#8 C:\wamp\www\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(UserController), Array)
+#9 C:\wamp\www\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(UserController), Object(ReflectionMethod), Array)
+#10 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#13 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#17 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('articles')
+#19 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/articles')
+#20 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#21 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/gudaak/index.php?r=user/articles&id=1
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/articlesList
+---
+2014/03/23 17:02:18 [error] [exception.HTML2PDF_exception] <span style="color: #AA0000; font-weight: bold;">ERREUR n°4</span><br>Fichier : C:\wamp\www\gudaak\protected\extensions\html2pdf\_class\parsingHtml.class.php<br>Ligne : 119<br><br>Code HTML non valide, les balises ne sont pas fermées dans le bon ordre.<br>Etat : <pre>Array
+(
+    [0] => page
+)
+</pre><br><br>HTML : ...&lt;tr&gt;
+    	&lt;/tr&gt;
+	&lt;/table&gt;
+&lt;/div&gt;...
+REQUEST_URI=/gudaak/index.php?r=user/DetailedReport&download=1
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/DetailedReport
+---
+2014/03/23 17:03:37 [error] [exception.HTML2PDF_exception] <span style="color: #AA0000; font-weight: bold;">ERREUR n°6</span><br>Fichier : C:\wamp\www\gudaak\protected\extensions\html2pdf\HTML2PDF.php<br>Ligne : 1319<br><br>Impossible de charger l'image <b>./image/14_log.png</b>
+REQUEST_URI=/gudaak/index.php?r=user/DetailedReport&download=1
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/DetailedReport
+---
+2014/03/23 17:04:23 [error] [exception.HTML2PDF_exception] <span style="color: #AA0000; font-weight: bold;">ERREUR n°6</span><br>Fichier : C:\wamp\www\gudaak\protected\extensions\html2pdf\HTML2PDF.php<br>Ligne : 1319<br><br>Impossible de charger l'image <b>./image/17_log.png</b>
+REQUEST_URI=/gudaak/index.php?r=user/DetailedReport&download=1
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/DetailedReport
+---
+2014/03/24 18:04:19 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\wamp\www\framework\web\CController.php:337
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#3 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#7 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('careerDetails')
+#9 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/careerDeta...')
+#10 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/gudaak/index.php?r=user/careerDetails&_=1395684259717
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/careerDetails&id=1
+---
+2014/03/24 18:04:23 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\wamp\www\framework\web\CController.php:337
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#3 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#7 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('careerDetails')
+#9 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/careerDeta...')
+#10 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/gudaak/index.php?r=user/careerDetails&_=1395684263108
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/careerDetails&id=1
+---

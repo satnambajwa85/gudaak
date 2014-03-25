@@ -21,7 +21,7 @@ array('Career'=>array('user/career'));?>
 		
 		 <?php $count=0;?>
 			<?php foreach($career as $data){?>
-				<li class="col-md-3 career-lib career-lib2">
+				<li class="col-md-3 career-lib career-lib2 mb0">
                 	<div class="col-md-12 pd0">
 					<?php 
 						$filename = ''.$data->image.'';
@@ -34,7 +34,7 @@ array('Career'=>array('user/career'));?>
 					
 				<?php } ?>
 					<div class="clear"></div>
-					<?php echo CHtml::link('<h1>'.$data->title.'</h1>',array('user/careerDetails','id'=>''.$data->id.''),array('title'=>$data->title));?>
+					
 					<?php if(!empty($data->description)){?>
 					<?php echo substr($data->description,0,100);?>
 					<?php }else{ ?>
@@ -50,7 +50,8 @@ array('Career'=>array('user/career'));?>
 					</div>
 
 					<div class="col-md-12 career-hot-links">
-					<?php echo CHtml::link('View Details..',array('user/careerDetails','id'=>''.$data->id.''),array('class'=>'pull-left','title'=>'View Details'));?>
+                    <?php echo CHtml::link($data->title,array('user/careerDetails','id'=>''.$data->id.''),array('class'=>'pull-left','title'=>$data->title));?>
+					<?php //echo CHtml::link('View Details..',array('user/careerDetails','id'=>''.$data->id.''),array('class'=>'pull-left','title'=>'View Details'));?>
 					<?php //echo CHtml::Ajaxlink('<i class="glyphicon glyphicon-heart"></i>',array('user/AddCareer','id'=>''.$data->id.''),array('update'=>'#flashMessage'));?>
 						<!--<ul class="star-rating pull-right ">
 							 <div id="user-rating<?php //echo $data->id;?>" class="ratingStar" ></div>

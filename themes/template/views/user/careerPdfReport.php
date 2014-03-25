@@ -4,7 +4,6 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>PDF Report</title>
 </head>
-
 <body>
    <table width="800px" border="0" cellspacing="0" cellpadding="0" style=" font-family:Arial, Helvetica, sans-serif; color:#666; font-size:18px; ">
 	<tr>
@@ -17,13 +16,12 @@
 			</div>
 		</td>
 	</tr>
-	
 	</table>
 
 		<table width="800px" border="0" cellspacing="0" cellpadding="0" style=" font-family:Arial, Helvetica, sans-serif; color:#666; font-size:18px; ">
 	<tr>
     <td colspan="2">
-    	<div style="margin-top: 140px;margin-bottom: 100px;margin-left: 150px;"><img alt="" src="./image/logo_large.png" /></div>
+    	<div style="margin-top: 50px;margin-bottom: 50px;margin-left: 150px;"><img alt="" src="./image/logo_large.png" /></div>
     </td>
     </tr>
   <tr>
@@ -31,7 +29,6 @@
    <div style="width:200px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#fff; ">
     Name
     </div>
-	 
 	 <div style="width:200px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#F5F5F5; ">
      Class
      </div> 
@@ -44,45 +41,35 @@
 	  <div style="width:200px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#fff; ">
 	Test Completed On
 	 </div> 
- 
 	 </td>
     <td width="200px" align="left" valign="left" style="font-size:12px; background-color:#F5F5F5;border-right:1px solid #fff; border-bottom:1px solid #fff; border-top:1px solid #fff;"> 
 	<div style="width:510px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#fff; ">
 	<?php echo $profile->first_name.' '.$profile->last_name;?>
    </div> 
-    
    <div style="width:510px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#F5F5F5; ">
-	
     <?php echo $profile->userClass->title;?>
      </div> 
 	 <div style="width:510px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#fff; ">
-	
     <?php echo $profile->generateGudaakIds->schools->name;?>
 	 </div> 
       <div style="width:510px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#F5F5F5; ">
-	
     <?php echo $profile->generateGudaakIds->gudaak_id;?> 
 	 </div> 
 	 <div style="width:510px;text-align:left; height:20px;margin:0px;padding:10px;background-color:#fff; ">
-	
 	<?php echo date('d M,Y',strtotime($userTestDate->add_date));?>
 	 </div> 
-
 	</td>
     </tr>
-
  </table>
-   <table border="0" cellspacing="0" cellpadding="0">
+  <table border="0" cellspacing="0" cellpadding="0">
 	<tr>
 		<td><div style="padding:10px;"></div></td>
 	</tr>
   </table>
-     <table width="800px" border="0" cellspacing="0" cellpadding="0" style=" font-family:Arial, Helvetica, sans-serif; color:#666; font-size:18px; ">
+   <table width="800px" border="0" cellspacing="0" cellpadding="0" style=" font-family:Arial, Helvetica, sans-serif; color:#666; font-size:18px; ">
 	<tr>
 		<td>
-			 				  
-					
-                	<div style="float:left; width:97%; font-size:18px; color:#21C4C1; margin-top:50px 0 50px 0;   font-family:Arial, Helvetica, sans-serif; ">
+                	<div style="float:left; width:97%; font-size:18px; color:#21C4C1; margin-top:10%;   font-family:Arial, Helvetica, sans-serif; ">
                     	Gudaak IPC Report
                     </div>
                 	<div style="float:left; width:97%; font-size:14px; color:#666; text-align:justify; line-height:22px; font-family:, Helvetica, sans-serif;  ">
@@ -90,17 +77,15 @@
 Any suitable career can only be predicted with a combination of client’s academic assessments, interests, personality, values and attitudes when assessed in congenial environment. So, to succeed in life- Keep reading the literature on career and explore the possibilities that can help you reach your dreams and goals.<br/><br/>
 The career recommendations made here are based on how genuinely you have answered the test. We hope that this report will lead to a greater understanding of yourself and at every step we are there to guide you.<br/><br/>
 Remember! “There are no such things as limits to growth, because there are no limits on the human capacity for intelligence, imagination and wonder."<br/><br/>
-
 Wishing you all the best in all your future endeavours!
 <br/>
                         </p>
-						<div style=" color:#333; font-size:18px;margin-top:10%;   font-family:Arial, Helvetica, sans-serif; ">This report contains the following:<br/>
-								<ul style="list-style:none;font-size:14px; color:#666; text-align:justify; line-height:22px; ">
+					<div style=" color:#333; font-size:18px;margin-top:20px;font-family:Arial, Helvetica, sans-serif; ">This report contains the following:<br/>
+								<ul style="list-style:none;font-size:14px; color:#666; text-align:justify; line-height:16px; ">
 								<li>• A personalized personality profile</li>
 								<li>• An interest profile</li>
 								<li>• Career Recommendations</li>
 								</ul>
-
 						</div>
                     </div>	
 		</td>
@@ -110,11 +95,10 @@ Wishing you all the best in all your future endeavours!
                <div style="float:left; width:95%; background:url(./image/img_icon.jpg) no-repeat;height:129px; background-position:center; margin-top:80px; margin-bottom:10px;"></div>
         </td>
 	</tr>
-	 
 	</table>
-                  <?php foreach($reports as $report){?>
+	                  <?php foreach($reports as $report){?>
 						<?php if($report['id']==2){ ?>
-						<div style="float:left; width:100%; min-height:700px; " >
+						<div style="float:left; width:100%;" >
 						<div style="float:left; width:100%; margin-top:5%;margin-bottom:10px;background:#1acccc; height:40px; padding-top:14px; text-align:right; font-size:18px; color:#fff; padding-right:10%; font-family:Arial, Helvetica, sans-serif;">
 							Personality Test Summary &nbsp;
 						</div>
@@ -124,7 +108,6 @@ Wishing you all the best in all your future endeavours!
 							</div>
 							<div style="float:left; width:95%; padding-left:3%; font-size:14px; color:#666; text-align:justify; line-height:22px; font-family:, Helvetica, sans-serif;  ">
 								<p style="font-weight:bold;">Personality:  What a dynamic "Personality" she has! You have often heard people saying this. Is it possible to assess the personality of a human being just by looking at him/her? Actually, the answer could be both-Yes and No. Yes, because outward appearance comes from the confidence, self-esteem and emotional stability you have and No because people might fake it.
-
 								</p>
 								<p>Personality as defined by researchers is a dynamic and organized set of characteristics possessed by a person that uniquely influences his or her cognitions, emotions, motivations, and behaviours in various situations. It also refers to the pattern of thoughts, feelings, social adjustments, and behaviours consistently exhibited over time that strongly influences one's expectations, self-perceptions, values, and attitudes. It also predicts human reactions to other people, problems, and stress.			</p>
 								<p style="font-size:18px;color:#666;padding:0;margin:0;">
@@ -137,30 +120,27 @@ Wishing you all the best in all your future endeavours!
 									•	<span style="font-weight:bold;">Extraversion -</span> How much do you turn to the outside world for stimulation and excitement?<br/><br/>
 									•	<span style="font-weight:bold;">Agreeableness -</span> How much do you put others ahead of yourself?<br/><br/>
 									•	<span style="font-weight:bold;">Neuroticism - </span>How likely are you to bounce back from stressful events?<br/><br/>
-
-
 								</p>
-							</div>
+							</div>	
 						</div>
-						<?php } 
-						if($report['id']==3){?> 
-							<div style="margin-top:50px;">
-								<div style="float:left; width:100%; min-height:700px; " >
-								<div style="float:left; width:100%; margin-top:5%;margin-bottom:10px;background:#1acccc; height:40px; padding-top:14px; text-align:right; font-size:18px; color:#fff; padding-right:10%; font-family:Arial, Helvetica, sans-serif;">
+						<?php } ?>
+                        <?php if($report['id']==3){?>
+							<div>
+								<div style="float:left; width:100%;" >
+								<div style="float:left; width:100%;margin-bottom:10px;background:#1acccc; height:40px; padding-top:10px; text-align:right; font-size:18px; color:#fff; padding-right:10%; font-family:Arial, Helvetica, sans-serif;">
 							Interest Test Summary &nbsp;
 						</div>
-							<div style="float:left; width:95%; padding-left:3%; font-size:18px; color:#21C4C1; margin-top:10%;   font-family:Arial, Helvetica, sans-serif; ">
+							<div style="float:left; width:95%; padding-left:3%; font-size:18px; color:#21C4C1;font-family:Arial, Helvetica, sans-serif; ">
 								Your Interest Profile
 							</div>
 							<div style="float:left; width:95%; padding-left:3%; font-size:14px; color:#666; text-align:justify; line-height:22px; font-family:, Helvetica, sans-serif;  ">
 								<p style="font-weight:bold;">
 								 Interests in a layman language can be “What you like to do?” You might like swimming, reading or travelling and may not like fishing, meeting people etc. It refers to things or activities that a person is curious or concerned about. They are subjects or qualities that evoke his attention. They can be things that someone does as a pastime or a leisure activity or those that he wants to have an occupation in. There are various interests that a person might be enthusiastic about.  Do not worry if the results here are not what you thought of. Our idea is to let you know your real self!
-
 								</p>
-								<p>The Interest Test you have taken maps you on the five traits. Read out in details here:<br/><br/><br/></p>
-							</div>
-						</div>
-								<table width="100%" border="0" cellspacing="0" cellpadding="0" style="border:1px solid #e4e4e4; font-family:Arial, Helvetica, sans-serif; color:#666; font-size:18px; ">
+								<p>The Interest Test you have taken maps you on the five traits. Read out in details here:</p>
+							</div>	
+					   </div>
+								<table width="100%" border="0" cellspacing="0" cellpadding="0" style="border:1px solid #e4e4e4; font-family:Arial, Helvetica, sans-serif; color:#666; font-size:18px; margin-top:10px; ">
 								<?php foreach($report['results1'] as $result){?>
 								<tr>
 									<td width="20%" height="40" style="color:#21C4C1;" ><?php echo $result['title'];?></td>
@@ -196,35 +176,11 @@ Wishing you all the best in all your future endeavours!
 							   </table>
 							</div>
                         <?php } ?>
-	<div>
-<?php $coud	=	0;
-	foreach($report['results'] as $result){
-		$coud	=	abs($coud-1);
-		if($coud){?>
-			<div style="float:left; width:100%; margin-top:3px;">
-	<?php } ?>
+<?php
+	foreach($report['results'] as $result){?>
 			<img alt="" src="./image/<?php echo $result['image'];?>">
-	<?php if(!$coud){?>
-			</div> 
-	<?php } ?>
-            <!--<div style="float:left; color: #666;width:95%; padding-left:3%; font-size:18px;  margin-top:7px; font-family:Arial, Helvetica, sans-serif; ">
-				<?php //echo ($report['id']==3)?'<h4>'.$result['title'].'</h4>':'<h4>'.$result['title2'].'</h4>';?>
-			</div>
-			<div style="float:left; width:100%; padding-left:3%; font-size:14px; color:#666; text-align:justify; line-height:22px; font-family:Arial, Helvetica, sans-serif;  ">
-			<p><?php //echo $result['description'];?>
-            
-            </p>
-            
-			</div>	-->
-		<?php 
-		}
-		
-		if($coud){
-			echo '</div>';
-			}
-		 ?>
-		
-	<table width="800px" border="0" cellspacing="0" cellpadding="0" style="margin-top: 80px;font-family:Arial, Helvetica, sans-serif; color:#666; font-size:18px; ">
+<?php	}?>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:10px;font-family:Arial, Helvetica, sans-serif; color:#666; font-size:18px; ">
 	<tr>
     <?php
 	$listArr	=	array();
@@ -234,23 +190,18 @@ Wishing you all the best in all your future endeavours!
 	 <?php
 		$listCar	=	Career::model()->findAllByAttributes(array('career_categories_id'=>$result['id']));
 		foreach($listCar as $data){		?>
-		
-		<td width="200px">
-		
-			<div style="color: #666666;font-size: 12px;width:200px;float:left !important;text-align:left;">
-				<img src="./uploads/career/small/<?php echo $data->image;?>" />
+		<td width="245" height="100">
+			<div style="color: #666666;font-size: 12px;width:140px;float:left !important;text-align:left;">
+				<img src="./uploads/career/small/<?php echo $data->image;?>" width="240" />
 			</div>
-			 <div style="color: #666666;font-size: 12px;width:200px;float:left !important;text-align:left;">
+			 <div style="color: #666666;font-size: 12px;width:240px;height:20px;float:left !important;text-align:left;">
 				<?php echo $data->title;?><br/>
 				<?php echo $data->description;?>
-			  
 			</div>
 		</td>      
 	 <?php if($counter%3==0){?>
 	 <tr>
-	 
 	</tr>
-	 
 	 <?php } ?>
 	<?php	$counter++;  }?>
     
@@ -260,8 +211,9 @@ Wishing you all the best in all your future endeavours!
     
 		 
 	</tr>
-	</table>
-</div>
+	
+	</table>  
+        
 <?php } ?>
               <div style="float:left; width:100%; margin:80px 0 0 0;">
 				   <table width="800px" border="0" cellspacing="0" cellpadding="0">

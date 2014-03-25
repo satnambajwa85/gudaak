@@ -658,7 +658,6 @@ class UserController extends Controller
 				$html =	'detailedReport';
 			$html='careerPdfReport';
 			}
-			
 			$html2pdf->WriteHTML($this->renderPartial($html,array('reports'=>$data,'profile'=>$profile,'userTestDate'=>$userTestDate),true));
 			
 			$html2pdf->Output();
@@ -902,6 +901,7 @@ class UserController extends Controller
 				$log->add_date			=	date('Y-m-d H:i:s');
 				$log->status			=	1;
 				$log->save();
+				
 				$data['status']=1;
 				$data['message']='Thank you to final to career.';
 				echo json_encode($data);
@@ -1493,7 +1493,7 @@ class UserController extends Controller
 	}
 	public function actionSummary()
 	{	
-		$summaryDetails=Summary::model()->findAllByAttributes(array('user_profile_id'=>Yii::app()->user->profileId,'status'=>1));
+		$summaryDetails=Summary::model()->findAllByAttributes(array('user_profile_id'=>Yii::app()->user->profileId,'status'=>1),array('order'=> 'add_date DESC'));
 		$this->render('summary',array('summaryDetails'=>$summaryDetails));
 	}
 	public function actionSummaryData($id)

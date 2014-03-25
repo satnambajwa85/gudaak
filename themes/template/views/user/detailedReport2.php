@@ -4,9 +4,9 @@ $this->breadcrumbs=array('Detailed Report'=>array('/user/detailedReport'));?>
 		<div class="mr0 col-md-12 pd0 fl">
 			<div class="mr0  pull-left stream-pref">
 				<h1>Detailed Report </h1>
-				<p>It is long established fact a reader will be It is long established fact a reader will be
+				<!--<p>It is long established fact a reader will be It is long established fact a reader will be
 					It is long established fact a reader will be It is long established fact a reader will beIt is long established fact a reader will be
-				</p>
+				</p>-->
 
 			</div>
 			<?php if(isset($reports)){?>
@@ -21,14 +21,10 @@ $this->breadcrumbs=array('Detailed Report'=>array('/user/detailedReport'));?>
 			<div class="summary-report-title1">Profile Summary&nbsp;
 				<div class="report-log-img"><img alt="" src="./image/small.jpg"></div>                    
 			</div>
-<<<<<<< HEAD
-    				<div class="user-report-info  pull-left report-border pd0">
-=======
 				<div class="w100" >
                     <div class="reportLogo"><img alt="" src="./image/logo_large.png" /></div>
                     
                     <div class="user-report-info  pull-left report-border pd0">
->>>>>>> 1279c3defb076de0d6ec381dd9fb5ee2f5bae04d
 						<div class="col-md-6  pull-left left-section pd0">
 							<ul>
 								<li>Name</li>
@@ -52,11 +48,6 @@ $this->breadcrumbs=array('Detailed Report'=>array('/user/detailedReport'));?>
 						<div class="col-md-6  pull-left">
 						</div>
 					</div>
-<<<<<<< HEAD
-                    
-                    <div class="w100" >
-=======
->>>>>>> 1279c3defb076de0d6ec381dd9fb5ee2f5bae04d
                 	<div class="report-title1">
                     	Gudaak IPC Report
                     </div>
@@ -78,13 +69,6 @@ Wishing you all the best in all your future endeavours!
 
 						</div>
                     </div>	
-<<<<<<< HEAD
-               <!--<div style="float:left; width:90%; background:url(./image/img_icon.jpg) no-repeat;height:129px; background-position:center; margin-top:8%; margin-bottom:8%;"></div>-->
-=======
-               
->>>>>>> 1279c3defb076de0d6ec381dd9fb5ee2f5bae04d
-                
-                
                 </div>	
 					
  	

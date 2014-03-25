@@ -26,6 +26,9 @@ $this->breadcrumbs=array('Talk'=>array('/user/talk'));?>
 		//'id',
 		'title',
 		'problem',
+		'mode',
+		'available',
+		'language',
 		array(
             'name'=>'status',
             'value'=>'($data->status==1)?"Pending":"Answers"'
@@ -34,6 +37,7 @@ $this->breadcrumbs=array('Talk'=>array('/user/talk'));?>
             'name'=>'add_date',
             'value'=>'date("M d,Y",strtotime($data->add_date))'
 		),
+		
 		/*
 		'sender_id',
 		'receiver_id',
@@ -51,3 +55,9 @@ $this->breadcrumbs=array('Talk'=>array('/user/talk'));?>
     <div class="col-md-2  pd0 pull-right">
 		<?php  $this->Widget('WidgetNews'); ?>
 	</div>
+    
+ <!--Popup Design Start--> 
+     
+ 
+  <!--Popup Design End--> 
+    
