@@ -46,6 +46,21 @@
 		<?php echo $form->textField($model,'status'); ?>
 	</div>
 
+	<div class="row">
+		<?php echo $form->label($model,'user_login_id'); ?>
+		<?php echo $form->textField($model,'user_login_id'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'author'); ?>
+		<?php echo $form->textField($model,'author',array('size'=>60,'maxlength'=>255)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'role'); ?>
+		<?php echo $form->textField($model,'role',array('size'=>60,'maxlength'=>255)); ?>
+	</div>
+
 	<div class="row buttons">
 		<?php echo CHtml::submitButton('Search'); ?>
 	</div>

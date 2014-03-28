@@ -1,4 +1,4 @@
-<?php $this->pageTitle=Yii::app()->name . ' - Summary';
+<?php $this->pageTitle='Summary';
 $this->breadcrumbs=array('Summary'=>array('/user/summary'));?>
 	<div class="career-bot pull-left">
 						<?php if(Yii::app()->user->hasFlash('sccess')): ?>
@@ -10,7 +10,8 @@ $this->breadcrumbs=array('Summary'=>array('/user/summary'));?>
 					<?php endif; ?>	
 		<div class="mr0 col-md-12 fl">
 			<div class="mr0  pull-left stream-pref">
-				<h1>Summary </h1>
+				<!--<h1>Summary </h1>-->
+                <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
 				<p>It is long established fact a reader will be It is long established fact a reader will be
 					It is long established fact a reader will be It is long established fact a reader will beIt is long established fact a reader will be
 				</p>
@@ -52,17 +53,22 @@ $this->breadcrumbs=array('Summary'=>array('/user/summary'));?>
 						
 						<div class="col-md-12 pull-left pd0">
 							<div class="col-md-3 pull-left pd0 center">
-								<span>Access</span><br/>
-								<?php echo CHtml::link('Online','#')?>
+								<span><?php echo $list->event;?></span>
 							</div>
 							<div class="col-md-3 pull-left pd0">
-								<p><?php echo $list->orientItems->title ;?></p>
+								<p><?php echo $list->topic;?></p>
 							</div>
 							<div class="col-md-3 pull-left pd0">
-								<p><?php echo Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse($list->add_date, 'yyyy-MM-dd'),'medium',null);?></p>
+								<p><?php echo date('M d, Y',strtotime($list->add_date));?></p>
 							</div>
 							<div class="col-md-3 center pull-left mar-top10 pd0">
-								<?php echo CHtml::link('Summery','#',array('class'=>'summery-left-btn'))?>
+								<?php echo CHtml::ajaxLink('Summery',array('/user/summaryData','id'=>$list->id),
+												array(	'type'=>'POST',
+														'success'=>'function(data){
+																		$("#resultSummery").html(data);
+																	}'),
+												array('class'=>'summery-left-btn')					
+												);  ?>
 							</div>
 						</div>
 						
@@ -70,9 +76,10 @@ $this->breadcrumbs=array('Summary'=>array('/user/summary'));?>
 					 <?php } ?>
 				</ul>
 			</div>
-			<div class="col-md-6 pull-left summaryDetails ">
-				
+            <div class="col-md-6 pull-left summaryDetails pd0">
+            	<div id="resultSummery"></div>				
 			</div>
+            
 		</div>
 		
 		

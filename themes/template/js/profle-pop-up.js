@@ -34,10 +34,11 @@ function testFormSend(id)
 			else{
 					alert('Plsease don not skip any question please.');
 					$.each($response.message, function(i, obj) {
-					//  $('#user-person-test-form').offset({top('.required1').offset().top});
-					//  $('#user-person-test-form').offset({top,('.required1').offset().top});
-					  $('.required'+obj).css( "backgroundColor", "#E9D1D4" );
+						$('.required'+obj).css( "backgroundColor", "#E9D1D4" );
 					});
+					$('#user-person-test-form').offset({top:$('.required4').offset().top});
+						console.log($('.required40').offset().top);
+						
 			}
 		},
 		   error: function(data) { // if error occured

@@ -1,4 +1,4 @@
-<?php $this->pageTitle=Yii::app()->name . ' - Stream Explore';
+<?php $this->pageTitle='Stream Explore';
 $this->breadcrumbs=array('Explore'=>array('/user/streamExplore'));?>
 	<div class="col-md-10 pull-left">
 						<?php if(Yii::app()->user->hasFlash('sccess')): ?>
@@ -10,9 +10,10 @@ $this->breadcrumbs=array('Explore'=>array('/user/streamExplore'));?>
 					<?php endif; ?>	
 		<div class="mr0 col-md-12 fl">
 			<div class="mr0  pull-left stream-pref">
-				<h1>Stream Explore</h1>
-				<p>It is long established fact a reader will be It is long established fact a reader will be
-					It is long established fact a reader will be It is long established fact a reader will beIt is long established fact a reader will be
+				<!--<h1>Stream Explore</h1>-->
+                <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
+				<p>Explore different stream here with well researched and easy to understand description and interesting videos.<br />
+<strong>Don’t forget to fill the star rating option given on the right side for each of the stream that will be important when you set your preferences at the later stage.</strong><br /><br />
 				</p>
 
 			</div>

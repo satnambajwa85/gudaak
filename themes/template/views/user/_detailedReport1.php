@@ -13,7 +13,7 @@
 
 			</div>
 			<?php if(isset($reports)){?>
-					<?php echo CHtml::link('Download PDF',array('user/DetailedReport&download=1'),array('target'=>'_blank','class'=>'btn btn-info2 center-bt fr'))?>
+					<?php //echo CHtml::link('Download PDF',array('user/DetailedReport&download=1'),array('target'=>'_blank','class'=>'btn btn-info2 center-bt fr'))?>
 			<?php }else{
 			
 			} ?>

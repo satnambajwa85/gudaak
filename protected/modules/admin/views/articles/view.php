@@ -28,5 +28,8 @@ $this->menu=array(
 		'image',
 		'published',
 		'status',
+		'user_login_id',
+		'author',
+		'role',
 	),
 )); ?>

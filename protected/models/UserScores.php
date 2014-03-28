@@ -11,6 +11,7 @@
  * @property integer $status
  * @property integer $career_categories_id
  * @property integer $user_profiles_id
+ * @property integer $test_category
  *
  * The followings are the available model relations:
  * @property CareerCategories $careerCategories
@@ -45,12 +46,12 @@ class UserScores extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('career_categories_id, user_profiles_id', 'required'),
-			array('published, status, career_categories_id, user_profiles_id', 'numerical', 'integerOnly'=>true),
+			array('published, status, career_categories_id, user_profiles_id, test_category', 'numerical', 'integerOnly'=>true),
 			array('score', 'length', 'max'=>45),
 			array('add_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, score, add_date, published, status, career_categories_id, user_profiles_id', 'safe', 'on'=>'search'),
+			array('id, score, add_date, published, status, career_categories_id, user_profiles_id, test_category', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -80,6 +81,7 @@ class UserScores extends CActiveRecord
 			'status' => 'Status',
 			'career_categories_id' => 'Career Categories',
 			'user_profiles_id' => 'User Profiles',
+			'test_category' => 'Test Category',
 		);
 	}
 
@@ -101,6 +103,7 @@ class UserScores extends CActiveRecord
 		$criteria->compare('status',$this->status);
 		$criteria->compare('career_categories_id',$this->career_categories_id);
 		$criteria->compare('user_profiles_id',$this->user_profiles_id);
+		$criteria->compare('test_category',$this->test_category);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

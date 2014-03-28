@@ -4,6 +4,7 @@
 			<div class="mr0 col-md-6  fl newsupdates">
 				<div class="mr0 pd0 col-md-12   artical">
 					 <h1>News and Updates</h1>
+                     <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
 					 
 				</div>
 				<ul>

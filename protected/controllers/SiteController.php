@@ -71,6 +71,25 @@ class SiteController extends Controller
 		$this->render('_whyGudaak');
 	
 	}
+	public function actionArticles(){
+		$criteria			=	new CDbCriteria();
+		$criteria->condition= '(published =:published and status =:status )';
+		$criteria->params 	= array('published'=>1,'status'=>1);
+		$count				=	Articles::model()->count($criteria);
+		$pages				=	new CPagination($count);
+		$pages->pageSize	=	5;
+		$pages->applyLimit($criteria);
+		$articles			=	Articles::model()->findAll($criteria);
+		
+		$this->render('articals',array('articles'=>$articles,'pages'=>$pages));
+	}
+	
+	public function actionArticle($id)
+	{	
+		$result				=	 Articles::model()->findByAttributes(array('id'=>$id));
+		
+		$this->render('article',array('articles'=>$result));
+	}
 	/**
 	 * This is the Register  User 'userRegister' action that is invoked
 	 * when an action is not explicitly requested by users.
@@ -171,7 +190,7 @@ class SiteController extends Controller
 					$user->add_date			=	date('Y-m-d H:i:s');
 					$user->block			=	0;
 					$Uclass					=	$_POST['Register']['class'];
-					$user->activation		=	1;
+					$user->activation		=	0;
 					$user->user_role_id		=	$userRole;
 					$model->user_login_id	=	1;
 					$model->generate_gudaak_ids_id	=	1;
@@ -218,23 +237,23 @@ class SiteController extends Controller
 				
 		$this->render('userRegister',array('model'=>$model));
 	}
-	public function actionCheckUser()
+	public function actionCheckUser($email)
 	{	
-		$user		=	base64_decode($_REQUEST['email']);
+		$user		=	base64_decode($email);
 		$record_exists = UserLogin::model()->exists('username = :email', array(':email'=>$user));   				
 		if($record_exists==1){ 
 			$record = UserLogin::model()->findByAttributes(array('username'=>$user)); 
 			$record->activation	=	1;
 			if($record->save()){
-				Yii::app()->user->setFlash('sccess','Your new account is activated.');
-				$this->refresh();
+				Yii::app()->user->setFlash('login','Thank you for join us your account is activated.');
+				$this->redirect(array('site/login'));
 			
 			}
 			 
 		}else{
 		
-			Yii::app()->user->setFlash('error','Not record found.');
-			$this->refresh();
+			Yii::app()->user->setFlash('create','Not record found.');
+			$this->redirect(array('site/userRegister'));
 		}
 		
 			
@@ -355,6 +374,9 @@ class SiteController extends Controller
 					if(Yii::app()->user->userType=='school'){
 						$this->redirect(Yii::app()->createUrl('/school/'));
 					}
+					if(Yii::app()->user->userType=='counsellor'){
+						$this->redirect(Yii::app()->createUrl('/counsellor/'));
+					}
 					if(Yii::app()->user->userType=='upper11th'|| Yii::app()->user->userType=='below10th'){
 						$this->redirect(Yii::app()->createUrl('/user/'));
 					}
@@ -403,6 +425,7 @@ class SiteController extends Controller
 				$body = $this->renderPartial('/mails/register_tpl',
 										array(	'name' => $data['name'],
 												'email'=>$data['email'],
+												'code'=>$data['code'],
 												'password'=>$data['password']), true);
 			break;
 			default:

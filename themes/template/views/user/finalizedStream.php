@@ -1,4 +1,4 @@
-<?php $this->pageTitle=Yii::app()->name . ' - Finalized Stream';
+<?php $this->pageTitle	=	'Finalized Stream';
 $this->breadcrumbs=array('Finalized Stream'=>array('/user/finalizedStream'));
 ?>
 	<div class="career-bot pull-left">
@@ -11,9 +11,9 @@ $this->breadcrumbs=array('Finalized Stream'=>array('/user/finalizedStream'));
 					<?php endif; ?>	
 		<div class="mr0 col-md-12 fl">
 			<div class="mr0  pull-left stream-pref">
-				<h1>Finalized Stream</h1>
-				<p>It is long established fact a reader will be It is long established fact a reader will be
-					It is long established fact a reader will be It is long established fact a reader will beIt is long established fact a reader will be
+				<!--<h1>Finalized Stream</h1>-->
+                <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
+				<p>Are you satisfied with your finalized stream choices or Having doubts or a change in your plans? Feel like re-analyzing and reviewing your choice for the finalized stream? You can always edit your list and add a new option!
 				</p>
 
 			</div>
@@ -28,7 +28,7 @@ $this->breadcrumbs=array('Finalized Stream'=>array('/user/finalizedStream'));
 					
 						<div class="stream-cat pull-left fl  pd-b10">
 						<div class="col-md-12 fl pd0 ">
-							<div class="pull-left pd0 prefered-stream-img">
+							<div class="col-md-6 pull-left pd0 prefered-stream-img">
 							<?php 
 						$filename = ''.$list['image'].'';
 						 $path=Yii::getPathOfAlias('webroot.uploads.stream.small') . '/';
@@ -40,7 +40,18 @@ $this->breadcrumbs=array('Finalized Stream'=>array('/user/finalizedStream'));
 								
 				<?php } ?>
 							</div>
-							<div class="col-md-9 pull-left  stream-description">
+							<div class="col-md-6 pull-right  stream-description">
+                            	<?php echo CHtml::ajaxLink('<img alt="Delete" title="Remove from list" src="'.Yii::app()->theme->baseUrl.'/images/delete.png">',array('user/removeFinalStream','id'=>$list['id']),
+												array(	'type'=>'POST',
+														'success'=>'function(data){
+																		var $dataR	=	jQuery.parseJSON(data)
+																		if($dataR.status==1)
+																			$("#remove-'.$list['id'].'").hide();
+																			$("#remove-'.$list['id'].'").parent().parent().parent().hide();
+																	}'),
+												array('confirm'=>'Are you sure you want to remove this career?',
+														'style'=>'display: block;float: right;margin-top: 0;width: 15px;',
+														'id'=>'remove-'.$list['id']));  ?>
 								<h1><?php echo substr($list['name'],0,30);?></h1>
 								<p><?php echo substr($list['description'],0,50);?>..</p>
 								   	 <ul class="star-rating" style="margin:0px;">

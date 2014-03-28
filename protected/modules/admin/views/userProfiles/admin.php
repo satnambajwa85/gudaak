@@ -63,6 +63,11 @@ $('.search-form form').submit(function(){
 		'cities_id',
 		*/
 		array(
+			'type'=>'raw',
+			'name'=>'scores',
+            'value'=>'CHtml::link("Data",array("/admin/userScores/admin","user_profiles_id"=>$data->id))',
+        ),
+		array(
 			'class'=>'CButtonColumn',
 		),
 	),

@@ -1,7 +1,11 @@
 <?php $this->pageTitle=Yii::app()->name . ' - ShortListed Colleges';
 $this->breadcrumbs=array('ShortListed Colleges'=>array('/user/shortListedColleges'));?>
 	<div class="col-md-10 pull-left col-page-title">
-		 <h1>Shortlisted & recomeded colleges</h1>
+		 <h1 style="width:100%">Shortlisted & recomeded colleges</h1>
+         <p>
+         You choose to Apply for these colleges. Want to change the list? You can add or drop colleges from the list         
+         </p>
+         
 		 <div class="col-md-12 pull-left pd0 ">
 		 <?php 	 $count=1;?>
 		 <?php foreach ($collegesList as $list){

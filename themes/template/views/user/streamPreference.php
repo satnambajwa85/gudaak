@@ -1,4 +1,4 @@
-<?php $this->pageTitle=Yii::app()->name . ' - Stream Preference';
+<?php $this->pageTitle='Stream Preference';
 $this->breadcrumbs=array('Stream Preference'=>array('/user/streamPreference'));?>	
 	<div class="career-bot pull-left">
 						<?php if(Yii::app()->user->hasFlash('sccess')): ?>
@@ -10,9 +10,9 @@ $this->breadcrumbs=array('Stream Preference'=>array('/user/streamPreference'));?
 					<?php endif; ?>	
 		<div class="mr0 col-md-12 fl">
 			<div class="mr0  pull-left stream-pref">
-				<h1>Preferred Stream </h1>
-				<p>It is long established fact a reader will be It is long established fact a reader will be
-					It is long established fact a reader will be It is long established fact a reader will beIt is long established fact a reader will be
+				<!--<h1>Preferred Stream </h1>-->
+                <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
+				<p>Based on the available inputs from the counselor and your own preferences go on upgrading your two most preferred stream by clicking on the button ‘Make Final’.<br />
 				</p>
 
 			</div>

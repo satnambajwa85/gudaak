@@ -10,23 +10,18 @@ class UserController extends Controller
 				'actions'=>array('index','editProfile','test','tests','detailedReport','collage','liveChat',
 							'articlesList','articles','summary','newsUpdates',
 							'exploreColleges','shortListedColleges','dynamicCourse','dynamicSearchResult','userShortlistCollage',
-							'search','changePassword','application','questionsAnswer','testMail','userProfileUpdate','retakeTest','news','readEvent','summaryDetails',
+							'search','changePassword','application','questionsAnswer','upload','testMail','userProfileUpdate','retakeTest','news','readEvent','summaryDetails','summaryData','talk',
 				),
 				'users' => array('@')
 					
 				),
 				array('allow', // allow admin user to perform 'admin' and 'delete' actions
-					'actions'=>array('index','streamPreference','userStreamRaitng','userPrefferdCareer','subjectsDetails','streamExplore','userPreffredStream','streamCareerOptions','finalizedStream',
-									'streamList','stream','readFullStream'),
+					'actions'=>array('index','streamPreference','userStreamRaitng','userPrefferdCareer','subjectsDetails','streamExplore','userPreffredStream','streamCareerOptions','finalizedStream','streamList','stream','readFullStream','removeFinalStream'),
 					'expression' =>"Yii::app()->user->userType ==  'below10th'",
-
-					
 				),
 				array('allow', // allow admin user to perform 'admin' and 'delete' actions
-					'actions'=>array('index','career','careerList','careerOptionsAjax', 'careerDetails','userRaitng','finalizedCareer','addCareer','careerPreference','userFinalCareer',
-									'readFull','explore','userPrefferdCareer',),
+					'actions'=>array('index','career','careerList','careerOptionsAjax', 'removeFinalCareer','careerDetails','userRaitng','finalizedCareer','addCareer','careerPreference','userFinalCareer','readFull','explore','userPrefferdCareer',),
 					'expression' =>"Yii::app()->user->userType ==  'upper11th'",
-					
 				),
 				array('deny','actions'=>array(),
 					'users'=>array('*')
@@ -85,10 +80,50 @@ class UserController extends Controller
 		if(isset($_POST['UserProfiles'])){
 			$model->attributes		=	$_POST['UserProfiles'];
 			if($model->save()){
+				$log					=	new Summary;
+				$log->user_profile_id	=	Yii::app()->user->profileId;
+				$log->schools_id		=	Yii::app()->user->schoolsId;
+				$log->event_id			=	Yii::app()->user->profileId;
+				$log->topic				=	'Profile';
+				$log->event				=	'Updated Profile';
+				$log->remarks			=	'User sccessfully updated his profile information';
+				$log->add_date			=	date('Y-m-d H:i:s');
+				$log->status			=	1;
+				$log->save();
+				
 				Yii::app()->user->setFlash('updated',"Sccessfully updated.");
 			}
 		}
 		$this->render('index',array('model'=>$model));
+	}
+	public function actionTalk()
+	{
+		
+		$model	=	new Tickets('search');
+		if(isset($_POST['Tickets'])){
+			$user	=	UserProfiles::model()->findByPk(Yii::app()->user->profileId);
+			$model->attributes	=	$_POST['Tickets'];
+			$model->sender_id	=	Yii::app()->user->profileId;
+			$model->receiver_id	=	Yii::app()->user->schoolsId;
+			$model->status		=	1;
+			$model->add_date	=	date('Y-m-d H:i:s');
+			if($model->save()){
+				$log					=	new Summary;
+				$log->user_profile_id	=	Yii::app()->user->profileId;
+				$log->schools_id		=	Yii::app()->user->schoolsId;
+				$log->event_id			=	$model->id;
+				$log->topic				=	'Talk to Counsellor';
+				$log->event				=	'Asked query to counsellor';
+				$log->remarks			=	'User submitted his/her query request to counsellor sccessfully.';
+				$log->add_date			=	date('Y-m-d H:i:s');
+				$log->status			=	1;
+				$log->save();
+				$this->refresh();
+			}
+		}
+		$model->unsetAttributes();
+		$model->sender_id	=	Yii::app()->user->profileId;
+		$this->render('talk',array('model'=>$model));
 	}
 	public function actionUserProfileUpdate()
 	{	
@@ -235,10 +270,11 @@ class UserController extends Controller
 		{
 			
 			$model->attributes		=	$_POST['UserProfiles'];
+			$model->gudaak_id		=	$model->gudaak_id;
 			$model->display_name 	=	$_POST['UserProfiles']['first_name'].' '.$_POST['UserProfiles']['last_name'];
 			$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/uploads/user/';
-					$targetFolder = Yii::app()->request->baseUrl.'/uploads/user/';
-				if (!empty($_FILES['UserProfiles']['name']['image'])) {
+			$targetFolder = Yii::app()->request->baseUrl.'/uploads/user/';
+			if (!empty($_FILES['UserProfiles']['name']['image'])) {
 					$tempFile = $_FILES['UserProfiles']['tmp_name']['image'];
 					$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
 					$targetFile = $targetPath.'/'.$_FILES['UserProfiles']['name']['image'];
@@ -280,11 +316,26 @@ class UserController extends Controller
 					@unlink($targetFolder1.'small/'.$_POST['UserProfiles']['oldImage']);
 				}
 			}
-			if($model->save())
+			if($model->save()){
+				$log					=	new Summary;
+				$log->user_profile_id	=	Yii::app()->user->profileId;
+				$log->schools_id		=	$model->generateGudaakIds->schools_id;
+				$log->event_id			=	Yii::app()->user->profileId;
+				$log->topic				=	'Profile';
+				$log->event				=	'Updated Profile';
+				$log->remarks			=	'User sccessfully updated his profile information';
+				$log->add_date			=	date('Y-m-d H:i:s');
+				$log->status			=	1;
+				$log->save();
+				
 				Yii::app()->user->setFlash('updated',"Sccessfully updated.");
 				$this->redirect(array('user/editProfile'));
+			}
+			else{
+				CVarDumper::dump($model,10,1);die;
+			}
 		}
-		$this->render('editProfile', array('model'=>$model));
+		//$this->render('editProfile', array('model'=>$model));
 	}
 	public function actionTest($id)
 	{									
@@ -322,11 +373,14 @@ class UserController extends Controller
 			$testReport		=	TestReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'test_category'=>$id));
 			$total	=	count($testReport);
 			if($total!=60){
+				
 				$list		=	array();
-				foreach($_POST['TestReports']['question_options_id'] as $key=>$val){
-					if(empty($val))
-					$list[]	=	 $key;
+				$QuestionList	=	Questions::model()->findAllByAttributes(array('orient_items_id'=>$id));
+				foreach($QuestionList as $qusey){
+					if(!isset($_POST['TestReports']['question_options_id'][$qusey->id]))
+						$list[]	=	 $qusey->id;
 				}
+				
 				$response['status']=0;
 				$response['total']=	count($list);
 				$response['message']=$list;
@@ -356,10 +410,10 @@ class UserController extends Controller
 				}
 				else{
 					$cate			=	$testReport->questions->career_categories_id;
-					if(isset($interestVal)){
+					
 					$interestVal	=	$testReport->questionOptions->interest_value;
 					$score[$cate]	+=	$interestVal;
-					}
+					
 				}
 			}
 			unset($score['1']);
@@ -379,13 +433,30 @@ class UserController extends Controller
 			$userTest->status			 	=	1;
 			$userTest->activation			=	1;
 			$userTest->save();
+			
+			$log					=	new Summary;
+			$log->user_profile_id	=	Yii::app()->user->profileId;
+			$log->schools_id		=	Yii::app()->user->schoolsId;
+			$log->event_id			=	$userTest->id;
+			$log->topic				=	'Test';
+			$log->event				=	'Test Submitted';
+			$log->remarks			=	'User submitted his/her test sccessfully.';
+			$log->add_date			=	date('Y-m-d H:i:s');
+			$log->status			=	1;
+			$log->save();
 			$response['status']=1;
 			$response['message']='Plsease wait.';
 			echo json_encode($response); 
 			die;
 			
 		}
-		$this->render('test', array('questions'=>$quest,'model'=>$model,'testContent'=>$testContent,'preTestReport'=>$preTestReport));
+		$testAvswe		=	TestReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'test_category'=>$id));
+		$testAns	=	array();
+		if(isset($testAvswe))
+		foreach($testAvswe as $anw){
+			$testAns[$anw->questions_id]=$anw->question_options_id;
+		}
+		$this->render('test', array('questions'=>$quest,'model'=>$model,'testContent'=>$testContent,'testAns'=>$testAns));
 	}
 	public function actionTests()
 	{	
@@ -448,7 +519,17 @@ class UserController extends Controller
 				$model->add_date			=	date('Y-m-d H:i:s');
 				$model->status				=	1;
 				if($model->save()){
-					Yii::app()->user->setFlash('updated',"Sccessfully sent.");
+					$log					=	new Summary;
+					$log->user_profile_id	=	Yii::app()->user->profileId;
+					$log->schools_id		=	Yii::app()->user->schoolsId;
+					$log->event_id			=	$model->id;
+					$log->topic				=	'Test';
+					$log->event				=	'Test retake request';
+					$log->remarks			=	'User submitted his/her retake request sccessfully.';
+					$log->add_date			=	date('Y-m-d H:i:s');
+					$log->status			=	1;
+					$log->save();
+					Yii::app()->user->setFlash('updated',"Your request has been submitted. You will soon receive the response to your query.");
 					$this->redirect(array('user/tests'));
 					die;
 				}
@@ -464,7 +545,7 @@ class UserController extends Controller
 		$Uans			=	$_REQUEST['ans'];	
 		$test			=	$_REQUEST['QID'];
 		//print_r($_REQUEST);die;
-		$score	=	array();
+		$score			=	array();
 		$testReport1	=	 TestReports::model()->findByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'questions_id'=>$Qid));
 		if(!isset($testReport1))
 			$testReport1	=	new TestReports;
@@ -480,13 +561,12 @@ class UserController extends Controller
 					echo 'You have answer to '.$testReport1->questions->title;die;
 			}
 		 
-	}
-	
+	}	
 	public function actionDetailedReport()
 	{	
-		$userReports			=	UserReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
-		$data	=	array();
-		
+		$userReports			=	UserReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId),array('order'=> 'orient_items_id ASC'));
+		$data					=	array();
+		$userTestDate			=	UserReports::model()->findByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
 		foreach($userReports as $report){
 			$userTest	=	array();
 			$data[$report->orient_items_id]['id']=$report->orient_items_id;
@@ -498,12 +578,13 @@ class UserController extends Controller
 				$score	=	$cur->score;
 				foreach($cur->careerCategories->careerAssessments as $asswssment){
 					if($score >= $asswssment->score_start && $score <= $asswssment->score_end){
-						$userTest[$asswssment->value][$cur->id]['value']		=	$asswssment->value;
-						$userTest[$asswssment->value][$cur->id]['score']		=	$score;	
-						$userTest[$asswssment->value][$cur->id]['id']			=	$cur->careerCategories->id;
-						$userTest[$asswssment->value][$cur->id]['title']		=	$cur->careerCategories->title;
-						$userTest[$asswssment->value][$cur->id]['title2']		=	$asswssment->title;
-						$userTest[$asswssment->value][$cur->id]['description']	=	$asswssment->description;
+						$userTest[$asswssment->value][$cur->career_categories_id]['value']		=	$asswssment->value;
+						$userTest[$asswssment->value][$cur->career_categories_id]['score']		=	$score;	
+						$userTest[$asswssment->value][$cur->career_categories_id]['id']			=	$cur->careerCategories->id;
+						$userTest[$asswssment->value][$cur->career_categories_id]['title']		=	$cur->careerCategories->title;
+						$userTest[$asswssment->value][$cur->career_categories_id]['title2']		=	$asswssment->title;
+						$userTest[$asswssment->value][$cur->career_categories_id]['description']=	$asswssment->description;
+						$userTest[$asswssment->value][$cur->career_categories_id]['image']		=	$asswssment->image;
 					}
 				}
 				
@@ -512,64 +593,81 @@ class UserController extends Controller
 			$highCount	=	0;
 			$midCount	=	0;
 			$final		=	array();
+			$final1		=	array();
 			if(isset($userTest['high'])){
 				$highCount	=	count($userTest['high']);
 				$final		=	$userTest['high'];
 				$final1		=	$userTest['high'];
 			}
-			if(isset($userTest['moderate']))
+			if(isset($userTest['moderate'])){
 				$midCount	=	count($userTest['moderate']);
-			if(isset($userTest['moderate']))
-				$final1		=	array_merge($final,array_slice($userTest['moderate'], 0, 5));
-			
+				$final1		=	array_merge($final1,array_slice($userTest['moderate'], 0, 5));
+			}
 			
 			if($highCount ==	0 && isset($userTest['moderate']))
-				$final		=	$userTest['moderate'];
+				$final		=	array_merge($final,array_slice($userTest['moderate'], 0, 2));
 			if($highCount>0 && $highCount < 2 && isset($userTest['moderate']))
 				$final		=	array_merge($final,array_slice($userTest['moderate'], 0, 1));
 			if(isset($userTest['low']))
-				$final1		=	array_merge($final,array_slice($userTest['low'], 0, 5));
+				$final1		=	array_merge($final1,array_slice($userTest['low'], 0, 5));
 			$total	=	$highCount+$midCount;
+			
+			ksort($final1);
+			ksort($final);
 			$data[$report->orient_items_id]['results1']=$final1;
 			$data[$report->orient_items_id]['results']=$final;
+			
 		}else{
-				$final		=	array();
+				
+			$final		=	array();
+			if(isset($userTest['high']))
+				$final		=	$userTest['high'];
+			if(isset($userTest['moderate']))
+				$final		=	$final+$userTest['moderate'];
+				
+			if(isset($userTest['low']))
+				$final		=	$final+$userTest['low'];
+			ksort($final);
+			/*	$final		=	array();
 				if(isset($userTest['high'])){
 					$final		=	$userTest['high'];
 				}
 				if(isset($userTest['moderate']))
 					$final		=	array_merge($final,array_slice($userTest['moderate'],0,5));
 				if(isset($userTest['low']))
-					$final		=	array_merge($final,array_slice($userTest['low'],0,5));
+					$final		=	array_merge($final,array_slice($userTest['low'],0,5));*/
 				
 				$data[$report->orient_items_id]['results']=$final;
-			}
+			}	
 			
 		}
+		
 		$profile		=	 UserProfiles::model()->findByPk(Yii::app()->user->profileId);
 		
 		
 		if(isset($_REQUEST['download']) && $_REQUEST['download']==1){
 			//ob_clean(); 
 			
-			
-			$html2pdf = Yii::app()->ePdf->HTML2PDF();
+			//$html2pdf = new HTML2PDF('P', 'A4', 'fr');
+			$html2pdf = new HTML2PDF('P', 'A4', 'fr');
 			ob_end_clean();
-			if(Yii::app()->user->userType ==  'below10th')
+			if(Yii::app()->user->userType ==  'below10th'){
 				$html =	'detailedReport2';
-			else
+				$html='pdfReport';
+			}else{
 				$html =	'detailedReport';
-		
-			$html2pdf->WriteHTML($this->renderPartial($html,array('reports'=>$data,'profile'=>$profile),true));
+			$html='careerPdfReport';
+			}
+			$html2pdf->WriteHTML($this->renderPartial($html,array('reports'=>$data,'profile'=>$profile,'userTestDate'=>$userTestDate),true));
 			
 			$html2pdf->Output();
 			//ob_end_flush();
 			die;
 		}
 		if(Yii::app()->user->userType ==  'below10th')
-			$this->render('detailedReport2',array('reports'=>$data,'profile'=>$profile));
+			$this->render('detailedReport2',array('reports'=>$data,'profile'=>$profile,'userTestDate'=>$userTestDate));
 		else
-			$this->render('detailedReport',array('reports'=>$data,'profile'=>$profile));
+			$this->render('detailedReport',array('reports'=>$data,'profile'=>$profile,'userTestDate'=>$userTestDate));
 		
 		
 		
@@ -648,19 +746,13 @@ class UserController extends Controller
 	}
 	public function actionCollage()
 	{	
-		
 		$this->render('collage',true);
-	
 	}
-	
-	
-
 	public function actionLiveChat()
 	{	
 		if(!Yii::app()->user->id){
 			$this->redirect(Yii::app()->createUrl('/site'));
 		}
-		
 		$this->render('LiveChat');
 	}
 	public function actionCareer()
@@ -674,8 +766,7 @@ class UserController extends Controller
 		$dataProvider				=	Career::model()->findAll($criteria);
 		
 		$this->render('career',array('data'=>$dataProvider));
-	}
-	
+	}	
 	public function actionCareerList($id)
 	{	
 		if(!Yii::app()->user->id){
@@ -727,7 +818,6 @@ class UserController extends Controller
 		//echo '<pre>';print_r($data);die;
 		$this->render('streamList',array('data'=>$data));
 	}
-
 	public function actionStream($id)
 	{
 				
@@ -742,21 +832,22 @@ class UserController extends Controller
 		$StreamHasSubjects	=	StreamHasSubjects::model()->findAllByAttributes(array('stream_id'=>$id));
 		foreach($StreamHasSubjects as $subject){
 			$subjectList[]	=	$subject->subjects_id;
-			$Subjects[$subject->subjects->id]['id']			=	$subject->subjects->id;
-			$Subjects[$subject->subjects->id]['title']		=	$subject->subjects->title;
-			$Subjects[$subject->subjects->id]['image']		=	$subject->subjects->image;
-			$Subjects[$subject->subjects->id]['type']		=	$subject->type_subjects;
-			$Subjects[$subject->subjects->id]['description']=	$subject->subjects->description;
-			if($Subjects[$subject->subjects->id]['type']=='compulsory')
-				$careerSubjets[]	=	$subject->subjects_id;
-			
+
+			if($subject->subjects->published==1){
+				$Subjects[$subject->subjects->id]['id']			=	$subject->subjects->id;
+				$Subjects[$subject->subjects->id]['title']		=	$subject->subjects->title;
+				$Subjects[$subject->subjects->id]['image']		=	$subject->subjects->image;
+				$Subjects[$subject->subjects->id]['type']		=	$subject->type_subjects;
+				$Subjects[$subject->subjects->id]['description']=	$subject->subjects->description;
+				if($Subjects[$subject->subjects->id]['type']=='compulsory')
+					$careerSubjets[]	=	$subject->subjects_id;
+			}
 		}
-		$list	=	array();
-		if(count($careerSubjets))
+		/*if(count($careerSubjets))
 		foreach($careerSubjets as $careerSubjet){
 			$allSubjectCareers	=	CareerOptionsHasSubjects::model()->findAllByAttributes(array('subjects_id'=>$careerSubjet));
 			foreach($allSubjectCareers as $allSubjectCareer){
-				$optionList[$careerSubjet][$allSubjectCareer->career_options_id]=$allSubjectCareer->career_options_id;
+				$optionList[$careerSubjet][$allSubjectCareer->career_options_id]=$allSubjectCareer->careerOptions->career_id;
 			}
 		}
 		$countID=0;
@@ -772,10 +863,16 @@ class UserController extends Controller
 		
 		$codeS	=	1;
 		if(count($result))
+		$list	=	array();
 		foreach($result as $subj){
-			$datSubs	=	CareerOptions::model()->findByPk($subj);
+			$datSubs	=	Career::model()->findByPk($subj);
 			$list[$datSubs->id]	=	$datSubs->title;
-		}	
+		}*/
+		$list	=	array();
+		$allSubjectCareers	=	CareerOptionsHasStream::model()->findAllByAttributes(array('stream_id'=>$id));
+		foreach($allSubjectCareers as $datSubs){
+			$list[$datSubs->careerOptions->id]	=	$datSubs->careerOptions->title;
+		}
 		$this->render('stream',array('stream'=>$stream,'subjects'=>$Subjects,'careerOption'=>$list,'streamData'=>$userStream));
 		
 	}
@@ -785,15 +882,32 @@ class UserController extends Controller
 			$career	=	 UserCareerPreference::model()->findAllByAttributes(array('status'=>1,'updated_by'=>1,'user_profiles_id'=>Yii::app()->user->profileId));
 			$count			=	count($career);
 			if($count==2){
-				echo 'Your limit to finalized career are two if you want to exceed more please contact to admin';die;
+				$data['status']=0;
+				$data['message']='Maximum of two career options could be finalized.';
+				echo json_encode($data);
+				die;
+				 
 			}
 			$id		=	$_REQUEST['id'];
 			$finalCareer	=	 UserCareerPreference::model()->findByAttributes(array('career_options_id'=>$id,'user_profiles_id'=>Yii::app()->user->profileId));
 			$finalCareer->modified_date		=	date('Y-m-d H:i:s');
-			$finalCareer->status			=	1;
 			$finalCareer->updated_by 		=	1;
 			if($finalCareer->save()){
-				echo 'Sccessfullly added.';die;
+				$log					=	new Summary;
+				$log->user_profile_id	=	Yii::app()->user->profileId;
+				$log->schools_id		=	Yii::app()->user->schoolsId;
+				$log->event_id			=	$id;
+				$log->topic				=	'Career';
+				$log->event				=	'Finalized Career';
+				$log->remarks			=	'User finalized '.$finalCareer->careerOptions->title.' as career option sccessfully.';
+				$log->add_date			=	date('Y-m-d H:i:s');
+				$log->status			=	1;
+				$log->save();
+				
+				$data['status']=1;
+				$data['message']='Thank you to final to career.';
+				echo json_encode($data);
+				die;
 		 		 
 			}
 		}
@@ -806,7 +920,7 @@ class UserController extends Controller
 			$model->stream_id			=	$_POST['UserCareerComments']['stream_id'];
 			
 			if($model->save()){
-				Yii::app()->user->setFlash('sccess','Sccessfully send your comment.');
+				Yii::app()->user->setFlash('sccess','sccessfully send your comment.');
 			}
 		}
 		$criteria			=	new CDbCriteria();
@@ -829,6 +943,91 @@ class UserController extends Controller
 	 
 		$this->render('finalizedCareer',array('data'=>$data,'model'=>$model));
 	}
+	public function actionRemoveFinalCareer()
+	{
+		$id		=	$_REQUEST['id'];
+		$finalCareer	=	 UserCareerPreference::model()->findByAttributes(array('career_options_id'=>$id,'user_profiles_id'=>Yii::app()->user->profileId));
+		$finalCareer->modified_date		=	date('Y-m-d H:i:s');
+		$finalCareer->updated_by 		=	0;
+		if($finalCareer->save()){
+			$log					=	new Summary;
+			$log->user_profile_id	=	Yii::app()->user->profileId;
+			$log->schools_id		=	Yii::app()->user->schoolsId;
+			$log->event_id			=	$id;
+			$log->topic				=	'Career';
+			$log->event				=	'Removed from finalized Career';
+			$log->remarks			=	'User Removed career option '.$finalCareer->careerOptions->title.' from his/her finalized career.';
+			$log->add_date			=	date('Y-m-d H:i:s');
+			$log->status			=	1;
+			$log->save();
+			$data['status']=1;
+			$data['message']='Sccessfuly removed to career.';
+			echo json_encode($data);
+			die;
+			 
+		}
+	}
+	public function actionRemoveFinalStream()
+	{
+		$id		=	$_REQUEST['id'];
+		$finalCareer	=	 UserProfilesHasStream::model()->findByAttributes(array('stream_id'=>$id,'user_profiles_id'=>Yii::app()->user->profileId));
+		$finalCareer->modified_date		=	date('Y-m-d H:i:s');
+		$finalCareer->updated_by 		=	0;
+		if($finalCareer->save()){
+			$log					=	new Summary;
+			$log->user_profile_id	=	Yii::app()->user->profileId;
+			$log->schools_id		=	Yii::app()->user->schoolsId;
+			$log->event_id			=	$id;
+			$log->topic				=	'Stream';
+			$log->event				=	'Removed from finalized stream';
+			$log->remarks			=	'User removed stream '.$finalCareer->stream->name.' from his/her finalized streams.';
+			$log->add_date			=	date('Y-m-d H:i:s');
+			$log->status			=	1;
+			$log->save();
+			
+			$data['status']=1;
+			$data['message']='Sccessfuly removed to career.';
+			echo json_encode($data);
+			die;
+			 
+		}
+	}
+	public function actionUpload()
+	{   
+		$img		=	 UserProfiles::model()->findByPk(Yii::app()->user->profileId);
+		$targetFolder1	=	Yii::app()->baseUrl.'/uploads/user/small/'.$img->image.'';
+		@unlink($targetFolder1);
+		$path	=	Yii::app()->baseUrl.'/uploads/user/small/';
+		Yii::import("ext.EAjaxUpload.qqFileUploader");
+        $folder='uploads/user/small/';// folder for uploaded files
+        $allowedExtensions = array("jpg");//array("jpg","jpeg","gif","exe","mov" and etc...
+        $sizeLimit = 2 * 1024 * 1024;// maximum file size in bytes
+        $minSizeLimit = 0 * 1024 * 1024;// maximum file size in bytes
+        $uploader = new qqFileUploader($allowedExtensions, $sizeLimit, $minSizeLimit);
+        $result = $uploader->handleUpload($folder);
+        $return = htmlspecialchars(json_encode($result), ENT_NOQUOTES);
+        $fileSize=filesize($folder.$result['filename']);//GETTING FILE SIZE
+        $fileName=$result['filename'];//GETTING FILE NAME\
+			$model	=	 UserProfiles::model()->findByPk(Yii::app()->user->profileId);
+			$model->image	=$fileName;
+			if($model->save()){
+					$log					=	new UserLog;
+					$log->name				=	Yii::app()->user->userName;
+					$log->description		=	'UPDATED user profile picture';
+					$log->image				=	$path.$fileName;
+					
+				 	$log->login_id			=	Yii::app()->user->userId;
+					$log->add_date			=	date('Y:m:d H:i:s');
+					
+				if($log->save()){
+				 
+					Yii::app()->user->setFlash('image','Your have changed your profile image');
+				}
+				
+				
+			}
+		 echo $return;// it's array
+	}
 	public function actionFinalizedStream()
 	{	
 		
@@ -841,15 +1040,26 @@ class UserController extends Controller
 					if($stream->stream_id == $_REQUEST['id'])
 						$data['message']='Already Finalized.';
 					else
-						$data['message']='Your have limit to finalized stream is one if you want to exceed more please contact to admin.';
+						$data['message']='Maximum of two streams could be finalized.';
 				}
 				else{
 					$id		=	$_REQUEST['id'];
 					$model	=	 UserProfilesHasStream::model()->findByAttributes(array('stream_id'=>$id,'user_profiles_id'=>Yii::app()->user->profileId));
 					$model->modified_date		=	date('Y-m-d H:i:s');
-					$model->status				=	1;
 					$model->updated_by			=	1;
 					if($model->save()){
+						$log					=	new Summary;
+						$log->user_profile_id	=	Yii::app()->user->profileId;
+						$log->schools_id		=	Yii::app()->user->schoolsId;
+						$log->event_id			=	$id;
+						$log->topic				=	'Stream';
+						$log->event				=	'Add finalized stream';
+						$log->remarks			=	'User added stream '.$model->stream->name.' to his/her finalized streams.';
+						$log->add_date			=	date('Y-m-d H:i:s');
+						$log->status			=	1;
+						$log->save();
+						
+						
 						$data['status']=1;
 						$data['message']='Thank you to final to stream.';
 					}
@@ -866,7 +1076,7 @@ class UserController extends Controller
 			$model->stream_id			=	$_POST['UserStreamComments']['stream_id'];
 			
 			if($model->save()){
-				Yii::app()->user->setFlash('sccess','Sccessfully send your comment.');
+				Yii::app()->user->setFlash('sccess','sccessfully send your comment.');
 			}
 		}
 		$data	=	array();
@@ -912,7 +1122,7 @@ class UserController extends Controller
 				$preffred->default				=	0;
 				$preffred->status				=	0;
 				if($preffred->save()){
-					echo 'Sccessfully added '.$options->title.' career';die;
+					echo 'sccessfully added '.$options->title.' career';die;
 				}
 	
 			}
@@ -952,7 +1162,7 @@ class UserController extends Controller
 			$model->user_profiles_id	=	Yii::app()->user->profileId;
 			$model->career_id			=	$_POST['UserCareerComments']['career_id'];
 			if($model->save()){
-				Yii::app()->user->setFlash('sccess','Sccessfully send your comment.');
+				Yii::app()->user->setFlash('sccess','sccessfully send your comment.');
 			}
 		}
 		$data2	=array();
@@ -995,7 +1205,7 @@ class UserController extends Controller
 			$model->stream_id			=	$_POST['UserStreamComments']['stream_id'];
 			
 			if($model->save()){
-				Yii::app()->user->setFlash('sccess','Sccessfully send your comment.');
+				Yii::app()->user->setFlash('sccess','sccessfully send your comment.');
 			}
 		}
 		$data2	=	array();
@@ -1005,18 +1215,15 @@ class UserController extends Controller
 			$data2[$fCounselor->stream_id]['name']			=	$fCounselor->stream->name;
 			$data2[$fCounselor->stream_id]['description']	=	$fCounselor->stream->description;
 			$data2[$fCounselor->stream_id]['image']			=	$fCounselor->stream->image;
-			$rating2		=	UserStreamRating::model()->findAllByAttributes(array('stream_id'=>$fCounselor->stream_id,'user_profiles_id'=>Yii::app()->user->profileId));
-			foreach($rating2 as $list2){
-				$data2[$fCounselor->stream_id]['uCrate']			=	$list2->rating;
-				 
-			}
+			$data2[$fCounselor->stream_id]['uCrate']		=	$fCounselor->self;
+		 
 	 	}
 		//CVarDumper::dump($finalCounselor,10,1);die;
 		$this->render('streamPreference',array('data'=>$data,'data2'=>$data2,'model'=>$model,'finalCounselor'=>$finalCounselor));
 	}	
 	public function actionUserFinalCareer($id)
 	{	 
-		$record_exists = UserCareerPreference::model()->findByAttributes(array('id'=>$id,'user_profiles_id'=>Yii::app()->user->profileId));
+		$record_exists			=	UserReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId),array('order'=> 'orient_items_id ASC'));
 		if($record_exists->status==1)
 		{
 			echo 'This is already added please choose another.';die;	
@@ -1030,7 +1237,7 @@ class UserController extends Controller
 				$preffred->default				=	0;
 				$preffred->status				=	1;
 				if($preffred->save()){
-					echo 'Sccessfully added '.$preffred->careerOptions->title.' career';die;
+					echo 'sccessfully added '.$preffred->careerOptions->title.' career';die;
 				}
 	
 			}
@@ -1042,7 +1249,7 @@ class UserController extends Controller
 	}
 	public function actionExplore()
 	{	 
-		$userReports			=	UserReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
+		$userReports			=	UserReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId),array('order'=> 'orient_items_id ASC'));
 		$data	=	array();
 		
 		foreach($userReports as $report){
@@ -1083,6 +1290,7 @@ class UserController extends Controller
 			}
 		}
 		$catList	=	array();
+		if(isset($data[$report->orient_items_id]['results']))
 		foreach($data[$report->orient_items_id]['results'] as $result){
 			$subCats		=	Career::model()->findAllByAttributes(array('career_categories_id'=>$result['id']));
 			foreach($subCats as $subCat){
@@ -1096,11 +1304,11 @@ class UserController extends Controller
 	}
 	public function actionStreamExplore()
 	{	
-		$userReports			=	UserReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
+		$userReports			=	UserReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId),array('order'=> 'orient_items_id ASC'));
 		$data	=	array();
 		$catList	=	array();
 		if(!empty($userReports)){
-		foreach($userReports as $report){
+			foreach($userReports as $report){
 			$userTest	=	array();
 			$data[$report->orient_items_id]['id']=$report->orient_items_id;
 			$data[$report->orient_items_id]['name']=$report->orientItems->title;
@@ -1137,21 +1345,29 @@ class UserController extends Controller
 				$data[$report->orient_items_id]['results']=$final;
 			}
 		}
-		$catList	=	array();
-		foreach($data[$report->orient_items_id]['results'] as $result){
-			$Career		=	Career::model()->findAllByAttributes(array('career_categories_id'=>$result['id']));
-			foreach($Career as $subCat){
-				$subCa		=	CareerOptions::model()->findAllByAttributes(array('career_id'=>$subCat->id));
+			$catList	=	array();
+			
+			$listArr	=	array();
+			foreach($data[$report->orient_items_id]['results'] as $result){
+			
+			$listCar	=	Career::model()->findAllByAttributes(array('career_categories_id'=>$result['id']));
+			$streams	=	array();
+			foreach($listCar as $subCat){
+				$subCa		=	StreamHasCareer::model()->findAllByAttributes(array('career_id'=>$subCat->id));
 				foreach($subCa as $subjects){
-					$CareerOptionsList[]=$subjects->id;
+						$streams[]=$subjects->stream_id;	
+					
 				}
 			}
-			$subCats1S		=	CareerOptionsHasStream::model()->findAllByAttributes(array('career_options_id'=>$CareerOptionsList));
-			foreach($subCats1S as $subCat){
-				$catList[$subCat->stream_id]['id']			=	$subCat->stream_id;
-				$catList[$subCat->stream_id]['title']		=	$subCat->stream->name;
-				$catList[$subCat->stream_id]['description']	=	$subCat->stream->description;
-				$catList[$subCat->stream_id]['image']		=	$subCat->stream->image;
+			$streamList		=	Stream::model()->findAllByAttributes(array('id'=>$streams));
+			foreach($streamList as $streamRec){
+				if(!in_array($streamRec->id,$listArr))
+				{
+					$catList[$streamRec->id]['id']			=	$streamRec->id;
+					$catList[$streamRec->id]['title']		=	$streamRec->name;
+					$catList[$streamRec->id]['description']	=	$streamRec->description;
+					$catList[$streamRec->id]['image']		=	$streamRec->image;
+				}
 			}
 		}
 		}
@@ -1194,7 +1410,7 @@ class UserController extends Controller
 				$preffred->default 				=	0;
 				$preffred->status	  			=	0;
 				if($preffred->save()){
-					echo 'Sccessfully added '.$stream->name.' stream';die;
+					echo 'sccessfully added '.$stream->name.' stream';die;
 				}
 	
 			}
@@ -1205,8 +1421,7 @@ class UserController extends Controller
 		
 		$preffred	=	 UserProfilesHasStream::model()->findByAttributes(array('stream_id'=>$id));
 		
-	}
-	
+	}	
 	public function actionStreamCareerOptions($id)
 	{	
 		$criteria 		= new CDbCriteria;
@@ -1232,7 +1447,7 @@ class UserController extends Controller
 			$UserRating->user_profiles_id	=	Yii::app()->user->profileId;
 			$UserRating->career_options_id 	=	$careeroptions_id;
 			if($UserRating->save()){
-				$response	=	 array('message'=>'Sccessfully rating.');
+				$response	=	 array('message'=>'sccessfully rating.');
 				echo CJSON::encode($response);die;
 				 	
 			}
@@ -1249,7 +1464,7 @@ class UserController extends Controller
 			$UserRating->user_profiles_id	=	Yii::app()->user->profileId;
 			$UserRating->stream_id		 	=	$stream_id;
 			if($UserRating->save()){
-				$response	=	 array('message'=>'Sccessfully rating.');
+				$response	=	 array('message'=>'sccessfully rating.');
 				echo CJSON::encode($response);die;
 			}
 	}
@@ -1276,20 +1491,24 @@ class UserController extends Controller
 	public function actionArticles($id)
 	{	
 		$result				=	 Articles::model()->findByAttributes(array('id'=>$id));
-		
 		$this->render('articles',array('articles'=>$result));
 	}
 	public function actionSummary()
 	{	
-		$summaryDetails=UserReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'activation'=>1,'status'=>1));
-		/*$summaryDetails=UserReports::model()->findAll(array(
-			'select'=>'t.comments',
-			'group'=>'t.comments',
-			'distinct'=>true,
-		),array('user_profiles_id'=>Yii::app()->user->profileId,));*/
+		$summaryDetails=Summary::model()->findAllByAttributes(array('user_profile_id'=>Yii::app()->user->profileId,'status'=>1),array('order'=> 'add_date DESC'));
 		$this->render('summary',array('summaryDetails'=>$summaryDetails));
 	}
-	
+	public function actionSummaryData($id)
+	{
+		$summaryDetails=Summary::model()->findByPk($id);
+		echo '<table width="90%" class="pull-right" cellpadding="10" border="1">
+                	<tr class="light-gray"><td width="25%"><span>Event</span></td><td width="75%"><span>'.$summaryDetails->event.'</span></td></tr>
+                	<tr><td><span>Title</span></td><td><span>'.$summaryDetails->topic.'</span></td></tr>
+                	<tr class="light-gray"><td><span>Add Date</span></td><td><span>'.date('d M, Y',strtotime($summaryDetails->add_date)).'</span></td></tr>
+                	<tr><td><span>Details</span></td><td><span>'.$summaryDetails->remarks.'</span></td></tr>
+                	
+                </table>';
+	}
 	public function actionNewsUpdates()
 	{	
 		$criteria			=	new CDbCriteria();
@@ -1310,8 +1529,6 @@ class UserController extends Controller
 		$events				=	Events::model()->findAll($criteria2);
 		$this->render('newsUpdates',array('news'=>$news,'pages'=>$pages,'pages2'=>$pages2,'events'=>$events));
 	}
-
-	
 	public function actionCareerOptionsAjax($id)
 	{	
 		
@@ -1430,7 +1647,7 @@ class UserController extends Controller
 				$preffred->status				=	1;
 				$preffred->published			=	1;
 				if($preffred->save()){
-					echo '<h1>Sccessfully added '.$stream->name.'College</h1>';die;
+					echo '<h1>sccessfully added '.$stream->name.'College</h1>';die;
 				}
 	
 			}
@@ -1444,8 +1661,7 @@ class UserController extends Controller
 	{	
 		$career					=	CareerDetails::model()->findAllByAttributes(array('status'=>1,'published'=>1,'career_options_id'=>$id));
 		$this->renderPartial('_userPrefferdCareer',array('list'=>$career), false,true);
-	}
-		
+	}		
 	public function actionNews($id)
 	{	
 		
@@ -1454,7 +1670,6 @@ class UserController extends Controller
 	}
 	public function actionApplication()
 	{
-	
 		$this->render('application');
 	}
 	public function actionReadEvent($id)
@@ -1477,8 +1692,6 @@ class UserController extends Controller
 		
 		$this->render('search',array('fech_result'=>$dataProvider));
 	}
-	//Forgot password
-		//Change password 
 	public function actionTestMail()
 	{
 	 
@@ -1522,7 +1735,7 @@ class UserController extends Controller
 		} //isset ends
 		$this->render('changepassword',array('model'=>$model));
 	}
-		public function sendMail($data,$type)
+	public function sendMail($data,$type)
 	{
 		switch($type){
 			case 'contact':
@@ -1556,7 +1769,7 @@ class UserController extends Controller
         $mail->MsgHTML($body);
         $mail->AddAddress($to, "");		
         if(!$mail->Send()) {
-           echo 'No';die; return 0;
+		 echo 'No';die; return 0;
         }else {
 			return 1;
         }

@@ -100,7 +100,7 @@
 												   
 													<input class="big_index" type="text" placeholder="<?php echo $model->generateGudaakIds->schools->name;?>" />
 													<p>
-													<?php echo CHtml::Button('Update',array('onclick'=>'send();','class'=>'next_button','style'=>'width:134px;')); ?> 
+													<?php echo CHtml::Button('Update',array('onclick'=>'send("'.Yii::app()->createUrl('/user/editProfile').'");','class'=>'next_button','style'=>'width:134px;')); ?> 
 													</p>
 												</div>
 												<?php $this->endWidget(); ?>

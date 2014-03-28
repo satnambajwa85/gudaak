@@ -1,20 +1,22 @@
-<?php $this->pageTitle=Yii::app()->name . ' - Asses';
-$this->breadcrumbs=array('Asses'=>array('/user/tests'));?>
+<?php $this->pageTitle='Assessment';
+$this->breadcrumbs=array('Assess'=>array('/user/tests'));?>
 <div id="partial-render">
-	<div class="border">
-					<ol class="breadcrumb">
-					  <li><a href="#">Assessment</a></li>
-					 
+	<div class="col-md-10 pull-left pd0">
+    <div class="border pd0">
+    	<!--<h1>Tour</h1>-->
+        
+                	<ol class="breadcrumb">
+                    <li><?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?></li>
+					 <li>
+                        <p>Click here to see the video, which explains the purpose of taking up these tests and will be helpful to understand the concepts on the basis of which the test results will be explained.</p>
+                        </li>
 					</ol>
+                    
 	</div>
-					<?php if(Yii::app()->user->hasFlash('updated')): ?>
-						<div class="alert alert-success">
-						  <button data-dismiss="alert" class="close" type="button">×</button>
-						  <strong><?php echo Yii::app()->user->getFlash('updated'); ?></strong>
-						</div>
-							 
-					<?php endif; ?>	
-				<div class="col-md-10 pull-left">
+    
+                
+                
+                
 					<div class="mr0 col-md-12 fl">
 						<?php  $count=1;
 								foreach($testContent as $list){ 
@@ -25,10 +27,18 @@ $this->breadcrumbs=array('Asses'=>array('/user/tests'));?>
 									$count= $count+1;
 								
 								?>
-					
+					<?php if(Yii::app()->user->hasFlash('updated')): ?>
+                    <script type="text/javascript">
+                   // alert('Your request has been submitted. You will soon receive the response to your query.<?php //echo Yii::app()->user->getFlash('updated'); ?>');
+                    </script>
+					<!--<div class="alert alert-success">
+						<button data-dismiss="alert" class="close" type="button">×</button>
+						<strong><?php //echo Yii::app()->user->getFlash('updated'); ?></strong>
+					</div>-->
+				<?php endif; ?>
 						<div class="mr0 col-md-6 pull-left <?php echo $css;?>">
 							<h1><?php echo $list->title;?></h1>
-							<p><?php echo substr($list->description,0,225);?>..</p>
+							<p><?php //echo substr($list->description,0,225);?></p>
 							<!--<a href="#">Konw more about stream explore</a>-->
 						</div>
 					<?php } ?>
@@ -37,19 +47,16 @@ $this->breadcrumbs=array('Asses'=>array('/user/tests'));?>
 						<!--<div class="col-md-6 pull-left test-description-bot">
 							<?php //echo $testContent->test_features ;?>
 						</div>-->
-						
 						<?php foreach($testContent as $list){ ?>
 						<?php 	if(in_array($list->id,$userTest)){?>
 						<div class="col-md-6 pull-left">
 							<div class="col-md-12 pull-left min-height-fix border-box">
 								<div align="center">
                                 <span class='btn btn-info2 center-bt'>
-								Take <?php echo $list->title;?> </span>
-									
+								<?php echo $list->title;?> </span>
 								</div>
-								
 								<div class="retaketest ">
-									<h1>Last test summery</h1>
+									<h1>Last test summary</h1>
 									<span>Test Date:</span>
 									<datetime>	
 										<?php echo date('d M,Y',strtotime($detials[$list->id]['date']));?>
@@ -62,29 +69,14 @@ $this->breadcrumbs=array('Asses'=>array('/user/tests'));?>
 									<datetime><?php echo $detials[$list->id]['count'];?></datetime>
 									<div class="clear"></div>
 									<h1>Will give you on feedback question soon</h1>
-									
-									<!--<span>Score:</span>
-									<div class="progress2 fl ">
-										<div aria-valuemax="100" aria-valuemin="0" aria-valuenow="40" role="progressbar" class="progress-bar2" style="width:10% !important;">
-										</div>
-										<span class="sr-only">
-											<span>
-											
-											</span>
-										</span>
-									</div>-->
 									<div class="clear"></div>
-									<!--<a href="#" class="more-faqs">Test Questions & Answer</a>-->
 								</div>
-								 
-								
-								<div align="center" class="mar-bottom mt94">							 
-									
-									<?php	echo CHtml::link('Retake Test','javaScript:void(0);',array('class'=>'btn retake'.$list->title.' btn-warning'));?>
-									<?php	echo CHtml::Ajaxlink('Summary',array('user/summaryDetails','id'=>$list->id),array('update'=>'#summeryRecodes'),array('class'=>'btn Summary-details btn-warning ml15'));?>
-									 
-									
-								</div>
+								<div align="center" class="mar-bottom mt30">
+				
+
+				<?php	echo CHtml::link('Retake Test','javaScript:void(0);',array('class'=>'btn retake'.$list->title.' btn-warning'));?>
+				<?php	echo CHtml::Ajaxlink('Summary',array('user/summaryDetails','id'=>$list->id),array('update'=>'#summeryRecodes'),array('class'=>'btn Summary-details btn-warning ml15'));?>
+                				</div>
 							</div>
 						</div>
 						<div id="retake<?php echo $list->id;?>" class="modal fade">
@@ -107,7 +99,7 @@ $this->breadcrumbs=array('Asses'=>array('/user/tests'));?>
                                                                         'clientOptions'=>array('validateOnSubmit'=>true,)));?>
                                     <?php echo $form->hiddenField($model,'orient_items_id',array('value'=>''.$list->id.''));
                                    ?>
-                                    <h4 class="form-signin-heading ">Send Request To Retake To Test</h4>
+                                    <h4 class="form-signin-heading ">Send request to retake test</h4>
                                     <?php echo $form->textField($model,'title',array('class'=>'form-control','placeholder'=>'Title','autofocus'=>true));
                                     echo $form->error($model,'title');?>
                                     <div class="pd4"></div>

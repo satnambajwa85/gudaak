@@ -2,7 +2,8 @@
 	<div class="mr0 col-md-12 fl">
 		<div class="mr0  pull-left middle-format-left">
 			<h1><?php echo $event->title;?></h1>
-					<?php 
+            <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
+			<?php 
 				$filename = ''.$event->image.'';
 				 $path=Yii::getPathOfAlias('webroot.uploads.events.large') . '/';
 				$file=$path.$filename;

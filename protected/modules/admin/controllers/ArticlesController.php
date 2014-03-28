@@ -70,9 +70,48 @@ class ArticlesController extends Controller
 		if(isset($_POST['Articles']))
 		{
 			$model->attributes=$_POST['Articles'];
+			$targetFolder = Yii::app()->request->baseUrl.'/uploads/articles/';
+			if (!empty($_FILES['Articles']['name']['image'])) {
+				$tempFile = $_FILES['Articles']['tmp_name']['image'];
+				$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
+				$targetFile = $targetPath.'/'.$_FILES['Articles']['name']['image'];
+				$pat = $targetFile;
+				move_uploaded_file($tempFile,$targetFile);
+				$absoPath = $pat;
+				$newName = time();
+				$img = Yii::app()->imagemod->load($pat);
+				# ORIGINAL
+				$img->file_max_size = 5000000; // 5 MB
+				$img->file_new_name_body = $newName;
+				$img->process('uploads/articles/original/');
+				$img->processed;
+				#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
+				if ($img->processed) {
+					#THUMB Image
+					$img->image_resize      = true;
+					$img->image_y         	= 115;
+					$img->image_x           = 265;
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/articles/large/');
+					
+					#STHUMB Image
+					$img->image_resize      = true;
+					$img->image_y         	= 100;
+					$img->image_x           = 100;
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/articles/small/');
+				 
+					$fileName	=	$img->file_dst_name;
+					$img->clean();
+	
+				}
+				$model->image	=	$fileName;
+			}
+			
 			$model->user_login_id=Yii::app()->user->userId;
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('admin'));
+				//$this->redirect(array('view','id'=>$model->id));
 		}
 
 		$this->render('create',array(
@@ -94,10 +133,54 @@ class ArticlesController extends Controller
 
 		if(isset($_POST['Articles']))
 		{
+			
+			$fileName	=	$model->image;
+			$oldName	=	$fileName;
 			$model->attributes=$_POST['Articles'];
+			$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/uploads/articles/';
+			$targetFolder = Yii::app()->request->baseUrl.'/uploads/articles/';
+			if (!empty($_FILES['Articles']['name']['image'])) {
+				$tempFile = $_FILES['Articles']['tmp_name']['image'];
+				$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
+				$targetFile = $targetPath.'/'.$_FILES['Articles']['name']['image'];
+				$pat = $targetFile;
+				move_uploaded_file($tempFile,$targetFile);
+				$absoPath = $pat;
+				$newName = time();
+				$img = Yii::app()->imagemod->load($pat);
+				# ORIGINAL
+				$img->file_max_size = 5000000; // 5 MB
+				$img->file_new_name_body = $newName;
+				$img->process('uploads/articles/original/');
+				$img->processed;
+				#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
+				if ($img->processed) {
+					#THUMB Image
+					$img->image_resize      = true;
+					$img->image_y         	= 115;
+					$img->image_x           = 265;
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/articles/large/');
+					
+					#STHUMB Image
+					$img->image_resize      = true;
+					$img->image_y         	= 100;
+					$img->image_x           = 100;
+					$img->file_new_name_body = $newName;
+					$img->process('uploads/articles/small/');
+				 
+					$fileName	=	$img->file_dst_name;
+					$img->clean();
+	
+				}
+				@unlink($targetFolder1.'original/'.$oldName);
+				@unlink($targetFolder1.'large/'.$oldName);
+				@unlink($targetFolder1.'small/'.$oldName);
+			}
+			$model->image	=	$fileName;
 			$model->user_login_id=Yii::app()->user->userId;
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('admin'));
 		}
 
 		$this->render('update',array(
@@ -112,8 +195,12 @@ class ArticlesController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		$this->loadModel($id)->delete();
-
+		$model	=	$this->loadModel($id);
+		$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/uploads/articles/';
+		@unlink($targetFolder1.'original/'.$model->image);
+		@unlink($targetFolder1.'large/'.$model->image);
+		@unlink($targetFolder1.'small/'.$model->image);
+		$model->delete();
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
 		if(!isset($_GET['ajax']))
 			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
