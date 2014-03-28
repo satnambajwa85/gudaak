@@ -1,4 +1,4 @@
-function send()
+function send(url)
 	 {
 	   var data=$("#person-form-edit_person-form").serialize();
 	  $.ajax({
@@ -34,11 +34,9 @@ function testFormSend(id)
 			else{
 					alert('Plsease don not skip any question please.');
 					$.each($response.message, function(i, obj) {
-						$('.required'+obj).css( "backgroundColor", "#E9D1D4" );
+					  //use obj.id and obj.name here, for example:
+					  $('.required'+obj).css( "backgroundColor", "#E9D1D4" );
 					});
-					$('#user-person-test-form').offset({top:$('.required4').offset().top});
-						console.log($('.required40').offset().top);
-						
 			}
 		},
 		   error: function(data) { // if error occured
@@ -49,12 +47,12 @@ function testFormSend(id)
 		  dataType:'html'
 	  });
 }    
-function loadPopupBox() {    // To Load the Popupbox
-	$('#popup_box').fadeIn("slow");
-	$("#container").css({ // this is just for style
-		"opacity": "0.3" 
-	});        
-}  		
+        function loadPopupBox() {    // To Load the Popupbox
+            $('#popup_box').fadeIn("slow");
+            $("#container").css({ // this is just for style
+                "opacity": "0.3" 
+            });        
+        }  		
 function sendTestRequest()
 	 {
 	   var data=$("#retake-test-form").serialize();

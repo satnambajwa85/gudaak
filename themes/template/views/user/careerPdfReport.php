@@ -315,7 +315,7 @@ Wishing you all the best in all your future endeavours!
     </tr>
     <?php } ?>
     </table>
-    <table width="100%" border="0" cellspacing="0" cellpadding="0" style="margin-top:10px;font-family:Arial, Helvetica, sans-serif; color:#000; font-size:18px; ">
+    <table width="600px" border="0" cellspacing="0" cellpadding="0" style="margin-top:10px;font-family:Arial, Helvetica, sans-serif; color:#000; font-size:18px; ">
 	<tr>
     <?php
 	$listArr	=	array();
@@ -348,8 +348,8 @@ Wishing you all the best in all your future endeavours!
 	</table>
 
 <?php } ?>
-              <div style="float:left; width:100%; margin:8px 0 0 0;">
-				   <table width="800px" border="0" cellspacing="0" cellpadding="0">
+              <div style="float:left; width:600px; margin:8px 0 0 0;">
+				   <table width="600px" style="" border="0" cellspacing="0" cellpadding="0">
 					<tr>
 						<td><div style=" float:left; width:133px; height:100px;"><img alt="" src="./image/img_whitebg.jpg"></div></td>
 						<td>

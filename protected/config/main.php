@@ -7,7 +7,7 @@
 // CWebApplication properties can be configured here.
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
-	'name'=>'Guddak- Design your career path',
+	'name'=>'Gudaak- Design your career path',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -50,8 +50,8 @@ return array(
 		'Smtpmail'=>array(
             'class'=>'application.extensions.smtpmail.PHPMailer',
             'Host'=>"smtp.gmail.com",
-            'Username'=>'jagraj.singh0001@gmail.com',
-            'Password'=>'luckysinghsaini@123',
+            'Username'=>'satnambajwa85@gmail.com',
+            'Password'=>'gurpreet87',
             'Mailer'=>'smtp',
 			'SMTPSecure' => "ssl",
             'Port'=>465,
@@ -73,7 +73,7 @@ return array(
 		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=mydb',
+			'connectionString' => 'mysql:host=localhost;dbname=gudaak',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => '',
@@ -105,7 +105,7 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'admin@gudaak.com',
+		'adminEmail'=>'satnambajwa85@gmail.com',
 	),
 	'theme'=>'template'
 );
