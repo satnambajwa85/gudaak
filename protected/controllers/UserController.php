@@ -585,10 +585,8 @@ class UserController extends Controller
 						$userTest[$asswssment->value][$cur->career_categories_id]['title2']		=	$asswssment->title;
 						$userTest[$asswssment->value][$cur->career_categories_id]['description']=	$asswssment->description;
 						$userTest[$asswssment->value][$cur->career_categories_id]['image']		=	$asswssment->image;
-						
 					}
 				}
-				
 			}
 		if($report->orient_items_id==3){
 			$highCount	=	0;
