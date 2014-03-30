@@ -29,18 +29,18 @@
 							</div>
 							<div class="pd0 col-md-10 pull-left top-nav-section">
 								<ul class="nav pull-left col-md-7  ">
-									<li class="<?php echo (Yii::app()->controller->action->id=='studentDetail' || Yii::app()->controller->action->id=='studentDetails')?'pull-left active-link':'pull-left'?>">
-										<i class="pull-left mar-top10 icon-microphone icon-top"></i>
+									<li class="<?php echo (Yii::app()->controller->action->id=='talk')?'pull-left active-link':'pull-left'?>">
+										<!--<i class="pull-left mar-top10 icon-microphone icon-top"></i>-->
 											<?php echo CHtml::link('Talk to Admin',array('school/talk'),array('class'=>'pull-left'));?>
 											
 									</li>
                                     <li class="<?php echo (Yii::app()->controller->action->id=='studentDetail' || Yii::app()->controller->action->id=='studentDetails')?'pull-left active-link':'pull-left'?>">
-										<i class="pull-left mar-top10 icon-microphone icon-top"></i>
+										<!--<i class="pull-left mar-top10 icon-microphone icon-top"></i>-->
 											<?php echo CHtml::link('Student Details',array('school/studentDetails'),array('class'=>'pull-left'));?>
 											
 									</li>
 									<li class="<?php echo (Yii::app()->controller->action->id=='profile')?'pull-left active-link':'pull-left'?>">
-										<i class="pull-left mar-top10 icon-microphone icon-top"></i>
+										<!--<i class="pull-left mar-top10 icon-microphone icon-top"></i>-->
 										<?php echo CHtml::link('School Profile',array('school/profile'),array('class'=>'pull-left'));?>
 											
 										
@@ -52,13 +52,13 @@
 												<div class="welcome-school  col-md-8">
 											<?php 
 													$filename = ''.$schoolInfo->images 	.'';
-													 $path=Yii::getPathOfAlias('webroot.uploads.user.small') . '/';
-													$file=$path.$filename;
+													 $path=Yii::getPathOfAlias('webroot.uploads.schools.small') . '/';
+													 $file=$path.$filename;
 													if (file_exists($file)){ ?>
-														<?php echo CHtml::link('<img src="'.Yii::app()->baseUrl.'/uploads/user/small/noimage.jpg"/>',array('school/'),array('class'=>'userImage pull-left'));?>
+														<?php echo CHtml::link('<img src="'.Yii::app()->baseUrl.'/uploads/schools/small/'.$schoolInfo->images.'"/>',array('school/'),array('class'=>'userImage pull-left'));?>
 												
 												 <?php 	}else{ ?>
-													<?php echo CHtml::link('<img src="'.Yii::app()->baseUrl.'/uploads/user/small/noimage.jpg"/>',array('school/'),array('class'=>'userImage pull-left'));?>
+													<?php echo CHtml::link('<img src="'.Yii::app()->baseUrl.'/uploads/schools/small/noimage.jpg"/>',array('school/'),array('class'=>'userImage pull-left'));?>
 												
 											<?php } ?>
 														

@@ -17,7 +17,11 @@ $this->breadcrumbs=array('Articles'=>array('/user/articlesList'));?>
 						<div class="pd0 col-md-12">
 							<h1><?php echo $list->title;?></h1>
 							<span class="date"><?php echo Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse($list->add_date, 'yyyy-MM-dd'),'medium',null);?></span>
-							<p><?php echo substr(preg_replace("/<img[^>]+\>/i", " ", $list->description),0,230);?></p>
+                            <div class="clear"></div>
+                            <div  style="float:left;padding:6px;" >
+<img src="<?php echo Yii::app()->baseUrl;?>/uploads/articles/small/<?php echo $list->image;?>" width="100px"/>
+							</div>
+                            <p><?php echo substr(preg_replace("/<img[^>]+\>/i", " ", $list->description),0,230);?></p>
 							<?php echo CHtml::link('Read Full..',array('user/articles','id'=>$list->id));?>
 						</div>
 					

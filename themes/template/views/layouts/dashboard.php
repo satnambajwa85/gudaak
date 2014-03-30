@@ -129,8 +129,13 @@ Yii::app()->clientScript->registerScript(
 <script type="text/javascript">
  var url	=	'<?php echo Yii::app()->createUrl('/user/userProfileUpdate');?>';
  var test	=	'<?php echo Yii::app()->createUrl('user/test');?>';
+<?php if(Yii::app()->user->hasFlash('redirect')): ?>
+alert("<?php echo Yii::app()->user->getFlash('redirect'); ?>");
+<?php endif; ?>	
+
 </script>
 
 <?php  $this->Widget('WidgetUserProfile'); ?>
+
   </body>
 </html>

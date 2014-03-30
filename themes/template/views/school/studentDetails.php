@@ -28,18 +28,6 @@ $this->breadcrumbs=array('studentDetails',);
 </tr>
 </tbody>
 </table>
-        
-        
-		
-		
-		
-		
-		
-		
-	    
-		
-	
-		
 	</div>
 
 <?php $this->endWidget(); ?>
@@ -58,11 +46,7 @@ $this->breadcrumbs=array('studentDetails',);
 														'lastPageLabel'=>false,
 													
 														),
-<<<<<<< HEAD
-													'filter'=>$model,
-=======
 													//'filter'=>$model,
->>>>>>> 1279c3defb076de0d6ec381dd9fb5ee2f5bae04d
 													'columns'=>array(
 														array(
 															'name'=>'gudaak_id',

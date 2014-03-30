@@ -2,7 +2,7 @@
 $this->breadcrumbs=array('Articles'=>array('/user/articlesList'),''.$articles->title.'');?>
 	<div class="career-bot pull-left">
 		<div class="mr0 col-md-12 pd0 fl">
-			<div class="mr0 col-md-9  pd0 fl artical">
+			<div class="mr0 col-md-12  pd0 fl artical">
 				<h1><?php //echo $articles->title;?></h1>
                  <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
 				 <span>by <?php echo $articles->author;?></span>
@@ -11,7 +11,7 @@ $this->breadcrumbs=array('Articles'=>array('/user/articlesList'),''.$articles->t
 					<div class="col-md-3 pd0 post-info fl">
 						<span>Posted on</span>
 						<datetime class="date-time fl">
-							<?php echo Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse($articles->add_date, 'yyyy-MM-dd'),'medium',null);?>
+							<?php echo date('M d, Y',strtotime($articles->add_date));?>
 						</datetime>
 					</div>
 					<!--<div class="col-md-3  post-info fl">
@@ -23,6 +23,9 @@ $this->breadcrumbs=array('Articles'=>array('/user/articlesList'),''.$articles->t
 				 </div>
                  <hr />
 				  <div class="clear"></div>
+<div  style="float:left;padding:6px;" >
+<img src="<?php echo Yii::app()->baseUrl;?>/uploads/articles/large/<?php echo $articles->image;?>" />
+</div>
 				<p>
 				<?php echo $articles->description;?>	
 				</p>
@@ -34,7 +37,7 @@ $this->breadcrumbs=array('Articles'=>array('/user/articlesList'),''.$articles->t
 				</p>
                 <?php } ?>
 			</div>
-			<div class="mr0 col-md-3 mt20 fl">
+			<?php /*<div class="mr0 col-md-3 mt20 fl">
 				 <div class="mr0 col-md-12 color-light-green related-article fl">
 					<h4>Related articles</h4>
 				 </div>
@@ -74,7 +77,7 @@ $this->breadcrumbs=array('Articles'=>array('/user/articlesList'),''.$articles->t
 					 
 				 </div>
 				
-			</div>
+			</div>*/ ?>
 			
 		</div>
 		 

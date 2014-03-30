@@ -4,7 +4,7 @@
    	  <div class="div_position"> 
     	<h1><i class="glyphicon glyphicon-transfer"></i> Talk to Counselor</h1>
         <div class="p_div_left">
-        	<?php echo $form->textField($model,'title'); ?>
+        	<?php echo $form->textField($model,'title',array('placeholder'=>'Please enter title','maxlength'=>'50')); ?>
             <?php echo $form->error($model,'title'); ?>
         </div>
         <div class="p_div_right">
@@ -20,7 +20,7 @@
         </div>
         <div class="clear"></div>
     	<div class="">
-			<?php echo $form->textArea($model,'problem',array('rows'=>3)); ?>
+			<?php echo $form->textArea($model,'problem',array('rows'=>3,'placeholder'=>'Type your question here','maxlength'=>'160')); ?>
 			<?php echo $form->error($model,'problem'); ?>
 		</div>
      </div>

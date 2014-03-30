@@ -68,7 +68,33 @@ $this->breadcrumbs=array('Assess'=>array('/user/tests'));?>
 									<span>Questions:</span>
 									<datetime><?php echo $detials[$list->id]['count'];?></datetime>
 									<div class="clear"></div>
-									<h1>Will give you on feedback question soon</h1>
+									<div style="font-size:11px">
+                                    1. How will you rate your overall experience of test taking?
+                                    
+                                    <div class="clear"></div>
+                                    <input type="radio" name="ans_1_<?php echo $list->id;?>" value="Excellent" style="display:block !important;float:left; width:20px;" onchange="answer(this.value,testId=<?php echo $list->id;?> ,QID=1)" <?php echo(isset($feedBack[$list->id][1]) && $feedBack[$list->id][1]['feed']=='Excellent')?'checked="checked"':'';?> />Excellent<div class="clear"></div>
+                                    <input type="radio" name="ans_1_<?php echo $list->id;?>" value="Good" style="display:block !important;float:left; width:20px;"  onchange="answer(this.value,testId=<?php echo $list->id;?> ,QID=1)"  <?php echo(isset($feedBack[$list->id][1]) && $feedBack[$list->id][1]['feed']=='Good')?'checked="checked"':'';?> />Good<div class="clear"></div>
+                                    <input type="radio" name="ans_1_<?php echo $list->id;?>" value="Average" style="display:block !important;float:left; width:20px;" onchange="answer(this.value,testId=<?php echo $list->id;?> ,QID=1)" <?php echo(isset($feedBack[$list->id][1]) &&  $feedBack[$list->id][1]['feed']=='Average')?'checked="checked"':'';?>/>Average<div class="clear"></div>
+                                    <input type="radio" name="ans_1_<?php echo $list->id;?>" value="Boring" style="display:block !important;float:left; width:20px;"  onchange="answer(this.value,testId=<?php echo $list->id;?> ,QID=1)" <?php echo(isset($feedBack[$list->id][1]) && $feedBack[$list->id][1]['feed']=='Boring')?'checked="checked"':'';?>/>Boring
+                                    </div>
+                                    <div class="clear"></div>
+									<div style="font-size:11px">
+                                    2. How will you rate the test question in terms of difficulty level in understanding?
+                                    <div class="clear"></div>
+                                    <input type="radio" name="ans_2_<?php echo $list->id;?>" value="Very Difficult" style="display:block !important;float:left; width:20px;" onchange="answer(this.value,testId=<?php echo $list->id;?> ,QID=2)" <?php echo(isset($feedBack[$list->id][2]) && $feedBack[$list->id][2]['feed']=='Very Difficult')?'checked="checked"':'';?>/>Very Difficult<div class="clear"></div>
+                                    <input type="radio" name="ans_2_<?php echo $list->id;?>" value="Somewhat Difficult" style="display:block !important;float:left; width:20px;" onchange="answer(this.value,testId=<?php echo $list->id;?> ,QID=2)"  <?php echo(isset($feedBack[$list->id][2]) && $feedBack[$list->id][2]['feed']=='Somewhat Difficult')?'checked="checked"':'';?>/>Somewhat Difficult<div class="clear"></div>
+                                    <input type="radio" name="ans_2_<?php echo $list->id;?>" value="Not At All Difficult" style="display:block !important;float:left; width:20px;" onchange="answer(this.value,testId=<?php echo $list->id;?> ,QID=2)"  <?php echo(isset($feedBack[$list->id][2]) && $feedBack[$list->id][2]['feed']=='Not At All Difficult')?'checked="checked"':'';?>/>Not At All Difficult
+                                    </div>
+                                    <div class="clear"></div>
+									<div style="font-size:11px">
+                                    3. How will you rate the content of the test in terms of relevance to yourself?
+                                    <div class="clear"></div>
+                                    <input type="radio" name="ans_3_<?php echo $list->id;?>" value="Found it absolutely Irrelevant to my self" style="display:block !important;float:left; width:20px;"  onchange="answer(this.value,testId=<?php echo $list->id;?> ,QID=3)"  <?php echo(isset($feedBack[$list->id][3]) && $feedBack[$list->id][3]['feed']=='Found it absolutely Irrelevant to my self')?'checked="checked"':'';?> />Found it absolutely Irrelevant to my self<div class="clear"></div>
+                                    <input type="radio" name="ans_3_<?php echo $list->id;?>" value="Somewhat relevant to my self" style="display:block !important;float:left; width:20px;" onchange="answer(this.value,testId=<?php echo $list->id;?> ,QID=3)"  <?php echo(isset($feedBack[$list->id][3]) && $feedBack[$list->id][3]['feed']=='Somewhat relevant to my self')?'checked="checked"':'';?> />Somewhat relevant to my self<div class="clear"></div>
+                                    <input type="radio" name="ans_3_<?php echo $list->id;?>" value="Could relate to the questions extremely well" style="display:block !important;float:left; width:20px;"  onchange="answer(this.value,testId=<?php echo $list->id;?> ,QID=3)"  <?php echo(isset($feedBack[$list->id][3]) && $feedBack[$list->id][3]['feed']=='Could relate to the questions extremely well')?'checked="checked"':'';?> />Could relate to the questions extremely well
+                                    </div>
+                                    
+                                    
 									<div class="clear"></div>
 								</div>
 								<div align="center" class="mar-bottom mt30">
@@ -177,4 +203,20 @@ $this->breadcrumbs=array('Assess'=>array('/user/tests'));?>
 		</div>
 	</div>
     </div>
+	<script language="javascript">
+function answer(value,testId,QID)
+{    
+	var url	=	'<?php echo Yii::app()->createUrl('/user/feedbackAnswer');?>';
+	$.ajax({
+	url: url+'&QID='+QID+'&ans='+value+'&testId='+testId,
+	type	:	"POST",
+	data	:	'json',
 	
+	complete:	function(result) {
+		console.log('Success:'+ result);
+		
+		}
+	});
+    
+}
+</script>

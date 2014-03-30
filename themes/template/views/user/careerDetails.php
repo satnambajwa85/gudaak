@@ -9,8 +9,8 @@ $this->breadcrumbs=array('Career Preference '=>array('/user/careerPreference'));
 ?>
 <?php } ?>
 <?php if(Yii::app()->request->urlReferrer==Yii::app()->request->hostInfo.Yii::app()->createUrl('user/careerList/',array('id'=>$careerDetails->career_id))){?>
- <?php $this->pageTitle=Yii::app()->name . ' - Career';
-$this->breadcrumbs=array('Career'=>array('/user/career'),'Career List'=>array('/user/careerList/','id'=>$careerDetails->career_id),
+ <?php $this->pageTitle='Career '.$careerDetails->title;
+$this->breadcrumbs=array('Career Library'=>array('/user/career'),$careerDetails->career->title.''=>array('/user/careerList/','id'=>$careerDetails->career_id),
 ''.$careerDetails->title.'');
   ?>
 <?php } ?>
@@ -20,9 +20,8 @@ $this->breadcrumbs=array('Career'=>array('/user/career'),'Career List'=>array('/
 <div class="col-md-9 pull-left">
 		<div class="mr0 col-md-12">
 			<div class="mr0  pull-left middle-format-left">
-				<!--<h1><?php //echo $careerDetails->title;?></h1>-->
-                <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
-                
+				<?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
+                <h1><?php echo $careerDetails->title;?></h1>
 				<p><?php echo substr($careerDetails->description,0,250);?></p>
 				<?php echo CHtml::ajaxLink('',array(''));?>
 			</div>

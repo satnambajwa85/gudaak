@@ -229,7 +229,12 @@ class CareerOptionsController extends Controller
 		$subjectList	=	array();
 		foreach($model->careerOptionsHasSubjects as $sub)
 			$subjectList[]	=	$sub->subjects_id;
-		$this->render('form',array('model'=>$model,'id'=>$id,'subjectList'=>$subjectList));
+		
+		$streams	=	array();
+		foreach($model->careerOptionsHasStreams as $sub)
+			$streams[]	=	$sub->stream_id;
+			
+		$this->render('form',array('model'=>$model,'subjectList'=>$subjectList,'streams'=>$streams,'id'=>$id));
 	}
 	
 	public function actionAdminView($id)

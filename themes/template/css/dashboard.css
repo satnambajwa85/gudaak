@@ -3780,7 +3780,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .nav > li > a {
   position: relative;
   display: block;
-  padding: 10px 15px;
+  padding: 15px;
 }
 
 .nav > li > a:hover,
@@ -4607,7 +4607,7 @@ textarea.input-group-sm > .input-group-btn > .btn {
 .pagination {
   display: inline-block;
   padding-left: 0;
-  margin: 20px 0;
+  margin: 0;
   border-radius: 4px;
 }
 
@@ -7587,7 +7587,7 @@ header {
 #test-tab {list-style:none;padding:0px;}
 #test-tab li a{color:#666;font-size:12px;}
 .mt50{margin-top:50px;}
-.center-bt{position: relative;top: -15px;}
+.center-bt{position: relative;top: 7px;}
 .tab-description{color:#999;font-size:11px;}
 .more-faqs{color:#21C4C1;}
 
@@ -7786,7 +7786,7 @@ top:115px;width: 252px;background:#FAFFFF;background-color:#FAFFFF;z-index:999;}
 .grid-view table.items th a:hover{color:#666;}
 
 
-.pagination li a{border:none;}.pagination li a:hover{border:none;background-color:none;}
+.pagination li a{border: none;margin-top: 6px;height: 14px;}.pagination li a:hover{border:none;background-color:none;}
 .last,	.pagination .first{display:none;}
 .selected a{color:#21C4C1;}
 .skyblue{color:#21C4C1;}
@@ -7794,7 +7794,11 @@ top:115px;width: 252px;background:#FAFFFF;background-color:#FAFFFF;z-index:999;}
 .btn-td a{background-color: #F7A944;border-radius: 5px;color: #FFFFFF;height: 20px; padding: 2% 22%;text-align: center;-webkit-border-radius: 5px;	-moz-border-radius: 5px;-1ms-border-radius: 5px;-o-border-radius: 5px;border-radius: 5px;}
 .icon-caret-right{font-size:18px;}
 .grid-view table.items th, .grid-view table.items td {text-align: center; border: 1px solid #FFFFFF;font-size: 0.9em; padding: 7px; width: 10%;}
-.top-nav-section ul li{margin:0px;float:left;padding-left:20px;padding-bottom:10px;border-left:1px solid #fff;}
+.top-nav-section ul li{margin: 0px;
+float: left;
+padding: 0px 17px 3px 14px;
+/* padding-bottom: 10px; */
+border-left: 1px solid #fff;}
 .top-nav-section ul li a {color:#F5F5F5;font-size:14px;font-weight:normal;}
 .top-nav-section ul li:hover{background:#fff;}
 .active-link{background:#fff;}
@@ -8547,3 +8551,5 @@ opacity: 0.85;
 .t_size{width:44px;  background-color: #FFFFFF; border: 1px solid #CCCCCC; border-radius: 3px; box-shadow: 0 1px 1px rgba(0, 0, 0, 0.075) inset;  color: #999999; font-size: 12px; height: 34px;transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;  vertical-align: middle;}
 .art-class{overflow:hidden;}
 .mla{margin-left:20px;}
+.grid-view {padding: 0;}
+.stream-pref .table th {width:20%;}

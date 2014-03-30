@@ -1,5 +1,5 @@
 <?php
-$con=mysqli_connect("localhost","root","","testing");
+$con=mysqli_connect("localhost","root","","gudaak");
 // Check connection
 if (mysqli_connect_errno())
 	echo "Failed to connect to MySQL: " . mysqli_connect_error();
@@ -10,7 +10,8 @@ if (($handle = fopen("test.csv", "r")) !== FALSE) {
 //$theData = fgets($handle);
     while (($data = fgetcsv($handle)) !== FALSE) {
         $num = count($data);
-		if($num==11){
+		
+		if($num==9){
 			$name	=	$data[0];
 			$desc	=	$data[1];
 			$addr	=	$data[2];
