@@ -1,4 +1,4 @@
-<?php $this->pageTitle=Yii::app()->name . ' - Finalized Career';
+<?php $this->pageTitle	=	'Finalized Career';
 $this->breadcrumbs=array('Finalized Career'=>array('/user/finalizedCareer'));
 ?>
 
@@ -12,7 +12,8 @@ $this->breadcrumbs=array('Finalized Career'=>array('/user/finalizedCareer'));
 					<?php endif; ?>	
 		<div class="mr0 col-md-12 fl">
 			<div class="mr0  pull-left stream-pref">
-				<h1>Finalized Career</h1>
+				<!--<h1>Finalized Career</h1>-->
+                <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
 				<p>Are you satisfied with your finalized career choices or Having doubts or a change in your plans? Feel like re-analyzing and reviewing your choice for the finalized careers? You can always edit your list and add a new option!
 				</p>
 

@@ -10,7 +10,7 @@ class UserController extends Controller
 				'actions'=>array('index','editProfile','test','tests','detailedReport','collage','liveChat',
 							'articlesList','articles','summary','newsUpdates',
 							'exploreColleges','shortListedColleges','dynamicCourse','dynamicSearchResult','userShortlistCollage',
-							'search','changePassword','application','questionsAnswer','upload','testMail','userProfileUpdate','retakeTest','news','readEvent','summaryDetails','summaryData','talk',
+							'search','changePassword','application','questionsAnswer','upload','testMail','userProfileUpdate','retakeTest','news','readEvent','summaryDetails','summaryData','talk','feedbackAnswer',
 				),
 				'users' => array('@')
 					
@@ -463,9 +463,9 @@ class UserController extends Controller
 		if(!Yii::app()->user->id){
 			$this->redirect(Yii::app()->createUrl('/site'));
 		}
-		$start_time 	=	'';
+		$start_time =	'';
 		$end_time 	=	'';
-		$model	=	new RetakeTestRequest;
+		$model		=	new RetakeTestRequest;
 		$criteria				=	new CDbCriteria();
 		$criteria->condition 	=	'published  = :published  and status=:status';
 		$criteria->params 		=	array(':published'=>1,':status'=>1);
@@ -495,11 +495,43 @@ class UserController extends Controller
 			$detials[$test->orient_items_id]['duration']= gmdate('H:i:s',$Difference);
 		
 		}
-		 
-	
 		
-		$this->render('userTest',array('testContent'=>$testContent,'userTest'=>$tests,'detials'=>$detials,'model'=>$model));
+		$feeds	=	 UserFeedback::model()->findAllByAttributes(array('user_id'=>Yii::app()->user->profileId));
+		$feedBack	=	array();
+		
+		foreach($feeds as $feed){
+			$idx					=	$feed->question_id;
+			$feedBack[$feed->test_id][$idx]['feed']	=	$feed->feedback;
+			$feedBack[$feed->test_id][$idx]['test']	=	$feed->test_id;
+		}
+		
+		$this->render('userTest',array('testContent'=>$testContent,'userTest'=>$tests,'detials'=>$detials,'feedBack'=>$feedBack,'model'=>$model));
 	}
+	public function actionFeedbackAnswer()
+	{	 
+		$Qid			=	$_REQUEST['QID'];	
+		$Uans			=	$_REQUEST['ans'];	
+		$test			=	$_REQUEST['testId'];
+		
+		$testReport1	=	 UserFeedback::model()->findByAttributes(array('user_id'=>Yii::app()->user->profileId,'test_id'=>$test,'question_id'=>$Qid));
+		if(!isset($testReport1))
+			$testReport1	=	new UserFeedback;
+			$testReport1->feedback	 	= 	$Uans;
+			$testReport1->question_id	=	$Qid;
+			$testReport1->test_id		=	$test;
+			$testReport1->user_id	 	=	Yii::app()->user->profileId;
+			$testReport1->add_date 		=	date('Y-m-d H:i:s');
+			$testReport1->status		=	1;
+			if($testReport1->save()){
+					echo 'You have answer to '.$Qid;die;
+			}
+			else
+			CVarDumper::dump($testReport1,10,1);
+			
+			die;
+		 
+	}
+	
 	public function actionRetakeTest($id)
 	{	
 		$findRequest		=	 RetakeTestRequest::model()->countByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'orient_items_id'=>$id));
@@ -584,9 +616,11 @@ class UserController extends Controller
 						$userTest[$asswssment->value][$cur->career_categories_id]['title']		=	$cur->careerCategories->title;
 						$userTest[$asswssment->value][$cur->career_categories_id]['title2']		=	$asswssment->title;
 						$userTest[$asswssment->value][$cur->career_categories_id]['description']=	$asswssment->description;
+						$userTest[$asswssment->value][$cur->career_categories_id]['descr']		=	$asswssment->descr;
 						$userTest[$asswssment->value][$cur->career_categories_id]['image']		=	$asswssment->image;
 					}
 				}
+				
 			}
 		if($report->orient_items_id==3){
 			$highCount	=	0;
@@ -651,18 +685,25 @@ class UserController extends Controller
 			$html2pdf = new HTML2PDF('P', 'A4', 'fr');
 			ob_end_clean();
 			if(Yii::app()->user->userType ==  'below10th'){
-				$html =	'detailedReport2';
 				$html='pdfReport';
 			}else{
-				$html =	'detailedReport';
-			$html='careerPdfReport';
+				$html='careerPdfReport';
 			}
 			$html2pdf->WriteHTML($this->renderPartial($html,array('reports'=>$data,'profile'=>$profile,'userTestDate'=>$userTestDate),true));
-			
 			$html2pdf->Output();
-			//ob_end_flush();
 			die;
 		}
+		
+		if(isset($_REQUEST['download1']) && $_REQUEST['download1']==1){
+			$html2pdf = new HTML2PDF('P', 'A4', 'fr');
+			ob_end_clean();
+			if(isset($_REQUEST['download1']) && $_REQUEST['download1']==1)
+				$html='careerPdfReportTemp';
+			$html2pdf->WriteHTML($this->renderPartial($html,array('reports'=>$data,'profile'=>$profile,'userTestDate'=>$userTestDate),true));
+			$html2pdf->Output();
+			die;
+		}
+		
 		if(Yii::app()->user->userType ==  'below10th')
 			$this->render('detailedReport2',array('reports'=>$data,'profile'=>$profile,'userTestDate'=>$userTestDate));
 		else
@@ -831,14 +872,16 @@ class UserController extends Controller
 		$StreamHasSubjects	=	StreamHasSubjects::model()->findAllByAttributes(array('stream_id'=>$id));
 		foreach($StreamHasSubjects as $subject){
 			$subjectList[]	=	$subject->subjects_id;
-			$Subjects[$subject->subjects->id]['id']			=	$subject->subjects->id;
-			$Subjects[$subject->subjects->id]['title']		=	$subject->subjects->title;
-			$Subjects[$subject->subjects->id]['image']		=	$subject->subjects->image;
-			$Subjects[$subject->subjects->id]['type']		=	$subject->type_subjects;
-			$Subjects[$subject->subjects->id]['description']=	$subject->subjects->description;
-			if($Subjects[$subject->subjects->id]['type']=='compulsory')
-				$careerSubjets[]	=	$subject->subjects_id;
-			
+
+			if($subject->subjects->published==1){
+				$Subjects[$subject->subjects->id]['id']			=	$subject->subjects->id;
+				$Subjects[$subject->subjects->id]['title']		=	$subject->subjects->title;
+				$Subjects[$subject->subjects->id]['image']		=	$subject->subjects->image;
+				$Subjects[$subject->subjects->id]['type']		=	$subject->type_subjects;
+				$Subjects[$subject->subjects->id]['description']=	$subject->subjects->description;
+				if($Subjects[$subject->subjects->id]['type']=='compulsory')
+					$careerSubjets[]	=	$subject->subjects_id;
+			}
 		}
 		/*if(count($careerSubjets))
 		foreach($careerSubjets as $careerSubjet){
@@ -875,6 +918,20 @@ class UserController extends Controller
 	}
 	public function actionFinalizedCareer()
 	{	
+	
+		if(!isset($_REQUEST['id'])){
+			$criteria			=	new CDbCriteria();
+			$criteria->condition= '(status =:status  and updated_by=:updated_by and user_profiles_id=:user_profiles_id)';
+			$criteria->params 	= array('status'=>1,'updated_by'=>1,'user_profiles_id'=>Yii::app()->user->profileId);
+			$criteria->order 	= 'self DESC';
+			 
+			$data	=	array();
+			$preference				=	UserCareerPreference::model()->findAll($criteria);
+			if(count($preference)==0){
+				Yii::app()->user->setFlash('redirect',"None of the Careers have been Finalized as yet");
+				$this->redirect(Yii::app()->createUrl('/user/careerPreference'));
+			}
+		}
 		if(isset($_REQUEST['id'])){
 			$career	=	 UserCareerPreference::model()->findAllByAttributes(array('status'=>1,'updated_by'=>1,'user_profiles_id'=>Yii::app()->user->profileId));
 			$count			=	count($career);
@@ -920,15 +977,8 @@ class UserController extends Controller
 				Yii::app()->user->setFlash('sccess','sccessfully send your comment.');
 			}
 		}
-		$criteria			=	new CDbCriteria();
-		$criteria->condition= '(status =:status  and updated_by=:updated_by and user_profiles_id=:user_profiles_id)';
-		$criteria->params 	= array('status'=>1,'updated_by'=>1,'user_profiles_id'=>Yii::app()->user->profileId);
-		$criteria->order 	= 'self DESC';
-		 
-		$data	=	array();
-		$preference				=	UserCareerPreference::model()->findAll($criteria);
 		foreach($preference as $Crate){
-			$data[$Crate->career_options_id]['id']			=	$Crate-> careerOptions->id;
+			$data[$Crate->career_options_id]['id']				=	$Crate-> careerOptions->id;
 			$data[$Crate->career_options_id]['title']			=	$Crate-> careerOptions->title;
 			$data[$Crate->career_options_id]['description']		=	$Crate->careerOptions->description;
 			$data[$Crate->career_options_id]['image']			=	$Crate->careerOptions->image;
@@ -1135,12 +1185,26 @@ class UserController extends Controller
 		if(!Yii::app()->user->id){
 			$this->redirect(Yii::app()->createUrl('/site'));
 		}
+		
+		$userTest				=	UserReports::model()->countByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
+		if($userTest==0){
+			Yii::app()->user->setFlash('redirect',"Take the test and rate career options");
+			$this->redirect(Yii::app()->createUrl('/user/tests'));
+		}
+		
+		
 		$criteria			=	new CDbCriteria();
 		$criteria->condition= '(user_profiles_id=:user_profiles_id)';
 		$criteria->params 	= array('user_profiles_id'=>Yii::app()->user->profileId);
 		$criteria->order = 'self DESC';
 		$data	=	array();
 		$preference				=	UserCareerPreference::model()->findAll($criteria);
+		
+		if(count($preference)==0){
+			Yii::app()->user->setFlash('redirect',"You have not rated any of the careers as yet");
+			$this->redirect(Yii::app()->createUrl('/user/career'));
+		}
+		
 		foreach($preference as $Crate){
 			$data[$Crate->career_options_id]['id']				=	$Crate-> careerOptions->id;
 			$data[$Crate->career_options_id]['title']			=	$Crate-> careerOptions->title;
@@ -1492,7 +1556,7 @@ class UserController extends Controller
 	}
 	public function actionSummary()
 	{	
-		$summaryDetails=Summary::model()->findAllByAttributes(array('user_profile_id'=>Yii::app()->user->profileId,'status'=>1));
+		$summaryDetails=Summary::model()->findAllByAttributes(array('user_profile_id'=>Yii::app()->user->profileId,'status'=>1),array('order'=> 'add_date DESC'));
 		$this->render('summary',array('summaryDetails'=>$summaryDetails));
 	}
 	public function actionSummaryData($id)
@@ -1534,6 +1598,11 @@ class UserController extends Controller
 	}
 	public function actionExploreColleges()
 	{	
+		$userTest				=	UserReports::model()->countByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
+		if($userTest==0){
+			Yii::app()->user->setFlash('redirect',"Take the Test to Get Started");
+			$this->redirect(Yii::app()->createUrl('/user/tests'));
+		}
 		$model	=	new Institutes;
 		$criteria			=	new CDbCriteria();
 		$criteria->condition= '(activation =:activation and status =:status )';

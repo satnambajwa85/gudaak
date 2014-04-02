@@ -1,21 +1,22 @@
-<?php $this->pageTitle=Yii::app()->name . ' - Career'; $this->breadcrumbs=array('Career'=>array('user/career'));?>
+<?php $this->pageTitle='Career Library'; $this->breadcrumbs=array('Career'=>array('user/career'));?>
 	<div class="career-bot pull-left">
 		<div class="mr0 pd0 col-md-12 fl">
 			<div class="mr0  pull-left middle-format-left">
-				<h1>Career library</h1>
-				<p>It is long established fact a reader will be It is long established fact a reader will be
+				<!--<h1>Career library</h1>-->
+                <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
+				<!--<p>It is long established fact a reader will be It is long established fact a reader will be
 					It is long established fact a reader will be It is long established fact a reader will beIt is long established fact a reader will be
-				</p>
-				<?php echo CHtml::Link('Konw more about Career Library',array(''),array('title'=>'Konw more about Career Library'));?>
+				</p>-->
+				<?php //echo CHtml::Link('Konw more about Career Library',array(''),array('title'=>'Konw more about Career Library'));?>
 			</div>
 			
 		</div>
 		<div class="clear"></div>
 		<div class="career-area fl">
-		<div id="scrollBar" class="col-md-12">
+		<div id="scrollBar" class="col-md-12" style="padding:7px">
 			<?php $count=0;
 			foreach($data	as $data){?>
-				<div class="col-md-3 pd0 career-lib career-lib2 pd2">
+				<div class="col-md-3 career-lib mb0">
 				<?php 
 						$filename = ''.$data->image.'';
 						$path=Yii::getPathOfAlias('webroot.uploads.career.small') . '/';
@@ -29,11 +30,12 @@
 								
 			 
 					<div class="clear"></div>
-					<?php echo CHtml::link('<h1>'.substr($data->title,0,100).'</h1>',array('user/careerList','id'=>''.$data->id.''),array('title'=>$data->title));?>
-						<p><?php echo substr($data->description,0,70);?></p>
+						<h4>&nbsp;</h4>
+                        <p><?php echo substr($data->description,0,70);?></p>
 					<div class="col-md-12 career-hot-links">
-					<?php echo CHtml::link('Read more..',array('user/readFull','id'=>''.$data->id.''),array('class'=>'pull-left','title'=>'Read Full.'));?>
-						<span class="pull-right"><i class="icon-eye-open"></i>19021</span>
+					<?php echo CHtml::link(substr($data->title,0,100),array('user/careerList','id'=>''.$data->id.''),array('class'=>'pull-left','title'=>$data->title));?>
+					<?php //echo CHtml::link('Read more..',array('user/readFull','id'=>''.$data->id.''),array('class'=>'pull-left','title'=>'Read Full.'));?>
+						<!--<span class="pull-right"><i class="icon-eye-open"></i>19021</span>-->
 					</div>
 				</div>
 				<?php $count++; if($count%4==0){ ?>

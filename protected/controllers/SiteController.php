@@ -177,8 +177,14 @@ class SiteController extends Controller
 			$record_exists = GenerateGudaakIds::model()->exists('gudaak_id  = :gudaak ', array(':gudaak'=>$gudaak_id )); 
 			$gudaakId	=	GenerateGudaakIds::model()->findByAttributes(array('gudaak_id'=>$gudaak_id));
 			if($record_exists==1 AND $gudaak_id !='' ){
+				$userC					=   UserLogin::model()->exists('username = :email',array(':email'=>$_POST['Register']['email']));
+				if($userC==1){
+				
+						Yii::app()->user->setFlash('create','Email address is already in use.');
+						$this->redirect(array('site/userRegister'));
+				}
 				$findGudakID			=	UserProfiles::model()->exists('generate_gudaak_ids_id= :GDK ', array(':GDK'=>$gudaakId->id)); 
-				 if($findGudakID==1){
+				if($findGudakID==1){
 				
 						Yii::app()->user->setFlash('create','Gudaak ID already in use.');
 						$this->redirect(array('site/userRegister'));
@@ -228,13 +234,8 @@ class SiteController extends Controller
 			else{
 					Yii::app()->user->setFlash('create','Please fill accurate information.');
 					$this->redirect(array('site/userRegister'));
-					
-		
-			}
-			
-			
-		}
-				
+			}		
+		}	
 		$this->render('userRegister',array('model'=>$model));
 	}
 	public function actionCheckUser($email)

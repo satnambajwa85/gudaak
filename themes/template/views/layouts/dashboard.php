@@ -40,7 +40,13 @@ Yii::app()->clientScript->registerScript(
 	<section class="main-section">
 		<div class="left-main">
 			<div class="w100 fl color">
-						<div class="breadcrumbs fl">
+						<div class="white-text mt10 fl">
+
+						<?php /*$this->widget('zii.widgets.CBreadcrumbs', array(
+                'homeLink'=>'Dashboard',
+                'links'=>$this->breadcrumbs,
+        )); */?><!-- breadcrumbs -->
+
 						<?php 
 						echo $this->pageTitle;
 						//$this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,)); ?>
@@ -50,8 +56,10 @@ Yii::app()->clientScript->registerScript(
 						</div>
 						<div class="pull-right dashbord-top-nav ">
 							<ul class="nav  top-nav-left pull-left">
+
 							  <!--<li id="talk-btn"><i class="icon-microphone icon-top talk-icon"></i><a href="#">Talk to Counsellor</a></li>-->
 							  <li><i class="icon-microphone icon-top talk-icon"></i><?php echo CHtml::link('Talk to Counsellor',array('user/talk'));?></li>
+
 							  <li><i class="news-icon"></i><?php echo CHtml::link('News and Updates',array('user/newsUpdates'));?></li>
 							  <li><i class="summary-icon"></i><?php echo CHtml::link('Summary',array('user/summary'));?></li>
 							 
@@ -61,12 +69,12 @@ Yii::app()->clientScript->registerScript(
 								<a href="<?php echo Yii::app()->session['setting']['fb_link'];?>" target="_blank">
 									<i class="icon-facebook"></i>
 								</a>
-								<a href="<?php echo Yii::app()->session['setting']['twittwe_link'];?>" target="_blank">
+								<!--<a href="<?php echo Yii::app()->session['setting']['twittwe_link'];?>" target="_blank">
 									<i class="icon-twitter"></i>
 								</a>
 								<a href="<?php echo Yii::app()->session['setting']['linkedin_link'];?>" target="_blank">
 									<i class="icon-linkedin"></i>
-								</a>
+								</a>-->
 					
 								 
 								
@@ -121,7 +129,13 @@ Yii::app()->clientScript->registerScript(
 <script type="text/javascript">
  var url	=	'<?php echo Yii::app()->createUrl('/user/userProfileUpdate');?>';
  var test	=	'<?php echo Yii::app()->createUrl('user/test');?>';
+<?php if(Yii::app()->user->hasFlash('redirect')): ?>
+alert("<?php echo Yii::app()->user->getFlash('redirect'); ?>");
+<?php endif; ?>	
+
 </script>
+
 <?php  $this->Widget('WidgetUserProfile'); ?>
+
   </body>
 </html>

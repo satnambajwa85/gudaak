@@ -7,7 +7,7 @@ $this->breadcrumbs=array('Articles'=>array('/user/articlesList'));?>
 				<div class="mr0 pd0 col-md-12 artical">
 					 <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
 					 <p>
-                     Read the articles about different careers to update your knowledge and information. These are a crucial part of your Exploration stage!<br /><br />
+                  Read the articles about different careers to update your knowledge and information. These are a crucial part of your Exploration stage!<br /><br />
                      </p>
 				</div>
 				<ul>
@@ -16,12 +16,17 @@ $this->breadcrumbs=array('Articles'=>array('/user/articlesList'));?>
 					<li class="col-md-6 row pd0 art-class <?php echo (!$count)?'mla':'';?>">
 						<div class="pd0 col-md-12">
 							<h1><?php echo $list->title;?></h1>
-							<span><?php echo Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse($list->add_date, 'yyyy-MM-dd'),'medium',null);?></span>
-							<p><?php echo substr(preg_replace("/<img[^>]+\>/i", " ", $list->description),0,230);?></p>
+							<span class="date"><?php echo Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse($list->add_date, 'yyyy-MM-dd'),'medium',null);?></span>
+                            <div class="clear"></div>
+                            <div  style="float:left;padding:6px;" >
+<img src="<?php echo Yii::app()->baseUrl;?>/uploads/articles/small/<?php echo $list->image;?>" width="100px"/>
+							</div>
+                            <p><?php echo substr(preg_replace("/<img[^>]+\>/i", " ", $list->description),0,230);?></p>
 							<?php echo CHtml::link('Read Full..',array('user/articles','id'=>$list->id));?>
 						</div>
 					
 					</li>
+                    <?php echo (!$count)?'<div class="clear"></div>':'';?>
 					<?php } ?>
 					<?php }else{  ?>
 					<li>

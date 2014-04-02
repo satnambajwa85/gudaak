@@ -4,9 +4,9 @@ $this->breadcrumbs=array('Detailed Report'=>array('/user/detailedReport'));?>
 		<div class="mr0 col-md-12 pd0 fl">
 			<div class="mr0  pull-left stream-pref">
 				<h1>Detailed Report </h1>
-				<p>It is long established fact a reader will be It is long established fact a reader will be
+				<!--<p>It is long established fact a reader will be It is long established fact a reader will be
 					It is long established fact a reader will be It is long established fact a reader will beIt is long established fact a reader will be
-				</p>
+				</p>-->
 
 			</div>
 			<?php if(isset($reports)){?>
@@ -16,15 +16,15 @@ $this->breadcrumbs=array('Detailed Report'=>array('/user/detailedReport'));?>
 			} ?>
 			</div>
 		<div class="col-md-12 pull-left br-all inner-padding">
-			<div id="scrollBar" style="max-height:490px;width:97%;">
+			<div id="scrollBar" style="max-height:575px;width:97%;">
 			<div class="wrapper">
 			<div class="summary-report-title1">Profile Summary&nbsp;
 				<div class="report-log-img"><img alt="" src="./image/small.jpg"></div>                    
 			</div>
-			
-    			<div class="w100" >
-                	<div class="reportLogo"><img alt="" src="./image/logo_large.png" /></div>
-					<div class="user-report-info col-md-12 pull-left report-border pd0">
+				<div class="w100" >
+                    <div class="reportLogo"><img alt="" src="./image/logo_large.png" /></div>
+                    
+                    <div class="user-report-info  pull-left report-border pd0">
 						<div class="col-md-6  pull-left left-section pd0">
 							<ul>
 								<li>Name</li>
@@ -50,7 +50,17 @@ $this->breadcrumbs=array('Detailed Report'=>array('/user/detailedReport'));?>
 						<div class="col-md-6  pull-left">
 						</div>
 					</div>
-                	<div class="report-title1">
+                    <div class="clear"></div>
+                    <!--<div style="font-size:11px; margin-top:30px; text-align:right; width:100%; color:#fff; background:#1acccc; height:35px; padding-top:5px; padding-right:3px; "> Note: This Report is confidential and is only indicative of preferred careers for you.</div>
+                    
+                    <div style="float:left; width:100%; margin-top:107px; margin-bottom:20px; background:#1acccc; height:52px; padding-top:14px; text-align:right; font-size:18px; color:#fff; padding-right:10%; font-family:Arial, Helvetica, sans-serif;position:relative; ">
+			&nbsp;
+				<div style=" position:absolute; width:200px; height:139px; top:-36px; left:15%;">
+					<img alt="" src="./image/small.jpg">
+				</div>                    
+			</div>-->
+                    
+                	<div class="report-title1" style="margin-top:4%">
                     	Gudaak IPC Report
                     </div>
                 	<div style="float:left; width:100%; font-size:14px; color:#666; text-align:justify; line-height:22px; font-family:, Helvetica, sans-serif;  ">
@@ -71,10 +81,8 @@ Wishing you all the best in all your future endeavours!
 
 						</div>
                     </div>	
-               
-                
                 </div>	
-
+					
  	
         
  <div style="float:left; width:100%; min-height:700px; " >
@@ -138,15 +146,9 @@ Wishing you all the best in all your future endeavours!
 
 										</p>
 										<p>The Interest Test you have taken maps you on the five traits. Read out in details here:<br/><br/><br/></p>
-										 
-										
-							
 									</div>	
-							   
-								
-								
-								</div>
-						 <div class="user-report-info" >
+							   </div>
+						 <div class="user-report-info" style="margin-bottom:40px;height:230px;" >
 							<?php foreach($report['results1'] as $result){?>
 								     <div >
 										<div class="w20 fl process-title"><?php echo $result['title'];?></div>
@@ -161,22 +163,14 @@ Wishing you all the best in all your future endeavours!
                         <?php } ?>
                         
  <?php foreach($report['results'] as $result){?>
-		     <div class="cat-align">
-				<?php echo ($report['id']==3)?'<h3 class="process-title">'.$result['title'].'</h3>':'<h3 class="process-title">'.$result['title2'].'</h3>';?>
-			</div>
-			<div class="cat-def">
-			<p>
-			<?php //echo $result['description'];?>
-            <img alt="" src="./image/<?php echo $result['image'];?>">
-           </p>
-			
-			</div>	
-		
-		<p class="description-content"></p>
-    	<div class="border_b"></div>
+        <div style="float:left;">
+        <img  style="width:350px; margin-left:20px "alt="" src="./image/<?php echo $result['image'];?>">
+    	</div>
 	 
     <?php 
-	} ?><div>
+	} ?>
+    <div class="clear"></div>
+    <div style="margin-top:30px;">
     <?php
 	$listArr	=	array();
 	foreach($report['results'] as $result){
@@ -199,10 +193,10 @@ Wishing you all the best in all your future endeavours!
 	<div class="clear"></div>
 	<?php echo CHtml::link('<h1>'.substr($data->title,0,20).'..</h1>',array('user/careerList','id'=>''.$data->id.''),array('title'=>$data->title));?>
 	<p><?php echo substr($data->description,0,70);?></p>
-	<div class="col-md-12 career-hot-links">
+	<!--<div class="col-md-12 career-hot-links">
 	<?php echo CHtml::link('Read more..',array('user/readFull','id'=>''.$data->id.''),array('class'=>'pull-left','title'=>'Read Full.'));?>
 		<span class="pull-right"><i class="icon-eye-open"></i></span>
-	</div>
+	</div>-->
 </div>
 
 
@@ -227,20 +221,20 @@ Wishing you all the best in all your future endeavours!
  
       <div class="wrapper">
       
-			       <div style="float:left; width:100%; margin:5% 0 15% 0;">
-                	<div style=" float:left; width:212px; height:159px;"><img alt="" src="./image/img_whitebg.jpg"></div>
-                    <div style="float:left; width:75%; height:159px; background:#1acccc; padding-right:8px; text-align:right; vertical-align:middle;  ">
-                    	<div style="float:right; width:80%; margin-right:2%; color:#fff; font-size:17px; line-height:22px; font-family:Arial, Helvetica, sans-serif; margin-top:7%;">
+			 	<div style="w100" >
+                     <div class="r-footer"  >
+                    	<div style="text-align:center; margin-right:2%; color:#fff; font-size:17px; line-height:22px; font-family:Arial, Helvetica, sans-serif; margin-top:7%;">
                         	
-                        Call: +91 8786 76545, <span class="skype_c2c_print_container">+91 7654 763592</span><span skype_menu_props="{&quot;numberToCall&quot;:&quot;+917654763592&quot;,&quot;isFreecall&quot;:false,&quot;isMobile&quot;:false,&quot;isRtl&quot;:false}" onmouseout="SkypeClick2Call.MenuInjectionHandler.hideMenu(event)" onmouseover="SkypeClick2Call.MenuInjectionHandler.showMenu(this, event)" tabindex="-1" dir="ltr" class="skype_c2c_container"><span skypeaction="skype_dropdown" dir="ltr" class="skype_c2c_highlighting_inactive_common"><span class="skype_c2c_textarea_span"><img src="resource://skype_ff_extension-at-jetpack/skype_ff_extension/data/call_skype_logo.png" class="skype_c2c_logo_img"><span class="skype_c2c_text_span">+91 7654 763592</span><span class="skype_c2c_free_text_span"></span></span></span></span> <br>
+                        Call: +91 8786 76545, +91 7654 763592 <br/>
                         Email: info@gudaak.com &nbsp;&nbsp; Website: www.gudaak.com 
                         </div>
                     
-                    </div>
-               
+                  </div>
+ 
+ 				
      
-				<!--Page NO. 1 End-->
-				</div>
+    <!--Page NO. 1 End-->
+    </div>
     
 		
 			</div>
@@ -249,12 +243,6 @@ Wishing you all the best in all your future endeavours!
 		
 		</div>
 		</div>
-        
-		
-
-
-	
 	<div class="news pd0 pull-right">
 		<?php  $this->Widget('WidgetNews'); ?>
 	</div>
-			

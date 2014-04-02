@@ -4,9 +4,9 @@ $this->breadcrumbs=array('Detailed Report'=>array('/user/detailedReport'));?>
 		<div class="mr0 col-md-12 pd0 fl">
 			<div class="mr0  pull-left stream-pref">
 				<h1>Detailed Report </h1>
-				<p>It is long established fact a reader will be It is long established fact a reader will be
+				<!--<p>It is long established fact a reader will be It is long established fact a reader will be
 					It is long established fact a reader will be It is long established fact a reader will beIt is long established fact a reader will be
-				</p>
+				</p>-->
 
 			</div>
 			<?php if(isset($reports)){?>
@@ -16,7 +16,7 @@ $this->breadcrumbs=array('Detailed Report'=>array('/user/detailedReport'));?>
 			} ?>
 			</div>
 		<div class="col-md-12 pull-left br-all inner-padding">
-			<div id="scrollBar" style="max-height:490px;width:97%;">
+			<div id="scrollBar" style="max-height:575px;width:97%;">
 			<div class="wrapper">
 			<div class="summary-report-title1">Profile Summary&nbsp;
 				<div class="report-log-img"><img alt="" src="./image/small.jpg"></div>                    
@@ -28,27 +28,39 @@ $this->breadcrumbs=array('Detailed Report'=>array('/user/detailedReport'));?>
 						<div class="col-md-6  pull-left left-section pd0">
 							<ul>
 								<li>Name</li>
-								<li>Gender</li>
-								<li>Date of birth</li>
 								<li>Class</li>
 								<li>School</li>
-								<li class="lastRow">Email</li>
+								<li>Gudaak ID</li>
+                                <?php if(isset($userTestDate->add_date)){?>
+								<li class="lastRow">Test Completed On</li>
+								<?php } ?>
 							</ul>
 						</div>	
 						<div class="col-md-6  pull-left right-section pd0">
 							<ul>
 								<li><?php echo $profile->first_name.' '.$profile->last_name;?></li>
-								<li><?php echo $profile->gender;?></li>
-								<li><?php echo $profile->date_of_birth;?></li>
 								<li><?php echo $profile->userClass->title;?></li>
 								<li><?php echo $profile->generateGudaakIds->schools->name;?></li>
-								<li class="lastRow"><?php echo $profile->email;?></li>
+								<li><?php echo $profile->generateGudaakIds->gudaak_id;?></li>
+                                <?php if(isset($userTestDate->add_date)){?>
+								<li class="lastRow"><?php echo date('d M,Y',strtotime($userTestDate->add_date));?></li>
+                                <?php } ?>
 							</ul>
 						</div>
 						<div class="col-md-6  pull-left">
 						</div>
 					</div>
-                	<div class="report-title1">
+                    <div class="clear"></div>
+                    <!--<div style="font-size:11px; margin-top:30px; text-align:right; width:100%; color:#fff; background:#1acccc; height:35px; padding-top:5px; padding-right:3px; "> Note: This Report is confidential and is only indicative of preferred careers for you.</div>
+                    
+                    <div style="float:left; width:100%; margin-top:107px; margin-bottom:20px; background:#1acccc; height:52px; padding-top:14px; text-align:right; font-size:18px; color:#fff; padding-right:10%; font-family:Arial, Helvetica, sans-serif;position:relative; ">
+			&nbsp;
+				<div style=" position:absolute; width:200px; height:139px; top:-36px; left:15%;">
+					<img alt="" src="./image/small.jpg">
+				</div>                    
+			</div>-->
+                    
+                	<div class="report-title1" style="margin-top:4%">
                     	Gudaak IPC Report
                     </div>
                 	<div style="float:left; width:100%; font-size:14px; color:#666; text-align:justify; line-height:22px; font-family:, Helvetica, sans-serif;  ">
@@ -69,9 +81,6 @@ Wishing you all the best in all your future endeavours!
 
 						</div>
                     </div>	
-               
-                
-                
                 </div>	
 					
  	
@@ -139,7 +148,7 @@ Wishing you all the best in all your future endeavours!
 										<p>The Interest Test you have taken maps you on the five traits. Read out in details here:<br/><br/><br/></p>
 									</div>	
 							   </div>
-						 <div class="user-report-info" >
+						 <div class="user-report-info" style="margin-bottom:40px;height:230px;" >
 							<?php foreach($report['results1'] as $result){?>
 								     <div >
 										<div class="w20 fl process-title"><?php echo $result['title'];?></div>
@@ -154,7 +163,7 @@ Wishing you all the best in all your future endeavours!
                         <?php } ?>
                         
  <?php foreach($report['results'] as $result){?>
-		     <div class="cat-align">
+		     <!--<div class="cat-align">
 				<?php echo ($report['id']==3)?'<h3 class="process-title">'.$result['title'].'</h3>':'<h3 class="process-title">'.$result['title2'].'</h3>';?>
 			</div>
 			<div class="cat-def">
@@ -162,11 +171,15 @@ Wishing you all the best in all your future endeavours!
 			
 			</div>	
 		
-		<p class="description-content"></p>
-    	<div class="border_b"></div>
+		<p class="description-content"></p>-->
+        <div style="float:left;">
+        <img  style="width:350px; margin-left:20px "alt="" src="./image/<?php echo $result['image'];?>">
+    	</div>
 	 
     <?php 
-	} ?><div>
+	} ?>
+    <div class="clear"></div>
+    <div style="margin-top:30px;">
     <?php
 	$listArr	=	array();
 	foreach($report['results'] as $result){
@@ -203,10 +216,10 @@ Wishing you all the best in all your future endeavours!
 	<div class="clear"></div>
 	<?php echo CHtml::link('<h1>'.substr($streamRec->name,0,20).'..</h1>',array('user/stream','id'=>''.$streamRec->id.''),array('title'=>$streamRec->name));?>
 	<p><?php echo substr($streamRec->description,0,70);?></p>
-	<div class="col-md-12 career-hot-links">
+	<!--<div class="col-md-12 career-hot-links">
 	<?php echo CHtml::link('Read more..',array('user/readFull','id'=>''.$streamRec->id.''),array('class'=>'pull-left','title'=>'Read Full.'));?>
 		<span class="pull-right"><i class="icon-eye-open"></i></span>
-	</div>
+	</div>-->
 </div>
 </div>
 <?php }

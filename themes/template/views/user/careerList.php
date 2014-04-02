@@ -1,10 +1,11 @@
-<?php $this->pageTitle=Yii::app()->name . ' - Career';
+<?php $this->pageTitle=$dataBYId->title;
 $this->breadcrumbs=array('Career'=>array('/user/career'),'Career List'=>array('/user/careerList/','id'=>$dataBYId->id));
 array('Career'=>array('user/career'));?>
 <div class="careerList pull-left">
 		<div class="mr0 col-md-12 fl">
 			<div class="mr0  pull-left middle-format-left">
-				<h1><?php echo $dataBYId->title;?></h1>
+				<!--<h1><?php echo $dataBYId->title;?></h1>-->
+                <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
 				<?php echo substr($dataBYId->description,0,500);?>
 				<div class="clear"></div>
 				<div id="flashMessage"></div>
@@ -20,7 +21,7 @@ array('Career'=>array('user/career'));?>
 		
 		 <?php $count=0;?>
 			<?php foreach($career as $data){?>
-				<li class="col-md-3 career-lib career-lib2">
+				<li class="col-md-3 career-lib career-lib2 mb0">
                 	<div class="col-md-12 pd0">
 					<?php 
 						$filename = ''.$data->image.'';
@@ -33,7 +34,7 @@ array('Career'=>array('user/career'));?>
 					
 				<?php } ?>
 					<div class="clear"></div>
-					<?php echo CHtml::link('<h1>'.$data->title.'</h1>',array('user/careerDetails','id'=>''.$data->id.''),array('title'=>$data->title));?>
+					
 					<?php if(!empty($data->description)){?>
 					<?php echo substr($data->description,0,100);?>
 					<?php }else{ ?>
@@ -49,7 +50,8 @@ array('Career'=>array('user/career'));?>
 					</div>
 
 					<div class="col-md-12 career-hot-links">
-					<?php echo CHtml::link('View Details..',array('user/careerDetails','id'=>''.$data->id.''),array('class'=>'pull-left','title'=>'View Details'));?>
+                    <?php echo CHtml::link($data->title,array('user/careerDetails','id'=>''.$data->id.''),array('class'=>'pull-left','title'=>$data->title));?>
+					<?php //echo CHtml::link('View Details..',array('user/careerDetails','id'=>''.$data->id.''),array('class'=>'pull-left','title'=>'View Details'));?>
 					<?php //echo CHtml::Ajaxlink('<i class="glyphicon glyphicon-heart"></i>',array('user/AddCareer','id'=>''.$data->id.''),array('update'=>'#flashMessage'));?>
 						<!--<ul class="star-rating pull-right ">
 							 <div id="user-rating<?php //echo $data->id;?>" class="ratingStar" ></div>

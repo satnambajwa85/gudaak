@@ -1,5 +1,5 @@
 <?php if (Yii::app()->request->urlReferrer==Yii::app()->request->hostInfo.Yii::app()->createUrl('user/finalizedCareer')){?>
-<?php $this->pageTitle=Yii::app()->name . ' - Finalized Career';
+<?php $this->pageTitle=$careerDetails->title;
 $this->breadcrumbs=array('Finalized Career'=>array('/user/finalizedCareer'));
 ?>
 <?php } ?>
@@ -9,8 +9,8 @@ $this->breadcrumbs=array('Career Preference '=>array('/user/careerPreference'));
 ?>
 <?php } ?>
 <?php if(Yii::app()->request->urlReferrer==Yii::app()->request->hostInfo.Yii::app()->createUrl('user/careerList/',array('id'=>$careerDetails->career_id))){?>
- <?php $this->pageTitle=Yii::app()->name . ' - Career';
-$this->breadcrumbs=array('Career'=>array('/user/career'),'Career List'=>array('/user/careerList/','id'=>$careerDetails->career_id),
+ <?php $this->pageTitle='Career '.$careerDetails->title;
+$this->breadcrumbs=array('Career Library'=>array('/user/career'),$careerDetails->career->title.''=>array('/user/careerList/','id'=>$careerDetails->career_id),
 ''.$careerDetails->title.'');
   ?>
 <?php } ?>
@@ -20,9 +20,10 @@ $this->breadcrumbs=array('Career'=>array('/user/career'),'Career List'=>array('/
 <div class="col-md-9 pull-left">
 		<div class="mr0 col-md-12">
 			<div class="mr0  pull-left middle-format-left">
-				<h1><?php echo $careerDetails->title;?></h1>
+				<?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
+                <h1><?php echo $careerDetails->title;?></h1>
 				<p><?php echo substr($careerDetails->description,0,250);?></p>
-				<?php echo CHtml::ajaxLink('Konw more about Career Library',array(''));?>
+				<?php echo CHtml::ajaxLink('',array(''));?>
 			</div>
 			<div class="pd0 col-md-12 pull-left ">
 			<div class="border">
@@ -30,10 +31,10 @@ $this->breadcrumbs=array('Career'=>array('/user/career'),'Career List'=>array('/
 						<li><a href="javascript:void(0)">Career Details</a></li>
                     	<li class="pull-right">
 							<div class="star-rating pull-left pd5" style="margin:0px;">
-                            	<span class="rating-title2 fl">Your Rating</span>
+                            	<span class="rating-title2 fl"  style="color:#E88B2D !important; font-size:12px !important;font-weight:bold;">Please Rate this Career Option</span>
 								<div id="career-rating" class="fr"></div>
                                 <div style="margin-top:-10px;color:#E88B2D;font-size:10px;font-weight:bold;">
-									<marquee class="row">Please Rate this Career Option</marquee>
+									<marquee class="row"> </marquee>
                                 </div>
 							</div>
 						</li>	

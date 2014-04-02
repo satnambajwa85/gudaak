@@ -34,7 +34,6 @@ function testFormSend(id)
 			else{
 					alert('Plsease don not skip any question please.');
 					$.each($response.message, function(i, obj) {
-					  //use obj.id and obj.name here, for example:
 					  $('.required'+obj).css( "backgroundColor", "#E9D1D4" );
 					});
 			}
@@ -47,12 +46,14 @@ function testFormSend(id)
 		  dataType:'html'
 	  });
 }    
-        function loadPopupBox() {    // To Load the Popupbox
-            $('#popup_box').fadeIn("slow");
-            $("#container").css({ // this is just for style
-                "opacity": "0.3" 
-            });        
-        }  		
+
+function loadPopupBox() {    // To Load the Popupbox
+	$('#popup_box').fadeIn("slow");
+	$("#container").css({ // this is just for style
+		"opacity": "0.3" 
+	});        
+}  		
+
 function sendTestRequest()
 	 {
 	   var data=$("#retake-test-form").serialize();

@@ -1,4 +1,4 @@
-<?php $this->pageTitle=Yii::app()->name . ' - Summary';
+<?php $this->pageTitle='Summary';
 $this->breadcrumbs=array('Summary'=>array('/user/summary'));?>
 	<div class="career-bot pull-left">
 						<?php if(Yii::app()->user->hasFlash('sccess')): ?>
@@ -10,7 +10,8 @@ $this->breadcrumbs=array('Summary'=>array('/user/summary'));?>
 					<?php endif; ?>	
 		<div class="mr0 col-md-12 fl">
 			<div class="mr0  pull-left stream-pref">
-				<h1>Summary </h1>
+				<!--<h1>Summary </h1>-->
+                <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
 				<p>It is long established fact a reader will be It is long established fact a reader will be
 					It is long established fact a reader will be It is long established fact a reader will beIt is long established fact a reader will be
 				</p>

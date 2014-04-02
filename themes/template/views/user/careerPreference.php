@@ -1,4 +1,4 @@
-<?php $this->pageTitle=Yii::app()->name . ' - Career Preference';
+<?php $this->pageTitle='Career Preference';
 $this->breadcrumbs=array('Career Preference'=>array('/user/careerPreference'));
 ?>
 	<div class="career-bot pull-left">
@@ -11,7 +11,9 @@ $this->breadcrumbs=array('Career Preference'=>array('/user/careerPreference'));
 					<?php endif; ?>	
 		<div class="mr0 col-md-12 fl">
 			<div class="mr0  pull-left stream-pref">
-				<h1>Career Preference</h1>
+				<!--<h1>Career Preference</h1>-->
+                <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
+				
 				<p>Based on the available inputs from the counselor and your own preferences go on upgrading your two most preferred careers by clicking on the button ‘Make Final’.<br />
 				</p>
 

@@ -1,9 +1,10 @@
-<?php $this->pageTitle=Yii::app()->name . ' - Stream Library ';
+<?php $this->pageTitle='Stream Library ';
 $this->breadcrumbs=array('Stream Library '=>array('/user/streamList'));?>
 	<div class="career-bot pull-left">
 		<div class="mr0 col-md-12 pd0 fl">
 			<div class="mr0  pull-left stream-pref">
-				<h1>Stream Library </h1>
+				<!--<h1>Stream Library </h1>-->
+                <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
 				<p>It is long established fact a reader will be It is long established fact a reader will be
 					It is long established fact a reader will be It is long established fact a reader will beIt is long established fact a reader will be
 				</p>

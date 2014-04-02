@@ -1,4 +1,4 @@
-<?php $this->pageTitle=Yii::app()->name . ' - Finalized Stream';
+<?php $this->pageTitle	=	'Finalized Stream';
 $this->breadcrumbs=array('Finalized Stream'=>array('/user/finalizedStream'));
 ?>
 	<div class="career-bot pull-left">
@@ -11,7 +11,8 @@ $this->breadcrumbs=array('Finalized Stream'=>array('/user/finalizedStream'));
 					<?php endif; ?>	
 		<div class="mr0 col-md-12 fl">
 			<div class="mr0  pull-left stream-pref">
-				<h1>Finalized Stream</h1>
+				<!--<h1>Finalized Stream</h1>-->
+                <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
 				<p>Are you satisfied with your finalized stream choices or Having doubts or a change in your plans? Feel like re-analyzing and reviewing your choice for the finalized stream? You can always edit your list and add a new option!
 				</p>
 
