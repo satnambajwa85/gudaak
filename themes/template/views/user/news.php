@@ -18,11 +18,7 @@
 				<p>
 				<?php echo substr($news->description,0,3000);?>	
 				</p>
-				 <h2 class="about-author">About the author</h2>
-				 <p>	
-					It is long established fact a reader will be It is long established fact a reader will b
-					
-				</p>
+				
 			</div>
 			
 			

@@ -17,72 +17,77 @@ $this->breadcrumbs=array('Detailed Report'=>array('/user/detailedReport'));?>
 			</div>
 		<div class="col-md-12 pull-left br-all inner-padding">
 			<div id="scrollBar" style="max-height:575px;width:97%;">
-			<div class="wrapper">
-			<div class="summary-report-title1">Profile Summary&nbsp;
-				<div class="report-log-img"><img alt="" src="./image/small.jpg"></div>                    
-			</div>
-				<div class="w100" >
-                    <div class="reportLogo"><img alt="" src="./image/logo_large.png" /></div>
+			<div class="wrapper" style="position:relative;">
+				
+                <div style=" float:left; width:680px; margin-left:40px; border:1px solid #333333;">
+        <div style="float:left; width:100%; margin-top:5%; height:38px; padding-top:14px; text-align:right; font-size:18px; color:#fff;  font-family:Arial, Helvetica, sans-serif;">Profile Summary &nbsp;&nbsp;&nbsp;</div>
+        <div style=" position:absolute; width:200px; height:139px; top:-17px; left:20%;  "></div>                    
+        
+        <div style="margin-top: 110px;margin-left: 100px;"><img alt="" src="./image/logo_large.png" /></div>
+        
+        
+        <div style="margin-top: 100px;margin-bottom: 50px;margin-left: 40px;width:580;">
+        <table width="600" border="1" bordercolor="#333333" cellspacing="0" cellpadding="0" style="font-size:12px; font-family:Arial, Helvetica, sans-serif; color:#666666; ">
+                    <tr style="background:#ececec;" >
+                      <td width="250" height="40" align="center" valign="middle">Name</td>
+                      <td width="330" height="40" align="center" valign="middle"><?php echo $profile->first_name.' '.$profile->last_name;?></td>
+                    </tr>
+                     <tr >
+                      <td width="250" height="40" align="center" valign="middle">Class</td>
+                      <td width="330" height="40" align="center" valign="middle"><?php echo $profile->userClass->title;?></td>
+                    </tr>
                     
-                    <div class="user-report-info  pull-left report-border pd0">
-						<div class="col-md-6  pull-left left-section pd0">
-							<ul>
-								<li>Name</li>
-								<li>Class</li>
-								<li>School</li>
-								<li>Gudaak ID</li>
-                                <?php if(isset($userTestDate->add_date)){?>
-								<li class="lastRow">Test Completed On</li>
-								<?php } ?>
-							</ul>
-						</div>	
-						<div class="col-md-6  pull-left right-section pd0">
-							<ul>
-								<li><?php echo $profile->first_name.' '.$profile->last_name;?></li>
-								<li><?php echo $profile->userClass->title;?></li>
-								<li><?php echo $profile->generateGudaakIds->schools->name;?></li>
-								<li><?php echo $profile->generateGudaakIds->gudaak_id;?></li>
-                                <?php if(isset($userTestDate->add_date)){?>
-								<li class="lastRow"><?php echo date('d M,Y',strtotime($userTestDate->add_date));?></li>
-                                <?php } ?>
-							</ul>
-						</div>
-						<div class="col-md-6  pull-left">
-						</div>
-					</div>
-                    <div class="clear"></div>
-                    <!--<div style="font-size:11px; margin-top:30px; text-align:right; width:100%; color:#fff; background:#1acccc; height:35px; padding-top:5px; padding-right:3px; "> Note: This Report is confidential and is only indicative of preferred careers for you.</div>
+                     <tr style="background:#ececec;">
+                      <td width="250" height="40" align="center" valign="middle">School</td>
+                      <td width="330" height="40" align="center" valign="middle"><?php echo $profile->generateGudaakIds->schools->name;?></td>
+                    </tr>
+                     <tr >
+                      <td width="250" height="40" align="center" valign="middle">Gudaak ID</td>
+                      <td width="330" height="40" align="center" valign="middle"><?php echo $profile->generateGudaakIds->gudaak_id;?> </td>
+                    </tr>
+                     <tr style="background:#ececec;" >
+                      <td width="250" height="40" align="center" valign="middle">Test Completed On</td>
+                      <td width="330" height="40" align="center" valign="middle"><?php echo date('d M,Y',strtotime($userTestDate->add_date));?></td>
+                    </tr>
                     
-                    <div style="float:left; width:100%; margin-top:107px; margin-bottom:20px; background:#1acccc; height:52px; padding-top:14px; text-align:right; font-size:18px; color:#fff; padding-right:10%; font-family:Arial, Helvetica, sans-serif;position:relative; ">
-			&nbsp;
-				<div style=" position:absolute; width:200px; height:139px; top:-36px; left:15%;">
-					<img alt="" src="./image/small.jpg">
-				</div>                    
-			</div>-->
-                    
-                	<div class="report-title1" style="margin-top:4%">
+          </table>
+        
+     
+        </div>
+        
+        <div style="float:left; width:100%; background:#1acccc; color:#fff; padding-top:10px; font-family:Arial, Helvetica, sans-serif; font-size:12px;   text-align:right; height:25px; ">Note: This Report is confidential and is only indicative of preferred careers for you.      
+<strong style="margin-left:10px;">P-1</strong> &nbsp;&nbsp;&nbsp;&nbsp;</div>	
+     </div>
+                
+                <div style=" float:left; width:680px; margin-left:40px; border:1px solid #333333; height:1050px; position:relative;">
+        <div style="float:left; width:100%; margin-top:5%; background:#1acccc; height:38px; padding-top:14px; text-align:right; font-size:18px; color:#fff;  font-family:Arial, Helvetica, sans-serif;">Profile Summary &nbsp;&nbsp;&nbsp;</div>
+        <div style=" position:absolute; width:200px; height:139px; top:-17px; left:20%;  "><img src="./image/small.jpg" alt=""  /></div>                    
+        
+        <div style="margin-top: 100px;margin-bottom: 50px;margin-left: 20px;width:620;">
+        <div style="float:left; width:100%; font-size:18px; color:#21C4C1; margin-top:10%;   font-family:Arial, Helvetica, sans-serif; ">
                     	Gudaak IPC Report
                     </div>
-                	<div style="float:left; width:100%; font-size:14px; color:#666; text-align:justify; line-height:22px; font-family:, Helvetica, sans-serif;  ">
-                    	<p>Welcome to the world of Designing Career Path with Gudaak! The test you have taken just now is one of the numerous “Interest-Personality “Tests available online and offline but our uniqueness lies in the interpretation. We at Gudaak believe in the holistic approach towards life and careers. This report has been prepared with utmost care, keeping in mind the various factors that come into play when you are making a decision for life.<br/><br/>
-Any suitable career can only be predicted with a combination of client’s academic assessments, interests, personality, values and attitudes when assessed in congenial environment. So, to succeed in life- Keep reading the literature on career and explore the possibilities that can help you reach your dreams and goals.<br/><br/>
+                	<div style="float:left; width:100%; font-size:14px; color:#000; text-align:justify; line-height:22px; font-family:, Helvetica, sans-serif;  ">
+                    	<p>Welcome to the world of Designing Career Path with Gudaak! The test you have taken just now is one of the numerous "Interest-Personality "Tests available online and offline but our uniqueness lies in the interpretation. We at Gudaak believe in the holistic approach towards life and careers. This report has been prepared with utmost care, keeping in mind the various factors that come into play when you are making a decision for life.<br/><br/>
+Any suitable career can only be predicted with a combination of client's academic assessments, interests, personality, values and attitudes when assessed in congenial environment. So, to succeed in life- Keep reading the literature on career and explore the possibilities that can help you reach your dreams and goals.<br/><br/>
 The career recommendations made here are based on how genuinely you have answered the test. We hope that this report will lead to a greater understanding of yourself and at every step we are there to guide you.<br/><br/>
-Remember! “There are no such things as limits to growth, because there are no limits on the human capacity for intelligence, imagination and wonder."<br/><br/>
-
+Remember! "There are no such things as limits to growth, because there are no limits on the human capacity for intelligence, imagination and wonder."<br/><br/>
 Wishing you all the best in all your future endeavours!
 <br/>
                         </p>
-						<div class="def-title">This report contains the following:<br/>
-								<ul class="def-list">
-								<li>• A personalized personality profile</li>
-								<li>• An interest profile</li>
+					<div style=" color:#333; font-size:18px;margin-top:20px;font-family:Arial, Helvetica, sans-serif; ">This report contains the following:<br/>
+								<ul style="list-style:none;font-size:14px; color:#000; text-align:justify; line-height:16px; ">
+								<li>• A personalized personality profile</li><br/>
+								<li>• An interest profile</li><br/>
 								<li>• Career Recommendations</li>
 								</ul>
-
 						</div>
                     </div>	
-                </div>	
-					
+        </div>
+        <div style="float:left; width:100%; background:url(image/img_icon.jpg) no-repeat;height:129px; background-position:center; margin-top:8%; margin-bottom:8%;" ></div>    
+        <div style="float:left; width:100%; background:#1acccc; color:#fff; padding-top:10px; font-family:Arial, Helvetica, sans-serif; font-size:12px;   text-align:right; height:25px; margin-top:100px; ">Note: This Report is confidential and is only indicative of preferred careers for you.      
+<strong style="margin-left:10px;">P-2</strong> &nbsp;&nbsp;&nbsp;&nbsp;</div>	
+     </div>	
  	
         
  <div style="float:left; width:100%; min-height:700px; " >

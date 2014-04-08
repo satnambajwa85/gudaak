@@ -110,6 +110,9 @@ class UserProfilesHasInstitutes extends CActiveRecord
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			'sort'=>array(
+				'defaultOrder'=>'add_date DESC',
+			),
 		));
 	}
 

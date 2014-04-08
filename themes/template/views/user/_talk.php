@@ -20,7 +20,7 @@
         </div>-->
         <div class="clear"></div>
     	<div class="">
-			<?php echo $form->textArea($model,'problem',array('rows'=>3,'placeholder'=>'Type your question here','maxlength'=>'260')); ?>
+			<?php echo $form->textArea($model,'problem',array('rows'=>3,'placeholder'=>'Type your question here','maxlength'=>'360')); ?>
 			<?php echo $form->error($model,'problem'); ?>
 		</div>
      </div>

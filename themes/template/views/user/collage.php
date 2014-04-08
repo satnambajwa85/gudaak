@@ -26,28 +26,32 @@ $this->breadcrumbs=array('Colleges Explore'=>array('/user/exploreColleges'));
 						'enableAjaxValidation'=>false,
 						'htmlOptions'=>array('enctype'=>'multipart/form-data'),
 					)); ?>
-                	<div class="text_w_outer">
-                     <span class="text_w_dd">Course</span>
-                    <?php 	echo $form->dropDownList($model,'courses_id',
-									CHtml::listData(Courses::model()->findAll(),'id','title'),
+                	
+                    <div class="text_w_outer">
+                     <span class="text_w_dd">Specialisation</span>
+                      <?php 	echo $form->dropDownList($model,'specialisation',
+									CHtml::listData(Interest::model()->findAll(),'id','title'),
 									array('ajax' => array('type'=>'POST',
 										'url'=>CController::createUrl('DynamicCourse'), //url to call.
-										'update'=>'#Institutes_specialisation', //selector to update
+										'update'=>'#Institutes_courses_id', //selector to update
 										 
 										
 											)));?>
                     </div>
                     
                     <div class="text_w_outer">
-                     <span class="text_w_dd">Specialisation</span>
-                      <?php 	echo $form->dropDownList($model,'specialisation',
-									CHtml::listData(CourseStream::model()->findAll(),'id','title'));?>
+                     <span class="text_w_dd">Course</span>
+                    <?php 	echo $form->dropDownList($model,'courses_id',
+									CHtml::listData(Course::model()->findAll(),'id','title')
+									);?>
                     </div>
+                    
+                    
                     
                     <div class="text_w_outer">
                      <span class="text_w_dd">Location</span>
-					  <?php 	echo $form->dropDownList($model,'cities_id',
-									CHtml::listData(Cities::model()->findAll(),'id','title'),
+					  <?php 	echo $form->dropDownList($model,'city_id',
+									CHtml::listData(City::model()->findAll(),'id','title'),
 									array('ajax' => array('type'=>'POST',
 										'url'=>CController::createUrl('DynamicSearchResult'), //url to call.
 										'update'=>'#collegeResult', //selector to update

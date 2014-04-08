@@ -1603,15 +1603,15 @@ class UserController extends Controller
 			Yii::app()->user->setFlash('redirect',"Take the Test to Get Started");
 			$this->redirect(Yii::app()->createUrl('/user/tests'));
 		}
-		$model	=	new Institutes;
+		$model				=	new Collage;
 		$criteria			=	new CDbCriteria();
 		$criteria->condition= '(activation =:activation and status =:status )';
 		$criteria->params 	= array('activation'=>1,'status'=>1);
-		$count				=	Institutes::model()->count($criteria);
+		$count				=	Collage::model()->count($criteria);
 		$pages				=	new CPagination($count);
 		$pages->pageSize	=	5;
 		$pages->applyLimit($criteria);
-		$Institutes				=	Institutes::model()->findAll($criteria);
+		$Institutes			=	Collage::model()->findAll($criteria);
 
 		$this->render('collage',array('model'=>$model,'Institutes'=>$Institutes,'pages'=>$pages));
 	}
@@ -1623,31 +1623,27 @@ class UserController extends Controller
 	public function actionDynamicCourse()
 	{	
 		$getId = '';
-			if(!empty($_POST['Institutes']['courses_id'])) 
-				$getId 	= $_POST['Institutes']['courses_id'];
-				$data	=	CourseStream::model()->findAll('courses_id =:parent_id',array(':parent_id'=>(int) $getId));
-				$data	=	CHtml::listData($data,'id','title');
-				echo '<option value="0">Please Select</option>';
-			foreach($data as $value=>$name){
-				echo CHtml::tag('option', array('value'=>$value),CHtml::encode($name),true);
-				
-			}
-			
+		if(!empty($_POST['Collage']['specialisation'])) 
+			$getId 	= $_POST['Collage']['specialisation'];
+			$data	=	Course::model()->findAll('interest_id =:parent_id',array(':parent_id'=>(int) $getId));
+			$data	=	CHtml::listData($data,'id','title');
+			echo '<option value="0">Please Select</option>';
+		foreach($data as $value=>$name){
+			echo CHtml::tag('option', array('value'=>$value),CHtml::encode($name),true);
+		}
 		die;
-
-		
 	}
 	public function actionDynamicSearchResult()
 	{	
 		$getId = '';
-			if(!empty($_POST['Institutes']['cities_id'])) 
-				$city 					= $_POST['Institutes']['cities_id'];
-				$courses 				= $_POST['Institutes']['courses_id'];
+			if(!empty($_POST['Collage']['city_id'])) 
+				$city 					= $_POST['Collage']['city_id'];
+				$courses 				= $_POST['Collage']['course_id'];
 				//$specialisation 		= $_POST['Institutes']['specialisation'];
 				$criteria				=	new CDbCriteria();
-				$criteria->condition	= '(activation =:activation  and status =:status and cities_id =:cities_id)';
+				$criteria->condition	= '(activation =:activation  and status =:status and city_id =:cities_id)';
 				$criteria->params	 	= array('activation'=>1,'status'=>1,'cities_id'=>$city);
-				$collegeData			=	 Institutes::model()->findAll($criteria);
+				$collegeData			=	 Collage::model()->findAll($criteria);
 				
 				
 				

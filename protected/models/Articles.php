@@ -110,9 +110,14 @@ class Articles extends CActiveRecord
 		$criteria->compare('user_login_id',$this->user_login_id);
 		$criteria->compare('author',$this->author,true);
 		$criteria->compare('role',$this->role,true);
-
+		
+		
+		
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			'sort'=>array(
+				'defaultOrder'=>'add_date DESC',
+			),
 		));
 	}
 }

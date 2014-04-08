@@ -25,7 +25,7 @@ $this->breadcrumbs=array('Talk'=>array('/user/talk'));?>
 	'summaryText' => '',
 	'columns'=>array(
 		//'id',
-		'title',
+		//'title',
 		'problem',
 		//'mode',
 		//'available',

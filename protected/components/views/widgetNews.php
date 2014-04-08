@@ -1,6 +1,6 @@
 <div class="widget-body">
 	<div class="widget-heading blue">
-		 News & Updates
+		 News
 	</div>
 	<div class="list-group">
 		<?php foreach($news as $list){ ?>
