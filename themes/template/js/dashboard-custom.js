@@ -1,20 +1,8 @@
 $(document).ready(function () {
 	//scroll starts
-		var $scrollBar = $('#scrollBar'),
-		i = 1;
-	$scrollBar
-		.on('reach.scrollbox', function () {
-			if (i < 6) {
-				// emulate XHR
-				window.setTimeout(function () {
-				   
-					$scrollBar.scrollbox('update'); // recalculate bar height and position
-				}, 300);
-			}
-		})
-		.scrollbox({
-			buffer: 150 // position from bottom when reach.scrollbox will be triggered
-		});
+	var $scrollBar = $('#scrollBar'),i = 1;
+	$scrollBar.on('reach.scrollbox',function(){if (i < 6) {window.setTimeout(function(){$scrollBar.scrollbox('update');}, 300);}}).scrollbox({buffer: 150});
+	$('#collegeResult1').on('reach.scrollbox',function(){if (i < 6) {window.setTimeout(function(){$scrollBar.scrollbox('update');}, 300);}}).scrollbox({buffer: 150});
 		
 	//scroll ends	
 	//scroll starts

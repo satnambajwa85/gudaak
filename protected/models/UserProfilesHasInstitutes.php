@@ -56,7 +56,7 @@ class UserProfilesHasInstitutes extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'userProfiles' => array(self::BELONGS_TO, 'UserProfiles', 'user_profiles_id'),
-			'institutes' => array(self::BELONGS_TO, 'Institutes', 'institutes_id'),
+			'institutes' => array(self::BELONGS_TO, 'Collage', 'institutes_id'),
 		);
 	}
 
@@ -110,6 +110,9 @@ class UserProfilesHasInstitutes extends CActiveRecord
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			'sort'=>array(
+				'defaultOrder'=>'add_date DESC',
+			),
 		));
 	}
 

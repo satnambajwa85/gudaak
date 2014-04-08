@@ -1,9 +1,12 @@
+<?php $this->pageTitle='Notifications';
+$this->breadcrumbs=array('Notifications'=>array('/user/newsUpdates'));?>
+
 	<div class="career-bot pull-left">
 		<div class="mr0 col-md-12 pd0 fl">
 			
 			<div class="mr0 col-md-6  fl newsupdates">
 				<div class="mr0 pd0 col-md-12   artical">
-					 <h1>News and Updates</h1>
+					 <!--<h1>Notifications</h1>-->
                      <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
 					 
 				</div>
@@ -12,7 +15,7 @@
 					<li>
 						<div class="pd0 col-md-12">
 							<h1><?php echo $list->title;?></h1>
-							<span><?php echo Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse($list->add_date, 'yyyy-MM-dd'),'medium',null);?></span>
+							<span><?php echo date('M d, Y',strtotime($list->add_date));?></span>
 							<p><?php echo substr($list->description,0,230);?>..</p>
 							<?php echo CHtml::link('Read Full..',array('user/articles','id'=>$list->id));?>
 						</div>
@@ -26,7 +29,7 @@
 			</div>
 			<div class="mr0 col-md-6  fl events">
 				<div class="mr0 col-md-12 pd0  artical">
-					 <h1>Events and Updates</h1>
+					 <h1>Events</h1>
 					 
 				</div>
 				<ul>

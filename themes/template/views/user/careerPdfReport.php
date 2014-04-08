@@ -15,8 +15,8 @@ body{ margin:0; padding:0; }
     <div class="wrapper">
     <!--Page NO. 1-->
   <div style=" float:left; width:680px; margin-left:40px; border:1px solid #333333;">
-        <div style="float:left; width:100%; margin-top:5%; background:#1acccc; height:38px; padding-top:14px; text-align:right; font-size:18px; color:#fff;  font-family:Arial, Helvetica, sans-serif;">Profile Summary &nbsp;&nbsp;&nbsp;</div>
-        <div style=" position:absolute; width:200px; height:139px; top:-17px; left:20%;  "><img src="./image/small.jpg" alt=""  /></div>                    
+        <div style="float:left; width:100%; margin-top:5%; height:38px; padding-top:14px; text-align:right; font-size:18px; color:#fff;  font-family:Arial, Helvetica, sans-serif;">Profile Summary &nbsp;&nbsp;&nbsp;</div>
+        <div style=" position:absolute; width:200px; height:139px; top:-17px; left:20%;  "></div>                    
         
         <div style="margin-top: 110px;margin-left: 100px;"><img alt="" src="./image/logo_large.png" /></div>
         
@@ -95,7 +95,7 @@ Wishing you all the best in all your future endeavours!
         <div style="float:left; width:100%; margin-top:5%; background:#1acccc; height:38px; padding-top:14px; text-align:right; font-size:18px; color:#fff;  font-family:Arial, Helvetica, sans-serif;">Profile Summary &nbsp;&nbsp;&nbsp;</div>
         <div style=" position:absolute; width:200px; height:139px; top:-17px; left:100px;  "><img src="./image/small.jpg" alt=""  /></div>                    
         
-        <div style="margin-top: 100px;margin-bottom: 50px;margin-left: 20px;width:620;">
+        <div style="margin-top: 100px;margin-bottom: 50px;margin-left: 20px;width:620; height:800px;">
         <div style="float:left; width:640px; font-size:18px; color:#21C4C1; margin-top:10%;   font-family:Arial, Helvetica, sans-serif; ">
                     	Your Personality Mapping
                     </div>
@@ -137,12 +137,12 @@ There has been much research on how people describe themselves and others based 
                       
                       <p>
                       <strong>Based on your scores obtained on the Personality Test, this section of the report will show you how you stack up on 5 major dimensions of personality:</strong>
-Take a look at your results obtained on the Big Five Personality Factors i.e. OCEAN to get to know your self even better.
+
                       </p>
                     </div>	
         </div>
        
-        <div style="float:left; width:680px; background:#1acccc; color:#fff; padding-top:10px; font-family:Arial, Helvetica, sans-serif; font-size:12px;   text-align:right; height:25px; margin-top:205px; ">Note: This Report is confidential and is only indicative of preferred careers for you.      
+        <div style="float:left; width:680px; background:#1acccc; color:#fff; padding-top:10px; font-family:Arial, Helvetica, sans-serif; font-size:12px;   text-align:right; height:25px; margin-top:300px !important; ">Note: This Report is confidential and is only indicative of preferred careers for you.      
 <strong style="margin-left:10px;">P-3</strong> &nbsp;&nbsp;&nbsp;&nbsp;</div>	
      </div>
      <!--Page NO. 3 End-->
@@ -151,10 +151,19 @@ Take a look at your results obtained on the Big Five Personality Factors i.e. OC
         <div style="float:left; width:680px; margin-top:5%; background:#1acccc; height:38px; padding-top:14px; text-align:right; font-size:18px; color:#fff;  font-family:Arial, Helvetica, sans-serif;">Profile Summary &nbsp;&nbsp;&nbsp;</div>
         <div style=" position:absolute; width:200px; height:139px; top:-17px; left:100px;  "><img src="./image/small.jpg" alt=""  /></div>                    
         
-        <div style="margin-top: 20px;height:750px; margin-left: 10px;width:620px;">
+        <div style="margin-top: 40px;height:810px; margin-left: 10px;width:620px;">
         
-        <?php $counter	=	0;
-	foreach($report['results'] as $result){
+        Take a look at your results obtained on the Big Five Personality Factors i.e. OCEAN to get to know your <br />self even better.
+        
+
+
+
+
+
+
+
+	<?php $counter	=	0;
+	<?php foreach($report['results'] as $result){
 		
 		$listArr[]	=	$result['descr'];
 				
@@ -167,31 +176,31 @@ Take a look at your results obtained on the Big Five Personality Factors i.e. OC
                 		
         </div>
        
-        <div style="float:left; width:680px; background:#1acccc; color:#fff; padding-top:10px; font-family:Arial, Helvetica, sans-serif; font-size:12px;   text-align:right; height:25px; margin-top:100px; ">Note: This Report is confidential and is only indicative of preferred careers for you.      
+        <div style="float:left; width:680px; background:#1acccc; color:#fff; padding-top:10px; font-family:Arial, Helvetica, sans-serif; font-size:12px;   text-align:right; height:25px; margin-top:40px; ">Note: This Report is confidential and is only indicative of preferred careers for you.      
 <strong style="margin-left:10px;">P-4</strong> &nbsp;&nbsp;&nbsp;&nbsp;</div>	
      </div>
      <?php }else{ ?>
      
      <!--Page NO. 4 -->
-     <div style=" float:left; width:680px; margin-left:40px; border:1px solid #333333; height:1050px;">
+     <div style=" float:left; width:650px; margin-left:40px; border:1px solid #333333; height:1050px;">
         <div style="float:left; width:680px; margin-top:0px; background:#1acccc; height:38px; padding-top:14px; text-align:right; font-size:18px; color:#fff;  font-family:Arial, Helvetica, sans-serif;">Profile Summary &nbsp;&nbsp;&nbsp;</div>
         <div style=" position:absolute; width:200px; height:139px; top:-17px; left:20%;  "><img src="./image/small.jpg" alt=""  /></div>                    
         
         <div style="margin-top: 50px; height:750px;margin-bottom: 50px;margin-left: 20px;width:620;">
-        <div style="float:left; width:680px; font-size:18px; color:#21C4C1; margin-top:10%;   font-family:Arial, Helvetica, sans-serif; ">
+        <div style="float:left; width:650px; font-size:18px; color:#21C4C1; margin-top:10%;   font-family:Arial, Helvetica, sans-serif; ">
                     	Your Interest Profile
                     </div>
-                	<div style="float:left; width:680px; font-size:14px; color:#000; text-align:justify; line-height:22px; font-family:, Helvetica, sans-serif;  ">
-                    	<p>Interests in a layman language can be "What you like to do?" 
-The Interest Test you have taken maps you on the six types popularly known as Holland's Codes often referred with the acronym RIASEC. 
+                	<div style="float:left; width:650px; font-size:14px; color:#000; text-align:justify; line-height:22px; font-family:, Helvetica, sans-serif;  ">
+                    	<p>Interests in a layman language can be "What you like to do?" <br />
+The Interest Test you have taken maps you on the six types popularly known as Holland's <br />Codes often referred with the acronym RIASEC. 
 <br/>
                         </p>
 					<div style=" color:#333; font-size:14px;margin-top:20px;font-family:Arial, Helvetica, sans-serif; "><strong>Take A Look at the description given below to understand your results in a better way:</strong><br/>
 								
 					  </div>
                       
-                      <div style=" color:#333; font-size:12px; margin-left:13px; margin-top: 20px;font-family:Arial, Helvetica, sans-serif; ">
-                      <table width="670" border="0" bordercolor="#333333" cellspacing="0" cellpadding="0" >
+                      <div style=" color:#333; font-size:12px; margin-left:5px; margin-top: 20px;font-family:Arial, Helvetica, sans-serif; ">
+                      <table width="630" border="0" bordercolor="#333333" cellspacing="0" cellpadding="0" >
                   <tr style="background:#eeeeee">
                     <td width="230" height="60" align="center" valign="middle"><strong>Realistic</strong></td>
                     <td width="400" height="60" align="center" valign="middle">People who have atheletic or mechanical ability, prefer to work with objects, machines, tools, plants or to be outdoors.</td>
@@ -209,7 +218,7 @@ The Interest Test you have taken maps you on the six types popularly known as Ho
                     <td width="400" height="60" align="center" valign="middle">People who like to work with people to provide direct services or helping opportunities like teaching, coaching or counseling and are drawn to social or humanistic causes.</td>
                   </tr>
                   <tr style="background:#eeeeee">
-                    <td width="230" height="60" align="center" valign="middle"><strong>ENTERPRISING</strong></td>
+                    <td width="230" height="60" align="center" valign="middle"><strong>Enterprising</strong></td>
                     <td width="400" height="60" align="center" valign="middle">People who like to work with people, influencing, persuading, performing, leading or managing for organizational goals or economic gains.</td>
                   </tr>
                   <tr style="background:#cccccc">
@@ -228,12 +237,12 @@ The Interest Test you have taken maps you on the six types popularly known as Ho
      <!--Page NO. 4 End-->
      
      
-     <div style=" float:left; width:680px; margin-left:40px; border:1px solid #333333; height:1050px;">
+     <div style=" float:left; width:650px !important; margin-left:40px; border:1px solid #333333; height:1050px;">
         <div style="float:left; width:680px; margin-top:0px; background:#1acccc; height:38px; padding-top:14px; text-align:right; font-size:18px; color:#fff;  font-family:Arial, Helvetica, sans-serif;">Profile Summary &nbsp;&nbsp;&nbsp;</div>
         <div style=" position:absolute; width:200px; height:139px; top:-17px; left:100px;  "><img src="./image/small.jpg" alt=""  /></div>                    
         
-        <div style="margin-top: 50px;height:750px; margin-left: 20px;width:620px;">
-        
+        <div style="margin-top: 35px;height:840px; margin-left: 20px;width:620px;">
+        <strong>Bar Diagram Showing the Scores obtained</strong>
         
         
         <table width="650" border="0" cellspacing="0" cellpadding="0" style="border:1px solid #e4e4e4; font-family:Arial, Helvetica, sans-serif; color:#000; font-size:18px; margin-top:10px; ">
@@ -271,7 +280,10 @@ The Interest Test you have taken maps you on the six types popularly known as Ho
 							<?php  }?>
 							   </table>
                                
-       <div style="margin-top: 50px;">
+       <div style="margin-top: 40px;">
+       <p>
+       <strong>What Does it Mean? Take a look</strong>
+       </p>
          <?php $counter	=	0;
 	foreach($report['results'] as $result){
 		$listArr[]	=	$result['descr'];
@@ -296,43 +308,48 @@ The Interest Test you have taken maps you on the six types popularly known as Ho
     
     
       <!--Page NO. 5-->
-     <div style=" float:left; width:680px; margin-left:40px; border:1px solid #333333;">
+     <div style=" float:left; width:650px; margin-left:40px; border:1px solid #333333 !important;">
         <div style="float:left; width:100%; margin-top:5%; background:#1acccc; height:38px; padding-top:14px; text-align:right; font-size:18px; color:#fff;  font-family:Arial, Helvetica, sans-serif;">Profile Summary &nbsp;&nbsp;&nbsp;</div>
         <div style=" position:absolute; width:200px; height:139px; top:-17px; left:20%;  "><img src="./image/small.jpg" alt=""  /></div>                    
-        
-        
-        <div style="margin-top: 50px;margin-bottom: 50px;margin-left: 20px;width:620; height:850px;">
-        <div style="float:left; width:100%; font-size:18px; color:#21C4C1; margin-top:10%;   font-family:Arial, Helvetica, sans-serif; ">
+       
+        <div style="margin-top: 20px;margin-bottom: 30px;margin-left: 20px;width:620; height:850px;">
+        <div style="float:left; width:100%; font-size:18px; color:#21C4C1; margin-top:10px;   font-family:Arial, Helvetica, sans-serif; ">
                     	Conclusion:
                     </div>
                 	<div style="float:left; width:100%; font-size:14px; color:#000; text-align:justify; line-height:22px; font-family:, Helvetica, sans-serif;  ">
                     	<p>
-Now that you have gone through the results obtained on the two tests, you must be wondering, what do you actually do with the information? How can you use the test results to make a well-informed career decision, in short how do you make sense of the data?
-Well, we are here to make it simple and easy! 
+Now that you have gone through the results obtained on the two tests, you must be wondering, what do <br />
+you actually do with the information? How can you use the test results to make a well-informed career <br />
+decision, in short how do you make sense of the data?<br />
+Well, we are here to make it simple and easy! <br />
 
-We have summed up the recommendations for work profile and career choice that best matches your personality and interest. You can use insights from this model to better understand yourself, and the type of role that you are most likely to enjoy. 
+We have summed up the recommendations for work profile and career choice that best matches your <br />
+personality and interest. You can use insights from this model to better understand yourself and <br />
+the type of role that you are most likely to enjoy. 
 <br />
-<strong>Based on your personality and interest you can explore the right type of role in the careers that are characterized by the following features:</strong>
+Based on your personality and interest you can explore the right type of role in the careers <br />that are characterized by the following features:
                 </p>
-                <br /><br />
 			    </div>
-                  <?php foreach($listArr as $rec){
-					  
-					  echo '<span style="color:21C4C1;border:1px solid #333333;padding:5px;line-height:20px;">'.$rec.'</span>';
-				  }?>
-            
+            <ul style="width:650px;margin-top:15px;">
+                  <?php foreach($listArr as $rec){?>
+					  <li style="color:#88AB45 !important;height:20px !important;">
+					<strong><?php  echo  wordwrap($rec, 110, "<br />\n");?></strong>
+                    </li><br />
+				<?php  }?>
+            </ul>
             <div style="width:680px;padding-top:10px;">
-            <div style="float:left; width:670px; font-size:18px; color:#21C4C1; margin-top:20px;   font-family:Arial, Helvetica, sans-serif; ">
+            <div style="float:left; width:670px; font-size:18px; color:#21C4C1; margin-top:5px;   font-family:Arial, Helvetica, sans-serif; ">
                     	Career Recommendations:
                     </div>
-                	<div style="float:left; width:670px; margin-bottom:20px; font-size:14px; color:#000; text-align:justify; line-height:22px; font-family:, Helvetica, sans-serif;  ">
+                	<div style="float:left; width:670px; margin-bottom:5px; font-size:14px; color:#000; text-align:justify; line-height:20px; font-family:, Helvetica, sans-serif;  ">
                     	<p>
             
             BASED ON YOUR OBTAINED RESULTS, YOU ARE RECOMMENDED TO EXPLORE THE FOLLOWING CAREERS FOR PREFERRED CHOICE! 
             </p>
             </div> 
-            <table width="670" border="0" cellspacing="0" cellpadding="0" style="margin-top:10px;font-family:Arial, Helvetica, sans-serif; color:#000; font-size:18px; ">
+            <table width="670" border="0" cellspacing="0" cellpadding="0" style="font-family:Arial, Helvetica, sans-serif; color:#000; font-size:18px; ">
 	<tr>
+    
     <?php
 	$listArr	=	array();
 	$counter=1;
@@ -340,23 +357,22 @@ We have summed up the recommendations for work profile and career choice that be
 	if($report['id']==3){
 		$listCar	=	Career::model()->findAllByAttributes(array('career_categories_id'=>$result['id']));
 		foreach($listCar as $data){		?>
-		<td width="210" height="100">
+		<td width="210" height="90">
 			<div style="color: #666666;font-size: 12px;width:200px;float:left !important;text-align:left;">
 				<img src="./uploads/career/small/<?php echo $data->image;?>" width="200" />
 			</div>
-			 <div style="color: #666666;font-size: 12px;width:200px;height:60px;float:left !important;text-align:left;">
+			 <div style="color: #666666;font-size: 12px;  width:200px;height:30px;float:left !important;text-align:left;">
 				<?php echo $data->title;?><br/>
+				<div style="border-bottom:1px solid #cccccc; padding-top:5px; padding-bottom:10px;">
 				<?php echo $data->description;?>
-			</div>
+					</div>
+            </div>
 		</td>      
 	 <?php if($counter%3==0){?>
 	 <tr>
 	</tr>
-	 <?php } ?>
-	<?php	$counter++;  }?>
-    
-    
-    <?php 
+	 <?php } $counter++;  }
+	 
 		}}?>
     
 		 
@@ -365,12 +381,11 @@ We have summed up the recommendations for work profile and career choice that be
             </div>
             <p>WE WISH YOU ALL THE BEST FOR YOUR FUTURE ENDEAVORS!</p>
             </div>
+            
         <div style="float:left; width:100%; background:#1acccc; color:#fff; padding-top:10px; font-family:Arial, Helvetica, sans-serif; font-size:12px;   text-align:right; height:25px; ">Note: This Report is confidential and is only indicative of preferred careers for you.      
-<strong style="margin-left:10px;">P-7</strong> &nbsp;&nbsp;&nbsp;&nbsp;</div>	
+<strong style="margin-left:10px;">P-7</strong> &nbsp;&nbsp;&nbsp;&nbsp;</div>
      </div>
-     <!--Page NO. 5 End-->
-    
-    </div>
-    
+     <!--Page NO. 5 End-->    
+    </div>    
 </body>
 </html>

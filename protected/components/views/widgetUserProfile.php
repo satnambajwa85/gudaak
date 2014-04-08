@@ -17,7 +17,7 @@
 									</div>
 									<div id="tabs">
 										<ul class="tab-fix-height">
-											<li class="next-active-res1"><a href="#tabs-1">Profile Details</a></li>
+											<li class="next-active-res1"><a href="#tabs-1">Personal Details</a></li>
 											<li><p class="breaker">-</p></li>
 											<li class="next-active-res2"><a href="#tabs-2">Academic</a></li>
 											<li><p class="breaker">-</p></li>
@@ -28,26 +28,26 @@
 												<div  id="user-profile-form">
 												<div class="profile_tab1_left">
 													<p><a class="edit-form" href="javascript:void(0);">Edit Details</a></p>
-													<input type="text" placeholder="<?php echo $model->first_name;?>" />
-													<input type="text" placeholder="<?php echo $model->last_name;?>" />
-													<input type="text" placeholder="<?php echo $model->date_of_birth;?>" />
-													<input type="text" placeholder="<?php echo $model->gender;?>" />
-													<input class="big_index" type="text" placeholder="<?php echo $model->email;?>" />
-													<input class="big_index" type="text" placeholder="+91<?php echo $model->mobile_no;?>" />
-													<input type="text" placeholder="<?php echo $model->generateGudaakIds->cities->title;?>" />
-													<select>
+													<input type="text" disabled="disabled" placeholder="<?php echo $model->first_name;?>" />
+													<input type="text" disabled="disabled" placeholder="<?php echo $model->last_name;?>" />
+													<input type="text" disabled="disabled" placeholder="<?php echo $model->date_of_birth;?>" />
+													<input type="text" disabled="disabled" placeholder="<?php echo $model->gender;?>" />
+													<input class="big_index" type="text" disabled="disabled"  placeholder="<?php echo $model->email;?>" />
+													<input class="big_index" type="text" disabled="disabled"  placeholder="+91<?php echo $model->mobile_no;?>" />
+													<input type="text" disabled="disabled" placeholder="<?php echo $model->generateGudaakIds->cities->title;?>" />
+													<select disabled="disabled" >
 														<option value="State"> - <?php echo $model->generateGudaakIds->cities->states->title;?> -</option>
 													</select>
 												</div>
 												<div class="profile_tab1_right margin-top27">
-													<select>
+													<select disabled="disabled" >
 														<option value="State"> -<?php echo $model->generateGudaakIds->cities->states->countries->title;?>-</option>
 													</select>
-													<input type="text" placeholder="<?php echo (!empty($model->postcode))?''.$model->postcode.'':'Postcode here';?>" />
-													<select class="uClass">
+													<input type="text" disabled="disabled" placeholder="<?php echo (!empty($model->postcode))?''.$model->postcode.'':'Postcode here';?>" />
+													<select disabled="disabled" class="uClass">
 														<option value="State"><?php echo $model->userClass->title;?></option>
 													</select> 
-													<input class="big_index" type="text" placeholder="<?php echo $model->generateGudaakIds->schools->name;?>" />
+													<input class="big_index" disabled="disabled"  type="text" placeholder="<?php echo $model->generateGudaakIds->schools->name;?>" />
 													<ul>
 														<li>
 															<a class="next_button next_button1" href="#tabs-2">Next Step</a>
@@ -79,7 +79,7 @@
 													<?php echo $form->textField($model,'email',array('placeholder'=>''.$model->email.'','class'=>'big_index'));
 													echo $form->error($model,'email');?>
 												
-													<?php echo $form->textField($model,'mobile_no',array('placeholder'=>''.$model->mobile_no.'','class'=>'big_index'));
+													<?php echo $form->textField($model,'mobile_no',array('placeholder'=>''.$model->mobile_no.'','maxlength'=>'10','class'=>'big_index'));
 													echo $form->error($model,'mobile_no');?>
 											  
 													<input type="text" placeholder="<?php echo $model->generateGudaakIds->cities->title;?>" />

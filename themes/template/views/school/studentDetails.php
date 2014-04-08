@@ -28,6 +28,18 @@ $this->breadcrumbs=array('studentDetails',);
 </tr>
 </tbody>
 </table>
+        
+        
+		
+		
+		
+		
+		
+		
+	    
+		
+	
+		
 	</div>
 
 <?php $this->endWidget(); ?>

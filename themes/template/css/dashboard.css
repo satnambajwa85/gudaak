@@ -8159,6 +8159,8 @@ input[type="radio"]:checked + label
 .coll_top_row{ float:left; width:98%; margin-left:2%;}
 .coll_top_part{ float:left; width:58%; border-bottom:1px solid #ccc; padding-bottom:8px;}
 .coll_top_part2{ float:left; width:40%;}
+.coll_top_part1{ float:left; width:79%; border-bottom:1px solid #ccc; padding-bottom:8px;}
+.coll_top_part12{ float:left; width:20%;}
 .coll_logo{ float:left; width:55px; height:55px; margin-right:7px; }
 .head_text_coll{ float:left; width:80%; font-size:12px; color:#666;  font-family:robotomedium ; }
 .head_text_coll span{ font-size:10px;}	
@@ -8553,3 +8555,21 @@ opacity: 0.85;
 .mla{margin-left:20px;}
 .grid-view {padding: 0;}
 .stream-pref .table th {width:20%;}
+.btnTNew {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: normal;
+  line-height: 1.428571429;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+      -ms-user-select: none;
+       -o-user-select: none;
+          user-select: none;
+}

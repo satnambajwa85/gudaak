@@ -23,9 +23,12 @@ $this->breadcrumbs=array('Articles'=>array('/user/articlesList'),''.$articles->t
 				 </div>
                  <hr />
 				  <div class="clear"></div>
-<div  style="float:left;padding:6px;" >
-<img src="<?php echo Yii::app()->baseUrl;?>/uploads/articles/large/<?php echo $articles->image;?>" />
+                <?php if(!empty($articles->image)){?>
+<div class=" row col-md-11" style="float:left;padding:6px;" >
+<img src="<?php echo Yii::app()->baseUrl;?>/uploads/articles/original/<?php echo $articles->image;?>" width="80%" />
 </div>
+<div class="clear"></div>
+				<?php } ?>
 				<p>
 				<?php echo $articles->description;?>	
 				</p>

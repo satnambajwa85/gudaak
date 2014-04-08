@@ -10,7 +10,7 @@ class UserController extends Controller
 				'actions'=>array('index','editProfile','test','tests','detailedReport','collage','liveChat',
 							'articlesList','articles','summary','newsUpdates',
 							'exploreColleges','shortListedColleges','dynamicCourse','dynamicSearchResult','userShortlistCollage',
-							'search','changePassword','application','questionsAnswer','upload','testMail','userProfileUpdate','retakeTest','news','readEvent','summaryDetails','summaryData','talk','feedbackAnswer',
+							'search','changePassword','application','questionsAnswer','upload','testMail','userProfileUpdate','retakeTest','news','readEvent','summaryDetails','summaryData','talkData','talk','feedbackAnswer',
 				),
 				'users' => array('@')
 					
@@ -123,7 +123,11 @@ class UserController extends Controller
 		}
 		$model->unsetAttributes();
 		$model->sender_id	=	Yii::app()->user->profileId;
-		$this->render('talk',array('model'=>$model));
+		
+		
+		$list	=	Tickets::model()->FindAllByAttributes(array('sender_id'=>Yii::app()->user->profileId));
+		
+		$this->render('talk',array('model'=>$model,'lists'=>$list));
 	}
 	public function actionUserProfileUpdate()
 	{	
@@ -1562,11 +1566,24 @@ class UserController extends Controller
 	public function actionSummaryData($id)
 	{
 		$summaryDetails=Summary::model()->findByPk($id);
-		echo '<table width="90%" class="pull-right" cellpadding="10" border="1">
+		echo '
+		<div class="col-md-12"><a href="javascript:void(0);" class="summery-left-btn pull-right mb10" onclick="$(\'#resultSummery\').html(\'\');">Close</a></div>
+		<table width="90%" class="pull-right" cellpadding="10" border="1">
                 	<tr class="light-gray"><td width="25%"><span>Event</span></td><td width="75%"><span>'.$summaryDetails->event.'</span></td></tr>
                 	<tr><td><span>Title</span></td><td><span>'.$summaryDetails->topic.'</span></td></tr>
                 	<tr class="light-gray"><td><span>Add Date</span></td><td><span>'.date('d M, Y',strtotime($summaryDetails->add_date)).'</span></td></tr>
                 	<tr><td><span>Details</span></td><td><span>'.$summaryDetails->remarks.'</span></td></tr>
+                	
+                </table>';
+	}
+	public function actionTalkData($id)
+	{
+		$summaryDetails	=	Tickets::model()->findByPk($id);
+		echo '<table width="90%" class="pull-right" cellpadding="10" border="1">
+                	<tr class="light-gray"><td width="25%"><span>Title</span></td><td width="75%"><span>'.$summaryDetails->title.'</span></td></tr>
+                	<tr><td><span>Topic</span></td><td><span>'.$summaryDetails->problem.'</span></td></tr>
+                	<tr class="light-gray"><td><span>Add Date</span></td><td><span>'.date('d M, Y',strtotime($summaryDetails->add_date)).'</span></td></tr>
+                	<tr><td><span>Response</span></td><td><span>'.$summaryDetails->solution.'</span></td></tr>
                 	
                 </table>';
 	}
@@ -1603,15 +1620,15 @@ class UserController extends Controller
 			Yii::app()->user->setFlash('redirect',"Take the Test to Get Started");
 			$this->redirect(Yii::app()->createUrl('/user/tests'));
 		}
-		$model	=	new Institutes;
+		$model	=	new Collage;
 		$criteria			=	new CDbCriteria();
 		$criteria->condition= '(activation =:activation and status =:status )';
 		$criteria->params 	= array('activation'=>1,'status'=>1);
-		$count				=	Institutes::model()->count($criteria);
+		$count				=	Collage::model()->count($criteria);
 		$pages				=	new CPagination($count);
 		$pages->pageSize	=	5;
 		$pages->applyLimit($criteria);
-		$Institutes				=	Institutes::model()->findAll($criteria);
+		$Institutes				=	Collage::model()->findAll($criteria);
 
 		$this->render('collage',array('model'=>$model,'Institutes'=>$Institutes,'pages'=>$pages));
 	}

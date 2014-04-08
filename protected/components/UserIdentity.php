@@ -4,6 +4,7 @@ class UserIdentity extends CUserIdentity
 	public function authenticate()
 	{
 		$record = UserLogin::model()->findByAttributes(array('username'=>$this->username,'activation'=>1,'status'=>1));
+		
 		if($record===null)//validate username exsist or no||t 
 			$this->errorCode = self::ERROR_USERNAME_INVALID;
 			

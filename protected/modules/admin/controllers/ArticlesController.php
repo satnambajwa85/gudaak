@@ -1,4 +1,5 @@
 <?php
+
 class ArticlesController extends Controller
 {
 	/**
@@ -108,6 +109,7 @@ class ArticlesController extends Controller
 			}
 			
 			$model->user_login_id=Yii::app()->user->userId;
+			$model->add_date	=	date('Y-m-d H:i:s');
 			if($model->save())
 				$this->redirect(array('admin'));
 				//$this->redirect(array('view','id'=>$model->id));
@@ -178,6 +180,7 @@ class ArticlesController extends Controller
 			}
 			$model->image	=	$fileName;
 			$model->user_login_id=Yii::app()->user->userId;
+			$model->add_date	=	date('Y-m-d H:i:s');
 			if($model->save())
 				$this->redirect(array('admin'));
 		}

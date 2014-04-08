@@ -16,7 +16,7 @@
 					<!-- start Navigation -->
 					<div class="col-md-10  pull-left">
 						<div class="col-md-12 fl pd0">
-							<div class="col-md-2 pd0 pull-left">
+							<div class="col-md-4 pd0 pull-left">
 								<h1 class="crumb-title">Counsellor Admin-
 										<?php if(isset($this->breadcrumbs)):?>
 											<?php $this->widget('zii.widgets.CBreadcrumbs', array(
@@ -25,24 +25,24 @@
 										<?php endif?>
 								</h1>
 							</div>
-							<div class="pd0 col-md-10 pull-left top-nav-section">
-								<ul class="nav pull-left col-md-7">
-									<li class="<?php echo (Yii::app()->controller->action->id=='talk')?'pull-left active-link':'pull-left'?>">
-										<!--<i class="pull-left mar-top10 icon-microphone icon-top"></i>-->
+							<div class="pd0 col-md-8 pull-left top-nav-section">
+								<ul class="nav pull-left ">
+									<li class="<?php echo (Yii::app()->controller->action->id=='studentDetail' || Yii::app()->controller->action->id=='studentDetails')?'pull-left active-link':'pull-left'?>">
+										<i class="pull-left mar-top10 icon-microphone icon-top"></i>
 											<?php echo CHtml::link('Talk to Admin',array('counsellor/talk'),array('class'=>'pull-left'));?>
 									</li>
                                     <li class="<?php echo (Yii::app()->controller->action->id=='studentDetail' || Yii::app()->controller->action->id=='studentDetails')?'pull-left active-link':'pull-left'?>">
-										<!--<i class="pull-left mar-top10 icon-microphone icon-top"></i>-->
+										<i class="pull-left mar-top10 icon-microphone icon-top"></i>
 											<?php echo CHtml::link('Student Details',array('counsellor/studentDetails'),array('class'=>'pull-left'));?>
 									</li>
 									<li class="<?php echo (Yii::app()->controller->action->id=='profile')?'pull-left active-link':'pull-left'?>">
-										<!--<i class="pull-left mar-top10 icon-microphone icon-top"></i>-->
+										<i class="pull-left mar-top10 icon-microphone icon-top"></i>
 										<?php echo CHtml::link('School Profile',array('counsellor/profile'),array('class'=>'pull-left'));?>
 									</li>
 								</ul>
-								<div class="pd0 pull-left col-md-5 ">
+								<div class="pd0 pull-left col-md-6 ">
 											<div class="pd0 col-md-12 pull-left">
-												<div class="welcome-school  col-md-8">
+												<div class="welcome-school  col-md-9">
 											<?php 
 													$filename = ''.$counselor->image.'';
 													$path=Yii::getPathOfAlias('webroot.uploads.user.small') . '/';
@@ -52,12 +52,10 @@
 													}else{
 														echo CHtml::link('<img src="'.Yii::app()->baseUrl.'/uploads/user/small/noimage.jpg"/>',array('counsellor/'),array('class'=>'userImage pull-left'));
 													} ?>
-                                                    <div>
 													<span>Welcome</span>
 													<h3><?php echo $counselor->first_name.' '.$counselor->last_name;?></h3>
-                                                    </div>
 												</div>
-												<div class="pd0 br-left col-md-4  pull-left">
+												<div class="pd0 br-left col-md-3  pull-left">
 												<?php echo CHtml::link('Logout',array('site/logout'),array('class'=>'schoo-bt-color btn pull-right'));?>
 												</div>
 											</div>

@@ -107,6 +107,7 @@ class EventsController extends Controller
 				}
 				$model->image	=	$fileName;
 			}
+			$model->add_date	=	date('Y-m-d H:i:s');
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -176,6 +177,7 @@ class EventsController extends Controller
 			}
 			else
 				$model->image	=	$_POST['Events']['oldImage'];
+			$model->add_date	=	date('Y-m-d H:i:s');
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}

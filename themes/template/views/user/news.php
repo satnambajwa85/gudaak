@@ -1,7 +1,9 @@
+<?php $this->pageTitle='News';
+$this->breadcrumbs=array('News'=>array('/user/newsUpdates'));?>
 	<div class="career-bot pull-left">
 		<div class="mr0 col-md-12 pd0 fl">
 			<div class="mr0 col-md-12 pd0 fl artical">
-				 <h1>Gudaak helps you to fullfill news</h1>
+				 <h1>&nbsp;<!--Gudaak helps you to fullfill news--></h1>
 				 <h3><?php echo $news->title;?></h3>
 				 <span>by admin</span>
 				 <div class="clear"></div>
@@ -18,11 +20,7 @@
 				<p>
 				<?php echo substr($news->description,0,3000);?>	
 				</p>
-				 <h2 class="about-author">About the author</h2>
-				 <p>	
-					It is long established fact a reader will be It is long established fact a reader will b
-					
-				</p>
+				
 			</div>
 			
 			

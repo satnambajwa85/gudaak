@@ -34,7 +34,7 @@
 	<tr>
 		<td>
 			Regards
-			Gudaak
+			Venturepact
 		</td>	
 	</tr>
 </table>

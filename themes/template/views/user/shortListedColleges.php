@@ -18,12 +18,12 @@ $this->breadcrumbs=array('ShortListed Colleges'=>array('/user/shortListedCollege
 			<div class="col-md-6 pull-left <?php echo $class;?>   pd-b6">
 				<h1>Shortlisted colleges</h1>
 				<ul id="collage">
-					<li>
+					<li style="height:100px;">
 						<div class="col-md-12 pd0 pull-left border ">
 							<div class="col-md-2 pd0 pull-left left-list">
 								<img src="<?php echo Yii::app()->theme->baseUrl;?>/images/schoo-logo.jpg"/>
 							</div>
-							<div class="col-md-8 pd5 pull-left middle-list">
+							<div class="col-md-10 pd5 pull-left middle-list">
 								<h2><?php echo $list->institutes->name; ?></h2>
 								<p><?php echo substr($list->institutes->address1,0,60);?></p>
 								<span><i class=" icon-mobile-phone"></i><?php echo $list->institutes->phone_number.'  '.$list->institutes->work_phone_no.'  '.$list->institutes->official_contact_no; ?></span>
@@ -32,11 +32,11 @@ $this->breadcrumbs=array('ShortListed Colleges'=>array('/user/shortListedCollege
 								
 								
 							</div>
-							<div class="col-md-2 pd0 pull-left  right-list	">
+							<!--<div class="col-md-2 pd0 pull-left  right-list	">
 								<h3>Rating</h3>
 								<h4>405/ 7</h4>
 								<?php echo CHtml::link('Apply Now')?>
-							</div>
+							</div>-->
 						</div>
 					</li>
 					

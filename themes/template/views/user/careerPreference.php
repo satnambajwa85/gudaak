@@ -113,51 +113,9 @@ $this->breadcrumbs=array('Career Preference'=>array('/user/careerPreference'));
 				 
 				<?php } ?>
 	        </div>
-        
         </div>
-						
 				 <?php } ?>
-			 
 				</div>
-				
-				
-			<!-- <div class="col-md-12 pull-left below-info">
-					<p>if ypou have any different idea to choose a stream then just change your idea bu having a conversation with counselor. </p>
-					<?php //echo CHtml::link('Still confused',array('user/'),array('class'=>'white-text btn btn-warning'));?>
-				</div>-->
-				
-				<!--<div class="col-md-12 pd0 pull-left user-feedback">
-					<h1>Feedback</h1>
-					<p>Your valuable idea about this Career Explore. </p>
-					<span class="fl">1.Weather counselling with counselor satisfactory?</span>
-					<div class="clear"></div>
-					<?php /*$form=$this->beginWidget('CActiveForm', array(
-																		'id'=>'comment-info-form',
-																		    'enableClientValidation'=>true,
-																			'clientOptions'=>array(
-																					'validateOnSubmit'=>true,
-																					
-																				)
-																	)); ?>		
-					       <div class="form-controles fl">
-						   <?php echo $form->radioButtonList($model,'user_responce',array('Satisfied'=>'Satisfied','Average'=>'Average','Note_at_all'=>'Note at all'),array('separator'=>'')); ?>
-						   <?php echo $form->error($model,'user_responce');?>
-						   </div>
-							<div class="clear"></div>
-							<select id="UserComments_stream_id" class="form-control" name="UserCareerComments[career_id]">
-								<?php foreach($data as $list){?>
-								<option value="<?php echo $list['id'];?>"><?php echo $list['title'];?></option>
-								<?php } ?>
-							</select>
-							<div class="form-controles">
-							<?php echo $form->textArea($model,'comments',array('class'=>'form-control','placeholder'=>'Enter comment here..'));?>
-							 <?php echo $form->error($model,'comments');?>	
-							</div>
-							<?php echo CHtml::submitButton('submit',array('class'=>'btn btn-warning fr','id'=>'comment-info-form-btn'));?>
-					<?php $this->endWidget();*/?>
-				</div>-->
-				
-				
 			</div>
          </div>
 		  <?php } else{ ?>

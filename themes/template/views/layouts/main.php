@@ -127,9 +127,6 @@
                 </div>
                 <div class="footer_2right">
                 	<ul>
-                    	<li><?php echo CHtml::link('Articals',array('site/articals'))?></li>
-                    </ul>
-                	<ul>
                     	<li><a href="<?php echo Yii::app()->session['setting']['fb_link'];?>" target="_blank" class="fb_icon"></a></li>
                         <li><a href="<?php echo Yii::app()->session['setting']['twittwe_link'];?>" target="_blank" class="tw_icon"></a></li>
                         <li><a href="<?php echo Yii::app()->session['setting']['linkedin_link'];?>" target="_blank" class="li_icon"></a></li>

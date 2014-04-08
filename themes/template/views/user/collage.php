@@ -29,7 +29,7 @@ $this->breadcrumbs=array('Colleges Explore'=>array('/user/exploreColleges'));
                 	<div class="text_w_outer">
                      <span class="text_w_dd">Course</span>
                     <?php 	echo $form->dropDownList($model,'courses_id',
-									CHtml::listData(Courses::model()->findAll(),'id','title'),
+									CHtml::listData(Course::model()->findAll(),'id','title'),
 									array('ajax' => array('type'=>'POST',
 										'url'=>CController::createUrl('DynamicCourse'), //url to call.
 										'update'=>'#Institutes_specialisation', //selector to update
@@ -41,13 +41,13 @@ $this->breadcrumbs=array('Colleges Explore'=>array('/user/exploreColleges'));
                     <div class="text_w_outer">
                      <span class="text_w_dd">Specialisation</span>
                       <?php 	echo $form->dropDownList($model,'specialisation',
-									CHtml::listData(CourseStream::model()->findAll(),'id','title'));?>
+									CHtml::listData(Interest::model()->findAll(),'id','title'));?>
                     </div>
                     
                     <div class="text_w_outer">
                      <span class="text_w_dd">Location</span>
-					  <?php 	echo $form->dropDownList($model,'cities_id',
-									CHtml::listData(Cities::model()->findAll(),'id','title'),
+					  <?php 	echo $form->dropDownList($model,'city_id',
+									CHtml::listData(City::model()->findAll(),'id','title'),
 									array('ajax' => array('type'=>'POST',
 										'url'=>CController::createUrl('DynamicSearchResult'), //url to call.
 										'update'=>'#collegeResult', //selector to update
@@ -93,7 +93,7 @@ $this->breadcrumbs=array('Colleges Explore'=>array('/user/exploreColleges'));
 			  <?php foreach($Institutes as $Institutes){ ?>
 					<div class="coll_right_main_outer">
                      <div class="coll_top_row">
-                         <div class="coll_top_part">
+                         <div class="coll_top_part1">
                             <div class="coll_logo">
 							<img src="<?php echo Yii::app()->theme->baseUrl;?>/images/coll_logo.png" alt="logo"></div>   
                              <div class="head_text_coll"><?php echo $Institutes->name;?><br>
@@ -101,25 +101,22 @@ $this->breadcrumbs=array('Colleges Explore'=>array('/user/exploreColleges'));
                              </div>
                         </div>
                       
-                        <div class="coll_top_part2">
-                            <div class="orange_div">Rating <span>4.5/5</span></div>
+                        <div class="coll_top_part12">
+                            <!--<div class="orange_div">Rating <span>4.5/5</span></div>-->
                         <div class="orange_div"><input type="checkbox" id="box_11" class="css-checkbox">
 						<?php echo CHtml::ajaxlink('Shortlist Collage',array('user/UserShortlistCollage','id'=>$Institutes->id),array('update'=>'#messagePrint'),array('class'=>'css-label'));?>
         			   </div>
                         </div>
-                       
-                        <div class="content_div">Bachelor of Technology (B.Tech)  <span>  (4 years/ Full Time/ On-campus/ AICTE Approved)</span></div>
-                        <div class="content_div">Dual Degree - Bachelor of Technology + Master of Technology  <span> (5 years/ Full Time/ On-campus/ AICTE Approved)</span></div>
+                       <?php foreach($Institutes->course as $cou){?>
+                        <div class="content_div"><?php echo $cou->title;?>  <span>  (<?php echo $cou->interests;?>)</span></div>
+                       <?php } ?>
                      </div>
-					 
-                           
-                   </div>
-				   <?php  } ?>
+					</div>
+					<?php  } ?>
 				     <div class="col-md-6 pull-right">
 					<?php $this->widget('CLinkPager', array('pages' => $pages,)) ?>
 					</div>	
               </div>
-              
                <!--Right_section End-->
             
             

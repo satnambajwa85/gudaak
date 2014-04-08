@@ -1,5 +1,3 @@
-<?php $this->pageTitle='Talk';
-$this->breadcrumbs=array('Talk'=>array('/user/talk'));?>
 <?php
 $this->pageTitle=Yii::app()->name . ' -  Student Details';
 $this->breadcrumbs=array('studentDetails',);
@@ -10,33 +8,20 @@ $this->breadcrumbs=array('studentDetails',);
 
 <div class="col-md-10 pop-up-border fl col-lg-offset-1 ">
 	<div class="row test-bot">School Details</div>
-    <div class="wide form">
-<div>
+   
 	<?php 
-	echo CHtml::link('Add New','#',array('onclick'=>'$("#create-form").show();','class'=>'back-btn margin_t')); ?>
-	<div style="width:100%; float:left;">
-   <div style=" float: left; margin-bottom: 38px; margin-left: 18%; width: 75%;"> 
+	echo CHtml::link('Add New','#',array('onclick'=>'$("#create-form").show();')); ?>
 	<div id="create-form" <?php echo (isset($_POST['Tickets']))?'':'style="display:none"';?>>
 		<?php $this->renderPartial('_talk',array('model'=>$model,)); ?>
 	</div>
-  </div>
-  </div>
-</div>
-
-    
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'tickets-grid',
 	'itemsCssClass'=>'table table-bordered',
 	'dataProvider'=>$model->search(),
-	//'filter'=>$model,
 	'summaryText' => '',
 	'columns'=>array(
-		//'id',
 		'title',
 		'problem',
-		'mode',
-		'available',
-		'language',
 		array(
             'name'=>'status',
             'value'=>'($data->status==1)?"Pending":"Answers"'
@@ -45,23 +30,7 @@ $this->breadcrumbs=array('studentDetails',);
             'name'=>'add_date',
             'value'=>'date("M d,Y",strtotime($data->add_date))'
 		),
-		
-		/*
-		'sender_id',
-		'receiver_id',
-		'solution',
-		'modification_date',
-		array(
-			'class'=>'CButtonColumn',
-		),
-		*/
 	),
 )); ?>
 	</div>
 </div>
-
-
-
-
-
-

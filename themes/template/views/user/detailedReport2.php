@@ -18,9 +18,9 @@ $this->breadcrumbs=array('Detailed Report'=>array('/user/detailedReport'));?>
 		<div class="col-md-12 pull-left br-all inner-padding">
 			<div id="scrollBar" style="max-height:575px;width:97%;">
 			<div class="wrapper">
-			<div class="summary-report-title1">Profile Summary&nbsp;
+			<!--<div class="summary-report-title1">Profile Summary&nbsp;
 				<div class="report-log-img"><img alt="" src="./image/small.jpg"></div>                    
-			</div>
+			</div>-->
 				<div class="w100" >
                     <div class="reportLogo"><img alt="" src="./image/logo_large.png" /></div>
                     

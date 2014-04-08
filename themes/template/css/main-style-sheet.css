@@ -457,9 +457,6 @@ opacity: 0.85;
 #popup_box img{left: 21%;
     position: absolute;
     top: 65%;
-<<<<<<< HEAD
-    width: 18%;}
-=======
     width: 18%;}
 .newsupdates ul{list-style:none;padding:0px;}
 .newsupdates ul li{width: 47%;;float:left; margin: 0 35px 18px 0;margin-bottom:10px;border:1px solid #eee;}
@@ -477,4 +474,3 @@ opacity: 0.85;
 .artical h1{color: #F7A944;font-size: 15px;font-family: robotomedium}
 .artical h3{margin:0;color: #21C4C1;font-size: 15px;text-transform: capitalize;font-family: robotomedium}
 .artical span{margin:0;color: #666;font-size: 12px;font-family: robotomedium}
->>>>>>> 1279c3defb076de0d6ec381dd9fb5ee2f5bae04d

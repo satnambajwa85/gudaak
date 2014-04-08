@@ -52,7 +52,7 @@ $this->breadcrumbs=array('Assess'=>array('/user/tests'));?>
 						<div class="col-md-6 pull-left">
 							<div class="col-md-12 pull-left min-height-fix border-box">
 								<div align="center">
-                                <span class='btn btn-info2 center-bt'>
+                                <span class='btnTNew btn-info2 center-bt'>
 								<?php echo $list->title;?> </span>
 								</div>
 								<div class="retaketest ">

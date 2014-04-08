@@ -19,13 +19,13 @@ class WidgetDashboardMenu extends CWidget
        }
    }  
    protected function renderContent()
-   	{
-		$completeProfile	=	'';
-	 	$userProfile		=	UserProfiles::model()->findByPK(Yii::app()->user->profileId);
+   	{	$completeProfile	='';
+	 	$userProfile	=	UserProfiles::model()->findByPK(Yii::app()->user->profileId);
 		$userProfileProcess	=	UserProfilesHasUserSubjects::model()->countByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId)); 
-		$userProfileProcess2=	UserProfilesHasInterests::model()->countByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId)); 
-		$tests				=	OrientItems::model()->findAllByAttributes(array('published'=>1,'status'=>1),array('order'=>'title ASC '));
-		$userTest		 	=  UserReports::model()->countByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId)); 
+		$userProfileProcess2	=UserProfilesHasInterests::model()->countByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId)); 
+		$tests			=	OrientItems::model()->findAllByAttributes(array('published'=>1,'status'=>1),array('order'=>'title ASC '));
+		$userTest	 	=  UserReports::model()->countByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId)); 
+		 
 		if($userTest==1){
 			$completeProfile	=	'50%'; 
 		}

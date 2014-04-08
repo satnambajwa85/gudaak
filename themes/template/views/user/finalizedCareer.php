@@ -10,7 +10,7 @@ $this->breadcrumbs=array('Finalized Career'=>array('/user/finalizedCareer'));
 						</div>
 							 
 					<?php endif; ?>	
-		<div class="mr0 col-md-12 fl">
+		<div class="mr0 col-md-6 fl br-right">
 			<div class="mr0  pull-left stream-pref">
 				<!--<h1>Finalized Career</h1>-->
                 <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
@@ -19,13 +19,13 @@ $this->breadcrumbs=array('Finalized Career'=>array('/user/finalizedCareer'));
 
 			</div>
 			
-		</div>
+		
 		<div class="col-md-12 fl pd0">
 			<?php if(!empty($data)) {?>
             <div class="mr0 col-md-12 fl br-right">
 			<div id="scrollBar" style="max-height: 475px;">
 			<?php foreach($data as $list){ ?>
-			<div class="stream-cat pull-left fl  pd-b10">
+			<div class="pull-left fl mt20 pd-b10">
 				<div class="col-md-12 fl pd0 ">
 					<div class="col-md-6 pull-left pd0 prefered-stream-img">
 						<?php 
@@ -71,6 +71,7 @@ $this->breadcrumbs=array('Finalized Career'=>array('/user/finalizedCareer'));
 				   </div>
 				</div>
 			</div>
+            <div class="clear"></div>
 			<?php } ?>
 			 
 			</div>
@@ -124,6 +125,8 @@ $this->breadcrumbs=array('Finalized Career'=>array('/user/finalizedCareer'));
 			<?php } ?>
 		
 </div>
+		
+        </div>
 </div>
 
 	

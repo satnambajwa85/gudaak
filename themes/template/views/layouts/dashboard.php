@@ -60,7 +60,7 @@ Yii::app()->clientScript->registerScript(
 							  <!--<li id="talk-btn"><i class="icon-microphone icon-top talk-icon"></i><a href="#">Talk to Counsellor</a></li>-->
 							  <li><i class="icon-microphone icon-top talk-icon"></i><?php echo CHtml::link('Talk to Counsellor',array('user/talk'));?></li>
 
-							  <li><i class="news-icon"></i><?php echo CHtml::link('News and Updates',array('user/newsUpdates'));?></li>
+							  <li><i class="news-icon"></i><?php echo CHtml::link('Notifications',array('user/newsUpdates'));?></li>
 							  <li><i class="summary-icon"></i><?php echo CHtml::link('Summary',array('user/summary'));?></li>
 							 
 							  

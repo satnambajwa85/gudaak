@@ -13,8 +13,9 @@
                         	<div class="col-md-12 fl details-report">
                                 <h1>Summary Report for <?php echo $report['name'];?></h1>
                             </div>
-                            <p><?php echo $report['description'];?></p>
-                        
+                            <p>Based on your obtained scores on the test, your results indicate the following about your <?php echo $report['name'];?>
+							<?php // echo $report['description'];?></p>
+                        	<br /><br />
 							
 						</div>
                         <div class="clear"></div>
@@ -99,7 +100,9 @@ foreach($report['results'] as $result){
 							<div class="col-md-12 fl details-report">
 								<h1>Summary Report for <?php echo $report['name'];?></h1>
 							</div>
-							<p><?php echo $report['description'];?></p>
+							<p>Based on your obtained scores on the test, your results indicate the following about your <?php echo $report['name'];?>
+							<?php // echo $report['description'];?></p>
+                            <br /><br />
 						</div>
                         <div class="clear"></div>
 						<?php foreach($report['results'] as $result){?>
