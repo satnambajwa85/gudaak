@@ -43,6 +43,7 @@ return array(
 			 //alias to dir, where you unpacked extension
 			'class' => 'application.extensions.imagemodifier.CImageModifier',
 		),
+
 		'user'=>array(
 			// enable cookie-based authentication
 			'allowAutoLogin'=>true,

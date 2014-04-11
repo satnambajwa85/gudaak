@@ -83,7 +83,7 @@ Wishing you all the best in all your future endeavours!
                     </div>	
         </div>
         <div style="float:left; width:100%; background:url(image/img_icon.jpg) no-repeat;height:129px; background-position:center; margin-top:8%; margin-bottom:8%;" ></div>    
-        <div style="float:left; width:100%; background:#1acccc; color:#fff; padding-top:10px; font-family:Arial, Helvetica, sans-serif; font-size:12px;   text-align:right; height:25px; margin-top:100px; ">Note: This Report is confidential and is only indicative of preferred careers for you.      
+        <div style="float:left; width:100%; background:#1acccc; color:#fff; padding-top:10px; font-family:Arial, Helvetica, sans-serif; font-size:12px;   text-align:right; height:25px; margin-top:50px; ">Note: This Report is confidential and is only indicative of preferred careers for you.      
 <strong style="margin-left:10px;">P-2</strong> &nbsp;&nbsp;&nbsp;&nbsp;</div>	
      </div>
      <!--Page NO. 2 End-->
@@ -154,16 +154,8 @@ There has been much research on how people describe themselves and others based 
         <div style="margin-top: 40px;height:810px; margin-left: 10px;width:620px;">
         
         Take a look at your results obtained on the Big Five Personality Factors i.e. OCEAN to get to know your <br />self even better.
-        
-
-
-
-
-
-
-
-	<?php $counter	=	0;
-	<?php foreach($report['results'] as $result){
+        <?php $counter	=	0;
+	foreach($report['results'] as $result){
 		
 		$listArr[]	=	$result['descr'];
 				
@@ -241,7 +233,7 @@ The Interest Test you have taken maps you on the six types popularly known as Ho
         <div style="float:left; width:680px; margin-top:0px; background:#1acccc; height:38px; padding-top:14px; text-align:right; font-size:18px; color:#fff;  font-family:Arial, Helvetica, sans-serif;">Profile Summary &nbsp;&nbsp;&nbsp;</div>
         <div style=" position:absolute; width:200px; height:139px; top:-17px; left:100px;  "><img src="./image/small.jpg" alt=""  /></div>                    
         
-        <div style="margin-top: 35px;height:840px; margin-left: 20px;width:620px;">
+        <div style="margin-top: 35px;height:840px; margin-left: 20px;width:620px; padding-top: 75px;">
         <strong>Bar Diagram Showing the Scores obtained</strong>
         
         
@@ -272,8 +264,7 @@ The Interest Test you have taken maps you on the six types popularly known as Ho
 												}
 												?>
 										<div style="background: none repeat scroll 0 0 #FFFFFF;border: 1px solid #CCCCCC;float: left;height: 25px; margin-bottom: 10px;width: 85%;">
-										<div style="width:<?php echo ($result['score']/0.4);?>%;background: none repeat scroll 0 0 #<?php echo $color;?>;float: left;height: 25px;">									                    
-										</div>                   
+										<div style="width:<?php echo ($result['score']/0.4);?>%;background: none repeat scroll 0 0 #<?php echo $color;?>;float: left;height: 25px; padding-left:50px;color:#FFF;"><?php echo $result['value'];?></div>                 
 									</div>
 									</td>
 								 </tr>

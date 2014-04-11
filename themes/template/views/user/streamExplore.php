@@ -24,8 +24,8 @@ $this->breadcrumbs=array('Explore'=>array('/user/streamExplore'));?>
 				<?php echo CHtml::link('<h1>'.substr($list['title'],0,20).'..</h1>',array('user/stream','id'=>''.$list['id'].''),array('title'=>$list['title']));?>
 				<p><?php echo substr($list['description'],0,70);?></p>
 				<div class="col-md-12 career-hot-links">
-				<?php echo CHtml::link('Read more..','javaScript:void(0);',array('class'=>'pull-left','title'=>'Read Full.'));?>
-					<span class="pull-right"><i class="icon-eye-open"></i>19021</span>
+				<?php echo CHtml::link($list['title'],array('user/stream','id'=>''.$list['id'].''),array('class'=>'pull-left','title'=>'Read Full.'));?>
+					<span class="pull-right"><!--<i class="icon-eye-open"></i>19021--></span>
 				</div>
 			</div>
 		<?php } ?>

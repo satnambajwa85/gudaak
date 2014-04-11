@@ -42,39 +42,7 @@ class SiteController extends Controller
 	}
 	public function actionIndex()
 	{
-		/*$cou	=	Course::model()->findAll();
-		//CVarDumper::dump($cou,10,1);die;
-		foreach($cou as $dd){
-			$lis	=	explode(',',$dd->title);
-			$title	=	$lis[0];
-			$cou1	=	Course1::model()->findByAttributes(array('title'=>$title));
-			if(empty($cou1)){
-				$cou1						=	new Course1;
-				$cou1->title				=	$title;
-				$cou1->description			=	$dd->description;
-				$cou1->add_date				=	$dd->add_date;
-				$cou1->published			=	$dd->published;
-				$cou1->status				=	$dd->status;
-				$cou1->interests			=	$dd->interests;
-				$cou1->interest_id			=	$dd->interest_id;
-				$cou1->collage				=	$dd->collage;
-				$cou1->collage_id			=	$dd->collage_id;
-				$cou1->admission_criteria	=	$dd->admission_criteria;
-				$cou1->entrance_exam		=	$dd->entrance_exam;
-				if($cou1->save()){
-					CVarDumper::dump($cou1,10,1);die;}
-			}
-			$data				=	new CollageHasCourse;
-			$data->course_id	=	$cou1->id;
-			$data->interest_id	=	$cou1->interest_id;
-			$data->collage_id	=	$cou1->collage_id;
-			$data->description	=	$cou1->description;
-			$data->course_mode	=	$cou1->course_mode;
-			$data->seats		=	$cou1->seats;
-			$data->fees			=	$cou1->fees;
-			$data->save();
-		}
-		die;*/
+		
 		$this->render('index');
 	}	
 	public function actionIndex2()

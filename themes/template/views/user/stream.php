@@ -40,7 +40,7 @@ $this->breadcrumbs=array('Stream Library'=>array('/user/streamList'),'Stream Sub
 						 
 						<div id="stream-rating" class="fr"></div>
                          <div style="margin-top:-10px;color:#E88B2D;font-size:10px;font-weight:bold;">
-                                <marquee class="row">Please Rate this Career Option</marquee>
+                               <!-- <marquee class="row">Please Rate this Career Option</marquee>-->
                                 </div>
 						
 					</div>
@@ -48,7 +48,7 @@ $this->breadcrumbs=array('Stream Library'=>array('/user/streamList'),'Stream Sub
 			</ul>
 			<div id="subjects" class="col-md-12 fl pd0 stream-tabing br-top stream-user-active">
 				<div id="scrollBar" style="max-height:580px;">
-				<h1>It is long established fact a reader will be It is long established fact a reader will be It is long e</h1>	
+				<!--<h1>It is long established fact a reader will be It is long established fact a reader will be It is long e</h1>	-->
 				<?php foreach($subjects as $subject){?>
 					<div class="col-md-12 pull-left pd0 stream-grid br-all">
                         <div class="col-md-10 pull-left pd0 stream-grid br-right">
@@ -77,7 +77,8 @@ $this->breadcrumbs=array('Stream Library'=>array('/user/streamList'),'Stream Sub
                         </div>
                         <div class="col-md-2 pull-left pd0 right-stream-box ">
                         	<h1>Type of subject </h1>
-                        	<?php echo CHtml::link($subject['type'],'javaScript:void(0)');?>
+                            <span style="color: #21C4C1;font-family: robotomedium;font-size: 10px;font-weight: bold;margin: 4px;">
+							<?php echo $subject['type'];?></span>
                         </div>
                      </div>
                 <?php } ?>

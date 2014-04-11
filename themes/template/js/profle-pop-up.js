@@ -170,6 +170,5 @@ function userProfileData(value,id)
 		console.log('Success:'+ result);
 		
 		}
-	});
-    
+	});   
 }

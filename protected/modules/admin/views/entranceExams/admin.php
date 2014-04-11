@@ -48,10 +48,22 @@ $('.search-form form').submit(function(){
             'value'=>'$data->careerCategories->title'
         ),
 		//'details',
-		'start_date',
-		'end_date',
-		'test_date',
-		'result_date',
+		array(
+			'name'=>'start_date',
+			'value'=>'($data->start_date=="1970-01-01")?"":$data->start_date'
+		),
+		array(
+			'name'=>'end_date',
+			'value'=>'($data->end_date=="1970-01-01")?"":$data->end_date'
+		),
+		array(
+			'name'=>'test_date',
+			'value'=>'($data->test_date=="1970-01-01")?"":$data->test_date'
+		),
+		array(
+			'name'=>'result_date',
+			'value'=>'($data->result_date=="1970-01-01")?"":$data->result_date'
+		),
 		/*
 		'add_date',
 		'status',

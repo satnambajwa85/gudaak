@@ -264,8 +264,7 @@ The Interest Test you have taken maps you on the six types popularly known as Ho
 												}
 												?>
 										<div style="background: none repeat scroll 0 0 #FFFFFF;border: 1px solid #CCCCCC;float: left;height: 25px; margin-bottom: 10px;width: 85%;">
-										<div style="width:<?php echo ($result['score']/0.4);?>%;background: none repeat scroll 0 0 #<?php echo $color;?>;float: left;height: 25px;">									                    
-										</div>                   
+										<div style="width:<?php echo ($result['score']/0.4);?>%;background: none repeat scroll 0 0 #<?php echo $color;?>;float: left;height: 25px; padding-left:50px;color:#FFF;"><?php echo $result['value'];?></div>                  
 									</div>
 									</td>
 								 </tr>

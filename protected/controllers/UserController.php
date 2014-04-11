@@ -1081,6 +1081,26 @@ class UserController extends Controller
 	}
 	public function actionFinalizedStream()
 	{	
+		if(!isset($_REQUEST['id'])){
+			$userTest				=	UserReports::model()->countByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
+			if($userTest==0){
+				Yii::app()->user->setFlash('redirect',"Take the test and then rate stream.");
+				$this->redirect(Yii::app()->createUrl('/user/tests'));
+			}
+			$criteria			=	new CDbCriteria();
+			$criteria->condition= '(status =:status  and updated_by=:updatedby and user_profiles_id=:user_profiles_id)';
+			$criteria->params 	= array(':status'=>1,':updatedby'=>1,':user_profiles_id'=>Yii::app()->user->profileId);
+			$criteria->order = 'self DESC';
+			$data	=	array();
+			$preference				=	UserProfilesHasStream::model()->findAll($criteria,array('order'=>'self ASC'));
+			
+			if(count($preference)==0){
+				Yii::app()->user->setFlash('redirect',"None of the Stream have been Finalized as yet");
+				$this->redirect(Yii::app()->createUrl('/user/streamPreference'));
+			}
+			
+		}
+		
 		
 		if(isset($_REQUEST['id'])){
 				$stream	=	 UserProfilesHasStream::model()->findByAttributes(array('status'=>1,'updated_by'=>1,'user_profiles_id'=>Yii::app()->user->profileId));
@@ -1246,12 +1266,22 @@ class UserController extends Controller
 	}
 	public function actionStreamPreference()
 	{
+		$userTest				=	UserReports::model()->countByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
+		if($userTest==0){
+			Yii::app()->user->setFlash('redirect',"Take the test and rate stream");
+			$this->redirect(Yii::app()->createUrl('/user/tests'));
+		}
 		$criteria			=	new CDbCriteria();
 		$criteria->condition= '(status =:status  and user_profiles_id=:user_profiles_id)';
 		$criteria->params 	= array('status'=>1,'user_profiles_id'=>Yii::app()->user->profileId);
 		$criteria->order = 'self DESC';
 		$data	=	array();
 		$preference				=	UserProfilesHasStream::model()->findAll($criteria,array('order'=>'self ASC'));
+		
+		if(count($preference)==0){
+			Yii::app()->user->setFlash('redirect',"You have not rated any of the stream as yet");
+			$this->redirect(Yii::app()->createUrl('/user/streamList'));
+		}
 		foreach($preference as $preference){
 			$data[$preference->stream_id]['id']				=	$preference->stream->id;
 			$data[$preference->stream_id]['name']			=	$preference->stream->name;
@@ -1314,6 +1344,12 @@ class UserController extends Controller
 	}
 	public function actionExplore()
 	{	 
+		$userTest				=	UserReports::model()->countByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
+		if($userTest==0){
+			Yii::app()->user->setFlash('redirect',"Take the test and rate career options");
+			$this->redirect(Yii::app()->createUrl('/user/tests'));
+		}
+		
 		$userReports			=	UserReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId),array('order'=> 'orient_items_id ASC'));
 		$data	=	array();
 		
@@ -1369,6 +1405,13 @@ class UserController extends Controller
 	}
 	public function actionStreamExplore()
 	{	
+		$userTest				=	UserReports::model()->countByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
+		if($userTest==0){
+			Yii::app()->user->setFlash('redirect',"Take the test and rate stream");
+			$this->redirect(Yii::app()->createUrl('/user/tests'));
+		}
+		
+	
 		$userReports			=	UserReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId),array('order'=> 'orient_items_id ASC'));
 		$data	=	array();
 		$catList	=	array();

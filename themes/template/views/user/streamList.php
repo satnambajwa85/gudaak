@@ -5,9 +5,10 @@ $this->breadcrumbs=array('Stream Library '=>array('/user/streamList'));?>
 			<div class="mr0  pull-left stream-pref">
 				<!--<h1>Stream Library </h1>-->
                 <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
-				<p>It is long established fact a reader will be It is long established fact a reader will be
+				<!--<p>It is long established fact a reader will be It is long established fact a reader will be
 					It is long established fact a reader will be It is long established fact a reader will beIt is long established fact a reader will be
-				</p>
+				</p>-->
+                <p>&nbsp;</p>
 
 			</div>
 			
@@ -28,7 +29,8 @@ $this->breadcrumbs=array('Stream Library '=>array('/user/streamList'));?>
 	</div>
 	<div class="col-md-6 pull-right  stream-description">
 		<?php echo CHtml::link('<h1>'.substr($data['name'],0,30).'</h1>',array('user/stream','id'=>$data['id']));?>
-		<p><?php echo substr($data['description'],0,90);?>..</p>
+		<p><?php //echo substr($data['description'],0,90);?>&nbsp;</p>
+        <br /><br />
 			 <ul class="star-rating" style="margin:0px;">
 				<div id="user-rating<?php echo $data['id'];?>"  ></div>
 			</ul>

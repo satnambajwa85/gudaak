@@ -27,7 +27,7 @@
 	<div class="row">
 		<?php echo $form->labelEx($model,'career_category'); ?>
 		<?php
-		$selec	=	''; 
+		$selec	=	array(); 
 		if(isset($model->career_category)){
 			$selec	= explode(',',$model->career_category);
 		}?>

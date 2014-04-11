@@ -169,14 +169,6 @@ $(document).ready(function () {
 			"show" : true // ensure the modal is shown immediately
 			});
 		});
-		$(".talk-to-counsellor").on("click", function() { // wire up the OK button to dismiss the modal when shown
-			$("#talk-to-counsellor").modal({ // wire up the actual modal functionality and show the dialog
-			"backdrop" : "static",
-			"keyboard" : true,
-			"show" : true // ensure the modal is shown immediately
-			});
-		});
-		
 		$(".next_button1").click(function(){
 			$("#tabs-1").hide(10);
 			$("#tabs-2").show(10);

@@ -156,9 +156,4 @@ foreach($report['results'] as $result){
 			</div>
 		
 		</div>
- </div>       
-
-		
-
-
-	 
+ </div>
