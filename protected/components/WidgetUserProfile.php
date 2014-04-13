@@ -21,8 +21,14 @@ class WidgetUserProfile extends CWidget
    }  
    protected function renderContent()
    	{
-		$model			=	 UserProfiles::model()->findByPk(Yii::app()->user->profileId);
-		$this->render('widgetUserProfile',array('model'=>$model));
+		$model			=	UserProfiles::model()->findByPk(Yii::app()->user->profileId);
+		$Interests		=	Interests::model()->findAll();
+		$selInter		=	array();
+		foreach($model->userProfilesHasInterests as $ind)
+			$selInter[]	=	$ind->interests_id;
+		
+		
+		$this->render('widgetUserProfile',array('model'=>$model,'Interests'=>$Interests,'selInter'=>$selInter));
 		
 	}  
 

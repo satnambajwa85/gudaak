@@ -4,7 +4,7 @@
 			<?php echo CHtml::link('<img alt="" src="'.$path.'/images/dashboard-logo.png">',array('/site'));?>
 		</div><!-- Logo -->
 		<div class="welcome-user">
-			<?php echo CHtml::link('<img alt="'.$userinfo->first_name.' '.$userinfo->last_name.'" src="'.Yii::app()->baseUrl.'/uploads/user/small/'.$userinfo->image.'">',array('user/'),array('class'=>'userImage'));?>
+			<?php echo CHtml::link('<img alt="'.$userinfo->first_name.' '.$userinfo->last_name.'" id="imgPic" src="'.Yii::app()->baseUrl.'/uploads/user/small/'.$userinfo->image.'">',array('user/'),array('class'=>'userImage'));?>
 			<p>Welcome</p>
 			<?php echo CHtml::link('<span>'.$userinfo->first_name.' '.$userinfo->last_name.'</span>',array('user/'));?>
 			<div class="clear"></div>

@@ -23,18 +23,26 @@
 											<li><p class="breaker">-</p></li>
 											<li class="next-active-res3"><a href="#tabs-3">Interest</a></li>
 										</ul>
+										<?php $form=$this->beginWidget('CActiveForm', array(
+																	'id'=>'person-form-edit_person-form',
+																	'enableAjaxValidation'=>false,
+																		'htmlOptions'=>array(
+																							   'onsubmit'=>"return false;",/* Disable normal form submit */
+																							   'onkeypress'=>" if(event.keyCode == 13){ send(); } " /* Do ajax call when user presses enter key */
+																							 ),
+																)); ?>
 										<div id="tabs-1">
 											<div class="profile_tab1_form ">
 												<div  id="user-profile-form">
 												<div class="profile_tab1_left">
 													<p><a class="edit-form" href="javascript:void(0);">Edit Details</a></p>
-													<input type="text" disabled="disabled" placeholder="<?php echo $model->first_name;?>" />
-													<input type="text" disabled="disabled" placeholder="<?php echo $model->last_name;?>" />
-													<input type="text" disabled="disabled" placeholder="<?php echo $model->date_of_birth;?>" />
-													<input type="text" disabled="disabled" placeholder="<?php echo $model->gender;?>" />
-													<input class="big_index" type="text" disabled="disabled"  placeholder="<?php echo $model->email;?>" />
-													<input class="big_index" type="text" disabled="disabled"  placeholder="+91<?php echo $model->mobile_no;?>" />
-													<input type="text" disabled="disabled" placeholder="<?php echo $model->generateGudaakIds->cities->title;?>" />
+													<input type="text" disabled="disabled" value="<?php echo $model->first_name;?>" />
+													<input type="text" disabled="disabled" value="<?php echo $model->last_name;?>" />
+													<input type="text" disabled="disabled" value="<?php echo $model->date_of_birth;?>" />
+													<input type="text" disabled="disabled" value="<?php echo $model->gender;?>" />
+													<input class="big_index" type="text" disabled="disabled"  value="<?php echo $model->email;?>" />
+													<input class="big_index" type="text" disabled="disabled"  value="+91<?php echo $model->mobile_no;?>" />
+													<input type="text" disabled="disabled" value="<?php echo $model->generateGudaakIds->cities->title;?>" />
 													<select disabled="disabled" >
 														<option value="State"> - <?php echo $model->generateGudaakIds->cities->states->title;?> -</option>
 													</select>
@@ -43,11 +51,11 @@
 													<select disabled="disabled" >
 														<option value="State"> -<?php echo $model->generateGudaakIds->cities->states->countries->title;?>-</option>
 													</select>
-													<input type="text" disabled="disabled" placeholder="<?php echo (!empty($model->postcode))?''.$model->postcode.'':'Postcode here';?>" />
+													<input type="text" disabled="disabled" value="<?php echo (!empty($model->postcode))?''.$model->postcode.'':'Postcode here';?>" />
 													<select disabled="disabled" class="uClass">
 														<option value="State"><?php echo $model->userClass->title;?></option>
 													</select> 
-													<input class="big_index" disabled="disabled"  type="text" placeholder="<?php echo $model->generateGudaakIds->schools->name;?>" />
+													<input class="big_index" disabled="disabled"  type="text" value="<?php echo $model->generateGudaakIds->schools->name;?>" />
 													<ul>
 														<li>
 															<a class="next_button next_button1" href="#tabs-2">Next Step</a>
@@ -60,14 +68,7 @@
 												<div class="profile_tab1_left">
 												
 													<p><a href="javascript:void(0);">Edit Details</a></p>
-													<?php $form=$this->beginWidget('CActiveForm', array(
-																	'id'=>'person-form-edit_person-form',
-																	'enableAjaxValidation'=>false,
-																		'htmlOptions'=>array(
-																							   'onsubmit'=>"return false;",/* Disable normal form submit */
-																							   'onkeypress'=>" if(event.keyCode == 13){ send(); } " /* Do ajax call when user presses enter key */
-																							 ),
-																)); ?>
+													
 													<?php echo $form->textField($model,'first_name',array('placeholder'=>''.$model->first_name.''));
 													echo $form->error($model,'first_name');?>
 													<?php echo $form->textField($model,'last_name',array('placeholder'=>''.$model->last_name.''));
@@ -94,89 +95,113 @@
 												 
 													<?php echo $form->textField($model,'postcode',array('placeholder'=>''.(!empty($model->postcode))?''.$model->postcode.'':'Postcode here'.''));
 													echo $form->error($model,'postcode');?>
-													
+
+
+
 													<?php echo $form->dropDownList($model,'class',array('placeholder'=>''.$model->userClass->title.''));
 													echo $form->error($model,'class');?>
 												   
 													<input class="big_index" type="text" placeholder="<?php echo $model->generateGudaakIds->schools->name;?>" />
 													<p>
+<?php $this->widget('ext.EAjaxUpload.EAjaxUpload',
+array(
+        'id'=>'uploadFile',
+        'config'=>array(
+               'action'=>Yii::app()->createUrl('user/upload'),
+               'allowedExtensions'=>array("jpg","jpeg","gif",'png'),//array("jpg","jpeg","gif","exe","mov" and etc...
+               'sizeLimit'=>10*1024*1024,// maximum file size in bytes
+               'minSizeLimit'=>124,// minimum file size in bytes
+               'onComplete'=>"js:function(id, fileName, responseJSON){ 
+			   $('#imgPical').val(fileName);
+			   $('#imgPic').attr('src','/gudaak/uploads/user/small/'+fileName);}",
+              )
+)); ?>
+
+													
 													<?php echo CHtml::Button('Update',array('onclick'=>'send("'.Yii::app()->createUrl('/user/editProfile').'");','class'=>'next_button','style'=>'width:134px;')); ?> 
 													</p>
+<?php echo $form->hiddenField($model,'image',array('id'=>'imgPical'));?>
 												</div>
-												<?php $this->endWidget(); ?>
 												
 											</div>
 										
 										</div>
 										<div id="tabs-2">
 											<div class="profile_tab1_form">
-											<?php 
-													$form=$this->beginWidget('CActiveForm', array(
-																			'id'=>'person-form-academic-form',
-																			'enableAjaxValidation'=>false,
-																			'htmlOptions'=>array(
-																				   'onsubmit'=>"return false;",/* Disable normal form submit */
-																				   'onkeypress'=>" if(event.keyCode == 13){ send(); } " /* Do ajax call when user presses enter key */
-																					 ),)); ?>
 												<div class="profile_tab1_left">
 													<!--<p><a href="javascript:void(0);">Edit Details</a></p>-->
 													<div class="tab2_form_box">
-														<h4>What are your current subjects?</h4>
-														<?php $count	=	count($model->userProfilesHasUserSubjects);
+														<div class="col-md-12">
+                                                                <div class="col-md-8"><h4>What are your current subjects?</h4></div><div class="col-md-4"><h4 class="pull-right">percentage</h4></div></div>
+														<?php 
+															$count	=	count($model->userProfilesHasUserSubjects);
+															$index	=	0;
 															if($count!=0){
-																foreach($model->userProfilesHasUserSubjects as $subjact){
-																if($subjact->status==1 && $subjact->is_favorite==0)
-																echo $form->textField($model,'currentSubject['.$subjact->id.']',array('onChange'=>'subjectUpdateCall(this.value,id='.$subjact->id.')','value'=>$subjact->userSubjects->title,'class'=>'big_index'));
+																foreach($model->userProfilesHasUserSubjects as $subjact){?>
+                                                                <div class="col-md-12">
+                                                                <div class="col-md-8">
+                                                                
+                                                                <?php 
+																echo $form->textField($model,'currentSubject['.$index.']',array('value'=>$subjact->userSubjects->title,'class'=>'big_index'));?>
+                                                                </div>
+																<div class="col-md-4">
+                                                                <?php echo $form->textField($model,'percentage['.$index.']',array('value'=>$subjact->percentage,'class'=>'big_index'));?>
+                                                                </div>
+                                                                </div>
+															<?php
+																$index++;	
+																
 																}
-															} 
-															else{?>
-														<?php echo $form->textField($model,'currentSubject[]',array('class'=>'big_index','onChange'=>'academic(this.value)'));?>
-														<?php echo $form->textField($model,'currentSubject[]',array('class'=>'big_index','onChange'=>'academic(this.value)'));?>
-														<?php echo $form->textField($model,'currentSubject[]',array('class'=>'big_index','onChange'=>'academic(this.value)'));?>
-														<?php echo $form->textField($model,'currentSubject[]',array('class'=>'big_index','onChange'=>'academic(this.value)'));?>
-														<?php } ?>
-														<div class="profileHide">
-														<?php echo $form->textField($model,'currentSubject[]',array('class'=>'big_index','id'=>'profileHide','onChange'=>'academic()'));?>
-														</div>
-														 
-													 
+															} ?>
+                                                            <div class="col-md-12">
+                                                                
+                                                            
+														<?php	while($index<5){?>
+                                                            <div class="col-md-8">
+															<?php echo $form->textField($model,'currentSubject['.$index.']',array('class'=>'big_index'));?>
+                                                            </div>
+                                                            <div class="col-md-4">
+                                                        <?php echo $form->textField($model,'percentage['.$index.']',array('class'=>'big_index','onChange'=>'academic(this.value)'));?>
+                                                        </div>
+                                                        <?php
+															$index++;
+															}?>
 													</div>
 													<div class="tab2_form_box">
 														<h4>Two most favourite subjects?</h4>
 														<?php $count	=	count($model->userProfilesHasUserSubjects);
+															$favIndex	=	0;
 															if($count!=0){
 																foreach($model->userProfilesHasUserSubjects as $favorite){
-																if($favorite->is_favorite==1)
-																echo $form->textField($model,'favorite['.$favorite->id.']',array('onChange'=>'subjectUpdateCall(this.value,id='.$favorite->id.')','value'=>$favorite->userSubjects->title,'class'=>'big_index'));
+																	if($favorite->is_favorite==1){
+																		echo $form->textField($model,'favorite['.$favIndex.']',array('value'=>$favorite->userSubjects->title,'class'=>'big_index'));
+																		$favIndex++;
+																	}
 																}
 															} 
-															else{?>
-														<?php echo $form->textField($model,'favorite[]',array('class'=>'big_index','onChange'=>'favorite(this.value)'));?>
-														<?php echo $form->textField($model,'favorite[]',array('class'=>'big_index','onChange'=>'favorite(this.value)'));?>
-														<?php } ?>
-													
-														 
-														
-															 
-														 
-														<!--<a id="add-more" href="javascript:void(0);">Add more subjects</a>-->
+															while($favIndex<2){
+																echo $form->textField($model,'favorite['.$favIndex.']',array('class'=>'big_index','onChange'=>'favorite(this.value)'));
+																$favIndex++;
+																}?>
 													</div>
-													
 												</div>
-												<div class="profile_tab1_right">
+												</div>
+                                                <div class="profile_tab1_right">
 													<div class="tab2_form_box">
 														<h4>Least favourite subjects?</h4>
 														<?php $count	=	count($model->userProfilesHasUserSubjects);
+															$favIndex2	=	0;
 															if($count!=0){
 																foreach($model->userProfilesHasUserSubjects as $lestFavorite){
-																if($lestFavorite->least_favourite==1)
-																echo $form->textField($model,'Lestfavorite['.$lestFavorite->id.']',array('onChange'=>'subjectUpdateCall(this.value,id='.$lestFavorite->id.')','value'=>$lestFavorite->userSubjects->title,'class'=>'big_index'));
+																	if($lestFavorite->least_favourite==1){
+																		echo $form->textField($model,'Lestfavorite['.$favIndex2.']',array('value'=>$lestFavorite->userSubjects->title,'class'=>'big_index'));
+																		$favIndex2++;
+																	}
 																}
 															} 
-															else{?>
-														<?php echo $form->textField($model,'Lestfavorite[]',array('class'=>'big_index','onChange'=>'lestFavorite(this.value)'));?>
-														<?php echo $form->textField($model,'Lestfavorite[]',array('class'=>'big_index','onChange'=>'lestFavorite(this.value)'));?>
-														<?php } ?>
+															while($favIndex2 < 2){
+																echo $form->textField($model,'Lestfavorite['.$favIndex2.']',array('class'=>'big_index','onChange'=>'lestFavorite(this.value)'));
+														$favIndex2++;} ?>
 													
 													 
 														 
@@ -198,31 +223,22 @@
 													</p>
 												 		 
 												</div>
-											<?php $this->endWidget(); ?>
 											</div>
 										</div>
 										<div id="tabs-3">
 											<div class="profile_tab1_form">
-												<div class="profile_tab1_left">
+												<div class="col-md-12">
 													<div class="profile_tab3_left">
 														<p><a href="javascript:void(0);">Edit Details</a></p>
 														<div class="tab2_form_box">
 															<h4>What are your current Interest?</h4>
-															<?php $count	=	count($model->userProfilesHasInterests);
-															if($count!=0){
-																foreach($model->userProfilesHasInterests as $interest){
-																if($interest->status==1)
-																echo $form->textField($model,'interest['.$interest->id.']',array('onChange'=>'interest(this.value,id='.$interest->id.')','value'=>$interest->interests->title,'class'=>'big_index'));
-																}
-															} 
-															else{?>
-															<?php echo $form->textField($model,'interest[]',array('class'=>'big_index','onChange'=>'userInterest(this.value)'));?>
-															<?php echo $form->textField($model,'interest[]',array('class'=>'big_index','onChange'=>'userInterest(this.value)'));?>
-															<?php echo $form->textField($model,'interest[]',array('class'=>'big_index','onChange'=>'userInterest(this.value)'));?>
-															<?php echo $form->textField($model,'interest[]',array('class'=>'big_index','onChange'=>'userInterest(this.value)'));?>
-															<?php } ?>
-																 
-															</div>
+															<div class="col-md-12">
+                                                                <?php 
+																foreach($Interests as $interest){
+																echo '<div class="col-md-4">'.$form->checkBox($model,'interest['.$interest->id.']',array('onChange'=>'interest(this.value,id='.$interest->id.')','value'=>$interest->id,'checked'=>(in_array($interest->id,$selInter))?'checked':'')).' '.$interest->title.'</div>';
+																}?>
+                                                             </div>   
+														</div>
 														 
 														 
 														 
@@ -231,6 +247,9 @@
 												</div>
 											</div>
 										</div>
+                                        
+                                        	<?php $this->endWidget(); ?>
+										
 									</div>
 
           </div>
