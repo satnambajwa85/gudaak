@@ -8573,3 +8573,17 @@ opacity: 0.85;
        -o-user-select: none;
           user-select: none;
 }
+#uploadFile .qq-upload-button{
+display: block;
+width: 120px;
+padding: 10px 0;
+text-align: center;
+background: #880000;
+border-bottom: 1px solid #ddd;
+color: #fff;
+background-color:#CCC;	
+margin-left:20px;	
+}
+#uploadFile .qq-upload-list {
+display: none;
+}
