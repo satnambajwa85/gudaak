@@ -10,7 +10,7 @@ class UserController extends Controller
 				'actions'=>array('index','editProfile','test','tests','detailedReport','collage','liveChat',
 							'articlesList','articles','summary','newsUpdates',
 							'exploreColleges','shortListedColleges','dynamicCourse','dynamicSearchResult','userShortlistCollage',
-							'search','changePassword','application','questionsAnswer','upload','testMail','userProfileUpdate','retakeTest','news','readEvent','summaryDetails','summaryData','talkData','talk','feedbackAnswer',
+							'search','changePassword','application','questionsAnswer','upload','testMail','userProfileUpdate','retakeTest','news','readEvent','summaryDetails','summaryData','talkData','talk','feedbackAnswer','data',
 				),
 				'users' => array('@')
 					
@@ -70,6 +70,50 @@ class UserController extends Controller
 										'logo'=>$data->logo,
 											);
 		return true;
+	}
+	
+	public function actionData(){
+		$criteria = new CDbCriteria;  
+		$criteria->addCondition('id <= 150');		
+		$list	=	Course::model()->findAll($criteria);
+		foreach($list as $dt){
+			$spec	=	Specialization::model()->findByAttributes(array('title'=>$dt->interests));
+			if(empty($spec)){
+				$spec	=	new Specialization;
+				$spec->title	=	$dt->interests;
+				$spec->description	=	'Added by script into database';
+				$spec->add_date	=	date('Y-m-d');
+				$spec->status	=	1;
+				$spec->save();
+			}
+			
+			$courses	=	Courses::model()->findByAttributes(array('title'=>$dt->title));
+			if(empty($courses)){
+				$courses					=	new Courses;
+				$courses->title				=	$dt->title;
+				$courses->description		=	$dt->description;
+				//$courses->specialization_id	=	$spec->id;
+				$courses->save();
+			
+				
+			}
+			
+					$courses	=	$dt->admission_criteria;
+					$courses	=	$dt->entrance_exam;
+					$courses	=	$dt->course_mode;
+					$courses	=	$dt->fees;
+					$courses	=	$dt->seats;
+					$courses	=	$dt->collage_id;
+					$courses	=	$courses->id;
+			
+			
+			
+			
+			
+		}
+		CVarDumper::dump($list,10,1);
+		die;
+		
 	}
 	public function actionIndex()
 	{
@@ -211,6 +255,7 @@ class UserController extends Controller
 				$uSubjects						=	new	UserProfilesHasUserSubjects;
 				$uSubjects->user_profiles_id	=	Yii::app()->user->profileId;
 				$uSubjects->user_subjects_id	=	$subjects->id;
+				//$uSubjects->percentage			=	$_REQUEST['UserProfiles']['percentage'];
 				$uSubjects->add_date			=	date('Y-m-d H:i:s');
 				$uSubjects->status 				=	1;
 				$uSubjects->is_favorite			=	0;
@@ -272,55 +317,100 @@ class UserController extends Controller
 		$model		=	 UserProfiles::model()->findByPk(Yii::app()->user->profileId);
 		if(isset($_POST['UserProfiles']))
 		{
-			
 			$model->attributes		=	$_POST['UserProfiles'];
 			$model->gudaak_id		=	$model->gudaak_id;
 			$model->display_name 	=	$_POST['UserProfiles']['first_name'].' '.$_POST['UserProfiles']['last_name'];
-			$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/uploads/user/';
-			$targetFolder = Yii::app()->request->baseUrl.'/uploads/user/';
-			if (!empty($_FILES['UserProfiles']['name']['image'])) {
-					$tempFile = $_FILES['UserProfiles']['tmp_name']['image'];
-					$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
-					$targetFile = $targetPath.'/'.$_FILES['UserProfiles']['name']['image'];
-					$pat = $targetFile;
-					move_uploaded_file($tempFile,$targetFile);
-					$absoPath = $pat;
-					$newName = time();
-					$img = Yii::app()->imagemod->load($pat);
-					# ORIGINAL
-					$img->file_max_size = 5000000; // 5 MB
-					$img->file_new_name_body = $newName;
-					$img->process('uploads/user/original/');
-					$img->processed;
-					#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
-				if ($img->processed) {
-					#LARGE Image
-					$img->image_resize      = true;
-					$img->image_y         	= 150;
-					$img->image_x           = 150;
-					$img->file_new_name_body = $newName;
-					$img->process('uploads/user/large/');
-					
-					#STHUMB Image
-					$img->image_resize      = true;
-					$img->image_y         	= 50;
-					$img->image_x           = 50;
-					$img->file_new_name_body = $newName;
-					$img->process('uploads/user/small/');
-					
-					 
-					$fileName	=	$img->file_dst_name;
-					$img->clean();
-	
-				}
-				$model->image	=	$fileName;
-				if($_POST['UserProfiles']['oldImage']!=''){
-					@unlink($targetFolder1.'original/'.$_POST['UserProfiles']['oldImage']);
-					@unlink($targetFolder1.'large/'.$_POST['UserProfiles']['oldImage']);
-					@unlink($targetFolder1.'small/'.$_POST['UserProfiles']['oldImage']);
-				}
-			}
+			
 			if($model->save()){
+				
+				UserProfilesHasInterests::model()->deleteAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
+				foreach($_POST['UserProfiles']['interest'] as $key=>$val){
+					if($val!=0){
+					$inst						=	new UserProfilesHasInterests;
+					$inst->user_profiles_id		=	Yii::app()->user->profileId;
+					$inst->interests_id			=	$key;
+					$inst->add_date				=	date('Y-m-d');
+					$inst->status				=	1;
+					$inst->save();
+					}
+				}
+				
+				UserProfilesHasUserSubjects::model()->deleteAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
+				foreach($_POST['UserProfiles']['currentSubject'] as $key=>$val){
+					if(!empty($val)){					
+						$subjev	=	UserSubjects::model()->FindByAttributes(array('title'=>$val));	
+						if(empty($subjev)){
+							$subjev				=	 new UserSubjects;
+							$subjev->title		=	$val;
+							$subjev->description=	$val;
+							$subjev->add_date	=	date('Y-m-d');
+							$subjev->published	=	1;
+							$subjev->status		=	1;
+							$subjev->save();
+								
+						}
+						$inst						=	new UserProfilesHasUserSubjects;
+						$inst->user_profiles_id		=	Yii::app()->user->profileId;
+						$inst->user_subjects_id		=	$subjev->id;
+						$inst->percentage			=	$_POST['UserProfiles']['percentage'][$key];
+						$inst->add_date				=	date('Y-m-d');
+						$inst->status				=	1;
+						$inst->save();
+					}
+				}
+				
+				foreach($_POST['UserProfiles']['Lestfavorite'] as $key=>$val){
+					if(!empty($val)){					
+						$subjev	=	UserSubjects::model()->FindByAttributes(array('title'=>$val));	
+						if(empty($subjev)){
+							$subjev				=	 new UserSubjects;
+							$subjev->title		=	$val;
+							$subjev->description=	$val;
+							$subjev->add_date	=	date('Y-m-d');
+							$subjev->published	=	1;
+							$subjev->status		=	1;
+							$subjev->save();
+								
+						}
+						$inst						=	UserProfilesHasUserSubjects::model()->findByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'user_subjects_id'=>$subjev->id));
+						if(empty($inst)){
+							$inst						=	new UserProfilesHasUserSubjects;
+							$inst->user_profiles_id		=	Yii::app()->user->profileId;
+							$inst->user_subjects_id		=	$subjev->id;
+							$inst->add_date				=	date('Y-m-d');
+							$inst->status				=	1;
+						}
+						$inst->least_favourite			=	1;
+						$inst->save();
+					}
+				}
+				foreach($_POST['UserProfiles']['favorite'] as $key=>$val){
+					if(!empty($val)){					
+						$subjev	=	UserSubjects::model()->FindByAttributes(array('title'=>$val));	
+						if(empty($subjev)){
+							$subjev				=	 new UserSubjects;
+							$subjev->title		=	$val;
+							$subjev->description=	$val;
+							$subjev->add_date	=	date('Y-m-d');
+							$subjev->published	=	1;
+							$subjev->status		=	1;
+							$subjev->save();
+								
+						}
+						$inst						=	UserProfilesHasUserSubjects::model()->findByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'user_subjects_id'=>$subjev->id));
+						if(empty($inst)){
+							$inst						=	new UserProfilesHasUserSubjects;
+							$inst->user_profiles_id		=	Yii::app()->user->profileId;
+							$inst->user_subjects_id		=	$subjev->id;
+							$inst->add_date				=	date('Y-m-d');
+							$inst->status				=	1;
+						}
+						$inst->is_favorite				=	1;
+						$inst->save();
+					}
+				}
+				
+				
 				$log					=	new Summary;
 				$log->user_profile_id	=	Yii::app()->user->profileId;
 				$log->schools_id		=	$model->generateGudaakIds->schools_id;
@@ -1056,28 +1146,18 @@ class UserController extends Controller
         $minSizeLimit = 0 * 1024 * 1024;// maximum file size in bytes
         $uploader = new qqFileUploader($allowedExtensions, $sizeLimit, $minSizeLimit);
         $result = $uploader->handleUpload($folder);
-        $return = htmlspecialchars(json_encode($result), ENT_NOQUOTES);
+		$return = htmlspecialchars(json_encode($result), ENT_NOQUOTES);
         $fileSize=filesize($folder.$result['filename']);//GETTING FILE SIZE
-        $fileName=$result['filename'];//GETTING FILE NAME\
-			$model	=	 UserProfiles::model()->findByPk(Yii::app()->user->profileId);
-			$model->image	=$fileName;
-			if($model->save()){
-					$log					=	new UserLog;
-					$log->name				=	Yii::app()->user->userName;
-					$log->description		=	'UPDATED user profile picture';
-					$log->image				=	$path.$fileName;
-					
-				 	$log->login_id			=	Yii::app()->user->userId;
-					$log->add_date			=	date('Y:m:d H:i:s');
-					
-				if($log->save()){
-				 
-					Yii::app()->user->setFlash('image','Your have changed your profile image');
-				}
-				
-				
-			}
-		 echo $return;// it's array
+        echo $fileName=$result['filename'];//GETTING FILE NAME\
+		
+		
+		$model	=	 UserProfiles::model()->findByPk(Yii::app()->user->profileId);
+		$model->image	=$fileName;
+		if($model->save()){
+			Yii::app()->user->setFlash('image','Your have changed your profile image');
+		}
+		
+		echo $return;// it's array
 	}
 	public function actionFinalizedStream()
 	{	
