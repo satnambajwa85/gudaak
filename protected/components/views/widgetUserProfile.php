@@ -143,11 +143,25 @@ array(
 													<div class="tab2_form_box">
 														<div class="col-md-12">
                                                                 <div class="col-md-8"><h4>What are your current subjects?</h4></div><div class="col-md-4"><h4 class="pull-right">percentage</h4></div></div>
+                                                                
 														<?php 
 															$count	=	count($model->userProfilesHasUserSubjects);
 															$index	=	0;
 															if($count!=0){
-																foreach($model->userProfilesHasUserSubjects as $subjact){?>
+																foreach($model->userProfilesHasUserSubjects as $subjact){
+                                                                if($index==0){?>
+                                                                <div class="col-md-12">
+                                                                <div class="col-md-8">
+                                                                <?php 
+																echo $form->textField($model,'currentSubject['.$index.']',array('value'=>'Total','readonly'=>"readonly",'class'=>'big_index'));?>
+                                                                </div>
+																<div class="col-md-4">
+                                                                <?php 
+																$list	=	array('Below 40%'=>'Below 40%','40% - Below 50%'=>'40% - Below 50%','50% - Below 60%'=>'50% - Below 60%','60% - Below 70%'=>'60% - Below 70%','70% - Below 80%'=>'70% - Below 80%','80% - Below 90%'=>'80% - Below 90%','Above 90%'=>'Above 90%');
+														echo CHtml::dropDownList('UserProfiles[percentage]['.$index.']',$subjact->percentage,$list,array('class'=>'big_index'));?>
+                                                                </div>
+                                                                </div>
+                                                                <?php }else{?>
                                                                 <div class="col-md-12">
                                                                 <div class="col-md-8">
                                                                 
@@ -155,10 +169,12 @@ array(
 																echo $form->textField($model,'currentSubject['.$index.']',array('value'=>$subjact->userSubjects->title,'class'=>'big_index'));?>
                                                                 </div>
 																<div class="col-md-4">
-                                                                <?php echo $form->textField($model,'percentage['.$index.']',array('value'=>$subjact->percentage,'class'=>'big_index'));?>
+                                                                <?php 
+																 $list	=	array('Below 40'=>'Below 40','40 - Below 50'=>'40 - Below 50','50 - Below 60'=>'50 - Below 60','60 - Below 70'=>'60 - Below 70','70 - Below 80'=>'70 - Below 80','80 - Below 90'=>'80 - Below 90','Above 90'=>'Above 90');
+														echo CHtml::dropDownList('UserProfiles[percentage]['.$index.']',$subjact->percentage,$list,array('class'=>'big_index'));?>
                                                                 </div>
                                                                 </div>
-															<?php
+															<?php }
 																$index++;	
 																
 																}
@@ -166,12 +182,14 @@ array(
                                                             <div class="col-md-12">
                                                                 
                                                             
-														<?php	while($index<5){?>
+														<?php	while($index<6){?>
                                                             <div class="col-md-8">
 															<?php echo $form->textField($model,'currentSubject['.$index.']',array('class'=>'big_index'));?>
                                                             </div>
                                                             <div class="col-md-4">
-                                                        <?php echo $form->textField($model,'percentage['.$index.']',array('class'=>'big_index','onChange'=>'academic(this.value)'));?>
+                                                        <?php 
+																 $list	=	array('Below 40'=>'Below 40','40 - Below 50'=>'40 - Below 50','50 - Below 60'=>'50 - Below 60','60 - Below 70'=>'60 - Below 70','70 - Below 80'=>'70 - Below 80','80 - Below 90'=>'80 - Below 90','Above 90'=>'Above 90');
+														echo CHtml::dropDownList('UserProfiles[percentage]['.$index.']',$subjact->percentage,$list,array('class'=>'big_index'));?>
                                                         </div>
                                                         <?php
 															$index++;
@@ -217,7 +235,7 @@ array(
 														 
 													</div>
 													<div class="tab2_form_box_right">
-														<h4>Languages Known</h4>
+														<h4>Languages known <br />( put commas to separate more than one entries)</h4>
 														<?php echo $form->textField($model,'language_known',array('class'=>'big_index','value'=>$model->language_known,'placeholder'=>'Languages Known'));
 														echo $form->error($model,'language_known');?>
 													 
@@ -226,6 +244,14 @@ array(
 														<h4>Medium of instruction at School / College</h4>
 														<?php echo $form->textField($model,'medium_instruction',array('class'=>'big_index','onChange'=>'userProfileData(this.value,id="medium")','placeholder'=>''.(!empty($model->medium_instruction))?''.$model->medium_instruction.'':'Medium of instruction at School / College'.''));
 														echo $form->error($model,'medium_instruction');?>
+														 
+													</div>
+                                                    
+                                                    <div class="tab2_form_box_right">
+														<h4>Board</h4>
+														<?php $list	=	array('CBSE'=>'CBSE','ICSE'=>'ICSE','State Board'=>'State Board');
+														echo CHtml::dropDownList('UserProfiles[board]',$model->board,$list,array('class'=>'big_index'));
+														//echo $form->textField($model,'board',array('class'=>'big_index'));?>
 														 
 													</div>
 													 
