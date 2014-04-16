@@ -1,25 +1,7 @@
-<?php if (Yii::app()->request->urlReferrer==Yii::app()->request->hostInfo.Yii::app()->createUrl('user/finalizedStream')){?>
-<?php $this->pageTitle=Yii::app()->name . ' - Finalized Stream';
-$this->breadcrumbs=array('Finalized Stream'=>array('/user/finalizedStream'));
-?>
-<?php } ?>
-<?php if (Yii::app()->request->urlReferrer==Yii::app()->request->hostInfo.Yii::app()->createUrl('user/streamPreference')){?>
-<?php $this->pageTitle=Yii::app()->name . ' - Stream Preference';
-$this->breadcrumbs=array('Stream Preference '=>array('/user/streamPreference'));
-?>
-<?php } ?>
-<?php if(Yii::app()->request->urlReferrer==Yii::app()->request->hostInfo.Yii::app()->createUrl('user/streamList/')){?>
- <?php $this->pageTitle='Stream Library - '.$stream->name;
+<?php $this->pageTitle='Stream Library - '.$stream->name;
 $this->breadcrumbs=array('Stream Library'=>array('/user/streamList'),'Stream Subjects'=>array('/user/stream/','id'=>$stream->id),
 ''.$stream->name.'');
-  ?>
-<?php } ?>
-<?php if(Yii::app()->request->urlReferrer==Yii::app()->request->hostInfo.Yii::app()->createUrl('user/stream/',array('id'=>$stream->id))){?>
- <?php $this->pageTitle='Stream Library - '.$stream->name;
-$this->breadcrumbs=array('Stream Library'=>array('/user/streamList'),'Stream Subjects'=>array('/user/stream/','id'=>$stream->id),
-''.$stream->name.'');
-  ?>
-<?php } ?>
+?>
 	<div class="career-bot pull-left">
 		<div class="mr0 col-md-12 fl">
 			<div class="mr0  pull-left stream-pref">
