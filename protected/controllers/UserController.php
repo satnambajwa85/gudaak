@@ -1701,7 +1701,8 @@ class UserController extends Controller
 	public function actionTalkData($id)
 	{
 		$summaryDetails	=	Tickets::model()->findByPk($id);
-		echo '<table width="90%" class="pull-right" cellpadding="10" border="1">
+		echo '<div class="col-md-12"><a href="javascript:void(0);" class="summery-left-btn pull-right mb10" onclick="$(\'#resultSummery\').html(\'\');">Close</a></div>
+		<table width="90%" class="pull-right" cellpadding="10" border="1">
                 	<tr class="light-gray"><td width="25%"><span>Title</span></td><td width="75%"><span>'.$summaryDetails->title.'</span></td></tr>
                 	<tr><td><span>Topic</span></td><td><span>'.$summaryDetails->problem.'</span></td></tr>
                 	<tr class="light-gray"><td><span>Add Date</span></td><td><span>'.date('d M, Y',strtotime($summaryDetails->add_date)).'</span></td></tr>
