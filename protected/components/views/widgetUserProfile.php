@@ -69,9 +69,9 @@
 												
 													<p><a href="javascript:void(0);">Edit Details</a></p>
 													
-													<?php echo $form->textField($model,'first_name',array('placeholder'=>''.$model->first_name.''));
+													<?php echo $form->textField($model,'first_name',array('placeholder'=>''.$model->first_name.'','class'=>'alpha required'));
 													echo $form->error($model,'first_name');?>
-													<?php echo $form->textField($model,'last_name',array('placeholder'=>''.$model->last_name.''));
+													<?php echo $form->textField($model,'last_name',array('placeholder'=>''.$model->last_name.'','class'=>'alpha required'));
 													echo $form->error($model,'last_name');?>
 <div style="position:relative !important;z-index:2000!important;">													
 <?php $this->widget('zii.widgets.jui.CJuiDatePicker',array(
@@ -85,12 +85,14 @@
 ));
 													echo $form->error($model,'date_of_birth');?>
                                                     </div>
-													<?php echo $form->textField($model,'gender',array('placeholder'=>''.$model->gender.''));
-													echo $form->error($model,'gender');?>
-													<?php echo $form->textField($model,'email',array('placeholder'=>''.$model->email.'','class'=>'big_index'));
+													<?php 
+													$list2	=	array('Male'=>'Male','Female'=>'Female');
+													echo CHtml::dropDownList('UserProfiles[gender]',$model->gender,$list2,array(''=>''));
+													?>
+													<?php echo $form->textField($model,'email',array('placeholder'=>''.$model->email.'','class'=>'email required big_index'));
 													echo $form->error($model,'email');?>
 												
-													<?php echo $form->textField($model,'mobile_no',array('placeholder'=>''.$model->mobile_no.'','maxlength'=>'10','class'=>'big_index'));
+													<?php echo $form->textField($model,'mobile_no',array('placeholder'=>''.$model->mobile_no.'','maxlength'=>'10','class'=>'phone required big_index'));
 													echo $form->error($model,'mobile_no');?>
 											  
 													<input type="text" placeholder="<?php echo $model->generateGudaakIds->cities->title;?>" />
