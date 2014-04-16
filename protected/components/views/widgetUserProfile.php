@@ -252,13 +252,12 @@ array(
                                                     <div class="tab2_form_box_right">
 														<h4>Board</h4>
 														<?php $list	=	array('CBSE'=>'CBSE','ICSE'=>'ICSE','State Board'=>'State Board');
-														echo CHtml::dropDownList('UserProfiles[board]',$model->board,$list,array('class'=>'big_index'));
-														//echo $form->textField($model,'board',array('class'=>'big_index'));?>
+														echo CHtml::dropDownList('UserProfiles[board]',$model->board,$list,array('class'=>'big_index'));?>
 														 
 													</div>
 													 
 													<p>	<a href="#tabs-3" class="next_button next_button2">Next Step</a> 
-													</p>
+                                                   </p>
 												 		 
 												</div>
 											</div>
@@ -275,17 +274,15 @@ array(
 																foreach($Interests as $interest){
 																echo '<div class="col-md-4">'.$form->checkBox($model,'interest['.$interest->id.']',array('onChange'=>'interest(this.value,id='.$interest->id.')','value'=>$interest->id,'checked'=>(in_array($interest->id,$selInter))?'checked':'')).' '.$interest->title.'</div>';
 																}?>
-                                                             </div>   
+                                                             </div>
+                                                             
 														</div>
-														 
-														 
-														 
-														 
 													</div>
 												</div>
 											</div>
 										</div>
                                         
+                                         <?php echo CHtml::Button('Update',array('onclick'=>'send("'.Yii::app()->createUrl('/user/editProfile').'");','class'=>'next_button','style'=>'width:134px;')); ?>
                                         	<?php $this->endWidget(); ?>
 										
 									</div>
