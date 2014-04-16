@@ -6,7 +6,7 @@ function send(url){
 			url: url,
 			data:data,
 			success:function(data){
-				alert('Sccessfully updated.'); 
+				alert('Successfully updated.');
 			},
 			error: function(data) { // if error occured
 				alert("Error occured.please try again");
