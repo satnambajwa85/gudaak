@@ -135,7 +135,7 @@ class UserController extends Controller
 				$log->status			=	1;
 				$log->save();
 				
-				Yii::app()->user->setFlash('updated',"Sccessfully updated.");
+				Yii::app()->user->setFlash('updated',"Successfully updated.");
 			}
 		}
 		$this->render('index',array('model'=>$model));
@@ -422,7 +422,7 @@ class UserController extends Controller
 				$log->status			=	1;
 				$log->save();
 				
-				Yii::app()->user->setFlash('updated',"Sccessfully updated.");
+				Yii::app()->user->setFlash('updated',"Successfully updated.");
 				$this->redirect(array('user/editProfile'));
 			}
 			else{
@@ -631,8 +631,7 @@ class UserController extends Controller
 		$findRequest		=	 RetakeTestRequest::model()->countByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'orient_items_id'=>$id));
 		if($findRequest==1){
 			Yii::app()->user->setFlash('updated',"you have already sent request to administrator.");
-				$this->redirect(array('user/tests'));
-			echo '';
+			$this->redirect(array('user/tests'));
 			die;
 		}
 		else{

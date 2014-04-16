@@ -117,8 +117,9 @@ class SiteController extends Controller
 					
 					$classes	=	array();
 					$response	=	array();
-					$response['status']=1;
-					$response['data']='';
+					$response['type']	=	$gudaakId->user_role_id;
+					$response['status']	=	1;
+					$response['data']	=	'';
 					foreach($data as $value=>$name){
 						$response['data'].=CHtml::tag('option', array('value'=>$value),CHtml::encode($name),true);
 					}
