@@ -9,13 +9,13 @@ $this->breadcrumbs=array('Stream Preference '=>array('/user/streamPreference'));
 ?>
 <?php } ?>
 <?php if(Yii::app()->request->urlReferrer==Yii::app()->request->hostInfo.Yii::app()->createUrl('user/streamList/')){?>
- <?php $this->pageTitle=Yii::app()->name . ' - Stream Library';
+ <?php $this->pageTitle='Stream Library - '.$stream->name;
 $this->breadcrumbs=array('Stream Library'=>array('/user/streamList'),'Stream Subjects'=>array('/user/stream/','id'=>$stream->id),
 ''.$stream->name.'');
   ?>
 <?php } ?>
 <?php if(Yii::app()->request->urlReferrer==Yii::app()->request->hostInfo.Yii::app()->createUrl('user/stream/',array('id'=>$stream->id))){?>
- <?php $this->pageTitle=Yii::app()->name . ' - Stream Library';
+ <?php $this->pageTitle='Stream Library - '.$stream->name;
 $this->breadcrumbs=array('Stream Library'=>array('/user/streamList'),'Stream Subjects'=>array('/user/stream/','id'=>$stream->id),
 ''.$stream->name.'');
   ?>
