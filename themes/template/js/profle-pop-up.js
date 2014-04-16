@@ -13,6 +13,8 @@ function send(url){
 			},
 			dataType:'html'
 		});
+	}else{
+		alert('Please provide correct information');
 	}
 }
 function testFormSend(id)
@@ -258,7 +260,7 @@ function testPhone(value){
 }
 
 function testAlpha(value){
-	var regexp = /^[a-z][A-Z]$/;
+	var regexp = /^[a-z A-Z]{1,30}$/;
 	var re = new RegExp(regexp);
 	return re.test(value);
 }
