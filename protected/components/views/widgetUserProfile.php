@@ -73,8 +73,18 @@
 													echo $form->error($model,'first_name');?>
 													<?php echo $form->textField($model,'last_name',array('placeholder'=>''.$model->last_name.''));
 													echo $form->error($model,'last_name');?>
-													<?php echo $form->textField($model,'date_of_birth',array('placeholder'=>''.$model->date_of_birth.''));
+<div style="position:relative !important;z-index:2000!important;">													
+<?php $this->widget('zii.widgets.jui.CJuiDatePicker',array(
+'model'=>$model,
+'attribute'=>'date_of_birth',
+'options'=>array('dateFormat'=>'yy-mm-dd',
+'changeMonth'=>'true',
+'changeYear'=>'true',),
+'htmlOptions'=>array('id'=>'disabledInput','placeholder'=>'DOB'),
+
+));
 													echo $form->error($model,'date_of_birth');?>
+                                                    </div>
 													<?php echo $form->textField($model,'gender',array('placeholder'=>''.$model->gender.''));
 													echo $form->error($model,'gender');?>
 													<?php echo $form->textField($model,'email',array('placeholder'=>''.$model->email.'','class'=>'big_index'));
@@ -113,7 +123,7 @@ array(
                'minSizeLimit'=>124,// minimum file size in bytes
                'onComplete'=>"js:function(id, fileName, responseJSON){ 
 			   $('#imgPical').val(fileName);
-			   $('#imgPic').attr('src','/gudaak/uploads/user/small/'+fileName);}",
+			   $('#imgPic').attr('src','/uploads/user/small/'+fileName);}",
               )
 )); ?>
 
@@ -207,8 +217,8 @@ array(
 														 
 													</div>
 													<div class="tab2_form_box_right">
-														<h4>Language Known</h4>
-														<?php echo $form->textField($model,'language_known',array('class'=>'big_index','onChange'=>'userProfileData(this.value,id="language")','placeholder'=>''.(!empty($model->language_known))?''.$model->language_known.'':'Language Known'.''));
+														<h4>Languages Known</h4>
+														<?php echo $form->textField($model,'language_known',array('class'=>'big_index','value'=>$model->language_known,'placeholder'=>'Languages Known'));
 														echo $form->error($model,'language_known');?>
 													 
 													</div>

@@ -9,9 +9,9 @@
 			<?php echo CHtml::link('<span>'.$userinfo->first_name.' '.$userinfo->last_name.'</span>',array('user/'));?>
 			<div class="clear"></div>
 			<div class="progress fl ">
-			  <div style="width:<?php echo $completeProfile;?> !important;" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
+			  <div style="width:<?php echo $completeProfile;?> !important;" class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100">
 			  </div>
-			  <span class="sr-only"> <span>
+			  <span class="sr-only"></span>
 			
 			</div>
 			  <span class="tolal-process"><?php echo $completeProfile;?> </span>
