@@ -107,7 +107,7 @@ $this->breadcrumbs=array('Stream Preference'=>array('/user/streamPreference'));?
 			<div class="mr0 col-md-6 fl br-right">
 				
 					<div class="mr0  pull-left middle-format-left">
-						<h1>Recode not found.</h1>
+						<h1>You have not rated any of the subjects/ streams as yet. Click here to rate and finalize subjects of your interest.</h1>
 						 
 
 					</div>
@@ -179,7 +179,7 @@ $this->breadcrumbs=array('Stream Preference'=>array('/user/streamPreference'));?
 					
 						<div class="mr0  pull-left middle-format-left">
 							<h1>Counsellor has not recommend any stream yet.</h1>
-							<p>Please contact to your counsellor.</p>
+							<!--<p>Please contact to your counsellor.</p>-->
 
 						</div>
 				</div>
