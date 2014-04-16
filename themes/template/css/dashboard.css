@@ -8582,8 +8582,10 @@ background: #880000;
 border-bottom: 1px solid #ddd;
 color: #fff;
 background-color:#CCC;	
-margin-left:20px;	
+margin-left:20px;
+margin-top:53px;
 }
 #uploadFile .qq-upload-list {
 display: none;
 }
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {background:none !important;border:none !important;}
