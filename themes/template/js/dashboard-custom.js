@@ -134,6 +134,15 @@ $(document).ready(function () {
 		
 	}); 	
 	//ends here 
+		
+		$(".feedbackBtn").on("click", function() { // wire up the OK button to dismiss the modal when shown
+			$("#feedbackPop").modal({ // wire up the actual modal functionality and show the dialog
+			"backdrop" : "static",
+			"keyboard" : true,
+			"show" : true // ensure the modal is shown immediately
+			});
+		}); 
+		
 		$(".retakePersonality").on("click", function() { // wire up the OK button to dismiss the modal when shown
 			$("#retake2").modal({ // wire up the actual modal functionality and show the dialog
 			"backdrop" : "static",
