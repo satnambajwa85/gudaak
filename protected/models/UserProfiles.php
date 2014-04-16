@@ -58,7 +58,7 @@ class UserProfiles extends CActiveRecord
 	public $favorite;
 	public $Lestfavorite;
 	public $interest;
-	
+	public $percentage;
 	public $user_role;
 	public $class;
 	
