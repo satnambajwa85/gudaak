@@ -280,7 +280,7 @@ class SiteController extends Controller
 					//Start  mail Function 
 						$data['name']		=	'Dear user';
 						$data['email']		=	$record->username;
-						$data['password']	=	$record->password;
+						$data['password']	=	$random_number;
 						$this->sendMail($data,'forget'); 
 						Yii::app()->user->setFlash('new_password_message','Your new password has been sent to your email address.');
 						$this->refresh();

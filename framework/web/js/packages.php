@@ -7,7 +7,7 @@
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @link http://www.yiiframework.com/
- * @copyright 2008-2013 Yii Software LLC
+ * @copyright Copyright &copy; 2008-2011 Yii Software LLC
  * @license http://www.yiiframework.com/license/
  */
 
@@ -68,14 +68,7 @@ return array(
 		'depends'=>array('jquery'),
 	),
 	'bbq'=>array(
-		'js'=>array(YII_DEBUG ? 'jquery.ba-bbq.js' : 'jquery.ba-bbq.min.js'),
+		'js'=>array('jquery.ba-bbq.js'),
 		'depends'=>array('jquery'),
-	),
-	'history'=>array(
-		'js'=>array('jquery.history.js'),
-		'depends'=>array('jquery'),
-	),
-	'punycode'=>array(
-		'js'=>array(YII_DEBUG ? 'punycode.js' : 'punycode.min.js'),
 	),
 );

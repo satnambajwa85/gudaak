@@ -7,13 +7,12 @@
  * Copyright © 1991-2007 Unicode, Inc. All rights reserved.
  * Distributed under the Terms of Use in http://www.unicode.org/copyright.html.
  *
- * @copyright 2008-2013 Yii Software LLC (http://www.yiiframework.com/license/)
+ * Copyright © 2008-2011 Yii Software LLC (http://www.yiiframework.com/license/)
  */
 return array (
-  'version' => '6546',
+  'version' => '5968',
   'numberSymbols' => 
   array (
-    'alias' => '',
     'decimal' => ',',
     'group' => ' ',
     'list' => ';',
@@ -24,6 +23,7 @@ return array (
     'perMille' => '‰',
     'infinity' => '∞',
     'nan' => 'NaN',
+    'alias' => '',
   ),
   'decimalFormat' => '#,##0.###',
   'scientificFormat' => '#E0',
@@ -32,7 +32,7 @@ return array (
   'currencySymbols' => 
   array (
     'AUD' => 'AU$',
-    'BRL' => 'R$',
+    'BRL' => 'BR$',
     'CAD' => 'CA$',
     'CNY' => 'CN¥',
     'EUR' => '€',
@@ -928,6 +928,7 @@ return array (
     '054' => 'Melanézia',
     '057' => 'Mikronéziai régió',
     '061' => 'Polinézia',
+    '062' => 'Délközép-Ázsia',
     142 => 'Ázsia',
     143 => 'Közép-Ázsia',
     145 => 'Nyugat-Ázsia',
@@ -935,7 +936,9 @@ return array (
     151 => 'Kelet-Európa',
     154 => 'Észak-Európa',
     155 => 'Nyugat-Európa',
+    172 => 'Független Államok Közössége',
     419 => 'Latin-Amerika',
+    830 => 'Csatorna-szigetek',
     'ac' => 'Ascension-sziget',
     'ad' => 'Andorra',
     'ae' => 'Egyesült Arab Emirátus',

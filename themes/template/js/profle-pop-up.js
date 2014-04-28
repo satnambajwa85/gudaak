@@ -219,6 +219,22 @@ function validateFull(){
 		}else
 			$(this).removeClass('error');
 	});
+	$('#'+$fieldId+' :input.alpha').each(function (){
+		if(!testAlpha($(this).val())){
+			$(this).addClass('error');
+			$(this).attr('title','Please enter valid url (www.example.com)');
+			errorList	=	1;
+			console.log($(this));
+        }else if($(this).hasClass('required') && $(this).val().length==0){
+			$(this).addClass('error');
+			$(this).attr('title','Please enter required field');
+			errorList	=	1;
+			console.log($(this));
+		}else
+			$(this).removeClass('error');
+	});
+	
+	
 	$('#'+$fieldId+' :input.date').each(function (){
 		if(!testDate($(this).val())){
 			$(this).addClass('error');
@@ -261,8 +277,16 @@ function testPhone(value){
 
 function testAlpha(value){
 	var regexp = /^[a-z A-Z]{1,30}$/;
-	var re = new RegExp(regexp);
-	return re.test(value);
+	if(!$(this).hasClass('required')){	
+		var re = new RegExp(regexp);
+		if(value=='')
+			return true;
+		else
+			return re.test(value);
+	}else{
+		var re = new RegExp(regexp);
+		return re.test(value);
+	}
 }
 
 function testEmail(value){

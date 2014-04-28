@@ -1,7 +1,4 @@
 <?php
-/* @var $this CoursesController */
-/* @var $model Courses */
-
 $this->breadcrumbs=array(
 	'Courses'=>array('index'),
 	$model->title,
@@ -27,6 +24,5 @@ $this->menu=array(
 		'add_date',
 		'published',
 		'status',
-		'interests_id',
 	),
 )); ?>

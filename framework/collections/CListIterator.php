@@ -4,16 +4,17 @@
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @link http://www.yiiframework.com/
- * @copyright 2008-2013 Yii Software LLC
+ * @copyright Copyright &copy; 2008-2011 Yii Software LLC
  * @license http://www.yiiframework.com/license/
  */
 
 /**
- * CListIterator implements an iterator for {@link CList}.
+ * CListIterator implements an interator for {@link CList}.
  *
  * It allows CList to return a new iterator for traversing the items in the list.
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
+ * @version $Id: CListIterator.php 2799 2011-01-01 19:31:13Z qiang.xue $
  * @package system.collections
  * @since 1.0
  */

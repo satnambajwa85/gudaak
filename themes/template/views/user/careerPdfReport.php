@@ -151,7 +151,7 @@ There has been much research on how people describe themselves and others based 
         <div style="float:left; width:680px; margin-top:5%; background:#1acccc; height:38px; padding-top:14px; text-align:right; font-size:18px; color:#fff;  font-family:Arial, Helvetica, sans-serif;">Profile Summary &nbsp;&nbsp;&nbsp;</div>
         <div style=" position:absolute; width:200px; height:139px; top:-17px; left:100px;  "><img src="./image/small.jpg" alt=""  /></div>                    
         
-        <div style="margin-top: 40px;height:810px; margin-left: 10px;width:620px;">
+         <div style="margin-top: 40px;height:810px; margin-left: 10px;width:620px; height:880px;">
         
         Take a look at your results obtained on the Big Five Personality Factors i.e. OCEAN to get to know your <br />self even better.
         <?php $counter	=	0;
@@ -233,7 +233,7 @@ The Interest Test you have taken maps you on the six types popularly known as Ho
         <div style="float:left; width:680px; margin-top:0px; background:#1acccc; height:38px; padding-top:14px; text-align:right; font-size:18px; color:#fff;  font-family:Arial, Helvetica, sans-serif;">Profile Summary &nbsp;&nbsp;&nbsp;</div>
         <div style=" position:absolute; width:200px; height:139px; top:-17px; left:100px;  "><img src="./image/small.jpg" alt=""  /></div>                    
         
-        <div style="margin-top: 35px;height:840px; margin-left: 20px;width:620px; padding-top: 75px;">
+        <div style="height:800px; margin-left: 20px;width:620px; padding-top: 75px;">
         <strong>Bar Diagram Showing the Scores obtained</strong>
         
         
@@ -350,7 +350,7 @@ Based on your personality and interest you can explore the right type of role in
 		foreach($listCar as $data){		?>
 		<td width="210" height="90">
 			<div style="color: #666666;font-size: 12px;width:200px;float:left !important;text-align:left;">
-				<img src="./uploads/career/small/<?php echo $data->image;?>" width="200" />
+				<img src="./uploads/career/small/<?php echo file_exists('./uploads/career/small/'.$data->image)?$data->image:'noimage.jpg';?>" width="200" />
 			</div>
 			 <div style="color: #666666;font-size: 12px;  width:200px;height:30px;float:left !important;text-align:left;">
 				<?php echo $data->title;?><br/>

@@ -76,42 +76,55 @@ $this->breadcrumbs=array('Finalized Career'=>array('/user/finalizedCareer'));
 			 
 			</div>
          </div>
-		 <div class="col-md-6 fl">
+		 <div class="col-md-12 fl">
 		 <!-- <div class="col-md-12 pull-left below-info">
 					<p>if ypou have any different idea to choose a stream then just change your idea bu having a conversation with counselor. </p>
 					<?php //echo CHtml::link('Still confused',array('user/'),array('class'=>'white-text btn btn-warning'));?>
 			</div>-->
 				
-				<!--<div class="col-md-12 pull-left user-feedback">
+				<div class="col-md-12 pull-left user-feedback">
 					<h1>Feedback</h1>
-					<p>Your valuable idea about this stream Explore. </p>
-					<span class="fl">1.Weather counselling with counselor satisfactory?</span>
-					<div class="clear"></div>
-					<?php /*$form=$this->beginWidget('CActiveForm', array(
-																		'id'=>'comment-info-form',
-																		    'enableClientValidation'=>true,
-																			'clientOptions'=>array(
-																					'validateOnSubmit'=>true,
-																					
-																				)
-																	)); ?>		
-					       <div class="form-controles fl">
-						   <?php echo $form->radioButtonList($model,'user_responce',array('Satisfied'=>'Satisfied','Average'=>'Average','Note_at_all'=>'Note at all'),array('separator'=>'')); ?>
-						   <?php echo $form->error($model,'user_responce');?>
-						   </div>
-							<div class="clear"></div>
-							<select id="UserComments_stream_id" class="form-control" name="UserStreamComments[stream_id]">
-								<?php foreach($data as $list){?>
-								<option value="<?php echo $list['id'];?>"><?php echo $list['title'];?></option>
-								<?php } ?>
-							</select>
-							<div class="form-controles">
-							<?php echo $form->textArea($model,'comments',array('class'=>'form-control','placeholder'=>'Enter comment here..'));?>
-							  <?php echo $form->error($model,'comments');?>	
-							</div>
-							<?php echo CHtml::submitButton('submit',array('class'=>'btn btn-warning fr','id'=>'comment-info-form-btn'));?>
-					<?php $this->endWidget();*/?>
-				</div>-->
+					<p>Overall how would you rate the stream library in terms of:</p>
+                    
+                    
+<div style="font-size:11px;text-align:left;">1. Presentation of content  
+
+<div id="feed-rating-1" class="fr"></div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#feed-rating-1').raty({score:'<?php echo (isset($feed[1]))?$feed[1]:0;?>'});
+		$('#feed-rating-1 img').click(function(){saveRating(1,$(this).attr('alt'),'feed');});
+								
+	});
+</script>
+
+</div>
+<div class="clear"></div>
+<div style="font-size:11px;text-align:left;">2. Informative relevance of content <div id="feed-rating-2" class="fr"></div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#feed-rating-2').raty({score:'<?php echo (isset($feed[2]))?$feed[2]:0;?>'});
+		$('#feed-rating-2 img').click(function(){saveRating(2,$(this).attr('alt'),'feed');});
+								
+	});
+</script>
+
+</div>
+<div class="clear"></div>
+<div style="font-size:11px;text-align:left;">3. Easy Comprehension <div id="feed-rating-3" class="fr"></div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#feed-rating-3').raty({score:'<?php echo (isset($feed[3]))?$feed[3]:0;?>'});
+		$('#feed-rating-3 img').click(function(){saveRating(3,$(this).attr('alt'),'feed');});
+								
+	});
+</script>
+
+</div>
+<div class="clear"></div>
+                    
+					
+				</div>
 			</div>	
 		  <?php } else{ ?>
 			<div class="mr0 col-md-6 fl ">
@@ -133,4 +146,17 @@ $this->breadcrumbs=array('Finalized Career'=>array('/user/finalizedCareer'));
 	<div class="news pd0 fr">
 		<?php  $this->Widget('WidgetNews'); ?>
 	</div>
-			
+<script type="text/javascript">
+function saveRating(cid,rate,type){
+	var url	=	'<?php echo Yii::app()->createUrl('/user/userStreamRaitng');?>';
+	$.ajax({
+		type: "POST",
+		url: url+'&id='+cid+'&rating='+rate+'&type='+type,
+		data: 'rating',
+		dataType:'json',
+		success:function(data){
+				$('.s').html(data.want_to_join);
+			}
+	});
+}
+</script>			

@@ -4,7 +4,7 @@
  *
  * @author Sebastian Thierer <sebathi@gmail.com>
  * @link http://www.yiiframework.com/
- * @copyright 2008-2013 Yii Software LLC
+ * @copyright Copyright &copy; 2008-2011 Yii Software LLC
  * @license http://www.yiiframework.com/license/
  */
 
@@ -14,6 +14,7 @@ Yii::import('zii.widgets.jui.CJuiWidget');
  * CJuiInputWidget is the base class for JUI widgets that can collect user input.
  *
  * @author Sebastian Thierer <sebathi@gmail.com>
+ * @version $Id: CJuiInputWidget.php 2799 2011-01-01 19:31:13Z qiang.xue $
  * @package zii.widgets.jui
  * @since 1.1
  */
@@ -33,31 +34,24 @@ abstract class CJuiInputWidget extends CJuiWidget
 	 */
 	public $name;
 	/**
-	 * @var string the input value.
+	 * @var string the input value
 	 */
 	public $value;
 
+
 	/**
-	 * Resolves name and ID of the input. Source property of the name and/or source property of the attribute
-	 * could be customized by specifying first and/or second parameter accordingly.
-	 * @param string $nameProperty class property name which holds element name to be used. This parameter
-	 * is available since 1.1.14.
-	 * @param string $attributeProperty class property name which holds model attribute name to be used. This
-	 * parameter is available since 1.1.14.
-	 * @return array name and ID of the input: array('name','id').
-	 * @throws CException in case model and attribute property or name property cannot be resolved.
+	 * @return array the name and the ID of the input.
 	 */
-	protected function resolveNameID($nameProperty='name',$attributeProperty='attribute')
+	protected function resolveNameID()
 	{
-		if($this->$nameProperty!==null)
-			$name=$this->$nameProperty;
-		elseif(isset($this->htmlOptions[$nameProperty]))
-			$name=$this->htmlOptions[$nameProperty];
-		elseif($this->hasModel())
-			$name=CHtml::activeName($this->model,$this->$attributeProperty);
+		if($this->name!==null)
+			$name=$this->name;
+		else if(isset($this->htmlOptions['name']))
+			$name=$this->htmlOptions['name'];
+		else if($this->hasModel())
+			$name=CHtml::activeName($this->model,$this->attribute);
 		else
-			throw new CException(Yii::t('zii','{class} must specify "model" and "{attribute}" or "{name}" property values.',
-				array('{class}'=>get_class($this),'{attribute}'=>$attributeProperty,'{name}'=>$nameProperty)));
+			throw new CException(Yii::t('zii','{class} must specify "model" and "attribute" or "name" property values.',array('{class}'=>get_class($this))));
 
 		if(($id=$this->getId(false))===null)
 		{

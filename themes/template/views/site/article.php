@@ -74,5 +74,8 @@ $this->breadcrumbs=array('Articles'=>array('/user/articlesList'),''.$articles->t
 				
 			</div>
 			-->
-		</div> 
+		</div>
+		 
+		 
 </div>
+			

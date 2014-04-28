@@ -38,44 +38,51 @@ $this->breadcrumbs=array('Assess'=>array('/user/tests'));?>
 						<!--<div class="col-md-6 pull-left test-description-bot">
 							<?php //echo $testContent->test_features ;?>
 						</div>-->
-						<a href="javascript:void();" class="feedbackBtn">click to feed back</a>
-						<?php 
-						if(count($feedBack[2] < 3)){?>
-						<div id="feedbackPop" class="modal fade">
-    	<div class="modal-dialog">
-        	<div class="modal-content">
-									<div style="font-size:11px">
+						
+						
+                           <div id="popup_box" style="opacity:100">    <!-- OUR PopupBox DIV-->
+						
+                        
+                        <div class="col-md-6 col-sm-offset-3">
+                		<div class="site-logo"></div>
+						<div class="row white ">
+                        	<div class="col-md-12 pd13 ">
+								 <div  class="col-md-12 pd0 pull-left mb10">
+                                 
+                                	Please Provide you feed back its important for us.<br /><br />
+									<div style="font-size:11px;text-align:left;">
                                     1. How will you rate your overall experience of test taking?
                                     
                                     <div class="clear"></div>
-                                    <input type="radio" name="ans_1_2" value="Excellent" style="display:block !important;float:left; width:20px;" onchange="answer(this.value,testId=2 ,QID=1)" <?php echo(isset($feedBack[2][1]) && $feedBack[2][1]['feed']=='Excellent')?'checked="checked"':'';?> />Excellent<div class="clear"></div>
-                                    <input type="radio" name="ans_1_2" value="Good" style="display:block !important;float:left; width:20px;"  onchange="answer(this.value,testId=2 ,QID=1)"  <?php echo(isset($feedBack[2][1]) && $feedBack[2][1]['feed']=='Good')?'checked="checked"':'';?> />Good<div class="clear"></div>
-                                    <input type="radio" name="ans_1_2" value="Average" style="display:block !important;float:left; width:20px;" onchange="answer(this.value,testId=2 ,QID=1)" <?php echo(isset($feedBack[2][1]) &&  $feedBack[2][1]['feed']=='Average')?'checked="checked"':'';?>/>Average<div class="clear"></div>
-                                    <input type="radio" name="ans_1_2" value="Boring" style="display:block !important;float:left; width:20px;"  onchange="answer(this.value,testId=2 ,QID=1)" <?php echo(isset($feedBack[2][1]) && $feedBack[2][1]['feed']=='Boring')?'checked="checked"':'';?>/>Boring
+                                    <input type="radio" name="ans_1_2" value="Excellent" style="display:block !important;float:left; width:20px;" onchange="answer(this.value,testId=2 ,QID=1)" <?php echo(isset($feedBack[1]) && $feedBack[1]['feed']=='Excellent')?'checked="checked"':'';?> />Excellent<div class="clear"></div>
+                                    <input type="radio" name="ans_1_2" value="Good" style="display:block !important;float:left; width:20px;"  onchange="answer(this.value,testId=2 ,QID=1)"  <?php echo(isset($feedBack[1]) && $feedBack[1]['feed']=='Good')?'checked="checked"':'';?> />Good<div class="clear"></div>
+                                    <input type="radio" name="ans_1_2" value="Average" style="display:block !important;float:left; width:20px;" onchange="answer(this.value,testId=2 ,QID=1)" <?php echo(isset($feedBack[1]) &&  $feedBack[1]['feed']=='Average')?'checked="checked"':'';?>/>Average<div class="clear"></div>
+                                    <input type="radio" name="ans_1_2" value="Boring" style="display:block !important;float:left; width:20px;"  onchange="answer(this.value,testId=2 ,QID=1)" <?php echo(isset($feedBack[1]) && $feedBack[1]['feed']=='Boring')?'checked="checked"':'';?>/>Boring
                                     </div>
                                     <div class="clear"></div>
-									<div style="font-size:11px">
+									<div style="font-size:11px;text-align:left;">
                                     2. How will you rate the test question in terms of difficulty level in understanding?
                                     <div class="clear"></div>
-                                    <input type="radio" name="ans_2_2" value="Very Difficult" style="display:block !important;float:left; width:20px;" onchange="answer(this.value,testId=2 ,QID=2)" <?php echo(isset($feedBack[2][2]) && $feedBack[2][2]['feed']=='Very Difficult')?'checked="checked"':'';?>/>Very Difficult<div class="clear"></div>
-                                    <input type="radio" name="ans_2_2" value="Somewhat Difficult" style="display:block !important;float:left; width:20px;" onchange="answer(this.value,testId=2 ,QID=2)"  <?php echo(isset($feedBack[2][2]) && $feedBack[2][2]['feed']=='Somewhat Difficult')?'checked="checked"':'';?>/>Somewhat Difficult<div class="clear"></div>
-                                    <input type="radio" name="ans_2_2" value="Not At All Difficult" style="display:block !important;float:left; width:20px;" onchange="answer(this.value,testId=2 ,QID=2)"  <?php echo(isset($feedBack[2][2]) && $feedBack[2][2]['feed']=='Not At All Difficult')?'checked="checked"':'';?>/>Not At All Difficult
+                                    <input type="radio" name="ans_2_2" value="Very Difficult" style="display:block !important;float:left; width:20px;" onchange="answer(this.value,testId=2 ,QID=2)" <?php echo(isset($feedBack[2]) && $feedBack[2]['feed']=='Very Difficult')?'checked="checked"':'';?>/>Very Difficult<div class="clear"></div>
+                                    <input type="radio" name="ans_2_2" value="Somewhat Difficult" style="display:block !important;float:left; width:20px;" onchange="answer(this.value,testId=2 ,QID=2)"  <?php echo(isset($feedBack[2]) && $feedBack[2]['feed']=='Somewhat Difficult')?'checked="checked"':'';?>/>Somewhat Difficult<div class="clear"></div>
+                                    <input type="radio" name="ans_2_2" value="Not At All Difficult" style="display:block !important;float:left; width:20px;" onchange="answer(this.value,testId=2 ,QID=2)"  <?php echo(isset($feedBack[2]) && $feedBack[2]['feed']=='Not At All Difficult')?'checked="checked"':'';?>/>Not At All Difficult
                                     </div>
                                     <div class="clear"></div>
-									<div style="font-size:11px">
+									<div style="font-size:11px;text-align:left;">
                                     3. How will you rate the content of the test in terms of relevance to yourself?
                                     <div class="clear"></div>
-                                    <input type="radio" name="ans_3_2" value="Found it absolutely Irrelevant to my self" style="display:block !important;float:left; width:20px;"  onchange="answer(this.value,testId=2 ,QID=3)"  <?php echo(isset($feedBack[2][3]) && $feedBack[2][3]['feed']=='Found it absolutely Irrelevant to my self')?'checked="checked"':'';?> />Found it absolutely Irrelevant to my self<div class="clear"></div>
-                                    <input type="radio" name="ans_3_2" value="Somewhat relevant to my self" style="display:block !important;float:left; width:20px;" onchange="answer(this.value,testId=2 ,QID=3)"  <?php echo(isset($feedBack[2][3]) && $feedBack[2][3]['feed']=='Somewhat relevant to my self')?'checked="checked"':'';?> />Somewhat relevant to my self<div class="clear"></div>
-                                    <input type="radio" name="ans_3_2" value="Could relate to the questions extremely well" style="display:block !important;float:left; width:20px;"  onchange="answer(this.value,testId=2 ,QID=3)"  <?php echo(isset($feedBack[2][3]) && $feedBack[2][3]['feed']=='Could relate to the questions extremely well')?'checked="checked"':'';?> />Could relate to the questions extremely well
+                                    <input type="radio" name="ans_3_2" value="Found it absolutely Irrelevant to my self" style="display:block !important;float:left; width:20px;"  onchange="answer(this.value,testId=2 ,QID=3)"  <?php echo(isset($feedBack[3]) && $feedBack[3]['feed']=='Found it absolutely Irrelevant to my self')?'checked="checked"':'';?> />Found it absolutely Irrelevant to my self<div class="clear"></div>
+                                    <input type="radio" name="ans_3_2" value="Somewhat relevant to my self" style="display:block !important;float:left; width:20px;" onchange="answer(this.value,testId=2 ,QID=3)"  <?php echo(isset($feedBack[3]) && $feedBack[3]['feed']=='Somewhat relevant to my self')?'checked="checked"':'';?> />Somewhat relevant to my self<div class="clear"></div>
+                                    <input type="radio" name="ans_3_2" value="Could relate to the questions extremely well" style="display:block !important;float:left; width:20px;"  onchange="answer(this.value,testId=2 ,QID=3)"  <?php echo(isset($feedBack[3]) && $feedBack[3]['feed']=='Could relate to the questions extremely well')?'checked="checked"':'';?> />Could relate to the questions extremely well
                                     </div>
 									<div class="clear"></div>
-    
-    </div>
-	</div>
-    </div>
+    								<a class="btn btmar btn-info pull-right close-btn" onclick="location.reload();">Done</a>
+	  							</div>
+                            </div>
+                            </div>
+                            </div>   
+							</div>
 						
-						<?php }?>
 						
 						
 						<?php foreach($testContent as $list){ ?>
@@ -102,9 +109,17 @@ $this->breadcrumbs=array('Assess'=>array('/user/tests'));?>
 								</div>
 								<div align="center" class="mar-bottom mt30">
 				
-
-				<?php	echo CHtml::link('Retake Test','javaScript:void(0);',array('class'=>'btn retake'.$list->title.' btn-warning'));?>
-				<?php	echo CHtml::Ajaxlink('Summary',array('user/summaryDetails','id'=>$list->id),array('update'=>'#summeryRecodes'),array('class'=>'btn Summary-details btn-warning ml15'));?>
+				
+				<?php	
+				if(count($feedBack) == 3){
+				echo CHtml::link('Retake Test','javaScript:void(0);',array('class'=>'btn retake'.$list->title.' btn-warning'));?>
+				<?php	echo CHtml::Ajaxlink('Summary',array('user/summaryDetails','id'=>$list->id),array('update'=>'#summeryRecodes'),array('class'=>'btn Summary-details btn-warning ml15'));
+				}else{
+					echo '<script type="text/javascript">$(document).ready(function(){loadPopupBox();});</script>';
+				echo CHtml::link('Click for feedback','javaScript:void(0);',array('class'=>'btn feedbackBtn btn-warning'));
+				}
+				?>
+                
                 				</div>
 							</div>
 						</div>

@@ -7,13 +7,12 @@
  * Copyright © 1991-2007 Unicode, Inc. All rights reserved.
  * Distributed under the Terms of Use in http://www.unicode.org/copyright.html.
  *
- * @copyright 2008-2013 Yii Software LLC (http://www.yiiframework.com/license/)
+ * Copyright © 2008-2011 Yii Software LLC (http://www.yiiframework.com/license/)
  */
 return array (
   'version' => '4123',
   'numberSymbols' => 
   array (
-    'alias' => '',
     'decimal' => ',',
     'group' => ' ',
     'list' => ';',
@@ -24,6 +23,7 @@ return array (
     'perMille' => '‰',
     'infinity' => '∞',
     'nan' => 'Не число',
+    'alias' => '',
   ),
   'decimalFormat' => '#,##0.###',
   'scientificFormat' => '#E0',
@@ -32,7 +32,7 @@ return array (
   'currencySymbols' => 
   array (
     'AUD' => 'AU$',
-    'BRL' => 'R$',
+    'BRL' => 'BR$',
     'CAD' => 'CA$',
     'CNY' => 'CN¥',
     'EUR' => '€',
@@ -888,6 +888,7 @@ return array (
     '054' => 'Меланезія',
     '057' => 'Мікронезійський регіон',
     '061' => 'Полінезія',
+    '062' => 'Південно-Центральна Азія',
     142 => 'Азія',
     143 => 'Центральна Азія',
     145 => 'Західна Азія',
@@ -895,7 +896,9 @@ return array (
     151 => 'Східна Європа',
     154 => 'Північна Європа',
     155 => 'Західна Європа',
+    172 => 'Співдружність Незалежних Держав',
     419 => 'Латинська Америка',
+    830 => 'Нормандські острови',
     'ac' => 'Острів Вознесіння',
     'ad' => 'Андорра',
     'ae' => 'Обʼєднані Арабські Емірати',

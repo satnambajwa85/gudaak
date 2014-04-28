@@ -151,7 +151,7 @@ There has been much research on how people describe themselves and others based 
         <div style="float:left; width:680px; margin-top:5%; background:#1acccc; height:38px; padding-top:14px; text-align:right; font-size:18px; color:#fff;  font-family:Arial, Helvetica, sans-serif;">Profile Summary &nbsp;&nbsp;&nbsp;</div>
         <div style=" position:absolute; width:200px; height:139px; top:-17px; left:100px;  "><img src="./image/small.jpg" alt=""  /></div>                    
         
-        <div style="margin-top: 40px;height:810px; margin-left: 10px;width:620px;">
+        <div style="margin-top: 40px;height:810px; margin-left: 10px;width:620px; height:870px;">
         
         Take a look at your results obtained on the Big Five Personality Factors i.e. OCEAN to get to know your <br />self even better.
         <?php $counter	=	0;

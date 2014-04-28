@@ -128,11 +128,7 @@ $(document).ready(function () {
 	}).filter(':first').click();	
 	$( "#tabs" ).tabs();
 	//user profile edit tab 
-	$(".edit-form").click(function(){
-		$("#user-profile-form").hide();
-		$(".profile_tab1_form").show();
 		
-	}); 	
 	//ends here 
 		
 		$(".feedbackBtn").on("click", function() { // wire up the OK button to dismiss the modal when shown

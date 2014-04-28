@@ -50,7 +50,6 @@ class SchoolController extends Controller
 	
 	public function actionTalk()
 	{
-		
 		$model	=	new Tickets('search');
 		if(isset($_POST['Tickets'])){
 			$user	=	UserProfiles::model()->findByPk(Yii::app()->user->profileId);
@@ -75,7 +74,9 @@ class SchoolController extends Controller
 		}
 		$model->unsetAttributes();
 		$model->sender_id	=	Yii::app()->user->profileId;
-		$this->render('talk',array('model'=>$model));
+		$list	=	Tickets::model()->FindAllByAttributes(array('sender_id'=>Yii::app()->user->profileId));
+		$this->render('talk',array('model'=>$model,'lists'=>$list));
+		
 	}
 	public function actionStudentDetails()
 	{

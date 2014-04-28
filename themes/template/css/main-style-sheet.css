@@ -391,13 +391,10 @@ background-image: url("../images/01_Home_Slider_1.jpg");
 .underLine {text-decoration: underline !important;}
 .ratingStar{width:85px;}
 .ratingStar img:hover{border:none;}
- .alert{   background-color: #DFF0D8;
-    border-color: #D6E9C6;
-    clear: both;
-    color: #468847;
-    height: 52px;
-    position: relative;
-    z-index: 9999;}
+ .alert{clear: both;color: #468847;height: 52px;position: relative;z-index: 9999;}
+.alert-success{background-color: #DFF0D8;border-color: #D6E9C6;}
+.alert-error{background-color: #f99;border-color: #f99;color:#f00;}
+	
 .mb11{margin-bottom:11px !important;}
 strong {
     font-family: open sans !important;

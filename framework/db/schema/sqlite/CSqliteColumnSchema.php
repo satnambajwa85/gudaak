@@ -4,7 +4,7 @@
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @link http://www.yiiframework.com/
- * @copyright 2008-2013 Yii Software LLC
+ * @copyright Copyright &copy; 2008-2011 Yii Software LLC
  * @license http://www.yiiframework.com/license/
  */
 
@@ -12,6 +12,7 @@
  * CSqliteColumnSchema class describes the column meta data of a SQLite table.
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
+ * @version $Id: CSqliteColumnSchema.php 2799 2011-01-01 19:31:13Z qiang.xue $
  * @package system.db.schema.sqlite
  * @since 1.0
  */
@@ -24,12 +25,9 @@ class CSqliteColumnSchema extends CDbColumnSchema
 	 */
 	protected function extractDefault($defaultValue)
 	{
-		if($this->dbType==='timestamp' && $defaultValue==='CURRENT_TIMESTAMP')
-			$this->defaultValue=null;
+		if($this->type==='string') // PHP 5.2.6 adds single quotes while 5.2.0 doesn't
+			$this->defaultValue=trim($defaultValue,"'\"");
 		else
 			$this->defaultValue=$this->typecast(strcasecmp($defaultValue,'null') ? $defaultValue : null);
-
-		if($this->type==='string' && $this->defaultValue!==null) // PHP 5.2.6 adds single quotes while 5.2.0 doesn't
-			$this->defaultValue=trim($this->defaultValue,"'\"");
 	}
 }

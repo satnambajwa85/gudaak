@@ -1,4 +1,4 @@
-<?php $this->pageTitle=Yii::app()->name . ' - Get your forget password.';?>
+<?php $this->pageTitle=Yii::app()->name . ' - Get your forgot password.';?>
 <div class="spacer50"></div>
 <div class="col-md-10 col-md-offset-1">
 			 
@@ -22,7 +22,16 @@
 							<div class="flash-error">
 								
 							</div>
-					<?php endif; ?>	
+					<?php endif; ?>
+			 <?php if(Yii::app()->user->hasFlash('error')): ?>
+						<div class="alert alert-error">
+						  <button data-dismiss="alert" class="close" type="button">×</button>
+						  <strong><?php echo Yii::app()->user->getFlash('error'); ?></strong>
+						</div>
+							<div class="flash-error">
+								
+							</div>
+					<?php endif; ?>			
 				<div  class="col-md-6 login-box pull-left">
 					<div id="">
 							<?php $login = new LoginForm; $form=$this->beginWidget('CActiveForm', array(
@@ -63,7 +72,7 @@
 																		)
 																));?> 
 						<i class="icon-key orange pull-left"></i>
-						<h4 class="form-signin-heading ">Get your forget password</h4>
+						<h4 class="form-signin-heading ">Get your forgot password</h4>
 						<?php echo $form->textField($forgetPass,'email',array('class'=>'form-control','placeholder'=>'Email address','autofocus'=>true));
 						echo $form->error($forgetPass,'email');?>
 						<div class="pd4"></div>
@@ -81,8 +90,8 @@
 						<div align="center" class="top-stats-icons">
 						<?php echo CHtml::submitButton('Submit',array('class'=>'btn btn-warning login'));?>
 						<div class="clearfix"></div>
-						<div class="or">or</div>
-						<?php echo CHtml::link('<i class="posi-bt icon-facebook"></i>Login with your<br/><strong>Facebook Account</strong>',array('/site/forgetPassword'),array('disabled'=>'disabled','class'=>'btn btn-lg btn-primary fb'));?>
+						<!--<div class="or">or</div>-->
+						<?php //echo CHtml::link('<i class="posi-bt icon-facebook"></i>Login with your<br/><strong>Facebook Account</strong>',array('/site/forgetPassword'),array('disabled'=>'disabled','class'=>'btn btn-lg btn-primary fb'));?>
 						</div>
 						<?php $this->endWidget(); ?>
 				</div>

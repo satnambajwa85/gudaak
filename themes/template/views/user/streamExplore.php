@@ -1,4 +1,4 @@
-<?php $this->pageTitle='Stream Explore';
+<?php $this->pageTitle='Explore';
 $this->breadcrumbs=array('Explore'=>array('/user/streamExplore'));?>
 	<div class="col-md-10 pull-left">
 						<?php if(Yii::app()->user->hasFlash('sccess')): ?>
@@ -12,19 +12,17 @@ $this->breadcrumbs=array('Explore'=>array('/user/streamExplore'));?>
 			<div class="mr0  pull-left stream-pref">
 				<!--<h1>Stream Explore</h1>-->
                 <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
-				<p>Explore different stream here with well researched and easy to understand description and interesting videos.<br />
-<strong>Don’t forget to fill the star rating option given on the right side for each of the stream that will be important when you set your preferences at the later stage.</strong><br /><br />
-				</p>
-
+				<p>&nbsp;</p>
 			</div>
+			<div class="clear"></div>
 			<?php foreach($data as $list){ ?>
 			<div class="col-md-3 pdleft career-lib">
-				<?php echo CHtml::link('<img src="'.Yii::app()->baseUrl.'/uploads/stream/small/'.$list['image'].'"/>',array('user/stream','id'=>''.$list['id'].''),array('class'=>'fl'));?>
+				<?php echo CHtml::link('<img src="'.Yii::app()->baseUrl.'/uploads/career/small/'.$list['image'].'"/>',array('user/careerInfo','id'=>''.$list['id'].''),array('class'=>'fl'));?>
 				<div class="clear"></div>
-				<?php echo CHtml::link('<h1>'.substr($list['title'],0,20).'..</h1>',array('user/stream','id'=>''.$list['id'].''),array('title'=>$list['title']));?>
+				<?php echo CHtml::link('<h1>'.substr($list['title'],0,20).'..</h1>',array('user/careerInfo','id'=>''.$list['id'].''),array('title'=>$list['title']));?>
 				<p><?php echo substr($list['description'],0,70);?></p>
 				<div class="col-md-12 career-hot-links">
-				<?php echo CHtml::link($list['title'],array('user/stream','id'=>''.$list['id'].''),array('class'=>'pull-left','title'=>'Read Full.'));?>
+				<?php echo CHtml::link($list['title'],array('user/careerInfo','id'=>''.$list['id'].''),array('class'=>'pull-left','title'=>'Read Full.'));?>
 					<span class="pull-right"><!--<i class="icon-eye-open"></i>19021--></span>
 				</div>
 			</div>

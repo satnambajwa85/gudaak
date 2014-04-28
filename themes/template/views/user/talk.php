@@ -18,24 +18,22 @@ $this->breadcrumbs=array('Talk to Counsellor'=>array('/user/talk'));?>
                 </div>
 				<div class="clear"></div>
 <div class="col-md-12 fl pd0">
+   
+   
+
+
 			<div class="col-md-7 pull-left summery-left pd0">
-				<ul>
-					<div class="col-md-12 border pull-left pd0">
-						<div class="col-md-3 pull-left pd0">
-							<h1>Topics</h1>
-							
-						</div>
-						<div class="col-md-3 pull-left pd0">
-							<h1>Status</h1>
-						</div>
-						<div class="col-md-3 pull-left pd0">
-							<h1>Date</h1>
-						</div>
-						<div class="col-md-3 center pull-left pd0">
-							<h1>Remarks</h1>
-						</div>
-					</div>
-					<?php 
+				<table class="table">
+     <thead>
+       <tr>
+         <th>Topics</th>
+         <th>Status</th>
+         <th>Date</th>
+         <th>Remarks</th>
+       </tr>
+     </thead>
+     <tbody>
+       <?php 
 						 $count=1;
 					foreach($lists as $list){ 
 						
@@ -46,32 +44,25 @@ $this->breadcrumbs=array('Talk to Counsellor'=>array('/user/talk'));?>
 							$count= $count+1;
 					
 					?>
-					<li class="<?php echo $class;?>">
-						
-						<div class="col-md-12 pull-left pd0">
-							<div class="col-md-3 pull-left pd0 center">
-								<span><?php echo substr($list->problem,0,50);?>...</span>
-							</div>
-							<div class="col-md-3 pull-left pd0">
-								<p><?php echo ($list->status==1)?'Pending':'Answered';?></p>
-							</div>
-							<div class="col-md-3 pull-left pd0">
-								<p><?php echo date('M d, Y',strtotime($list->add_date));?></p>
-							</div>
-							<div class="col-md-3 center pull-left mar-top10 pd0">
-								<?php echo CHtml::ajaxLink('Summery',array('/user/talkData','id'=>$list->id),
+       <tr class="<?php echo $class;?>">
+         <td><?php echo substr($list->problem,0,50);?>...</td>
+         <td><?php echo ($list->status==1)?'Pending':'Answered';?></td>
+         <td><?php echo date('M d, Y',strtotime($list->add_date));?></td>
+         <td><?php echo CHtml::ajaxLink('Summery',array('/user/talkData','id'=>$list->id),
 												array(	'type'=>'POST',
 														'success'=>'function(data){
 																		$("#resultSummery").html(data);
 																	}'),
 												array('class'=>'summery-left-btn')					
-												);  ?>
-							</div>
-						</div>
-						
-					</li>	
-					 <?php } ?>
-				</ul>
+												);  ?></td>
+       </tr>
+       <?php } ?>
+     </tbody>
+   </table>
+
+                
+                
+                
 			</div>
             <div class="col-md-5 pull-left summaryDetails pd0">
             	<div id="resultSummery"></div>				
@@ -80,7 +71,7 @@ $this->breadcrumbs=array('Talk to Counsellor'=>array('/user/talk'));?>
 			</div>
 		</div>
 	</div>
-    <div class="col-md-2  pd0 pull-right">
+    <div class="col-md-2  pd0">
 		<?php  $this->Widget('WidgetNews'); ?>
 	</div>
     

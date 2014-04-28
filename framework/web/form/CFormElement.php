@@ -4,7 +4,7 @@
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @link http://www.yiiframework.com/
- * @copyright 2008-2013 Yii Software LLC
+ * @copyright Copyright &copy; 2008-2011 Yii Software LLC
  * @license http://www.yiiframework.com/license/
  */
 
@@ -18,6 +18,7 @@
  * (a controller or a widget).
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
+ * @version $Id: CFormElement.php 3426 2011-10-25 00:01:09Z alexander.makarow $
  * @package system.web.form
  * @since 1.1
  */
@@ -79,7 +80,7 @@ abstract class CFormElement extends CComponent
 		$getter='get'.$name;
 		if(method_exists($this,$getter))
 			return $this->$getter();
-		elseif(isset($this->attributes[$name]))
+		else if(isset($this->attributes[$name]))
 			return $this->attributes[$name];
 		else
 			throw new CException(Yii::t('yii','Property "{class}.{property}" is not defined.',

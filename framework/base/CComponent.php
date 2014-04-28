@@ -4,7 +4,7 @@
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @link http://www.yiiframework.com/
- * @copyright 2008-2013 Yii Software LLC
+ * @copyright Copyright &copy; 2008-2011 Yii Software LLC
  * @license http://www.yiiframework.com/license/
  */
 
@@ -83,6 +83,7 @@
  * is attached to.
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
+ * @version $Id: CComponent.php 3521 2011-12-29 22:10:57Z mdomba $
  * @package system.base
  * @since 1.0
  */
@@ -109,7 +110,7 @@ class CComponent
 		$getter='get'.$name;
 		if(method_exists($this,$getter))
 			return $this->$getter();
-		elseif(strncasecmp($name,'on',2)===0 && method_exists($this,$name))
+		else if(strncasecmp($name,'on',2)===0 && method_exists($this,$name))
 		{
 			// duplicating getEventHandlers() here for performance
 			$name=strtolower($name);
@@ -117,9 +118,9 @@ class CComponent
 				$this->_e[$name]=new CList;
 			return $this->_e[$name];
 		}
-		elseif(isset($this->_m[$name]))
+		else if(isset($this->_m[$name]))
 			return $this->_m[$name];
-		elseif(is_array($this->_m))
+		else if(is_array($this->_m))
 		{
 			foreach($this->_m as $object)
 			{
@@ -150,7 +151,7 @@ class CComponent
 		$setter='set'.$name;
 		if(method_exists($this,$setter))
 			return $this->$setter($value);
-		elseif(strncasecmp($name,'on',2)===0 && method_exists($this,$name))
+		else if(strncasecmp($name,'on',2)===0 && method_exists($this,$name))
 		{
 			// duplicating getEventHandlers() here for performance
 			$name=strtolower($name);
@@ -158,7 +159,7 @@ class CComponent
 				$this->_e[$name]=new CList;
 			return $this->_e[$name]->add($value);
 		}
-		elseif(is_array($this->_m))
+		else if(is_array($this->_m))
 		{
 			foreach($this->_m as $object)
 			{
@@ -186,12 +187,12 @@ class CComponent
 		$getter='get'.$name;
 		if(method_exists($this,$getter))
 			return $this->$getter()!==null;
-		elseif(strncasecmp($name,'on',2)===0 && method_exists($this,$name))
+		else if(strncasecmp($name,'on',2)===0 && method_exists($this,$name))
 		{
 			$name=strtolower($name);
 			return isset($this->_e[$name]) && $this->_e[$name]->getCount();
 		}
-		elseif(is_array($this->_m))
+		else if(is_array($this->_m))
 		{
  			if(isset($this->_m[$name]))
  				return true;
@@ -217,9 +218,9 @@ class CComponent
 		$setter='set'.$name;
 		if(method_exists($this,$setter))
 			$this->$setter(null);
-		elseif(strncasecmp($name,'on',2)===0 && method_exists($this,$name))
+		else if(strncasecmp($name,'on',2)===0 && method_exists($this,$name))
 			unset($this->_e[strtolower($name)]);
-		elseif(is_array($this->_m))
+		else if(is_array($this->_m))
 		{
 			if(isset($this->_m[$name]))
 				$this->detachBehavior($name);
@@ -231,13 +232,13 @@ class CComponent
 					{
 						if(property_exists($object,$name))
 							return $object->$name=null;
-						elseif($object->canSetProperty($name))
+						else if($object->canSetProperty($name))
 							return $object->$setter(null);
 					}
 				}
 			}
 		}
-		elseif(method_exists($this,'get'.$name))
+		else if(method_exists($this,'get'.$name))
 			throw new CException(Yii::t('yii','Property "{class}.{property}" is read only.',
 				array('{class}'=>get_class($this), '{property}'=>$name)));
 	}
@@ -248,7 +249,6 @@ class CComponent
 	 * to implement the behavior feature.
 	 * @param string $name the method name
 	 * @param array $parameters method parameters
-	 * @throws CException if current class and its behaviors do not have a method or closure with the given name
 	 * @return mixed the method return value
 	 */
 	public function __call($name,$parameters)
@@ -319,8 +319,6 @@ class CComponent
 	 * @param string $name the behavior's name. It should uniquely identify this behavior.
 	 * @param mixed $behavior the behavior configuration. This is passed as the first
 	 * parameter to {@link YiiBase::createComponent} to create the behavior object.
-	 * You can also pass an already created behavior instance (the new behavior will replace an already created
-	 * behavior with the same name, if it exists).
 	 * @return IBehavior the behavior object
 	 */
 	public function attachBehavior($name,$behavior)
@@ -549,7 +547,7 @@ class CComponent
 			{
 				if(is_string($handler))
 					call_user_func($handler,$event);
-				elseif(is_callable($handler,true))
+				else if(is_callable($handler,true))
 				{
 					if(is_array($handler))
 					{
@@ -557,7 +555,7 @@ class CComponent
 						list($object,$method)=$handler;
 						if(is_string($object))	// static method call
 							call_user_func($handler,$event);
-						elseif(method_exists($object,$method))
+						else if(method_exists($object,$method))
 							$object->$method($event);
 						else
 							throw new CException(Yii::t('yii','Event "{class}.{event}" is attached with an invalid handler "{handler}".',
@@ -574,7 +572,7 @@ class CComponent
 					return;
 			}
 		}
-		elseif(YII_DEBUG && !$this->hasEvent($name))
+		else if(YII_DEBUG && !$this->hasEvent($name))
 			throw new CException(Yii::t('yii','Event "{class}.{event}" is not defined.',
 				array('{class}'=>get_class($this), '{event}'=>$name)));
 	}
@@ -595,9 +593,6 @@ class CComponent
 	 * If a PHP expression is used, the second parameter will be "extracted" into PHP variables
 	 * that can be directly accessed in the expression. See {@link http://us.php.net/manual/en/function.extract.php PHP extract}
 	 * for more details. In the expression, the component object can be accessed using $this.
-	 *
-	 * A PHP expression can be any PHP code that has a value. To learn more about what an expression is,
-	 * please refer to the {@link http://www.php.net/manual/en/language.expressions.php php manual}.
 	 *
 	 * @param mixed $_expression_ a PHP expression or PHP callback to be evaluated.
 	 * @param array $_data_ additional parameters to be passed to the above expression/callback.
@@ -630,6 +625,7 @@ class CComponent
  * that are not invoked yet will not be invoked anymore.
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
+ * @version $Id: CComponent.php 3521 2011-12-29 22:10:57Z mdomba $
  * @package system.base
  * @since 1.0
  */
@@ -681,6 +677,7 @@ class CEvent extends CComponent
  * TextAlign::Right.
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
+ * @version $Id: CComponent.php 3521 2011-12-29 22:10:57Z mdomba $
  * @package system.base
  * @since 1.0
  */

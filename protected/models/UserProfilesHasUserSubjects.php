@@ -14,6 +14,10 @@
  * @property integer $is_featured
  * @property integer $least_favourite
  * @property integer $is_favorite
+ *
+ * The followings are the available model relations:
+ * @property UserProfiles $userProfiles
+ * @property UserSubjects $userSubjects
  */
 class UserProfilesHasUserSubjects extends CActiveRecord
 {
@@ -45,7 +49,7 @@ class UserProfilesHasUserSubjects extends CActiveRecord
 		return array(
 			array('user_profiles_id, user_subjects_id', 'required'),
 			array('user_profiles_id, user_subjects_id, status, is_featured, least_favourite, is_favorite', 'numerical', 'integerOnly'=>true),
-			array('percentage', 'length', 'max'=>30),
+			array('percentage', 'length', 'max'=>100),
 			array('add_date, modification_date', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.

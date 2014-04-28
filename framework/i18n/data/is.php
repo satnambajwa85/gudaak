@@ -7,13 +7,12 @@
  * Copyright © 1991-2007 Unicode, Inc. All rights reserved.
  * Distributed under the Terms of Use in http://www.unicode.org/copyright.html.
  *
- * @copyright 2008-2013 Yii Software LLC (http://www.yiiframework.com/license/)
+ * Copyright © 2008-2011 Yii Software LLC (http://www.yiiframework.com/license/)
  */
 return array (
-  'version' => '6546',
+  'version' => '5968',
   'numberSymbols' => 
   array (
-    'alias' => '',
     'decimal' => ',',
     'group' => '.',
     'list' => ';',
@@ -24,6 +23,7 @@ return array (
     'perMille' => '‰',
     'infinity' => '∞',
     'nan' => 'NaN',
+    'alias' => '',
   ),
   'decimalFormat' => '#,##0.###',
   'scientificFormat' => '#E0',
@@ -32,7 +32,7 @@ return array (
   'currencySymbols' => 
   array (
     'AUD' => 'AU$',
-    'BRL' => 'R$',
+    'BRL' => 'BR$',
     'CAD' => 'CA$',
     'CNY' => 'CN¥',
     'EUR' => '€',
@@ -835,6 +835,7 @@ return array (
     '054' => 'Melanesía',
     '057' => 'Míkrónesía',
     '061' => 'Pólýnesía',
+    '062' => 'Syðri-Mið-Asía',
     142 => 'Asía',
     143 => 'Mið-Asía',
     145 => 'Vestur-Asía',
@@ -842,7 +843,9 @@ return array (
     151 => 'Austur-Evrópa',
     154 => 'Norður-Evrópa',
     155 => 'Vestur-Evrópa',
+    172 => 'Samveldi sjálfstæðra ríkja',
     419 => 'Latín-Ameríka',
+    830 => 'Ermasundseyjar',
     'ac' => 'Ascension-eyja',
     'ad' => 'Andorra',
     'ae' => 'Sameinuðu arabísku furstadæmin',

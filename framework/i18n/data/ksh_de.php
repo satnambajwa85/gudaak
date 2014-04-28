@@ -7,13 +7,12 @@
  * Copyright © 1991-2007 Unicode, Inc. All rights reserved.
  * Distributed under the Terms of Use in http://www.unicode.org/copyright.html.
  *
- * @copyright 2008-2013 Yii Software LLC (http://www.yiiframework.com/license/)
+ * Copyright © 2008-2011 Yii Software LLC (http://www.yiiframework.com/license/)
  */
 return array (
   'version' => '5798',
   'numberSymbols' => 
   array (
-    'alias' => '',
     'decimal' => '.',
     'group' => ',',
     'list' => ';',
@@ -24,6 +23,7 @@ return array (
     'perMille' => '‰',
     'infinity' => '∞',
     'nan' => 'NaN',
+    'alias' => '',
   ),
   'decimalFormat' => '#,##0.###',
   'scientificFormat' => '#E0',
@@ -32,7 +32,7 @@ return array (
   'currencySymbols' => 
   array (
     'AUD' => 'AU$',
-    'BRL' => 'R$',
+    'BRL' => 'BR$',
     'CAD' => 'CA$',
     'CNY' => 'CN¥',
     'EUR' => '€',
@@ -412,6 +412,7 @@ return array (
     '054' => 'Mellaneesije',
     '057' => 'de Rejohn vun Mikroneeseje',
     '061' => 'Polineesije',
+    '062' => 'Söd-Meddel-Aasije',
     142 => 'Aasije',
     143 => 'Meddelaasije',
     145 => 'Wäß-Aasije',
@@ -419,6 +420,7 @@ return array (
     151 => 'Oß-Europpa',
     154 => 'Nood-Europpa',
     155 => 'Wäß-Europpa',
+    172 => 'dä Kommenwälth',
     419 => 'Lateinamärrika',
     'ac' => 'Aßension',
     'ad' => 'Andorra',

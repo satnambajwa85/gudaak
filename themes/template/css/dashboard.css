@@ -8590,3 +8590,21 @@ display: none;
 }
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {background:none !important;border:none !important;}
 .error {border: 1px solid #f00 !important;}
+.edit-form{color: #1ACCCC !important;text-decoration: underline;float:right;}
+.table th{
+	background-color: #EDFFFF;
+    border-right: 1px solid #D9D9D9;
+    color: #666666;
+    font-family: robotomedium;
+    font-size: 13px;
+    margin: 0;
+    padding: 9px 0;
+    text-align: center;
+	font-weight:normal;
+	}
+.table tr{ color: #666666;
+    font-family: robotomedium;
+    font-size: 12px;
+    margin: 0;
+    padding: 9px 0;
+    text-align: center; border: 1px solid #eee;}
