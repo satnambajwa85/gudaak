@@ -9,6 +9,6 @@
 		 <div class="col-md-12 pull-left news-pager">
 			<?php $this->widget('CLinkPager', array('pages' => $pages)) ?>
 		</div>
-		<button type="button" class="btn btn-default btn-lg btn-block lodad-more">Load more news</button>
+		<!--<button type="button" class="btn btn-default btn-lg btn-block lodad-more">Load more news</button>-->
 	  </div>
 </div>

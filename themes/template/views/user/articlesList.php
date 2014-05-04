@@ -16,7 +16,7 @@ $this->breadcrumbs=array('Articles'=>array('/user/articlesList'));?>
 					<li class="col-md-6 row pd0 art-class <?php echo (!$count)?'mla':'';?>">
 						<div class="pd0 col-md-12">
 							<h1><?php echo $list->title;?></h1>
-							<span class="date"><?php echo Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse($list->add_date, 'yyyy-MM-dd'),'medium',null);?></span>
+							<span class="date"><?php echo date('M d, Y',strtotime($list->add_date));?></span>
                             <div class="clear"></div>
                             <div  style="float:left;padding:6px;" >
 <img src="<?php echo Yii::app()->baseUrl;?>/uploads/articles/small/<?php echo $list->image;?>" width="100px"/>

@@ -1,25 +1,7 @@
-<?php if (Yii::app()->request->urlReferrer==Yii::app()->request->hostInfo.Yii::app()->createUrl('user/finalizedStream')){?>
-<?php $this->pageTitle=Yii::app()->name . ' - Finalized Stream';
-$this->breadcrumbs=array('Finalized Stream'=>array('/user/finalizedStream'));
-?>
-<?php } ?>
-<?php if (Yii::app()->request->urlReferrer==Yii::app()->request->hostInfo.Yii::app()->createUrl('user/streamPreference')){?>
-<?php $this->pageTitle=Yii::app()->name . ' - Stream Preference';
-$this->breadcrumbs=array('Stream Preference '=>array('/user/streamPreference'));
-?>
-<?php } ?>
-<?php if(Yii::app()->request->urlReferrer==Yii::app()->request->hostInfo.Yii::app()->createUrl('user/streamList/')){?>
- <?php $this->pageTitle=Yii::app()->name . ' - Stream Library';
+<?php $this->pageTitle='Stream Library - '.$stream->name;
 $this->breadcrumbs=array('Stream Library'=>array('/user/streamList'),'Stream Subjects'=>array('/user/stream/','id'=>$stream->id),
 ''.$stream->name.'');
-  ?>
-<?php } ?>
-<?php if(Yii::app()->request->urlReferrer==Yii::app()->request->hostInfo.Yii::app()->createUrl('user/stream/',array('id'=>$stream->id))){?>
- <?php $this->pageTitle=Yii::app()->name . ' - Stream Library';
-$this->breadcrumbs=array('Stream Library'=>array('/user/streamList'),'Stream Subjects'=>array('/user/stream/','id'=>$stream->id),
-''.$stream->name.'');
-  ?>
-<?php } ?>
+?>
 	<div class="career-bot pull-left">
 		<div class="mr0 col-md-12 fl">
 			<div class="mr0  pull-left stream-pref">
@@ -77,8 +59,17 @@ $this->breadcrumbs=array('Stream Library'=>array('/user/streamList'),'Stream Sub
                         </div>
                         <div class="col-md-2 pull-left pd0 right-stream-box ">
                         	<h1>Type of subject </h1>
-                            <span style="color: #21C4C1;font-family: robotomedium;font-size: 10px;font-weight: bold;margin: 4px;">
-							<?php echo $subject['type'];?></span>
+                          <span style="color: #21C4C1;font-family: robotomedium;font-size: 10px;font-weight: bold;margin: 4px;"><?php echo $subject['type'];?></span>
+                          <div id="stream-rating-<?php echo $subject['id'];?>" class="fr"></div>
+                          
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#stream-rating-<?php echo $subject['id'];?>').raty({score:'<?php echo (isset($subjectRating[$subject['id']]))?$subjectRating[$subject['id']]:0;?>'});
+		$('#stream-rating-<?php echo $subject['id'];?> img').click(function(){saveRating(<?php echo $subject['id'];?> ,$(this).attr('alt'),'subject');});
+								
+	});
+</script>
+                          
                         </div>
                      </div>
                 <?php } ?>
@@ -118,16 +109,16 @@ $this->breadcrumbs=array('Stream Library'=>array('/user/streamList'),'Stream Sub
 <script type="text/javascript">
 	$(document).ready(function(){
 		$('#stream-rating').raty({score:'<?php echo (isset($streamData->self))?''.$streamData->self.'':0;?>'});
-		$('#stream-rating img').click(function(){saveRating(<?php echo $stream->id;?> ,$(this).attr('alt'));});
+		$('#stream-rating img').click(function(){saveRating(<?php echo $stream->id;?> ,$(this).attr('alt'),'stream');});
 								
 	});
 </script>
 <script type="text/javascript">
-function saveRating(cid,rate){
-	var url	=	'<?php echo Yii::app()->createUrl('/user/UserStreamRaitng');?>';
+function saveRating(cid,rate,type){
+	var url	=	'<?php echo Yii::app()->createUrl('/user/userStreamRaitng');?>';
 	$.ajax({
 		type: "POST",
-		url: url+'&id='+cid+'&rating='+rate,
+		url: url+'&id='+cid+'&rating='+rate+'&type='+type,
 		data: 'rating',
 		dataType:'json',
 		success:function(data){

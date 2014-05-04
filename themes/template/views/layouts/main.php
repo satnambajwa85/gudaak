@@ -38,7 +38,7 @@
 
 ?>
   </head>
-<body id="<?php echo $css;?>">
+<body id="<?php echo $css;?>" style="width:1347px; margin:0 auto; ">
 	<div>
 			<div id="">
 				<div id="header_cont">
@@ -287,7 +287,7 @@
                                         <?php $forgetPass=new ForgotpasswordForm;
                                             $form=$this->beginWidget('CActiveForm', array('id'=>'forget-form2','action'=>Yii::app()->createUrl('/site/ForgetPassword'),'enableClientValidation'=>true,'clientOptions'=>array('validateOnSubmit'=>true,)));?> 
                                             <i class="icon-key orange pull-left"></i>
-                                            <h4 class="form-signin-heading ">Get your forget password</h4>
+                                            <h4 class="form-signin-heading ">Get your forgot password</h4>
                                             <?php echo $form->textField($forgetPass,'email',array('class'=>'form-control','placeholder'=>'Email address','autofocus'=>true));
                                             echo $form->error($forgetPass,'email');?>
                                             <div class="pd4"></div>
@@ -305,8 +305,8 @@
                                         <div align="center" class="top-stats-icons">
                                             <?php echo CHtml::submitButton('Submit',array('class'=>'btn btn-warning login'));?>
                                             <div class="clearfix"></div>
-                                            <div class="or">or</div>
-                                            <?php echo CHtml::link('<i class="posi-bt icon-facebook"></i>Login with your<br/><strong>Facebook Account</strong>',array('/site/forgetPassword'),array('class'=>'btn btn-lg btn-primary fb'));?>
+                                            <!--<div class="or">or</div>-->
+                                            <?php // echo CHtml::link('<i class="posi-bt icon-facebook"></i>Login with your<br/><strong>Facebook Account</strong>',array('/site/forgetPassword'),array('class'=>'btn btn-lg btn-primary fb'));?>
                                         </div>
                                     <?php $this->endWidget(); ?>
                                 </div>

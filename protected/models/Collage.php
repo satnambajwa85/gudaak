@@ -80,7 +80,7 @@ class Collage extends CActiveRecord
 		return array(
 			'city' => array(self::BELONGS_TO, 'city', 'city_id'),
 			'course' => array(self::HAS_MANY, 'Course', 'collage_id'),
-			
+			'collagesCoursesSpecialization' => array(self::HAS_MANY, 'CollagesCoursesSpecialization', 'collage_id'),
 		);
 	}
 

@@ -128,12 +128,17 @@ $(document).ready(function () {
 	}).filter(':first').click();	
 	$( "#tabs" ).tabs();
 	//user profile edit tab 
-	$(".edit-form").click(function(){
-		$("#user-profile-form").hide();
-		$(".profile_tab1_form").show();
 		
-	}); 	
 	//ends here 
+		
+		$(".feedbackBtn").on("click", function() { // wire up the OK button to dismiss the modal when shown
+			$("#feedbackPop").modal({ // wire up the actual modal functionality and show the dialog
+			"backdrop" : "static",
+			"keyboard" : true,
+			"show" : true // ensure the modal is shown immediately
+			});
+		}); 
+		
 		$(".retakePersonality").on("click", function() { // wire up the OK button to dismiss the modal when shown
 			$("#retake2").modal({ // wire up the actual modal functionality and show the dialog
 			"backdrop" : "static",

@@ -11,7 +11,7 @@ $this->breadcrumbs=array('Notifications'=>array('/user/newsUpdates'));?>
 					 
 				</div>
 				<ul>
-					 <?php foreach($news as $list){ ?>
+					 <?php /* foreach($news as $list){ ?>
 					<li>
 						<div class="pd0 col-md-12">
 							<h1><?php echo $list->title;?></h1>
@@ -21,7 +21,7 @@ $this->breadcrumbs=array('Notifications'=>array('/user/newsUpdates'));?>
 						</div>
 					
 					</li>
-					<?php } ?>
+					<?php }*/ ?>
 				</ul>
 				<div class="col-md-6 pull-left">
 					<?php $this->widget('CLinkPager', array('pages' => $pages,)) ?>

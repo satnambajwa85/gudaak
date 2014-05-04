@@ -34,7 +34,7 @@ Yii::app()->clientScript->registerScript(
 ?>
   </head>
 
-  <body>
+  <body style="width:1347px; margin:0 auto;">
 	<div class="wrapper">
 	<?php  $this->Widget('WidgetDashboardMenu'); ?>
 	<section class="main-section">

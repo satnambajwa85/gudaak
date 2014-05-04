@@ -81,7 +81,7 @@ class SiteController extends Controller
 		$pages->applyLimit($criteria);
 		$articles			=	Articles::model()->findAll($criteria);
 		
-		$this->render('articals',array('articles'=>$articles,'pages'=>$pages));
+		$this->render('articlesList',array('articles'=>$articles,'pages'=>$pages));
 	}
 	
 	public function actionArticle($id)
@@ -117,8 +117,9 @@ class SiteController extends Controller
 					
 					$classes	=	array();
 					$response	=	array();
-					$response['status']=1;
-					$response['data']='';
+					$response['type']	=	$gudaakId->user_role_id;
+					$response['status']	=	1;
+					$response['data']	=	'';
 					foreach($data as $value=>$name){
 						$response['data'].=CHtml::tag('option', array('value'=>$value),CHtml::encode($name),true);
 					}
@@ -279,7 +280,7 @@ class SiteController extends Controller
 					//Start  mail Function 
 						$data['name']		=	'Dear user';
 						$data['email']		=	$record->username;
-						$data['password']	=	$record->password;
+						$data['password']	=	$random_number;
 						$this->sendMail($data,'forget'); 
 						Yii::app()->user->setFlash('new_password_message','Your new password has been sent to your email address.');
 						$this->refresh();

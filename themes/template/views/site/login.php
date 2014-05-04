@@ -29,7 +29,7 @@
 						<?php echo $form->PasswordField($model,'password',array('class'=>'form-control','placeholder'=>'Password'));
 						echo $form->error($model,'password');?>
 						<div class="pd4"></div>
-						<a href="javascript:void(0);" id="forget" class="forget pull-left">Forget password?</a>
+						<a href="javascript:void(0);" id="forget" class="forget pull-left">Forgot password?</a>
 						<div class="clearfix"></div>
 						<div align="center" class="top-stats-icons">
 						<?php echo CHtml::submitButton('Login',array('class'=>'btn btn-warning login'));?>
@@ -49,7 +49,7 @@
 																		)
 																));?> 
 						<i class="icon-key orange pull-left"></i>
-						<h4 class="form-signin-heading ">Get your forget password</h4>
+						<h4 class="form-signin-heading ">Get your forgot password</h4>
 						<?php echo $form->textField($forgetPass,'email',array('class'=>'form-control','placeholder'=>'Email address','autofocus'=>true));
 						echo $form->error($forgetPass,'email');?>
 						<div class="pd4"></div>

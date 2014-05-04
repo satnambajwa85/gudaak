@@ -10,16 +10,24 @@
  * @property string $add_date
  * @property integer $published
  * @property integer $status
- * @property integer $interests_id
  *
  * The followings are the available model relations:
- * @property Interests $interests
- * @property Stream[] $streams
- * @property Institutes[] $institutes
- * @property UserProfiles[] $userProfiles
+ * @property CourseStream[] $courseStreams
+ * @property InstitutesHasCourses[] $institutesHasCourses
+ * @property UserEducation[] $userEducations
  */
 class Courses extends CActiveRecord
 {
+	/**
+	 * Returns the static model of the specified AR class.
+	 * @param string $className active record class name.
+	 * @return Courses the static model class
+	 */
+	public static function model($className=__CLASS__)
+	{
+		return parent::model($className);
+	}
+
 	/**
 	 * @return string the associated database table name
 	 */
@@ -36,12 +44,12 @@ class Courses extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('title, description, add_date, interests_id', 'required'),
-			array('published, status, interests_id', 'numerical', 'integerOnly'=>true),
+			array('title, description, add_date', 'required'),
+			array('published, status', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>200),
 			// The following rule is used by search().
-			// @todo Please remove those attributes that should not be searched.
-			array('id, title, description, add_date, published, status, interests_id', 'safe', 'on'=>'search'),
+			// Please remove those attributes that should not be searched.
+			array('id, title, description, add_date, published, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -53,10 +61,9 @@ class Courses extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'interests' => array(self::BELONGS_TO, 'Interests', 'interests_id'),
-			'streams' => array(self::MANY_MANY, 'Stream', 'courses_has_stream(courses_id, stream_id)'),
-			'institutes' => array(self::MANY_MANY, 'Institutes', 'institutes_has_courses(courses_id, institutes_id)'),
-			'userProfiles' => array(self::MANY_MANY, 'UserProfiles', 'user_profiles_has_courses(courses_id, user_profiles_id)'),
+			'courseStreams' => array(self::HAS_MANY, 'CourseStream', 'courses_id'),
+			'institutesHasCourses' => array(self::HAS_MANY, 'InstitutesHasCourses', 'courses_id'),
+			'userEducations' => array(self::HAS_MANY, 'UserEducation', 'courses_id'),
 		);
 	}
 
@@ -72,25 +79,17 @@ class Courses extends CActiveRecord
 			'add_date' => 'Add Date',
 			'published' => 'Published',
 			'status' => 'Status',
-			'interests_id' => 'Interests',
 		);
 	}
 
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
-	 *
-	 * Typical usecase:
-	 * - Initialize the model fields with values from filter form.
-	 * - Execute this method to get CActiveDataProvider instance which will filter
-	 * models according to data in model fields.
-	 * - Pass data provider to CGridView, CListView or any similar widget.
-	 *
-	 * @return CActiveDataProvider the data provider that can return the models
-	 * based on the search/filter conditions.
+	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
 	 */
 	public function search()
 	{
-		// @todo Please modify the following code to remove attributes that should not be searched.
+		// Warning: Please modify the following code to remove attributes that
+		// should not be searched.
 
 		$criteria=new CDbCriteria;
 
@@ -100,24 +99,9 @@ class Courses extends CActiveRecord
 		$criteria->compare('add_date',$this->add_date,true);
 		$criteria->compare('published',$this->published);
 		$criteria->compare('status',$this->status);
-		$criteria->compare('interests_id',$this->interests_id);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
-			'sort'=>array(
-				'defaultOrder'=>'add_date DESC',
-			),
 		));
-	}
-
-	/**
-	 * Returns the static model of the specified AR class.
-	 * Please note that you should have this exact method in all your CActiveRecord descendants!
-	 * @param string $className active record class name.
-	 * @return Courses the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
 	}
 }

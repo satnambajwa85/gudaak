@@ -6652,3 +6652,1730 @@ REQUEST_URI=/test/index.php?r=user/DynamicSearchResult
 in D:\xamp\htdocs\test\protected\controllers\UserController.php (1641)
 in D:\xamp\htdocs\test\index.php (13)
 >>>>>>> f53c0bfe7b91655b51ece978e533efea7625aa74
+2014/04/12 17:46:43 [error] [exception.CException] exception 'CException' with message 'Property "UserProfiles.subjectPercentage" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('subjectPercenta...')
+#1 C:\wamp\www\framework\web\helpers\CHtml.php(2033): CActiveRecord->__get('subjectPercenta...')
+#2 C:\wamp\www\framework\web\helpers\CHtml.php(1774): CHtml::resolveValue(Object(UserProfiles), 'subjectPercenta...')
+#3 C:\wamp\www\framework\web\helpers\CHtml.php(1205): CHtml::activeInputField('text', Object(UserProfiles), 'subjectPercenta...', Array)
+#4 C:\wamp\www\framework\web\widgets\CActiveForm.php(568): CHtml::activeTextField(Object(UserProfiles), 'subjectPercenta...', Array)
+#5 C:\wamp\www\gudaak\protected\components\views\widgetUserProfile.php(131): CActiveForm->textField(Object(UserProfiles), 'subjectPercenta...', Array)
+#6 C:\wamp\www\framework\web\CBaseController.php(131): require('C:\wamp\www\gud...')
+#7 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, false)
+#8 C:\wamp\www\framework\web\widgets\CWidget.php(244): CBaseController->renderFile('C:\wamp\www\gud...', Array, false)
+#9 C:\wamp\www\gudaak\protected\components\WidgetUserProfile.php(25): CWidget->render('widgetUserProfi...', Array)
+#10 C:\wamp\www\gudaak\protected\components\WidgetUserProfile.php(19): WidgetUserProfile->renderContent()
+#11 C:\wamp\www\framework\web\CBaseController.php(174): WidgetUserProfile->run()
+#12 C:\wamp\www\gudaak\themes\template\views\layouts\dashboard.php(138): CBaseController->widget('WidgetUserProfi...')
+#13 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\gud...')
+#14 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, true)
+#15 C:\wamp\www\framework\web\CController.php(785): CBaseController->renderFile('C:\wamp\www\gud...', Array, true)
+#16 C:\wamp\www\gudaak\protected\controllers\UserController.php(97): CController->render('index', Array)
+#17 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionIndex()
+#18 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#19 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#20 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#21 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#22 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#23 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#24 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#25 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#26 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('index')
+#27 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/index')
+#28 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#29 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#30 {main}
+REQUEST_URI=/gudaak/index.php?r=user/index
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/index
+---
+2014/04/12 17:51:35 [error] [exception.CException] exception 'CException' with message 'Property "UserProfiles.percentage" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('percentage')
+#1 C:\wamp\www\framework\web\helpers\CHtml.php(2033): CActiveRecord->__get('percentage')
+#2 C:\wamp\www\framework\web\helpers\CHtml.php(1774): CHtml::resolveValue(Object(UserProfiles), 'percentage[]')
+#3 C:\wamp\www\framework\web\helpers\CHtml.php(1205): CHtml::activeInputField('text', Object(UserProfiles), 'percentage[]', Array)
+#4 C:\wamp\www\framework\web\widgets\CActiveForm.php(568): CHtml::activeTextField(Object(UserProfiles), 'percentage[]', Array)
+#5 C:\wamp\www\gudaak\protected\components\views\widgetUserProfile.php(131): CActiveForm->textField(Object(UserProfiles), 'percentage[]', Array)
+#6 C:\wamp\www\framework\web\CBaseController.php(131): require('C:\wamp\www\gud...')
+#7 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, false)
+#8 C:\wamp\www\framework\web\widgets\CWidget.php(244): CBaseController->renderFile('C:\wamp\www\gud...', Array, false)
+#9 C:\wamp\www\gudaak\protected\components\WidgetUserProfile.php(25): CWidget->render('widgetUserProfi...', Array)
+#10 C:\wamp\www\gudaak\protected\components\WidgetUserProfile.php(19): WidgetUserProfile->renderContent()
+#11 C:\wamp\www\framework\web\CBaseController.php(174): WidgetUserProfile->run()
+#12 C:\wamp\www\gudaak\themes\template\views\layouts\dashboard.php(138): CBaseController->widget('WidgetUserProfi...')
+#13 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\gud...')
+#14 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, true)
+#15 C:\wamp\www\framework\web\CController.php(785): CBaseController->renderFile('C:\wamp\www\gud...', Array, true)
+#16 C:\wamp\www\gudaak\protected\controllers\UserController.php(97): CController->render('index', Array)
+#17 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionIndex()
+#18 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#19 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#20 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#21 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#22 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#23 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#24 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#25 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#26 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('index')
+#27 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/index')
+#28 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#29 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#30 {main}
+REQUEST_URI=/gudaak/index.php?r=user/index
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/index
+---
+2014/04/12 17:53:14 [error] [exception.CException] exception 'CException' with message 'Property "UserProfiles.percentage" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('percentage')
+#1 C:\wamp\www\framework\web\helpers\CHtml.php(2033): CActiveRecord->__get('percentage')
+#2 C:\wamp\www\framework\web\helpers\CHtml.php(1774): CHtml::resolveValue(Object(UserProfiles), 'percentage[]')
+#3 C:\wamp\www\framework\web\helpers\CHtml.php(1205): CHtml::activeInputField('text', Object(UserProfiles), 'percentage[]', Array)
+#4 C:\wamp\www\framework\web\widgets\CActiveForm.php(568): CHtml::activeTextField(Object(UserProfiles), 'percentage[]', Array)
+#5 C:\wamp\www\gudaak\protected\components\views\widgetUserProfile.php(131): CActiveForm->textField(Object(UserProfiles), 'percentage[]', Array)
+#6 C:\wamp\www\framework\web\CBaseController.php(131): require('C:\wamp\www\gud...')
+#7 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, false)
+#8 C:\wamp\www\framework\web\widgets\CWidget.php(244): CBaseController->renderFile('C:\wamp\www\gud...', Array, false)
+#9 C:\wamp\www\gudaak\protected\components\WidgetUserProfile.php(25): CWidget->render('widgetUserProfi...', Array)
+#10 C:\wamp\www\gudaak\protected\components\WidgetUserProfile.php(19): WidgetUserProfile->renderContent()
+#11 C:\wamp\www\framework\web\CBaseController.php(174): WidgetUserProfile->run()
+#12 C:\wamp\www\gudaak\themes\template\views\layouts\dashboard.php(138): CBaseController->widget('WidgetUserProfi...')
+#13 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\gud...')
+#14 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, true)
+#15 C:\wamp\www\framework\web\CController.php(785): CBaseController->renderFile('C:\wamp\www\gud...', Array, true)
+#16 C:\wamp\www\gudaak\protected\controllers\UserController.php(97): CController->render('index', Array)
+#17 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionIndex()
+#18 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#19 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#20 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#21 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#22 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#23 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#24 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#25 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#26 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('index')
+#27 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/index')
+#28 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#29 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#30 {main}
+REQUEST_URI=/gudaak/index.php?r=user/index
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/index
+---
+2014/04/12 17:53:18 [error] [exception.CException] exception 'CException' with message 'Property "UserProfiles.percentage" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('percentage')
+#1 C:\wamp\www\framework\web\helpers\CHtml.php(2033): CActiveRecord->__get('percentage')
+#2 C:\wamp\www\framework\web\helpers\CHtml.php(1774): CHtml::resolveValue(Object(UserProfiles), 'percentage[]')
+#3 C:\wamp\www\framework\web\helpers\CHtml.php(1205): CHtml::activeInputField('text', Object(UserProfiles), 'percentage[]', Array)
+#4 C:\wamp\www\framework\web\widgets\CActiveForm.php(568): CHtml::activeTextField(Object(UserProfiles), 'percentage[]', Array)
+#5 C:\wamp\www\gudaak\protected\components\views\widgetUserProfile.php(131): CActiveForm->textField(Object(UserProfiles), 'percentage[]', Array)
+#6 C:\wamp\www\framework\web\CBaseController.php(131): require('C:\wamp\www\gud...')
+#7 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, false)
+#8 C:\wamp\www\framework\web\widgets\CWidget.php(244): CBaseController->renderFile('C:\wamp\www\gud...', Array, false)
+#9 C:\wamp\www\gudaak\protected\components\WidgetUserProfile.php(25): CWidget->render('widgetUserProfi...', Array)
+#10 C:\wamp\www\gudaak\protected\components\WidgetUserProfile.php(19): WidgetUserProfile->renderContent()
+#11 C:\wamp\www\framework\web\CBaseController.php(174): WidgetUserProfile->run()
+#12 C:\wamp\www\gudaak\themes\template\views\layouts\dashboard.php(138): CBaseController->widget('WidgetUserProfi...')
+#13 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\gud...')
+#14 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, true)
+#15 C:\wamp\www\framework\web\CController.php(785): CBaseController->renderFile('C:\wamp\www\gud...', Array, true)
+#16 C:\wamp\www\gudaak\protected\controllers\UserController.php(97): CController->render('index', Array)
+#17 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionIndex()
+#18 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#19 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#20 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#21 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#22 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#23 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#24 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#25 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#26 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('index')
+#27 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/index')
+#28 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#29 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#30 {main}
+REQUEST_URI=/gudaak/index.php?r=user/index
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/index
+---
+2014/04/13 03:22:03 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.userType" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CWebUser.php(141): CComponent->__get('userType')
+#1 C:\wamp\www\framework\base\CComponent.php(607) : eval()'d code(1): CWebUser->__get('userType')
+#2 C:\wamp\www\framework\base\CComponent.php(607): eval()
+#3 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(340): CComponent->evaluateExpression('Yii::app()->use...', Array)
+#4 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(244): CAccessRule->isExpressionMatched(Object(CWebUser))
+#5 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(116): CAccessRule->isUserAllowed(Object(CWebUser), Object(UserController), Object(CInlineAction), '127.0.0.1', 'GET')
+#6 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#7 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('')
+#13 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/')
+#14 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/gudaak/index.php?r=user/
+---
+2014/04/13 03:48:11 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 03:48:11 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 03:48:11 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 03:48:11 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 03:48:11 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 03:51:20 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 03:51:20 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 03:51:20 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 03:51:20 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 03:51:20 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 03:51:37 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 03:51:37 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 03:51:37 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 03:51:37 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 03:51:37 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 03:51:53 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 03:51:53 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 03:51:53 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 03:51:53 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 03:51:53 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 03:53:00 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 03:53:00 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 03:53:00 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 03:53:00 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 03:53:00 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 03:53:26 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 03:53:26 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 03:53:26 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 03:53:26 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 03:53:26 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 04:00:18 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 04:00:18 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 04:00:18 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 04:00:18 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 04:00:18 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 04:11:12 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 04:11:12 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 04:11:12 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 04:11:12 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 04:11:12 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 05:25:44 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 05:25:44 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 05:25:44 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 05:25:44 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 05:25:44 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 05:25:44 [error] [exception.CException] exception 'CException' with message 'Property "UserProfilesHasUserSubjects.interests_id" is not defined.' in C:\wamp\www\framework\base\CComponent.php:174
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(160): CComponent->__set('interests_id', 1)
+#1 C:\wamp\www\gudaak\protected\controllers\UserController.php(343): CActiveRecord->__set('interests_id', 1)
+#2 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionEditProfile()
+#3 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#7 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#10 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('editProfile')
+#12 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/editProfil...')
+#13 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#14 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/gudaak/index.php?r=user/editProfile
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/index
+---
+2014/04/13 05:26:00 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 05:26:00 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 05:26:00 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 05:26:00 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 05:26:00 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 05:26:00 [error] [exception.CException] exception 'CException' with message 'Property "UserProfilesHasUserSubjects.interests_id" is not defined.' in C:\wamp\www\framework\base\CComponent.php:174
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(160): CComponent->__set('interests_id', 1)
+#1 C:\wamp\www\gudaak\protected\controllers\UserController.php(343): CActiveRecord->__set('interests_id', 1)
+#2 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionEditProfile()
+#3 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#7 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#10 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('editProfile')
+#12 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/editProfil...')
+#13 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#14 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/gudaak/index.php?r=user/editProfile
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/index
+---
+2014/04/13 05:30:42 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 05:30:42 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 05:30:42 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 05:30:42 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 05:30:42 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 05:30:42 [error] [exception.CException] exception 'CException' with message 'Property "UserProfilesHasUserSubjects.interests_id" is not defined.' in C:\wamp\www\framework\base\CComponent.php:174
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(160): CComponent->__set('interests_id', 1)
+#1 C:\wamp\www\gudaak\protected\controllers\UserController.php(343): CActiveRecord->__set('interests_id', 1)
+#2 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionEditProfile()
+#3 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#7 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#10 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('editProfile')
+#12 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/editProfil...')
+#13 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#14 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/gudaak/index.php?r=user/editProfile
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/index
+---
+2014/04/13 05:31:33 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 05:31:33 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 05:31:33 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 05:31:33 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 05:31:33 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 05:38:39 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 05:38:39 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 05:38:39 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 05:38:39 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 05:38:39 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 08:19:03 [error] [php] Object of class UserProfiles could not be converted to string (C:\wamp\www\framework\web\helpers\CHtml.php:1712)
+Stack trace:
+#0 C:\wamp\www\framework\web\helpers\CHtml.php(580): inputField()
+#1 C:\wamp\www\gudaak\protected\components\views\widgetUserProfile.php(150): hiddenField()
+#2 C:\wamp\www\framework\web\CBaseController.php(131): require()
+#3 C:\wamp\www\framework\web\CBaseController.php(96): WidgetUserProfile->renderInternal()
+#4 C:\wamp\www\framework\web\widgets\CWidget.php(244): WidgetUserProfile->renderFile()
+#5 C:\wamp\www\gudaak\protected\components\WidgetUserProfile.php(31): WidgetUserProfile->render()
+#6 C:\wamp\www\gudaak\protected\components\WidgetUserProfile.php(19): WidgetUserProfile->renderContent()
+#7 C:\wamp\www\framework\web\CBaseController.php(174): WidgetUserProfile->run()
+#8 C:\wamp\www\gudaak\themes\template\views\layouts\dashboard.php(138): UserController->widget()
+#9 C:\wamp\www\framework\web\CBaseController.php(127): require()
+#10 C:\wamp\www\framework\web\CBaseController.php(96): UserController->renderInternal()
+#11 C:\wamp\www\framework\web\CController.php(785): UserController->renderFile()
+#12 C:\wamp\www\gudaak\protected\controllers\UserController.php(97): UserController->render()
+#13 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionIndex()
+#14 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#15 C:\wamp\www\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#16 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#17 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#18 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#19 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#20 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#21 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#22 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#23 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#24 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#25 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/index
+in C:\wamp\www\gudaak\protected\components\views\widgetUserProfile.php (150)
+in C:\wamp\www\gudaak\protected\components\WidgetUserProfile.php (31)
+in C:\wamp\www\gudaak\protected\components\WidgetUserProfile.php (19)
+2014/04/13 09:13:38 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:13:38 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:13:38 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:13:38 [error] [php] Trying to get property of non-object (C:\wamp\www\gudaak\protected\controllers\UserController.php:344)
+Stack trace:
+#0 C:\wamp\www\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#1 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#2 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/editProfile
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (344)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:13:52 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:13:52 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:13:52 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:13:52 [error] [php] Trying to get property of non-object (C:\wamp\www\gudaak\protected\controllers\UserController.php:344)
+Stack trace:
+#0 C:\wamp\www\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#1 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#2 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/editProfile
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (344)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:14:07 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:14:07 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:14:07 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:14:07 [error] [php] Trying to get property of non-object (C:\wamp\www\gudaak\protected\controllers\UserController.php:344)
+Stack trace:
+#0 C:\wamp\www\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#1 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#2 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/editProfile
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (344)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:18:29 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:18:29 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:18:29 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:42:51 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:42:51 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:42:51 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:42:51 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:42:51 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:44:20 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:44:20 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:44:20 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:44:20 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:44:20 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:46:39 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:46:39 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:46:39 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:46:39 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:46:39 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:48:28 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:48:28 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:48:28 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:48:28 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:48:28 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:49:03 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:49:03 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:49:03 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:49:03 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:49:03 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:49:15 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:49:15 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:49:15 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:49:15 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:49:15 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (277)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 09:52:33 [error] [exception.CException] exception 'CException' with message 'CActiveForm and its behaviors do not have a method or closure named "fileType".' in C:\wamp\www\framework\base\CComponent.php:266
+Stack trace:
+#0 [internal function]: CComponent->__call('fileType', Array)
+#1 C:\wamp\www\gudaak\protected\components\views\widgetUserProfile.php(98): CActiveForm->fileType(Object(UserProfiles), 'image')
+#2 C:\wamp\www\framework\web\CBaseController.php(131): require('C:\wamp\www\gud...')
+#3 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, false)
+#4 C:\wamp\www\framework\web\widgets\CWidget.php(244): CBaseController->renderFile('C:\wamp\www\gud...', Array, false)
+#5 C:\wamp\www\gudaak\protected\components\WidgetUserProfile.php(31): CWidget->render('widgetUserProfi...', Array)
+#6 C:\wamp\www\gudaak\protected\components\WidgetUserProfile.php(19): WidgetUserProfile->renderContent()
+#7 C:\wamp\www\framework\web\CBaseController.php(174): WidgetUserProfile->run()
+#8 C:\wamp\www\gudaak\themes\template\views\layouts\dashboard.php(138): CBaseController->widget('WidgetUserProfi...')
+#9 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\gud...')
+#10 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, true)
+#11 C:\wamp\www\framework\web\CController.php(785): CBaseController->renderFile('C:\wamp\www\gud...', Array, true)
+#12 C:\wamp\www\gudaak\protected\controllers\UserController.php(97): CController->render('index', Array)
+#13 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionIndex()
+#14 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#15 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#16 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#17 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#18 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#19 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#20 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#21 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('index')
+#23 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/index')
+#24 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#25 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/gudaak/index.php?r=user/index
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/index
+---
+2014/04/13 10:01:39 [error] [exception.CException] exception 'CException' with message 'CActiveForm and its behaviors do not have a method or closure named "fileType".' in C:\wamp\www\framework\base\CComponent.php:266
+Stack trace:
+#0 [internal function]: CComponent->__call('fileType', Array)
+#1 C:\wamp\www\gudaak\protected\components\views\widgetUserProfile.php(98): CActiveForm->fileType(Object(UserProfiles), 'image')
+#2 C:\wamp\www\framework\web\CBaseController.php(131): require('C:\wamp\www\gud...')
+#3 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, false)
+#4 C:\wamp\www\framework\web\widgets\CWidget.php(244): CBaseController->renderFile('C:\wamp\www\gud...', Array, false)
+#5 C:\wamp\www\gudaak\protected\components\WidgetUserProfile.php(31): CWidget->render('widgetUserProfi...', Array)
+#6 C:\wamp\www\gudaak\protected\components\WidgetUserProfile.php(19): WidgetUserProfile->renderContent()
+#7 C:\wamp\www\framework\web\CBaseController.php(174): WidgetUserProfile->run()
+#8 C:\wamp\www\gudaak\themes\template\views\layouts\dashboard.php(138): CBaseController->widget('WidgetUserProfi...')
+#9 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\gud...')
+#10 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, true)
+#11 C:\wamp\www\framework\web\CController.php(785): CBaseController->renderFile('C:\wamp\www\gud...', Array, true)
+#12 C:\wamp\www\gudaak\protected\controllers\UserController.php(97): CController->render('index', Array)
+#13 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionIndex()
+#14 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#15 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#16 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#17 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#18 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#19 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#20 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#21 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('index')
+#23 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/index')
+#24 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#25 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/gudaak/index.php?r=user/index
+---
+2014/04/13 10:16:08 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in C:\wamp\www\framework\web\auth\CAccessControlFilter.php:157
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(120): CAccessControlFilter->accessDenied(Object(CWebUser), 'You are not aut...')
+#1 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('data')
+#8 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/data')
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/gudaak/index.php?r=user/data
+---
+2014/04/13 10:16:31 [error] [exception.CException] exception 'CException' with message 'Property "CDbCriteria.0" is not defined.' in C:\wamp\www\framework\base\CComponent.php:174
+Stack trace:
+#0 C:\wamp\www\framework\db\schema\CDbCriteria.php(153): CComponent->__set('0', 'id < :id')
+#1 C:\wamp\www\framework\db\schema\CDbCommandBuilder.php(462): CDbCriteria->__construct(Array)
+#2 C:\wamp\www\framework\db\ar\CActiveRecord.php(1405): CDbCommandBuilder->createCriteria(Array, Array)
+#3 C:\wamp\www\gudaak\protected\controllers\UserController.php(76): CActiveRecord->findAll(Array)
+#4 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionData()
+#5 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#7 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#8 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#12 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('data')
+#14 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/data')
+#15 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/gudaak/index.php?r=user/data
+---
+2014/04/13 10:17:01 [error] [exception.CException] exception 'CException' with message 'Property "CDbCriteria.0" is not defined.' in C:\wamp\www\framework\base\CComponent.php:174
+Stack trace:
+#0 C:\wamp\www\framework\db\schema\CDbCriteria.php(153): CComponent->__set('0', 'id < :id')
+#1 C:\wamp\www\framework\db\schema\CDbCommandBuilder.php(462): CDbCriteria->__construct(Array)
+#2 C:\wamp\www\framework\db\ar\CActiveRecord.php(1405): CDbCommandBuilder->createCriteria(Array, Array)
+#3 C:\wamp\www\gudaak\protected\controllers\UserController.php(76): CActiveRecord->findAll(Array, Array)
+#4 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionData()
+#5 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#7 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#8 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#12 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('data')
+#14 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/data')
+#15 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/gudaak/index.php?r=user/data
+---
+2014/04/13 10:18:12 [error] [php] Object of class stdClass could not be converted to string (C:\wamp\www\framework\db\schema\CDbCommandBuilder.php:358)
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(1406): Course->query()
+#1 C:\wamp\www\gudaak\protected\controllers\UserController.php(79): Course->findAll()
+#2 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionData()
+#3 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#5 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#7 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#8 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#9 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#10 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#11 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#12 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#13 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#14 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/data
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (79)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 10:18:28 [error] [php] Object of class stdClass could not be converted to string (C:\wamp\www\framework\db\schema\CDbCommandBuilder.php:358)
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(1406): Course->query()
+#1 C:\wamp\www\gudaak\protected\controllers\UserController.php(79): Course->findAll()
+#2 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionData()
+#3 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#5 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#7 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#8 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#9 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#10 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#11 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#12 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#13 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#14 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/data
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (79)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 11:26:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "controller/upload".' in C:\wamp\www\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('controller/uplo...')
+#1 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gudaak/index.php?r=controller/upload&PHPSESSID=a2i3822648gbj0c3lo6smmv2h6&YII_CSRF_TOKEN=57f943aa7adbee9a2c061ffa82b5fb2527b9df7d&qqfile=21122008236yhhh.jpg
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/
+---
+2014/04/13 11:27:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "controller/upload".' in C:\wamp\www\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('controller/uplo...')
+#1 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gudaak/index.php?r=controller/upload&PHPSESSID=a2i3822648gbj0c3lo6smmv2h6&YII_CSRF_TOKEN=57f943aa7adbee9a2c061ffa82b5fb2527b9df7d&qqfile=21122008236yhhh.jpg
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/
+---
+2014/04/13 11:27:46 [error] [php] include(UserLog.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\wamp\www\framework\YiiBase.php:418)
+Stack trace:
+#0 C:\wamp\www\gudaak\protected\controllers\UserController.php(1199): spl_autoload_call()
+#1 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionUpload()
+#2 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 C:\wamp\www\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#4 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#5 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#6 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#7 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#8 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#9 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#10 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#11 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#12 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/upload&PHPSESSID=a2i3822648gbj0c3lo6smmv2h6&YII_CSRF_TOKEN=57f943aa7adbee9a2c061ffa82b5fb2527b9df7d&qqfile=21122008236yhhh.jpg
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (1199)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 11:42:03 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (321)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 11:42:03 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (321)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 11:42:03 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (321)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 11:42:03 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (321)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 11:42:03 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (321)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 11:44:35 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (321)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 11:44:35 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (321)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 11:44:35 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (321)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 11:44:35 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (321)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 11:44:35 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (321)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 11:47:19 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (321)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 11:47:19 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (321)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 11:47:19 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (321)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 11:47:19 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (321)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 11:47:19 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (321)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 11:57:25 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.userType" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CWebUser.php(141): CComponent->__get('userType')
+#1 C:\wamp\www\framework\base\CComponent.php(607) : eval()'d code(1): CWebUser->__get('userType')
+#2 C:\wamp\www\framework\base\CComponent.php(607): eval()
+#3 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(340): CComponent->evaluateExpression('Yii::app()->use...', Array)
+#4 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(244): CAccessRule->isExpressionMatched(Object(CWebUser))
+#5 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(116): CAccessRule->isUserAllowed(Object(CWebUser), Object(UserController), Object(CInlineAction), '127.0.0.1', 'GET')
+#6 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#7 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('index')
+#13 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/index')
+#14 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/gudaak/index.php?r=user/index
+---
+2014/04/13 11:58:18 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 11:58:18 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 11:58:18 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 11:58:18 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 11:58:18 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 11:58:56 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 11:58:56 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 11:58:56 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 11:58:56 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 11:58:56 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 12:00:31 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 12:00:31 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 12:00:31 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 12:00:31 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/13 12:00:31 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 15:45:53 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 15:45:53 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 15:45:53 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 15:45:53 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 15:45:53 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:39:21 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:39:21 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:39:21 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:39:21 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:39:21 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:39:29 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:39:29 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:39:29 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:39:29 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:39:29 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:40:10 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:40:10 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:40:10 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:40:10 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:40:10 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:40:22 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:40:22 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:40:22 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:40:22 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:40:22 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:45:12 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:45:12 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:45:12 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:45:12 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:45:12 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:48:06 [error] [php] Undefined variable: register (C:\wamp\www\gudaak\protected\components\views\widgetUserProfile.php:78)
+Stack trace:
+#0 C:\wamp\www\framework\web\widgets\CWidget.php(244): WidgetUserProfile->renderFile()
+#1 C:\wamp\www\gudaak\protected\components\WidgetUserProfile.php(31): WidgetUserProfile->render()
+#2 C:\wamp\www\gudaak\protected\components\WidgetUserProfile.php(19): WidgetUserProfile->renderContent()
+#3 C:\wamp\www\framework\web\CBaseController.php(174): WidgetUserProfile->run()
+#4 C:\wamp\www\gudaak\themes\template\views\layouts\dashboard.php(138): UserController->widget()
+#5 C:\wamp\www\framework\web\CBaseController.php(127): require()
+#6 C:\wamp\www\framework\web\CBaseController.php(96): UserController->renderInternal()
+#7 C:\wamp\www\framework\web\CController.php(785): UserController->renderFile()
+#8 C:\wamp\www\gudaak\protected\controllers\UserController.php(141): UserController->render()
+#9 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionIndex()
+#10 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#11 C:\wamp\www\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#12 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#13 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#14 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#15 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#16 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#17 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#18 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#19 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#20 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#21 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/index
+in C:\wamp\www\gudaak\protected\components\views\widgetUserProfile.php (78)
+in C:\wamp\www\gudaak\protected\components\WidgetUserProfile.php (31)
+in C:\wamp\www\gudaak\protected\components\WidgetUserProfile.php (19)
+2014/04/14 17:59:19 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:59:19 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:59:19 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:59:19 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:59:19 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:59:52 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:59:52 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:59:52 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:59:52 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 17:59:52 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 18:00:11 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 18:00:11 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 18:00:11 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 18:00:11 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 18:00:11 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 18:02:11 [warning] [application] Failed to set unsafe attribute "currentSubject" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 18:02:11 [warning] [application] Failed to set unsafe attribute "percentage" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 18:02:11 [warning] [application] Failed to set unsafe attribute "favorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 18:02:11 [warning] [application] Failed to set unsafe attribute "Lestfavorite" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 18:02:11 [warning] [application] Failed to set unsafe attribute "interest" of "UserProfiles".
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (320)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/14 18:10:09 [error] [exception.CException] exception 'CException' with message 'Property "Stream.title" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('title')
+#1 C:\wamp\www\gudaak\themes\template\views\user\stream.php(12): CActiveRecord->__get('title')
+#2 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\gud...')
+#3 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, true)
+#4 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\gud...', Array, true)
+#5 C:\wamp\www\framework\web\CController.php(783): CController->renderPartial('stream', Array, true)
+#6 C:\wamp\www\gudaak\protected\controllers\UserController.php(1010): CController->render('stream', Array)
+#7 [internal function]: UserController->actionStream('6')
+#8 C:\wamp\www\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(UserController), Array)
+#9 C:\wamp\www\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(UserController), Object(ReflectionMethod), Array)
+#10 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#13 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#17 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('stream')
+#19 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/stream')
+#20 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#21 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/gudaak/index.php?r=user/stream&id=6
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/streamList
+---
+2014/04/16 15:59:41 [error] [exception.CException] exception 'CException' with message 'Property "CWebUser.userType" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\web\auth\CWebUser.php(141): CComponent->__get('userType')
+#1 C:\wamp\www\framework\base\CComponent.php(607) : eval()'d code(1): CWebUser->__get('userType')
+#2 C:\wamp\www\framework\base\CComponent.php(607): eval()
+#3 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(340): CComponent->evaluateExpression('Yii::app()->use...', Array)
+#4 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(244): CAccessRule->isExpressionMatched(Object(CWebUser))
+#5 C:\wamp\www\framework\web\auth\CAccessControlFilter.php(116): CAccessRule->isUserAllowed(Object(CWebUser), Object(UserController), Object(CInlineAction), '127.0.0.1', 'GET')
+#6 C:\wamp\www\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#7 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('index')
+#13 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/index')
+#14 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/gudaak/index.php?r=user/index
+---
+2014/04/20 10:14:26 [error] [php] Undefined variable: lists (C:\wamp\www\gudaak\themes\template\views\school\talk.php:40)
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(870): SchoolController->renderFile()
+#1 C:\wamp\www\framework\web\CController.php(783): SchoolController->renderPartial()
+#2 C:\wamp\www\gudaak\protected\controllers\SchoolController.php(78): SchoolController->render()
+#3 C:\wamp\www\framework\web\actions\CInlineAction.php(50): SchoolController->actionTalk()
+#4 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 C:\wamp\www\framework\web\CController.php(287): SchoolController->runAction()
+#6 C:\wamp\www\framework\web\CController.php(266): SchoolController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(276): SchoolController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=school/talk
+in C:\wamp\www\gudaak\themes\template\views\school\talk.php (40)
+in C:\wamp\www\gudaak\protected\controllers\SchoolController.php (78)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/20 10:26:15 [error] [php] Undefined offset: 2 (C:\wamp\www\gudaak\themes\template\views\user\userTest.php:43)
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(870): UserController->renderFile()
+#1 C:\wamp\www\framework\web\CController.php(783): UserController->renderPartial()
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(602): UserController->render()
+#3 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionTests()
+#4 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 C:\wamp\www\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#6 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#8 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#9 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#12 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#13 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#14 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/tests
+in C:\wamp\www\gudaak\themes\template\views\user\userTest.php (43)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (602)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/20 10:52:12 [error] [php] Undefined offset: 2 (C:\wamp\www\gudaak\themes\template\views\user\userTest.php:43)
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(870): UserController->renderFile()
+#1 C:\wamp\www\framework\web\CController.php(783): UserController->renderPartial()
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(602): UserController->render()
+#3 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionTests()
+#4 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 C:\wamp\www\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#6 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#8 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#9 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#12 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#13 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#14 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/tests
+in C:\wamp\www\gudaak\themes\template\views\user\userTest.php (43)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (602)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/20 16:02:22 [error] [exception.CException] exception 'CException' with message 'Property "UserProfiles.board" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('board')
+#1 C:\wamp\www\gudaak\protected\components\views\widgetUserProfile.php(254): CActiveRecord->__get('board')
+#2 C:\wamp\www\framework\web\CBaseController.php(131): require('C:\wamp\www\gud...')
+#3 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, false)
+#4 C:\wamp\www\framework\web\widgets\CWidget.php(244): CBaseController->renderFile('C:\wamp\www\gud...', Array, false)
+#5 C:\wamp\www\gudaak\protected\components\WidgetUserProfile.php(31): CWidget->render('widgetUserProfi...', Array)
+#6 C:\wamp\www\gudaak\protected\components\WidgetUserProfile.php(19): WidgetUserProfile->renderContent()
+#7 C:\wamp\www\framework\web\CBaseController.php(174): WidgetUserProfile->run()
+#8 C:\wamp\www\gudaak\themes\template\views\layouts\dashboard.php(138): CBaseController->widget('WidgetUserProfi...')
+#9 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\gud...')
+#10 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, true)
+#11 C:\wamp\www\framework\web\CController.php(785): CBaseController->renderFile('C:\wamp\www\gud...', Array, true)
+#12 C:\wamp\www\gudaak\protected\controllers\UserController.php(141): CController->render('index', Array)
+#13 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionIndex()
+#14 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#15 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#16 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#17 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#18 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#19 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#20 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#21 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('')
+#23 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user')
+#24 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#25 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/gudaak/index.php?r=user
+HTTP_REFERER=http://localhost/gudaak/
+---
+2014/04/20 16:24:52 [error] [exception.CException] exception 'CException' with message 'Property "Register.medium" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('medium')
+#1 C:\wamp\www\framework\web\helpers\CHtml.php(2044): CActiveRecord->__get('medium')
+#2 C:\wamp\www\framework\web\helpers\CHtml.php(1402): CHtml::resolveValue(Object(Register), 'medium')
+#3 C:\wamp\www\framework\web\widgets\CActiveForm.php(674): CHtml::activeDropDownList(Object(Register), 'medium', Array, Array)
+#4 C:\wamp\www\gudaak\themes\template\views\layouts\main.php(218): CActiveForm->dropDownList(Object(Register), 'medium', Array, Array)
+#5 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\gud...')
+#6 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, true)
+#7 C:\wamp\www\framework\web\widgets\CContentDecorator.php(77): CBaseController->renderFile('C:\wamp\www\gud...', Array, true)
+#8 C:\wamp\www\framework\web\widgets\CContentDecorator.php(55): CContentDecorator->decorate('<div class="spa...')
+#9 C:\wamp\www\framework\web\widgets\COutputProcessor.php(45): CContentDecorator->processOutput('<div class="spa...')
+#10 C:\wamp\www\framework\web\CBaseController.php(207): COutputProcessor->run()
+#11 C:\wamp\www\framework\web\CBaseController.php(301): CBaseController->endWidget('CContentDecorat...')
+#12 C:\wamp\www\gudaak\protected\views\layouts\column2.php(22): CBaseController->endContent()
+#13 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\gud...')
+#14 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, true)
+#15 C:\wamp\www\framework\web\CController.php(785): CBaseController->renderFile('C:\wamp\www\gud...', Array, true)
+#16 C:\wamp\www\gudaak\protected\modules\admin\controllers\UserSubjectsRatingController.php(133): CController->render('index', Array)
+#17 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserSubjectsRatingController->actionIndex()
+#18 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#19 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#20 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#21 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#22 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#23 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#24 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#25 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#26 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('')
+#27 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/userSubje...')
+#28 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#29 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#30 {main}
+REQUEST_URI=/gudaak/index.php?r=admin/userSubjectsRating
+HTTP_REFERER=http://localhost/gudaak/index.php?r=gii/crud
+---
+2014/04/20 17:31:52 [error] [php] Invalid argument supplied for foreach() (C:\wamp\www\gudaak\protected\controllers\UserController.php:986)
+Stack trace:
+#0 C:\wamp\www\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#1 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#2 C:\wamp\www\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#3 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#4 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#5 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#6 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#7 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#8 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#9 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#10 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#11 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#12 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/stream&id=2
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (986)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/20 17:32:36 [error] [php] Invalid argument supplied for foreach() (C:\wamp\www\gudaak\protected\controllers\UserController.php:988)
+Stack trace:
+#0 C:\wamp\www\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#1 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#2 C:\wamp\www\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#3 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#4 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#5 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#6 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#7 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#8 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#9 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#10 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#11 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#12 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/stream&id=2
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (988)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/20 17:33:20 [error] [exception.CException] exception 'CException' with message 'Property "UserSubjectsRating.self" is not defined.' in C:\wamp\www\framework\base\CComponent.php:174
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(160): CComponent->__set('self', '4')
+#1 C:\wamp\www\gudaak\protected\controllers\UserController.php(1646): CActiveRecord->__set('self', '4')
+#2 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionUserStreamRaitng()
+#3 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#7 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#10 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('userStreamRaitn...')
+#12 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/userStream...')
+#13 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#14 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/gudaak/index.php?r=user/userStreamRaitng&id=2&rating=4&type=subject
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/stream&id=2
+---
+2014/04/20 17:34:40 [error] [exception.CException] exception 'CException' with message 'Property "UserSubjectsRating.stream_id" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('stream_id')
+#1 C:\wamp\www\framework\validators\CRequiredValidator.php(52): CActiveRecord->__get('stream_id')
+#2 C:\wamp\www\framework\validators\CValidator.php(197): CRequiredValidator->validateAttribute(Object(UserSubjectsRating), 'stream_id')
+#3 C:\wamp\www\framework\base\CModel.php(158): CValidator->validate(Object(UserSubjectsRating), NULL)
+#4 C:\wamp\www\framework\db\ar\CActiveRecord.php(786): CModel->validate(NULL)
+#5 C:\wamp\www\gudaak\protected\controllers\UserController.php(1650): CActiveRecord->save()
+#6 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionUserStreamRaitng()
+#7 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#14 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('userStreamRaitn...')
+#16 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/userStream...')
+#17 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/gudaak/index.php?r=user/userStreamRaitng&id=1&rating=4&type=subject
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/stream&id=2
+---
+2014/04/22 17:36:48 [error] [php] include(UserFeedbackRating.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\wamp\www\framework\YiiBase.php:418)
+Stack trace:
+#0 C:\wamp\www\gudaak\protected\controllers\UserController.php(1252): spl_autoload_call()
+#1 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionFinalizedStream()
+#2 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 C:\wamp\www\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#4 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#5 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#6 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#7 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#8 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#9 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#10 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#11 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#12 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/finalizedStream
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (1252)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/22 18:06:58 [error] [php] include(UserFeedbackRating.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\wamp\www\framework\YiiBase.php:418)
+Stack trace:
+#0 C:\wamp\www\gudaak\protected\controllers\UserController.php(1257): spl_autoload_call()
+#1 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionFinalizedStream()
+#2 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 C:\wamp\www\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#4 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#5 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#6 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#7 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#8 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#9 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#10 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#11 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#12 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/finalizedStream
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (1257)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/23 16:23:41 [error] [exception.CException] exception 'CException' with message 'Property "Collage.collagesCoursesSpecialization" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('collagesCourses...')
+#1 C:\wamp\www\gudaak\themes\template\views\user\collage.php(110): CActiveRecord->__get('collagesCourses...')
+#2 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\gud...')
+#3 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, true)
+#4 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\gud...', Array, true)
+#5 C:\wamp\www\framework\web\CController.php(783): CController->renderPartial('collage', Array, true)
+#6 C:\wamp\www\gudaak\protected\controllers\UserController.php(1827): CController->render('collage', Array)
+#7 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionExploreColleges()
+#8 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#9 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#10 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#11 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#12 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#15 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('exploreColleges')
+#17 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/exploreCol...')
+#18 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#19 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/gudaak/index.php?r=user/exploreColleges
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user
+---
+2014/04/23 16:38:30 [error] [exception.CException] exception 'CException' with message 'Property "Collage.collagesCoursesSpecialization" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('collagesCourses...')
+#1 C:\wamp\www\gudaak\themes\template\views\user\collage.php(110): CActiveRecord->__get('collagesCourses...')
+#2 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\gud...')
+#3 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, true)
+#4 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\gud...', Array, true)
+#5 C:\wamp\www\framework\web\CController.php(783): CController->renderPartial('collage', Array, true)
+#6 C:\wamp\www\gudaak\protected\controllers\UserController.php(1827): CController->render('collage', Array)
+#7 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionExploreColleges()
+#8 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#9 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#10 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#11 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#12 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#13 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#15 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#16 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('exploreColleges')
+#17 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/exploreCol...')
+#18 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#19 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#20 {main}
+REQUEST_URI=/gudaak/index.php?r=user/exploreColleges
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user
+---
+2014/04/23 17:02:59 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gudaaknew.collages_courses_specialization' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `collages_courses_specialization`.
+in C:\wamp\www\gudaak\themes\template\views\user\collage.php (110)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (1827)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/23 17:02:59 [error] [exception.CDbException] exception 'CDbException' with message 'The table "collages_courses_specialization" for active record class "CollagesCoursesSpecialization" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(CollagesCoursesSpecialization))
+#1 C:\wamp\www\framework\db\ar\CActiveFinder.php(219): CActiveRecord::model('CollagesCourses...')
+#2 C:\wamp\www\framework\db\ar\CActiveFinder.php(49): CActiveFinder->buildJoinTree(Object(CJoinElement), 'collagesCourses...')
+#3 C:\wamp\www\framework\db\ar\CActiveRecord.php(268): CActiveFinder->__construct(Object(Collage), 'collagesCourses...')
+#4 C:\wamp\www\framework\db\ar\CActiveRecord.php(142): CActiveRecord->getRelated('collagesCourses...')
+#5 C:\wamp\www\gudaak\themes\template\views\user\collage.php(110): CActiveRecord->__get('collagesCourses...')
+#6 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\gud...')
+#7 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, true)
+#8 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\gud...', Array, true)
+#9 C:\wamp\www\framework\web\CController.php(783): CController->renderPartial('collage', Array, true)
+#10 C:\wamp\www\gudaak\protected\controllers\UserController.php(1827): CController->render('collage', Array)
+#11 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionExploreColleges()
+#12 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#13 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#16 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#17 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('exploreColleges')
+#21 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/exploreCol...')
+#22 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/gudaak/index.php?r=user/exploreColleges
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user
+---
+2014/04/23 17:08:04 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gudaaknew.collages_courses_specialization' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `collages_courses_specialization`.
+in C:\wamp\www\gudaak\themes\template\views\user\collage.php (110)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (1827)
+in C:\wamp\www\gudaak\index.php (13)
+2014/04/23 17:08:04 [error] [exception.CDbException] exception 'CDbException' with message 'The table "collages_courses_specialization" for active record class "CollagesCoursesSpecialization" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(CollagesCoursesSpecialization))
+#1 C:\wamp\www\framework\db\ar\CActiveFinder.php(219): CActiveRecord::model('CollagesCourses...')
+#2 C:\wamp\www\framework\db\ar\CActiveFinder.php(49): CActiveFinder->buildJoinTree(Object(CJoinElement), 'collagesCourses...')
+#3 C:\wamp\www\framework\db\ar\CActiveRecord.php(268): CActiveFinder->__construct(Object(Collage), 'collagesCourses...')
+#4 C:\wamp\www\framework\db\ar\CActiveRecord.php(142): CActiveRecord->getRelated('collagesCourses...')
+#5 C:\wamp\www\gudaak\themes\template\views\user\collage.php(110): CActiveRecord->__get('collagesCourses...')
+#6 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\gud...')
+#7 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, true)
+#8 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\gud...', Array, true)
+#9 C:\wamp\www\framework\web\CController.php(783): CController->renderPartial('collage', Array, true)
+#10 C:\wamp\www\gudaak\protected\controllers\UserController.php(1827): CController->render('collage', Array)
+#11 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionExploreColleges()
+#12 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#13 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#16 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#17 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('exploreColleges')
+#21 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/exploreCol...')
+#22 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/gudaak/index.php?r=user/exploreColleges
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user
+---
+2014/04/23 17:44:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user/exploreColleges".' in C:\wamp\www\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/exploreCol...')
+#1 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gudaak/index.php?r=user/exploreColleges
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user
+---
+2014/04/23 17:44:18 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user".' in C:\wamp\www\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user')
+#1 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gudaak/index.php?r=user
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/exploreColleges
+---
+2014/04/23 17:46:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "user".' in C:\wamp\www\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user')
+#1 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/gudaak/index.php?r=user
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user
+---
+2014/05/04 08:57:59 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'gudaaknew.collages_courses_specialization' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `collages_courses_specialization`.
+in C:\wamp\www\gudaak\themes\template\views\user\collage.php (80)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (1828)
+in C:\wamp\www\gudaak\index.php (13)
+2014/05/04 08:57:59 [error] [exception.CDbException] exception 'CDbException' with message 'The table "collages_courses_specialization" for active record class "CollagesCoursesSpecialization" cannot be found in the database.' in C:\wamp\www\framework\db\ar\CActiveRecord.php:2264
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(379): CActiveRecordMetaData->__construct(Object(CollagesCoursesSpecialization))
+#1 C:\wamp\www\framework\db\ar\CActiveFinder.php(219): CActiveRecord::model('CollagesCourses...')
+#2 C:\wamp\www\framework\db\ar\CActiveFinder.php(49): CActiveFinder->buildJoinTree(Object(CJoinElement), 'collagesCourses...')
+#3 C:\wamp\www\framework\db\ar\CActiveRecord.php(268): CActiveFinder->__construct(Object(Collage), 'collagesCourses...')
+#4 C:\wamp\www\framework\db\ar\CActiveRecord.php(142): CActiveRecord->getRelated('collagesCourses...')
+#5 C:\wamp\www\gudaak\themes\template\views\user\collage.php(80): CActiveRecord->__get('collagesCourses...')
+#6 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\gud...')
+#7 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, true)
+#8 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\gud...', Array, true)
+#9 C:\wamp\www\framework\web\CController.php(783): CController->renderPartial('collage', Array, true)
+#10 C:\wamp\www\gudaak\protected\controllers\UserController.php(1828): CController->render('collage', Array)
+#11 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionExploreColleges()
+#12 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#13 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#16 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#17 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('exploreColleges')
+#21 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/exploreCol...')
+#22 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/gudaak/index.php?r=user/exploreColleges
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user
+---
+2014/05/04 09:27:15 [error] [php] Trying to get property of non-object (C:\wamp\www\gudaak\themes\template\views\user\collage.php:81)
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(870): UserController->renderFile()
+#1 C:\wamp\www\framework\web\CController.php(783): UserController->renderPartial()
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(1828): UserController->render()
+#3 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionExploreColleges()
+#4 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 C:\wamp\www\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#6 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#8 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#9 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#12 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#13 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#14 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/exploreColleges
+in C:\wamp\www\gudaak\themes\template\views\user\collage.php (81)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (1828)
+in C:\wamp\www\gudaak\index.php (13)
+2014/05/04 15:16:48 [error] [php] Undefined variable: model (C:\wamp\www\gudaak\themes\template\views\user\collage.php:27)
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(870): UserController->renderFile()
+#1 C:\wamp\www\framework\web\CController.php(783): UserController->renderPartial()
+#2 C:\wamp\www\gudaak\protected\controllers\UserController.php(884): UserController->render()
+#3 C:\wamp\www\framework\web\actions\CInlineAction.php(50): UserController->actionCollage()
+#4 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 C:\wamp\www\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#6 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#8 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#9 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#12 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#13 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#14 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/collage&id=1&_=1399216607681
+in C:\wamp\www\gudaak\themes\template\views\user\collage.php (27)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (884)
+in C:\wamp\www\gudaak\index.php (13)
+2014/05/04 15:21:37 [error] [exception.CException] exception 'CException' with message 'UserController cannot find the requested view "_collage".' in C:\wamp\www\framework\web\CController.php:879
+Stack trace:
+#0 C:\wamp\www\gudaak\protected\controllers\UserController.php(885): CController->renderPartial('_collage', Array)
+#1 [internal function]: UserController->actionCollage('1')
+#2 C:\wamp\www\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(UserController), Array)
+#3 C:\wamp\www\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(UserController), Object(ReflectionMethod), Array)
+#4 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('collage')
+#13 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/collage')
+#14 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/gudaak/index.php?r=user/collage&id=1&_=1399216897329
+HTTP_REFERER=http://localhost/gudaak/index.php?r=user/exploreColleges
+---
+2014/05/04 16:01:00 [error] [php] Undefined variable: institutes (C:\wamp\www\gudaak\themes\template\views\user\_collage.php:8)
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(870): UserController->renderFile()
+#1 C:\wamp\www\gudaak\protected\controllers\UserController.php(885): UserController->renderPartial()
+#2 unknown(0): UserController->actionCollage()
+#3 C:\wamp\www\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#4 C:\wamp\www\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#5 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#6 C:\wamp\www\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#7 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#8 C:\wamp\www\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#9 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#10 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#11 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#12 C:\wamp\www\framework\web\CController.php(266): UserController->runActionWithFilters()
+#13 C:\wamp\www\framework\web\CWebApplication.php(276): UserController->run()
+#14 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#15 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=user/collage&id=1&_=1399219259978
+in C:\wamp\www\gudaak\themes\template\views\user\_collage.php (8)
+in C:\wamp\www\gudaak\protected\controllers\UserController.php (885)
+in C:\wamp\www\gudaak\index.php (13)
+2014/05/04 16:46:01 [error] [php] Undefined variable: events (C:\wamp\www\gudaak\themes\template\views\site\articlesList.php:51)
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(870): SiteController->renderFile()
+#1 C:\wamp\www\framework\web\CController.php(783): SiteController->renderPartial()
+#2 C:\wamp\www\gudaak\protected\controllers\SiteController.php(84): SiteController->render()
+#3 C:\wamp\www\framework\web\actions\CInlineAction.php(50): SiteController->actionArticles()
+#4 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 C:\wamp\www\framework\web\CController.php(287): SiteController->runAction()
+#6 C:\wamp\www\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#7 C:\wamp\www\framework\web\CWebApplication.php(276): SiteController->run()
+#8 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=site/articles&id=7
+in C:\wamp\www\gudaak\themes\template\views\site\articlesList.php (51)
+in C:\wamp\www\gudaak\protected\controllers\SiteController.php (84)
+in C:\wamp\www\gudaak\index.php (13)
+2014/05/04 16:48:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "article".' in C:\wamp\www\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(271): CController->missingAction('article')
+#1 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('article')
+#2 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('user/article')
+#3 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/gudaak/index.php?r=user/article&id=5
+HTTP_REFERER=http://localhost/gudaak/index.php?r=site/articles
+---
+2014/05/04 17:08:20 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\wamp\www\framework\web\CController.php:337
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('article')
+#4 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('site/article')
+#5 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/gudaak/index.php?r=site/article
+HTTP_REFERER=http://localhost/gudaak/index.php?r=site/articles
+---

@@ -49,7 +49,7 @@ $this->breadcrumbs=array('Finalized Stream'=>array('/user/finalizedStream'));
 																			$("#remove-'.$list['id'].'").hide();
 																			$("#remove-'.$list['id'].'").parent().parent().parent().hide();
 																	}'),
-												array('confirm'=>'Are you sure you want to remove this career?',
+												array('confirm'=>'Are you sure you want to remove this stream?',
 														'style'=>'display: block;float: right;margin-top: 0;width: 15px;',
 														'id'=>'remove-'.$list['id']));  ?>
 								<h1><?php echo substr($list['name'],0,30);?></h1>
@@ -86,34 +86,92 @@ $this->breadcrumbs=array('Finalized Stream'=>array('/user/finalizedStream'));
 			</div>-->
 				
 				<div class="col-md-12 pull-left user-feedback">
+<?php if(!isset($feed[1]) || !isset($feed[2]) || !isset($feed[3])){ ?>
+				<div class="col-md-12 pull-left user-feedback">
 					<h1>Feedback</h1>
-					<p>Your valuable idea about this stream Explore. </p>
-					<span class="fl">1.Weather counselling with counselor satisfactory?</span>
-					<div class="clear"></div>
-					<?php $form=$this->beginWidget('CActiveForm', array(
-																		'id'=>'comment-info-form',
-																		    'enableClientValidation'=>true,
-																			'clientOptions'=>array(
-																					'validateOnSubmit'=>true,
-																					
-																				)
-																	)); ?>		
-					       <div class="form-controles fl">
-						   <?php echo $form->radioButtonList($model,'user_responce',array('Satisfied'=>'Satisfied','Average'=>'Average','Note_at_all'=>'Note at all'),array('separator'=>'')); ?>
-						   <?php echo $form->error($model,'user_responce');?>
-						   </div>
-							<div class="clear"></div>
-							<select id="UserComments_stream_id" class="form-control" name="UserStreamComments[stream_id]">
-								<?php foreach($data as $list){?>
-								<option value="<?php echo $list['id'];?>"><?php echo $list['name'];?></option>
-								<?php } ?>
-							</select>
-							<div class="form-controles">
-							<?php echo $form->textArea($model,'comments',array('class'=>'form-control','placeholder'=>'Enter comment here..'));?>
-							  <?php echo $form->error($model,'comments');?>	
-							</div>
-							<?php echo CHtml::submitButton('submit',array('class'=>'btn btn-warning fr','id'=>'comment-info-form-btn'));?>
-					<?php $this->endWidget();?>
+					<p>Overall how would you rate the stream library in terms of:</p>
+                    
+<?php if(!isset($feed[1])){   ?>                 
+<div style="font-size:11px;text-align:left;">1. Presentation of content  
+
+<div id="feed-rating-1" class="fr"></div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#feed-rating-1').raty({score:'0'});
+		$('#feed-rating-1 img').click(function(){saveRating(1,$(this).attr('alt'),'feed');});
+								
+	});
+</script>
+
+</div>
+<div class="clear"></div>
+<?php }if(!isset($feed[2])){  ?>
+<div style="font-size:11px;text-align:left;">2. Informative relevance of content <div id="feed-rating-2" class="fr"></div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#feed-rating-2').raty({score:'<?php echo (isset($feed[2]))?$feed[2]:0;?>'});
+		$('#feed-rating-2 img').click(function(){saveRating(2,$(this).attr('alt'),'feed');});
+								
+	});
+</script>
+
+</div>
+<div class="clear"></div>
+<?php }if(!isset($feed[3])){ ?>
+<div style="font-size:11px;text-align:left;">3. Easy Comprehension <div id="feed-rating-3" class="fr"></div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#feed-rating-3').raty({score:'<?php echo (isset($feed[3]))?$feed[3]:0;?>'});
+		$('#feed-rating-3 img').click(function(){saveRating(3,$(this).attr('alt'),'feed');});
+								
+	});
+</script>
+
+</div>
+<div class="clear"></div>
+ <?php } ?>                   
+					
+				</div>
+        <?php } ?>
+
+<!--                    
+<div style="font-size:11px;text-align:left;">1. Presentation of content  
+
+<div id="feed-rating-1" class="fr"></div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#feed-rating-1').raty({readOnly:<?php echo (isset($feed[1]))?'true':'false';?>,score:'<?php echo (isset($feed[1]))?$feed[1]:0;?>'});
+		$('#feed-rating-1 img').click(function(){saveRating(1,$(this).attr('alt'),'feed');});
+								
+	});
+</script>
+
+</div>
+<div class="clear"></div>
+<div style="font-size:11px;text-align:left;">2. Informative relevance of content <div id="feed-rating-2" class="fr"></div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#feed-rating-2').raty({readOnly:<?php echo (isset($feed[2]))?'true':'false';?>,score:'<?php echo (isset($feed[2]))?$feed[2]:0;?>'});
+		$('#feed-rating-2 img').click(function(){saveRating(2,$(this).attr('alt'),'feed');});
+								
+	});
+</script>
+
+</div>
+<div class="clear"></div>
+<div style="font-size:11px;text-align:left;">3. Easy Comprehension <div id="feed-rating-3" class="fr"></div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#feed-rating-3').raty({readOnly:<?php echo (isset($feed[3]))?'true':'false';?>,score:'<?php echo (isset($feed[3]))?$feed[3]:0;?>'});
+		$('#feed-rating-3 img').click(function(){saveRating(3,$(this).attr('alt'),'feed');});
+								
+	});
+</script>
+
+</div>
+<div class="clear"></div>-->
+                    
+					
 				</div>
 			</div>	
 		  <?php } else{ ?>
@@ -134,4 +192,17 @@ $this->breadcrumbs=array('Finalized Stream'=>array('/user/finalizedStream'));
 	<div class="news pd0 fr">
 		<?php  $this->Widget('WidgetNews'); ?>
 	</div>
-			
+<script type="text/javascript">
+function saveRating(cid,rate,type){
+	var url	=	'<?php echo Yii::app()->createUrl('/user/userStreamRaitng');?>';
+	$.ajax({
+		type: "POST",
+		url: url+'&id='+cid+'&rating='+rate+'&type='+type,
+		data: 'rating',
+		dataType:'json',
+		success:function(data){
+				$('.s').html(data.want_to_join);
+			}
+	});
+}
+</script>			

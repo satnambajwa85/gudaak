@@ -91,7 +91,7 @@ class UserController extends Controller
 				$log->status			=	1;
 				$log->save();
 				
-				Yii::app()->user->setFlash('updated',"Sccessfully updated.");
+				Yii::app()->user->setFlash('updated',"Successfully updated.");
 			}
 		}
 		$this->render('index',array('model'=>$model));
@@ -328,7 +328,7 @@ class UserController extends Controller
 				$log->status			=	1;
 				$log->save();
 				
-				Yii::app()->user->setFlash('updated',"Sccessfully updated.");
+				Yii::app()->user->setFlash('updated',"Successfully updated.");
 				$this->redirect(array('user/editProfile'));
 			}
 			else{

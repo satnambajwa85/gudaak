@@ -7796,7 +7796,7 @@ top:115px;width: 252px;background:#FAFFFF;background-color:#FAFFFF;z-index:999;}
 .grid-view table.items th, .grid-view table.items td {text-align: center; border: 1px solid #FFFFFF;font-size: 0.9em; padding: 7px; width: 10%;}
 .top-nav-section ul li{margin: 0px;
 float: left;
-padding: 0px 17px 3px 14px;
+padding: 0px 10px 3px 10px;
 /* padding-bottom: 10px; */
 border-left: 1px solid #fff;}
 .top-nav-section ul li a {color:#F5F5F5;font-size:14px;font-weight:normal;}
@@ -8582,8 +8582,29 @@ background: #880000;
 border-bottom: 1px solid #ddd;
 color: #fff;
 background-color:#CCC;	
-margin-left:20px;	
+margin-left:20px;
+margin-top:53px;
 }
 #uploadFile .qq-upload-list {
 display: none;
 }
+.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default {background:none !important;border:none !important;}
+.error {border: 1px solid #f00 !important;}
+.edit-form{color: #1ACCCC !important;text-decoration: underline;float:right;}
+.table th{
+	background-color: #EDFFFF;
+    border-right: 1px solid #D9D9D9;
+    color: #666666;
+    font-family: robotomedium;
+    font-size: 13px;
+    margin: 0;
+    padding: 9px 0;
+    text-align: center;
+	font-weight:normal;
+	}
+.table tr{ color: #666666;
+    font-family: robotomedium;
+    font-size: 12px;
+    margin: 0;
+    padding: 9px 0;
+    text-align: center; border: 1px solid #eee;}

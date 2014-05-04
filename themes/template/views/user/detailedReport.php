@@ -16,7 +16,7 @@ $this->breadcrumbs=array('Detailed Report'=>array('/user/detailedReport'));?>
 			} ?>
 			</div>
 		<div class="col-md-12 pull-left br-all inner-padding">
-			<div id="scrollBar" style="max-height:575px;width:97%;">
+			<div id="scrollBar" style="max-height:500px;width:97%;">
 			<div class="wrapper" style="position:relative">
             
  <!--Page NO. 1-->
@@ -89,7 +89,7 @@ Wishing you all the best in all your future endeavours!
                     </div>	
         </div>
         <div style="float:left; width:100%; background:url(image/img_icon.jpg) no-repeat;height:129px; background-position:center; margin-top:8%; margin-bottom:8%;" ></div>    
-        <div style="float:left; width:100%; background:#1acccc; color:#fff; padding-top:10px; font-family:Arial, Helvetica, sans-serif; font-size:12px;   text-align:right; height:25px; margin-top:100px; ">Note: This Report is confidential and is only indicative of preferred careers for you.      
+        <div style="float:left; width:100%; background:#1acccc; color:#fff; padding-top:10px; font-family:Arial, Helvetica, sans-serif; font-size:12px;   text-align:right; height:25px; margin-top:50px; ">Note: This Report is confidential and is only indicative of preferred careers for you.      
 <strong style="margin-left:10px;">P-2</strong> &nbsp;&nbsp;&nbsp;&nbsp;</div>	
      </div>
      <!--Page NO. 2 End-->
@@ -149,7 +149,7 @@ There has been much research on how people describe themselves and others based 
                     </div>	
         </div>
        
-        <div style="float:left; width:680px; background:#1acccc; color:#fff; padding-top:10px; font-family:Arial, Helvetica, sans-serif; font-size:12px;   text-align:right; height:25px; margin-top:70px !important; ">Note: This Report is confidential and is only indicative of preferred careers for you.      
+        <div style="float:left; width:680px; background:#1acccc; color:#fff; padding-top:10px; font-family:Arial, Helvetica, sans-serif; font-size:12px;   text-align:right; height:30px; margin-top:70px !important; ">Note: This Report is confidential and is only indicative of preferred careers for you.      
 <strong style="margin-left:10px;">P-3</strong> &nbsp;&nbsp;&nbsp;&nbsp;</div>	
      </div>
      <!--Page NO. 3 End-->
@@ -158,9 +158,10 @@ There has been much research on how people describe themselves and others based 
         <div style="float:left; width:680px; margin-top:34px;; background:#1acccc; height:38px; padding-top:14px; text-align:right; font-size:18px; color:#fff;  font-family:Arial, Helvetica, sans-serif;">Profile Summary &nbsp;&nbsp;&nbsp;</div>
           <div style=" position:absolute; width:200px; height:139px; top:8px; left:20%; "><img width="144" alt="" src="./image/small.jpg"></div>                   
         
-        <div style="margin-top: 40px;height:810px; margin-left: 10px;width:620px;padding-top:75px;">
+        <div style="margin-top: 40px;height:940px; margin-left: 10px;width:620px;padding-top:75px;">
         
-        Take a look at your results obtained on the Big Five Personality Factors i.e. OCEAN to get to know your <br />self even better.
+        Take a look at your results obtained on the Big Five Personality Factors i.e. OCEAN to get to know your self even better.
+		<div class="clear"></div>
         <?php $counter	=	0;
 	foreach($report['results'] as $result){
 		
@@ -169,13 +170,12 @@ There has been much research on how people describe themselves and others based 
 		?>
 		<img  style="width:300px; height:250px; margin-top:10px;  <?php echo ($counter)?'margin-left:20px':'float:left';?>  " alt="" src="./image/<?php echo $result['image'];?>">
         <?php echo ($counter)?'<div style="clear:both;"></div>':'';?>
-        &nbsp;
 <?php	$counter	=	abs($counter-1);
 	}?>
                 		
         </div>
        
-        <div style="float:left; width:680px; background:#1acccc; color:#fff; padding-top:10px; font-family:Arial, Helvetica, sans-serif; font-size:12px;   text-align:right; height:25px; margin-top:40px; ">Note: This Report is confidential and is only indicative of preferred careers for you.      
+        <div style="float:left; width:680px; background:#1acccc; color:#fff; padding-top:10px; font-family:Arial, Helvetica, sans-serif; font-size:12px;   text-align:right; height:30px; margin-top:40px; ">Note: This Report is confidential and is only indicative of preferred careers for you.      
 <strong style="margin-left:10px;">P-4</strong> &nbsp;&nbsp;&nbsp;&nbsp;</div>	
      </div>
      <?php }else{ ?>
@@ -185,7 +185,7 @@ There has been much research on how people describe themselves and others based 
         <div style="float:left; width:680px; margin-top:34px; background:#1acccc; height:38px; padding-top:14px; text-align:right; font-size:18px; color:#fff;  font-family:Arial, Helvetica, sans-serif;">Profile Summary &nbsp;&nbsp;&nbsp;</div>
           <div style=" position:absolute; width:200px; height:139px; top:8px; left:20%; "><img width="144" alt="" src="./image/small.jpg"></div>                 
         
-        <div style="margin-top: 50px; height:750px;margin-bottom: 50px;margin-left: 20px;width:620;">
+        <div style="height:900px;margin-left: 20px;width:620;">
         <div style="float:left; width:650px; font-size:18px; color:#21C4C1; margin-top:10%;   font-family:Arial, Helvetica, sans-serif; ">
                     	Your Interest Profile
                     </div>
@@ -230,7 +230,7 @@ The Interest Test you have taken maps you on the six types popularly known as Ho
                     </div>	
         </div>
        
-        <div style="float:left; width:680px; background:#1acccc; color:#fff; padding-top:10px; font-family:Arial, Helvetica, sans-serif; font-size:12px;   text-align:right; height:25px; margin-top:120px; ">Note: This Report is confidential and is only indicative of preferred careers for you.      
+        <div style="float:left; width:680px; background:#1acccc; color:#fff; padding-top:10px; font-family:Arial, Helvetica, sans-serif; font-size:12px;   text-align:right; height:30px; margin-top:120px; ">Note: This Report is confidential and is only indicative of preferred careers for you.      
 <strong style="margin-left:10px;">P-5</strong> &nbsp;&nbsp;&nbsp;&nbsp;</div>	
      </div>
      <!--Page NO. 4 End-->
@@ -240,8 +240,8 @@ The Interest Test you have taken maps you on the six types popularly known as Ho
         <div style="float:left; width:680px; margin-top:34px; background:#1acccc; height:38px; padding-top:14px; text-align:right; font-size:18px; color:#fff;  font-family:Arial, Helvetica, sans-serif;">Profile Summary &nbsp;&nbsp;&nbsp;</div>
           <div style=" position:absolute; width:200px; height:139px; top:8px; left:20%; "><img width="144" alt="" src="./image/small.jpg"></div>                 
         
-        <div style="margin-top: 35px;height:840px; margin-left: 20px;width:620px;padding-top: 75px;">
-        <strong>Bar Diagram Showing the Scores obtained</strong>
+        <div style="height:1010px; margin-left: 20px;width:620px;">
+        <strong style=" margin-top:40px; float:left;width:100%;">Bar Diagram Showing the Scores obtained</strong><div class="clear"></div>
         
         
         <table width="650" border="0" cellspacing="0" cellpadding="0" style="border:1px solid #e4e4e4; font-family:Arial, Helvetica, sans-serif; color:#000; font-size:18px; margin-top:10px; ">
@@ -300,7 +300,7 @@ The Interest Test you have taken maps you on the six types popularly known as Ho
              </div>   		
         </div>
        
-        <div style="float:left; width:680px; background:#1acccc; color:#fff; padding-top:10px; font-family:Arial, Helvetica, sans-serif; font-size:12px;   text-align:right; height:25px; margin-top:10px; ">Note: This Report is confidential and is only indicative of preferred careers for you.      
+        <div style="float:left; width:680px; background:#1acccc; color:#fff; padding-top:10px; font-family:Arial, Helvetica, sans-serif; font-size:12px;   text-align:right; height:30px; margin-top:10px; ">Note: This Report is confidential and is only indicative of preferred careers for you.      
 <strong style="margin-left:10px;">P-6</strong> &nbsp;&nbsp;&nbsp;&nbsp;</div>	
      </div>
    
@@ -316,7 +316,7 @@ The Interest Test you have taken maps you on the six types popularly known as Ho
         <div style="float:left; width:100%; margin-top:34px; background:#1acccc; height:38px; padding-top:14px; text-align:right; font-size:18px; color:#fff;  font-family:Arial, Helvetica, sans-serif;">Profile Summary &nbsp;&nbsp;&nbsp;</div>
         <div style=" position:absolute; width:200px; height:139px; top:7px; left:20%;  "><img src="./image/small.jpg" alt="" width="144" /></div>                    
        
-        <div style="margin-top: 20px;margin-bottom: 30px;margin-left: 20px;width:620; height:950px;">
+        <div style="padding: 5px;width:620; height:930px;">
         <div style="float:left; width:100%; font-size:18px; color:#21C4C1; margin-top:10px;   font-family:Arial, Helvetica, sans-serif; ">
                     	Conclusion:
                     </div>
@@ -346,24 +346,21 @@ Based on your personality and interest you can explore the right type of role in
             <div style="float:left; width:670px; font-size:18px; color:#21C4C1; margin-top:5px;   font-family:Arial, Helvetica, sans-serif; ">
                     	Career Recommendations:
                     </div>
-                	<div class="row" style="float:left; width:670px; margin-bottom:5px; font-size:14px; color:#000; text-align:justify; line-height:20px; font-family:, Helvetica, sans-serif;  ">
+                	<div style="float:left; width:670px; margin-bottom:5px; font-size:14px; color:#000; text-align:justify; line-height:20px; font-family:, Helvetica, sans-serif;  ">
                     	<p>
             
             BASED ON YOUR OBTAINED RESULTS, YOU ARE RECOMMENDED TO EXPLORE THE FOLLOWING CAREERS FOR PREFERRED CHOICE! 
             </p>
             </div> 
-            <table width="670" border="0" cellspacing="0" cellpadding="0" style="font-family:Arial, Helvetica, sans-serif; color:#000; font-size:18px; ">
-	<tr>
-    
     <?php
 	$listArr	=	array();
 	foreach($report['results'] as $result){
 		if($report['id']==3){?>
-	<div class="col-md-12 pd0  fl row">
+	<div class="col-md-12 pd0 fl">
 	<?php
 		$listCar	=	Career::model()->findAllByAttributes(array('career_categories_id'=>$result['id']));
 		foreach($listCar as $data){		?>
-<div class="col-md-4 pdleft career-lib">
+<div class="col-md-4 pdleft career-lib" style="height:150px;">
 	<?php 
 			$filename = ''.$data->image.'';
 			 $path=Yii::getPathOfAlias('webroot.uploads.career.small') . '/';
@@ -385,16 +382,14 @@ Based on your personality and interest you can explore the right type of role in
 <?php	}
 }
 ?>
-    
-		 
-	</tr>	
-	</table>
-            </div>
-            <div class="clear"></div>
-            <p>WE WISH YOU ALL THE BEST FOR YOUR FUTURE ENDEAVORS!</p>
+   
             </div>
             
-        <div style="float:left; width:100%; background:#1acccc; color:#fff; padding-top:10px; font-family:Arial, Helvetica, sans-serif; font-size:12px;   text-align:right; height:25px; ">Note: This Report is confidential and is only indicative of preferred careers for you.      
+             <p style="float:left;margin-top:-25px;" >WE WISH YOU ALL THE BEST FOR YOUR FUTURE ENDEAVORS!</p>
+             <div class="clear"></div>
+            </div>
+            
+        <div style="float:left; width:100%; background:#1acccc; color:#fff; padding-top:10px; font-family:Arial, Helvetica, sans-serif; font-size:12px;   text-align:right; height:30px; ">Note: This Report is confidential and is only indicative of preferred careers for you.      
 <strong style="margin-left:10px;">P-7</strong> &nbsp;&nbsp;&nbsp;&nbsp;</div>
      </div>
      <!--Page NO. 5 End-->   

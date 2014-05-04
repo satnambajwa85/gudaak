@@ -46,3 +46,4 @@ $this->breadcrumbs=array('Articles'=>array('/user/articlesList'));?>
 	<!--<div class="news pd0 fr">
 		<?php  //$this->Widget('WidgetNews'); ?>
 	</div>-->
+			

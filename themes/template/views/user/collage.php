@@ -19,18 +19,15 @@ $this->breadcrumbs=array('Colleges Explore'=>array('/user/exploreColleges'));
                 <div class="collage_left_inner">
 					<?php $form=$this->beginWidget('CActiveForm', array(
 						'id'=>'collages-search-form',
-						// Please note: When you enable ajax validation, make sure the corresponding
-						// controller action is handling ajax validation correctly.
-						// There is a call to performAjaxValidation() commented in generated controller code.
-						// See class documentation of CActiveForm for details on this.
 						'enableAjaxValidation'=>false,
 						'htmlOptions'=>array('enctype'=>'multipart/form-data'),
 					)); ?>
                 	<div class="text_w_outer">
                      <span class="text_w_dd">Course</span>
                     <?php 	echo $form->dropDownList($model,'courses_id',
-									CHtml::listData(Course::model()->findAll(),'id','title'),
-									array('ajax' => array('type'=>'POST',
+									CHtml::listData(Courses::model()->findAll(),'id','title'),
+									array('prompt'=>'All',
+									'ajax' => array('type'=>'POST',
 										'url'=>CController::createUrl('DynamicCourse'), //url to call.
 										'update'=>'#Institutes_specialisation', //selector to update
 										 
@@ -41,62 +38,36 @@ $this->breadcrumbs=array('Colleges Explore'=>array('/user/exploreColleges'));
                     <div class="text_w_outer">
                      <span class="text_w_dd">Specialisation</span>
                       <?php 	echo $form->dropDownList($model,'specialisation',
-									CHtml::listData(Interest::model()->findAll(),'id','title'));?>
+									CHtml::listData(Specialization::model()->findAll(),'id','title'),array('prompt'=>'All'));?>
                     </div>
                     
-                    <div class="text_w_outer">
+                     <div class="text_w_outer">
                      <span class="text_w_dd">Location</span>
-					  <?php 	echo $form->dropDownList($model,'city_id',
-									CHtml::listData(City::model()->findAll(),'id','title'),
-									array('ajax' => array('type'=>'POST',
-										'url'=>CController::createUrl('DynamicSearchResult'), //url to call.
-										'update'=>'#collegeResult', //selector to update
-										 
-										
-											)));?>
+					  <?php 	echo $form->dropDownList($model,'city_id',CHtml::listData(City::model()->findAll(),'id','title'),array('prompt'=>'All'));?>
 					 
                     </div>
                     
-                    <div class="text_w_outer">
-                     <div class="text_w_dd">Course Levels</div>
-                     <div class="coll_chk">
-                     
-                    <input id="box_1" class="css-checkbox" type="checkbox" />
-                     <label for="box_1" name="demo_lbl_1" class="css-label">All Levels</label>    
-			         <input id="box_2" class="css-checkbox" type="checkbox" />
-                     <label for="box_2" name="demo_lbl_1" class="css-label">Postgraduate</label>                     
-                     <input id="box_3" class="css-checkbox" type="checkbox" />
-                     <label for="box_3" name="demo_lbl_1" class="css-label">Dual Degree/Intergrated<br/> Program</label>                     
-                     <input id="box_4" class="css-checkbox" type="checkbox" />
-                     <label for="box_4" name="demo_lbl_1" class="css-label">All Levels</label>
-                      </div>
-                    
-                    </div>
-                    
-                    <div class="text_w_outer">
-                     <div class="text_w_dd">Course Fees</div>
-                     <div class="avg_slide"></div>
-                     <div class="avg_value">
-                      <input type="text" value="Rs. 2 Lakh" />
-                      <input type="text" value="Rs. 2 Lakh" class="avg_left_m" />
-                     </div>
-                    </div>
-                    
+                   
+                     <div class="text_w_outer">
+                     <?php 	echo CHtml::button('Search',array('id'=>'basicSave','class'=>'summery-left-btn'));?>
+					</div>
                     <?php $this->endWidget(); ?>
                     
                 </div> 
              </div>
              <!--Left_section End-->
               <!--Right_section -->
-			
-              <div class="collage_right_section" id="collegeResult">
+			<div class="collage_right_section" >
+            <div id="scrollBar" style="max-height:500px;width:97%;">
+              <div id="collegeResult">
 			  <?php foreach($Institutes as $Institutes){ ?>
 					<div class="coll_right_main_outer">
                      <div class="coll_top_row">
                          <div class="coll_top_part1">
                             <div class="coll_logo">
 							<img src="<?php echo Yii::app()->theme->baseUrl;?>/images/coll_logo.png" alt="logo"></div>   
-                             <div class="head_text_coll"><?php echo $Institutes->name;?><br>
+                             <div class="head_text_coll">
+							 <?php echo CHtml::Ajaxlink($Institutes->name,array('user/collage','id'=>$Institutes->id),array('update'=>'#summeryRecodes'),array('class'=>'Summary-details'));?><br>
                               <span><?php echo substr($Institutes->address1,0,100);?></span>
                              </div>
                         </div>
@@ -104,19 +75,23 @@ $this->breadcrumbs=array('Colleges Explore'=>array('/user/exploreColleges'));
                         <div class="coll_top_part12">
                             <!--<div class="orange_div">Rating <span>4.5/5</span></div>-->
                         <div class="orange_div"><input type="checkbox" id="box_11" class="css-checkbox">
-						<?php echo CHtml::ajaxlink('Shortlist Collage',array('user/UserShortlistCollage','id'=>$Institutes->id),array('update'=>'#messagePrint'),array('class'=>'css-label'));?>
+						<?php echo CHtml::ajaxlink('Shortlist College',array('user/UserShortlistCollage','id'=>$Institutes->id),array('update'=>'#messagePrint'),array('class'=>'css-label'));?>
         			   </div>
                         </div>
-                       <?php foreach($Institutes->course as $cou){?>
-                        <div class="content_div"><?php echo $cou->title;?>  <span>  (<?php echo $cou->interests;?>)</span></div>
+                       <?php foreach($Institutes->collagesCoursesSpecialization as $cou){?>
+                        <div class="content_div"><?php echo $cou->courses->title;?>  <span>  (<?php echo $cou->specialization->title;?>)</span></div>
                        <?php } ?>
                      </div>
 					</div>
 					<?php  } ?>
-				     <div class="col-md-6 pull-right">
-					<?php $this->widget('CLinkPager', array('pages' => $pages,)) ?>
-					</div>	
+				     	
               </div>
+			 
+              </div>
+			   <div class="col-md-12 pull-right pager">
+					<?php $this->widget('CLinkPager', array('pages' => $pages,)) ?>
+					</div>
+             </div> 
                <!--Right_section End-->
             
             
@@ -130,3 +105,39 @@ $this->breadcrumbs=array('Colleges Explore'=>array('/user/exploreColleges'));
 	<div class="news pd0 pull-right">
 		<?php  $this->Widget('WidgetNews'); ?>
 	</div>
+<div id="Summary-details" class="modal fade">
+    	<div class="mt50 col-sm-offset-1 col-md-9">
+        	<div class="modal-content">
+            <!-- dialog body -->
+            	<div class="modal-body">
+                		<div class="site-logo"></div>
+						<div class="row white ">
+                        	<div class="col-md-12 pd13" id="testScroll">
+							<a data-dismiss="modal" class="btn btmar btn-info pull-right" style="margin-top:-10px;">close</a>
+								 <div  class="col-md-12 pd0 login-box pull-left">
+									<div id="summeryRecodes">
+									
+									</div>
+									 
+                                 </div>
+                               
+							</div>
+						</div>
+	   			</div>
+		<!-- dialog buttons -->
+		 
+		</div>
+	</div>
+    </div>
+<script type="text/javascript">
+$("#basicSave").click(function(){
+	$.ajax({
+		type:'POST',
+		url:"<?php echo CController::createUrl("/user/DynamicSearchResult");?>",
+		data : $('#collages-search-form').serialize(),
+		success:function(data){
+			$("#collegeResult").html(data);
+		}
+	});
+});
+</script>

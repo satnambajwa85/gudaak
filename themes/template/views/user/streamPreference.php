@@ -47,6 +47,8 @@ $this->breadcrumbs=array('Stream Preference'=>array('/user/streamPreference'));?
 										<?php } ?>
 					<?php echo CHtml::link('<h1 class="stream-img-title">'.$list['name'].'</h1>',array('user/stream','id'=>$list['id']));?>
 										
+                  
+                                        
 										</div>
 										 
 									</div>
@@ -92,9 +94,36 @@ $this->breadcrumbs=array('Stream Preference'=>array('/user/streamPreference'));?
 														'id'=>'final_item-'.$list['id']));  ?>
 				<?php } ?>
 	        </div>
-        
-        </div>
+        	 <table class="table">
+      <tbody>
+              <?php foreach($list['subjects'] as $sub){
+				  if( $sub->subjects_id!=18){
+				  ?>
 						
+       <tr>
+         <td class="col-md-4"><?php echo  $sub->subjects->title;?></td>
+         <td class="col-md-4"><?php echo  $sub->type_subjects;?></td>
+         <td class="col-md-4">
+         <div id="stream-rating-<?php echo $list['id'].'-'.$sub->subjects_id;?>" class="fr"></div>
+                          
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#stream-rating-<?php echo $list['id'].'-'.$sub->subjects_id;?>').raty({readOnly:true,score:'<?php echo (isset($subjectRating[$sub->subjects_id]))?$subjectRating[$sub->subjects_id]:0;?>'});
+								
+	});
+</script>
+         
+         </td>
+       </tr>
+     
+     
+                         
+                       
+					<?php } }?>
+                    </tbody>
+   </table>
+        </div>
+			<hr>				
 				 <?php } ?>
 			 
 				</div>
@@ -107,7 +136,7 @@ $this->breadcrumbs=array('Stream Preference'=>array('/user/streamPreference'));?
 			<div class="mr0 col-md-6 fl br-right">
 				
 					<div class="mr0  pull-left middle-format-left">
-						<h1>Recode not found.</h1>
+						<h1>You have not rated any of the subjects/ streams as yet. Click here to rate and finalize subjects of your interest.</h1>
 						 
 
 					</div>
@@ -179,7 +208,7 @@ $this->breadcrumbs=array('Stream Preference'=>array('/user/streamPreference'));?
 					
 						<div class="mr0  pull-left middle-format-left">
 							<h1>Counsellor has not recommend any stream yet.</h1>
-							<p>Please contact to your counsellor.</p>
+							<!--<p>Please contact to your counsellor.</p>-->
 
 						</div>
 				</div>
