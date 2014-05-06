@@ -60,7 +60,24 @@ $this->breadcrumbs=array('Colleges Explore'=>array('/user/exploreColleges'));
 			<div class="collage_right_section" >
             <div id="scrollBar" style="max-height:500px;width:97%;">
               <div id="collegeResult">
-			  <?php foreach($Institutes as $Institutes){ ?>
+              
+<?php $this->widget('zii.widgets.grid.CGridView', array(
+	'id'=>'courses-grid',
+	'dataProvider'=>$model->search(),
+	//'filter'=>$model,
+	//'cssFile' => Yii::app()->theme->baseUrl."/css/grid.css",
+	'columns'=>array(
+		'id',
+		array('type'=>'html','value'=>'CHtml::image(Yii::app()->theme->baseUrl."images/coll_logo.png"'),
+		'name',
+		'address1',
+		//'add_date',
+		//'published',
+		//'status',
+	),
+)); ?>
+              
+			  <?php /*foreach($Institutes as $Institutes){ ?>
 					<div class="coll_right_main_outer">
                      <div class="coll_top_row">
                          <div class="coll_top_part1">
@@ -82,13 +99,13 @@ $this->breadcrumbs=array('Colleges Explore'=>array('/user/exploreColleges'));
                        <?php } ?>
                      </div>
 					</div>
-					<?php  } ?>
+					<?php  }*/ ?>
 				     	
               </div>
 			 
               </div>
 			   <div class="col-md-12 pull-right pager">
-					<?php $this->widget('CLinkPager', array('pages' => $pages,)) ?>
+					<?php //$this->widget('CLinkPager', array('pages' => $pages,)) ?>
 					</div>
              </div> 
                <!--Right_section End-->

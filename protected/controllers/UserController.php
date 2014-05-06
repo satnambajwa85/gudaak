@@ -1815,17 +1815,32 @@ class UserController extends Controller
 			Yii::app()->user->setFlash('redirect',"Take the Test to Get Started");
 			$this->redirect(Yii::app()->createUrl('/user/tests'));
 		}
-		$model	=	new Collage;
+		/*$model				=	new Collage;
 		$criteria			=	new CDbCriteria();
-		$criteria->condition= '(activation =:activation and status =:status )';
-		$criteria->params 	= array('activation'=>1,'status'=>1);
+		$criteria->condition=	'(activation =:activation and status =:status )';
+		$criteria->params 	=	array('activation'=>1,'status'=>1);
 		$count				=	Collage::model()->count($criteria);
 		$pages				=	new CPagination($count);
 		$pages->pageSize	=	5;
 		$pages->applyLimit($criteria);
 		$Institutes				=	Collage::model()->findAll($criteria);
+		*/
+		
+		$model=new Collage('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['Collage']))
+			$model->attributes=$_GET['Collage'];
 
-		$this->render('collage',array('model'=>$model,'Institutes'=>$Institutes,'pages'=>$pages));
+		$this->render('collage',array(
+			'model'=>$model,
+		));
+		
+		
+		
+		
+		
+		
+		//$this->render('collage',array('model'=>$model,'Institutes'=>$Institutes,'pages'=>$pages));
 	}
 	public function actionShortListedColleges()
 	{	
