@@ -81,18 +81,18 @@ $this->breadcrumbs=array('Finalized Career'=>array('/user/finalizedCareer'));
 					<p>if ypou have any different idea to choose a stream then just change your idea bu having a conversation with counselor. </p>
 					<?php //echo CHtml::link('Still confused',array('user/'),array('class'=>'white-text btn btn-warning'));?>
 			</div>-->
-				
+		<?php if(!isset($feed[1]) || !isset($feed[2]) || !isset($feed[3])){ ?>
 				<div class="col-md-12 pull-left user-feedback">
 					<h1>Feedback</h1>
-					<p>Overall how would you rate the stream library in terms of:</p>
+					<p>Overall how would you rate the career library in terms of:</p>
                     
-                    
+<?php if(!isset($feed[1])){   ?>                 
 <div style="font-size:11px;text-align:left;">1. Presentation of content  
 
 <div id="feed-rating-1" class="fr"></div>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$('#feed-rating-1').raty({score:'<?php echo (isset($feed[1]))?$feed[1]:0;?>'});
+		$('#feed-rating-1').raty({score:'0'});
 		$('#feed-rating-1 img').click(function(){saveRating(1,$(this).attr('alt'),'feed');});
 								
 	});
@@ -100,6 +100,7 @@ $this->breadcrumbs=array('Finalized Career'=>array('/user/finalizedCareer'));
 
 </div>
 <div class="clear"></div>
+<?php }if(!isset($feed[2])){  ?>
 <div style="font-size:11px;text-align:left;">2. Informative relevance of content <div id="feed-rating-2" class="fr"></div>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -111,6 +112,7 @@ $this->breadcrumbs=array('Finalized Career'=>array('/user/finalizedCareer'));
 
 </div>
 <div class="clear"></div>
+<?php }if(!isset($feed[3])){ ?>
 <div style="font-size:11px;text-align:left;">3. Easy Comprehension <div id="feed-rating-3" class="fr"></div>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -122,9 +124,10 @@ $this->breadcrumbs=array('Finalized Career'=>array('/user/finalizedCareer'));
 
 </div>
 <div class="clear"></div>
-                    
+ <?php } ?>                   
 					
 				</div>
+        <?php } ?>        
 			</div>	
 		  <?php } else{ ?>
 			<div class="mr0 col-md-6 fl ">

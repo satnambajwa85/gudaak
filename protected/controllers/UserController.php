@@ -7,7 +7,7 @@ class UserController extends Controller
 	public function accessRules() {
 		return array(
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('index','editProfile','test','tests','detailedReport','collage','liveChat','articlesList','articles','summary','newsUpdates','exploreColleges','shortListedColleges','dynamicCourse','dynamicSearchResult','userShortlistCollage','userShortlistTest','userShortlistTestRemove','search','changePassword','application','questionsAnswer','upload','testMail','userProfileUpdate','retakeTest','news','readEvent','summaryDetails','summaryData','talkData','talk','feedbackAnswer','data','testDetails',),
+				'actions'=>array('index','editProfile','test','tests','detailedReport','collage','userStreamRaitng','liveChat','articlesList','articles','summary','newsUpdates','exploreColleges','shortListedColleges','dynamicCourse','dynamicSearchResult','userShortlistCollage','userShortlistTest','userShortlistTestRemove','search','changePassword','application','questionsAnswer','upload','testMail','userProfileUpdate','retakeTest','news','readEvent','summaryDetails','summaryData','talkData','talk','feedbackAnswer','data','testDetails',),
 				'users' => array('@')					
 				),
 				array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -799,7 +799,7 @@ class UserController extends Controller
 		}
 		
 		if(Yii::app()->user->userType ==  'below10th')
-			$this->render('detailedReport',array('reports'=>$data,'profile'=>$profile,'userTestDate'=>$userTestDate));//$this->render('detailedReport2',array('reports'=>$data,'profile'=>$profile,'userTestDate'=>$userTestDate));
+			$this->render('detailedReportS',array('reports'=>$data,'profile'=>$profile,'userTestDate'=>$userTestDate));//$this->render('detailedReport2',array('reports'=>$data,'profile'=>$profile,'userTestDate'=>$userTestDate));
 		else
 			$this->render('detailedReport',array('reports'=>$data,'profile'=>$profile,'userTestDate'=>$userTestDate));
 		
@@ -878,9 +878,10 @@ class UserController extends Controller
 			$this->renderPartial('_detailedReport',array('reports'=>$data,'profile'=>$profile), false, true);
 	
 	}
-	public function actionCollage()
+	public function actionCollage($id)
 	{	
-		$this->render('collage',true);
+		$Institutes	=	Collage::model()->findByPk($id);
+		$this->renderPartial('_collage',array('Institutes'=>$Institutes));
 	}
 	public function actionLiveChat()
 	{	
@@ -1815,32 +1816,17 @@ class UserController extends Controller
 			Yii::app()->user->setFlash('redirect',"Take the Test to Get Started");
 			$this->redirect(Yii::app()->createUrl('/user/tests'));
 		}
-		/*$model				=	new Collage;
+		$model	=	new Collage;
 		$criteria			=	new CDbCriteria();
-		$criteria->condition=	'(activation =:activation and status =:status )';
-		$criteria->params 	=	array('activation'=>1,'status'=>1);
+		$criteria->condition= '(activation =:activation and status =:status )';
+		$criteria->params 	= array('activation'=>1,'status'=>1);
 		$count				=	Collage::model()->count($criteria);
 		$pages				=	new CPagination($count);
 		$pages->pageSize	=	5;
 		$pages->applyLimit($criteria);
 		$Institutes				=	Collage::model()->findAll($criteria);
-		*/
-		
-		$model=new Collage('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Collage']))
-			$model->attributes=$_GET['Collage'];
 
-		$this->render('collage',array(
-			'model'=>$model,
-		));
-		
-		
-		
-		
-		
-		
-		//$this->render('collage',array('model'=>$model,'Institutes'=>$Institutes,'pages'=>$pages));
+		$this->render('collage',array('model'=>$model,'Institutes'=>$Institutes,'pages'=>$pages));
 	}
 	public function actionShortListedColleges()
 	{	
@@ -1851,20 +1837,21 @@ class UserController extends Controller
 	
 	public function actionUserShortlistTestRemove($id)
 	{	
-		$record_exists = UserProfilesHasTest::model()->exists('entrance_exams_id = :institutes and user_profiles_id=:id', array(':institutes'=>$id,':id'=>Yii::app()->user->profileId));
+		$record_exists = UserProfilesHasTest::model()->exists('id = :institutes and user_profiles_id=:id', array(':institutes'=>$id,':id'=>Yii::app()->user->profileId));
 		if($record_exists==1)
 		{
 			UserProfilesHasTest::model()->findByPk($id)->delete();
 			//$dat->delete();
-			echo 'This Test removed from your list .';die;	
-		}
+			echo 'This test is removed from your list now.';die;	
+		}else
+		echo 'not found';
 	}
 	public function actionUserShortlistTest($id)
 	{	
 		$record_exists = UserProfilesHasTest::model()->exists('entrance_exams_id = :institutes and user_profiles_id=:id', array(':institutes'=>$id,':id'=>Yii::app()->user->profileId));
 		if($record_exists==1)
 		{
-			echo 'This is Test already added please choose another.';die;	
+			echo 'This test is already added. Please choose another.';die;	
 		}
 		else{
 			$preffred						=	new UserProfilesHasTest;
@@ -1872,7 +1859,7 @@ class UserController extends Controller
 			$preffred->user_profiles_id		=	Yii::app()->user->profileId;
 			$preffred->add_date				=	date('Y-m-d');
 			if($preffred->save()){
-				echo 'This is Test sccessfully added.';die;
+				echo 'Test is successfully added.';die;
 			}
 		}
 		
@@ -1966,7 +1953,7 @@ class UserController extends Controller
 		$record_exists = UserProfilesHasInstitutes::model()->exists('institutes_id = :institutes and user_profiles_id=:id', array(':institutes'=>$id,':id'=>Yii::app()->user->profileId));
 		if($record_exists==1)
 		{
-			echo '<h1>This is College already added please choose another.</h1>';die;	
+			echo '<h1>This College has already been added. Please choose another.</h1>';die;	
 		}
 		else{
 			$stream	=	Collage::model()->findByPk($id);
@@ -1978,7 +1965,7 @@ class UserController extends Controller
 				$preffred->status				=	1;
 				$preffred->published			=	1;
 				if($preffred->save()){
-					echo '<h1>sccessfully added '.$stream->name.'College</h1>';die;
+					echo '<h1>Successfully added '.$stream->name.' </h1>';die;
 				}
 	
 			}
@@ -2001,16 +1988,15 @@ class UserController extends Controller
 	}
 	public function actionApplication()
 	{
-		/*$model=new EntranceExams('search');
-		$model->unsetAttributes();
-		if(isset($_GET['EntranceExams']))
-			$model->attributes=$_GET['EntranceExams'];
-			*/
-		$model		=	EntranceExams::model()->FindAll();
+		$criteria=new CDbCriteria;
+		if(isset($_POST['level']) && !empty($_POST['level']))
+			$criteria->addCondition("level='{$_POST['level']}'");
+		if(isset($_POST['category']) && !empty($_POST['category']))
+			$criteria->addCondition("career_category like '%{$_POST['category']}%'");
+		
+		$model		=	EntranceExams::model()->FindAll($criteria);
 		$selected	=	UserProfilesHasTest::model()->findAll('user_profiles_id=:id', array(':id'=>Yii::app()->user->profileId));
-		//$selected	=	EntranceExams::model()->FindAll();
 		$this->render('application',array('model'=>$model,'selmodel'=>$selected));
-		//$this->render('application');
 	}
 	public function actionReadEvent($id)
 	{

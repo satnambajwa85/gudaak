@@ -60,30 +60,14 @@ $this->breadcrumbs=array('Colleges Explore'=>array('/user/exploreColleges'));
 			<div class="collage_right_section" >
             <div id="scrollBar" style="max-height:500px;width:97%;">
               <div id="collegeResult">
-              
-<?php $this->widget('zii.widgets.grid.CGridView', array(
-	'id'=>'courses-grid',
-	'dataProvider'=>$model->search(),
-	//'filter'=>$model,
-	//'cssFile' => Yii::app()->theme->baseUrl."/css/grid.css",
-	'columns'=>array(
-		'id',
-		array('type'=>'html','value'=>'CHtml::image(Yii::app()->theme->baseUrl."images/coll_logo.png"'),
-		'name',
-		'address1',
-		//'add_date',
-		//'published',
-		//'status',
-	),
-)); ?>
-              
-			  <?php /*foreach($Institutes as $Institutes){ ?>
+			  <?php foreach($Institutes as $Institutes){ ?>
 					<div class="coll_right_main_outer">
                      <div class="coll_top_row">
                          <div class="coll_top_part1">
                             <div class="coll_logo">
 							<img src="<?php echo Yii::app()->theme->baseUrl;?>/images/coll_logo.png" alt="logo"></div>   
-                             <div class="head_text_coll"><?php echo $Institutes->name;?><br>
+                             <div class="head_text_coll">
+							 <?php echo CHtml::Ajaxlink($Institutes->name,array('user/collage','id'=>$Institutes->id),array('update'=>'#summeryRecodes'),array('class'=>'Summary-details'));?><br>
                               <span><?php echo substr($Institutes->address1,0,100);?></span>
                              </div>
                         </div>
@@ -99,13 +83,13 @@ $this->breadcrumbs=array('Colleges Explore'=>array('/user/exploreColleges'));
                        <?php } ?>
                      </div>
 					</div>
-					<?php  }*/ ?>
+					<?php  } ?>
 				     	
               </div>
 			 
               </div>
 			   <div class="col-md-12 pull-right pager">
-					<?php //$this->widget('CLinkPager', array('pages' => $pages,)) ?>
+					<?php $this->widget('CLinkPager', array('pages' => $pages,)) ?>
 					</div>
              </div> 
                <!--Right_section End-->
@@ -121,6 +105,30 @@ $this->breadcrumbs=array('Colleges Explore'=>array('/user/exploreColleges'));
 	<div class="news pd0 pull-right">
 		<?php  $this->Widget('WidgetNews'); ?>
 	</div>
+<div id="Summary-details" class="modal fade">
+    	<div class="mt50 col-sm-offset-1 col-md-9">
+        	<div class="modal-content">
+            <!-- dialog body -->
+            	<div class="modal-body">
+                		<div class="site-logo"></div>
+						<div class="row white ">
+                        	<div class="col-md-12 pd13" id="testScroll">
+							<a data-dismiss="modal" class="btn btmar btn-info pull-right" style="margin-top:-10px;">close</a>
+								 <div  class="col-md-12 pd0 login-box pull-left">
+									<div id="summeryRecodes">
+									
+									</div>
+									 
+                                 </div>
+                               
+							</div>
+						</div>
+	   			</div>
+		<!-- dialog buttons -->
+		 
+		</div>
+	</div>
+    </div>
 <script type="text/javascript">
 $("#basicSave").click(function(){
 	$.ajax({

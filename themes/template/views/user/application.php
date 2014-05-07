@@ -8,11 +8,7 @@ $this->breadcrumbs=array('Application'=>array('/user/application'));?>
 				</p>
 
 			</div>
-			
-            
-            
-            
-            <div class="mr0  pull-left col-md-12">
+			<div class="mr0  pull-left col-md-12">
              <div id="scrollBar" style="max-height:500px;width:97%;">
             
             <div>
@@ -40,7 +36,7 @@ $this->breadcrumbs=array('Application'=>array('/user/application'));?>
 							$class='0';			 
 							$count= $count+1;
 				?>
-				<tr class="<?php echo $class;?>">
+		<tr class="<?php echo $class;?>" id='list-<?php echo $list->test->id;?>'>
          <td>
 		 <?php echo CHtml::Ajaxlink( $list->test->name,array('user/testDetails','id'=>$list->test->id),array('update'=>'#summeryRecodes'),array('class'=>'Summary-details'));
 		 
@@ -49,7 +45,7 @@ $this->breadcrumbs=array('Application'=>array('/user/application'));?>
          <td><?php echo $list->test->level;?></td>
          <td><?php echo ($list->test->end_date != '1970-01-01')?date('M d, Y',strtotime($list->test->end_date)):'';?></td>
          <td><?php echo ($list->test->test_date != '1970-01-01')?date('M d, Y',strtotime($list->test->test_date)):'';?></td>
-         <td><?php echo CHtml::ajaxLink('Remove',array('/user/userShortlistTestRemove','id'=>$list->id),array('type'=>'POST','success'=>'function(data){alert(data);}'),array('class'=>'summery-left-btn'));  ?>
+         <td><?php echo CHtml::ajaxLink('Remove',array('/user/userShortlistTestRemove','id'=>$list->id),array('type'=>'POST','success'=>'function(data){alert(data);$("#list-'.$list->test->id.'").html(""); }'),array('class'=>'summery-left-btn'));  ?>
          </td>
         </tr>
 			<?php }?>
@@ -59,7 +55,31 @@ $this->breadcrumbs=array('Application'=>array('/user/application'));?>
             </div>
 			<div class="mt20"> 
             <h5>Entrance Exams</h5>
-            <table class="table">
+<?php $form=$this->beginWidget('CActiveForm', array(
+	'id'=>'entrance-exams-form',
+	'action'=>Yii::app()->createUrl('/user/application'),
+	'enableAjaxValidation'=>false,
+)); ?>
+<table class="mb10">
+	<tr>
+		<td width="30%"></td>
+		<td width="30%">
+			<?php echo CHtml::dropDownlist('level','',array('University / Institute'=>'University / Institute','State'=>'State','National'=>'National'),array('empty'=>'Select Level','class'=>'form-control'));?>
+		</td>
+		<td width="30%">
+			<select name="category" class='form-control'>
+				<option value="">Select Category</option>
+				<?php $lists	=	EntranceCategory::model()->findAll();
+				foreach($lists as $lis){?>
+				<option value="<?php echo $lis->id;?>"><?php echo $lis->title;?></option>
+				<?php }?>
+			</select>
+		</td>
+		<td width="10%"><input type="submit" value="search" class="summery-left-btn btn pull-right" /></td>
+	</tr>
+</table>
+<?php $this->endWidget(); ?>
+    <table class="table">
      <thead>
        <tr>
           <th width="30%">Name</th>
@@ -70,9 +90,7 @@ $this->breadcrumbs=array('Application'=>array('/user/application'));?>
        </tr>
      </thead>
      <tbody>
-     
-            
-            <?php 
+         <?php 
 			$count=1;
 			foreach($model as $list){
 				if($count%2 == 0)
@@ -89,7 +107,7 @@ $this->breadcrumbs=array('Application'=>array('/user/application'));?>
          <td><?php echo $list->level;?></td>
          <td><?php echo ($list->end_date != '1970-01-01')?date('M d, Y',strtotime($list->end_date)):'';?></td>
          <td><?php echo ($list->test_date != '1970-01-01')?date('M d, Y',strtotime($list->test_date)):'';?></td>
-         <td><?php echo CHtml::ajaxLink('Shortlist Test',array('/user/userShortlistTest','id'=>$list->id),array('type'=>'POST','success'=>'function(data){alert(data);}'),array('class'=>'summery-left-btn'));  ?>
+         <td><?php echo CHtml::ajaxLink('Shortlist Test',array('/user/userShortlistTest','id'=>$list->id),array('type'=>'POST','success'=>'function(data){alert(data);location.reload();}'),array('class'=>'summery-left-btn'));  ?>
          </td>
         </tr>
 			<?php }?>

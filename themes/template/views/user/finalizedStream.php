@@ -49,7 +49,7 @@ $this->breadcrumbs=array('Finalized Stream'=>array('/user/finalizedStream'));
 																			$("#remove-'.$list['id'].'").hide();
 																			$("#remove-'.$list['id'].'").parent().parent().parent().hide();
 																	}'),
-												array('confirm'=>'Are you sure you want to remove this career?',
+												array('confirm'=>'Are you sure you want to remove this stream?',
 														'style'=>'display: block;float: right;margin-top: 0;width: 15px;',
 														'id'=>'remove-'.$list['id']));  ?>
 								<h1><?php echo substr($list['name'],0,30);?></h1>
@@ -86,16 +86,18 @@ $this->breadcrumbs=array('Finalized Stream'=>array('/user/finalizedStream'));
 			</div>-->
 				
 				<div class="col-md-12 pull-left user-feedback">
+<?php if(!isset($feed[1]) || !isset($feed[2]) || !isset($feed[3])){ ?>
+				<div class="col-md-12 pull-left user-feedback">
 					<h1>Feedback</h1>
 					<p>Overall how would you rate the stream library in terms of:</p>
                     
-                    
+<?php if(!isset($feed[1])){   ?>                 
 <div style="font-size:11px;text-align:left;">1. Presentation of content  
 
 <div id="feed-rating-1" class="fr"></div>
 <script type="text/javascript">
 	$(document).ready(function(){
-		$('#feed-rating-1').raty({score:'<?php echo (isset($feed[1]))?$feed[1]:0;?>'});
+		$('#feed-rating-1').raty({score:'0'});
 		$('#feed-rating-1 img').click(function(){saveRating(1,$(this).attr('alt'),'feed');});
 								
 	});
@@ -103,6 +105,7 @@ $this->breadcrumbs=array('Finalized Stream'=>array('/user/finalizedStream'));
 
 </div>
 <div class="clear"></div>
+<?php }if(!isset($feed[2])){  ?>
 <div style="font-size:11px;text-align:left;">2. Informative relevance of content <div id="feed-rating-2" class="fr"></div>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -114,6 +117,7 @@ $this->breadcrumbs=array('Finalized Stream'=>array('/user/finalizedStream'));
 
 </div>
 <div class="clear"></div>
+<?php }if(!isset($feed[3])){ ?>
 <div style="font-size:11px;text-align:left;">3. Easy Comprehension <div id="feed-rating-3" class="fr"></div>
 <script type="text/javascript">
 	$(document).ready(function(){
@@ -125,6 +129,47 @@ $this->breadcrumbs=array('Finalized Stream'=>array('/user/finalizedStream'));
 
 </div>
 <div class="clear"></div>
+ <?php } ?>                   
+					
+				</div>
+        <?php } ?>
+
+<!--                    
+<div style="font-size:11px;text-align:left;">1. Presentation of content  
+
+<div id="feed-rating-1" class="fr"></div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#feed-rating-1').raty({readOnly:<?php echo (isset($feed[1]))?'true':'false';?>,score:'<?php echo (isset($feed[1]))?$feed[1]:0;?>'});
+		$('#feed-rating-1 img').click(function(){saveRating(1,$(this).attr('alt'),'feed');});
+								
+	});
+</script>
+
+</div>
+<div class="clear"></div>
+<div style="font-size:11px;text-align:left;">2. Informative relevance of content <div id="feed-rating-2" class="fr"></div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#feed-rating-2').raty({readOnly:<?php echo (isset($feed[2]))?'true':'false';?>,score:'<?php echo (isset($feed[2]))?$feed[2]:0;?>'});
+		$('#feed-rating-2 img').click(function(){saveRating(2,$(this).attr('alt'),'feed');});
+								
+	});
+</script>
+
+</div>
+<div class="clear"></div>
+<div style="font-size:11px;text-align:left;">3. Easy Comprehension <div id="feed-rating-3" class="fr"></div>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$('#feed-rating-3').raty({readOnly:<?php echo (isset($feed[3]))?'true':'false';?>,score:'<?php echo (isset($feed[3]))?$feed[3]:0;?>'});
+		$('#feed-rating-3 img').click(function(){saveRating(3,$(this).attr('alt'),'feed');});
+								
+	});
+</script>
+
+</div>
+<div class="clear"></div>-->
                     
 					
 				</div>
