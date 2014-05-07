@@ -124,12 +124,15 @@ class StreamController extends Controller
 				$this->redirect(array('view','id'=>$model->id));
 			}
 		}
-		$subjectList	=	array();
-		foreach($model->streamHasSubjects as $sub)
+		$subjectList		=	array();
+		$subjectListType	=	array();
+		foreach($model->streamHasSubjects as $sub){
 			$subjectList[]	=	$sub->subjects_id;
-
+			if($sub->type_subjects=='compulsory')
+				$subjectListType[]	=	$sub->subjects_id;
+		}
 		$this->render('create',array(
-			'model'=>$model,'subjectList'=>$subjectList,
+			'model'=>$model,'subjectList'=>$subjectList,'subjectListType'=>$subjectListType
 		));
 	}
 
@@ -213,11 +216,14 @@ class StreamController extends Controller
 			}
 		}
 		$subjectList	=	array();
-		foreach($model->streamHasSubjects as $sub)
+		$subjectListType	=	array();
+		foreach($model->streamHasSubjects as $sub){
 			$subjectList[]	=	$sub->subjects_id;
-
-		$this->render('update',array(
-			'model'=>$model,'subjectList'=>$subjectList,
+			if($sub->type_subjects=='compulsory')
+				$subjectListType[]	=	$sub->subjects_id;
+		}
+		$this->render('create',array(
+			'model'=>$model,'subjectList'=>$subjectList,'subjectListType'=>$subjectListType
 		));
 	}
 

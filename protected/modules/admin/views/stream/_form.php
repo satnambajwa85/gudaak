@@ -79,7 +79,7 @@
 		foreach($subjects as $subject){
 		echo '<div style="width:10%;float:left;border:1px solid green;"><div>'.$form->CheckBox($model,'subjects['.$subject->id.']',array('checked'=>(in_array($subject->id,$subjectList))?'checked':''));
 		echo $subject->title.'</div>';
-		$subjects[$subject->id]	=	(in_array($subject->id,$subjectList))?'compulsory':'optional';
+		$subjects[$subject->id]	=	(in_array($subject->id,$subjectListType))?'compulsory':'optional';
 		$valueRating=array('compulsory'=>'compulsory','optional'=>'optional');
 		echo CHtml::radioButtonList('subjects['.$subject->id.']',$subjects[$subject->id],$valueRating,array('separator'=>'','labelOptions'=>array('class'=>'textarea_skill'), )).'</div>';
 		}

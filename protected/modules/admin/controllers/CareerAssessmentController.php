@@ -28,7 +28,9 @@ class CareerAssessmentController extends Controller
 		return array(
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('index','view','create','update','admin','delete'),
-				'expression' =>"Yii::app()->user->userType ==  'admin'",
+				'users'=>array('@'),
+				//'actions'=>array('index','view','create','update','admin','delete'),
+				//'expression' =>"Yii::app()->user->userType ==  'admin'",
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
