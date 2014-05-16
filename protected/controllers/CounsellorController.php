@@ -276,7 +276,23 @@ class CounsellorController extends Controller
 		$this->render('Profile', array('model'=>$model));
 	}
 	
-	 
+	public function actionSession()
+	{
+		if(isset($_POST['action']) && $_POST['action']=='content'){
+			$userId		=	$_POST['user'];
+			$session	=	$_POST['session'];
+			$userAns	=	UserHasSessionAns::model()->findAllByAttributes(array('user_id'=>$userId));
+			$answ		=	array();
+			foreach($userAns as $list){
+				$answ[$list->session_question_id]	=	$list->answers;
+			}
+			$sess	=	SessionQuestions::model()->findAllByAttributes(array('session_id'=>$session));
+			$this->renderPartial('_session',array('question'=>$sess,'ans'=>$answ));
+			die;
+		}
+		$model	=	Session::model()->findAll();
+		$this->render('session',array('model'=>$model));
+	}
 	 
 	//Forgot password
 		//Change password 

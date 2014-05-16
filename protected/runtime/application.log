@@ -8379,3 +8379,140 @@ Stack trace:
 REQUEST_URI=/gudaak/index.php?r=site/article
 HTTP_REFERER=http://localhost/gudaak/index.php?r=site/articles
 ---
+2014/05/14 17:00:25 [error] [exception.CException] exception 'CException' with message 'Property "Register.medium" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('medium')
+#1 C:\wamp\www\framework\web\helpers\CHtml.php(2044): CActiveRecord->__get('medium')
+#2 C:\wamp\www\framework\web\helpers\CHtml.php(1402): CHtml::resolveValue(Object(Register), 'medium')
+#3 C:\wamp\www\framework\web\widgets\CActiveForm.php(674): CHtml::activeDropDownList(Object(Register), 'medium', Array, Array)
+#4 C:\wamp\www\gudaak\themes\template\views\layouts\main.php(218): CActiveForm->dropDownList(Object(Register), 'medium', Array, Array)
+#5 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\gud...')
+#6 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, true)
+#7 C:\wamp\www\framework\web\widgets\CContentDecorator.php(77): CBaseController->renderFile('C:\wamp\www\gud...', Array, true)
+#8 C:\wamp\www\framework\web\widgets\CContentDecorator.php(55): CContentDecorator->decorate('<div class="spa...')
+#9 C:\wamp\www\framework\web\widgets\COutputProcessor.php(45): CContentDecorator->processOutput('<div class="spa...')
+#10 C:\wamp\www\framework\web\CBaseController.php(207): COutputProcessor->run()
+#11 C:\wamp\www\framework\web\CBaseController.php(301): CBaseController->endWidget('CContentDecorat...')
+#12 C:\wamp\www\gudaak\protected\views\layouts\column2.php(22): CBaseController->endContent()
+#13 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\gud...')
+#14 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, true)
+#15 C:\wamp\www\framework\web\CController.php(785): CBaseController->renderFile('C:\wamp\www\gud...', Array, true)
+#16 C:\wamp\www\gudaak\protected\modules\admin\controllers\SessionQuestionsController.php(133): CController->render('index', Array)
+#17 C:\wamp\www\framework\web\actions\CInlineAction.php(50): SessionQuestionsController->actionIndex()
+#18 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#19 C:\wamp\www\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#20 C:\wamp\www\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#21 C:\wamp\www\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#22 C:\wamp\www\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#23 C:\wamp\www\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#24 C:\wamp\www\framework\web\CController.php(292): CFilterChain->run()
+#25 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#26 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('')
+#27 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/sessionQu...')
+#28 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#29 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#30 {main}
+REQUEST_URI=/gudaak/index.php?r=admin/sessionQuestions
+HTTP_REFERER=http://localhost/gudaak/index.php?r=gii/crud
+---
+2014/05/14 17:18:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "session".' in C:\wamp\www\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(271): CController->missingAction('session')
+#1 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('session')
+#2 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('school/session')
+#3 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/gudaak/index.php?r=school/session
+---
+2014/05/14 17:59:34 [error] [php] Undefined index: session (C:\wamp\www\gudaak\protected\controllers\CounsellorController.php:283)
+Stack trace:
+#0 C:\wamp\www\framework\web\CController.php(287): CounsellorController->runAction()
+#1 C:\wamp\www\framework\web\CController.php(266): CounsellorController->runActionWithFilters()
+#2 C:\wamp\www\framework\web\CWebApplication.php(276): CounsellorController->run()
+#3 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#4 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 C:\wamp\www\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/gudaak/index.php?r=counsellor/session
+in C:\wamp\www\gudaak\protected\controllers\CounsellorController.php (283)
+in C:\wamp\www\gudaak\index.php (13)
+2014/05/14 18:17:10 [error] [exception.CException] exception 'CException' with message 'Property "SessionQuestions.option" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('option')
+#1 C:\wamp\www\gudaak\themes\template\views\counsellor\_session.php(16): CActiveRecord->__get('option')
+#2 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\gud...')
+#3 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, true)
+#4 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\gud...', Array, true)
+#5 C:\wamp\www\gudaak\protected\controllers\CounsellorController.php(290): CController->renderPartial('_session', Array)
+#6 C:\wamp\www\framework\web\actions\CInlineAction.php(50): CounsellorController->actionSession()
+#7 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#9 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('session')
+#11 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('counsellor/sess...')
+#12 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/gudaak/index.php?r=counsellor/session
+HTTP_REFERER=http://localhost/gudaak/index.php?r=counsellor/session
+---
+2014/05/14 18:17:11 [error] [exception.CException] exception 'CException' with message 'Property "SessionQuestions.option" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('option')
+#1 C:\wamp\www\gudaak\themes\template\views\counsellor\_session.php(16): CActiveRecord->__get('option')
+#2 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\gud...')
+#3 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, true)
+#4 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\gud...', Array, true)
+#5 C:\wamp\www\gudaak\protected\controllers\CounsellorController.php(290): CController->renderPartial('_session', Array)
+#6 C:\wamp\www\framework\web\actions\CInlineAction.php(50): CounsellorController->actionSession()
+#7 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#9 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('session')
+#11 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('counsellor/sess...')
+#12 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/gudaak/index.php?r=counsellor/session
+HTTP_REFERER=http://localhost/gudaak/index.php?r=counsellor/session
+---
+2014/05/14 18:17:15 [error] [exception.CException] exception 'CException' with message 'Property "SessionQuestions.option" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('option')
+#1 C:\wamp\www\gudaak\themes\template\views\counsellor\_session.php(16): CActiveRecord->__get('option')
+#2 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\gud...')
+#3 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, true)
+#4 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\gud...', Array, true)
+#5 C:\wamp\www\gudaak\protected\controllers\CounsellorController.php(290): CController->renderPartial('_session', Array)
+#6 C:\wamp\www\framework\web\actions\CInlineAction.php(50): CounsellorController->actionSession()
+#7 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#9 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('session')
+#11 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('counsellor/sess...')
+#12 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/gudaak/index.php?r=counsellor/session
+HTTP_REFERER=http://localhost/gudaak/index.php?r=counsellor/session
+---
+2014/05/14 18:17:44 [error] [exception.CException] exception 'CException' with message 'Property "SessionQuestions.option" is not defined.' in C:\wamp\www\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\framework\db\ar\CActiveRecord.php(144): CComponent->__get('option')
+#1 C:\wamp\www\gudaak\themes\template\views\counsellor\_session.php(16): CActiveRecord->__get('option')
+#2 C:\wamp\www\framework\web\CBaseController.php(127): require('C:\wamp\www\gud...')
+#3 C:\wamp\www\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\gud...', Array, true)
+#4 C:\wamp\www\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\gud...', Array, true)
+#5 C:\wamp\www\gudaak\protected\controllers\CounsellorController.php(290): CController->renderPartial('_session', Array)
+#6 C:\wamp\www\framework\web\actions\CInlineAction.php(50): CounsellorController->actionSession()
+#7 C:\wamp\www\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 C:\wamp\www\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#9 C:\wamp\www\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 C:\wamp\www\framework\web\CWebApplication.php(276): CController->run('session')
+#11 C:\wamp\www\framework\web\CWebApplication.php(135): CWebApplication->runController('counsellor/sess...')
+#12 C:\wamp\www\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 C:\wamp\www\gudaak\index.php(13): CApplication->run()
+#14 {main}
+REQUEST_URI=/gudaak/index.php?r=counsellor/session
+HTTP_REFERER=http://localhost/gudaak/index.php?r=counsellor/session
+---
