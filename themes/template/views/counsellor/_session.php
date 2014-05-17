@@ -21,6 +21,14 @@
 					$str	.=	'</select>';
 					echo $str;
 				break;
+				case 'radio':
+					$options	=	explode(',',$item->options);
+					$str	= '';
+					foreach($options as $option){
+						$str	.=	'<input type="radio" value="'.$option.'" name="question['.$item->id.']" class="form-control"/>'.$option;
+					}
+					echo $str;
+				break;
 			}
 			?>
         </div>
