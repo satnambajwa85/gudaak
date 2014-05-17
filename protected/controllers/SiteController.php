@@ -81,7 +81,7 @@ class SiteController extends Controller
 		$pages->applyLimit($criteria);
 		$articles			=	Articles::model()->findAll($criteria);
 		
-		$this->render('articals',array('articles'=>$articles,'pages'=>$pages));
+		$this->render('articlesList',array('articles'=>$articles,'pages'=>$pages));
 	}
 	
 	public function actionArticle($id)

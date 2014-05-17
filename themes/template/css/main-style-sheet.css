@@ -456,7 +456,7 @@ opacity: 0.85;
     top: 65%;
     width: 18%;}
 .newsupdates ul{list-style:none;padding:0px;}
-.newsupdates ul li{width: 47%;;float:left; margin: 0 35px 18px 0;margin-bottom:10px;border:1px solid #eee;}
+.newsupdates ul li{width: 47%;;float:left; margin: 0 35px 18px 0;margin-bottom:10px;border:1px solid #eee;overflow:hidden;}
 .newsupdates ul li:hover{border:1px solid #F7A944;}
 .newsupdates ul li h1{font-size:12px;margin:0px;background-color:#F7F7F7; padding: 7px;}
 .newsupdates ul li span{font-size:12px; background-color: #F7A944;color: #FFFFFF;left: 467px;padding:6px 11px 4px 13px;position: relative;top: -24px;}

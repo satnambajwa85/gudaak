@@ -10,6 +10,12 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'category_id'); ?>
+		<?php 	echo $form->dropDownList($model,'category_id',CHtml::listData(CategorySpecialization::model()->findAll(),'id','name'));?>
+		<?php echo $form->error($model,'category_id'); ?>
+	</div>
+
+	<div class="row">
 		<?php echo $form->labelEx($model,'title'); ?>
 		<?php echo $form->textField($model,'title',array('size'=>60,'maxlength'=>200)); ?>
 		<?php echo $form->error($model,'title'); ?>

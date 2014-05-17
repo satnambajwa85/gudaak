@@ -9,7 +9,7 @@ $this->breadcrumbs=array('Detail',);
 	<div class="row test-bot">
 		<?php echo $userInfo->display_name;?> <span><?php echo $userInfo->generateGudaakIds->gudaak_id;?></span>
     	<div class="pull-right back-btn">
-    		<?php echo CHtml::link('Back', Yii::app()->createUrl('/school/studentDetails' ));?>
+    		<?php echo CHtml::link('Back', Yii::app()->createUrl('/counsellor/studentDetails' ));?>
     	</div>
     </div>
 		<div class="row  fl">

@@ -7,7 +7,7 @@ $this->breadcrumbs=array('studentDetails',);
 
 
 <div class="col-md-10 pop-up-border fl col-lg-offset-1 ">
-	<div class="row test-bot">School Details</div>
+	<div class="row test-bot">Student Details</div>
     <div class="wide form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(

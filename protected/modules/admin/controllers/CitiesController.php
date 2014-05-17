@@ -191,6 +191,9 @@ class CitiesController extends Controller
 	 */
 	public function actionDelete($id)
 	{
+		GenerateGudaakIds::model()->deleteAllByAttributes(array('cities_id'=>$id));
+		Institutes::model()->deleteAllByAttributes(array('cities_id'=>$id));
+		
 		$this->loadModel($id)->delete();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser

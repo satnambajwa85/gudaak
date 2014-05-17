@@ -19,6 +19,7 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
+		'category_id',
 		'title',
 		'description',
 		'add_date',

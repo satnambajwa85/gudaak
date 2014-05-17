@@ -89,7 +89,7 @@ $this->breadcrumbs=array('studentDetails',);
 																'htmlOptions'=>array('class'=>'btn-td',),
 																'buttons'=>array(
 																	'Details' => array(
-																		'url'=>'Yii::app()->createUrl("school/studentDetail",array("id"=>($data->id)))',
+																		'url'=>'Yii::app()->createUrl("/counsellor/studentDetail",array("id"=>($data->id)))',
 																		
 																	),
 																

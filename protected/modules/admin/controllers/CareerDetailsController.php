@@ -262,6 +262,7 @@ class CareerDetailsController extends Controller
 	 */
 	public function actionDelete($id)
 	{
+		CareerOptions::model()->deleteAllByAttributes(array('career_options_id'=>$id));
 		$this->loadModel($id)->delete();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser

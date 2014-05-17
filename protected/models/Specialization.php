@@ -5,6 +5,7 @@
  *
  * The followings are the available columns in table 'specialization':
  * @property integer $id
+ * @property integer $category_id
  * @property string $title
  * @property string $description
  * @property string $add_date
@@ -40,11 +41,11 @@ class Specialization extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('title, description, add_date', 'required'),
-			array('published, status', 'numerical', 'integerOnly'=>true),
+			array('category_id, published, status', 'numerical', 'integerOnly'=>true),
 			array('title', 'length', 'max'=>200),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, title, description, add_date, published, status', 'safe', 'on'=>'search'),
+			array('id, category_id, title, description, add_date, published, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -66,6 +67,7 @@ class Specialization extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
+			'category_id' => 'Category',
 			'title' => 'Title',
 			'description' => 'Description',
 			'add_date' => 'Add Date',
@@ -86,6 +88,7 @@ class Specialization extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
+		$criteria->compare('category_id',$this->category_id);
 		$criteria->compare('title',$this->title,true);
 		$criteria->compare('description',$this->description,true);
 		$criteria->compare('add_date',$this->add_date,true);

@@ -77,15 +77,28 @@ class CounsellorController extends Controller
 		$model->sender_id	=	Yii::app()->user->profileId;
 		$this->render('talk',array('model'=>$model));
 	}
-	public function actionStudentDetails()
+	public function actionSchools()
+	{
+		$lists	=	CounselorHasSchools::model()->findAllByAttributes(array('counselor_id'=>Yii::app()->user->profileId));
+		$lat	=	array();
+		foreach($lists as $list){
+			$lat[]	=	$list->schools_id;
+		}
+		$model	=	new Schools('search');
+		if(count($lat) > 0)
+			$model->id	=	$lat; 
+		if(isset($_GET['Schools']))
+			$model->attributes	=	$_GET['Schools'];
+		$this->render('school',array('model'=>$model));
+	}
+	public function actionStudentDetails($id)
 	{
 		if(!Yii::app()->user->id)
 			$this->redirect(Yii::app()->createUrl('/site'));
-		
-		$gud	=	GenerateGudaakIds::model()->findAllByAttributes(array('schools_id'=>Yii::app()->user->profileId,'user_role_id'=>array(2,3)));
+		$gud	=	GenerateGudaakIds::model()->findAllByAttributes(array('schools_id'=>$id));
 		foreach($gud as $rec)
 			$gudIdList[]	=	$rec->id;
-		
+
 		$model=new UserProfiles('search');
 		$model->unsetAttributes();
 		$model->generate_gudaak_ids_id	=	$gudIdList;
@@ -208,6 +221,23 @@ class CounsellorController extends Controller
 		$comments	=	UserStreamComments::model()->findByAttributes(array('user_profiles_id'=>$userId,'stream_id'=>$stream_id,'status'=>1));
 		$this->renderPartial('_counsellorComments',array('comments'=>$comments,true,false));
 			
+	}
+	public function actionSession()
+	{
+		if(isset($_POST['action']) && $_POST['action']=='content'){
+			$userId		=	$_POST['user'];
+			$session	=	$_POST['session'];
+			$userAns	=	UserHasSessionAns::model()->findAllByAttributes(array('user_id'=>$userId));
+			$answ		=	array();
+			foreach($userAns as $list){
+				$answ[$list->session_question_id]	=	$list->answers;
+			}
+			$sess	=	SessionQuestions::model()->findAllByAttributes(array('session_id'=>$session));
+			$this->renderPartial('_session',array('question'=>$sess,'ans'=>$answ));
+			die;
+		}
+		$model	=	Session::model()->findAll();
+		$this->render('session',array('model'=>$model));
 	}
 	public function actionProfile()
 	{		

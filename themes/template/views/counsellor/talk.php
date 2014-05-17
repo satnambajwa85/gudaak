@@ -14,6 +14,7 @@ $this->breadcrumbs=array('studentDetails',);
 	<div id="create-form" <?php echo (isset($_POST['Tickets']))?'':'style="display:none"';?>>
 		<?php $this->renderPartial('_talk',array('model'=>$model,)); ?>
 	</div>
+	<div class="clear"></div>
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'tickets-grid',
 	'itemsCssClass'=>'table table-bordered',

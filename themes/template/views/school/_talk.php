@@ -41,7 +41,7 @@
     </div>
     <div class="div_position"> 
          <div class="row">
-			<?php echo CHtml::submitButton('Save',array('class'=>'btn',"style"=>'float:right;margin-right:50px;margin-top:10px;')); ?>
+			<?php echo CHtml::submitButton('Submit',array('class'=>'btn',"style"=>'float:right;margin-right:50px;margin-top:10px;')); ?>
         </div> 
     </div>
    </div>
