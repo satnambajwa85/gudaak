@@ -1,7 +1,4 @@
 <?php
-/* @var $this CoursesController */
-/* @var $dataProvider CActiveDataProvider */
-
 $this->breadcrumbs=array(
 	'Courses',
 );

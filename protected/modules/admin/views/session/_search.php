@@ -12,7 +12,7 @@
 
 	<div class="row">
 		<?php echo $form->label($model,'name'); ?>
-		<?php echo $form->textField($model,'name',array('size'=>60,'maxlength'=>200)); ?>
+		<?php echo $form->textField($model,'name',array('size'=>60,'maxlength'=>300)); ?>
 	</div>
 
 	<div class="row">
@@ -21,13 +21,13 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'other'); ?>
-		<?php echo $form->textField($model,'other',array('size'=>60,'maxlength'=>200)); ?>
+		<?php echo $form->label($model,'add_date'); ?>
+		<?php echo $form->textField($model,'add_date'); ?>
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'add_date'); ?>
-		<?php echo $form->textField($model,'add_date'); ?>
+		<?php echo $form->label($model,'other'); ?>
+		<?php echo $form->textArea($model,'other',array('rows'=>6, 'cols'=>50)); ?>
 	</div>
 
 	<div class="row">

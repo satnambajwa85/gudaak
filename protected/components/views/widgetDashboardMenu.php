@@ -98,7 +98,7 @@ $getId=$_REQUEST['id'];
 						<ul style="<?php echo ($action=='shortListedColleges'||$action=='exploreColleges' || $action=='application')?'display:block':'';?>">
 						
 							<li><?php echo CHtml::link('Shortlisted Colleges',array('user/shortListedColleges'));?></li>
-							<li><?php echo CHtml::link('Application Progress',array('user/application'));?></li>
+							<li><?php echo CHtml::link('Entrance Exams',array('user/application'));?></li>
 						</ul>
 					</li>
 					<?php }else{ ?>

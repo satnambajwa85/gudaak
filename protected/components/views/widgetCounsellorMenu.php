@@ -16,7 +16,7 @@
 					<!-- start Navigation -->
 					<div class="col-md-10  pull-left">
 						<div class="col-md-12 fl pd0">
-							<div class="col-md-4 pd0 pull-left">
+							<div class="col-md-2 pd0 pull-left">
 								<h1 class="crumb-title">Counsellor Admin-
 										<?php if(isset($this->breadcrumbs)):?>
 											<?php $this->widget('zii.widgets.CBreadcrumbs', array(
@@ -25,22 +25,22 @@
 										<?php endif?>
 								</h1>
 							</div>
-							<div class="pd0 col-md-8 pull-left top-nav-section">
-								<ul class="nav pull-left ">
-									<li class="<?php echo (Yii::app()->controller->action->id=='studentDetail' || Yii::app()->controller->action->id=='studentDetails')?'pull-left active-link':'pull-left'?>">
+							<div class="pd0 col-md-10 pull-left top-nav-section">
+								<ul class="nav pull-left col-md-9 row">
+									<li class="<?php echo (Yii::app()->controller->action->id=='talk')?'pull-left active-link':'pull-left'?>">
 										<i class="pull-left mar-top10 icon-microphone icon-top"></i>
 											<?php echo CHtml::link('Talk to Admin',array('counsellor/talk'),array('class'=>'pull-left'));?>
 									</li>
-                                    <li class="<?php echo (Yii::app()->controller->action->id=='studentDetail' || Yii::app()->controller->action->id=='studentDetails')?'pull-left active-link':'pull-left'?>">
+                                    <li class="<?php echo (Yii::app()->controller->action->id=='schools'|| Yii::app()->controller->action->id=='studentDetail' || Yii::app()->controller->action->id=='studentDetails')?'pull-left active-link':'pull-left'?>">
 										<i class="pull-left mar-top10 icon-microphone icon-top"></i>
-											<?php echo CHtml::link('Student Details',array('counsellor/studentDetails'),array('class'=>'pull-left'));?>
+											<?php echo CHtml::link('Schools Details',array('counsellor/schools'),array('class'=>'pull-left'));?>
 									</li>
 									<li class="<?php echo (Yii::app()->controller->action->id=='profile')?'pull-left active-link':'pull-left'?>">
 										<i class="pull-left mar-top10 icon-microphone icon-top"></i>
-										<?php echo CHtml::link('School Profile',array('counsellor/profile'),array('class'=>'pull-left'));?>
+										<?php echo CHtml::link('Counsellor Profile',array('counsellor/profile'),array('class'=>'pull-left'));?>
 									</li>
 								</ul>
-								<div class="pd0 pull-left col-md-6 ">
+								<div class="pd0 pull-left col-md-3 ">
 											<div class="pd0 col-md-12 pull-left">
 												<div class="welcome-school  col-md-9">
 											<?php 

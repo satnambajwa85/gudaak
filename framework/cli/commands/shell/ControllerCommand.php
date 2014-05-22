@@ -4,14 +4,16 @@
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @link http://www.yiiframework.com/
- * @copyright 2008-2013 Yii Software LLC
+ * @copyright Copyright &copy; 2008-2011 Yii Software LLC
  * @license http://www.yiiframework.com/license/
+ * @version $Id: ControllerCommand.php 2799 2011-01-01 19:31:13Z qiang.xue $
  */
 
 /**
  * ControllerCommand generates a controller class.
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
+ * @version $Id: ControllerCommand.php 2799 2011-01-01 19:31:13Z qiang.xue $
  * @package system.cli.commands.shell
  * @since 1.0
  */
@@ -74,8 +76,7 @@ EOD;
 
 	/**
 	 * Execute the action.
-	 * @param array $args command line parameters specific for this command
-	 * @return integer|null non zero application exit code for help or null on success
+	 * @param array command line parameters specific for this command
 	 */
 	public function run($args)
 	{
@@ -83,7 +84,7 @@ EOD;
 		{
 			echo "Error: controller name is required.\n";
 			echo $this->getHelp();
-			return 1;
+			return;
 		}
 
 		$module=Yii::app();

@@ -11,7 +11,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'name'); ?>
-		<?php echo $form->textField($model,'name',array('size'=>60,'maxlength'=>200)); ?>
+		<?php echo $form->textField($model,'name',array('size'=>60,'maxlength'=>300)); ?>
 		<?php echo $form->error($model,'name'); ?>
 	</div>
 
@@ -22,15 +22,15 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'other'); ?>
-		<?php echo $form->textField($model,'other',array('size'=>60,'maxlength'=>200)); ?>
-		<?php echo $form->error($model,'other'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($model,'add_date'); ?>
 		<?php echo $form->textField($model,'add_date'); ?>
 		<?php echo $form->error($model,'add_date'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'other'); ?>
+		<?php echo $form->textArea($model,'other',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->error($model,'other'); ?>
 	</div>
 
 	<div class="row">

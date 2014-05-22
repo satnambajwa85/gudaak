@@ -4,7 +4,7 @@
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @link http://www.yiiframework.com/
- * @copyright 2008-2013 Yii Software LLC
+ * @copyright Copyright &copy; 2008-2011 Yii Software LLC
  * @license http://www.yiiframework.com/license/
  */
 
@@ -12,9 +12,9 @@
  * CConsoleCommandRunner manages commands and executes the requested command.
  *
  * @property string $scriptName The entry script name.
- * @property CConsoleCommand $command The currently active command.
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
+ * @version $Id: CConsoleCommandRunner.php 3426 2011-10-25 00:01:09Z alexander.makarow $
  * @package system.console
  * @since 1.0
  */
@@ -42,14 +42,10 @@ class CConsoleCommandRunner extends CComponent
 	public $commands=array();
 
 	private $_scriptName;
-	private $_command;
 
 	/**
 	 * Executes the requested command.
 	 * @param array $args list of user supplied parameters (including the entry script name and the command name).
-	 * @return integer|null application exit code returned by the command.
-	 * if null is returned, application will not exit explicitly. See also {@link CConsoleApplication::processRequest()}.
-	 * (return value is available since version 1.1.11)
 	 */
 	public function run($args)
 	{
@@ -63,14 +59,10 @@ class CConsoleCommandRunner extends CComponent
 		else
 			$name='help';
 
-		$oldCommand=$this->_command;
 		if(($command=$this->createCommand($name))===null)
 			$command=$this->createCommand('help');
-		$this->_command=$command;
 		$command->init();
-		$exitCode=$command->run($args);
-		$this->_command=$oldCommand;
-		return $exitCode;
+		$command->run($args);
 	}
 
 	/**
@@ -79,25 +71,6 @@ class CConsoleCommandRunner extends CComponent
 	public function getScriptName()
 	{
 		return $this->_scriptName;
-	}
-
-	/**
-	 * Returns the currently running command.
-	 * @return CConsoleCommand|null the currently active command.
-	 * @since 1.1.14
-	 */
-	public function getCommand()
-	{
-		return $this->_command;
-	}
-
-	/**
-	 * @param CConsoleCommand $value the currently active command.
-	 * @since 1.1.14
-	 */
-	public function setCommand($value)
-	{
-		$this->_command=$value;
 	}
 
 	/**
@@ -144,35 +117,24 @@ class CConsoleCommandRunner extends CComponent
 	public function createCommand($name)
 	{
 		$name=strtolower($name);
-
-		$command=null;
 		if(isset($this->commands[$name]))
-			$command=$this->commands[$name];
-		else
 		{
-			$commands=array_change_key_case($this->commands);
-			if(isset($commands[$name]))
-				$command=$commands[$name];
-		}
-
-		if($command!==null)
-		{
-			if(is_string($command)) // class file path or alias
+			if(is_string($this->commands[$name]))  // class file path or alias
 			{
-				if(strpos($command,'/')!==false || strpos($command,'\\')!==false)
+				if(strpos($this->commands[$name],'/')!==false || strpos($this->commands[$name],'\\')!==false)
 				{
-					$className=substr(basename($command),0,-4);
+					$className=substr(basename($this->commands[$name]),0,-4);
 					if(!class_exists($className,false))
-						require_once($command);
+						require_once($this->commands[$name]);
 				}
 				else // an alias
-					$className=Yii::import($command);
+					$className=Yii::import($this->commands[$name]);
 				return new $className($name,$this);
 			}
 			else // an array configuration
-				return Yii::createComponent($command,$name,$this);
+				return Yii::createComponent($this->commands[$name],$name,$this);
 		}
-		elseif($name==='help')
+		else if($name==='help')
 			return new CHelpCommand('help',$this);
 		else
 			return null;

@@ -684,7 +684,6 @@ class UserController extends Controller
 	}	
 	public function actionDetailedReport()
 	{	
-		
 		$userTest				=	UserReports::model()->countByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
 		if($userTest <= 1){
 			Yii::app()->user->setFlash('redirect',"You need to take both personality and interest tests to know your career recommendations and results in detail.");
@@ -1989,19 +1988,15 @@ class UserController extends Controller
 	}
 	public function actionApplication()
 	{
-		/*$model=new EntranceExams('search');
-		$model->unsetAttributes();
-		if(isset($_GET['EntranceExams']))
-			$model->attributes=$_GET['EntranceExams'];
-			*/
-		$model		=	EntranceExams::model()->FindAll();
-		$selected	=	UserProfilesHasTest::model()->findAll('user_profiles_id=:id', array(':id'=>Yii::app()->user->profileId));
-		//CVarDumper::dump($selected,10,1);
-		//die;
+		$criteria=new CDbCriteria;
+		if(isset($_POST['level']) && !empty($_POST['level']))
+			$criteria->addCondition("level='{$_POST['level']}'");
+		if(isset($_POST['category']) && !empty($_POST['category']))
+			$criteria->addCondition("career_category like '%{$_POST['category']}%'");
 		
-		//$selected	=	EntranceExams::model()->FindAll();
+		$model		=	EntranceExams::model()->FindAll($criteria);
+		$selected	=	UserProfilesHasTest::model()->findAll('user_profiles_id=:id', array(':id'=>Yii::app()->user->profileId));
 		$this->render('application',array('model'=>$model,'selmodel'=>$selected));
-		//$this->render('application');
 	}
 	public function actionReadEvent($id)
 	{

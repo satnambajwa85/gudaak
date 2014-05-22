@@ -4,7 +4,7 @@
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @link http://www.yiiframework.com/
- * @copyright 2008-2013 Yii Software LLC
+ * @copyright Copyright &copy; 2008-2011 Yii Software LLC
  * @license http://www.yiiframework.com/license/
  */
 
@@ -26,6 +26,7 @@
  * This is in the format of 'path.to.view'.
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
+ * @version $Id: CViewAction.php 3426 2011-10-25 00:01:09Z alexander.makarow $
  * @package system.web.actions
  * @since 1.0
  */
@@ -81,7 +82,7 @@ class CViewAction extends CAction
 	{
 		if($this->_viewPath===null)
 		{
-			if(!empty($_GET[$this->viewParam]) && is_string($_GET[$this->viewParam]))
+			if(!empty($_GET[$this->viewParam]))
 				$this->_viewPath=$_GET[$this->viewParam];
 			else
 				$this->_viewPath=$this->defaultView;

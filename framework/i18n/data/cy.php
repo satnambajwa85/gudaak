@@ -7,13 +7,12 @@
  * Copyright © 1991-2007 Unicode, Inc. All rights reserved.
  * Distributed under the Terms of Use in http://www.unicode.org/copyright.html.
  *
- * @copyright 2008-2013 Yii Software LLC (http://www.yiiframework.com/license/)
+ * Copyright © 2008-2011 Yii Software LLC (http://www.yiiframework.com/license/)
  */
 return array (
-  'version' => '6546',
+  'version' => '5980',
   'numberSymbols' => 
   array (
-    'alias' => '',
     'decimal' => '.',
     'group' => ',',
     'list' => ';',
@@ -24,6 +23,7 @@ return array (
     'perMille' => '‰',
     'infinity' => '∞',
     'nan' => 'NaN',
+    'alias' => '',
   ),
   'decimalFormat' => '#,##0.###',
   'scientificFormat' => '#E0',
@@ -32,7 +32,7 @@ return array (
   'currencySymbols' => 
   array (
     'AUD' => 'AU$',
-    'BRL' => 'R$',
+    'BRL' => 'BR$',
     'CAD' => 'CA$',
     'CNY' => 'CN¥',
     'EUR' => '€',
@@ -356,6 +356,7 @@ return array (
     '054' => 'Melanesia',
     '057' => 'Micronesia [057]',
     '061' => 'Polynesia',
+    '062' => 'De Canol Asia',
     142 => 'Asia',
     145 => 'Gorllewin Asia',
     150 => 'Ewrop',
@@ -363,6 +364,7 @@ return array (
     154 => 'Gogledd Ewrop',
     155 => 'Gorllewin Ewrop',
     419 => 'America Ladin',
+    830 => 'Ynysoedd y Sianel',
     'ac' => 'Ynys y Dyrchafael',
     'ad' => 'Andorra',
     'ae' => 'Emiraethau Arabaidd Unedig',

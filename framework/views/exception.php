@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-<title><?php echo $data['type']; ?></title>
+<title><?php echo CHtml::encode($data['type'])?></title>
 
 <style type="text/css">
 /*<![CDATA[*/
@@ -90,9 +90,9 @@ pre span.error-ln {
 .code pre {
 	background-color: #ffe;
 	margin: 0.5em 0;
-	padding: 0.5em;
-	line-height: 125%;
-	border: 1px solid #eee;
+    padding: 0.5em;
+    line-height: 125%;
+    border: 1px solid #eee;
 }
 
 .source .file {
@@ -161,11 +161,11 @@ pre span.error-ln {
 	<h1><?php echo $data['type']?></h1>
 
 	<p class="message">
-		<?php echo nl2br(htmlspecialchars($data['message'],ENT_QUOTES,Yii::app()->charset))?>
+		<?php echo nl2br(CHtml::encode($data['message']))?>
 	</p>
 
 	<div class="source">
-		<p class="file"><?php echo htmlspecialchars($data['file'],ENT_QUOTES,Yii::app()->charset)."({$data['line']})"?></p>
+		<p class="file"><?php echo CHtml::encode($data['file'])."({$data['line']})"?></p>
 		<?php echo $this->renderSourceCode($data['file'],$data['line'],$this->maxSourceLines); ?>
 	</div>
 
@@ -177,7 +177,7 @@ pre span.error-ln {
 		<?php
 			if($this->isCoreCode($trace))
 				$cssClass='core collapsed';
-			elseif(++$count>3)
+			else if(++$count>3)
 				$cssClass='app collapsed';
 			else
 				$cssClass='app expanded';
@@ -195,13 +195,13 @@ pre span.error-ln {
 					<?php endif; ?>
 					<?php
 						echo '&nbsp;';
-						echo htmlspecialchars($trace['file'],ENT_QUOTES,Yii::app()->charset)."(".$trace['line'].")";
+						echo CHtml::encode($trace['file'])."(".$trace['line'].")";
 						echo ': ';
 						if(!empty($trace['class']))
 							echo "<strong>{$trace['class']}</strong>{$trace['type']}";
 						echo "<strong>{$trace['function']}</strong>(";
 						if(!empty($trace['args']))
-							echo htmlspecialchars($this->argumentsToString($trace['args']),ENT_QUOTES,Yii::app()->charset);
+							echo CHtml::encode($this->argumentsToString($trace['args']));
 						echo ')';
 					?>
 				</div>

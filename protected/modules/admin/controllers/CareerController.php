@@ -229,7 +229,10 @@ class CareerController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		StreamHasCareer::model()->deleteAllByAttributes(array('stream_id'=>$id));		
+		StreamHasCareer::model()->deleteAllByAttributes(array('career_id'=>$id));
+		CareerHasStream::model()->deleteAllByAttributes(array('career_id'=>$id));
+		CareerOptions::model()->deleteAllByAttributes(array('career_id'=>$id));
+		userCareerComments::model()->deleteAllByAttributes(array('career_id'=>$id));
 		$this->loadModel($id)->delete();
 
 		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser

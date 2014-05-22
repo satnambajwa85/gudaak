@@ -4,7 +4,7 @@
  *
  * @author Steffen Dietz <steffo.dietz[at]googlemail[dot]com>
  * @link http://www.yiiframework.com/
- * @copyright 2008-2013 Yii Software LLC
+ * @copyright Copyright &copy; 2008-2011 Yii Software LLC
  * @license http://www.yiiframework.com/license/
  */
 
@@ -19,6 +19,7 @@
  * This means if you still want to use this component, your eAccelerator should be of 0.9.5.x or lower version.
  *
  * @author Steffen Dietz <steffo.dietz[at]googlemail[dot]com>
+ * @version $Id: CEAcceleratorCache.php 3515 2011-12-28 12:29:24Z mdomba $
  * @package system.caching
  */
 class CEAcceleratorCache extends CCache
@@ -40,7 +41,7 @@ class CEAcceleratorCache extends CCache
 	 * Retrieves a value from cache with a specified key.
 	 * This is the implementation of the method declared in the parent class.
 	 * @param string $key a unique key identifying the cached value
-	 * @return string|boolean the value stored in cache, false if the value is not in the cache or expired.
+	 * @return string the value stored in cache, false if the value is not in the cache or expired.
 	 */
 	protected function getValue($key)
 	{

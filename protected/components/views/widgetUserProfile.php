@@ -190,7 +190,7 @@
                                                                         <div class="col-md-4">
                                                                     <?php 
                                                                              $list	=	array('Below 40'=>'Below 40','40 - Below 50'=>'40 - Below 50','50 - Below 60'=>'50 - Below 60','60 - Below 70'=>'60 - Below 70','70 - Below 80'=>'70 - Below 80','80 - Below 90'=>'80 - Below 90','Above 90'=>'Above 90');
-                                                                    echo CHtml::dropDownList('UserProfiles[percentage]['.$index.']',$subjact->percentage,$list,array('class'=>'big_index','disabled'=>'disabled'));?>
+                                                                    echo CHtml::dropDownList('UserProfiles[percentage]['.$index.']','',$list,array('class'=>'big_index','disabled'=>'disabled'));?>
                                                                     </div>
                                                                     <?php
                                                                         $index++;

@@ -1,7 +1,4 @@
 <?php
-/* @var $this CoursesController */
-/* @var $model Courses */
-
 $this->breadcrumbs=array(
 	'Courses'=>array('index'),
 	'Create',
@@ -15,4 +12,4 @@ $this->menu=array(
 
 <h1>Create Courses</h1>
 
-<?php $this->renderPartial('_form', array('model'=>$model)); ?>
+<?php echo $this->renderPartial('_form', array('model'=>$model)); ?>

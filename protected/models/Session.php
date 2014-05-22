@@ -7,8 +7,8 @@
  * @property integer $id
  * @property string $name
  * @property string $description
- * @property string $other
  * @property string $add_date
+ * @property string $other
  * @property integer $status
  *
  * The followings are the available model relations:
@@ -42,12 +42,12 @@ class Session extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('name, description, add_date, status', 'required'),
+			array('name, description, add_date, other', 'required'),
 			array('status', 'numerical', 'integerOnly'=>true),
-			array('name, other', 'length', 'max'=>200),
+			array('name', 'length', 'max'=>300),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('id, name, description, other, add_date, status', 'safe', 'on'=>'search'),
+			array('id, name, description, add_date, other, status', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -72,8 +72,8 @@ class Session extends CActiveRecord
 			'id' => 'ID',
 			'name' => 'Name',
 			'description' => 'Description',
-			'other' => 'Other',
 			'add_date' => 'Add Date',
+			'other' => 'Other',
 			'status' => 'Status',
 		);
 	}
@@ -92,8 +92,8 @@ class Session extends CActiveRecord
 		$criteria->compare('id',$this->id);
 		$criteria->compare('name',$this->name,true);
 		$criteria->compare('description',$this->description,true);
-		$criteria->compare('other',$this->other,true);
 		$criteria->compare('add_date',$this->add_date,true);
+		$criteria->compare('other',$this->other,true);
 		$criteria->compare('status',$this->status);
 
 		return new CActiveDataProvider($this, array(

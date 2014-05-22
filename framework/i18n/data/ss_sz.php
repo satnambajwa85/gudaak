@@ -7,13 +7,12 @@
  * Copyright © 1991-2007 Unicode, Inc. All rights reserved.
  * Distributed under the Terms of Use in http://www.unicode.org/copyright.html.
  *
- * @copyright 2008-2013 Yii Software LLC (http://www.yiiframework.com/license/)
+ * Copyright © 2008-2011 Yii Software LLC (http://www.yiiframework.com/license/)
  */
 return array (
   'version' => '4582',
   'numberSymbols' => 
   array (
-    'alias' => '',
     'decimal' => ',',
     'group' => ' ',
     'list' => ';',
@@ -24,6 +23,7 @@ return array (
     'perMille' => '‰',
     'infinity' => '∞',
     'nan' => 'NaN',
+    'alias' => '',
   ),
   'decimalFormat' => '#,##0.###',
   'scientificFormat' => '#E0',
@@ -32,7 +32,7 @@ return array (
   'currencySymbols' => 
   array (
     'AUD' => 'AU$',
-    'BRL' => 'R$',
+    'BRL' => 'BR$',
     'CAD' => 'CA$',
     'CNY' => 'CN¥',
     'EUR' => '€',

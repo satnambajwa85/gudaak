@@ -1,9 +1,3 @@
-<?php
-/* @var $this CoursesController */
-/* @var $model Courses */
-/* @var $form CActiveForm */
-?>
-
 <div class="wide form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
@@ -39,11 +33,6 @@
 	<div class="row">
 		<?php echo $form->label($model,'status'); ?>
 		<?php echo $form->textField($model,'status'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'interests_id'); ?>
-		<?php echo $form->textField($model,'interests_id'); ?>
 	</div>
 
 	<div class="row buttons">

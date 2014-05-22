@@ -7695,6 +7695,12 @@ top:115px;width: 252px;background:#FAFFFF;background-color:#FAFFFF;z-index:999;}
 	-o-border-radius: 3px;
     border-radius: 3px;font-size:11px;
 }
+.career-hot-links1{background:#F0F0F0;background-color:#F0F0F0;	-webkit-border-radius: 3px;min-height:30px;clear:both;
+	-moz-border-radius: 23px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+    border-radius: 3px;font-size:11px;
+}
 .career-hot-links a{color:#21C4C1;text-decoration:none;}
 .career-hot-links i{color:#21C4C1;font-size:12px;margin:0 5px ;}
 .career-bot { margin: 0 1.4% 0 10px;
@@ -8052,12 +8058,11 @@ filter: alpha(opacity=30);}
 
 .ans_set{ margin-bottom:15px;}
 .m_right{ margin-right:8px; padding-left:8px;}
-input[type="radio"]{
+ input[type="radio"]{
     display:none !important; 
 }
 input.radioB{
-    display:block !important;
-	margin-right:10px !important; 
+    display:block !important; 
 }
 input[type="radio"] + label
 {

@@ -25,7 +25,11 @@
 						  'items'=>array(
 							array('label'=>'<span class="badge '.$roleResult.' pull-right">'.$userRole.'</span>User Role', 'url'=>array('/admin/userRole/admin/')),
 							array('label'=>'<span class="badge '.$loginResult.' pull-right">'.$userlogin.'</span>User login', 'url'=>array('/admin/userlogin/admin/')),
-							array('label'=>'<span class="badge '.$uProResult.' pull-right">'.$userProfiles.'</span>User Profiles', 'url'=>array('/admin/userProfiles/admin/')),)), 
+							array('label'=>'<span class="badge '.$uProResult.' pull-right">'.$userProfiles.'</span>User Profiles', 'url'=>array('/admin/userProfiles/admin/')),
+							array('label'=>'<span class="badge '.$uProResult.' pull-right">'.$userProfiles.'</span>Counselor', 'url'=>array('/admin/counselor/admin/')),
+							array('label'=>'<span class="badge '.$uProResult.' pull-right">'.$userProfiles.'</span>Counselor Details', 'url'=>array('/admin/counselorDetails/admin/')),
+							array('label'=>'<span class="badge '.$uProResult.' pull-right">'.$userProfiles.'</span>Counselor Schools', 'url'=>array('/admin/counselorHasSchools/admin/')),
+							)), 
 							
 						/*array('label'=>'Locations', 'url'=>'#','itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"),
 						  'items'=>array(
@@ -73,8 +77,14 @@
 					    )),
 						array('label'=>'Subjects<span class="caret"></span>', 'url'=>'#','itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"), 
                         'items'=>array(
-								array('label'=>'<span class="badge pull-right"></span>Subjects', 'url'=>array('/admin/Subjects/admin/')),
+								array('label'=>'<span class="badge pull-right"></span>Subjects', 'url'=>array('/admin/subjects/admin/')),
 								array('label'=>'<span class="badge pull-right"></span>career Options Has Subjects', 'url'=>array('/admin/CareerOptionsHasSubjects/admin/')),
+                        )),
+						array('label'=>'Course Stream<span class="caret"></span>', 'url'=>array('/admin/courseStream/admin'),'itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"), 
+                        'items'=>array(
+								array('label'=>'<span class="badge pull-right"></span>Courses', 'url'=>array('/admin/courses/admin/')),
+								array('label'=>'<span class="badge pull-right"></span>Category Specialization', 'url'=>array('/admin/categorySpecialization/admin/')),
+								array('label'=>'<span class="badge pull-right"></span>Specializations', 'url'=>array('/admin/specialization/admin/')),
                         )),
                        /* array('label'=>'<span class="badge '.$uProResult.' pull-right">'.$slider.'</span>Site Slider', 'url'=>array('/admin/Slider/admin/')),*/
 						array('label'=>'Course Stream', 'url'=>array('/admin/courseStream/admin')),

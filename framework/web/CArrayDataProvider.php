@@ -4,7 +4,7 @@
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @link http://www.yiiframework.com/
- * @copyright 2008-2013 Yii Software LLC
+ * @copyright Copyright &copy; 2008-2011 Yii Software LLC
  * @license http://www.yiiframework.com/license/
  */
 
@@ -18,9 +18,7 @@
  *
  * Elements in the raw data array may be either objects (e.g. model objects)
  * or associative arrays (e.g. query results of DAO).
- * Make sure to set the {@link keyField} property to the name of the field that uniquely
- * identifies a data record or false if you do not have such a field.
- * 
+ *
  * CArrayDataProvider may be used in the following way:
  * <pre>
  * $rawData=Yii::app()->db->createCommand('SELECT * FROM tbl_user')->queryAll();
@@ -43,15 +41,15 @@
  * so that the provider knows which columns can be sorted.
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
+ * @version $Id: CArrayDataProvider.php 3353 2011-07-12 21:10:36Z alexander.makarow $
  * @package system.web
  * @since 1.1.4
  */
 class CArrayDataProvider extends CDataProvider
 {
 	/**
-	 * @var string the name of the key field. This is a field that uniquely identifies a
-	 * data record. In database this would be the primary key.
-	 * Defaults to 'id'. If it's set to false, keys of {@link rawData} array are used.
+	 * @var string the name of key field. Defaults to 'id'. If it's set to false,
+	 * keys of $rawData array are used.
 	 */
 	public $keyField='id';
 	/**
@@ -60,13 +58,6 @@ class CArrayDataProvider extends CDataProvider
 	 * The array elements must use zero-based integer keys.
 	 */
 	public $rawData=array();
-	/**
-	 * @var boolean controls how sorting works. True value means that case will be
-	 * taken into account. False value will lead to the case insensitive sort. Default
-	 * value is true.
-	 * @since 1.1.13
-	 */
-	public $caseSensitiveSort=true;
 
 	/**
 	 * Constructor.
@@ -136,9 +127,8 @@ class CArrayDataProvider extends CDataProvider
 		foreach($directions as $name=>$descending)
 		{
 			$column=array();
-			$fields_array=preg_split('/\.+/',$name,-1,PREG_SPLIT_NO_EMPTY);
 			foreach($this->rawData as $index=>$data)
-				$column[$index]=$this->getSortingFieldValue($data, $fields_array);
+				$column[$index]=is_object($data) ? $data->$name : $data[$name];
 			$args[]=&$column;
 			$dummy[]=&$column;
 			unset($column);
@@ -149,27 +139,6 @@ class CArrayDataProvider extends CDataProvider
 		}
 		$args[]=&$this->rawData;
 		call_user_func_array('array_multisort', $args);
-	}
-
-	/**
-	 * Get field for sorting, using dot like delimiter in query.
-	 * @param mixed $data array or object
-	 * @param array $fields sorting fields in $data
-	 * @return mixed $data sorting field value
-	 */
-	protected function getSortingFieldValue($data, $fields)
-	{
-		if(is_object($data))
-		{
-			foreach($fields as $field)
-				$data=isset($data->$field) ? $data->$field : null;
-		}
-		else
-		{
-			foreach($fields as $field)
-				$data=isset($data[$field]) ? $data[$field] : null;
-		}
-		return $this->caseSensitiveSort ? $data : mb_strtolower($data,Yii::app()->charset);
 	}
 
 	/**

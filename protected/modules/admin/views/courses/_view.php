@@ -1,8 +1,3 @@
-<?php
-/* @var $this CoursesController */
-/* @var $data Courses */
-?>
-
 <div class="view">
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('id')); ?>:</b>
@@ -27,10 +22,6 @@
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('status')); ?>:</b>
 	<?php echo CHtml::encode($data->status); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('interests_id')); ?>:</b>
-	<?php echo CHtml::encode($data->interests_id); ?>
 	<br />
 
 

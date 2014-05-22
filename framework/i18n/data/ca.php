@@ -7,13 +7,12 @@
  * Copyright © 1991-2007 Unicode, Inc. All rights reserved.
  * Distributed under the Terms of Use in http://www.unicode.org/copyright.html.
  *
- * @copyright 2008-2013 Yii Software LLC (http://www.yiiframework.com/license/)
+ * Copyright © 2008-2011 Yii Software LLC (http://www.yiiframework.com/license/)
  */
 return array (
-  'version' => '6546',
+  'version' => '5968',
   'numberSymbols' => 
   array (
-    'alias' => '',
     'decimal' => ',',
     'group' => '.',
     'list' => ';',
@@ -24,6 +23,7 @@ return array (
     'perMille' => '‰',
     'infinity' => '∞',
     'nan' => 'NaN',
+    'alias' => '',
   ),
   'decimalFormat' => '#,##0.###',
   'scientificFormat' => '#E0',
@@ -32,7 +32,7 @@ return array (
   'currencySymbols' => 
   array (
     'AUD' => 'AU$',
-    'BRL' => 'R$',
+    'BRL' => 'BR$',
     'CAD' => 'CA$',
     'CNY' => 'CN¥',
     'EUR' => '€',
@@ -919,6 +919,7 @@ return array (
     '054' => 'Melanèsia',
     '057' => 'Regió de la Micronèsia',
     '061' => 'Polinèsia',
+    '062' => 'Àsia Sud-central',
     142 => 'Àsia',
     143 => 'Àsia Central',
     145 => 'Àsia Occidental',
@@ -926,6 +927,7 @@ return array (
     151 => 'Europa Oriental',
     154 => 'Europa septentrional',
     155 => 'Europa Occidental',
+    172 => 'Comunitat d\'Estats Independents',
     419 => 'Amèrica Llatina',
     'ac' => 'Illa de l\'Ascensió',
     'ad' => 'Andorra',

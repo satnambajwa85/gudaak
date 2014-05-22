@@ -4,7 +4,7 @@
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @link http://www.yiiframework.com/
- * @copyright 2008-2013 Yii Software LLC
+ * @copyright Copyright &copy; 2008-2011 Yii Software LLC
  * @license http://www.yiiframework.com/license/
  */
 
@@ -39,26 +39,15 @@
  * @property string $orderBy The order-by columns represented by this sort object.
  * This can be put in the ORDER BY clause of a SQL statement.
  * @property array $directions Sort directions indexed by attribute names.
- * The sort direction. Can be either CSort::SORT_ASC for ascending order or
- * CSort::SORT_DESC for descending order.
+ * The sort direction is true if the corresponding attribute should be
+ * sorted in descending order.
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
+ * @version $Id: CSort.php 3515 2011-12-28 12:29:24Z mdomba $
  * @package system.web
  */
 class CSort extends CComponent
 {
-	/**
-	 * Sort ascending
-	 * @since 1.1.10
-	 */
-	const SORT_ASC = false;
-
-	/**
-	 * Sort descending
-	 * @since 1.1.10
-	 */
-	const SORT_DESC = true;
-
 	/**
 	 * @var boolean whether the sorting can be applied to multiple attributes simultaneously.
 	 * Defaults to false, which means each time the data can only be sorted by one attribute.
@@ -164,11 +153,9 @@ class CSort extends CComponent
 	 * be in descending order. For example,
 	 * <pre>
 	 * 'defaultOrder'=>array(
-	 *     'price'=>CSort::SORT_DESC,
+	 *     'price'=>true,
 	 * )
 	 * </pre>
-	 * `SORT_DESC` and `SORT_ASC` are available since 1.1.10. In earlier Yii versions you should use
-	 * `true` and `false` respectively.
 	 *
 	 * Please note when using array to specify the default order, the corresponding attributes
 	 * will be put into {@link directions} and thus affect how the sort links are rendered
@@ -214,7 +201,7 @@ class CSort extends CComponent
 	 */
 	public function applyOrder($criteria)
 	{
-		$order=$this->getOrderBy($criteria);
+		$order=$this->getOrderBy();
 		if(!empty($order))
 		{
 			if(!empty($criteria->order))
@@ -224,12 +211,11 @@ class CSort extends CComponent
 	}
 
 	/**
-	 * @param CDbCriteria $criteria the query criteria
 	 * @return string the order-by columns represented by this sort object.
 	 * This can be put in the ORDER BY clause of a SQL statement.
 	 * @since 1.1.0
 	 */
-	public function getOrderBy($criteria=null)
+	public function getOrderBy()
 	{
 		$directions=$this->getDirections();
 		if(empty($directions))
@@ -237,7 +223,7 @@ class CSort extends CComponent
 		else
 		{
 			if($this->modelClass!==null)
-				$schema=$this->getModel($this->modelClass)->getDbConnection()->getSchema();
+				$schema=CActiveRecord::model($this->modelClass)->getDbConnection()->getSchema();
 			$orders=array();
 			foreach($directions as $attribute=>$descending)
 			{
@@ -249,7 +235,7 @@ class CSort extends CComponent
 					else
 						$orders[]=isset($definition['asc']) ? $definition['asc'] : $attribute;
 				}
-				elseif($definition!==false)
+				else if($definition!==false)
 				{
 					$attribute=$definition;
 					if(isset($schema))
@@ -257,7 +243,7 @@ class CSort extends CComponent
 						if(($pos=strpos($attribute,'.'))!==false)
 							$attribute=$schema->quoteTableName(substr($attribute,0,$pos)).'.'.$schema->quoteColumnName(substr($attribute,$pos+1));
 						else
-							$attribute=($criteria===null || $criteria->alias===null ? $this->getModel($this->modelClass)->getTableAlias(true) : $schema->quoteTableName($criteria->alias)).'.'.$schema->quoteColumnName($attribute);
+							$attribute=CActiveRecord::model($this->modelClass)->getTableAlias(true).'.'.$schema->quoteColumnName($attribute);
 					}
 					$orders[]=$descending?$attribute.' DESC':$attribute;
 				}
@@ -293,7 +279,7 @@ class CSort extends CComponent
 			$descending=!$directions[$attribute];
 			unset($directions[$attribute]);
 		}
-		elseif(is_array($definition) && isset($definition['default']))
+		else if(is_array($definition) && isset($definition['default']))
 			$descending=$definition['default']==='desc';
 		else
 			$descending=false;
@@ -324,10 +310,10 @@ class CSort extends CComponent
 			if(isset($definition['label']))
 				return $definition['label'];
 		}
-		elseif(is_string($definition))
+		else if(is_string($definition))
 			$attribute=$definition;
 		if($this->modelClass!==null)
-			return $this->getModel($this->modelClass)->getAttributeLabel($attribute);
+			return CActiveRecord::model($this->modelClass)->getAttributeLabel($attribute);
 		else
 			return $attribute;
 	}
@@ -335,8 +321,8 @@ class CSort extends CComponent
 	/**
 	 * Returns the currently requested sort information.
 	 * @return array sort directions indexed by attribute names.
-	 * Sort direction can be either CSort::SORT_ASC for ascending order or
-	 * CSort::SORT_DESC for descending order.
+	 * The sort direction is true if the corresponding attribute should be
+	 * sorted in descending order.
 	 */
 	public function getDirections()
 	{
@@ -374,9 +360,8 @@ class CSort extends CComponent
 	/**
 	 * Returns the sort direction of the specified attribute in the current request.
 	 * @param string $attribute the attribute name
-	 * @return mixed Sort direction of the attribute. Can be either CSort::SORT_ASC
-	 * for ascending order or CSort::SORT_DESC for descending order. Value is null
-	 * if the attribute doesn't need to be sorted.
+	 * @return mixed the sort direction of the attribut. True if the attribute should be sorted in descending order,
+	 * false if in ascending order, and null if the attribute doesn't need to be sorted.
 	 */
 	public function getDirection($attribute)
 	{
@@ -388,8 +373,8 @@ class CSort extends CComponent
 	 * Creates a URL that can lead to generating sorted data.
 	 * @param CController $controller the controller that will be used to create the URL.
 	 * @param array $directions the sort directions indexed by attribute names.
-	 * The sort direction can be either CSort::SORT_ASC for ascending order or
-	 * CSort::SORT_DESC for descending order.
+	 * The sort direction is true if the corresponding attribute should be
+	 * sorted in descending order.
 	 * @return string the URL for sorting
 	 */
 	public function createUrl($controller,$directions)
@@ -421,8 +406,8 @@ class CSort extends CComponent
 	{
 		if($this->attributes!==array())
 			$attributes=$this->attributes;
-		elseif($this->modelClass!==null)
-			$attributes=$this->getModel($this->modelClass)->attributeNames();
+		else if($this->modelClass!==null)
+			$attributes=CActiveRecord::model($this->modelClass)->attributeNames();
 		else
 			return false;
 		foreach($attributes as $name=>$definition)
@@ -432,28 +417,15 @@ class CSort extends CComponent
 				if($name===$attribute)
 					return $definition;
 			}
-			elseif($definition==='*')
+			else if($definition==='*')
 			{
-				if($this->modelClass!==null && $this->getModel($this->modelClass)->hasAttribute($attribute))
+				if($this->modelClass!==null && CActiveRecord::model($this->modelClass)->hasAttribute($attribute))
 					return $attribute;
 			}
-			elseif($definition===$attribute)
+			else if($definition===$attribute)
 				return $attribute;
 		}
 		return false;
-	}
-
-	/**
-	 * Given active record class name returns new model instance.
-	 *
-	 * @param string $className active record class name.
-	 * @return CActiveRecord active record model instance.
-	 *
-	 * @since 1.1.14
-	 */
-	protected function getModel($className)
-	{
-		return CActiveRecord::model($className);
 	}
 
 	/**

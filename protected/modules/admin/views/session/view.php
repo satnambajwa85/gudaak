@@ -21,8 +21,8 @@ $this->menu=array(
 		'id',
 		'name',
 		'description',
-		'other',
 		'add_date',
+		'other',
 		'status',
 	),
 )); ?>

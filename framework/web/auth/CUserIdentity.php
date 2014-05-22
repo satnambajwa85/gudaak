@@ -4,7 +4,7 @@
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @link http://www.yiiframework.com/
- * @copyright 2008-2013 Yii Software LLC
+ * @copyright Copyright &copy; 2008-2011 Yii Software LLC
  * @license http://www.yiiframework.com/license/
  */
 
@@ -21,6 +21,7 @@
  * @property string $name The display name for the identity.
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
+ * @version $Id: CUserIdentity.php 3426 2011-10-25 00:01:09Z alexander.makarow $
  * @package system.web.auth
  * @since 1.0
  */

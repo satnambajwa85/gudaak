@@ -4,7 +4,7 @@
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
  * @link http://www.yiiframework.com/
- * @copyright 2008-2013 Yii Software LLC
+ * @copyright Copyright &copy; 2008-2011 Yii Software LLC
  * @license http://www.yiiframework.com/license/
  */
 
@@ -39,6 +39,7 @@
  * @property CFormatter $formatter The formatter instance. Defaults to the 'format' application component.
  *
  * @author Qiang Xue <qiang.xue@gmail.com>
+ * @version $Id: CDetailView.php 3427 2011-10-25 00:03:52Z alexander.makarow $
  * @package zii.widgets
  * @since 1.1
  */
@@ -95,7 +96,6 @@ class CDetailView extends CWidget
 	public $nullDisplay;
 	/**
 	 * @var string the name of the tag for rendering the detail view. Defaults to 'table'.
-	 * If set to null, no tag will be rendered.
 	 * @see itemTemplate
 	 */
 	public $tagName='table';
@@ -139,17 +139,14 @@ class CDetailView extends CWidget
 		{
 			if($this->data instanceof CModel)
 				$this->attributes=$this->data->attributeNames();
-			elseif(is_array($this->data))
+			else if(is_array($this->data))
 				$this->attributes=array_keys($this->data);
 			else
 				throw new CException(Yii::t('zii','Please specify the "attributes" property.'));
 		}
 		if($this->nullDisplay===null)
 			$this->nullDisplay='<span class="null">'.Yii::t('zii','Not set').'</span>';
-		if(isset($this->htmlOptions['id']))
-			$this->id=$this->htmlOptions['id'];
-		else
-			$this->htmlOptions['id']=$this->id;
+		$this->htmlOptions['id']=$this->getId();
 
 		if($this->baseScriptUrl===null)
 			$this->baseScriptUrl=Yii::app()->getAssetManager()->publish(Yii::getPathOfAlias('zii.widgets.assets')).'/detailview';
@@ -169,12 +166,11 @@ class CDetailView extends CWidget
 	public function run()
 	{
 		$formatter=$this->getFormatter();
-		if ($this->tagName!==null)
-			echo CHtml::openTag($this->tagName,$this->htmlOptions);
+		echo CHtml::openTag($this->tagName,$this->htmlOptions);
 
 		$i=0;
 		$n=is_array($this->itemCssClass) ? count($this->itemCssClass) : 0;
-
+						
 		foreach($this->attributes as $attribute)
 		{
 			if(is_string($attribute))
@@ -188,7 +184,7 @@ class CDetailView extends CWidget
 				if(isset($matches[5]))
 					$attribute['label']=$matches[5];
 			}
-
+			
 			if(isset($attribute['visible']) && !$attribute['visible'])
 				continue;
 
@@ -198,7 +194,7 @@ class CDetailView extends CWidget
 
 			if(isset($attribute['label']))
 				$tr['{label}']=$attribute['label'];
-			elseif(isset($attribute['name']))
+			else if(isset($attribute['name']))
 			{
 				if($this->data instanceof CModel)
 					$tr['{label}']=$this->data->getAttributeLabel($attribute['name']);
@@ -209,33 +205,21 @@ class CDetailView extends CWidget
 			if(!isset($attribute['type']))
 				$attribute['type']='text';
 			if(isset($attribute['value']))
-				$value=is_callable($attribute['value']) ? call_user_func($attribute['value'],$this->data) : $attribute['value'];
-			elseif(isset($attribute['name']))
+				$value=$attribute['value'];
+			else if(isset($attribute['name']))
 				$value=CHtml::value($this->data,$attribute['name']);
 			else
 				$value=null;
 
 			$tr['{value}']=$value===null ? $this->nullDisplay : $formatter->format($value,$attribute['type']);
 
-			$this->renderItem($attribute, $tr);
-
+			echo strtr(isset($attribute['template']) ? $attribute['template'] : $this->itemTemplate,$tr);
+			
 			$i++;
+															
 		}
 
-		if ($this->tagName!==null)
-			echo CHtml::closeTag($this->tagName);
-	}
-
-	/**
-	 * This method is used by run() to render item row
-	 *
-	 * @param array $options config options for this item/attribute from {@link attributes}
-	 * @param string $templateData data that will be inserted into {@link itemTemplate}
-	 * @since 1.1.11
-	 */
-	protected function renderItem($options,$templateData)
-	{
-		echo strtr(isset($options['template']) ? $options['template'] : $this->itemTemplate,$templateData);
+		echo CHtml::closeTag($this->tagName);
 	}
 
 	/**

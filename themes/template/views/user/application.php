@@ -8,11 +8,7 @@ $this->breadcrumbs=array('Application'=>array('/user/application'));?>
 				</p>
 
 			</div>
-			
-            
-            
-            
-            <div class="mr0  pull-left col-md-12">
+			<div class="mr0  pull-left col-md-12">
              <div id="scrollBar" style="max-height:500px;width:97%;">
             
             <div>
@@ -59,7 +55,31 @@ $this->breadcrumbs=array('Application'=>array('/user/application'));?>
             </div>
 			<div class="mt20"> 
             <h5>Entrance Exams</h5>
-            <table class="table">
+<?php $form=$this->beginWidget('CActiveForm', array(
+	'id'=>'entrance-exams-form',
+	'action'=>Yii::app()->createUrl('/user/application'),
+	'enableAjaxValidation'=>false,
+)); ?>
+<table class="mb10">
+	<tr>
+		<td width="30%"></td>
+		<td width="30%">
+			<?php echo CHtml::dropDownlist('level','',array('University / Institute'=>'University / Institute','State'=>'State','National'=>'National'),array('empty'=>'Select Level','class'=>'form-control'));?>
+		</td>
+		<td width="30%">
+			<select name="category" class='form-control'>
+				<option value="">Select Category</option>
+				<?php $lists	=	EntranceCategory::model()->findAll();
+				foreach($lists as $lis){?>
+				<option value="<?php echo $lis->id;?>"><?php echo $lis->title;?></option>
+				<?php }?>
+			</select>
+		</td>
+		<td width="10%"><input type="submit" value="search" class="summery-left-btn btn pull-right" /></td>
+	</tr>
+</table>
+<?php $this->endWidget(); ?>
+    <table class="table">
      <thead>
        <tr>
           <th width="30%">Name</th>
@@ -70,9 +90,7 @@ $this->breadcrumbs=array('Application'=>array('/user/application'));?>
        </tr>
      </thead>
      <tbody>
-     
-            
-            <?php 
+         <?php 
 			$count=1;
 			foreach($model as $list){
 				if($count%2 == 0)
