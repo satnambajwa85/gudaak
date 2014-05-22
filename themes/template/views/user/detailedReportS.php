@@ -392,17 +392,8 @@ Based on your personality and interest you can explore the right type of role in
         <div style="float:left; width:100%; background:#1acccc; color:#fff; padding-top:10px; font-family:Arial, Helvetica, sans-serif; font-size:12px;   text-align:right; height:30px; ">Note: This Report is confidential and is only indicative of preferred careers for you.      
 <strong style="margin-left:10px;">P-7</strong> &nbsp;&nbsp;&nbsp;&nbsp;</div>
      </div>
-     <!--Page NO. 5 End-->   
-        
- 
- 
- 			 
-     
-    <!--Page NO. 1 End-->
     </div>
- 
-      
-					
+ 		
 			</div>
 		
 		</div>
