@@ -8241,3 +8241,544 @@ Stack trace:
 REQUEST_URI=/index.php?r=counsellor/session
 in C:\xampp\htdocs\gudaak\protected\controllers\CounsellorController.php (230)
 in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/19 08:49:05 [error] [php] include(UserHasSessionAns.php): failed to open stream: No such file or directory (C:\xampp\htdocs\gudaak\framework\YiiBase.php:418)
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\protected\controllers\CounsellorController.php(230): spl_autoload_call()
+#1 C:\xampp\htdocs\gudaak\framework\web\actions\CInlineAction.php(50): CounsellorController->actionSession()
+#2 C:\xampp\htdocs\gudaak\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 C:\xampp\htdocs\gudaak\framework\web\CController.php(287): CounsellorController->runAction()
+#4 C:\xampp\htdocs\gudaak\framework\web\CController.php(266): CounsellorController->runActionWithFilters()
+#5 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): CounsellorController->run()
+#6 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=counsellor/session
+in C:\xampp\htdocs\gudaak\protected\controllers\CounsellorController.php (230)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/19 08:49:22 [error] [php] include(UserHasSessionAns.php): failed to open stream: No such file or directory (C:\xampp\htdocs\gudaak\framework\YiiBase.php:418)
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\protected\controllers\CounsellorController.php(230): spl_autoload_call()
+#1 C:\xampp\htdocs\gudaak\framework\web\actions\CInlineAction.php(50): CounsellorController->actionSession()
+#2 C:\xampp\htdocs\gudaak\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 C:\xampp\htdocs\gudaak\framework\web\CController.php(287): CounsellorController->runAction()
+#4 C:\xampp\htdocs\gudaak\framework\web\CController.php(266): CounsellorController->runActionWithFilters()
+#5 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): CounsellorController->run()
+#6 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 C:\xampp\htdocs\gudaak\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=counsellor/session
+in C:\xampp\htdocs\gudaak\protected\controllers\CounsellorController.php (230)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/19 08:51:40 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\xampp\htdocs\gudaak\framework\web\CController.php:337
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\gudaak\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\gudaak\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): CController->run('studentDetails')
+#4 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('counsellor/stud...')
+#5 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/index.php?r=counsellor/studentDetails
+HTTP_REFERER=http://localhost/index.php?r=counsellor/talk
+---
+2014/05/19 08:51:57 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\xampp\htdocs\gudaak\framework\web\CController.php:337
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\xampp\htdocs\gudaak\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#2 C:\xampp\htdocs\gudaak\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): CController->run('studentDetails')
+#4 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('counsellor/stud...')
+#5 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#6 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/index.php?r=counsellor/studentDetails
+HTTP_REFERER=http://localhost/index.php?r=counsellor/profile
+---
+2014/05/20 17:16:16 [warning] [application] Failed to set unsafe attribute "career_categories_id" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (161)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:16:16 [warning] [application] Failed to set unsafe attribute "subjects" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (161)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:16:16 [warning] [application] Failed to set unsafe attribute "streams" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (161)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:21:11 [warning] [application] Failed to set unsafe attribute "career_categories_id" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:21:11 [warning] [application] Failed to set unsafe attribute "oldImage" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:21:11 [warning] [application] Failed to set unsafe attribute "subjects" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:21:11 [warning] [application] Failed to set unsafe attribute "streams" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:24:48 [warning] [application] Failed to set unsafe attribute "career_categories_id" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (161)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:24:48 [warning] [application] Failed to set unsafe attribute "subjects" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (161)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:24:48 [warning] [application] Failed to set unsafe attribute "streams" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (161)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:29:50 [warning] [application] Failed to set unsafe attribute "career_categories_id" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:29:50 [warning] [application] Failed to set unsafe attribute "oldImage" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:29:50 [warning] [application] Failed to set unsafe attribute "subjects" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:29:50 [warning] [application] Failed to set unsafe attribute "streams" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:29:51 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`gudaak`.`career_options`, CONSTRAINT `fk_career_options_career1` FOREIGN KEY (`career_id`) REFERENCES `career` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: UPDATE `career_options` SET `id`=:yp0, `title`=:yp1, `description`=:yp2, `image`=:yp3, `add_date`=:yp4, `modification_date`=:yp5, `published`=:yp6, `status`=:yp7, `career_id`=:yp8, `rating`=:yp9 WHERE `career_options`.`id`=186.
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (315)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:29:51 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`gudaak`.`career_options`, CONSTRAINT `fk_career_options_career1` FOREIGN KEY (`career_id`) REFERENCES `career` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: UPDATE `career_options` SET `id`=:yp0, `title`=:yp1, `description`=:yp2, `image`=:yp3, `add_date`=:yp4, `modification_date`=:yp5, `published`=:yp6, `status`=:yp7, `career_id`=:yp8, `rating`=:yp9 WHERE `career_options`.`id`=186' in C:\xampp\htdocs\gudaak\framework\db\CDbCommand.php:354
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\db\ar\CActiveRecord.php(1681): CDbCommand->execute()
+#1 C:\xampp\htdocs\gudaak\framework\db\ar\CActiveRecord.php(1061): CActiveRecord->updateByPk('186', Array)
+#2 C:\xampp\htdocs\gudaak\framework\db\ar\CActiveRecord.php(787): CActiveRecord->update(NULL)
+#3 C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php(315): CActiveRecord->save()
+#4 [internal function]: CareerOptionsController->actionUpdate('186')
+#5 C:\xampp\htdocs\gudaak\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(CareerOptionsController), Array)
+#6 C:\xampp\htdocs\gudaak\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(CareerOptionsController), Object(ReflectionMethod), Array)
+#7 C:\xampp\htdocs\gudaak\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 C:\xampp\htdocs\gudaak\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 C:\xampp\htdocs\gudaak\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\gudaak\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\gudaak\framework\web\CController.php(292): CFilterChain->run()
+#14 C:\xampp\htdocs\gudaak\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): CController->run('update')
+#16 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/careerOpt...')
+#17 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/index.php?r=admin/careerOptions/update&id=186
+HTTP_REFERER=http://www.gudaak.com/index.php?r=admin/careerOptions/update&id=186
+---
+2014/05/20 17:30:58 [warning] [application] Failed to set unsafe attribute "career_categories_id" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:30:58 [warning] [application] Failed to set unsafe attribute "oldImage" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:30:58 [warning] [application] Failed to set unsafe attribute "subjects" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:30:58 [warning] [application] Failed to set unsafe attribute "streams" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:35:14 [warning] [application] Failed to set unsafe attribute "career_categories_id" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (161)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:35:14 [warning] [application] Failed to set unsafe attribute "subjects" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (161)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:35:14 [warning] [application] Failed to set unsafe attribute "streams" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (161)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:35:14 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`gudaak`.`career_options`, CONSTRAINT `fk_career_options_career1` FOREIGN KEY (`career_id`) REFERENCES `career` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `career_options` (`published`, `status`, `rating`, `career_id`, `title`, `description`, `image`, `add_date`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7).
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (199)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:35:14 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`gudaak`.`career_options`, CONSTRAINT `fk_career_options_career1` FOREIGN KEY (`career_id`) REFERENCES `career` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: INSERT INTO `career_options` (`published`, `status`, `rating`, `career_id`, `title`, `description`, `image`, `add_date`) VALUES (:yp0, :yp1, :yp2, :yp3, :yp4, :yp5, :yp6, :yp7)' in C:\xampp\htdocs\gudaak\framework\db\CDbCommand.php:354
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\db\ar\CActiveRecord.php(1014): CDbCommand->execute()
+#1 C:\xampp\htdocs\gudaak\framework\db\ar\CActiveRecord.php(787): CActiveRecord->insert(NULL)
+#2 C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php(199): CActiveRecord->save()
+#3 [internal function]: CareerOptionsController->actionCreateNew('17')
+#4 C:\xampp\htdocs\gudaak\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(CareerOptionsController), Array)
+#5 C:\xampp\htdocs\gudaak\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(CareerOptionsController), Object(ReflectionMethod), Array)
+#6 C:\xampp\htdocs\gudaak\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#7 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#8 C:\xampp\htdocs\gudaak\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#9 C:\xampp\htdocs\gudaak\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#10 C:\xampp\htdocs\gudaak\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#11 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#12 C:\xampp\htdocs\gudaak\framework\web\CController.php(292): CFilterChain->run()
+#13 C:\xampp\htdocs\gudaak\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): CController->run('createNew')
+#15 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/careerOpt...')
+#16 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#17 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/index.php?r=admin/careerOptions/createNew&id=17
+HTTP_REFERER=http://www.gudaak.com/index.php?r=admin/careerOptions/createNew&id=17
+---
+2014/05/20 17:35:56 [warning] [application] Failed to set unsafe attribute "career_categories_id" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (161)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:35:56 [warning] [application] Failed to set unsafe attribute "subjects" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (161)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:35:56 [warning] [application] Failed to set unsafe attribute "streams" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (161)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:38:30 [warning] [application] Failed to set unsafe attribute "career_categories_id" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:38:30 [warning] [application] Failed to set unsafe attribute "oldImage" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:38:30 [warning] [application] Failed to set unsafe attribute "subjects" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:38:30 [warning] [application] Failed to set unsafe attribute "streams" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:44:02 [warning] [application] Failed to set unsafe attribute "career_categories_id" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (161)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:44:02 [warning] [application] Failed to set unsafe attribute "subjects" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (161)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:44:02 [warning] [application] Failed to set unsafe attribute "streams" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (161)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:48:16 [warning] [application] Failed to set unsafe attribute "career_categories_id" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:48:16 [warning] [application] Failed to set unsafe attribute "oldImage" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:48:16 [warning] [application] Failed to set unsafe attribute "subjects" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:48:16 [warning] [application] Failed to set unsafe attribute "streams" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:51:36 [warning] [application] Failed to set unsafe attribute "career_categories_id" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (161)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:51:36 [warning] [application] Failed to set unsafe attribute "subjects" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (161)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:51:36 [warning] [application] Failed to set unsafe attribute "streams" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (161)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:54:01 [warning] [application] Failed to set unsafe attribute "career_categories_id" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:54:01 [warning] [application] Failed to set unsafe attribute "oldImage" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:54:01 [warning] [application] Failed to set unsafe attribute "subjects" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:54:01 [warning] [application] Failed to set unsafe attribute "streams" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:54:01 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`gudaak`.`career_options`, CONSTRAINT `fk_career_options_career1` FOREIGN KEY (`career_id`) REFERENCES `career` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: UPDATE `career_options` SET `id`=:yp0, `title`=:yp1, `description`=:yp2, `image`=:yp3, `add_date`=:yp4, `modification_date`=:yp5, `published`=:yp6, `status`=:yp7, `career_id`=:yp8, `rating`=:yp9 WHERE `career_options`.`id`=190.
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (315)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:54:01 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`gudaak`.`career_options`, CONSTRAINT `fk_career_options_career1` FOREIGN KEY (`career_id`) REFERENCES `career` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: UPDATE `career_options` SET `id`=:yp0, `title`=:yp1, `description`=:yp2, `image`=:yp3, `add_date`=:yp4, `modification_date`=:yp5, `published`=:yp6, `status`=:yp7, `career_id`=:yp8, `rating`=:yp9 WHERE `career_options`.`id`=190' in C:\xampp\htdocs\gudaak\framework\db\CDbCommand.php:354
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\db\ar\CActiveRecord.php(1681): CDbCommand->execute()
+#1 C:\xampp\htdocs\gudaak\framework\db\ar\CActiveRecord.php(1061): CActiveRecord->updateByPk('190', Array)
+#2 C:\xampp\htdocs\gudaak\framework\db\ar\CActiveRecord.php(787): CActiveRecord->update(NULL)
+#3 C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php(315): CActiveRecord->save()
+#4 [internal function]: CareerOptionsController->actionUpdate('190')
+#5 C:\xampp\htdocs\gudaak\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(CareerOptionsController), Array)
+#6 C:\xampp\htdocs\gudaak\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(CareerOptionsController), Object(ReflectionMethod), Array)
+#7 C:\xampp\htdocs\gudaak\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 C:\xampp\htdocs\gudaak\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 C:\xampp\htdocs\gudaak\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\gudaak\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\gudaak\framework\web\CController.php(292): CFilterChain->run()
+#14 C:\xampp\htdocs\gudaak\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): CController->run('update')
+#16 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/careerOpt...')
+#17 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/index.php?r=admin/careerOptions/update&id=190
+HTTP_REFERER=http://www.gudaak.com/index.php?r=admin/careerOptions/update&id=190
+---
+2014/05/20 17:54:29 [warning] [application] Failed to set unsafe attribute "career_categories_id" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:54:29 [warning] [application] Failed to set unsafe attribute "oldImage" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:54:29 [warning] [application] Failed to set unsafe attribute "subjects" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:54:29 [warning] [application] Failed to set unsafe attribute "streams" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:58:35 [warning] [application] Failed to set unsafe attribute "career_categories_id" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (161)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:58:35 [warning] [application] Failed to set unsafe attribute "subjects" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (161)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 17:58:35 [warning] [application] Failed to set unsafe attribute "streams" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (161)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 18:01:13 [warning] [application] Failed to set unsafe attribute "career_categories_id" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 18:01:13 [warning] [application] Failed to set unsafe attribute "oldImage" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 18:01:13 [warning] [application] Failed to set unsafe attribute "subjects" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 18:01:13 [warning] [application] Failed to set unsafe attribute "streams" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 18:04:03 [warning] [application] Failed to set unsafe attribute "career_categories_id" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (161)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 18:04:03 [warning] [application] Failed to set unsafe attribute "subjects" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (161)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 18:04:03 [warning] [application] Failed to set unsafe attribute "streams" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (161)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 18:06:24 [warning] [application] Failed to set unsafe attribute "career_categories_id" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 18:06:24 [warning] [application] Failed to set unsafe attribute "oldImage" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 18:06:24 [warning] [application] Failed to set unsafe attribute "subjects" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 18:06:24 [warning] [application] Failed to set unsafe attribute "streams" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 18:06:24 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`gudaak`.`career_options`, CONSTRAINT `fk_career_options_career1` FOREIGN KEY (`career_id`) REFERENCES `career` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: UPDATE `career_options` SET `id`=:yp0, `title`=:yp1, `description`=:yp2, `image`=:yp3, `add_date`=:yp4, `modification_date`=:yp5, `published`=:yp6, `status`=:yp7, `career_id`=:yp8, `rating`=:yp9 WHERE `career_options`.`id`=192.
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (315)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 18:06:24 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`gudaak`.`career_options`, CONSTRAINT `fk_career_options_career1` FOREIGN KEY (`career_id`) REFERENCES `career` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: UPDATE `career_options` SET `id`=:yp0, `title`=:yp1, `description`=:yp2, `image`=:yp3, `add_date`=:yp4, `modification_date`=:yp5, `published`=:yp6, `status`=:yp7, `career_id`=:yp8, `rating`=:yp9 WHERE `career_options`.`id`=192' in C:\xampp\htdocs\gudaak\framework\db\CDbCommand.php:354
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\db\ar\CActiveRecord.php(1681): CDbCommand->execute()
+#1 C:\xampp\htdocs\gudaak\framework\db\ar\CActiveRecord.php(1061): CActiveRecord->updateByPk('192', Array)
+#2 C:\xampp\htdocs\gudaak\framework\db\ar\CActiveRecord.php(787): CActiveRecord->update(NULL)
+#3 C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php(315): CActiveRecord->save()
+#4 [internal function]: CareerOptionsController->actionUpdate('192')
+#5 C:\xampp\htdocs\gudaak\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(CareerOptionsController), Array)
+#6 C:\xampp\htdocs\gudaak\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(CareerOptionsController), Object(ReflectionMethod), Array)
+#7 C:\xampp\htdocs\gudaak\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 C:\xampp\htdocs\gudaak\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 C:\xampp\htdocs\gudaak\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\gudaak\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\gudaak\framework\web\CController.php(292): CFilterChain->run()
+#14 C:\xampp\htdocs\gudaak\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): CController->run('update')
+#16 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/careerOpt...')
+#17 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/index.php?r=admin/careerOptions/update&id=192
+HTTP_REFERER=http://www.gudaak.com/index.php?r=admin/careerOptions/update&id=192
+---
+2014/05/20 18:06:50 [warning] [application] Failed to set unsafe attribute "career_categories_id" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 18:06:50 [warning] [application] Failed to set unsafe attribute "oldImage" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 18:06:50 [warning] [application] Failed to set unsafe attribute "subjects" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 18:06:50 [warning] [application] Failed to set unsafe attribute "streams" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 18:13:45 [warning] [application] Failed to set unsafe attribute "career_categories_id" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (161)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 18:13:45 [warning] [application] Failed to set unsafe attribute "subjects" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (161)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 18:13:45 [warning] [application] Failed to set unsafe attribute "streams" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (161)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 18:22:11 [warning] [application] Failed to set unsafe attribute "career_categories_id" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 18:22:11 [warning] [application] Failed to set unsafe attribute "oldImage" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 18:22:11 [warning] [application] Failed to set unsafe attribute "subjects" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 18:22:11 [warning] [application] Failed to set unsafe attribute "streams" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 20:33:15 [warning] [application] Failed to set unsafe attribute "career_categories_id" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 20:33:15 [warning] [application] Failed to set unsafe attribute "oldImage" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 20:33:15 [warning] [application] Failed to set unsafe attribute "subjects" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 20:33:15 [warning] [application] Failed to set unsafe attribute "streams" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 20:51:44 [warning] [application] Failed to set unsafe attribute "career_categories_id" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 20:51:44 [warning] [application] Failed to set unsafe attribute "oldImage" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 20:51:44 [warning] [application] Failed to set unsafe attribute "subjects" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 20:51:44 [warning] [application] Failed to set unsafe attribute "streams" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 20:51:44 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`gudaak`.`career_options`, CONSTRAINT `fk_career_options_career1` FOREIGN KEY (`career_id`) REFERENCES `career` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: UPDATE `career_options` SET `id`=:yp0, `title`=:yp1, `description`=:yp2, `image`=:yp3, `add_date`=:yp4, `modification_date`=:yp5, `published`=:yp6, `status`=:yp7, `career_id`=:yp8, `rating`=:yp9 WHERE `career_options`.`id`=185.
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (315)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 20:51:44 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`gudaak`.`career_options`, CONSTRAINT `fk_career_options_career1` FOREIGN KEY (`career_id`) REFERENCES `career` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION). The SQL statement executed was: UPDATE `career_options` SET `id`=:yp0, `title`=:yp1, `description`=:yp2, `image`=:yp3, `add_date`=:yp4, `modification_date`=:yp5, `published`=:yp6, `status`=:yp7, `career_id`=:yp8, `rating`=:yp9 WHERE `career_options`.`id`=185' in C:\xampp\htdocs\gudaak\framework\db\CDbCommand.php:354
+Stack trace:
+#0 C:\xampp\htdocs\gudaak\framework\db\ar\CActiveRecord.php(1681): CDbCommand->execute()
+#1 C:\xampp\htdocs\gudaak\framework\db\ar\CActiveRecord.php(1061): CActiveRecord->updateByPk('185', Array)
+#2 C:\xampp\htdocs\gudaak\framework\db\ar\CActiveRecord.php(787): CActiveRecord->update(NULL)
+#3 C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php(315): CActiveRecord->save()
+#4 [internal function]: CareerOptionsController->actionUpdate('185')
+#5 C:\xampp\htdocs\gudaak\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(CareerOptionsController), Array)
+#6 C:\xampp\htdocs\gudaak\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(CareerOptionsController), Object(ReflectionMethod), Array)
+#7 C:\xampp\htdocs\gudaak\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 C:\xampp\htdocs\gudaak\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 C:\xampp\htdocs\gudaak\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#11 C:\xampp\htdocs\gudaak\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\xampp\htdocs\gudaak\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\xampp\htdocs\gudaak\framework\web\CController.php(292): CFilterChain->run()
+#14 C:\xampp\htdocs\gudaak\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(276): CController->run('update')
+#16 C:\xampp\htdocs\gudaak\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/careerOpt...')
+#17 C:\xampp\htdocs\gudaak\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 C:\xampp\htdocs\gudaak\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/index.php?r=admin/careerOptions/update&id=185
+HTTP_REFERER=http://www.gudaak.com/index.php?r=admin/careerOptions/update&id=185
+---
+2014/05/20 20:52:13 [warning] [application] Failed to set unsafe attribute "career_categories_id" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 20:52:13 [warning] [application] Failed to set unsafe attribute "oldImage" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 20:52:13 [warning] [application] Failed to set unsafe attribute "subjects" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 20:52:13 [warning] [application] Failed to set unsafe attribute "streams" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 21:08:27 [warning] [application] Failed to set unsafe attribute "oldImage" of "CareerDetails".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerDetailsController.php (196)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 22:04:04 [warning] [application] Failed to set unsafe attribute "oldImage" of "CareerDetails".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerDetailsController.php (196)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 22:11:00 [warning] [application] Failed to set unsafe attribute "oldImage" of "CareerDetails".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerDetailsController.php (196)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 22:11:53 [warning] [application] Failed to set unsafe attribute "oldImage" of "CareerDetails".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerDetailsController.php (196)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 23:00:53 [warning] [application] Failed to set unsafe attribute "oldImage" of "CareerDetails".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerDetailsController.php (196)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 23:03:47 [warning] [application] Failed to set unsafe attribute "oldImage" of "CareerDetails".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerDetailsController.php (128)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 23:04:03 [warning] [application] Failed to set unsafe attribute "oldImage" of "CareerDetails".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerDetailsController.php (128)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 23:04:38 [warning] [application] Failed to set unsafe attribute "oldImage" of "CareerDetails".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerDetailsController.php (128)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 23:06:28 [warning] [application] Failed to set unsafe attribute "oldImage" of "CareerDetails".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerDetailsController.php (196)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 23:17:52 [warning] [application] Failed to set unsafe attribute "oldImage" of "Career".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerController.php (150)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 23:17:52 [warning] [application] Failed to set unsafe attribute "streams" of "Career".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerController.php (150)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 23:22:04 [warning] [application] Failed to set unsafe attribute "oldImage" of "Career".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerController.php (150)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 23:22:04 [warning] [application] Failed to set unsafe attribute "streams" of "Career".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerController.php (150)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 23:27:43 [warning] [application] Failed to set unsafe attribute "oldImage" of "Career".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerController.php (150)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 23:27:43 [warning] [application] Failed to set unsafe attribute "streams" of "Career".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerController.php (150)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 23:28:06 [warning] [application] Failed to set unsafe attribute "oldImage" of "Career".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerController.php (150)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 23:28:06 [warning] [application] Failed to set unsafe attribute "streams" of "Career".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerController.php (150)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 23:30:13 [warning] [application] Failed to set unsafe attribute "career_categories_id" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 23:30:13 [warning] [application] Failed to set unsafe attribute "oldImage" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 23:30:13 [warning] [application] Failed to set unsafe attribute "subjects" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 23:30:13 [warning] [application] Failed to set unsafe attribute "streams" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 23:32:41 [warning] [application] Failed to set unsafe attribute "career_categories_id" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 23:32:41 [warning] [application] Failed to set unsafe attribute "oldImage" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 23:32:41 [warning] [application] Failed to set unsafe attribute "subjects" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 23:32:41 [warning] [application] Failed to set unsafe attribute "streams" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 23:35:41 [warning] [application] Failed to set unsafe attribute "career_categories_id" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 23:35:41 [warning] [application] Failed to set unsafe attribute "oldImage" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 23:35:41 [warning] [application] Failed to set unsafe attribute "subjects" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/20 23:35:41 [warning] [application] Failed to set unsafe attribute "streams" of "CareerOptions".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerOptionsController.php (266)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/21 08:57:39 [warning] [application] Failed to set unsafe attribute "oldImage" of "Career".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerController.php (150)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/21 08:57:39 [warning] [application] Failed to set unsafe attribute "streams" of "Career".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerController.php (150)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/21 08:59:34 [warning] [application] Failed to set unsafe attribute "oldImage" of "Career".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerController.php (150)
+in C:\xampp\htdocs\gudaak\index.php (13)
+2014/05/21 08:59:34 [warning] [application] Failed to set unsafe attribute "streams" of "Career".
+in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerController.php (150)
+in C:\xampp\htdocs\gudaak\index.php (13)

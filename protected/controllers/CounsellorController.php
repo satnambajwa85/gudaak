@@ -227,7 +227,7 @@ class CounsellorController extends Controller
 		if(isset($_POST['action']) && $_POST['action']=='content'){
 			$userId		=	$_POST['user'];
 			$session	=	$_POST['session'];
-			$userAns	=	UserHasSessionAns::model()->findAllByAttributes(array('user_id'=>$userId));
+			$userAns	=	UserSessionQuestions::model()->findAllByAttributes(array('user_id'=>$userId));
 			$answ		=	array();
 			foreach($userAns as $list){
 				$answ[$list->session_question_id]	=	$list->answers;

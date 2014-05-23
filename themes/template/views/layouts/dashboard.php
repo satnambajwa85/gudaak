@@ -83,7 +83,7 @@ Yii::app()->clientScript->registerScript(
 						 
 				
 			</div>
-			<div class="row white mr0">
+			<div class="white mr0">
 				 
 				<?php echo $content;?>
 
