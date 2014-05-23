@@ -83,13 +83,10 @@ background-image: url("../images/01_Home_Slider_1.jpg");
 .mid_lef_heading em{ font-style:normal; color:#eb8a2b !important;font-family: robotomedium;}
 .mid_left_bot{ float:left; width:100%; margin-top:120px; background:url(../images/personality.png) no-repeat;
  min-height:280px;background-size:contain;}
-.middle_center{float: left;left: 78px;position: relative;top: 40px;width: 26%;}
+.middle_center{float: left;left: -3%;position: relative;top: 40px;width: 26%;}
 .middle_center img{float: left;left: 22px;position: relative;top: 0px;}
 .middle_center2{float:left; width:29.50%; position:relative;}
-.middle_center-index2{  float: left;
-    left: 33%;
-    position: absolute;
-    top: 130px;}
+.middle_center-index2{  float: left;left: 35%;position: absolute;top: 130px;}
 .middle_center2 img{float:right; margin-top:-37px;}
 .middle_right{float:right; width:33%;}
 .mid_right_bot{ float:left; width:100%; margin-top:111px; background:url("../images/interest.png") no-repeat scroll 100% 0 / contain  rgba(0, 0, 0, 0); min-height:300px;}
@@ -294,7 +291,7 @@ background-image: url("../images/01_Home_Slider_1.jpg");
 .top{top:5px;}
 .left-position{left:97px;top:-66px;}
 .s-img-left{left:75px;}
-.middle_center-index3{float: left; left: 32%; position: absolute; top: 125px; width: 26%;}
+.middle_center-index3{float: left; left: 35%; position: absolute; top: 125px; width: 26%;}
 .mt60{margin-top:57px}
 .li-white-text li a{color:#F5F5F5 !Important;}
 .mb58{margin-bottom:82px;}
