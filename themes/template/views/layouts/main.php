@@ -22,12 +22,15 @@
 	if($action=='index4'){
 		$css	=	'main';
 	}
-	if($action=='index3'){
+	if($action=='approach'){
 		$css	=	'index2';
 	}
-	if($action=='index2'){
+	if($action=='explore'){
 		$css	=	'index2';
 	}	
+	if($action=='assess'){
+		$css	=	'index';
+	}
 	if($action=='index'){
 		$css	=	'index';
 	}	
@@ -77,26 +80,7 @@
 					</div>
 				</div>
 			</div>
-		 
-		   <!-- Static navbar -->
-		<!-- <div class="navbar navbar-default">
-		        <div class="navbar-header">
-		          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-		            <span class="icon-bar"></span>
-		            <span class="icon-bar"></span>
-		            <span class="icon-bar"></span>
-		          </button>
-		         
-		        </div>
-		        <div class="navbar-collapse collapse">
-		         
-
-		          
-				 
-		        </div>
-		  </div>-->
-   
-    <!-- Main jumbotron for a primary marketing message or call to action -->
+		 <!-- Main jumbotron for a primary marketing message or call to action -->
        	<div id="renderpartial" class="site-container">
 	   <?php echo $content;?>
 	   </div>
@@ -105,11 +89,11 @@
         	<div class="footer_2">
             	<div class="footer_2left">
                 	<span>
-                    <?php if($action=='index'||$action=='index2'||$action=='index3'){ ?>
+                    <?php if($action=='assess'||$action=='explore'||$action=='approach'||$action=='index'){ ?>
                     
-                    	<?php echo CHtml::link('',array('site/index'),array('class'=>''.(Yii::app()->controller->action->id=='index')?'assestActive':'assest1'.'','data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Assess'));?>
-						<?php echo CHtml::link('<i class="icon-globe"></i>',array('site/index2'),array('class'=>''.(Yii::app()->controller->action->id=='index2')?'assest2Active':'assest2'.'','data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Explore'));?>
-						<?php echo CHtml::link('B',array('site/index3'),array('class'=>''.(Yii::app()->controller->action->id=='index3')?'assest3Active cup':'assest3 cup'.'','data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Approach'));?>
+                    	<?php echo CHtml::link('',array('site/assess'),array('class'=>''.(Yii::app()->controller->action->id=='assess')?'assestActive':'assest1'.'','data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Assess'));?>
+						<?php echo CHtml::link('<i class="icon-globe"></i>',array('site/explore'),array('class'=>''.(Yii::app()->controller->action->id=='explore')?'assest2Active':'assest2'.'','data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Explore'));?>
+						<?php echo CHtml::link('B',array('site/approach'),array('class'=>''.(Yii::app()->controller->action->id=='approach')?'assest3Active cup':'assest3 cup'.'','data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Approach'));?>
 						
                         <?php } ?>
                     </span>

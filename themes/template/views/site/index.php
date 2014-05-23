@@ -21,12 +21,7 @@
                     	<a href="javascript:void(0);"></a>
                     </div>
                     <div class="mid_right_buttn ">
-					<?php echo CHtml::link('What Next<img src="'. Yii::app()->theme->baseUrl.'/images/what_next.png" alt="What Next" />',array('site/index2'),array('class'=>'whatnext'));?>
-                        
-						
-                       <!-- <a href="javascript:void(0);" class="whatnext">Let's Talk
-                            <img src="images/what_next.png" />
-                        </a>-->
+					<?php echo CHtml::link('What Next<img src="'. Yii::app()->theme->baseUrl.'/images/what_next.png" alt="What Next" />',array('site/assess'),array('class'=>'whatnext'));?>
                     </div>
                 </div>
             </div>
