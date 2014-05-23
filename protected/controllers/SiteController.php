@@ -42,18 +42,21 @@ class SiteController extends Controller
 	}
 	public function actionIndex()
 	{
-		
 		$this->render('index');
-	}	
-	public function actionIndex2()
-	{
-		
-		$this->render('index2');
 	}
-	public function actionIndex3()
+	public function actionAssess()
+	{
+		$this->render('assess');
+	}	
+	public function actionExplore()
 	{
 		
-		$this->render('index3');
+		$this->render('explore');
+	}
+	public function actionApproach()
+	{
+		
+		$this->render('approach');
 	}
 	public function actionIndex4()
 	{
