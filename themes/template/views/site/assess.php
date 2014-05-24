@@ -20,8 +20,8 @@
                     <div class="interest_next">
                     	<a href="javascript:void(0);"></a>
                     </div>
-                    <div class="mid_right_buttn ">
-					<?php echo CHtml::link('What Next<img src="'. Yii::app()->theme->baseUrl.'/images/what_next.png" alt="What Next" />',array('site/explore'),array('class'=>'whatnext'));?>
+                    <div class="mid_right_buttn">
+					<?php echo CHtml::link('<img src="'. Yii::app()->theme->baseUrl.'/images/what_next.png" alt="What Next" />',array('site/explore'),array('class'=>''));?>
                     </div>
                 </div>
             </div>

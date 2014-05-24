@@ -45,11 +45,14 @@
                             
 								</div>
                         </div>
-                        <div class="index-2back">
-								   <?php echo CHtml::link('<img src="'. Yii::app()->theme->baseUrl.'/images/what_next.png" alt="Back" class="back_arrow" />Back',array('site/explore'),array('class'=>'whatnext'));?>
-                    </div>
+                        
                     
                         </div>
+                        
+                        
+                     <div class="index-2back">
+								   <?php echo CHtml::link('<img src="'. Yii::app()->theme->baseUrl.'/images/what_next.png" alt="Back" class="back_arrow" />',array('site/explore'),array('class'=>''));?>
+                    </div>   
                 </div>
             	<div class="middle_center-index3">
                 

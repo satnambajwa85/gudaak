@@ -27,15 +27,14 @@
                             	<p>A profession of arms</p>
                             </span>
 						</div>
-                        <div class="index-2back">
-								   <?php echo CHtml::link('<img src="'. Yii::app()->theme->baseUrl.'/images/what_next.png" alt="Back" class="back_arrow" />Back',array('site/assess'),array('class'=>'whatnext'));?>
-                        </div>
+                        
                     </div>
+                    <div class="index-2back">
+								   <?php echo CHtml::link('<img src="'. Yii::app()->theme->baseUrl.'/images/what_next.png" alt="Back" class="back_arrow" />',array('site/assess'),array('class'=>''));?>
+                        </div>
                 </div>
             	<div class="middle_center-index2 ">
                 	<img src="<?php echo Yii::app()->theme->baseurl;?>/images/center-arrow.png"/>
-                	<!--<img class="student-img" src="<?php //echo Yii::app()->theme->baseurl;?>/images/index-page2.png"/>-->
-                	 
                 </div>
                 <div class="middle_right">
                 	<div class="fashion_right">
@@ -66,15 +65,17 @@
                             	<h3>TEACHER </h3>
                             	<p>A profession that creates all others professions</p>
                             </span>
-								<div class=" mid_right_buttn-index2 pull-right w-next-btn-index-2">
-								   <?php echo CHtml::link('What Next<img src="'. Yii::app()->theme->baseUrl.'/images/what_next.png" alt="What Next" />',array('site/approach'),array('class'=>'whatnext'));?>
-							   
-								 
-						</div>		
+										
                         </div>
 					
                     </div>
-
+					
+                    <div class="mid_right_buttn">
+								   <?php echo CHtml::link('<img src="'. Yii::app()->theme->baseUrl.'/images/what_next.png" alt="What Next" />',array('site/approach'),array('class'=>''));?>
+							   
+								 
+						</div>
+                    
                 </div>
             </div>
         </div>
