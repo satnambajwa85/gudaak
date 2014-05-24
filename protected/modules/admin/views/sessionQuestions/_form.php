@@ -11,7 +11,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'session_id'); ?>
-		<?php echo $form->textField($model,'session_id'); ?>
+         <?php 	echo $form->dropDownList($model,'session_id',CHtml::listData(Session::model()->findAll(),'id','title'));?>
 		<?php echo $form->error($model,'session_id'); ?>
 	</div>
 
@@ -29,7 +29,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'controller_type'); ?>
-		<?php echo $form->textField($model,'controller_type',array('size'=>60,'maxlength'=>200)); ?>
+		<?php echo $form->dropDownList($model,'controller_type',array('text'=>'Text box','select'=>'Drop down','radio'=>'Radio button'));?>
 		<?php echo $form->error($model,'controller_type'); ?>
 	</div>
 
