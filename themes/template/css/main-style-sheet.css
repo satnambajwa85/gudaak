@@ -301,17 +301,13 @@ background-image: url("../images/01_Home_Slider_1.jpg");
 .about-fix{min-height:600px;}
 .w-next-btn{ left: 67px; position: relative; top: -58px;}
 .teacher-img{width:53px;}
-.w-next-btn-index-2 {  right: -101px;
-    position: relative;
-    top: -32px;
-    width: 195px;}
-.mid_right_buttn{float: right; margin-right: 11px; margin-top: -30px; right: -2px; top: 0; width: 195px;}
-	.mid_right_buttn-index2{}
+.mid_right_buttn{bottom: 20%;right: 10%; position: absolute;}
+.mid_right_buttn-index2{}
 .student-img{    left: 157px;
     position: absolute;
     top: -90px;}
 .mb50{margin-bottom:26px;}
-.index-2back{bottom: -18px; left: -52px; position: absolute;}
+.index-2back{bottom: 20%;left: 10%; position: absolute;}
 .back_arrow
 {
 	transform:rotate(180deg);
