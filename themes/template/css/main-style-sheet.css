@@ -83,7 +83,7 @@ background-image: url("../images/01_Home_Slider_1.jpg");
 .mid_lef_heading em{ font-style:normal; color:#eb8a2b !important;font-family: robotomedium;}
 .mid_left_bot{ float:left; width:100%; margin-top:120px; background:url(../images/personality.png) no-repeat;
  min-height:280px;background-size:contain;}
-.middle_center{float: left; left: 0%; position: relative; top:-11% !important; width: 26%;}
+.middle_center{float: left; left: 35%; position: absolute; top:12%; width: 26%;}
 .middle_center img{float: left;left: 22px;position: relative;top: 0px;}
 .middle_center2{float:left; width:29.50%; position:relative;}
 .middle_center-index2{  float: left;left: 35%;position: absolute;top: 20%;}
