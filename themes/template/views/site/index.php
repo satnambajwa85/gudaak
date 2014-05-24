@@ -1,29 +1,25 @@
 <div id="middle_outr">
     	<div class="middle_cont">
         	<div class="middle">
-            	<div class="middle_left">
-                	<div class="mid_lef_heading">
-                    	Assess to <em>"Know Yourself"</em>
-                    </div>
-                    <div class="mid_left_bot ">
-						 
-						
-					</div>
+            	<div class="mid_lef_heading col-md-7">
+                    	Now <em>Sign Up for free</em> to start designing your career path...
                 </div>
-            	<div class="middle_center">
-                	<img src="<?php echo Yii::app()->theme->baseUrl;?>/images/center.png"/>
-                </div>
-                <div class="middle_right">
-                	<div class="mid_right_bot">
-					 
-					</div>
-                    <div class="interest_next">
-                    	<a href="javascript:void(0);"></a>
+				<div class="col-md-7 fl">
+                	<div class="home_left_top col-md-12">
+                    	<div class="col-md-4 pd20"><img width="100%" src="<?php echo Yii::app()->theme->baseUrl;?>/images/pic2.png" /></div>
+                        <div class="col-md-4 pd20 col-sm-offset-0"><img width="100%" src="<?php echo Yii::app()->theme->baseUrl;?>/images/pic3.png" /></div>
+                        <div class="col-md-4 pd20 col-sm-offset-0"><img width="100%" src="<?php echo Yii::app()->theme->baseUrl;?>/images/pic6.png" /></div>
                     </div>
-                    <div class="mid_right_buttn ">
-					<?php echo CHtml::link('What Next<img src="'. Yii::app()->theme->baseUrl.'/images/what_next.png" alt="What Next" />',array('site/assess'),array('class'=>'whatnext'));?>
+                    <div class="home_left_down">
+                    	<div class="col-md-4 pd20"><img width="100%" src="<?php echo Yii::app()->theme->baseUrl;?>/images/pic5.png" /></div>
+                        <div class="col-md-4 pd20 col-sm-offset-0"><img width="100%" src="<?php echo Yii::app()->theme->baseUrl;?>/images/pic4.png" /></div>
+                        <div class="col-md-4 pd20 col-sm-offset-0"><img width="100%" src="<?php echo Yii::app()->theme->baseUrl;?>/images/pic1.png" /></div>
                     </div>
                 </div>
+                <div class="col-md-5 fr mt50">
+                	<iframe width="100%" height="300" frameborder="0" allowfullscreen="" src="//www.youtube.com/embed/IM1gq5j1hBI?rel=0"></iframe>
+                </div>
+                
             </div>
         </div>
     </div>
