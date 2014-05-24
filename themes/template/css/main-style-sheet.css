@@ -83,10 +83,10 @@ background-image: url("../images/01_Home_Slider_1.jpg");
 .mid_lef_heading em{ font-style:normal; color:#eb8a2b !important;font-family: robotomedium;}
 .mid_left_bot{ float:left; width:100%; margin-top:120px; background:url(../images/personality.png) no-repeat;
  min-height:280px;background-size:contain;}
-.middle_center{float: left;left: -3%;position: relative;top: 40px;width: 26%;}
+.middle_center{float: left; left: 0%; position: relative; top:-11% !important; width: 26%;}
 .middle_center img{float: left;left: 22px;position: relative;top: 0px;}
 .middle_center2{float:left; width:29.50%; position:relative;}
-.middle_center-index2{  float: left;left: 35%;position: absolute;top: 130px;}
+.middle_center-index2{  float: left;left: 35%;position: absolute;top: 20%;}
 .middle_center2 img{float:right; margin-top:-37px;}
 .middle_right{float:right; width:33%;}
 .mid_right_bot{ float:left; width:100%; margin-top:111px; background:url("../images/interest.png") no-repeat scroll 100% 0 / contain  rgba(0, 0, 0, 0); min-height:300px;}
@@ -468,3 +468,12 @@ opacity: 0.85;
 .artical h1{color: #F7A944;font-size: 15px;font-family: robotomedium}
 .artical h3{margin:0;color: #21C4C1;font-size: 15px;text-transform: capitalize;font-family: robotomedium}
 .artical span{margin:0;color: #666;font-size: 12px;font-family: robotomedium}
+.home_left_top{margin-top:5%;}
+.pd20{ padding:20px !important;}
+	
+.Pic1{background: url("../images/pic2.png") no-repeat scroll 0 0 / 195px 99px rgba(0, 0, 0, 0); height:150px; float:left}
+.Pic2{background: url("../images/pic3.png") no-repeat scroll 0 0 / 195px 99px rgba(0, 0, 0, 0); height:150px; float:left}
+.Pic3{background: url("../images/pic6.png") no-repeat scroll 0 0 / 195px 99px rgba(0, 0, 0, 0); height:150px; float:left}
+.Pic4{background: url("../images/pic5.png") no-repeat scroll 0 0 / 195px 99px rgba(0, 0, 0, 0); height:150px; float:left}
+.Pic5{background: url("../images/pic4.png") no-repeat scroll 0 0 / 195px 99px rgba(0, 0, 0, 0); height:150px; float:left}
+.Pic6{background: url("../images/pic1.png") no-repeat scroll 0 0 / 195px 99px rgba(0, 0, 0, 0); height:150px; float:left}
