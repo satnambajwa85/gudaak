@@ -105,12 +105,28 @@ background-image: url("../images/01_Home_Slider_1.jpg");
 .footer_2{float:left; width:100%;}
 .footer_2left{ float:left; width:50%;}
 .footer_2left span{ float:left; width:100%;}
-.assestActive{ float:left; width:30px; height:25px;background:url("../images/sprite.png") no-repeat scroll -3px -2px / 76px 342px rgba(0, 0, 0, 0);}
+
+#footer_2 span a{float:left; font-size:12px; width:auto; color:#333;}
+#footer_2 span a:hover{text-decoration:underline; color:#256767;}
+
+/*.assestActive{ float:left; width:30px; height:25px;background:url("../images/sprite.png") no-repeat scroll -3px -2px / 76px 342px rgba(0, 0, 0, 0);}
 .assest1{ float:left; width:30px; height:25px; background:url("../images/sprite.png") no-repeat scroll -2px -27px / 76px 342px rgba(0, 0, 0, 0);}
 .assest2{font-size:23px;position:relative;top:-4px;float:left;width:26px;}
 .assest2Active i{color:#EB8A2B;float:left;width:26px;font-size:23px;}
 .assest3Active i{color:#EB8A2B;float:left;width:26px;font-size:19px;}
 .assest3{font-size:19px;float:left;}
+*/
+
+.assestActive{background: url("../images/sprite1.png") no-repeat scroll 31px -60px rgba(0, 0, 0, 0); float: left; height: 60px; width: 172px;background-size:
+30%;margin-top: -50px;}
+.assest1{ background: url("../images/sprite1.png") no-repeat scroll 31px 6px rgba(0, 0, 0, 0); float: left; height: 60px; width: 172px;background-size:30%;margin-top: -50px;}
+
+.assestActive2{background: url("../images/sprite2.png") no-repeat scroll 31px -62px rgba(0, 0, 0, 0); float: left; height: 70px; width: 172px;background-size:40%;margin-top: -50px;}
+.assest2{ background: url("../images/sprite2.png") no-repeat scroll 31px 6px rgba(0, 0, 0, 0); float: left; height: 68px; width: 172px;background-size:40%;margin-top: -50px;}
+
+.assestActive3{background: url("../images/sprite3.png") no-repeat scroll 31px -65px rgba(0, 0, 0, 0); float: left; height: 99px; width: 172px;background-size:38%}
+.assest3{ background: url("../images/sprite3.png") no-repeat scroll 31px 6px rgba(0, 0, 0, 0); float: left; height: 70px; width: 172px;background-size:40%}
+
 .footer_2 ul{float:left; width:100%; padding-top:10px; padding-bottom:2px;}
 .footer_2 ul li{float:left; width:auto; color:#333; margin-right:6px;}
 .footer_2 ul li a{float:left; font-size:12px; width:auto; color:#333;}

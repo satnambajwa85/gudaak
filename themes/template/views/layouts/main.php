@@ -19,110 +19,81 @@
     <![endif]-->
 <?php $action	=	Yii::app()->controller->action->id;
 	$css	='';
-	if($action=='index4'){
+	if($action=='index4')
 		$css	=	'main';
-	}
-	if($action=='approach'){
+	if($action=='approach')
 		$css	=	'index2';
-	}
-	if($action=='explore'){
+	if($action=='explore')
 		$css	=	'index2';
-	}	
-	if($action=='assess'){
+	if($action=='assess')
 		$css	=	'index';
-	}
-	if($action=='index'){
+	if($action=='index')
 		$css	=	'index';
-	}	
-	if($action=='schools'||$action=='students'||$action=='why'||$action=='what'||$action=='error'||$action=='articals'){
-		$css	=	'erternalPages';
-	}
-	
-
-?>
-  </head>
+	if($action=='schools'||$action=='students'||$action=='why'||$action=='what'||$action=='error'||$action=='articals')
+		$css	=	'erternalPages';?>
+</head>
 <body id="<?php echo $css;?>" style="width:1347px; margin:0 auto; ">
 	<div>
-			<div id="">
-				<div id="header_cont">
-					<div class="header">
-						<ul class="left_nav1">
-							<li><?php echo CHtml::link('Why Gudaak',array('site/why'),array('class'=>''.(Yii::app()->controller->action->id=='why')?'white-text':''.''));?></li>
-							<li><?php echo CHtml::link('What is Gudaak',array('site/what'),array('class'=>''.(Yii::app()->controller->action->id=='what')?'white-text':''.''))?></li>
-							
-						</ul>
-						<ul class="center-logo">
-							<li><?php echo CHtml::link('<img src="'. Yii::app()->theme->baseUrl.'/images/logo2.png" alt="logo" />',array('/'),array('class'=>'logo'));?></li>
-						</ul>
-						
-                  	<ul class="right_nav">
-						
-							
-						
-						
-						<li><?php echo CHtml::link('School',array('site/schools'),array('class'=>''.(Yii::app()->controller->action->id=='schools')?'white-text':''.''));?></li>
-						<li><?php echo CHtml::link('Student/Parents',array('site/students'),array('class'=>''.(Yii::app()->controller->action->id=='students')?'white-text':''.''));?></li>
-                         <?php if(isset(Yii::app()->user->id) && isset(Yii::app()->user->userType) && (Yii::app()->user->userType=='upper11th' or Yii::app()->user->userType=='admin' or Yii::app()->user->userType=='below10th' or Yii::app()->user->userType=='school')){ ?>
-					 <li>
-						<?php if(Yii::app()->user->userType=='school'){?>
-						<?php echo CHtml::link('&nbsp;<i class="glyphicon glyphicon-user"></i> Dashboard',array('school/'),array('class'=>'join_us'));?></li>
-                    <?php }else{ ?>
-						<?php echo CHtml::link('&nbsp;<i class="glyphicon glyphicon-user"></i> Dashboard',array('user/'),array('class'=>'join_us'));?></li>
-                    <?php } ?>
-					<li><?php echo CHtml::link('&nbsp;<i class="glyphicon glyphicon-off"></i> Logout',array('site/logout'),array('class'=>'join_us'));?></li>
-							<?php } else{ ?>
-					<li><?php echo CHtml::link('Join Us!','javaScript:void(0);',array('class'=>'join_us home-login-box'));?></li>
-					<li><?php echo CHtml::link('Login','#',array('class'=>'join_us login-boot-box login_us'));?></li>
-						<?php	} ?>       
-			 
-					
+		<div id="">
+			<div id="header_cont">
+				<div class="header">
+					<ul class="left_nav1">
+	<li><?php echo CHtml::link('Why Gudaak',array('site/why'),array('class'=>''.(Yii::app()->controller->action->id=='why')?'white-text':''.''));?></li>
+	<li><?php echo CHtml::link('What is Gudaak',array('site/what'),array('class'=>''.(Yii::app()->controller->action->id=='what')?'white-text':''.''))?></li>
 					</ul>
-					</div>
+					<ul class="center-logo">
+	<li><?php echo CHtml::link('<img src="'. Yii::app()->theme->baseUrl.'/images/logo2.png" alt="logo" />',array('/'),array('class'=>'logo'));?></li>
+					</ul>
+					<ul class="right_nav">
+	<li><?php echo CHtml::link('School',array('site/schools'),array('class'=>''.(Yii::app()->controller->action->id=='schools')?'white-text':''.''));?></li>
+	<li><?php echo CHtml::link('Student/Parents',array('site/students'),array('class'=>''.(Yii::app()->controller->action->id=='students')?'white-text':''.''));?></li>
+	<?php if(isset(Yii::app()->user->id) && isset(Yii::app()->user->userType) && (Yii::app()->user->userType=='upper11th' or Yii::app()->user->userType=='admin' or Yii::app()->user->userType=='below10th' or Yii::app()->user->userType=='school')){ ?>
+	<li><?php if(Yii::app()->user->userType=='school'){ echo CHtml::link('&nbsp;<i class="glyphicon glyphicon-user"></i> Dashboard',array('school/'),array('class'=>'join_us'));?></li>
+	<?php }else{ echo CHtml::link('&nbsp;<i class="glyphicon glyphicon-user"></i> Dashboard',array('user/'),array('class'=>'join_us'));?></li>
+	<?php } ?>
+	<li><?php echo CHtml::link('&nbsp;<i class="glyphicon glyphicon-off"></i> Logout',array('site/logout'),array('class'=>'join_us'));?></li>
+	<?php } else{ ?>
+	<li><?php echo CHtml::link('Join Us!','javaScript:void(0);',array('class'=>'join_us home-login-box'));?></li>
+	<li><?php echo CHtml::link('Login','#',array('class'=>'join_us login-boot-box login_us'));?></li>
+    <?php	} ?>       
+    				</ul>
 				</div>
 			</div>
-		 <!-- Main jumbotron for a primary marketing message or call to action -->
-       	<div id="renderpartial" class="site-container">
-	   <?php echo $content;?>
-	   </div>
-    <div id="footer_2">
-    	<div id="footer_cont">
-        	<div class="footer_2">
-            	<div class="footer_2left">
-                	<span>
-                    <?php if($action=='assess'||$action=='explore'||$action=='approach'||$action=='index'){ ?>
-                    
-                    	<?php echo CHtml::link('',array('site/assess'),array('class'=>''.(Yii::app()->controller->action->id=='assess')?'assestActive':'assest1'.'','data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Assess'));?>
-						<?php echo CHtml::link('<i class="icon-globe"></i>',array('site/explore'),array('class'=>''.(Yii::app()->controller->action->id=='explore')?'assest2Active':'assest2'.'','data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Explore'));?>
-						<?php echo CHtml::link('B',array('site/approach'),array('class'=>''.(Yii::app()->controller->action->id=='approach')?'assest3Active cup':'assest3 cup'.'','data-toggle'=>'tooltip','data-placement'=>'bottom','title'=>'Approach'));?>
-						
-                        <?php } ?>
-                    </span>
-                   <ul>
-					<li><?php //echo CHtml::link('Articles',array('site/articles'))?></li>
-                        <!-- <li><?php echo CHtml::link('Home',array('site/'))?></li>
-						<li><a href="javascript:void(0);">|</a></li>
-						<li><?php echo CHtml::link('About',array('site/about'))?></li>
-                      	<li><a href="javascript:void(0);">|</a></li>
-                        <li><?php echo CHtml::Ajaxlink('FAQs','javascript:void(0);');?>
-                        </li>
-                        <li><a href="javascript:void(0);">|</a></li>
-                        <li><?php echo CHtml::link('Contact',array('site/contact'))?></li>-->
-                    </ul>
-                </div>
-                <div class="footer_2right">
-                	<ul>
-                    	<li><a href="<?php echo Yii::app()->session['setting']['fb_link'];?>" target="_blank" class="fb_icon"></a></li>
-                        <li><a href="<?php echo Yii::app()->session['setting']['twittwe_link'];?>" target="_blank" class="tw_icon"></a></li>
-                        <li><a href="<?php echo Yii::app()->session['setting']['linkedin_link'];?>" target="_blank" class="li_icon"></a></li>
-                    </ul>
-                    <p>&copy; Gudaak.com</p>
-                </div>
-            </div>
-        </div>
-    </div>
-	 
-
-	 </div>
+		</div>
+		<!-- Main jumbotron for a primary marketing message or call to action -->
+		<div id="renderpartial" class="site-container">
+			<?php echo $content;?>
+		</div>
+		<div id="footer_2">
+			<div style="float:left; width:100%; padding-left:32%; padding-top:5%;">
+				<span">
+					<?php if($action=='assess'||$action=='explore'||$action=='approach'||$action=='index'){
+						echo CHtml::link('',array('site/assess'),array('class'=>''.(Yii::app()->controller->action->id=='assess')?'assestActive':'assest1'.'','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'Assess'));
+						echo CHtml::link('',array('site/explore'),array('class'=>''.(Yii::app()->controller->action->id=='explore')?'assestActive3':'assest3'.'','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'Explore'));
+						echo CHtml::link('',array('site/approach'),array('class'=>''.(Yii::app()->controller->action->id=='approach')?'assestActive2':'assest2'.'','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'Approach'));
+					} ?>
+				</span>
+			</div>
+			<div id="footer_cont">
+				<div class="footer_2">
+					<div class="footer_2left">
+						<ul>
+							<li><?php //echo CHtml::link('Articles',array('site/articles'))?></li>
+                            <!--<li><a href="javascript:void(0);">|</a></li><li><?php echo CHtml::link('Contact',array('site/contact'))?></li>-->
+						</ul>
+					</div>
+                	<div class="footer_2right">
+                		<ul>
+                    		<li><a href="<?php echo Yii::app()->session['setting']['fb_link'];?>" target="_blank" class="fb_icon"></a></li>
+                    	    <li><a href="<?php echo Yii::app()->session['setting']['twittwe_link'];?>" target="_blank" class="tw_icon"></a></li>
+                    	    <li><a href="<?php echo Yii::app()->session['setting']['linkedin_link'];?>" target="_blank" class="li_icon"></a></li>
+                    	</ul>
+                    	<p>&copy; Gudaak.com</p>
+                	</div>
+				</div>
+			</div>
+		</div>
+	</div>
 	<!-- set up the modal to start hidden and fade in and out -->
     <div id="myModal" class="modal fade">
     	<div class="modal-dialog">
@@ -231,7 +202,7 @@
 		</div>
 	</div>
     </div>
- <div id="login-boot-box" class="modal fade">
+ 	<div id="login-boot-box" class="modal fade">
     	<div class="modal-dialog">
         	<div class="modal-content border-layer">
             <!-- dialog body -->
@@ -318,14 +289,8 @@
     <script src="<?php echo $path?>/js/custom.js"></script>
     <script src="<?php echo $path?>/js/custom2.js"></script>
 	<script src="<?php echo Yii::app()->theme->baseUrl;?>/js/jquery.scrollbox.js" type="text/javascript"></script>
-<!-- sometime later, probably inside your on load event callback -->
-<!--<script type='text/javascript'>
-(function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://widget.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({ c: 'd8b20beb-a91e-4b1c-afad-56b496250b24', f: true }); done = true; } }; })();
-</script>-->
-
 <script type='text/javascript'>
 (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://widget.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({ c: '87b04e16-7b9c-4d0e-afbd-42f97c59e435', f: true }); done = true; } }; })();</script>
-
 <!--Add the following script at the bottom of the web page-->
 <!--<script type="text/javascript" src="https://mylivechat.com/chatinline.aspx?hccid=72556058"></script>-->
 	<div id="popup_box">    <!-- OUR PopupBox DIV-->

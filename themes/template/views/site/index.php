@@ -17,7 +17,7 @@
                     </div>
                 </div>
                 <div class="col-md-5 fr mt50">
-                	<iframe width="100%" height="300" frameborder="0" allowfullscreen="" src="//www.youtube.com/embed/IM1gq5j1hBI?rel=0"></iframe>
+                	<iframe width="560" height="315" src="//www.youtube-nocookie.com/embed/7SiZsf9hiR4?rel=0" frameborder="0" allowfullscreen></iframe>
                 </div>
                 
             </div>
