@@ -53,7 +53,8 @@ $(document).ready(function () {
 		//approachScroll end 
 	$('#forget-form').hide();
 	$('.hot-link-icon a').tooltip();
-	$('.footer_2left span a').tooltip();
+	$('.bottomTool a').tooltip();
+	$('.toolSat').tooltip();
 	//$('.tab-description').hide();
 	$('#test-tab a').bind('click', function(e){
 		$('#test-tab a.current').removeClass('current');

@@ -66,13 +66,13 @@
 		</div>
 		<div id="footer_2">
 			<div style="float:left; width:100%; padding-left:32%; padding-top:5%;">
-				<span">
+				<div class="bottomTool">
 					<?php if($action=='assess'||$action=='explore'||$action=='approach'||$action=='index'){
 						echo CHtml::link('',array('site/assess'),array('class'=>''.(Yii::app()->controller->action->id=='assess')?'assestActive':'assest1'.'','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'Assess'));
 						echo CHtml::link('',array('site/explore'),array('class'=>''.(Yii::app()->controller->action->id=='explore')?'assestActive3':'assest3'.'','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'Explore'));
 						echo CHtml::link('',array('site/approach'),array('class'=>''.(Yii::app()->controller->action->id=='approach')?'assestActive2':'assest2'.'','data-toggle'=>'tooltip','data-placement'=>'top','title'=>'Approach'));
 					} ?>
-				</span>
+				</div>
 			</div>
 			<div id="footer_cont">
 				<div class="footer_2">
