@@ -75,8 +75,26 @@ class CounsellorController extends Controller
 		}
 		$model->unsetAttributes();
 		$model->sender_id	=	Yii::app()->user->profileId;
-		$this->render('talk',array('model'=>$model));
+		
+		$modelR	=	new Tickets('search');
+		$modelR->unsetAttributes();
+		$modelR->receiver_id	=	Yii::app()->user->profileId;
+		
+		$this->render('talk',array('model'=>$model,'modelR'=>$modelR));
 	}
+	public function actionStudentQuery($id)
+	{
+		$model	=	Tickets::model()->findByPk($id);
+		if(isset($_POST['Tickets'])){
+			$model->attributes	=	$_POST['Tickets'];
+			$model->status		=	2;
+			if($model->save()){
+				$this->redirect(Yii::app()->createUrl('counsellor/talk'));
+			}
+		}
+		$this->render('query',array('model'=>$model));
+	}
+	
 	public function actionSchools()
 	{
 		$lists	=	CounselorHasSchools::model()->findAllByAttributes(array('counselor_id'=>Yii::app()->user->profileId));
