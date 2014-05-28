@@ -2,16 +2,20 @@
 $this->pageTitle=Yii::app()->name . ' - '.$userInfo->display_name.' Details';
 $this->breadcrumbs=array('Detail',);
 ?>
-
-<?php if($userType==2){ ?>
 <div class="container">
 <div class="col-md-10 	 pop-up-border fl col-lg-offset-1 ">
 	<div class="row test-bot">
 		<?php echo $userInfo->display_name;?> <span><?php echo $userInfo->generateGudaakIds->gudaak_id;?></span>
-    	<div class="pull-right back-btn">
-    		<?php echo CHtml::link('Back', Yii::app()->createUrl('/counsellor/studentDetails' ));?>
-    	</div>
+        
+        <div class="pull-right back-btn">
+    	<?php echo CHtml::link('User Sessions', Yii::app()->createUrl('/counsellor/sessionList',array('id'=>$userInfo->id)));?>
+        </div>
+        <div class="pull-right back-btn">
+    		<?php echo CHtml::link('Back', Yii::app()->createUrl('/counsellor/studentDetails',array('id'=>$userInfo->generateGudaakIds->schools_id) ));?>
+        </div>
     </div>
+<?php if($userType==2){ ?>
+
 		<div class="row  fl">
 			<div class="col-md-3 pd0 fl">
 				<div class="rating-history">
@@ -185,60 +189,9 @@ $this->breadcrumbs=array('Detail',);
 		</div>
 			</div>
 		</div>
-	</div>
-</div>
-
-
-    <div id="myModal" class="modal fade">
-		<div class="modal-dialog">
-        	<div class="modal-content border-layer">
-            <!-- dialog body -->
-            	<div class="modal-body cons-pop ">
-				<a data-dismiss="modal" class="btn schoo-bt-color pull-right">Go Back</a>
-    	
-					<div class="col-md-12  " id="counsellorComments">
-					 
-					</div>
-				</div>
-			<!-- dialog buttons -->
-			 
-			</div>
-		</div>
-    </div>
 	
-<div id="Summary-details" class="modal fade">
-    	<div class="modal-dialog">
-        	<div class="modal-content">
-            <!-- dialog body -->
-            	<div class="modal-body">
-                		<div class="site-logo"></div>
-						<div class="row white ">
-                        	<div class="col-md-12 pd13 ">
-							<a data-dismiss="modal" class="btn schoo-bt-color pull-right">Go Back</a>
-    		
-                            	 <div  class="col-md-12 pd0 login-box pull-left">
-									<div id="summeryRecodes">
-									
-									</div>
-									 
-                                 </div>
-                               
-							</div>
-						</div>
-	   			</div>
-		<!-- dialog buttons -->
-		 
-		</div>
-	</div>
-    </div>
 <?php } else{ ?>
-<div class="container">
-<div class="col-md-10 	 pop-up-border fl col-lg-offset-1 ">
-	<div class="row test-bot"><?php echo $userInfo->display_name;?> <span><?php echo $userInfo->generateGudaakIds->gudaak_id;?></span>
-    	<div class="pull-right back-btn">
-    		<?php echo CHtml::link('Back', Yii::app()->createUrl('/school/studentDetails' ));?>
-    	</div>
-    </div>
+
 		<div class="row  fl">
 			<div class="col-md-3 pd0 fl">
 				<div class="rating-history">
@@ -412,7 +365,9 @@ $this->breadcrumbs=array('Detail',);
 		</div>
 			</div>
 		</div>
-	</div>
+	
+<?php }?>
+</div>
 </div>
 
 
@@ -458,4 +413,3 @@ $this->breadcrumbs=array('Detail',);
 		</div>
 	</div>
     </div>
-<?php }?>
