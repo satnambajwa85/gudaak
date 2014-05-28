@@ -240,7 +240,7 @@ class CounsellorController extends Controller
 		$this->renderPartial('_counsellorComments',array('comments'=>$comments,true,false));
 			
 	}
-	public function actionSession()
+	public function actionSessionList($id)
 	{
 		if(isset($_POST['action']) && $_POST['action']=='content'){
 			$userId		=	$_POST['user'];
@@ -256,6 +256,22 @@ class CounsellorController extends Controller
 		}
 		$model	=	Session::model()->findAll();
 		$this->render('session',array('model'=>$model));
+	}
+	public function actionSession()
+	{
+		if(isset($_POST['action']) && $_POST['action']=='content'){
+			$userId		=	$_POST['user'];
+			$session	=	$_POST['session'];
+			$userAns	=	UserSessionQuestions::model()->findAllByAttributes(array('user_id'=>$userId));
+			$answ		=	array();
+			foreach($userAns as $list){
+				$answ[$list->session_question_id]	=	$list->answers;
+			}
+			$sess	=	SessionQuestions::model()->findAllByAttributes(array('session_id'=>$session));
+			$this->renderPartial('_session',array('question'=>$sess,'ans'=>$answ));
+			die;
+		}
+		
 	}
 	public function actionProfile()
 	{		
