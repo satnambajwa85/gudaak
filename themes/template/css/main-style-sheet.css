@@ -491,3 +491,34 @@ opacity: 0.85;
 .Pic4{background: url("../images/pic5.png") no-repeat scroll 0 0 / 195px 99px rgba(0, 0, 0, 0); height:150px; float:left}
 .Pic5{background: url("../images/pic4.png") no-repeat scroll 0 0 / 195px 99px rgba(0, 0, 0, 0); height:150px; float:left}
 .Pic6{background: url("../images/pic1.png") no-repeat scroll 0 0 / 195px 99px rgba(0, 0, 0, 0); height:150px; float:left}
+
+/* Add for Hover Effect*/
+#hover-cap-4col .thumbnail,
+	#hover-cap-3col .thumbnail,
+	#hover-cap-unique .thumbnail,
+	#hover-cap-6col .thumbnail {
+		position:relative;
+		overflow:hidden;	
+	}
+	.caption {
+		display: none;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background: rgba(0,0,0,0.4);
+		width: 100%;
+		height: 100%;
+		color:#fff !important;
+	}
+	.caption p {
+		padding:25% 6px; text-align:center; color:#fff; font-size:12px; font-weight:normal;  
+	}
+	.caption h4 {
+		 color:#F90;
+	}
+.thumbnail {background: none !important; border: none !important;}
+a.thumbnail:hover,
+a.thumbnail:focus {
+border-color: none !important;
+}
+	
