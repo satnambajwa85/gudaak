@@ -279,22 +279,22 @@ class CounsellorController extends Controller
 			$this->redirect(Yii::app()->createUrl('/site/'));
 		}
 		 
-		$model		=	   Schools::model()->findByPk(Yii::app()->user->profileId);
+		$model		=	   Counselor::model()->findByPk(Yii::app()->user->profileId);
 		// CVarDumper::dump($model,10,1);die;
-		if(isset($_POST['Schools']))
+		if(isset($_POST['Counselor']))
 		{	 
-			$model->attributes		=	$_POST['Schools'];
+			$model->attributes		=	$_POST['Counselor'];
 			$model->password		=	123456;
 			$model->states_id		=	1;
 			$model->countries_id	=	1;
 	
 			
-			$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/uploads/schools/';
-					$targetFolder = Yii::app()->request->baseUrl.'/uploads/schools/';
-				if (!empty($_FILES['Schools']['name']['images'])) {
-					$tempFile = $_FILES['Schools']['tmp_name']['images'];
+			$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/uploads/counsellor/';
+					$targetFolder = Yii::app()->request->baseUrl.'/uploads/counsellor/';
+				if (!empty($_FILES['Counselor']['name']['images'])) {
+					$tempFile = $_FILES['Counselor']['tmp_name']['images'];
 					$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
-					$targetFile = $targetPath.'/'.$_FILES['Schools']['name']['images'];
+					$targetFile = $targetPath.'/'.$_FILES['Counselor']['name']['images'];
 					$pat = $targetFile;
 					move_uploaded_file($tempFile,$targetFile);
 					$absoPath = $pat;
@@ -303,7 +303,7 @@ class CounsellorController extends Controller
 					# ORIGINAL
 					$img->file_max_size = 5000000; // 5 MB
 					$img->file_new_name_body = $newName;
-					$img->process('uploads/schools/original/');
+					$img->process('uploads/counsellor/original/');
 					$img->processed;
 					#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
 				if ($img->processed) {
@@ -312,12 +312,12 @@ class CounsellorController extends Controller
 					$img->image_y         	= 129;
 					$img->image_x           = 190;
 					$img->file_new_name_body = $newName;
-					$img->process('uploads/schools/large/');	#STHUMB Image
+					$img->process('uploads/counsellor/large/');	#STHUMB Image
 					$img->image_resize      = true;
 					$img->image_y         	= 200;
 					$img->image_x           = 200;
 					$img->file_new_name_body = $newName;
-					$img->process('uploads/schools/small/');
+					$img->process('uploads/counsellor/small/');
 					
 					 
 					$fileName	=	$img->file_dst_name;
@@ -325,14 +325,14 @@ class CounsellorController extends Controller
 	
 				}
 				$model->images	=	$fileName;
-				if($_POST['Schools']['images']!=''){
-					@unlink($targetFolder1.'original/'.$_POST['Schools']['images']);
-					@unlink($targetFolder1.'small/'.$_POST['Schools']['images']);
-					@unlink($targetFolder1.'large/'.$_POST['Schools']['images']);
+				if($_POST['Counselor']['images']!=''){
+					@unlink($targetFolder1.'original/'.$_POST['Counselor']['images']);
+					@unlink($targetFolder1.'small/'.$_POST['Counselor']['images']);
+					@unlink($targetFolder1.'large/'.$_POST['Counselor']['images']);
 				}
 			}
 			else
-				$model->images	=	$_POST['Schools']['images'];
+				$model->images	=	$_POST['Counselor']['images'];
 			if($model->save())
 				$this->redirect(array('school/profile'));
 		}
