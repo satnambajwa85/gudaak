@@ -11,7 +11,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'session_id'); ?>
-         <?php 	echo $form->dropDownList($model,'session_id',CHtml::listData(Session::model()->findAll(),'id','title'));?>
+         <?php 	echo $form->dropDownList($model,'session_id',CHtml::listData(Session::model()->findAll(),'id','name'));?>
 		<?php echo $form->error($model,'session_id'); ?>
 	</div>
 
