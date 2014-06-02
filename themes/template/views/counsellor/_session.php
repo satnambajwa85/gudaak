@@ -13,7 +13,7 @@
             <?php 
 			switch($item->controller_type){
 				case 'text':
-					echo '<input type="text" value="'.$ans[$item->id].'" name="question['.$item->id.']" class="form-control"/>';
+					echo '<input type="text" value="'.((isset($ans[$item->id]))?$ans[$item->id]:'').'" name="question['.$item->id.']" class="form-control"/>';
 				break;
 				case 'select':
 					$options	=	explode(',',$item->options);
@@ -28,7 +28,7 @@
 					$options	=	explode(',',$item->options);
 					$str	= '';
 					foreach($options as $option){
-						$str	.=	'<input type="radio" value="'.$option.'" name="question['.$item->id.']" '.(($ans[$item->id]==$option)?'checked':'').'  class="form-control"/>'.$option;
+						$str	.=	'<input type="radio" value="'.$option.'" name="question['.$item->id.']" '.((isset($ans[$item->id]) && $ans[$item->id]==$option)?'checked':'').'  class="form-control"/>'.$option;
 					}
 					echo $str;
 				break;
