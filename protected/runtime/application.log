@@ -8782,3 +8782,131 @@ in C:\xampp\htdocs\gudaak\index.php (13)
 2014/05/21 08:59:34 [warning] [application] Failed to set unsafe attribute "streams" of "Career".
 in C:\xampp\htdocs\gudaak\protected\modules\admin\controllers\CareerController.php (150)
 in C:\xampp\htdocs\gudaak\index.php (13)
+2014/06/02 06:52:03 [error] [exception.CException] exception 'CException' with message 'Property "Session.title" is not defined.' in D:\xamp\htdocs\sat\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\xamp\htdocs\sat\framework\db\ar\CActiveRecord.php(144): CComponent->__get('title')
+#1 D:\xamp\htdocs\sat\framework\web\helpers\CHtml.php(1696): CActiveRecord->__get('title')
+#2 D:\xamp\htdocs\sat\framework\web\helpers\CHtml.php(1660): CHtml::value(Object(Session), 'title')
+#3 D:\xamp\htdocs\sat\protected\modules\admin\views\sessionQuestions\_form.php(14): CHtml::listData(Array, 'id', 'title')
+#4 D:\xamp\htdocs\sat\framework\web\CBaseController.php(127): require('D:\xamp\htdocs\...')
+#5 D:\xamp\htdocs\sat\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\xamp\htdocs\...', Array, true)
+#6 D:\xamp\htdocs\sat\framework\web\CController.php(870): CBaseController->renderFile('D:\xamp\htdocs\...', Array, true)
+#7 D:\xamp\htdocs\sat\protected\modules\admin\views\sessionQuestions\create.php(15): CController->renderPartial('_form', Array)
+#8 D:\xamp\htdocs\sat\framework\web\CBaseController.php(127): require('D:\xamp\htdocs\...')
+#9 D:\xamp\htdocs\sat\framework\web\CBaseController.php(96): CBaseController->renderInternal('D:\xamp\htdocs\...', Array, true)
+#10 D:\xamp\htdocs\sat\framework\web\CController.php(870): CBaseController->renderFile('D:\xamp\htdocs\...', Array, true)
+#11 D:\xamp\htdocs\sat\framework\web\CController.php(783): CController->renderPartial('create', Array, true)
+#12 D:\xamp\htdocs\sat\protected\modules\admin\controllers\SessionQuestionsController.php(70): CController->render('create', Array)
+#13 D:\xamp\htdocs\sat\framework\web\actions\CInlineAction.php(50): SessionQuestionsController->actionCreate()
+#14 D:\xamp\htdocs\sat\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#15 D:\xamp\htdocs\sat\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#16 D:\xamp\htdocs\sat\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#17 D:\xamp\htdocs\sat\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#18 D:\xamp\htdocs\sat\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#19 D:\xamp\htdocs\sat\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#20 D:\xamp\htdocs\sat\framework\web\CController.php(292): CFilterChain->run()
+#21 D:\xamp\htdocs\sat\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#22 D:\xamp\htdocs\sat\framework\web\CWebApplication.php(276): CController->run('create')
+#23 D:\xamp\htdocs\sat\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/sessionQu...')
+#24 D:\xamp\htdocs\sat\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#25 D:\xamp\htdocs\sat\index.php(13): CApplication->run()
+#26 {main}
+REQUEST_URI=/sat/index.php?r=admin/sessionQuestions/create
+HTTP_REFERER=http://localhost/sat/index.php?r=admin/sessionQuestions/admin
+---
+2014/06/02 07:23:16 [error] [exception.CException] exception 'CException' with message 'Property "UserSessionQuestions.session_question_id" is not defined.' in D:\xamp\htdocs\sat\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\xamp\htdocs\sat\framework\db\ar\CActiveRecord.php(144): CComponent->__get('session_questio...')
+#1 D:\xamp\htdocs\sat\protected\controllers\CounsellorController.php(268): CActiveRecord->__get('session_questio...')
+#2 D:\xamp\htdocs\sat\framework\web\actions\CInlineAction.php(50): CounsellorController->actionSession()
+#3 D:\xamp\htdocs\sat\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 D:\xamp\htdocs\sat\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 D:\xamp\htdocs\sat\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\xamp\htdocs\sat\framework\web\CWebApplication.php(276): CController->run('session')
+#7 D:\xamp\htdocs\sat\framework\web\CWebApplication.php(135): CWebApplication->runController('counsellor/sess...')
+#8 D:\xamp\htdocs\sat\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\xamp\htdocs\sat\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/sat/index.php?r=counsellor/session
+HTTP_REFERER=http://localhost/sat/index.php?r=counsellor/sessionList&id=58
+---
+2014/06/02 07:23:32 [error] [exception.CException] exception 'CException' with message 'Property "UserSessionQuestions.session_question_id" is not defined.' in D:\xamp\htdocs\sat\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\xamp\htdocs\sat\framework\db\ar\CActiveRecord.php(144): CComponent->__get('session_questio...')
+#1 D:\xamp\htdocs\sat\protected\controllers\CounsellorController.php(268): CActiveRecord->__get('session_questio...')
+#2 D:\xamp\htdocs\sat\framework\web\actions\CInlineAction.php(50): CounsellorController->actionSession()
+#3 D:\xamp\htdocs\sat\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 D:\xamp\htdocs\sat\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 D:\xamp\htdocs\sat\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\xamp\htdocs\sat\framework\web\CWebApplication.php(276): CController->run('session')
+#7 D:\xamp\htdocs\sat\framework\web\CWebApplication.php(135): CWebApplication->runController('counsellor/sess...')
+#8 D:\xamp\htdocs\sat\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\xamp\htdocs\sat\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/sat/index.php?r=counsellor/session
+HTTP_REFERER=http://localhost/sat/index.php?r=counsellor/sessionList&id=58
+---
+2014/06/02 07:24:45 [error] [exception.CException] exception 'CException' with message 'Property "UserSessionQuestions.answers" is not defined.' in D:\xamp\htdocs\sat\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\xamp\htdocs\sat\framework\db\ar\CActiveRecord.php(144): CComponent->__get('answers')
+#1 D:\xamp\htdocs\sat\protected\controllers\CounsellorController.php(268): CActiveRecord->__get('answers')
+#2 D:\xamp\htdocs\sat\framework\web\actions\CInlineAction.php(50): CounsellorController->actionSession()
+#3 D:\xamp\htdocs\sat\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 D:\xamp\htdocs\sat\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 D:\xamp\htdocs\sat\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\xamp\htdocs\sat\framework\web\CWebApplication.php(276): CController->run('session')
+#7 D:\xamp\htdocs\sat\framework\web\CWebApplication.php(135): CWebApplication->runController('counsellor/sess...')
+#8 D:\xamp\htdocs\sat\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\xamp\htdocs\sat\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/sat/index.php?r=counsellor/session
+HTTP_REFERER=http://localhost/sat/index.php?r=counsellor/sessionList&id=58
+---
+2014/06/02 07:25:38 [error] [exception.CException] exception 'CException' with message 'Property "UserSessionQuestions.answers" is not defined.' in D:\xamp\htdocs\sat\framework\base\CComponent.php:131
+Stack trace:
+#0 D:\xamp\htdocs\sat\framework\db\ar\CActiveRecord.php(144): CComponent->__get('answers')
+#1 D:\xamp\htdocs\sat\protected\controllers\CounsellorController.php(268): CActiveRecord->__get('answers')
+#2 D:\xamp\htdocs\sat\framework\web\actions\CInlineAction.php(50): CounsellorController->actionSession()
+#3 D:\xamp\htdocs\sat\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 D:\xamp\htdocs\sat\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 D:\xamp\htdocs\sat\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 D:\xamp\htdocs\sat\framework\web\CWebApplication.php(276): CController->run('session')
+#7 D:\xamp\htdocs\sat\framework\web\CWebApplication.php(135): CWebApplication->runController('counsellor/sess...')
+#8 D:\xamp\htdocs\sat\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\xamp\htdocs\sat\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/sat/index.php?r=counsellor/session
+HTTP_REFERER=http://localhost/sat/index.php?r=counsellor/sessionList&id=58
+---
+2014/06/02 07:32:02 [error] [php] Undefined offset: 2 (D:\xamp\htdocs\sat\themes\template\views\counsellor\_session.php:22)
+Stack trace:
+#0 D:\xamp\htdocs\sat\framework\web\CController.php(870): CounsellorController->renderFile()
+#1 D:\xamp\htdocs\sat\protected\controllers\CounsellorController.php(271): CounsellorController->renderPartial()
+#2 D:\xamp\htdocs\sat\framework\web\actions\CInlineAction.php(50): CounsellorController->actionSession()
+#3 D:\xamp\htdocs\sat\framework\web\CController.php(309): CInlineAction->runWithParams()
+#4 D:\xamp\htdocs\sat\framework\web\CController.php(287): CounsellorController->runAction()
+#5 D:\xamp\htdocs\sat\framework\web\CController.php(266): CounsellorController->runActionWithFilters()
+#6 D:\xamp\htdocs\sat\framework\web\CWebApplication.php(276): CounsellorController->run()
+#7 D:\xamp\htdocs\sat\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#8 D:\xamp\htdocs\sat\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\xamp\htdocs\sat\index.php(13): CWebApplication->run()
+REQUEST_URI=/sat/index.php?r=counsellor/session
+in D:\xamp\htdocs\sat\themes\template\views\counsellor\_session.php (22)
+in D:\xamp\htdocs\sat\protected\controllers\CounsellorController.php (271)
+in D:\xamp\htdocs\sat\index.php (13)
+2014/06/02 07:32:13 [error] [php] Undefined offset: 2 (D:\xamp\htdocs\sat\themes\template\views\counsellor\_session.php:22)
+Stack trace:
+#0 D:\xamp\htdocs\sat\framework\web\CController.php(870): CounsellorController->renderFile()
+#1 D:\xamp\htdocs\sat\protected\controllers\CounsellorController.php(271): CounsellorController->renderPartial()
+#2 D:\xamp\htdocs\sat\framework\web\actions\CInlineAction.php(50): CounsellorController->actionSession()
+#3 D:\xamp\htdocs\sat\framework\web\CController.php(309): CInlineAction->runWithParams()
+#4 D:\xamp\htdocs\sat\framework\web\CController.php(287): CounsellorController->runAction()
+#5 D:\xamp\htdocs\sat\framework\web\CController.php(266): CounsellorController->runActionWithFilters()
+#6 D:\xamp\htdocs\sat\framework\web\CWebApplication.php(276): CounsellorController->run()
+#7 D:\xamp\htdocs\sat\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#8 D:\xamp\htdocs\sat\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 D:\xamp\htdocs\sat\index.php(13): CWebApplication->run()
+REQUEST_URI=/sat/index.php?r=counsellor/session
+in D:\xamp\htdocs\sat\themes\template\views\counsellor\_session.php (22)
+in D:\xamp\htdocs\sat\protected\controllers\CounsellorController.php (271)
+in D:\xamp\htdocs\sat\index.php (13)

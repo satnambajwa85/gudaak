@@ -248,7 +248,7 @@ class CounsellorController extends Controller
 			$userAns	=	UserSessionQuestions::model()->findAllByAttributes(array('user_id'=>$userId));
 			$answ		=	array();
 			foreach($userAns as $list){
-				$answ[$list->session_question_id]	=	$list->answers;
+				$answ[$list->session_questions_id]	=	$list->answer;
 			}
 			$sess	=	SessionQuestions::model()->findAllByAttributes(array('session_id'=>$session));
 			$this->renderPartial('_session',array('question'=>$sess,'ans'=>$answ));
@@ -265,7 +265,7 @@ class CounsellorController extends Controller
 			$userAns	=	UserSessionQuestions::model()->findAllByAttributes(array('user_id'=>$userId));
 			$answ		=	array();
 			foreach($userAns as $list){
-				$answ[$list->session_question_id]	=	$list->answers;
+				$answ[$list->session_questions_id]	=	$list->answer;
 			}
 			$sess	=	SessionQuestions::model()->findAllByAttributes(array('session_id'=>$session));
 			$this->renderPartial('_session',array('question'=>$sess,'ans'=>$answ));
@@ -273,6 +273,25 @@ class CounsellorController extends Controller
 		}
 		
 	}
+	
+	public function actionSessionSave()
+	{
+		foreach($_POST['question'] as $key=>$val){
+			$userAns	=	UserSessionQuestions::model()->findByAttributes(array('session_questions_id'=>$key,'user_id'=>$_POST['user']));
+			if(empty($userAns))
+				$userAns	=	new UserSessionQuestions;
+			
+			$userAns->user_id				=	$_POST['user'];
+			$userAns->session_questions_id	=	$key;
+			$userAns->answer				=	$val;
+			$userAns->add_date				=	date('Y-m-d H:i:s');
+			$userAns->status				=	1;
+			$userAns->save();
+		}
+		echo 'Saved you session for this user';
+		die;
+	}
+	
 	public function actionProfile()
 	{		
 		if(!Yii::app()->user->id){

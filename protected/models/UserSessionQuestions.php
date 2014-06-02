@@ -43,9 +43,9 @@ class UserSessionQuestions extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, session_questions_id', 'required'),
+			array('user_id, session_questions_id, add_date, status', 'required'),
 			array('user_id, session_questions_id, status', 'numerical', 'integerOnly'=>true),
-			array('answer, add_date', 'safe'),
+			array('answer', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, user_id, session_questions_id, answer, add_date, status', 'safe', 'on'=>'search'),
