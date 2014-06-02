@@ -7,16 +7,15 @@ $this->breadcrumbs=array('studentDetails',);
 		<div class="row test-bot">School Details</div>
 		<div class="clear"></div>
 		<div class="col-md-12 fl">
-			<input type="hidden" value="2" id="userId" name="user" />
+			<input type="hidden" value="<?php echo $_REQUEST['id'];?>" id="userId" name="user" />
 			<?php foreach($model as $item){?>
             <div class="col-md-2 fl mt20">
                 <span class=""><?php echo $item->name;?></span><input type="radio" name="session" value="<?php echo $item->id?>" class="radioB pull-left mr10" />
             </div>
             <?php } ?>
         </div>
-        <div id="ajaxContent">
-        
-        </div>
+        <?php $form=$this->beginWidget('CActiveForm', array('id'=>'ajaxContent','enableAjaxValidation'=>false,)); ?>
+        <?php $this->endWidget(); ?>
 	</div>
 </div>
 <script type="text/javascript">
