@@ -116,22 +116,7 @@ class SiteController extends Controller
 			}
 			if (!empty($user_profile ))
 			{
-				/*$username = $user_profile['name'];
-				$uid = $user_profile['id'];
-				$email = $user_profile['email'];
-				$twitter_otoken='';
-				$twitter_otoken_secret='';
-				$user = new User();
-				$userdata = $user->checkUser($uid, 'facebook', $username,$email,$twitter_otoken ,$twitter_otoken_secret);
-				if(!empty($userdata))
-				{
-					$_SESSION['id'] = $userdata['id'];
-					$_SESSION['oauth_id'] = $uid;
-					$_SESSION['username'] = $userdata['username'];
-					$_SESSION['email'] = $email;
-					$_SESSION['oauth_provider'] = $userdata['oauth_provider'];
-					header("Location: home.php");
-				}*/
+				
 			} 
 			else
 			{
