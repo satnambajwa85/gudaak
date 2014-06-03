@@ -128,7 +128,7 @@ $(document).ready(function () {
 	}).filter(':first').click();
 	
 		$(".home-login-box ").on("click", function() { 
-		$("#confirm-gudaak-id").hide();
+		//$("#confirm-gudaak-id").hide();
 		 $(".remove").show();
 		 $("#myModal").modal({ // wire up the actual modal functionality and show the dialog
 		"backdrop" : "static",
@@ -169,11 +169,10 @@ $(document).ready(function () {
 			 $("#login-form").show();
 			 
 		});	
+		$("#confirm-gudaak-id").show();
 		$("#gudaakIdYes").on("click", function() { 
 			 $(".remove").hide();
 			 $("#confirm-gudaak-id").show();
-			 
-			 
 		});	
 		$("#loginGudaakIdNo").on("click", function() { 
 			 $("#alert-confirm-gudaak-id2").hide();

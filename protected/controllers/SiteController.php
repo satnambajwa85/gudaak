@@ -189,8 +189,11 @@ class SiteController extends Controller
 			$model->attributes		=	$_POST['Register'];
 			$model->display_name	=	$model->first_name.' '.$model->last_name;
 			$model->image			=	'noimage.jpg';
-			$model->user_class_id	=	$_POST['Register']['class'];
-			$model->user_academic_id=	$_POST['Register']['medium'];
+			$model->user_class_id	=	1;
+			$model->class			=	1;
+			$model->gudaak_id		=	1;
+			$model->medium			=	1;
+			$model->user_academic_id=	1;
 			$gender					=	$_POST['Register']['gender'];
 			if($gender==1){
 			$model->gender			=	'Male';
@@ -198,76 +201,55 @@ class SiteController extends Controller
 			if($gender==0){
 			$model->gender			=	'Female';
 			}
-			if($model->user_class_id==1||$model->user_class_id==2||$model->user_class_id==3){
 			$userRole				=	2;
-			}
-			if($model->user_class_id==4||$model->user_class_id==5){
-			$userRole				=	3;
-			}
 			$model->add_date		=	date('Y-m-d H:i:s');
 			$model->semd_mail		=	1;
-			$gudaak_id				=	$_POST['Register']['gudaak_id'];
-			$record_exists = GenerateGudaakIds::model()->exists('gudaak_id  = :gudaak ', array(':gudaak'=>$gudaak_id )); 
-			$gudaakId	=	GenerateGudaakIds::model()->findByAttributes(array('gudaak_id'=>$gudaak_id));
-			if($record_exists==1 AND $gudaak_id !='' ){
-				$userC					=   UserLogin::model()->exists('username = :email',array(':email'=>$_POST['Register']['email']));
-				if($userC==1){
-				
-						Yii::app()->user->setFlash('create','Email address is already in use.');
-						$this->redirect(array('site/userRegister'));
-				}
-				$findGudakID			=	UserProfiles::model()->exists('generate_gudaak_ids_id= :GDK ', array(':GDK'=>$gudaakId->id)); 
-				if($findGudakID==1){
-				
-						Yii::app()->user->setFlash('create','Gudaak ID already in use.');
-						$this->redirect(array('site/userRegister'));
-				}
-				else{
-					$user					= new  UserLogin();
-					$user->username			=	$_POST['Register']['email'];
-					$user->password			=	md5($_POST['Register']['password']);
-					$user->add_date			=	date('Y-m-d H:i:s');
-					$user->block			=	0;
-					$Uclass					=	$_POST['Register']['class'];
-					$user->activation		=	0;
-					$user->user_role_id		=	$userRole;
-					$model->user_login_id	=	1;
+			
+			$userC					=   UserLogin::model()->exists('username = :email',array(':email'=>$_POST['Register']['email']));
+			if($userC==1){
+				Yii::app()->user->setFlash('create','Email address is already in use.');
+				$this->redirect(array('site/userRegister'));
+			}
+			$user					=	new  UserLogin();
+			$user->username			=	$_POST['Register']['email'];
+			$user->password			=	md5($_POST['Register']['password']);
+			$user->add_date			=	date('Y-m-d H:i:s');
+			$user->block			=	0;
+			$Uclass					=	1;
+			$user->activation		=	0;
+			$user->user_role_id		=	$userRole;
+			$model->user_login_id	=	1;
+			$model->generate_gudaak_ids_id	=	1;
+			$valid					=	$model->validate();
+			$valid					=	$user->validate() && $valid;
+			if($valid){
+				if($user->save()){
+					
+					$model->user_login_id			=	$user->id;
 					$model->generate_gudaak_ids_id	=	1;
-					$valid					=	$model->validate();
-					$valid					=	$user->validate() && $valid;
-					if($valid){
-						if($user->save()){
+					
+					if($model->save()){
+						 
+						//Start  mail Function 
+						$data['name']		=	$model->display_name;
+						$data['email']		=	$user->username;
+						$data['password']	=	$user->password;
+						$data['code']	=	$this->createAbsoluteUrl('site/checkUser',array('email'=>base64_encode($user->username)));
+						$this->sendMail($data,'register');
+						//End  mail Function  
+						Yii::app()->user->setFlash('create','Thank you for join us check your email and activate your account.');
+						$this->redirect(array('site/userRegister'));
+						die;
+					}
+					else {
 							
-							$model->user_login_id			=	$user->id;
-							$model->generate_gudaak_ids_id	=	$gudaakId->id;
-							
-							if($model->save()){
-								 
-								//Start  mail Function 
-								$data['name']		=	$model->display_name;
-								$data['email']		=	$user->username;
-								$data['password']	=	$user->password;
-								$data['code']	=	$this->createAbsoluteUrl('site/checkUser',array('email'=>base64_encode($user->username)));
-								$this->sendMail($data,'register');
-								//End  mail Function  
-								Yii::app()->user->setFlash('create','Thank you for join us check your email and activate your account.');
-								$this->redirect(array('site/userRegister'));
-								die;
-							}
-							else {
-									
-								Yii::app()->user->setFlash('error','Please fill up carefully all field are mandatory.');
-								$this->redirect(array('site/userRegister'));
-								die;
-							}
-						}
+						Yii::app()->user->setFlash('error','Please fill up carefully all field are mandatory.');
+						$this->redirect(array('site/userRegister'));
+						die;
 					}
 				}
 			}
-			else{
-					Yii::app()->user->setFlash('create','Please fill accurate information.');
-					$this->redirect(array('site/userRegister'));
-			}		
+		
 		}	
 		$this->render('userRegister',array('model'=>$model));
 	}

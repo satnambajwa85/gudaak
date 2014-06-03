@@ -104,13 +104,13 @@
 						<div class="row white ">
                         	<div class="col-md-12 pd13 ">
                             	<div class="hide-overflow2" style="top:-20px;z-index:0"></div>
-								<div id="alert-confirm-gudaak-id " class=" col-md-12 login-box confirm-gudaak remove">
+								<div id="alert-confirm-gudaak-id " class=" col-md-12 login-box confirm-gudaak remove hide">
 									<h2> Do you have Gudaak ID?</h2>
 									
 									<a id="gudaakIdYes" href="javaScript:void(0);" class="white-text btn btn-warning ">Yes</a>
 									<a id="gudaakIdNo" data-dismiss="modal" data-trigger="expand" href="javaScript:void(0);" class="white-text btn btn-warning ">No</a>
 								</div>
-								<div id="confirm-gudaak-id">
+								<div id="confirm-gudaak-id" class="show">
                                 
                                 <div class="col-md-12  pull-right">
                                 <?php $model=new Register; $form=$this->beginWidget('CActiveForm', array(
@@ -121,21 +121,11 @@
                                     <i class="glyphicon glyphicon-edit orange pull-left"></i>
                                     <h4 class="form-signin-heading ">Enroll !!!</h4>
 									  
-									 <div class="col-md-6 input-mar pull-left">
-										<?php 	echo $form->textField($model,'gudaak_id',
-																	array('class'=>'form-control mar-b16','placeholder'=>'Gudaak ID','ajax' => array('type'=>'POST',
-																	'url'=>CController::createUrl('site/AutoCompleteLookup'), //url to call.
-																	'success'=>'function(data){afterResponse(data)}',
-																	//'update'=>'#class_register',
-																	)));?>
-										<?php     echo $form->error($model,'gudaak_id');?>
-									</div>
-								 	   <div class="col-md-6 input-mar pull-left">
+									<div class="col-md-6 input-mar pull-left">
                                     <?php echo $form->textField($model,'first_name',array('class'=>'form-control mar-b16','placeholder'=>'First Name','autofocus'=>true));
                                     echo $form->error($model,'first_name');?>
 									</div>
-									<div class="clear"></div>
-                                    <div class="col-md-6 input-mar pull-left">
+									<div class="col-md-6 input-mar pull-left">
 										<?php echo $form->textField($model,'last_name',array('class'=>'form-control mar-b16','placeholder'=>'Last Name','autofocus'=>true));
 										echo $form->error($model,'last_name');?>
 									</div>
@@ -166,22 +156,16 @@
                                     echo $form->error($model,'mobile_no');?>
 									</div>
                                     <div class="col-md-6 input-mar pull-left">
-									<?php echo $form->dropDownlist($model,'class',array('empty'=>'Please Select'),array('id'=>'class_register','class'=>'mar-b16 form-control'));
-									echo $form->error($model,'class');?>
-									</div>
-                                    <div class="col-md-6 input-mar pull-left">
-									<?php echo $form->dropDownlist($model,'medium',array('empty'=>'Please Select'),array('id'=>'medium_register','class'=>'mar-b16 form-control'));
-									echo $form->error($model,'medium');?>
-									</div>
-                                    <div class="col-md-6 input-mar pull-left">
                                     <?php echo $form->passwordField($model,'password',array('class'=>'form-control mar-b16','placeholder'=>'Password','autofocus'=>true));
                                     echo $form->error($model,'password');?>
 									</div>
+                                    <div class="col-md-12 pull-left">
                                     <div class="col-md-6 input-mar pull-left">
                                     <?php echo $form->passwordField($model,'confirmpass',array('class'=>'form-control mar-b16','placeholder'=>'confirm password','autofocus'=>true));
                                     echo $form->error($model,'confirmpass');?>
 									</div>
-                                    
+                                    </div>
+                                    <div class="clear"></div>
                                     <div class="col-md-12">
 									 <div class="col-md-4 pull-left pd0">
 										  <?php echo CHtml::link('Back','',array('class'=>'btn fl back-register-bt btn-info','data-dismiss'=>'modal'));?>
