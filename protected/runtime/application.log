@@ -8910,3 +8910,50 @@ REQUEST_URI=/sat/index.php?r=counsellor/session
 in D:\xamp\htdocs\sat\themes\template\views\counsellor\_session.php (22)
 in D:\xamp\htdocs\sat\protected\controllers\CounsellorController.php (271)
 in D:\xamp\htdocs\sat\index.php (13)
+2014/06/03 09:33:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "facebook".' in D:\xamp\htdocs\sat\framework\web\CWebApplication.php:280
+Stack trace:
+#0 D:\xamp\htdocs\sat\framework\web\CWebApplication.php(135): CWebApplication->runController('facebook')
+#1 D:\xamp\htdocs\sat\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 D:\xamp\htdocs\sat\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/sat/index.php?r=facebook
+---
+2014/06/03 09:33:14 [error] [php] include(Facebook.php): failed to open stream: No such file or directory (D:\xamp\htdocs\sat\framework\YiiBase.php:418)
+Stack trace:
+#0 D:\xamp\htdocs\sat\protected\controllers\SiteController.php(103): spl_autoload_call()
+#1 D:\xamp\htdocs\sat\framework\web\actions\CInlineAction.php(50): SiteController->actionFacebook()
+#2 D:\xamp\htdocs\sat\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 D:\xamp\htdocs\sat\framework\web\CController.php(287): SiteController->runAction()
+#4 D:\xamp\htdocs\sat\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 D:\xamp\htdocs\sat\framework\web\CWebApplication.php(276): SiteController->run()
+#6 D:\xamp\htdocs\sat\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 D:\xamp\htdocs\sat\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\xamp\htdocs\sat\index.php(13): CWebApplication->run()
+REQUEST_URI=/sat/index.php?r=site/facebook
+in D:\xamp\htdocs\sat\protected\controllers\SiteController.php (103)
+in D:\xamp\htdocs\sat\index.php (13)
+2014/06/03 09:33:28 [error] [php] Use of undefined constant APP_ID - assumed 'APP_ID' (D:\xamp\htdocs\sat\protected\controllers\SiteController.php:103)
+Stack trace:
+#0 D:\xamp\htdocs\sat\framework\web\CController.php(287): SiteController->runAction()
+#1 D:\xamp\htdocs\sat\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#2 D:\xamp\htdocs\sat\framework\web\CWebApplication.php(276): SiteController->run()
+#3 D:\xamp\htdocs\sat\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#4 D:\xamp\htdocs\sat\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 D:\xamp\htdocs\sat\index.php(13): CWebApplication->run()
+REQUEST_URI=/sat/index.php?r=site/facebook
+in D:\xamp\htdocs\sat\protected\controllers\SiteController.php (103)
+in D:\xamp\htdocs\sat\index.php (13)
+2014/06/03 09:33:54 [error] [php] include(User.php): failed to open stream: No such file or directory (D:\xamp\htdocs\sat\framework\YiiBase.php:418)
+Stack trace:
+#0 D:\xamp\htdocs\sat\protected\controllers\SiteController.php(124): spl_autoload_call()
+#1 D:\xamp\htdocs\sat\framework\web\actions\CInlineAction.php(50): SiteController->actionFacebook()
+#2 D:\xamp\htdocs\sat\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 D:\xamp\htdocs\sat\framework\web\CController.php(287): SiteController->runAction()
+#4 D:\xamp\htdocs\sat\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 D:\xamp\htdocs\sat\framework\web\CWebApplication.php(276): SiteController->run()
+#6 D:\xamp\htdocs\sat\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#7 D:\xamp\htdocs\sat\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 D:\xamp\htdocs\sat\index.php(13): CWebApplication->run()
+REQUEST_URI=/sat/index.php?r=site/facebook
+in D:\xamp\htdocs\sat\protected\controllers\SiteController.php (124)
+in D:\xamp\htdocs\sat\index.php (13)

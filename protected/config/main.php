@@ -17,8 +17,9 @@ return array(
 	'import'=>array(
 		'application.models.*',
 		'application.components.*',
-		'application.ext.extensions.EAjaxUpload.*',
+		//'application.ext.extensions.EAjaxUpload.*',
 		'application.extensions.html2pdf.HTML2PDF',
+		'application.extensions.facebook.*',
 	),
 	'aliases' => array(
 		'xupload' => 'ext.xupload'
@@ -74,7 +75,7 @@ return array(
 		// uncomment the following to use a MySQL database
 		
 		'db'=>array(
-			'connectionString' => 'mysql:host=localhost;dbname=gudaak',
+			'connectionString' => 'mysql:host=localhost;dbname=test2',
 			'emulatePrepare' => true,
 			'username' => 'root',
 			'password' => '',
