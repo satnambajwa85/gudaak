@@ -67,7 +67,7 @@ $this->breadcrumbs=array('Colleges Explore'=>array('/user/exploreColleges'));
                             <div class="coll_logo">
 							<img src="<?php echo Yii::app()->theme->baseUrl;?>/images/coll_logo.png" alt="logo"></div>   
                              <div class="head_text_coll">
-							 <?php echo CHtml::Ajaxlink($Institutes->name,array('user/collage','id'=>$Institutes->id),array('update'=>'#summeryRecodes'),array('class'=>'Summary-details'));?><br>
+							 <?php echo CHtml::link($Institutes->name,array('user/collage','id'=>$Institutes->id));?><br>
                               <span><?php echo substr($Institutes->address1,0,100);?></span>
                              </div>
                         </div>

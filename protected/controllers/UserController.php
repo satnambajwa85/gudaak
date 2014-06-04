@@ -881,7 +881,7 @@ class UserController extends Controller
 	public function actionCollage($id)
 	{	
 		$Institutes	=	Collage::model()->findByPk($id);
-		$this->renderPartial('_collage',array('Institutes'=>$Institutes));
+		$this->render('_collage1',array('Institutes'=>$Institutes));
 	}
 	public function actionLiveChat()
 	{	
