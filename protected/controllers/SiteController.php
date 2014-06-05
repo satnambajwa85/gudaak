@@ -100,8 +100,10 @@ class SiteController extends Controller
 	
 	public function actionFacebook()
 	{
-		define('APP_ID', '280973568648095');
-		define('APP_SECRET', 'cb87d29ce10af839948748ad14e2de8f');
+		//'280973568648095'
+		//'cb87d29ce10af839948748ad14e2de8f'
+		define('APP_ID', '846828762012851');
+		define('APP_SECRET','1f989e3870a57ed90fad047993bb7f01');
 
 		$facebook = new Facebook(array('appId' => APP_ID,'secret' => APP_SECRET,));
 		$user = $facebook->getUser();
@@ -116,6 +118,8 @@ class SiteController extends Controller
 			}
 			if (!empty($user_profile ))
 			{
+				CVarDumper::dump($user_profile,10,1);
+				die;
 				
 			} 
 			else
@@ -124,6 +128,10 @@ class SiteController extends Controller
 			die("There was an error Occured.");
 			}
 			
+		}
+		else{
+			$login_url = $facebook->getLoginUrl(array( 'scope' => 'email,publish_stream,read_stream,manage_notifications,read_mailbox'));
+   			header("Location: " . $login_url);
 		}
 	}
 	
