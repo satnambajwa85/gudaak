@@ -152,19 +152,13 @@
                                     echo $form->error($model,'email');?>
 									</div>
                                     <div class="col-md-6 input-mar pull-left">
-                                    <?php echo $form->textField($model,'mobile_no',array('class'=>'form-control mar-b16','placeholder'=>'Mobile','autofocus'=>true));
-                                    echo $form->error($model,'mobile_no');?>
-									</div>
-                                    <div class="col-md-6 input-mar pull-left">
                                     <?php echo $form->passwordField($model,'password',array('class'=>'form-control mar-b16','placeholder'=>'Password','autofocus'=>true));
                                     echo $form->error($model,'password');?>
 									</div>
-                                    <div class="col-md-12 pull-left">
                                     <div class="col-md-6 input-mar pull-left">
                                     <?php echo $form->passwordField($model,'confirmpass',array('class'=>'form-control mar-b16','placeholder'=>'confirm password','autofocus'=>true));
                                     echo $form->error($model,'confirmpass');?>
 									</div>
-                                    </div>
                                     <div class="clear"></div>
                                     <div class="col-md-12">
 									 <div class="col-md-4 pull-left pd0">

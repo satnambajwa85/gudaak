@@ -455,7 +455,8 @@ class SiteController extends Controller
         $mail->MsgHTML($body);
         $mail->AddAddress($to, "");		
         if(!$mail->Send()) {
-           echo 'No';die; return 0;
+           echo 'No';
+		   return 0;
         }else {
 			return 1;
         }
