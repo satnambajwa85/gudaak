@@ -2,7 +2,7 @@
     	<div class="middle_cont">
         	<div class="middle">
             	<div class="mid_lef_heading col-md-7">
-                    	Now <em>Sign Up for free</em> to start designing your career path...satnam
+                    	Now <em>Sign Up for free</em> to start designing your career path...
                 </div>
 				<div class="col-md-7 fl" >
                 	
