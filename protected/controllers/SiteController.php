@@ -197,11 +197,6 @@ class SiteController extends Controller
 			$model->attributes		=	$_POST['Register'];
 			$model->display_name	=	$model->first_name.' '.$model->last_name;
 			$model->image			=	'noimage.jpg';
-			$model->user_class_id	=	1;
-			$model->class			=	1;
-			$model->gudaak_id		=	1;
-			$model->medium			=	1;
-			$model->user_academic_id=	1;
 			$gender					=	$_POST['Register']['gender'];
 			if($gender==1){
 			$model->gender			=	'Male';
@@ -209,7 +204,7 @@ class SiteController extends Controller
 			if($gender==0){
 			$model->gender			=	'Female';
 			}
-			$userRole				=	2;
+			$userRole				=	3;
 			$model->add_date		=	date('Y-m-d H:i:s');
 			$model->semd_mail		=	1;
 			
@@ -227,7 +222,6 @@ class SiteController extends Controller
 			$user->activation		=	0;
 			$user->user_role_id		=	$userRole;
 			$model->user_login_id	=	1;
-			$model->generate_gudaak_ids_id	=	1;
 			$valid					=	$model->validate();
 			$valid					=	$user->validate() && $valid;
 			if($valid){
@@ -235,22 +229,21 @@ class SiteController extends Controller
 					
 					$model->user_login_id			=	$user->id;
 					$model->generate_gudaak_ids_id	=	1;
-					
 					if($model->save()){
-						 
 						//Start  mail Function 
 						$data['name']		=	$model->display_name;
 						$data['email']		=	$user->username;
 						$data['password']	=	$user->password;
 						$data['code']	=	$this->createAbsoluteUrl('site/checkUser',array('email'=>base64_encode($user->username)));
-						$this->sendMail($data,'register');
+						//$this->sendMail($data,'register');
 						//End  mail Function  
 						Yii::app()->user->setFlash('create','Thank you for join us check your email and activate your account.');
 						$this->redirect(array('site/userRegister'));
 						die;
 					}
 					else {
-							
+						CVarDumper::dump($model,10,1);
+						die;	
 						Yii::app()->user->setFlash('error','Please fill up carefully all field are mandatory.');
 						$this->redirect(array('site/userRegister'));
 						die;

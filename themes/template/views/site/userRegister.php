@@ -94,22 +94,7 @@
                                                             'clientOptions'=>array('validateOnSubmit'=>true,)));?>
                                     <i class="glyphicon glyphicon-edit orange pull-left"></i>
                                     <h4 class="form-signin-heading ">Enroll your future!!!</h4>
-									   <?php 	echo $form->textField($model,'gudaak_id',
-								
-								array('class'=>'form-control','placeholder'=>'Gudaak ID','ajax' => array('type'=>'POST',
-									'url'=>CController::createUrl('site/AutoCompleteLookup'), //url to call.
-									'success'=>'function(data){afterResponse(data)}',
-									//'update'=>'#Register_class',
-									
-									
-										)));?>
-								 
-                                    <?php /*echo CHtml::ajaxLink('Check User', CHtml::normalizeUrl(array('site/CheckUser')), array('data'=>'js:jQuery(this).parents("form").serialize()+"&isAjaxRequest=1"','success'=>'function(data){$("#searchResult").html(data);$("#searchResult").fadeIn();return false;}'),array('id'=>'ajaxSubmit','class'=>'btn btn-primary pull-right','name'=>'ajaxSubmit'));echo '<div class="span4 pull-right alert alert-info" id="searchResult" style="display:none;"></div>';*/
-                                    
-									//echo $form->textField($model,'gudaak_id',array('class'=>'form-control','placeholder'=>'Gudaak ID','autofocus'=>true));
-                                    echo $form->error($model,'gudaak_id');?>
-									  <div class="pd4"></div>
-                                    <?php echo $form->textField($model,'first_name',array('class'=>'form-control','placeholder'=>'First Name','autofocus'=>true));
+									<?php echo $form->textField($model,'first_name',array('class'=>'form-control','placeholder'=>'First Name','autofocus'=>true));
                                     echo $form->error($model,'first_name');?>
                                     <div class="pd4"></div>
                                     <?php echo $form->textField($model,'last_name',array('class'=>'form-control','placeholder'=>'Last Name','autofocus'=>true));
@@ -134,12 +119,7 @@
                                     <?php echo $form->textField($model,'mobile_no',array('class'=>'form-control','placeholder'=>'Mobile','autofocus'=>true));
                                     echo $form->error($model,'mobile_no');?>
                                     <div class="pd4"></div>
-									<?php echo $form->dropDownlist($model,'class',array('empty'=>'Please Select'),array('id'=>'class_register','class'=>'form-control'));
-									echo $form->error($model,'class');?>
-                                    <div class="pd4"></div>
-									<?php echo $form->dropDownlist($model,'medium',CHtml::listData(UserAcademicMedium::model()->findAll(),'id','title'),array('empty'=>'Please Select','class'=>'form-control'));
-									echo $form->error($model,'medium');?>
-                                    <div class="pd4"></div>
+									<div class="pd4"></div>
                                     <?php echo $form->passwordField($model,'password',array('class'=>'form-control','placeholder'=>'Password','autofocus'=>true));
                                     echo $form->error($model,'password');?>
                                     <div class="pd4"></div>
