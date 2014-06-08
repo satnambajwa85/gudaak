@@ -49,22 +49,20 @@ $getId=$_REQUEST['id'];
 				
 				
 						<ul style="<?php echo ($action=='tests'||$action=='DetailedReport')?'display:block':'';?>">
-							 
-						<!--<li><?php //echo CHtml::link('Tests',array('user/tests'),array('class'=>''.($action=='tests')?'currentLink':''.''))?></li>-->
-							 
 							<li><?php echo CHtml::link('Detailed Report',array('user/DetailedReport'))?></li>
 						</ul>					
 					</li>
 					<?php if(Yii::app()->user->id && Yii::app()->user->userType=='upper11th'){?>
 					<li><?php  echo CHtml::link('<i class="glyphicon glyphicon-eye-open"></i>Explore',array('user/explore'),array('title'=>'Explore','class'=>''.($action=='career'|| $action=='careerDetails'|| $action == 'liveChat' || $action == 'careerList' || $action == 'explore' || $action =='articlesList')?'slidebg':''.''))?>
-					
-					
 						<ul style="<?php echo ($action=='career'||$action=='liveChat' || $action=='explore' || $action=='careerList' || $action=='careerDetails' || $action=='articlesList')?'display:block':'';?>">
-							<li><?php echo CHtml::link('Career library',array('user/career'),array('class'=>''.($action == 'career' || $action ==  'careerList' || $action ==  'careerDetails')?'currentLink':''.''))?></li>
-							<!--<li><?php //echo CHtml::link('Online Chat',array('user/liveChat'),array('class'=>''.($action=='liveChat')?'currentLink':''.''));?></li>--> 	
-							<li><?php echo CHtml::link('Articles',array('user/articlesList'),array('class'=>''.($action=='articlesList')?'currentLink':''.''));?></li>
-							
-							
+                        
+                        
+                        <li><?php echo CHtml::link('Stream Library',array('user/streamList'),array('class'=>''.($action == 'streamList' || $action ==  'stream' )?'currentLink':''.''))?></li>
+                        
+                        
+                        
+						<li><?php echo CHtml::link('Career library',array('user/career'),array('class'=>''.($action == 'career' || $action ==  'careerList' || $action ==  'careerDetails')?'currentLink':''.''))?></li>
+						<li><?php echo CHtml::link('Articles',array('user/articlesList'),array('class'=>''.($action=='articlesList')?'currentLink':''.''));?></li>
 						</ul>
 					</li>
 					<li><?php echo CHtml::link('<i class="glyphicon glyphicon-thumbs-up"></i>Career Preference',array('user/careerPreference'),array('title'=>'Career Preference','class'=>''.($action=='careerPreference')?'slidebg':''.''))?>
