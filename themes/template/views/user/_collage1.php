@@ -42,15 +42,15 @@ foreach($list as $cou){?>
       <div class="panel-body">
       
 		<?php foreach($cou['course'] as  $sat){?>
-				
-                <span class="title_text" >Title :</span> <?php echo $sat['title'];?><br />
-				<span class="title_text" >Admission Criteria :</span> <?php echo $sat['admission_criteria'];?><br />
-				<span class="title_text" >Entrance Exam :</span> <?php echo $sat['entrance_exam'];?><br />
-				<span class="title_text" >Fees :</span> <?php echo $sat['fees'];?><br />
-				<span class="title_text" >Seats :</span> <?php echo $sat['seats'];?><br />
-				<span class="title_text" >Course Mode :</span> <?php echo $sat['course_mode'];?><br />
+				<div class="col-md-12">
+                <div class="col-md-5 title_text" >Title :</div><div class="col-md-7"> <?php echo $sat['title'];?></div>
+				<div class="col-md-5 title_text" >Admission Criteria :</div><div class="col-md-7"> <?php echo $sat['admission_criteria'];?></div>
+				<div class="col-md-5 title_text" >Entrance Exam :</div><div class="col-md-7"> <?php echo $sat['entrance_exam'];?></div>
+				<div class="col-md-5 title_text" >Fees :</div><div class="col-md-7"> <?php echo $sat['fees'];?></div>
+				<div class="col-md-5 title_text" >Seats :</div><div class="col-md-7"> <?php echo $sat['seats'];?></div>
+				<div class="col-md-5 title_text" >Course Mode :</div><div class="col-md-7"> <?php echo $sat['course_mode'];?></div>
                 <hr />
-                
+                </div>
 		<?php }?>
 	  </div>
     </div>
