@@ -28,8 +28,8 @@ foreach($Institutes->collagesCoursesSpecialization as $cou){
        <!-- updated new work-->
        <div class="panel-group" id="accordion">
 <?php
-			$count	=	0;
-			 foreach($list as $cou){?>
+$count	=	0;
+foreach($list as $cou){?>
    <div class="panel panel-default">
     <div class="panel-heading">
       <h5 class="panel-title">
@@ -38,10 +38,9 @@ foreach($Institutes->collagesCoursesSpecialization as $cou){
         </a>
       </h5>
     </div>
-    <div id="collapseOne<?php echo $cou['id'];?>" class="panel-collapse collapse in">
+    <div id="collapseOne<?php echo $cou['id'];?>" class="panel-collapse collapse <?php echo ($count==0)?'in':'';?>">
       <div class="panel-body">
       
-		<div class="tab-pane <?php echo ($count==0)?'active':'';?>" id="t<?php echo $cou['id'];?>">
 		<?php foreach($cou['course'] as  $sat){?>
 				
                 <span class="title_text" >Title :</span> <?php echo $sat['title'];?><br />
@@ -53,9 +52,7 @@ foreach($Institutes->collagesCoursesSpecialization as $cou){
                 <hr />
                 
 		<?php }?>
-		</div>
-	
-      </div>
+	  </div>
     </div>
   </div>
 			<?php 
