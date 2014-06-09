@@ -161,12 +161,14 @@
 									</div>
                                     <div class="clear"></div>
                                     <div class="col-md-12">
+                                    <?php echo CHtml::link('<i class="posi-bt icon-facebook"></i>Register with your<br><strong> Facebook Account</strong>',array('site/facebook'),array('class'=>'btn btn-lg btn-primary fb pd10'));?>
+									</div>
+                                    
+                                    <div class="col-md-12">
 									<div class="col-md-4 pull-left pd0">
 										  <?php echo CHtml::link('Back','',array('class'=>'btn fl back-register-bt btn-info','data-dismiss'=>'modal'));?>
 									</div>
-                                    <div class="or">or</div>
-                                    <?php echo CHtml::link('<i class="posi-bt icon-facebook"></i>Login with your<br><strong>Facebook Account</strong>',array('site/facebook'),array('class'=>'btn btn-lg btn-primary fb'));?>
-									<div class="col-md-4 pull-right pd0">
+                                    <div class="col-md-4 pull-right pd0">
 									    <?php echo CHtml::submitButton('Register',array('class'=>'btn fr btn-warning login '));?>
 									</div>
 									</div>
