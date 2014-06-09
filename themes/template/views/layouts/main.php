@@ -242,8 +242,6 @@
                                         <div align="center" class="top-stats-icons">
                                             <?php echo CHtml::submitButton('Submit',array('class'=>'btn btn-warning login'));?>
                                             <div class="clearfix"></div>
-                                            <!--<div class="or">or</div>-->
-                                            <?php // echo CHtml::link('<i class="posi-bt icon-facebook"></i>Login with your<br/><strong>Facebook Account</strong>',array('/site/forgetPassword'),array('class'=>'btn btn-lg btn-primary fb'));?>
                                         </div>
                                     <?php $this->endWidget(); ?>
                                 </div>
