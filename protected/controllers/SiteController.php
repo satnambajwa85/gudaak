@@ -102,10 +102,8 @@ class SiteController extends Controller
 	{
 		//'280973568648095'
 		//'cb87d29ce10af839948748ad14e2de8f'
-		if(Yii::app()->user->id){
-			echo Yii::app()->user->id;
-			die;
-			$this->redirect(array('site/'));
+		if(isset(Yii::app()->user->profileId)){
+			$this->redirect(Yii::app()->createUrl('/user'));
 		}
 		define('APP_ID', '846828762012851');
 		define('APP_SECRET','1f989e3870a57ed90fad047993bb7f01');
