@@ -1,13 +1,13 @@
 <div class="career-bot pull-left mt20 ">
-		<div class="coll_logo mb10"><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/coll_logo.png" alt="logo"></div>   
-        <div class="head_text_coll mb10"><?php echo $Institutes->name;?><br>
+		<div class="coll_logo1 mb10"><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/coll_logo.png" alt="logo"></div>   
+        <div class="head_text_coll_new mb10"><?php echo $Institutes->name;?><br>
             <span><?php echo $Institutes->phone_number.' <br/>'.$Institutes->email.' <br/>'.$Institutes->website;?></span>
-          <div class="pull-right col-md-4">  
+          <div class="pull-right col-md-4" style="margin-top:-25px;">  
           <?php echo CHtml::ajaxlink('Shortlist College',array('user/UserShortlistCollage','id'=>$Institutes->id),array('update'=>'#messagePrint'),array('class'=>'css-label btn  pull-right btn-warning'));?>
           <div class="pull-right alertSat" id="messagePrint"></div>
           </div>
         </div>
-        <div class="head_text_coll mt20" style="width:100%;">
+        <div class="head_text_coll_new mt20" style="width:100%;">
          	<span style="width:20%; float:left;"><?php echo $Institutes->address1;?></span>
          </div>
 <?php 
@@ -23,8 +23,61 @@ foreach($Institutes->collagesCoursesSpecialization as $cou){
 	$list[$cou->specialization->id]['course'][$cou->courses->id]['seats']	=	$cou->seats;
 	$list[$cou->specialization->id]['course'][$cou->courses->id]['course_mode']	=	$cou->course_mode;
 } ?>
-
+	<div style="width:100%; float:left;">	
 		<div class="coll_section_left">
+       <!-- updated new work-->
+       <div class="panel-group" id="accordion">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h5 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+          Collapsible Group Item #1
+        </a>
+      </h5>
+    </div>
+    <div id="collapseOne" class="panel-collapse collapse in">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h5 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
+          Collapsible Group Item #2
+        </a>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="panel-collapse collapse">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h5 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
+          Collapsible Group Item #3
+        </a>
+      </h5>
+    </div>
+    <div id="collapseThree" class="panel-collapse collapse">
+      <div class="panel-body">
+        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
+      </div>
+    </div>
+  </div>
+</div>
+
+       
+       
+       <!-- updated new work-->
+        
+        
+        
+        
 			<ul class="nav nav-tabs">
 			<?php
 			$count	=	0;
@@ -43,12 +96,12 @@ foreach($Institutes->collagesCoursesSpecialization as $cou){
 		<div class="tab-pane <?php echo ($count==0)?'active':'';?>" id="t<?php echo $cou['id'];?>">
 		<?php foreach($cou['course'] as  $sat){?>
 				
-                Title :<?php echo $sat['title'];?><br />
-				Admission Criteria :<?php echo $sat['admission_criteria'];?><br />
-				Entrance Exam :<?php echo $sat['entrance_exam'];?><br />
-				Fees :<?php echo $sat['fees'];?><br />
-				Seats :<?php echo $sat['seats'];?><br />
-				Course Mode :<?php echo $sat['course_mode'];?><br />
+                <span class="title_text" >Title :</span> <?php echo $sat['title'];?><br />
+				<span class="title_text" >Admission Criteria :</span> <?php echo $sat['admission_criteria'];?><br />
+				<span class="title_text" >Entrance Exam :</span> <?php echo $sat['entrance_exam'];?><br />
+				<span class="title_text" >Fees :</span> <?php echo $sat['fees'];?><br />
+				<span class="title_text" >Seats :</span> <?php echo $sat['seats'];?><br />
+				<span class="title_text" >Course Mode :</span> <?php echo $sat['course_mode'];?><br />
                 <hr />
                 
 		<?php }?>
@@ -60,6 +113,7 @@ foreach($Institutes->collagesCoursesSpecialization as $cou){
           	<p style="font-weight:normal;  ;"><h4 class="content_div">Why this collage</h4><?php echo $Institutes->why;?><br/><h4 class="content_div">Overview</h4><?php echo $Institutes->overview;?>
             </p>
         </div>
+     </div>   
            </div>  
 </div>
 <div class="news pd0 pull-right">
