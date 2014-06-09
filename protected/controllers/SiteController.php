@@ -110,10 +110,7 @@ class SiteController extends Controller
 
 		$facebook = new Facebook(array('appId' => APP_ID,'secret' => APP_SECRET,));
 		$user = $facebook->getUser();
-		CVarDumper::dump($user,10,1);
-		die;
-		
-		if ($user) {
+		if($user) {
 			try {
 				$user_profile = $facebook->api('/me');
 			} 
@@ -125,7 +122,8 @@ class SiteController extends Controller
 			if (!empty($user_profile ))
 			{
 				
-				
+				CVarDumper::dump($user_profile,10,1);
+		die;
 				$userC	=	UserLogin::model()->findByAttributes(array('username'=>$user_profile['email'],'fb_id'=>$user_profile['id']));
 				if(!empty($userC)){
 					$login=new LoginForm;
