@@ -8179,7 +8179,7 @@ input[type="radio"]:checked + label
     font-size: 14px;
     width: 80%;
 }
-.coll_section_left h5{ font-size:13px; color: #F7AA43;}
+.coll_section_left h5{ font-size:13px;}
 .title_text{color: #F7AA43; font-family: robotomedium;  font-size: 13px;   }
 .head_text_coll_new span{ font-size:12px;}
 .head_text_coll span{ font-size:10px;}	
