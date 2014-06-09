@@ -46,17 +46,28 @@ foreach($list as $cou){?>
                     <div class="row">
                         <div class="col-md-3 title_text" >Title :</div>
                         <div class="col-md-9"> <?php echo $sat['title'];?></div>
+                    </div>
+                    <div class="row">
 				<div class="col-md-3 title_text" >Admission Criteria :</div>
                 <div class="col-md-9"> <?php echo $sat['admission_criteria'];?></div>
+                </div>
+                    <div class="row">
 				<div class="col-md-3 title_text" >Entrance Exam :</div>
                 <div class="col-md-9"> <?php echo $sat['entrance_exam'];?></div>
+                </div>
+                    <div class="row">
 				<div class="col-md-3 title_text" >Fees :</div>
                 <div class="col-md-9"> <?php echo $sat['fees'];?></div>
+                </div>
+                    <div class="row">
 				<div class="col-md-3 title_text" >Seats :</div>
                 <div class="col-md-9"> <?php echo $sat['seats'];?></div>
+                </div>
+                    <div class="row">
 				<div class="col-md-3 title_text" >Course Mode :</div>
                 <div class="col-md-9"> <?php echo $sat['course_mode'];?></div>
                 </div>
+                
                 </div>
         <?php }?>
 	  </div>
