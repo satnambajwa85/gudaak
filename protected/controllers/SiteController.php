@@ -103,6 +103,7 @@ class SiteController extends Controller
 		//'280973568648095'
 		//'cb87d29ce10af839948748ad14e2de8f'
 		if(Yii::app()->user->id){
+			die('in');
 			$this->redirect(array('site/'));
 		}
 		define('APP_ID', '846828762012851');
