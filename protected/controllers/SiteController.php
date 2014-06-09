@@ -127,6 +127,9 @@ class SiteController extends Controller
 					$login->email		=	$userC->username;
 					$login->password	=	$userC->password;
 					if($login->login()){
+						echo Yii::app()->user->userType;
+						CVarDumper::dump($user_profile,10,1);
+						die;
 						if(isset(Yii::app()->user->userType)){
 							if(Yii::app()->user->userType=='admin'){
 								$this->redirect(Yii::app()->createUrl('/admin/admin'));
@@ -147,11 +150,6 @@ class SiteController extends Controller
 						}
 					}
 					else{
-						
-						
-				CVarDumper::dump($user_profile,10,1);
-		die;
-						
 						Yii::app()->user->setFlash('login','Email or password not valid.');
 						$this->redirect(Yii::app()->createUrl('/site/login'));
 					}
