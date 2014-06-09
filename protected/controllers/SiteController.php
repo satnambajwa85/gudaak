@@ -111,6 +111,8 @@ class SiteController extends Controller
 
 		$facebook = new Facebook(array('appId' => APP_ID,'secret' => APP_SECRET,));
 		$user = $facebook->getUser();
+		CVarDumper::dump($user,10,1);
+		die;
 		if ($user) {
 			try {
 				$user_profile = $facebook->api('/me');
