@@ -161,7 +161,7 @@
 									</div>
                                     <div class="clear"></div>
                                     <div class="col-md-12">
-                                    <?php echo CHtml::link('<i class="posi-bt icon-facebook"></i>Register with your<br><strong> Facebook Account</strong>',array('site/facebook'),array('class'=>'btn btn-lg btn-primary fb pd10'));?>
+                                    <?php echo CHtml::link('<i class="posi-bt icon-facebook"></i>Register with your<br><strong> Facebook Account</strong>',array('site/facebook'),array('class'=>'btn btn-lg btn-primary fb pd10','style'=>'margin-left: 150px;'));?>
 									</div>
                                     
                                     <div class="col-md-12">
