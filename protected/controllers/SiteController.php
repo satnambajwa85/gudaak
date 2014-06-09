@@ -121,6 +121,83 @@ class SiteController extends Controller
 				CVarDumper::dump($user_profile,10,1);
 				die;
 				
+				$userC	=	UserLogin::model()->findByAttributes(array('username'=>$user_profile['email'],'fb_id'=>$user_profile['id']));
+				if(!empty($userC)){
+					$login=new LoginForm;
+					$login->username	=	$userC->username;
+					$login->username	=	$userC->username;
+					if($login->login()){
+						if(isset(Yii::app()->user->userType)){
+							if(Yii::app()->user->userType=='admin'){
+								$this->redirect(Yii::app()->createUrl('/admin/admin'));
+							}
+							if(Yii::app()->user->userType=='school'){
+								$this->redirect(Yii::app()->createUrl('/school/'));
+							}
+							if(Yii::app()->user->userType=='counsellor'){
+								$this->redirect(Yii::app()->createUrl('/counsellor/'));
+							}
+							if(Yii::app()->user->userType=='upper11th'|| Yii::app()->user->userType=='below10th'){
+								$this->redirect(Yii::app()->createUrl('/user/'));
+							}
+							
+						}
+						else{
+							Yii::app()->user->setFlash('login','Email or password not valid.');
+						}
+					}
+					else{
+						Yii::app()->user->setFlash('login','Email or password not valid.');
+						$this->redirect(Yii::app()->createUrl('/site/login'));
+					}
+				}
+				else{
+					$model	=	new Register;
+					$model->display_name	=	$user_profile['name'];
+					$model->image			=	'noimage.jpg';
+					$model->user_class_id	=	1;
+					$model->class			=	1;
+					$model->gudaak_id		=	1;
+					$model->medium			=	1;
+					$model->user_academic_id=	1;
+					$model->gender			=	$user_profile['gender'];
+					$userRole				=	2;
+					$model->add_date		=	date('Y-m-d H:i:s');
+					$model->semd_mail		=	1;
+				
+					$user					=	new  UserLogin();
+					$user->username			=	$_POST['Register']['email'];
+					$user->password			=	md5($_POST['Register']['password']);
+					$user->add_date			=	date('Y-m-d H:i:s');
+					$user->block			=	0;
+					$Uclass					=	1;
+					$user->activation		=	0;
+					$user->user_role_id		=	$userRole;
+					$model->user_login_id	=	1;
+					$model->generate_gudaak_ids_id	=	1;
+					$valid					=	$model->validate();
+					$valid					=	$user->validate() && $valid;
+					if($valid){
+						if($user->save()){
+						
+							$model->user_login_id			=	$user->id;
+							$model->generate_gudaak_ids_id	=	1;
+							
+							if($model->save()){
+							}
+				
+						}
+						else {
+								
+							Yii::app()->user->setFlash('error','Please fill up carefully all field are mandatory.');
+							$this->redirect(array('site/userRegister'));
+							die;
+						}
+					}
+				}
+			
+				
+				
 			} 
 			else
 			{
@@ -134,6 +211,44 @@ class SiteController extends Controller
    			header("Location: " . $login_url);
 		}
 	}
+	
+	
+	/*public function actionFacebook()
+	{
+		//'280973568648095'
+		//'cb87d29ce10af839948748ad14e2de8f'
+		define('APP_ID', '846828762012851');
+		define('APP_SECRET','1f989e3870a57ed90fad047993bb7f01');
+
+		$facebook = new Facebook(array('appId' => APP_ID,'secret' => APP_SECRET,));
+		$user = $facebook->getUser();
+		if ($user) {
+			try {
+				$user_profile = $facebook->api('/me');
+			} 
+			catch (FacebookApiException $e) 
+			{
+				error_log($e);
+				$user = null;
+			}
+			if (!empty($user_profile ))
+			{
+				CVarDumper::dump($user_profile,10,1);
+				die;
+				
+			} 
+			else
+			{
+			# For testing purposes, if there was an error, let's kill the script
+			die("There was an error Occured.");
+			}
+			
+		}
+		else{
+			$login_url = $facebook->getLoginUrl(array( 'scope' => 'email,publish_stream,read_stream,manage_notifications,read_mailbox'));
+   			header("Location: " . $login_url);
+		}
+	}*/
 	
 	public function actionAutoCompleteLookup()
 	{  
