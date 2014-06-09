@@ -123,13 +123,10 @@ class SiteController extends Controller
 			{
 				$userC	=	UserLogin::model()->findByAttributes(array('username'=>$user_profile['email'],'fb_id'=>$user_profile['id']));
 				if(!empty($userC)){
-					$login=new LoginForm;
+					$login				=	new LoginForm;
 					$login->email		=	$userC->username;
 					$login->password	=	$userC->password;
 					if($login->login()){
-						
-						CVarDumper::dump(Yii::app()->user,10,1);
-						die;
 						if(isset(Yii::app()->user->userType)){
 							if(Yii::app()->user->userType=='admin'){
 								$this->redirect(Yii::app()->createUrl('/admin/admin'));
