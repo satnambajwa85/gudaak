@@ -8,7 +8,7 @@
 			</div>
 		</div>
 		<div class="head_text_coll_new" style="width:100%;">
-			<span style="width:20%; float:left;"><?php echo $Institutes->address1;?></span>
+			<span style="float:left;"><?php echo $Institutes->address1;?></span>
 		</div>
 <?php 
 $list	=	array();
