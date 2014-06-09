@@ -58,7 +58,7 @@ class UserProfiles extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('display_name, first_name, last_name, email, gender, date_of_birth, mobile_no, add_date, generate_gudaak_ids_id, user_login_id', 'required'),
+			array('display_name, first_name, last_name, email, gender, add_date, user_login_id', 'required'),
 			array('semd_mail, status, generate_gudaak_ids_id, user_login_id, user_academic_id, user_class_id', 'numerical', 'integerOnly'=>true),
 			array('display_name, email, board, gudaak_id', 'length', 'max'=>100),
 			array('first_name, last_name', 'length', 'max'=>50),
