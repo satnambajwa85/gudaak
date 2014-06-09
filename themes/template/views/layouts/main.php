@@ -164,9 +164,9 @@
 									<div class="col-md-4 pull-left pd0">
 										  <?php echo CHtml::link('Back','',array('class'=>'btn fl back-register-bt btn-info','data-dismiss'=>'modal'));?>
 									</div>
-									<div class="col-md-4 pull-left pd0">
+									<!--<div class="col-md-4 pull-left pd0">
 										  <?php echo CHtml::link('Facebook',array('site/facebook'),array('class'=>'btn fl back-register-bt btn-info'));?>
-									</div>
+									</div>-->
 									<div class="col-md-4 pull-right pd0">
 									    <?php echo CHtml::submitButton('Register',array('class'=>'btn fr btn-warning login '));?>
 									</div>
