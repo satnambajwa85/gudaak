@@ -254,13 +254,19 @@ class SiteController extends Controller
 				
 						}
 						else {
-							Yii::app()->user->setFlash('login','Some problem while registering by facebook please try simple registration.');
+							CVarDumper::dump($user,10,1);
+							die;
+							Yii::app()->user->setFlash('error','Some problem while registering by facebook please try simple registration.');
 							$this->redirect(array('site/userRegister'));
 							die;
 						}
 					}
 					else{
-						Yii::app()->user->setFlash('login','Some problem while registering by facebook please try simple registration.');
+						
+						CVarDumper::dump($user,10,1);
+						CVarDumper::dump($model,10,1);
+						die;
+						Yii::app()->user->setFlash('error','Some problem while validate registeration by facebook please try simple registration.');
 						$this->redirect(array('site/userRegister'));
 						die;
 					}
