@@ -127,8 +127,8 @@ class SiteController extends Controller
 					$login->email		=	$userC->username;
 					$login->password	=	$userC->password;
 					if($login->login()){
-						echo Yii::app()->user->userType;
-						CVarDumper::dump($user_profile,10,1);
+						
+						CVarDumper::dump(Yii::app()->user,10,1);
 						die;
 						if(isset(Yii::app()->user->userType)){
 							if(Yii::app()->user->userType=='admin'){
