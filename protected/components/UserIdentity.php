@@ -10,16 +10,8 @@ class UserIdentity extends CUserIdentity
 			$this->errorCode = self::ERROR_PASSWORD_INVALID;
 		}
 		else{
-			
 			if($record->status==1)//Authenticates only those users whose status =1
 				$this->setState('userId',$record->id);
-			
-			
-			CVarDumper::dump($record,10,1);
-			$userInfo	=	UserProfiles::model()->findByAttributes(array('user_login_id'=>$record->id));
-			CVarDumper::dump($userInfo,10,1);
-			die;
-			
 			if($record->userRole->title == 'school'){
 				$userInfo	=	SchoolsHasUserLogin::model()->findByAttributes(array('user_login_id'=>$record->id));
 				if(empty($userInfo))

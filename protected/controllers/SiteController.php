@@ -127,8 +127,6 @@ class SiteController extends Controller
 					$login->email		=	$userC->username;
 					$login->password	=	$userC->password;
 					if($login->login()){
-						
-						die('done');
 						if(isset(Yii::app()->user->userType)){
 							if(Yii::app()->user->userType=='admin'){
 								$this->redirect(Yii::app()->createUrl('/admin/admin'));
@@ -195,14 +193,15 @@ class SiteController extends Controller
 					$model->first_name		=	$user_profile['first_name'];
 					$model->last_name		=	$user_profile['last_name'];
 					$model->email			=	$user_profile['email'];
-					$pass					=	rand(100000, 10000000);
+					$passVal				=	rand(100000, 10000000);
+					$pass					=	md5($passVal);
 					$model->image			=	'noimage.jpg';
 					$model->gender			=	$user_profile['gender'];
 					$userRole				=	3;
 					$model->add_date		=	date('Y-m-d H:i:s');
 					$model->semd_mail		=	1;
-					$model->password			=	$pass;
-					$model->confirmpass			=	$pass;
+					$model->password		=	$pass;
+					$model->confirmpass		=	$pass;
 					$user					=	new  UserLogin();
 					$user->username			=	$user_profile['email'];
 					$user->password			=	$pass;
