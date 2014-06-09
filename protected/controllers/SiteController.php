@@ -103,7 +103,8 @@ class SiteController extends Controller
 		//'280973568648095'
 		//'cb87d29ce10af839948748ad14e2de8f'
 		if(Yii::app()->user->id){
-			die('in');
+			echo Yii::app()->user->id;
+			die;
 			$this->redirect(array('site/'));
 		}
 		define('APP_ID', '846828762012851');
@@ -111,8 +112,6 @@ class SiteController extends Controller
 
 		$facebook = new Facebook(array('appId' => APP_ID,'secret' => APP_SECRET,));
 		$user = $facebook->getUser();
-		CVarDumper::dump($user,10,1);
-		die;
 		if ($user) {
 			try {
 				$user_profile = $facebook->api('/me');
