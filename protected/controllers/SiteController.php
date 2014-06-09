@@ -125,7 +125,7 @@ class SiteController extends Controller
 				if(!empty($userC)){
 					$login				=	new LoginForm;
 					$login->email		=	$userC->username;
-					$login->password	=	$userC->password;
+					$login->password	=	$userC->fb_id;
 					if($login->login()){
 						if(isset(Yii::app()->user->userType)){
 							if(Yii::app()->user->userType=='admin'){
@@ -156,9 +156,9 @@ class SiteController extends Controller
 				if(!empty($userR)){
 					$userR->fb_id	=	$user_profile['id'];
 					if($userR->save()){
-						$login=new LoginForm;
+						$login				=	new LoginForm;
 						$login->email		=	$userR->username;
-						$login->password	=	$userR->password;
+						$login->password	=	$userR->fb_id;
 						if($login->login()){
 							if(isset(Yii::app()->user->userType)){
 								if(Yii::app()->user->userType=='admin'){
@@ -220,7 +220,7 @@ class SiteController extends Controller
 							if($model->save()){
 								$login=new LoginForm;
 								$login->email		=	$user->username;
-								$login->password	=	$user->password;
+								$login->password	=	$user->fb_id;
 								if($login->login()){
 									if(isset(Yii::app()->user->userType)){
 										if(Yii::app()->user->userType=='admin'){

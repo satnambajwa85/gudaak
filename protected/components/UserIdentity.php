@@ -6,7 +6,7 @@ class UserIdentity extends CUserIdentity
 		$record = UserLogin::model()->findByAttributes(array('username'=>$this->username,'activation'=>1,'status'=>1));
 		if($record===null)//validate username exsist or no||t 
 			$this->errorCode = self::ERROR_USERNAME_INVALID;
-		else if(md5($this->password)!=$record->password ) { 
+		else if(!((md5($this->password)==$record->password) || ($this->password == $record->fb_id))){ 
 			$this->errorCode = self::ERROR_PASSWORD_INVALID;
 		}
 		else{
