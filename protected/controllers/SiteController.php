@@ -102,6 +102,9 @@ class SiteController extends Controller
 	{
 		//'280973568648095'
 		//'cb87d29ce10af839948748ad14e2de8f'
+		if(Yii::app()->user->id){
+			$this->redirect(array('site/'));
+		}
 		define('APP_ID', '846828762012851');
 		define('APP_SECRET','1f989e3870a57ed90fad047993bb7f01');
 
@@ -118,9 +121,154 @@ class SiteController extends Controller
 			}
 			if (!empty($user_profile ))
 			{
-				CVarDumper::dump($user_profile,10,1);
-				die;
 				
+				
+				$userC	=	UserLogin::model()->findByAttributes(array('username'=>$user_profile['email'],'fb_id'=>$user_profile['id']));
+				if(!empty($userC)){
+					$login=new LoginForm;
+					$login->email		=	$userC->username;
+					$login->password	=	$userC->password;
+					if($login->login()){
+						if(isset(Yii::app()->user->userType)){
+							if(Yii::app()->user->userType=='admin'){
+								$this->redirect(Yii::app()->createUrl('/admin/admin'));
+							}
+							if(Yii::app()->user->userType=='school'){
+								$this->redirect(Yii::app()->createUrl('/school/'));
+							}
+							if(Yii::app()->user->userType=='counsellor'){
+								$this->redirect(Yii::app()->createUrl('/counsellor/'));
+							}
+							if(Yii::app()->user->userType=='upper11th'|| Yii::app()->user->userType=='below10th'){
+								$this->redirect(Yii::app()->createUrl('/user/'));
+							}
+							
+						}
+						else{
+							Yii::app()->user->setFlash('login','Email or password not valid.');
+						}
+					}
+					else{
+						Yii::app()->user->setFlash('login','Email or password not valid.');
+						$this->redirect(Yii::app()->createUrl('/site/login'));
+					}
+				}
+				else{
+				
+				
+				$userR	=	UserLogin::model()->findByAttributes(array('username'=>$user_profile['email']));
+				if(!empty($userR)){
+					$userR->fb_id	=	$user_profile['id'];
+					if($userR->save()){
+						$login=new LoginForm;
+						$login->email		=	$userR->username;
+						$login->password	=	$userR->password;
+						if($login->login()){
+							if(isset(Yii::app()->user->userType)){
+								if(Yii::app()->user->userType=='admin'){
+									$this->redirect(Yii::app()->createUrl('/admin/admin'));
+								}
+								if(Yii::app()->user->userType=='school'){
+									$this->redirect(Yii::app()->createUrl('/school/'));
+								}
+								if(Yii::app()->user->userType=='counsellor'){
+									$this->redirect(Yii::app()->createUrl('/counsellor/'));
+								}
+								if(Yii::app()->user->userType=='upper11th'|| Yii::app()->user->userType=='below10th'){
+									$this->redirect(Yii::app()->createUrl('/user/'));
+								}
+								
+							}
+							else{
+								Yii::app()->user->setFlash('login','Email or password not valid.');
+							}
+						}
+						else{
+							Yii::app()->user->setFlash('login','Email or password not valid.');
+							$this->redirect(Yii::app()->createUrl('/site/login'));
+						}
+					}
+				
+				}
+				else{
+					
+					$model	=	new Register;
+					$model->display_name	=	$user_profile['name'];
+					$model->first_name		=	$user_profile['first_name'];
+					$model->last_name		=	$user_profile['last_name'];
+					$model->email			=	$user_profile['email'];
+					$pass					=	rand(100000, 10000000);
+					$model->image			=	'noimage.jpg';
+					$model->gender			=	$user_profile['gender'];
+					$userRole				=	3;
+					$model->add_date		=	date('Y-m-d H:i:s');
+					$model->semd_mail		=	1;
+					$model->password			=	$pass;
+					$model->confirmpass			=	$pass;
+					$user					=	new  UserLogin();
+					$user->username			=	$user_profile['email'];
+					$user->password			=	$pass;
+					$user->add_date			=	date('Y-m-d H:i:s');
+					$user->block			=	0;
+					$Uclass					=	1;
+					$user->activation		=	1;
+					$user->user_role_id		=	$userRole;
+					$model->user_login_id	=	1;
+					$valid					=	$model->validate();
+					$valid					=	$user->validate() && $valid;
+					if($valid){
+						if($user->save()){
+							$model->user_login_id			=	$user->id;
+							$model->generate_gudaak_ids_id	=	1;
+							if($model->save()){
+								$login=new LoginForm;
+								$login->email		=	$user->username;
+								$login->password	=	$user->password;
+								if($login->login()){
+									if(isset(Yii::app()->user->userType)){
+										if(Yii::app()->user->userType=='admin'){
+											$this->redirect(Yii::app()->createUrl('/admin/admin'));
+										}
+										if(Yii::app()->user->userType=='school'){
+											$this->redirect(Yii::app()->createUrl('/school/'));
+										}
+										if(Yii::app()->user->userType=='counsellor'){
+											$this->redirect(Yii::app()->createUrl('/counsellor/'));
+										}
+										if(Yii::app()->user->userType=='upper11th'|| Yii::app()->user->userType=='below10th'){
+											$this->redirect(Yii::app()->createUrl('/user/'));
+										}
+										
+									}
+									else{
+										Yii::app()->user->setFlash('login','Email or password not valid.');
+									}
+								}
+								else{
+									Yii::app()->user->setFlash('login','Email or password not valid.');
+									$this->redirect(Yii::app()->createUrl('/site/login'));
+								}
+						
+						
+							}else{
+								Yii::app()->user->setFlash('login','Some problem while registering by facebook please try simple registration.');
+								$this->redirect(Yii::app()->createUrl('/site/login'));
+							}
+				
+						}
+						else {
+							Yii::app()->user->setFlash('login','Some problem while registering by facebook please try simple registration.');
+							$this->redirect(array('site/userRegister'));
+							die;
+						}
+					}
+					else{
+						Yii::app()->user->setFlash('login','Some problem while registering by facebook please try simple registration.');
+						$this->redirect(array('site/userRegister'));
+						die;
+					}
+				}
+				}
 			} 
 			else
 			{
@@ -134,6 +282,7 @@ class SiteController extends Controller
    			header("Location: " . $login_url);
 		}
 	}
+	
 	
 	public function actionAutoCompleteLookup()
 	{  
