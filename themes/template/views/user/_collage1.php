@@ -27,72 +27,20 @@ foreach($Institutes->collagesCoursesSpecialization as $cou){
 		<div class="coll_section_left">
        <!-- updated new work-->
        <div class="panel-group" id="accordion">
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h5 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-          Collapsible Group Item #1
-        </a>
-      </h5>
-    </div>
-    <div id="collapseOne" class="panel-collapse collapse in">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h5 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo">
-          Collapsible Group Item #2
-        </a>
-      </h5>
-    </div>
-    <div id="collapseTwo" class="panel-collapse collapse">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-  <div class="panel panel-default">
-    <div class="panel-heading">
-      <h5 class="panel-title">
-        <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree">
-          Collapsible Group Item #3
-        </a>
-      </h5>
-    </div>
-    <div id="collapseThree" class="panel-collapse collapse">
-      <div class="panel-body">
-        Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
-      </div>
-    </div>
-  </div>
-</div>
-
-       
-       
-       <!-- updated new work-->
-        
-        
-        
-        
-			<ul class="nav nav-tabs">
-			<?php
+<?php
 			$count	=	0;
 			 foreach($list as $cou){?>
-				<li <?php echo ($count==0)?'class="active"':'';?>><a href="#t<?php echo $cou['id'];?>" data-toggle="tab"><?php echo $cou['title'];?></a></li>
-			<?php 
-			$count++;
-			} ?>
-			</ul>
-
-<!-- Tab panes -->
-<div class="tab-content " style="padding:15px;">
-	<?php
-	$count	=	0;
-	foreach($list as $cou){?>
+   <div class="panel panel-default">
+    <div class="panel-heading">
+      <h5 class="panel-title">
+        <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne<?php echo $cou['id'];?>">
+          <?php echo $cou['title'];?>
+        </a>
+      </h5>
+    </div>
+    <div id="collapseOne<?php echo $cou['id'];?>" class="panel-collapse collapse in">
+      <div class="panel-body">
+      
 		<div class="tab-pane <?php echo ($count==0)?'active':'';?>" id="t<?php echo $cou['id'];?>">
 		<?php foreach($cou['course'] as  $sat){?>
 				
@@ -106,8 +54,29 @@ foreach($Institutes->collagesCoursesSpecialization as $cou){
                 
 		<?php }?>
 		</div>
-	<?php $count++;} ?>
+	
+      </div>
+    </div>
+  </div>
+			<?php 
+			$count++;
+			} ?>
+
+  
+ 
 </div>
+
+       
+       
+       <!-- updated new work-->
+        
+        
+        
+        
+			
+
+<!-- Tab panes -->
+
           </div> 
           <div class="coll_section_right" style="text-align:justify">
           	<p style="font-weight:normal;  ;"><h4 class="content_div">Why this collage</h4><?php echo $Institutes->why;?><br/><h4 class="content_div">Overview</h4><?php echo $Institutes->overview;?>
