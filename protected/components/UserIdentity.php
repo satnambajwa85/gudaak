@@ -7,13 +7,10 @@ class UserIdentity extends CUserIdentity
 		
 		if($record===null)//validate username exsist or no||t 
 			$this->errorCode = self::ERROR_USERNAME_INVALID;
-			
 		else if(md5($this->password)!=$record->password ) { 
 			$this->errorCode = self::ERROR_PASSWORD_INVALID;
 		}
-		
 		else{
-		
 			if($record->status==1)//Authenticates only those users whose status =1
 				$this->setState('userId',$record->id);
 			if($record->userRole->title == 'school'){
@@ -33,6 +30,8 @@ class UserIdentity extends CUserIdentity
 				$this->setState('profileId',$userInfo->id);
 				$this->setState('schoolsId',$userInfo->generateGudaakIds->schools_id);
 			}
+			CVarDumper::dump($record,10,1);
+			die;
 			$this->setState('userId',$record->id);
 			$this->setState('userType',$record->userRole->title);
 			$this->setState('lastLogin',$record->last_login);
