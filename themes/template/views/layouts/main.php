@@ -161,7 +161,7 @@
 									</div>
                                     <div class="clear"></div>
                                     <div class="col-md-12">
-                                    <?php echo CHtml::link('Register with <i class="posi-bt icon-facebook"></i>',array('site/facebook'),array('class'=>'btn btn-lg btn-primary fb1','style'=>'margin-left: 150px;'));?>
+                                    <?php echo CHtml::link('Register with <i class="posi-bt icon-facebook"></i>',array('site/facebook'),array('class'=>'btn  btn-primary fb1','style'=>'margin-left: 150px;'));?>
 									</div>
                                     
                                     <div class="col-md-12">
@@ -214,6 +214,8 @@
                                      <?php echo CHtml::Link("New user?",'javascript:void(0);',array('class'=>'home-login-box pull-right','data-dismiss'=>'modal'));?>
                                     
                                     <div class="clearfix"></div>
+                                    <?php echo CHtml::link('Register with <i class="posi-bt icon-facebook"></i>',array('site/facebook'),array('class'=>'btn  btn-primary fb1','style'=>'margin-left: 150px;'));?>
+                                    
                                     <div align="center" class="top-stats-icons ">
                                         <?php echo CHtml::submitButton('Login',array('class'=>'btn btn-warning login'));?>
                                         <div class="clearfix"></div>
