@@ -14,6 +14,12 @@ class UserIdentity extends CUserIdentity
 			if($record->status==1)//Authenticates only those users whose status =1
 				$this->setState('userId',$record->id);
 			
+			
+			CVarDumper::dump($record,10,1);
+			$userInfo	=	UserProfiles::model()->findByAttributes(array('user_login_id'=>$record->id));
+			CVarDumper::dump($userInfo,10,1);
+			die;
+			
 			if($record->userRole->title == 'school'){
 				$userInfo	=	SchoolsHasUserLogin::model()->findByAttributes(array('user_login_id'=>$record->id));
 				if(empty($userInfo))
@@ -27,14 +33,7 @@ class UserIdentity extends CUserIdentity
 				$this->setState('profileId',$userInfo->id);
 				$this->setState('schoolsId',1);
 			}else{
-				
-				
-				CVarDumper::dump($record,10,1);
-				
-			
 				$userInfo	=	UserProfiles::model()->findByAttributes(array('user_login_id'=>$record->id));
-				CVarDumper::dump($userInfo,10,1);
-				die;
 				$this->setState('profileId',$userInfo->id);
 				$this->setState('schoolsId',$userInfo->generateGudaakIds->schools_id);
 			}

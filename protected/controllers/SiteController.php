@@ -127,6 +127,8 @@ class SiteController extends Controller
 					$login->email		=	$userC->username;
 					$login->password	=	$userC->password;
 					if($login->login()){
+						
+						die('done');
 						if(isset(Yii::app()->user->userType)){
 							if(Yii::app()->user->userType=='admin'){
 								$this->redirect(Yii::app()->createUrl('/admin/admin'));
