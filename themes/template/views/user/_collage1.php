@@ -42,7 +42,7 @@ foreach($list as $cou){?>
       <div class="panel-body">
       
 		<?php foreach($cou['course'] as  $sat){?>
-				<div class="col-md-12 bb">
+				<div class="col-md-12 bb mb10 mt5">
                     <div class="row">
                         <div class="col-md-3 title_text" >Title :</div>
                         <div class="col-md-9"> <?php echo $sat['title'];?></div>
