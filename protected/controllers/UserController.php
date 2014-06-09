@@ -12,7 +12,8 @@ class UserController extends Controller
 				),
 				array('allow', // allow admin user to perform 'admin' and 'delete' actions
 					'actions'=>array('index','streamPreference','userStreamRaitng','userPrefferdCareer','subjectsDetails','streamExplore','userPreffredStream','streamCareerOptions','finalizedStream','streamList','stream','readFullStream','removeFinalStream','careerInfo'),
-					'expression' =>"Yii::app()->user->userType ==  'below10th'",
+					'users' => array('@')
+					//'expression' =>"Yii::app()->user->userType ==  'below10th'",
 				),
 				array('allow', // allow admin user to perform 'admin' and 'delete' actions
 					'actions'=>array('index','career','careerList','careerOptionsAjax', 'removeFinalCareer','careerDetails','userRaitng','finalizedCareer','addCareer','careerPreference','userFinalCareer','readFull','explore','userPrefferdCareer',),

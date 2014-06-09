@@ -6,9 +6,6 @@ class Register extends CActiveRecord
 	 */
 	public $password;
     public $confirmpass;
-    public $gudaak_id;
-    public $class;
-    public $medium;
 	public function tableName()
 	{
 		return 'user_profiles';
@@ -29,21 +26,19 @@ class Register extends CActiveRecord
 			array('semd_mail, status, generate_gudaak_ids_id, user_login_id, user_academic_id, user_class_id', 'numerical', 'integerOnly'=>true),
 			array('display_name, email', 'length', 'max'=>100),
 			array('password', 'required','message' => 'Please enter  password.'), 
-		    array('class', 'required','message' => 'Please fill  your class.'), 
-		    array('medium', 'required','message' => 'Please fill  your medium.'), 
-			array('password', 'length', 'max' => 50, 'min' => 6, 'tooShort' => 'Password must have at least 6 chars'),
+		    array('password', 'length', 'max' => 50, 'min' => 6, 'tooShort' => 'Password must have at least 6 chars'),
 			array('mobile_no', 'length', 'max' => 10, 'min' => 10, 'tooShort' => 'Mobile no must have at least 10 number'),
 		    array('email', 'email'), 
 			array('email','unique'), 
 			//array('gudaak_id','unique'), 
 			array('first_name, last_name', 'length', 'max'=>50),
-			array('class, gender, image', 'length', 'max'=>45),
+			array('gender, image', 'length', 'max'=>45),
 			array('mobile_no', 'length', 'max'=>10),
 			array('address, user_info', 'length', 'max'=>600),
 			array('postcode', 'length', 'max'=>6),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, gudaak_id, display_name, first_name, last_name, class, email, gender, date_of_birth, image, mobile_no, address, postcode, user_info, add_date, semd_mail, status, generate_gudaak_ids_id, user_login_id, user_academic_id, user_class_id', 'safe', 'on'=>'search'),
+			array('id,display_name, first_name, last_name, email, gender, date_of_birth, image, mobile_no, address, postcode, user_info, add_date, semd_mail, status, generate_gudaak_ids_id, user_login_id, user_academic_id, user_class_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -83,11 +78,9 @@ class Register extends CActiveRecord
 	{
 		return array(
 			'id' => 'ID',
-			'gudaak_id' => 'Gudaak',
 			'display_name' => 'Display Name',
 			'first_name' => 'First Name',
 			'last_name' => 'Last Name',
-			'class' => 'Class',
 			'email' => 'Email',
 			'gender' => 'Gender',
 			'date_of_birth' => 'Date Of Birth',
@@ -125,11 +118,9 @@ class Register extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('id',$this->id);
-		$criteria->compare('gudaak_id',$this->gudaak_id,true);
 		$criteria->compare('display_name',$this->display_name,true);
 		$criteria->compare('first_name',$this->first_name,true);
 		$criteria->compare('last_name',$this->last_name,true);
-		$criteria->compare('class',$this->class,true);
 		$criteria->compare('email',$this->email,true);
 		$criteria->compare('gender',$this->gender,true);
 		$criteria->compare('date_of_birth',$this->date_of_birth,true);

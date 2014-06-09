@@ -54,7 +54,7 @@
                                                                 </select>
                                                                 <input type="text" disabled="disabled" value="<?php echo (!empty($model->postcode))?''.$model->postcode.'':'Postcode here';?>" />
                                                                 <select disabled="disabled" class="uClass">
-                                                                    <option value="State"><?php echo $model->userClass->title;?></option>
+                                                                    <option value="State"><?php echo $model->class;?></option>
                                                                 </select> 
                                                                 <input class="big_index" disabled="disabled"  type="text" value="<?php echo $model->generateGudaakIds->schools->name;?>" />
                                                                 <ul>
@@ -108,7 +108,7 @@
             
             
             
-                                                                <?php echo $form->dropDownList($model,'class',array('placeholder'=>''.$model->userClass->title.''));
+                                                                <?php echo $form->dropDownList($model,'class',array('placeholder'=>'Class','value'=>''.$model->class.''));
                                                                 echo $form->error($model,'class');?>
                                                                
                                                                 <input class="big_index" type="text" placeholder="School Name" value="<?php echo $model->generateGudaakIds->schools->name;?>" />
