@@ -121,9 +121,6 @@ class SiteController extends Controller
 			}
 			if (!empty($user_profile ))
 			{
-				
-				CVarDumper::dump($user_profile,10,1);
-		die;
 				$userC	=	UserLogin::model()->findByAttributes(array('username'=>$user_profile['email'],'fb_id'=>$user_profile['id']));
 				if(!empty($userC)){
 					$login=new LoginForm;
@@ -150,13 +147,16 @@ class SiteController extends Controller
 						}
 					}
 					else{
+						
+						
+				CVarDumper::dump($user_profile,10,1);
+		die;
+						
 						Yii::app()->user->setFlash('login','Email or password not valid.');
 						$this->redirect(Yii::app()->createUrl('/site/login'));
 					}
 				}
 				else{
-				
-				
 				$userR	=	UserLogin::model()->findByAttributes(array('username'=>$user_profile['email']));
 				if(!empty($userR)){
 					$userR->fb_id	=	$user_profile['id'];
