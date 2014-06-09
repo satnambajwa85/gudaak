@@ -4,16 +4,16 @@ class UserIdentity extends CUserIdentity
 	public function authenticate()
 	{
 		$record = UserLogin::model()->findByAttributes(array('username'=>$this->username,'activation'=>1,'status'=>1));
-		CVarDumper::dump($record,10,1);
-		die;
 		if($record===null)//validate username exsist or no||t 
 			$this->errorCode = self::ERROR_USERNAME_INVALID;
 		else if(md5($this->password)!=$record->password ) { 
 			$this->errorCode = self::ERROR_PASSWORD_INVALID;
 		}
 		else{
+			
 			if($record->status==1)//Authenticates only those users whose status =1
 				$this->setState('userId',$record->id);
+			
 			if($record->userRole->title == 'school'){
 				$userInfo	=	SchoolsHasUserLogin::model()->findByAttributes(array('user_login_id'=>$record->id));
 				if(empty($userInfo))
@@ -27,7 +27,14 @@ class UserIdentity extends CUserIdentity
 				$this->setState('profileId',$userInfo->id);
 				$this->setState('schoolsId',1);
 			}else{
+				
+				
+				CVarDumper::dump($record,10,1);
+				
+			
 				$userInfo	=	UserProfiles::model()->findByAttributes(array('user_login_id'=>$record->id));
+				CVarDumper::dump($userInfo,10,1);
+				die;
 				$this->setState('profileId',$userInfo->id);
 				$this->setState('schoolsId',$userInfo->generateGudaakIds->schools_id);
 			}
