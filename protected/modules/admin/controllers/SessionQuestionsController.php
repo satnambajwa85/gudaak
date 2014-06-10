@@ -139,9 +139,8 @@ class SessionQuestionsController extends Controller
 			'model'=>$model,
 		));
 	}
-	public function actionAdminView()
+	public function actionAdminView($id)
 	{
-		$id	=	$_REQUEST['id'];
 		$model=new SessionQuestions('search');
 		if(isset($id))
 			$model->session_id	=	$id; 
