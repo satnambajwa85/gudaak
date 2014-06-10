@@ -23,17 +23,13 @@ $('.search-form form').submit(function(){
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'schools-grid',
 	'itemsCssClass'=>'table table-bordered',
-	'dataProvider'=>$model->search(),
-	//'filter'=>$model,
+	'dataProvider'=>$model,
 	'columns'=>array(
-		//'id',
 		array(
             'name'=>'cities_id',
             'value'=>'$data->cities->title'
         ),
 		'name',
-		//'description',
-		//'display_name',
 		'email',
 		array(
             'name'=>'images',

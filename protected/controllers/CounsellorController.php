@@ -99,14 +99,13 @@ class CounsellorController extends Controller
 	{
 		$lists	=	CounselorHasSchools::model()->findAllByAttributes(array('counselor_id'=>Yii::app()->user->profileId));
 		$lat	=	array();
-		foreach($lists as $list){
+		foreach($lists as $list)
 			$lat[]	=	$list->schools_id;
-		}
-		$model	=	new Schools('search');
 		if(count($lat) > 0)
-			$model->id	=	$lat; 
-		if(isset($_GET['Schools']))
-			$model->attributes	=	$_GET['Schools'];
+			$model=new CActiveDataProvider('Schools',array('criteria'=>array('condition'=>'id IN ('.implode(',',$lat).')',),));
+		else
+			$model=new CActiveDataProvider('Schools',array('criteria'=>array('condition'=>'id IN (0)',),));
+		
 		$this->render('school',array('model'=>$model));
 	}
 	public function actionStudentDetails($id)
