@@ -36,7 +36,7 @@
                   		  <p>Pick the right college and course</p>
                         </div>
                         <img width="100%" src="<?php echo Yii::app()->theme->baseUrl;?>/images/pic5.png" /></a>
-                        <div class="col-md-12 pull-left text-center">Shortlist Collages</div>
+                        <div class="col-md-12 pull-left text-center">Shortlist Colleges</div>
                         </div>
                         <div class="col-md-4 pd20 toolSat thumbnails span3">
                         <a href="javaScript:void(0);" class="login-boot-box thumbnail">
