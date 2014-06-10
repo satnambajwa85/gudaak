@@ -44,7 +44,7 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'other',
 		'status',
 		array(
-			//'type'=>'raw',
+			'type'=>'raw',
 			//'name'=>'Questions',
 			'value'=>'CHtml::link("Questions",array("/admin/sessionQuestions/adminView","id"=>$data->id))',
 		),
