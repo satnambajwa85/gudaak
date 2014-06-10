@@ -27,7 +27,7 @@ class SessionQuestionsController extends Controller
 	{
 		return array(
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('index','view','admin','delete','create','update'),
+				'actions'=>array('index','view','admin','delete','create','update','adminView'),
 				'expression' =>"Yii::app()->user->userType ==  'admin'",
 			),
 			array('deny',  // deny all users
