@@ -66,7 +66,8 @@
 							array('label'=>'<span class="badge '.$orIResult.' pull-right">'.$orientItems.'</span>Orient Items', 'url'=>array('/admin/orientItems/admin/')),
 							array('label'=>'<span class="badge '.$queResult.' pull-right">'.$questions.'</span>Questions', 'url'=>array('/admin/questions/admin/')),
 							array('label'=>'<span class="badge '.$queOResult.' pull-right">'.$questionOptions.'</span>Question Options', 'url'=>array('/admin/questionOptions/admin/')),
-						
+							array('label'=>'Session', 'url'=>array('/admin/session/admin/')),
+							array('label'=>'SessionQuestions', 'url'=>array('/admin/sessionQuestions/admin/')),
 							
 							
                         )),
