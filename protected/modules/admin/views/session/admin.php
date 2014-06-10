@@ -43,11 +43,11 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'add_date',
 		'other',
 		'status',
-		//array(
+		array(
 			//'type'=>'raw',
 			//'name'=>'Questions',
-			//'value'=>'CHtml::link("Questions",array("/admin/sessionQuestions/adminView","id"=>$data->id))',
-		//),
+			'value'=>'CHtml::link("Questions",array("/admin/sessionQuestions/adminView","id"=>$data->id))',
+		),
 		array(
 			'class'=>'CButtonColumn',
 		),
