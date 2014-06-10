@@ -62,7 +62,7 @@ class SessionQuestionsController extends Controller
 		{
 			$model->attributes=$_POST['SessionQuestions'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('adminView','id'=>$model->session->id));
 		}
 
 		$this->render('create',array(
@@ -86,7 +86,7 @@ class SessionQuestionsController extends Controller
 		{
 			$model->attributes=$_POST['SessionQuestions'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('adminView','id'=>$model->session->id));
 		}
 
 		$this->render('update',array(
