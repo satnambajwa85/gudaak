@@ -139,7 +139,17 @@ class SessionQuestionsController extends Controller
 			'model'=>$model,
 		));
 	}
+	public function actionAdminView()
+	{
+		$id	=	$_REQUEST['id'];
+		$model=new SessionQuestions('search');
+		if(isset($id))
+			$model->session_id	=	$id; 
+		if(isset($_GET['SessionQuestions']))
+			$model->attributes=$_GET['SessionQuestions'];
 
+		$this->render('admin',array('model'=>$model,'id'=>$id));
+	}
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
