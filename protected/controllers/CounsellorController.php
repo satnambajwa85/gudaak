@@ -254,7 +254,7 @@ class CounsellorController extends Controller
 			die;
 		}
 		$model	=	Session::model()->findAll();
-		$this->render('session',array('model'=>$model));
+		$this->render('session',array('model'=>$model,'id'=>$id));
 	}
 	public function actionSession()
 	{
