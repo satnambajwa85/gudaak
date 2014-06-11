@@ -10,6 +10,11 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'user_login_id'); ?>
+		<?php echo $form->dropDownlist($model,'user_login_id',CHtml::listData(UserLogin::model()->findAllByAttributes(array('user_role_id'=>5)),'id','username'),array('class'=>'form-control')); ?>
+		<?php echo $form->error($model,'user_login_id'); ?>
+	</div>
+	<div class="row">
 		<?php echo $form->labelEx($model,'first_name'); ?>
 		<?php echo $form->textField($model,'first_name',array('size'=>50,'maxlength'=>50)); ?>
 		<?php echo $form->error($model,'first_name'); ?>
@@ -153,11 +158,7 @@
 		<?php echo $form->error($model,'status'); ?>
 	</div>
 
-	<div class="row">
-		<?php echo $form->labelEx($model,'user_login_id'); ?>
-		<?php echo $form->textField($model,'user_login_id'); ?>
-		<?php echo $form->error($model,'user_login_id'); ?>
-	</div>
+	
 
 	<div class="row buttons">
 		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
