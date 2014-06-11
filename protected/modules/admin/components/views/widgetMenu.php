@@ -27,7 +27,7 @@
 							array('label'=>'<span class="badge '.$loginResult.' pull-right">'.$userlogin.'</span>User login', 'url'=>array('/admin/userlogin/admin/')),
 							array('label'=>'<span class="badge '.$uProResult.' pull-right">'.$userProfiles.'</span>User Profiles', 'url'=>array('/admin/userProfiles/admin/')),
 							array('label'=>'<span class="badge '.$uProResult.' pull-right">'.$userProfiles.'</span>Counselor', 'url'=>array('/admin/counselor/admin/')),
-							array('label'=>'<span class="badge '.$uProResult.' pull-right">'.$userProfiles.'</span>Counselor Details', 'url'=>array('/admin/counselorDetails/admin/')),
+							//array('label'=>'<span class="badge '.$uProResult.' pull-right">'.$userProfiles.'</span>Counselor Details', 'url'=>array('/admin/counselorDetails/admin/')),
 							array('label'=>'<span class="badge '.$uProResult.' pull-right">'.$userProfiles.'</span>Counselor Schools', 'url'=>array('/admin/counselorHasSchools/admin/')),
 							)), 
 							
