@@ -1,7 +1,7 @@
 <div class="col-md-10 pop-up-border fl col-lg-offset-1 ">
     <div class="row test-bot">Session Details</div>
     <div class="clear"></div>
-    <div class="col-md-12 fl user-profile-form">
+    <div class="col-md-12 fl user-profile-form sessionContent">
     	<input type="hidden" name="user" value="<?php echo $_REQUEST['user'];?>" />
         <input type="hidden" name="session" value="<?php echo $_REQUEST['session'];?>" />
         

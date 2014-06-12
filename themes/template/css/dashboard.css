@@ -8632,7 +8632,7 @@ display: none;
 .coll_section_right{ float:left; width:40%; min-height:250px; margin-top:20px;}
 .alertSat h1{ color:#880000;font-size:12px;}
 .bb{border-bottom: 1px solid #e5e5e5;}
-#ajaxContent input[type="radio"] + label {
+.sessionContent input[type="radio"] + label {
 background: url(../images/chk.jpg) no-repeat;
 background-size: 15px;
 height: 22px;
@@ -8647,7 +8647,7 @@ font-weight: normal !important;
 margin-left: 8px;
 padding-left:20px;
 }
-#ajaxContent input[type="radio"]:checked + label {
+.sessionContent input[type="radio"]:checked + label {
 background: url(../images/chk_active.jpg) no-repeat;
 background-size: 15px;
 color: #666666 !important;
