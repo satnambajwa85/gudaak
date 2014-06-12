@@ -28,7 +28,7 @@
 					$options	=	explode(',',$item->options);
 					$str	= '';
 					foreach($options as $option){
-						$str	.=	'<input type="radio" value="'.$option.'" name="question['.$item->id.']" '.((isset($ans[$item->id]) && $ans[$item->id]==$option)?'checked':'').' class="form-control"  style="display:block !important;float:left; width:20px;"/>'.$option.' ';
+						$str	.=	'<div><input type="radio" value="'.$option.'" name="question['.$item->id.']" '.((isset($ans[$item->id]) && $ans[$item->id]==$option)?'checked':'').' class="form-control"  style="display:block !important;float:left; width:20px;"/><label>'.$option.'</label> </div>';
 					}
 					echo $str;
 				break;
