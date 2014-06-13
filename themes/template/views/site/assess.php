@@ -1,9 +1,9 @@
 <div id="middle_outr">
     	<div class="middle_cont">
+        	<div class="mid_lef_heading">
+                Assess to <em>"Know Yourself"</em>
+            </div>
         	<div class="middle">
-            	<div class="mid_lef_heading">
-                    Assess to <em>"Know Yourself"</em>
-                </div>
             	<div class="middle_left">
                 	
                     <div class="mid_left_bot ">

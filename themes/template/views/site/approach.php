@@ -1,9 +1,9 @@
 <div id="middle_outr">
     	<div class="middle_cont">
+        	<div class="mid_lef_heading_index3 col-md-12">
+                Approach to <em>“Choose College”</em> best for you
+            </div>
         	<div class="middle">
-            	<div class="mid_lef_heading_index3">
-                    Approach to <em>“Choose College”</em> best for you
-                </div>
             	<div class="school-middle_left">
                 	
                     <div class="fashion_left">
