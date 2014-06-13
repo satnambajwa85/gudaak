@@ -147,8 +147,8 @@ background-image: url("../images/01_Home_Slider_1.jpg");
 /*index3 start {SAhil} */
 .mid_lef_heading_index3{ color: #666666;float: left; font-family: robotothin; font-size: 32px; font-weight: 700; margin-bottom: 0;width: 540px;}
 .mid_lef_heading_index2{ color: #666666;float: left; font-family: robotothin; font-size: 32px; font-weight: 700; margin-bottom: 0;width: 540px;position:relative;top:-10px;}
-.mid_lef_heading_index2 em{ color: #EB8A2B !important;font-family: robotomedium;font-size: 19px;font-style: normal; font-weight: normal;}
-.mid_lef_heading_index3 em{ color: #EB8A2B !important;font-family: robotomedium;font-size: 19px;font-style: normal; font-weight: normal;}
+.mid_lef_heading_index2 em{ color: #EB8A2B !important;font-family: robotomedium;font-style: normal; font-weight: normal;}
+.mid_lef_heading_index3 em{ color: #EB8A2B !important;font-family: robotomedium;font-style: normal; font-weight: normal;}
 .fashion_left{ float:left; width:100%; min-height:380px; position:relative;left:75px;}
 .doctor_box{ position:absolute; top:4px; right:40px; width:200px;}
 .doctor_box span{ float:left; width:70%;margin-top:44px;}
