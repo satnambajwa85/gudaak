@@ -1,10 +1,12 @@
 <div id="middle_outr" class="mb50">
     	<div class="middle_cont">
-        	<div class="middle2 slider2  mt10">
-            	<div class="middle_left">
-                	<div class="mid_lef_heading_index2">
+        	<div class="mid_lef_heading_index2">
                     	Explore to make a well informed <em>“Career Decision”</em>
                     </div>
+            	
+        	<div class="middle2 slider2  mt10">
+            	<div class="middle_left">
+                	
                     <div class="fashion_left">
                     	<div class="doctor_box">
                         	<span>

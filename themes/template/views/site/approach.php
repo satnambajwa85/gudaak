@@ -1,10 +1,11 @@
 <div id="middle_outr">
     	<div class="middle_cont">
         	<div class="middle">
+            	<div class="mid_lef_heading_index3">
+                    Approach to <em>“Choose College”</em> best for you
+                </div>
             	<div class="school-middle_left">
-                	<div class="mid_lef_heading_index3">
-                    	Approach to <em>“Choose College”</em> best for you
-                    </div>
+                	
                     <div class="fashion_left">
                     	<div class="school-box">
                          <div class="round mr-justify fl">
