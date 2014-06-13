@@ -79,7 +79,7 @@ background-image: url("../images/01_Home_Slider_1.jpg");
 .mt5{margin-top:-57px;margin-left:80px;}
 .middle_left{float:left; width:33%;}
 .school-middle_left{float:left; width:41%;}
-.mid_lef_heading{color: #256767;float: left;font-family: robotothin;font-size: 19px;font-weight: 400; margin-bottom: 0;width: 100%;}
+.mid_lef_heading{color: #256767;float: left;font-family: robotothin;font-size: 30px;font-weight: 700; margin-bottom: 0;width: 100%;padding-left: 20%;padding-top: 3%;}
 .mid_lef_heading em{ font-style:normal; color:#eb8a2b !important;font-family: robotomedium;}
 .mid_left_bot{ float:left; width:100%; margin-top:120px; background:url(../images/personality.png) no-repeat;
  min-height:280px;background-size:contain;}
