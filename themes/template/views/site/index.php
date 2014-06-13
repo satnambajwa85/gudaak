@@ -1,7 +1,7 @@
 <div id="middle_outr">
     	<div class="middle_cont">
         	<div class="middle">
-            	<div class="mid_lef_heading col-md-12 ">
+            	<div class="mid_lef_heading col-md-12 pd-15">
                     	Now <a href="javaScript:void(0);" class="home-login-box"><em>Sign Up for free</em></a> to start designing your career path...
                 </div>
 				<div class="col-md-7 fl" >

@@ -1,6 +1,6 @@
 <div id="middle_outr">
     	<div class="middle_cont">
-        	<div class="mid_lef_heading col-md-12" style="height:100px;padding-left:0px !important;">
+        	<div class="mid_lef_heading col-md-12" style="height:100px;">
                 Assess to <em>"Know Yourself"</em>
             </div>
         	<div class="middle">
