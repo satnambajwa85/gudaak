@@ -161,7 +161,7 @@
 									</div>
                                     <div class="clear"></div>
                                     <div class="">
-                                    <?php echo CHtml::link('Register with <i class="posi-bt icon-facebook"></i>',array('site/facebook'),array('class'=>'btn  btn-primary fb1','target'=>'_blank','style'=>'margin-left: 150px;'));?>
+                                    <?php echo CHtml::link('Register with <i class="posi-bt icon-facebook"></i>',array('site/facebook'),array('class'=>'btn  btn-primary fb1','style'=>'margin-left: 150px;'));?>
 									</div>
                                     
                                     <div class="col-md-12">
@@ -218,7 +218,10 @@
                                         <?php echo CHtml::submitButton('Login',array('class'=>'btn btn-warning login'));?>
                                         <div class="clearfix"></div>
                                         <div class="or">or</div>
-                                        <?php echo CHtml::link('<i class="posi-bt icon-facebook"></i>Login with your<br/><strong>Facebook Account</strong>',array('/site/facebook'),array('class'=>'btn btn-lg btn-primary fb'));?>
+                                        <?php echo CHtml::link('Login with <i class="posi-bt icon-facebook"></i>',array('site/facebook'),array('class'=>'btn  btn-primary fb1','style'=>'margin-left: 150px;'));?>
+                                        
+                                        
+										<?php //echo CHtml::link('<i class="posi-bt icon-facebook"></i>Login with your<br/><strong>Facebook Account</strong>',array('/site/facebook'),array('class'=>'btn btn-lg btn-primary fb'));?>
                                         </div>
                                         <?php $this->endWidget(); ?>
                                         <?php $forgetPass=new ForgotpasswordForm;
