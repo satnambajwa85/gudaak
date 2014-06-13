@@ -41,7 +41,12 @@ $('.search-form form').submit(function(){
 	//'filter'=>$model,
 	'columns'=>array(
 		'id',
-		'gudaak_id',
+		//'gudaak_id',
+		array(
+			'type'=>'raw',
+			'name'=>'User Name',
+            'value'=>'$data->userLogin->username',
+        ),
 		'display_name',
 		'first_name',
 		'last_name',
@@ -65,7 +70,7 @@ $('.search-form form').submit(function(){
 		array(
 			'type'=>'raw',
 			'name'=>'scores',
-            'value'=>'CHtml::link("Data",array("/admin/userScores/admin","user_profiles_id"=>$data->id))',
+            'value'=>'(count($data->userScores)>0)?CHtml::link("Data",array("/admin/userScores/admin","user_profiles_id"=>$data->id)):""',
         ),
 		array(
 			'class'=>'CButtonColumn',
