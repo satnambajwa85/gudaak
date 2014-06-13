@@ -1,6 +1,6 @@
 <div id="middle_outr" class="mb50">
     	<div class="middle_cont">
-        	<div class="mid_lef_heading_index2 col-md-12">
+        	<div class="mid_lef_heading_index2 col-md-12" style="height:100px;padding-top:40px;">
                 Explore to make a well informed <em>“Career Decision”</em>
             </div>
             	

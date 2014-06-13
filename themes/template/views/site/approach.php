@@ -1,6 +1,6 @@
 <div id="middle_outr">
     	<div class="middle_cont">
-        	<div class="mid_lef_heading_index3 col-md-12">
+        	<div class="mid_lef_heading_index3 col-md-12" style="height:100px;padding-top:40px;">
                 Approach to <em>“Choose College”</em> best for you
             </div>
         	<div class="middle">
