@@ -30,6 +30,10 @@
 					$str	.=	CHtml::radioButtonList('question['.$item->id.']',(isset($ans[$item->id]))?$ans[$item->id]:'',$options,array('template'=>"{input} {label}", 'separator'=>' ','class'=>'required'));
 					echo $str;
 				break;
+				case 'textarea':
+					echo CHtml::textArea('question['.$item->id.']',((isset($ans[$item->id]))?$ans[$item->id]:''),array('rows'=>8,'placeholder'=>'Type your summery here','class'=>"form-control"));
+					//echo '<input type="text" value="'.((isset($ans[$item->id]))?$ans[$item->id]:'').'" name="question['.$item->id.']" class="form-control"/>';
+				break;
 			}
 			?>
         </div>

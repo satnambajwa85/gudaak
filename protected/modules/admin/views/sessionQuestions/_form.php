@@ -29,7 +29,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'controller_type'); ?>
-		<?php echo $form->dropDownList($model,'controller_type',array('text'=>'Text box','select'=>'Drop down','radio'=>'Radio button'));?>
+		<?php echo $form->dropDownList($model,'controller_type',array('text'=>'Text box','select'=>'Drop down','radio'=>'Radio button','textarea'=>'Text Area'));?>
 		<?php echo $form->error($model,'controller_type'); ?>
 	</div>
 
