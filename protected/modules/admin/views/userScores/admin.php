@@ -26,7 +26,7 @@ $('.search-form form').submit(function(){
 <h1>Manage User Scores</h1>
 
 
-
+<?php echo (isset($_REQUEST['user_profiles_id']))?CHtml::link('Back to User list',array('/admin/userProfiles/admin'),array('class'=>'pull-right btn btn-s-md btn-danger ui-slider')):''?>
 <?php //echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
@@ -36,6 +36,7 @@ $('.search-form form').submit(function(){
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'user-scores-grid',
+	'itemsCssClass'=>'table table-bordered',
 	'dataProvider'=>$model->search(),
 	//'filter'=>$model,
 	'columns'=>array(

@@ -17,6 +17,8 @@ $this->menu=array(
 ?>
 
 <h1>View UserProfiles #<?php echo $model->id; ?></h1>
+<?php echo CHtml::link('Back to User list',array('/admin/userProfiles/admin'),array('class'=>'pull-right btn btn-danger ui-slider'));?>
+
 
 <?php $this->widget('zii.widgets.CDetailView', array(
 	'data'=>$model,

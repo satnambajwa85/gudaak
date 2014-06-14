@@ -37,6 +37,7 @@ $('.search-form form').submit(function(){
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'user-profiles-grid',
+	'itemsCssClass'=>'table table-bordered',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
@@ -56,7 +57,8 @@ $('.search-form form').submit(function(){
 			'filter'=>CHtml::dropDownList('UserProfiles[user_class_id]','$this->user_class_id',
                 array(
 					''=>'Select Class',
-                    '1'=>'8th',
+                    '0'=>'NA',
+					'1'=>'8th',
                     '2'=>'9th',
                     '3'=>'10th',
 					'4'=>'11th',
