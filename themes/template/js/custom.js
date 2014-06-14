@@ -51,6 +51,23 @@ $(document).ready(function () {
 					buffer: 150 // position from bottom when reach.scrollbox will be triggered
 				});
 		//approachScroll end 
+		//approachScroll start 
+			var $approachScrol2 = $('#terms'),
+				i = 1;
+			$approachScrol2
+				.on('reach.scrollbox', function () {
+					if (i < 6) {
+						// emulate XHR
+						window.setTimeout(function () {
+						   
+							$approachScrol2.scrollbox('update'); // recalculate bar height and position
+						}, 300);
+					}
+				})
+				.scrollbox({
+					buffer: 150 // position from bottom when reach.scrollbox will be triggered
+				});
+		//approachScroll end 
 	$('#forget-form').hide();
 	$('.hot-link-icon a').tooltip();
 	$('.bottomTool a').tooltip();
@@ -143,6 +160,14 @@ $(document).ready(function () {
 			"show" : true // ensure the modal is shown immediately
 			});
 			});
+		$(".terms").on("click", function() { // wire up the OK button to dismiss the modal when shown
+			 $("#terms").modal({ // wire up the actual modal functionality and show the dialog
+			"backdrop" : "static",
+			"keyboard" : true,
+			"show" : true // ensure the modal is shown immediately
+			});
+			});
+				
 		$(".login-boot-box").on("click", function() {
 			 $("#login-boot-box").modal({ // wire up the actual modal functionality and show the dialog
 			"backdrop" : "static",
