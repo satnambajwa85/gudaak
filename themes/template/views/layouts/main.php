@@ -120,7 +120,18 @@
                                                             'clientOptions'=>array('validateOnSubmit'=>true,)));?>
                                     <i class="glyphicon glyphicon-edit orange pull-left"></i>
                                     <h4 class="form-signin-heading ">Enroll !!!</h4>
-									  
+									
+                                    <div class="">
+                                    <?php echo CHtml::link('<img src="'.$path.'/images/register.png" alt="facebook login">',array('site/facebook'),array('class'=>'fb-butt','style'=>'margin-left: 150px;'));?>
+                                    <?php //echo CHtml::link('Register with <i class="posi-bt icon-facebook"></i>',array('site/facebook'),array('class'=>'btn  btn-primary fb1','style'=>'margin-left: 150px;'));?>
+									</div>
+                                    <div class="clear"></div>
+                                    <div align="center" class="top-stats-icons ">
+                                    <div class="clearfix"></div>
+                                    <div class="or">or</div>
+                                    </div>
+                                    
+                                    <div>
 									<div class="col-md-6 input-mar pull-left">
                                     <?php echo $form->textField($model,'first_name',array('class'=>'form-control mar-b16','placeholder'=>'First Name','autofocus'=>true));
                                     echo $form->error($model,'first_name');?>
@@ -129,9 +140,12 @@
 										<?php echo $form->textField($model,'last_name',array('class'=>'form-control mar-b16','placeholder'=>'Last Name','autofocus'=>true));
 										echo $form->error($model,'last_name');?>
 									</div>
-									 <div class="col-md-6 input-mar pull-left ">
+									<div class="col-md-6 input-mar pull-left ">
                                      <div class="col-md-9 pd0 pull-left">
-                                    <?php $this->widget('zii.widgets.jui.CJuiDatePicker',array(
+                                     <?php echo $form->textField($model,'mobile_no',array('class'=>'dob form-control mar-b16','style'=>'width:72%','placeholder'=>'Mobile no.','autofocus'=>true));
+									 echo $form->error($model,'mobile_no');?>
+                                     
+                                    <?php /*$this->widget('zii.widgets.jui.CJuiDatePicker',array(
                                                                     'model'=>$model,
                                                                     'attribute'=>'date_of_birth',
                                                                     'options'=>array('dateFormat'=>'yy-mm-dd',
@@ -140,7 +154,7 @@
                                                                                     'changeYear'=>'true',),
                                                                     'htmlOptions'=>array('class'=>'dob form-control mar-b16','style'=>'width:72%',
                                                                                         'placeholder'=>'DOB','autofocus'=>false),));?>	
-																						 <?php echo $form->error($model,'date_of_birth');?>
+																						 <?php echo $form->error($model,'date_of_birth');*/?>
 									</div>
 									<div class="fr dimension-box">
                                     <?php echo $form->checkBox($model,'gender',array('id'=>'dimension-switch'));?>
@@ -159,18 +173,19 @@
                                     <?php echo $form->passwordField($model,'confirmpass',array('class'=>'form-control mar-b16','placeholder'=>'confirm password','autofocus'=>true));
                                     echo $form->error($model,'confirmpass');?>
 									</div>
-                                    <div class="clear"></div>
-                                    <div class="">
-                                    <?php echo CHtml::link('Register with <i class="posi-bt icon-facebook"></i>',array('site/facebook'),array('class'=>'btn  btn-primary fb1','style'=>'margin-left: 150px;'));?>
+                                    <div class="col-md-12 input-mar pull-left">
+                                     <div class="col-md-4 pull-right pd0">
+									    <?php echo CHtml::submitButton('Register',array('class'=>'btn fr btn-warning login '));?>
 									</div>
+                                    </div>
+                                    </div>
+                                    
                                     
                                     <div class="col-md-12">
 									<div class="col-md-4 pull-left pd0">
 										  <?php echo CHtml::link('Back','',array('class'=>'btn fl back-register-bt btn-info','data-dismiss'=>'modal'));?>
 									</div>
-                                    <div class="col-md-4 pull-right pd0">
-									    <?php echo CHtml::submitButton('Register',array('class'=>'btn fr btn-warning login '));?>
-									</div>
+                                   
 									</div>
 								 
                                 <?php $this->endWidget();?>
@@ -218,7 +233,8 @@
                                         <?php echo CHtml::submitButton('Login',array('class'=>'btn btn-warning login'));?>
                                         <div class="clearfix"></div>
                                         <div class="or">or</div>
-                                        <?php echo CHtml::link('Login with <i class="posi-bt icon-facebook"></i>',array('site/facebook'),array('class'=>'btn  btn-primary fb1','style'=>'margin-left: 150px;'));?>
+                                        <?php echo CHtml::link('<img src="'.$path.'/images/login.png" alt="facebook login">',array('site/facebook'),array('class'=>'fb-butt','style'=>''));?>
+                                        
                                         
                                         
 										<?php //echo CHtml::link('<i class="posi-bt icon-facebook"></i>Login with your<br/><strong>Facebook Account</strong>',array('/site/facebook'),array('class'=>'btn btn-lg btn-primary fb'));?>

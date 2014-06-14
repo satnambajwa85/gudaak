@@ -126,7 +126,7 @@ class UserProfiles extends CActiveRecord
 			'medium_instruction' => 'Medium Instruction',
 			'board' => 'Board',
 			'user_info' => 'User Info',
-			'add_date' => 'Add Date',
+			'add_date' => 'Registered Date',
 			'semd_mail' => 'Semd Mail',
 			'status' => 'Status',
 			'generate_gudaak_ids_id' => 'Generate Gudaak Ids',

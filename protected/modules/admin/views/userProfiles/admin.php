@@ -41,7 +41,6 @@ $('.search-form form').submit(function(){
 	//'filter'=>$model,
 	'columns'=>array(
 		'id',
-		//'gudaak_id',
 		array(
 			'type'=>'raw',
 			'name'=>'User Name',
@@ -50,9 +49,19 @@ $('.search-form form').submit(function(){
 		'display_name',
 		'first_name',
 		'last_name',
-		'class',
-		 
+		array(
+			'type'=>'raw',
+			'name'=>'Class',
+            'value'=>'($data->user_class_id!=0)?$data->userClass->title:"NA"',
+        ),
+		'add_date',
+		array(
+			'type'=>'raw',
+			'name'=>'Last Login',
+            'value'=>'$data->userLogin->last_login',
+        ),
 		/*
+		'gudaak_id',
 		'email',
 		'gender',
 		'date_of_birth',
@@ -61,16 +70,14 @@ $('.search-form form').submit(function(){
 		'address',
 		'postcode',
 		'user_info',
-		'add_date',
 		'semd_mail',
 		'status',
 		'user_login_id',
-		'cities_id',
-		*/
+		'cities_id',*/
 		array(
 			'type'=>'raw',
-			'name'=>'scores',
-            'value'=>'(count($data->userScores)>0)?CHtml::link("Data",array("/admin/userScores/admin","user_profiles_id"=>$data->id)):""',
+			'name'=>'Test Taken',
+            'value'=>'(count($data->userScores)>0)?CHtml::link("Yes(Scores)",array("/admin/userScores/admin","user_profiles_id"=>$data->id)):"No"',
         ),
 		array(
 			'class'=>'CButtonColumn',

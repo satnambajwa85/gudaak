@@ -45,7 +45,10 @@ $('.search-form form').submit(function(){
             'value'=>'$data->userProfiles->first_name." ".$data->userProfiles->last_name'
         ),
 		//'user_profiles_id',
-		'test_category',
+		array(
+            'name'=>'Test Type',
+            'value'=>'($data->test_category==2)?"Personality Test":"Interest Test"'
+        ),
 		array(
             'name'=>'User',
             'value'=>'$data->careerCategories->title'
