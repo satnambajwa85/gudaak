@@ -42,7 +42,9 @@ class UserProfiles extends CActiveRecord
 	public $user_role;
 	public $class;
 	
-	
+	public $user_name;
+	public $last_login;
+	public $test_taken;
 	
 	
 	public function tableName()
@@ -69,7 +71,7 @@ class UserProfiles extends CActiveRecord
 			array('language_known, medium_instruction', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, display_name, first_name, last_name, class, email, gender, date_of_birth, image, mobile_no, address, postcode, language_known, medium_instruction, board, user_info, add_date, semd_mail, status, generate_gudaak_ids_id, user_login_id, user_academic_id, user_class_id, gudaak_id', 'safe', 'on'=>'search'),
+			array('id, display_name, first_name, last_name, class, email, gender, date_of_birth, image, mobile_no, address, postcode, language_known, medium_instruction, board, user_info, add_date,last_login, semd_mail,user_name,status, generate_gudaak_ids_id, user_login_id, user_academic_id, user_class_id, gudaak_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -134,6 +136,9 @@ class UserProfiles extends CActiveRecord
 			'user_academic_id' => 'User Academic',
 			'user_class_id' => 'User Class',
 			'gudaak_id' => 'Gudaak',
+			'user_name'=>'User Name',
+			'last_login'=>'Last Login',
+			'test_taken'=>'Test Taken',
 		);
 	}
 
@@ -152,9 +157,7 @@ class UserProfiles extends CActiveRecord
 	public function search()
 	{
 		// @todo Please modify the following code to remove attributes that should not be searched.
-
 		$criteria=new CDbCriteria;
-
 		$criteria->compare('id',$this->id);
 		$criteria->compare('display_name',$this->display_name,true);
 		$criteria->compare('first_name',$this->first_name,true);
@@ -179,11 +182,15 @@ class UserProfiles extends CActiveRecord
 		$criteria->compare('user_academic_id',$this->user_academic_id);
 		$criteria->compare('user_class_id',$this->user_class_id);
 		$criteria->compare('gudaak_id',$this->gudaak_id,true);
+		
+		$criteria->with = array('userLogin');
+		$criteria->compare('userLogin.username',$this->user_name,true);
+		$criteria->compare('userLogin.last_login',$this->last_login,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 			'sort'=>array(
-				'defaultOrder'=>'add_date DESC',
+				'defaultOrder'=>'t.add_date DESC',
 			),
 		));
 	}

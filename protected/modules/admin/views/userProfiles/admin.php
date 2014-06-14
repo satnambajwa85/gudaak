@@ -38,12 +38,12 @@ $('.search-form form').submit(function(){
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'user-profiles-grid',
 	'dataProvider'=>$model->search(),
-	//'filter'=>$model,
+	'filter'=>$model,
 	'columns'=>array(
 		'id',
 		array(
 			'type'=>'raw',
-			'name'=>'User Name',
+			'name'=>'user_name',
             'value'=>'$data->userLogin->username',
         ),
 		'display_name',
@@ -51,13 +51,24 @@ $('.search-form form').submit(function(){
 		'last_name',
 		array(
 			'type'=>'raw',
-			'name'=>'Class',
+			'name'=>'class',
             'value'=>'($data->user_class_id!=0)?$data->userClass->title:"NA"',
+			'filter'=>CHtml::dropDownList('UserProfiles[user_class_id]','$this->user_class_id',
+                array(
+					''=>'Select Class',
+                    '1'=>'8th',
+                    '2'=>'9th',
+                    '3'=>'10th',
+					'4'=>'11th',
+					'5'=>'12th',
+                )
+            ),
         ),
+		
 		'add_date',
 		array(
 			'type'=>'raw',
-			'name'=>'Last Login',
+			'name'=>'last_login',
             'value'=>'$data->userLogin->last_login',
         ),
 		/*
@@ -76,7 +87,7 @@ $('.search-form form').submit(function(){
 		'cities_id',*/
 		array(
 			'type'=>'raw',
-			'name'=>'Test Taken',
+			'name'=>'test_taken',
             'value'=>'(count($data->userScores)>0)?CHtml::link("Yes(Scores)",array("/admin/userScores/admin","user_profiles_id"=>$data->id)):"No"',
         ),
 		array(
