@@ -99,7 +99,7 @@ foreach($Institutes->collagesCoursesSpecialization as $cou){
 		<div class="coll_section_right" style="text-align:justify">
 			<p style="font-weight:normal;">
             <div class="list_head" style=" margin-top:-8px; margin-bottom:10px;">
-            <h4 class="content_div">Why this collage</h4>
+            <h4 class="content_div">Why this college</h4>
 			</div>
 			<?php echo $Institutes->why;?><br/>
             <div class="list_head" style=" margin-top:10px; margin-bottom:10px;">
