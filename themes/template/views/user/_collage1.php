@@ -41,13 +41,15 @@ foreach($Institutes->collagesCoursesSpecialization as $cou){
 			$count	=	0;
 			foreach($list as $cou){?>
 				<div class="panel panel-default">
-					<div class="panel-heading">
-                        <h5 class="panel-title">
+					
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne<?php echo $cou['id'];?>">
-                        <?php echo $cou['title'];?>
-                        </a>
-                        </h5>
+                    <div class="panel-heading">
+                        <h5 class="panel-title">    
+						<?php echo $cou['title'];?>
+                         </h5>
                     </div>
+                        </a>
+                       
 					<div id="collapseOne<?php echo $cou['id'];?>" class="panel-collapse collapse <?php echo ($count==0)?'in':'';?>">
       <div class="panel-body">
       
