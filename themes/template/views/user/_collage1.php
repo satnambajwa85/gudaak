@@ -8,7 +8,7 @@
 			<span><?php echo $Institutes->phone_number.' <br/>'.$Institutes->email.' <br/>'.$Institutes->website;?></span>
 			<div class="pull-right col-md-4" style="margin-top:-25px;">  
 				<div class="pull-right col-md-6">
-				<?php echo CHtml::link('Back',array('user/exploreColleges'),array('class'=>'css-label btn  pull-right btn-warning'));?>
+				<?php echo CHtml::link('Back',array('user/exploreColleges'),array('class'=>'css-label btn  pull-right btn-success'));?>
                 </div>
 				<div class="pull-right col-md-6">
 				<?php echo CHtml::ajaxlink('Shortlist College',array('user/UserShortlistCollage','id'=>$Institutes->id),array('update'=>'#messagePrint'),array('class'=>'css-label btn  pull-right btn-warning'));?>
