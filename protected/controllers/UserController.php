@@ -1787,8 +1787,9 @@ class UserController extends Controller
 	public function actionNewsUpdates()
 	{	
 		$criteria			=	new CDbCriteria();
-		$criteria->condition= '(published =:published and status =:status )';
-		$criteria->params 	= array('published'=>1,'status'=>1);
+		$criteria->condition=	'(published =:published and status =:status )';
+		$criteria->params 	=	array('published'=>1,'status'=>1);
+		$criteria->order	=	'add_date DESC';
 		$count				=	News::model()->count($criteria);
 		$pages				=	new CPagination($count);
 		$pages->pageSize	=	5;
