@@ -3,7 +3,8 @@
 		<div class="head_text_coll_new mb10"><?php echo $Institutes->name;?><br>
 			<span><?php echo $Institutes->phone_number.' <br/>'.$Institutes->email.' <br/>'.$Institutes->website;?></span>
 			<div class="pull-right col-md-4" style="margin-top:-25px;">  
-				<?php echo CHtml::ajaxlink('Shortlist College',array('user/UserShortlistCollage','id'=>$Institutes->id),array('update'=>'#messagePrint'),array('class'=>'css-label btn  pull-right btn-warning'));?>
+				<?php echo CHtml::link('College List',array('user/exploreColleges'),array('class'=>'css-label btn  pull-right btn-warning'));?>
+				<?php echo CHtml::ajaxlink('Shortlist College',array('user/UserShortlistCollage','id'=>$Institutes->id),array('update'=>'#messagePrint'),array('class'=>'css-label btn  pull-right btn-warning mt15'));?>
 				<div class="pull-right alertSat" id="messagePrint"></div>
 			</div>
 		</div>
