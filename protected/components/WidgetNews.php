@@ -27,7 +27,7 @@ class WidgetNews extends CWidget
 			
 		$count				=	News::model()->count($criteria);
 		$pages				=	new CPagination($count);
-		$pages->pageSize	=	5;
+		$pages->pageSize	=	10;
 		$pages->applyLimit($criteria);
 		$news				=	News::model()->findAll($criteria);
 		$this->render('widgetNews',array('pages'=>$pages,'news'=>$news));
