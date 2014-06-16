@@ -101,7 +101,7 @@ $getId=$_REQUEST['id'];
 					</li>
 					<?php }else{ ?>
 					<li>
-						<?php echo CHtml::link('<i class="glyphicon glyphicon-flag"></i>Finalized Stream',array('user/finalizedStream'),array('class'=>''.($action=='finalizedStream')?'slidebg':''.''));?>
+						<?php echo CHtml::link('<i class="glyphicon glyphicon-flag"></i>Finalized Stream',array('user/finalizedStream'),array('class'=>''.($action=='finalizedStream' || $action=='collage')?'slidebg':''.''));?>
 					
 					</li>
 					<?php } ?>
