@@ -8,7 +8,7 @@
 			echo '<p class="list-group-item-text">'.substr($list->description,0,55).'..</p>';
 		}?>
         <div class="col-md-12 pull-left news-pager">
-			<?php $this->widget('CLinkPager', array('pages' => $pages)) ?>
+			<?php //$this->widget('CLinkPager', array('pages' => $pages)) ?>
 		</div>
 		<!--<button type="button" class="btn btn-default btn-lg btn-block lodad-more">Load more news</button>-->
 	  </div>
