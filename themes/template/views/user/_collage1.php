@@ -44,7 +44,7 @@ foreach($Institutes->collagesCoursesSpecialization as $cou){
 					
                         <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne<?php echo $cou['id'];?>">
                     <div class="panel-heading">
-                        <h5 class="panel-title">    
+                        <h5 class="panel-title" style="background-color:#f5f5f5;">    
 						<?php echo $cou['title'];?>
                          </h5>
                     </div>
