@@ -60,29 +60,29 @@ foreach($Institutes->collagesCoursesSpecialization as $cou){
                         <div class="col-md-12" style="font-size:14px;color:#42C6C1;border-bottom: 1px solid #21C4C1;margin-bottom:10px;"><?php echo $sat['title'];?></div>
                     </div>
                 <div class="row">
-				<div class="col-md-3 title_text" >Admission Criteria :</div>
-                <div class="col-md-9"> <?php echo $sat['admission_criteria'];?></div>
+				<div class="col-md-4 title_text" >Admission Criteria :</div>
+                <div class="col-md-8"> <?php echo $sat['admission_criteria'];?></div>
                 </div>
                 
                 <div class="row">
-				<div class="col-md-3 title_text" >Description :</div>
-                <div class="col-md-9"> <?php echo $sat['description'];?></div>
+				<div class="col-md-4 title_text" >Description :</div>
+                <div class="col-md-8"> <?php echo $sat['description'];?></div>
                 </div>
                     <div class="row">
-				<div class="col-md-3 title_text" >Entrance Exam :</div>
-                <div class="col-md-9"> <?php echo $sat['entrance_exam'];?></div>
+				<div class="col-md-4 title_text" >Entrance Exam :</div>
+                <div class="col-md-8"> <?php echo $sat['entrance_exam'];?></div>
                 </div>
                     <div class="row">
-				<div class="col-md-3 title_text" >Fees :</div>
-                <div class="col-md-9"> <?php echo $sat['fees'];?></div>
+				<div class="col-md-4 title_text" >Fees :</div>
+                <div class="col-md-8"> <?php echo $sat['fees'];?></div>
                 </div>
                     <div class="row">
-				<div class="col-md-3 title_text" >Seats :</div>
-                <div class="col-md-9"> <?php echo $sat['seats'];?></div>
+				<div class="col-md-4 title_text" >Seats :</div>
+                <div class="col-md-8"> <?php echo $sat['seats'];?></div>
                 </div>
                     <div class="row">
-				<div class="col-md-3 title_text" >Course Mode :</div>
-                <div class="col-md-9"> <?php echo $sat['course_mode'];?></div>
+				<div class="col-md-4 title_text" >Course Mode :</div>
+                <div class="col-md-8"> <?php echo $sat['course_mode'];?></div>
                 </div>
                 
                 </div>
