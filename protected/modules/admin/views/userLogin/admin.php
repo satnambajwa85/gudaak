@@ -47,7 +47,7 @@ $('.search-form form').submit(function(){
 		'activation',
 		'add_date',
 		'last_login',
-		'login_status',
+		//'login_status',
 		'block',
 		'status',
 		array(
