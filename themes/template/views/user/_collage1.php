@@ -86,7 +86,15 @@ foreach($Institutes->collagesCoursesSpecialization as $cou){
 		<!-- Tab panes -->
 		</div>
 		<div class="coll_section_right" style="text-align:justify">
-			<p style="font-weight:normal;  ;"><h4 class="content_div">Why this collage</h4><?php echo $Institutes->why;?><br/><h4 class="content_div">Overview</h4><?php echo $Institutes->overview;?></p>
+			<p style="font-weight:normal;">
+            <div class="list_head">
+            <h4 class="content_div">Why this collage</h4>
+			</div>
+			<?php echo $Institutes->why;?><br/>
+            <div class="list_head">
+            <h4 class="content_div">Overview</h4>
+			</div>
+			<?php echo $Institutes->overview;?></p>
 		</div>
 	</div>
 </div>  

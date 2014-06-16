@@ -8659,3 +8659,6 @@ margin-left: 8px;
 padding-left: 20px !important;
 }
 .mt15{margin-top:15px !important;}
+
+.list_head{background:#f5f5f5; height:47px; padding:5px; padding-left:10px; border-top:1px solid #21C4C1;border-bottom:1px solid #21C4C1;  }
+.list_head h4{ font-size:15px;}

@@ -24,32 +24,10 @@ $this->breadcrumbs=array('Colleges Explore'=>array('/user/exploreColleges'));
 					)); ?>
                 	<div class="text_w_outer">
                      <span class="text_w_dd">Course</span>
-                    <?php 	echo $form->dropDownList($model,'courses_id',
-									CHtml::listData(Courses::model()->findAll(),'id','title'),
-									array('prompt'=>'All',
-									'ajax' => array('type'=>'POST',
-										'url'=>CController::createUrl('DynamicCourse'), //url to call.
-										'update'=>'#Institutes_specialisation', //selector to update
-										 
-										
-											)));?>
+                    <?php 	echo $form->textField($model,'courses_id');?>
                     </div>
-                    
                     <div class="text_w_outer">
-                     <span class="text_w_dd">Specialisation</span>
-                      <?php 	echo $form->dropDownList($model,'specialisation',
-									CHtml::listData(Specialization::model()->findAll(),'id','title'),array('prompt'=>'All'));?>
-                    </div>
-                    
-                     <div class="text_w_outer">
-                     <span class="text_w_dd">Location</span>
-					  <?php 	echo $form->dropDownList($model,'city_id',CHtml::listData(City::model()->findAll(),'id','title'),array('prompt'=>'All'));?>
-					 
-                    </div>
-                    
-                   
-                     <div class="text_w_outer">
-                     <?php 	echo CHtml::button('Search',array('id'=>'basicSave','class'=>'summery-left-btn'));?>
+                    <?php 	echo CHtml::button('Search',array('id'=>'basicSave','class'=>'summery-left-btn'));?>
 					</div>
                     <?php $this->endWidget(); ?>
                     
