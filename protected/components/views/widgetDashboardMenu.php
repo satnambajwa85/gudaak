@@ -43,9 +43,9 @@ $getId=$_REQUEST['id'];
 }
 		 
 ?>
-					<li><?php echo CHtml::link('<i class="icon-desktop"></i>Orientation Tour',array('user/index'),array('title'=>'Orientation Tour','class'=>''.($action=='index')?'slidebg':'slidebg'))?>
+					<li><?php echo CHtml::link('<i class="icon-desktop"></i>Orientation Tour',array('user/index'),array('title'=>'Orientation Tour','class'=>''.($action=='index')?'slidebg':''.''))?>
 					</li>
-					<li><?php echo CHtml::link('<i class="glyphicon glyphicon-record"></i>Assess',array('user/tests'),array('title'=>'Asses','class'=>''.($action=='tests')?'slidebg':'slidebg'.''))?>
+					<li><?php echo CHtml::link('<i class="glyphicon glyphicon-record"></i>Assess',array('user/tests'),array('title'=>'Asses','class'=>''.($action=='tests')?'slidebg':''.''))?>
 				
 				
 						<ul style="<?php echo ($action=='tests'||$action=='DetailedReport')?'display:block':'display:block';?>">
@@ -53,8 +53,8 @@ $getId=$_REQUEST['id'];
 						</ul>					
 					</li>
 					<?php if(Yii::app()->user->id && Yii::app()->user->userType=='upper11th'){?>
-					<li><?php  echo CHtml::link('<i class="glyphicon glyphicon-eye-open"></i>Explore',array('user/explore'),array('title'=>'Explore','class'=>''.($action=='career'|| $action=='careerDetails'|| $action == 'liveChat' || $action == 'careerList' || $action == 'explore' || $action =='articlesList')?'slidebg':'slidebg'))?>
-						<ul style="<?php echo ($action=='career'||$action=='liveChat' || $action=='explore' || $action=='careerList' || $action=='careerDetails' || $action=='articlesList')?'display:block':'';?>">
+					<li><?php  echo CHtml::link('<i class="glyphicon glyphicon-eye-open"></i>Explore',array('user/explore'),array('title'=>'Explore','class'=>''.($action=='career'|| $action=='careerDetails'|| $action == 'liveChat' || $action == 'careerList' || $action == 'explore' || $action =='articlesList')?'slidebg':''.''))?>
+						<ul style="<?php echo ($action=='career'||$action=='liveChat' || $action=='explore' || $action=='careerList' || $action=='careerDetails' || $action=='articlesList')?'display:block':'display:block';?>">
                         
                         
                         <li><?php echo CHtml::link('Stream Library',array('user/streamList'),array('class'=>''.($action == 'streamList' || $action ==  'stream' )?'currentLink':''.''))?></li>
@@ -72,7 +72,7 @@ $getId=$_REQUEST['id'];
 					<li><?php echo CHtml::link('<i class="glyphicon glyphicon-eye-open"></i>Explore',array('user/streamExplore'),array('title'=>'Explore','class'=>''.($action=='streamList'|| $action=='streamExplore'|| $action == 'stream' || $action =='articlesList')?'slidebg':''.''))?>
 					
 					
-						<ul style="<?php echo ($action=='streamList'|| $action == 'stream' || $action == 'streamPreference' || $action =='articlesList')?'display:block':'';?>">
+						<ul style="<?php echo ($action=='streamList'|| $action == 'stream' || $action == 'streamPreference' || $action =='articlesList')?'display:block':'display:block';?>">
 							<li><?php echo CHtml::link('Stream Library',array('user/streamList'),array('class'=>''.($action == 'streamList' || $action ==  'stream' )?'currentLink':''.''))?></li>
 							<li><?php echo CHtml::link('Articles',array('user/articlesList'),array('class'=>''.($action=='articlesList')?'currentLink':''.''));?></li>
 							
@@ -93,7 +93,7 @@ $getId=$_REQUEST['id'];
 							<li><?php echo CHtml::link('<i class="icon-location-arrow"></i>Approach',array('user/exploreColleges'),array('class'=>''.($action=='exploreColleges' ||$action=='shortListedColleges'||$action=='application')?'slidebg':''.''));?>
 					
 						
-						<ul style="<?php echo ($action=='shortListedColleges'||$action=='exploreColleges' || $action=='application')?'display:block':'';?>">
+						<ul style="<?php echo ($action=='shortListedColleges'||$action=='exploreColleges' || $action=='application')?'display:block':'display:block';?>">
 						
 							<li><?php echo CHtml::link('Shortlisted Colleges',array('user/shortListedColleges'));?></li>
 							<li><?php echo CHtml::link('Entrance Exams',array('user/application'));?></li>
