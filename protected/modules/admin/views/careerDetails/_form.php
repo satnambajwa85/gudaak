@@ -61,7 +61,7 @@
 	<div class="form-group">
 		<?php echo $form->labelEx($model,'title'); ?>
 		<?php 
-		$list=array('Overview'=>'Overview','Nature Of Work'=>'Nature Of Work','Skills/Traits'=>'Skills/Traits','The Payoff'=>'The Payoff','Getting There'=>'Getting There','Opportunities'=>'Opportunities','Major Institutes'=>'Major Institutes','Pros And Cons'=>'Pros And Cons','Hall Of Fame'=>'Hall Of Fame','Misconceptions'=>'Misconceptions');
+		$list=array('Overview'=>'Overview','Nature Of Work'=>'Nature Of Work','Skills/Traits'=>'Skills/Traits','The Payoff'=>'The Payoff','Getting There'=>'Getting There','Opportunities'=>'Opportunities','Major Institutes'=>'Major Institutes','Pros And Cons'=>'Pros And Cons','Hall Of Fame'=>'Hall Of Fame','Misconceptions'=>'Misconceptions','Video'=>'Video URL');
 		
 		echo $form->dropDownlist($model,'title',$list,array('class'=>'form-control')); ?>
         
