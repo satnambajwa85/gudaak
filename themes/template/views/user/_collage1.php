@@ -1,6 +1,10 @@
 <div class="career-bot pull-left mt20 ">
 	<div class="coll_logo1 mb10"><img src="<?php echo Yii::app()->theme->baseUrl;?>/images/coll_logo.png" alt="logo"></div>   
-		<div class="head_text_coll_new mb10"><?php echo $Institutes->name;?><br>
+		<div class="head_text_coll_new mb10">
+		<span class="font_size_set" >
+		<?php echo $Institutes->name;?>
+        </span>
+        <br>
 			<span><?php echo $Institutes->phone_number.' <br/>'.$Institutes->email.' <br/>'.$Institutes->website;?></span>
 			<div class="pull-right col-md-4" style="margin-top:-25px;">  
 				<div class="pull-right col-md-6">
