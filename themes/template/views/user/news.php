@@ -5,10 +5,10 @@ $this->breadcrumbs=array('News'=>array('/user/newsUpdates'));?>
 			<div class="mr0 col-md-12 pd0 fl artical">
 				 <h1>&nbsp;<!--Gudaak helps you to fullfill news--></h1>
 				 <h3><?php echo $news->title;?></h3>
-				 <span>by admin</span>
+				 <span class="pd5">by admin</span>
 				 <div class="clear"></div>
 				 <div class="col-md-12 br-all pd0  fl">
-					<div class="col-md-3 pd0 post-info fl">
+					<div class="col-md-3 pd10 post-info fl">
 						<span>Posted on</span>
 						<datetime class="date-time fl">
 							<?php echo date('M d, Y',strtotime($news->add_date));?>
@@ -17,7 +17,7 @@ $this->breadcrumbs=array('News'=>array('/user/newsUpdates'));?>
 					
 				 </div>
 				  <div class="clear"></div>
-				<p>
+				<p class="mt15">
 				<?php echo substr($news->description,0,3000);?>	
 				</p>
 				
