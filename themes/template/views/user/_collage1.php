@@ -7,7 +7,7 @@
 				<?php echo CHtml::link('Back',array('user/exploreColleges'),array('class'=>'css-label btn  pull-right btn-warning'));?>
                 </div>
 				<div class="pull-right col-md-6">
-				<?php echo CHtml::ajaxlink('Shortlist College',array('user/UserShortlistCollage','id'=>$Institutes->id),array('update'=>'#messagePrint'),array('class'=>'css-label btn  pull-right btn-warning mt15'));?>
+				<?php echo CHtml::ajaxlink('Shortlist College',array('user/UserShortlistCollage','id'=>$Institutes->id),array('update'=>'#messagePrint'),array('class'=>'css-label btn  pull-right btn-warning'));?>
                 </div>
 				<div class="pull-right alertSat" id="messagePrint"></div>
 			</div>
