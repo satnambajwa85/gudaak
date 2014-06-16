@@ -43,17 +43,17 @@ $getId=$_REQUEST['id'];
 }
 		 
 ?>
-					<li><?php echo CHtml::link('<i class="icon-desktop"></i>Orientation Tour',array('user/index'),array('title'=>'Orientation Tour','class'=>''.($action=='index')?'slidebg':''.''))?>
+					<li><?php echo CHtml::link('<i class="icon-desktop"></i>Orientation Tour',array('user/index'),array('title'=>'Orientation Tour','class'=>''.($action=='index')?'slidebg':'slidebg'))?>
 					</li>
-					<li><?php echo CHtml::link('<i class="glyphicon glyphicon-record"></i>Assess',array('user/tests'),array('title'=>'Asses','class'=>''.($action=='tests')?'slidebg':''.''))?>
+					<li><?php echo CHtml::link('<i class="glyphicon glyphicon-record"></i>Assess',array('user/tests'),array('title'=>'Asses','class'=>''.($action=='tests')?'slidebg':'slidebg'.''))?>
 				
 				
-						<ul style="<?php echo ($action=='tests'||$action=='DetailedReport')?'display:block':'';?>">
+						<ul style="<?php echo ($action=='tests'||$action=='DetailedReport')?'display:block':'display:block';?>">
 							<li><?php echo CHtml::link('Detailed Report',array('user/DetailedReport'))?></li>
 						</ul>					
 					</li>
 					<?php if(Yii::app()->user->id && Yii::app()->user->userType=='upper11th'){?>
-					<li><?php  echo CHtml::link('<i class="glyphicon glyphicon-eye-open"></i>Explore',array('user/explore'),array('title'=>'Explore','class'=>''.($action=='career'|| $action=='careerDetails'|| $action == 'liveChat' || $action == 'careerList' || $action == 'explore' || $action =='articlesList')?'slidebg':''.''))?>
+					<li><?php  echo CHtml::link('<i class="glyphicon glyphicon-eye-open"></i>Explore',array('user/explore'),array('title'=>'Explore','class'=>''.($action=='career'|| $action=='careerDetails'|| $action == 'liveChat' || $action == 'careerList' || $action == 'explore' || $action =='articlesList')?'slidebg':'slidebg'))?>
 						<ul style="<?php echo ($action=='career'||$action=='liveChat' || $action=='explore' || $action=='careerList' || $action=='careerDetails' || $action=='articlesList')?'display:block':'';?>">
                         
                         
