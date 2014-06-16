@@ -54,7 +54,7 @@ foreach($Institutes->collagesCoursesSpecialization as $cou){
 		<?php foreach($cou['course'] as  $sat){?>
 				<div class="col-md-12 bb mb10 mt5">
                     <div class="row">
-                        <div class="col-md-12" style="font-size:14px;color:#42C6C1"><?php echo $sat['title'];?></div>
+                        <div class="col-md-12" style="font-size:14px;color:#42C6C1;border-bottom: 1px solid #21C4C1;margin-bottom:10px;font-weight:700;"><?php echo $sat['title'];?></div>
                     </div>
                     <div class="row">
 				<div class="col-md-3 title_text" >Admission Criteria :</div>
