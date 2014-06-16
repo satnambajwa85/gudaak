@@ -78,9 +78,15 @@ $this->breadcrumbs=array('Colleges Explore'=>array('/user/exploreColleges'));
 						<?php echo CHtml::ajaxlink('Shortlist College',array('user/UserShortlistCollage','id'=>$Institutes->id),array('update'=>'#messagePrint'),array('class'=>'css-label'));?>
         			   </div>
                         </div>
-                       <?php /*foreach($Institutes->collagesCoursesSpecialization as $cou){?>
+                       <?php 
+					   $coun	=	0;
+					   foreach($Institutes->collagesCoursesSpecialization as $cou){
+						   $coun++;
+						   if($coun >= 5)
+						 		break;
+						   ?>
                         <div class="content_div"><?php echo $cou->courses->title;?>  <span>  (<?php echo $cou->specialization->title;?>)</span></div>
-                       <?php }*/ ?>
+                       <?php } ?>
                      </div>
 					</div>
 					<?php  } ?>
