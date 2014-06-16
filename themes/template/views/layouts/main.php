@@ -227,10 +227,10 @@
                                     echo $form->error($login,'password');?>
                                     <div class="pd4 mt15"></div>
                                     <?php echo CHtml::Link("Forgot password?",'javascript:void(0);',array('class'=>'forget2 pull-left','id'=>'forget2'));?>
-                                     <?php echo CHtml::Link("New user?",'javascript:void(0);',array('class'=>'home-login-box pull-right','data-dismiss'=>'modal'));?>
+                                    <?php echo CHtml::Link("New user?",'javascript:void(0);',array('class'=>'home-login-box pull-right','data-dismiss'=>'modal'));?>
                                     
                                     <div class="clearfix"></div>
-                                    <div align="center" class="top-stats-icons ">
+                                    <div align="center" class="top-stats-icons mt15">
                                         <?php echo CHtml::submitButton('Login',array('class'=>'btn btn-warning login'));?>
                                         <div class="clearfix"></div>
                                         <div class="or">or</div>
