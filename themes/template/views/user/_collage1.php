@@ -5,7 +5,7 @@
 		<?php echo $Institutes->name;?>
         </div>
         <br>
-			<span><?php echo $Institutes->phone_number.' <br/>'.$Institutes->email.' <br/>'.$Institutes->website;?></span>
+			<span>Phone: <?php echo $Institutes->phone_number.' <br/>Email: '.$Institutes->email.' <br/>Website: '.$Institutes->website;?></span>
 			<div class="pull-right col-md-4" style="margin-top:-25px;">  
 				<div class="pull-right col-md-6">
 				<?php echo CHtml::link('Back',array('user/exploreColleges'),array('class'=>'css-label btn  pull-right btn-success'));?>
@@ -17,7 +17,7 @@
 			</div>
 		</div>
 		<div class="head_text_coll_new" style="width:100%;">
-			<span style="float:left; margin-left:140px;"><?php echo $Institutes->address1;?></span>
+			<span style="float:left; margin-left:140px;">Address: <?php echo $Institutes->address1;?></span>
 		</div>
 <?php 
 $list	=	array();
