@@ -37,6 +37,7 @@ $('.search-form form').submit(function(){
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'user-login-grid',
+	'itemsCssClass'=>'table table-bordered',
 	'dataProvider'=>$model->search(),
 	//'filter'=>$model,
 	'columns'=>array(
