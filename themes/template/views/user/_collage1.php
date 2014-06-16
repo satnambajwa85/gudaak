@@ -4,7 +4,7 @@
 		<div class="font_size_set" >
 		<?php echo $Institutes->name;?>
         <div class="pull-right col-md-6">
-				<?php echo CHtml::link('Back',array('user/exploreColleges'),array('class'=>'css-label pull-right'));?>
+				<?php echo CHtml::link('Back',array('user/exploreColleges'),array('class'=>'pull-right','style'=>'font-size: 15px;text-decoration: underline;'));?>
                 </div>
         </div>
         <br>
