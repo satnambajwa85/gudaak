@@ -3,13 +3,14 @@
 		<div class="head_text_coll_new mb10">
 		<div class="font_size_set" >
 		<?php echo $Institutes->name;?>
+        <div class="pull-right col-md-6">
+				<?php echo CHtml::link('Back',array('user/exploreColleges'),array('class'=>'css-label pull-right'));?>
+                </div>
         </div>
         <br>
 			<span>Phone : <?php echo $Institutes->phone_number.' <br/>Email:  '.$Institutes->email.' <br/>Website : <a href="'.((strpos($Institutes->website,'http'))?'':'http://').$Institutes->website.'" target="_blank">'.$Institutes->website.'</a>';?></span>
 			<div class="pull-right col-md-4" style="margin-top:-25px;">  
-				<div class="pull-right col-md-6">
-				<?php echo CHtml::link('Back',array('user/exploreColleges'),array('class'=>'css-label btn  pull-right btn-success'));?>
-                </div>
+				
 				<div class="pull-right col-md-6">
 				<?php echo CHtml::ajaxlink('Shortlist College',array('user/UserShortlistCollage','id'=>$Institutes->id),array('update'=>'#messagePrint'),array('class'=>'css-label btn  pull-right btn-warning'));?>
                 </div>
