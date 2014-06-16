@@ -5,7 +5,7 @@
 		<?php echo $Institutes->name;?>
         </div>
         <br>
-			<span>Phone : <?php echo $Institutes->phone_number.' <br/>Email:  '.$Institutes->email.' <br/>Website : <a href="'.((strpos($Institutes->website,'http'))?'':'http://').$Institutes->website.'">'.$Institutes->website.'</a>';?></span>
+			<span>Phone : <?php echo $Institutes->phone_number.' <br/>Email:  '.$Institutes->email.' <br/>Website : <a href="'.((strpos($Institutes->website,'http'))?'':'http://').$Institutes->website.'" target="_blank">'.$Institutes->website.'</a>';?></span>
 			<div class="pull-right col-md-4" style="margin-top:-25px;">  
 				<div class="pull-right col-md-6">
 				<?php echo CHtml::link('Back',array('user/exploreColleges'),array('class'=>'css-label btn  pull-right btn-success'));?>
