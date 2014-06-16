@@ -26,6 +26,7 @@ foreach($Institutes->collagesCoursesSpecialization as $cou){
 	$list[$cou->specialization->id]['id']		=	$cou->specialization->id;
 	$list[$cou->specialization->id]['title']	=	$cou->specialization->title;
 	$list[$cou->specialization->id]['course'][$cou->courses->id]['id']		=	$cou->courses->id;
+	$list[$cou->specialization->id]['course'][$cou->courses->id]['description']		=	$cou->courses->description;
 	$list[$cou->specialization->id]['course'][$cou->courses->id]['title']	=	$cou->courses->title;
 	$list[$cou->specialization->id]['course'][$cou->courses->id]['admission_criteria']	=	$cou->admission_criteria;
 	$list[$cou->specialization->id]['course'][$cou->courses->id]['entrance_exam']	=	$cou->entrance_exam;
@@ -58,9 +59,14 @@ foreach($Institutes->collagesCoursesSpecialization as $cou){
                     <div class="row">
                         <div class="col-md-12" style="font-size:14px;color:#42C6C1;border-bottom: 1px solid #21C4C1;margin-bottom:10px;"><?php echo $sat['title'];?></div>
                     </div>
-                    <div class="row">
+                <div class="row">
 				<div class="col-md-3 title_text" >Admission Criteria :</div>
                 <div class="col-md-9"> <?php echo $sat['admission_criteria'];?></div>
+                </div>
+                
+                <div class="row">
+				<div class="col-md-3 title_text" >Description :</div>
+                <div class="col-md-9"> <?php echo $sat['description'];?></div>
                 </div>
                     <div class="row">
 				<div class="col-md-3 title_text" >Entrance Exam :</div>
