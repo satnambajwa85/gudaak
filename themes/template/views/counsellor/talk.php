@@ -10,9 +10,9 @@ $this->breadcrumbs=array('studentDetails',);
 	<div class="row test-bot">School Details</div>
    
 	<?php 
-	echo CHtml::link('Add New','#',array('onclick'=>'$("#create-form").show();')); ?>
+	//echo CHtml::link('Add New','#',array('onclick'=>'$("#create-form").show();')); ?>
 <h4> Your Queries</h4>
-	<div id="create-form" <?php echo (isset($_POST['Tickets']))?'':'style="display:none"';?>>
+	<div id="create-form" <?php //echo (isset($_POST['Tickets']))?'':'style="display:none"';?>>
 		<?php $this->renderPartial('_talk',array('model'=>$model,)); ?>
 	</div>
 	<div class="clear"></div>
