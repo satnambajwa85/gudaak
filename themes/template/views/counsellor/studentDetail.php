@@ -81,13 +81,19 @@ $this->breadcrumbs=array('Detail',);
 						<?php } ?>
 					</div>
 					<div class="col-md-6 mr0  pull-left stream-pref">
-					<?php if (!empty($counsRecoStream)){?>
+					<?php 
+					$countRecom	=	0;
+					if (!empty($counsRecoStream)){?>
 						<h1>Counsellor Prefered Stream </h1>
 						<p>Counsellor prefered stream are listed here.
 						</p>
 						<div class="col-md-12 pd0">
 						
-							<?php foreach($counsRecoStream as $counsellorList){?>
+							<?php 
+							
+							foreach($counsRecoStream as $counsellorList){
+								$countRecom++;
+								?>
 								<div class="col-md-12 pull-left fl pd0 pd-b10">
 								<div class="col-md-12 fl pd0 ">
 									<div class="pull-left pd0 prefered-stream-img2">
@@ -100,29 +106,49 @@ $this->breadcrumbs=array('Detail',);
 										 <ul class="star-rating" style="margin:0px;">
 										<div id="user-rate<?php echo $counsellorList->stream_id;?>"  ></div>
 										</ul>
-											<script type="text/javascript">
-											$(document).ready(function(){
-												$('#user-rate<?php echo $counsellorList->stream_id;?>').raty({readOnly: true, score:'<?php echo $counsellorList->self;?>'});
-												
-											});
+										<script type="text/javascript">
+										$(document).ready(function(){
+										$('#user-rate<?php echo $counsellorList->stream_id;?>').raty({readOnly: true, score:'<?php echo $counsellorList->self;?>'});
+										});
 										</script>
 										<div class="clear"></div>
 										<span><?php echo ($counsellorList->stream->featured)?'Featured':'';?></span>
 								   </div>
 								</div>
 							</div>
-							<?php echo CHtml::ajaxLink('<i class="glyphicon glyphicon-comment"></i>Counsellor Comments',
-							Yii::app()->createUrl('/school/counsellorComments' ),array('data' =>array( 'userId' =>$counsellorList->user_profiles_id,
-							'stream_id'=>$counsellorList->stream_id),'update'=>'#counsellorComments'),array('class'=>'counsellor-comment')); ?>
+							<?php //echo CHtml::ajaxLink('<i class="glyphicon glyphicon-comment"></i>Counsellor Comments',Yii::app()->createUrl('/school/counsellorComments' ),array('data' =>array( 'userId' =>$counsellorList->user_profiles_id,'stream_id'=>$counsellorList->stream_id),'update'=>'#counsellorComments'),array('class'=>'counsellor-comment')); ?>
 								
 							 
-							<?php } ?>
+							<?php } 
+							if($countRecom<2){
+								$form=$this->beginWidget('CActiveForm', array('id'=>'user-career-preference-form','enableAjaxValidation'=>false,));
+									echo $form->textField($model,'stream_id');
+									
+									echo $form->textArea($model,'comments',array('rows'=>3,'placeholder'=>'Type your comment here','maxlength'=>'360'));
+									
+									echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save');
+								$this->endWidget();
+							}?>
 						</div>
 						<?php }else{ ?>
-								<div class="stream-pref-min-height">
+						<div class="stream-pref-min-height">
 						<h1 class="center">Record Not Found</h1>
 						</div>
-						<?php } ?>
+						<?php 
+						if($countRecom<2){
+							echo '<div class="div_position1">';
+							
+								$form=$this->beginWidget('CActiveForm', array('id'=>'user-career-preference-form','enableAjaxValidation'=>false,));
+									echo $form->textField($model,'stream_id');
+									
+									echo $form->textArea($model,'comments',array('rows'=>6, 'cols'=>50));
+									
+									echo CHtml::submitButton('Save',array('class'=>'btn',"style"=>'float:right;margin-right:50px;margin-top:10px;'));
+								$this->endWidget();
+								echo '</div>';
+							}
+						
+						} ?>
 					</div>
 				</div>
 			<div class="col-md-12 fl pd0">
@@ -257,7 +283,9 @@ $this->breadcrumbs=array('Detail',);
 						<?php } ?>
 					</div>
 					<div class="col-md-6 mr0  pull-left stream-pref">
-					<?php if (!empty($counsRecoStream)){?>
+					<?php 
+					$countRecom	=	0;
+					if (!empty($counsRecoStream)){?>
 						<h1>Counsellor Preferred Career </h1>
 						<p>Counsellor preferred career are listed here.
 						</p>
@@ -271,7 +299,7 @@ $this->breadcrumbs=array('Detail',);
 										<img  src="<?php echo Yii::app()->baseUrl;?>/uploads/career_options/small/<?php echo (!empty($counsellorList->careerOptions->image))?''.$selfSel->careerOptions->image.'':'noimage.jpg';?>" />
 									</div>
 									<div class="col-md-9 pull-left counselor-stream-description">
-										<h1><?php echo $counsellorList->careerOptions->name;?></h1>
+										<h1><?php echo $counsellorList->careerOptions->title;?></h1>
 										<p><?php echo substr($counsellorList->careerOptions->description,0,65);?></p>
 										 <ul class="star-rating" style="margin:0px;">
 										<div id="user-rate<?php echo $counsellorList->career_options_id;?>"  ></div>
@@ -287,18 +315,40 @@ $this->breadcrumbs=array('Detail',);
 								   </div>
 								</div>
 							</div>
-							<?php echo CHtml::ajaxLink('<i class="glyphicon glyphicon-comment"></i>Counsellor Comments',
-							Yii::app()->createUrl('/school/counsellorComments' ),array('data' =>array( 'userId' =>$counsellorList->user_profiles_id,
-							'stream_id'=>$counsellorList->stream_id),'update'=>'#counsellorComments'),array('class'=>'counsellor-comment')); ?>
+							<?php //echo CHtml::ajaxLink('<i class="glyphicon glyphicon-comment"></i>Counsellor Comments',Yii::app()->createUrl('/school/counsellorComments' ),array('data' =>array( 'userId' =>$counsellorList->user_profiles_id,'stream_id'=>$counsellorList->stream_id),'update'=>'#counsellorComments'),array('class'=>'counsellor-comment')); ?>
 								
 							 
-							<?php } ?>
+							<?php 
+								if($countRecom<2){
+									$form=$this->beginWidget('CActiveForm', array('id'=>'user-career-preference-form','enableAjaxValidation'=>false,));
+										echo $form->textField($model,'career_options_id');
+										
+										echo $form->textArea($model,'comments',array('rows'=>3,'placeholder'=>'Type your comment here','maxlength'=>'360'));
+										
+										echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save');
+									$this->endWidget();
+								}
+							} ?>
 						</div>
 						<?php }else{ ?>
 						<div class="stream-pref-min-height">
 						<h1 class="center">Record Not Found</h1>
 						</div>
-						<?php } ?>
+						<?php 
+						if($countRecom<2){
+							echo '<div class="div_position1">';
+							
+								$form=$this->beginWidget('CActiveForm', array('id'=>'user-career-preference-form','enableAjaxValidation'=>false,));
+									echo $form->textField($model,'career_options_id');
+									
+									echo $form->textArea($model,'comments',array('rows'=>6, 'cols'=>50));
+									
+									echo CHtml::submitButton('Save',array('class'=>'btn',"style"=>'float:right;margin-right:50px;margin-top:10px;'));
+								$this->endWidget();
+								echo '</div>';
+							}
+						
+						} ?>
 					</div>
 				</div>
 			<div class="col-md-12 fl pd0">

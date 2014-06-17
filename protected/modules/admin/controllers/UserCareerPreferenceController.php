@@ -1,6 +1,6 @@
 <?php
 
-class UserProfilesHasStreamController extends Controller
+class UserCareerPreferenceController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -61,14 +61,14 @@ class UserProfilesHasStreamController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new UserProfilesHasStream;
+		$model=new UserCareerPreference;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['UserProfilesHasStream']))
+		if(isset($_POST['UserCareerPreference']))
 		{
-			$model->attributes=$_POST['UserProfilesHasStream'];
+			$model->attributes=$_POST['UserCareerPreference'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -90,9 +90,9 @@ class UserProfilesHasStreamController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['UserProfilesHasStream']))
+		if(isset($_POST['UserCareerPreference']))
 		{
-			$model->attributes=$_POST['UserProfilesHasStream'];
+			$model->attributes=$_POST['UserCareerPreference'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -127,7 +127,7 @@ class UserProfilesHasStreamController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('UserProfilesHasStream');
+		$dataProvider=new CActiveDataProvider('UserCareerPreference');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -138,10 +138,10 @@ class UserProfilesHasStreamController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new UserProfilesHasStream('search');
+		$model=new UserCareerPreference('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['UserProfilesHasStream']))
-			$model->attributes=$_GET['UserProfilesHasStream'];
+		if(isset($_GET['UserCareerPreference']))
+			$model->attributes=$_GET['UserCareerPreference'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -155,7 +155,7 @@ class UserProfilesHasStreamController extends Controller
 	 */
 	public function loadModel($id)
 	{
-		$model=UserProfilesHasStream::model()->findByPk($id);
+		$model=UserCareerPreference::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -167,7 +167,7 @@ class UserProfilesHasStreamController extends Controller
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='user-profiles-has-stream-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='user-career-preference-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

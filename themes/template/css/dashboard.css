@@ -8529,11 +8529,11 @@ opacity: 0.85;
 }
 
 .margin_t{ margin-top:15px; float:left; margin-bottom:15px;}
-
+.ml10{margin-left: 10px;}
 .talk_popup_outer{ border: 1px solid #CCCCCC; float: left; margin-left: 10px; width: 500px;}
 .talk_popup_outer .div_position h1 { color: #F7AA40; font-family: robotomedium; font-size: 16px; margin-left: 10px; margin-top: 10px;  width: 98%;}
-.talk_popup_outer .div_position textarea{ border: 1px solid #CCCCCC; color:#666666; border-radius: 3px; float: left; margin-bottom: 10px; margin-left: 10px;  padding:5px; width: 96%;}
-.talk_popup_outer .div_position input[type="text"]{ border: 1px solid #CCCCCC; color:#666666; border-radius: 3px; float: left; margin-bottom: 10px;  padding:5px; width: 96%;}
+.talk_popup_outer .div_position textarea,.div_position1 textarea{ border: 1px solid #CCCCCC; color:#666666; border-radius: 3px; float: left; margin-bottom: 10px;  padding:5px; width: 96%;}
+.talk_popup_outer .div_position input[type="text"],.div_position1 input[type="text"]{ border: 1px solid #CCCCCC; color:#666666; border-radius: 3px; float: left; margin-bottom: 10px;  padding:5px; width: 96%;}
 .talk_popup_outer .div_position1 textarea{ border: 1px solid #CCCCCC; color:#666666; border-radius: 3px; float: left; margin-bottom: 10px; margin-left: -2px;  padding:5px; width: 100%;}
 .div_position span label{   color: #666666 !important;
     display: inline;

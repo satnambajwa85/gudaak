@@ -1,7 +1,4 @@
 <?php
-/* @var $this UserProfilesHasStreamController */
-/* @var $dataProvider CActiveDataProvider */
-
 $this->breadcrumbs=array(
 	'User Profiles Has Streams',
 );

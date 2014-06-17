@@ -4,22 +4,6 @@
 	<?php echo CHtml::link(CHtml::encode($data->id), array('view', 'id'=>$data->id)); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('user_profiles_id')); ?>:</b>
-	<?php echo CHtml::encode($data->user_profiles_id); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('stream_id')); ?>:</b>
-	<?php echo CHtml::encode($data->stream_id); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('counsellor_id')); ?>:</b>
-	<?php echo CHtml::encode($data->counsellor_id); ?>
-	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('comments')); ?>:</b>
-	<?php echo CHtml::encode($data->comments); ?>
-	<br />
-
 	<b><?php echo CHtml::encode($data->getAttributeLabel('add_date')); ?>:</b>
 	<?php echo CHtml::encode($data->add_date); ?>
 	<br />
@@ -28,7 +12,6 @@
 	<?php echo CHtml::encode($data->reccomended); ?>
 	<br />
 
-	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('self')); ?>:</b>
 	<?php echo CHtml::encode($data->self); ?>
 	<br />
@@ -45,8 +28,25 @@
 	<?php echo CHtml::encode($data->modified_date); ?>
 	<br />
 
+	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('updated_by')); ?>:</b>
 	<?php echo CHtml::encode($data->updated_by); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('comments')); ?>:</b>
+	<?php echo CHtml::encode($data->comments); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('user_profiles_id')); ?>:</b>
+	<?php echo CHtml::encode($data->user_profiles_id); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('counsellor_id')); ?>:</b>
+	<?php echo CHtml::encode($data->counsellor_id); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('career_options_id')); ?>:</b>
+	<?php echo CHtml::encode($data->career_options_id); ?>
 	<br />
 
 	*/ ?>

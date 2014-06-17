@@ -1,7 +1,4 @@
 <?php
-/* @var $this UserProfilesHasStreamController */
-/* @var $model UserProfilesHasStream */
-
 $this->breadcrumbs=array(
 	'User Profiles Has Streams'=>array('index'),
 	$model->id,
@@ -24,6 +21,8 @@ $this->menu=array(
 		'id',
 		'user_profiles_id',
 		'stream_id',
+		'counsellor_id',
+		'comments',
 		'add_date',
 		'reccomended',
 		'self',

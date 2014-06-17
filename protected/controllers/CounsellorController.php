@@ -129,6 +129,8 @@ class CounsellorController extends Controller
 		if(!Yii::app()->user->id){
 			$this->redirect(Yii::app()->createUrl('/site'));
 		}
+		
+		
 		$userSummery		=			UserReports::model()->findAllByAttributes(array('user_profiles_id'=>$id,'status'=>1,'activation'=>1));
 		$index	=	0;
 		$index2	=	0;
@@ -137,21 +139,52 @@ class CounsellorController extends Controller
 		$userInfo			=	UserProfiles::model()->findByPk($id);
 		$userType=$userInfo->userLogin->user_role_id;
 		if($userInfo->userLogin->user_role_id==2){
+			$preffred	=	new	UserProfilesHasStream;
+			if(isset($_POST['UserProfilesHasStream'])){
+				$preffred->attributes			=	$_POST['UserProfilesHasStream'];
+				$preffred->user_profiles_id		=	$id;
+				$preffred->counsellor_id		=	Yii::app()->user->profileId;
+				$preffred->add_date				=	date('Y-m-d H:i:s');
+				$preffred->self					=	0;
+				$preffred->default				=	0;
+				$preffred->status				=	0;
+				$preffred->reccomended			=	1;
+				$preffred->save();
+			}
+		
+		
+		
+		
 			$userFinalStream	=	UserProfilesHasStream::model()->findAllByAttributes(array('user_profiles_id'=>$id,'updated_by'=>1));		
 			$CounsRecoStream	=	UserProfilesHasStream::model()->findAllByAttributes(array('user_profiles_id'=>$id,'reccomended'=>1));
-			$ratingHistory		=	UserProfilesHasStream::model()->findAllByAttributes(array('user_profiles_id'=>$id));
+			$ratingHistory		=	UserProfilesHasStream::model()->findAllByAttributes(array('user_profiles_id'=>$id),array('order'=>'self DESC'));
 		}
 		else{
+			$preffred	=	new	UserCareerPreference;
+			if(isset($_POST['UserCareerPreference'])){
+				
+				$preffred->attributes			=	$_POST['UserCareerPreference'];
+				$preffred->user_profiles_id		=	$id;
+				$preffred->counsellor_id		=	Yii::app()->user->profileId;
+				$preffred->add_date				=	date('Y-m-d H:i:s');
+				$preffred->self					=	0;
+				$preffred->default				=	0;
+				$preffred->status				=	0;
+				$preffred->reccomended			=	1;
+				$preffred->save();
+			}
+		
+
 			$userFinalStream	=	UserCareerPreference::model()->findAllByAttributes(array('user_profiles_id'=>$id,'updated_by'=>1));		
 			$CounsRecoStream	=	UserCareerPreference::model()->findAllByAttributes(array('user_profiles_id'=>$id,'reccomended'=>1));
-			$ratingHistory		=	UserCareerPreference::model()->findAllByAttributes(array('user_profiles_id'=>$id));
+			$ratingHistory		=	UserCareerPreference::model()->findAllByAttributes(array('user_profiles_id'=>$id),array('order'=>'self DESC'));
 
 	
 		}
-
+		
 		
 		$this->render('studentDetail',array('userInfo'=>$userInfo,'userFinalStream'=>$userFinalStream,'counsRecoStream'=>$CounsRecoStream,
-						'summaryDetails'=>$userSummery,'ratingHistory'=>$ratingHistory,'userType'=>$userType));
+						'summaryDetails'=>$userSummery,'ratingHistory'=>$ratingHistory,'userType'=>$userType,'model'=>$preffred));
 	}
 		
 	public function actionSummaryDetails()

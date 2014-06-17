@@ -11,26 +11,6 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->label($model,'user_profiles_id'); ?>
-		<?php echo $form->textField($model,'user_profiles_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'stream_id'); ?>
-		<?php echo $form->textField($model,'stream_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'counsellor_id'); ?>
-		<?php echo $form->textField($model,'counsellor_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->label($model,'comments'); ?>
-		<?php echo $form->textArea($model,'comments',array('rows'=>6, 'cols'=>50)); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->label($model,'add_date'); ?>
 		<?php echo $form->textField($model,'add_date'); ?>
 	</div>
@@ -63,6 +43,26 @@
 	<div class="row">
 		<?php echo $form->label($model,'updated_by'); ?>
 		<?php echo $form->textField($model,'updated_by'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'comments'); ?>
+		<?php echo $form->textArea($model,'comments',array('rows'=>6, 'cols'=>50)); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'user_profiles_id'); ?>
+		<?php echo $form->textField($model,'user_profiles_id'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'counsellor_id'); ?>
+		<?php echo $form->textField($model,'counsellor_id'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->label($model,'career_options_id'); ?>
+		<?php echo $form->textField($model,'career_options_id'); ?>
 	</div>
 
 	<div class="row buttons">

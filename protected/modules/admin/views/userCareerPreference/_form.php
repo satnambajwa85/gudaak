@@ -1,37 +1,13 @@
 <div class="form">
 
 <?php $form=$this->beginWidget('CActiveForm', array(
-	'id'=>'user-profiles-has-stream-form',
+	'id'=>'user-career-preference-form',
 	'enableAjaxValidation'=>false,
 )); ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
 
 	<?php echo $form->errorSummary($model); ?>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'user_profiles_id'); ?>
-		<?php echo $form->textField($model,'user_profiles_id'); ?>
-		<?php echo $form->error($model,'user_profiles_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'stream_id'); ?>
-		<?php echo $form->textField($model,'stream_id'); ?>
-		<?php echo $form->error($model,'stream_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'counsellor_id'); ?>
-		<?php echo $form->textField($model,'counsellor_id'); ?>
-		<?php echo $form->error($model,'counsellor_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'comments'); ?>
-		<?php echo $form->textArea($model,'comments',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'comments'); ?>
-	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'add_date'); ?>
@@ -73,6 +49,30 @@
 		<?php echo $form->labelEx($model,'updated_by'); ?>
 		<?php echo $form->textField($model,'updated_by'); ?>
 		<?php echo $form->error($model,'updated_by'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'comments'); ?>
+		<?php echo $form->textArea($model,'comments',array('rows'=>6, 'cols'=>50)); ?>
+		<?php echo $form->error($model,'comments'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'user_profiles_id'); ?>
+		<?php echo $form->textField($model,'user_profiles_id'); ?>
+		<?php echo $form->error($model,'user_profiles_id'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'counsellor_id'); ?>
+		<?php echo $form->textField($model,'counsellor_id'); ?>
+		<?php echo $form->error($model,'counsellor_id'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'career_options_id'); ?>
+		<?php echo $form->textField($model,'career_options_id'); ?>
+		<?php echo $form->error($model,'career_options_id'); ?>
 	</div>
 
 	<div class="row buttons">
