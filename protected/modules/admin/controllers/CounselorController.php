@@ -100,8 +100,6 @@ class CounselorController extends Controller
 			}else{
 				$model->image	=	'noimage.jpg';
 			}
-			CVarDumper::dump($model,10,1);
-			die;
 			if($model->save())
 				$this->redirect(array('admin'));
 		}
