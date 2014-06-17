@@ -347,8 +347,6 @@ Based on your personality and interest you can explore the right type of role in
 	foreach($report['results'] as $result){
 	if($report['id']==3){
 		$listCar	=	Career::model()->findAllByAttributes(array('career_categories_id'=>$result['id']));
-		count($listCar);
-		die;
 		foreach($listCar as $data){?>
 		<td width="210" height="90">
 			<div style="color: #666666;font-size: 12px;width:200px;float:left !important;text-align:left;">
