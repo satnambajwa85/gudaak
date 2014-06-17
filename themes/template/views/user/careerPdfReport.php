@@ -29,16 +29,16 @@ body{ margin:0; padding:0; }
                     </tr>
                      <tr >
                       <td width="250" height="40" align="center" valign="middle">Class</td>
-                      <td width="330" height="40" align="center" valign="middle"><?php echo $profile->userClass->title;?></td>
+                      <td width="330" height="40" align="center" valign="middle"></td>
                     </tr>
                     
                      <tr style="background:#ececec;">
                       <td width="250" height="40" align="center" valign="middle">School</td>
-                      <td width="330" height="40" align="center" valign="middle"><?php echo $profile->generateGudaakIds->schools->name;?></td>
+                      <td width="330" height="40" align="center" valign="middle"></td>
                     </tr>
                      <tr >
                       <td width="250" height="40" align="center" valign="middle">Gudaak ID</td>
-                      <td width="330" height="40" align="center" valign="middle"><?php echo $profile->generateGudaakIds->gudaak_id;?> </td>
+                      <td width="330" height="40" align="center" valign="middle"></td>
                     </tr>
                      <tr style="background:#ececec;" >
                       <td width="250" height="40" align="center" valign="middle">Test Completed On</td>
