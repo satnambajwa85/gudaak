@@ -16,6 +16,7 @@ $this->menu=array(
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'counselor-form',
 	'enableAjaxValidation'=>false,
+	'htmlOptions'=>array('enctype'=>'multipart/form-data'),
 )); ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
@@ -49,7 +50,7 @@ $this->menu=array(
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'image'); ?>
-		<?php echo $form->textField($model,'image',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->fileField($model,'image'); ?>
 		<?php echo $form->error($model,'image'); ?>
 	</div>
 
@@ -61,7 +62,7 @@ $this->menu=array(
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'gender'); ?>
-		<?php echo $form->textField($model,'gender',array('size'=>45,'maxlength'=>45)); ?>
+        <?php echo $form->radioButtonlist($model,'gender',array('male'=>'Male','female'=>'Female'),array('separator'=>'')); ?>
 		<?php echo $form->error($model,'gender'); ?>
 	</div>
 
@@ -169,13 +170,13 @@ $this->menu=array(
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'activation'); ?>
-		<?php echo $form->textField($model,'activation'); ?>
+        <?php echo $form->radioButtonlist($model,'activation',array('1'=>'Yes','0'=>'No'),array('separator'=>'')); ?>
 		<?php echo $form->error($model,'activation'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'status'); ?>
-		<?php echo $form->textField($model,'status'); ?>
+        <?php echo $form->radioButtonlist($model,'status',array('1'=>'Yes','0'=>'No'),array('separator'=>'')); ?>
 		<?php echo $form->error($model,'status'); ?>
 	</div>
 

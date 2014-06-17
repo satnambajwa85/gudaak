@@ -3,6 +3,7 @@
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'counselor-form',
 	'enableAjaxValidation'=>false,
+	'htmlOptions'=>array('enctype'=>'multipart/form-data'),
 )); ?>
 
 	<p class="note">Fields with <span class="required">*</span> are required.</p>
@@ -28,7 +29,14 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'image'); ?>
-		<?php echo $form->textField($model,'image',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->fileField($model,'image'); ?>
+		<?php echo $form->error($model,'image'); ?>
+		<?php if(isset($model->image)){ ?> 
+		<?php echo $form->hiddenField($model,'oldImage',array('value'=>$model->image)); ?>
+		<img width="100" height="100" src="<?php echo Yii::app()->request->baseUrl.'/uploads/counselor/small/'.$model->image;?>" alt="image"/>
+		<?php }?>
+        
+        
 		<?php echo $form->error($model,'image'); ?>
 	</div>
 
