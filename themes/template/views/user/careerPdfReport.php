@@ -349,16 +349,17 @@ Based on your personality and interest you can explore the right type of role in
 	if($report['id']==3){
 		$listCar	=	Career::model()->findAllByAttributes(array('career_categories_id'=>$result['id']));
 		foreach($listCar as $data){?>
-		<div style="width:210px !important;float:left !important;">
+		<div style="width:210px !important;height:200px!important;float:left !important;">
         <!--<td width="210" height="90">-->
 			<div style="color: #666666;font-size: 12px;width:200px;float:left !important;text-align:left;">
 				<img src="./uploads/career/small/<?php echo file_exists('./uploads/career/small/'.$data->image)?$data->image:'noimage.jpg';?>" width="200" />
 			</div>
-			 <div style="color: #666666;font-size: 12px;  width:200px;height:30px;float:left !important;text-align:left;">
+			<div style="color: #666666;font-size: 12px;  width:200px;height:30px;float:left !important;text-align:left;">
 				<?php echo $data->title;?><br/>
 				<div style="border-bottom:1px solid #cccccc; padding-top:5px; padding-bottom:10px;">
-				<?php echo  wordwrap($data->description, 10, "<br />\n");?>
-					</div>
+				
+				<?php echo  substr(strip_tags($data->description),0,100);?>
+				</div>
             </div>
 		<!--</td>-->
         </div>      
