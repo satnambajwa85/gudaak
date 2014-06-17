@@ -35,16 +35,12 @@ $this->breadcrumbs=array('Detailed Report'=>array('/user/detailedReport'));?>
                     </tr>
                      <tr >
                       <td width="250" height="40" align="center" valign="middle">Class</td>
-                      <td width="330" height="40" align="center" valign="middle"><?php //echo $profile->userClass->title;?></td>
+                      <td width="330" height="40" align="center" valign="middle"><?php echo (isset($profile->userClass->title))?$profile->userClass->title:'';?></td>
                     </tr>
                     
                      <tr style="background:#ececec;">
                       <td width="250" height="40" align="center" valign="middle">School</td>
-                      <td width="330" height="40" align="center" valign="middle"><?php //echo $profile->generateGudaakIds->schools->name;?></td>
-                    </tr>
-                     <tr >
-                      <td width="250" height="40" align="center" valign="middle">Gudaak ID</td>
-                      <td width="330" height="40" align="center" valign="middle"><?php //echo $profile->generateGudaakIds->gudaak_id;?> </td>
+                      <td width="330" height="40" align="center" valign="middle"><?php echo (isset($profile->generateGudaakIds->schools))?$profile->generateGudaakIds->schools->name:'';?></td>
                     </tr>
                      <tr style="background:#ececec;" >
                       <td width="250" height="40" align="center" valign="middle">Test Completed On</td>
