@@ -357,7 +357,7 @@ Based on your personality and interest you can explore the right type of role in
 			 <div style="color: #666666;font-size: 12px;  width:200px;height:30px;float:left !important;text-align:left;">
 				<?php echo $data->title;?><br/>
 				<div style="border-bottom:1px solid #cccccc; padding-top:5px; padding-bottom:10px;">
-				<?php echo  wordwrap($data->description, 110, "<br />\n");?>
+				<?php echo  wordwrap($data->description, 10, "<br />\n");?>
 					</div>
             </div>
 		<!--</td>-->
