@@ -31,13 +31,11 @@ body{ margin:0; padding:0; }
                       <td width="250" height="40" align="center" valign="middle">Class</td>
                       <td width="330" height="40" align="center" valign="middle"><?php echo (isset($profile->userClass->title))?$profile->userClass->title:'';?></td>
                     </tr>
-                    
-                     <tr style="background:#ececec;">
+                    <tr style="background:#ececec;">
                       <td width="250" height="40" align="center" valign="middle">School</td>
                       <td width="330" height="40" align="center" valign="middle"><?php echo (isset($profile->generateGudaakIds->schools))?$profile->generateGudaakIds->schools->name:'';?></td>
                     </tr>
-                    
-                     <tr >
+                    <tr>
                       <td width="250" height="40" align="center" valign="middle">Test Completed On</td>
                       <td width="330" height="40" align="center" valign="middle"><?php echo date('d M,Y',strtotime($userTestDate->add_date));?></td>
                     </tr>
