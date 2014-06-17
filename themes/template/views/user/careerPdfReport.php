@@ -338,8 +338,9 @@ Based on your personality and interest you can explore the right type of role in
             BASED ON YOUR OBTAINED RESULTS, YOU ARE RECOMMENDED TO EXPLORE THE FOLLOWING CAREERS FOR PREFERRED CHOICE! 
             </p>
             </div> 
-            <table width="670" border="0" cellspacing="0" cellpadding="0" style="font-family:Arial, Helvetica, sans-serif; color:#000; font-size:18px; ">
-	<tr>
+            <div style="width:670px;font-family:Arial, Helvetica, sans-serif; color:#000; font-size:18px;">
+            <!--<table width="670" border="0" cellspacing="0" cellpadding="0" style="font-family:Arial, Helvetica, sans-serif; color:#000; font-size:18px; ">
+	<tr>-->
     
     <?php
 	$listArr	=	array();
@@ -348,7 +349,8 @@ Based on your personality and interest you can explore the right type of role in
 	if($report['id']==3){
 		$listCar	=	Career::model()->findAllByAttributes(array('career_categories_id'=>$result['id']));
 		foreach($listCar as $data){?>
-		<td width="210" height="90">
+		<div style="width:210px;">
+        <!--<td width="210" height="90">-->
 			<div style="color: #666666;font-size: 12px;width:200px;float:left !important;text-align:left;">
 				<img src="./uploads/career/small/<?php echo file_exists('./uploads/career/small/'.$data->image)?$data->image:'noimage.jpg';?>" width="200" />
 			</div>
@@ -358,17 +360,18 @@ Based on your personality and interest you can explore the right type of role in
 				<?php echo $data->description;?>
 					</div>
             </div>
-		</td>      
-	 <?php if($counter%3==0){?>
+		<!--</td>-->
+        </div>      
+	 <?php /*if($counter%3==0){?>
 	 <tr>
 	</tr>
-	 <?php } $counter++;  }
+	 <?php }*/ $counter++;  }
 	 
 		}}?>
     
-		 
-	</tr>	
-	</table>
+		 </div>
+	<!--</tr>	
+	</table>-->
             </div>
             <p>WE WISH YOU ALL THE BEST FOR YOUR FUTURE ENDEAVORS!</p>
             </div>
