@@ -349,7 +349,7 @@ Based on your personality and interest you can explore the right type of role in
 	if($report['id']==3){
 		$listCar	=	Career::model()->findAllByAttributes(array('career_categories_id'=>$result['id']));
 		foreach($listCar as $data){?>
-		<div style="width:210px;">
+		<div style="width:210px !important;float:left !important;">
         <!--<td width="210" height="90">-->
 			<div style="color: #666666;font-size: 12px;width:200px;float:left !important;text-align:left;">
 				<img src="./uploads/career/small/<?php echo file_exists('./uploads/career/small/'.$data->image)?$data->image:'noimage.jpg';?>" width="200" />
@@ -357,7 +357,7 @@ Based on your personality and interest you can explore the right type of role in
 			 <div style="color: #666666;font-size: 12px;  width:200px;height:30px;float:left !important;text-align:left;">
 				<?php echo $data->title;?><br/>
 				<div style="border-bottom:1px solid #cccccc; padding-top:5px; padding-bottom:10px;">
-				<?php echo $data->description;?>
+				<?php echo  wordwrap($data->description, 110, "<br />\n");?>
 					</div>
             </div>
 		<!--</td>-->
