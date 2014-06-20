@@ -7,9 +7,7 @@ $this->breadcrumbs=array('Detail',);
 	<div class="row test-bot">
 		<?php echo $userInfo->display_name;?> <span><?php echo $userInfo->generateGudaakIds->gudaak_id;?></span>
         
-        <div class="pull-right back-btn">
-    	<?php echo CHtml::link('User Sessions', Yii::app()->createUrl('/counsellor/sessionList',array('id'=>$userInfo->id)));?>
-        </div>
+       
         <div class="pull-right back-btn">
     		<?php echo CHtml::link('Back', Yii::app()->createUrl('/counsellor/studentDetails',array('id'=>$userInfo->generateGudaakIds->schools_id) ));?>
         </div>
@@ -354,8 +352,11 @@ $this->breadcrumbs=array('Detail',);
 					</div>
 				</div>
 			<div class="col-md-12 fl pd0">
-				<div class="col-md-6 mr0 pull-left stream-pref">
-					<h1 class="mr0 mb10">Summary</h1>
+				<div class="col-md-12 mr0 pull-left stream-pref">
+					<h1 class="pull-left mr0 mb10 col-md-3">Summary</h1>
+                     <div class="pull-left back-btn">
+						<?php echo CHtml::link('User Sessions', Yii::app()->createUrl('/counsellor/sessionList',array('id'=>$userInfo->id)));?>
+                    </div>
 				</div>
 				<div class="col-md-12 pull-left summery-left pd0">
 					<ul>
