@@ -283,9 +283,7 @@ $this->breadcrumbs=array('Detail',);
 					<div class="col-md-6 mr0  pull-left stream-pref">
 					<?php 
 					$countRecom	=	0;
-					if (!empty($counsRecoStream)){
-						
-						?>
+					if (!empty($counsRecoStream)){?>
 						<h1>Counsellor Preferred Career </h1>
 						<p>Counsellor preferred career are listed here.
 						</p>
@@ -320,16 +318,16 @@ $this->breadcrumbs=array('Detail',);
 							<?php //echo CHtml::ajaxLink('<i class="glyphicon glyphicon-comment"></i>Counsellor Comments',Yii::app()->createUrl('/school/counsellorComments' ),array('data' =>array( 'userId' =>$counsellorList->user_profiles_id,'stream_id'=>$counsellorList->stream_id),'update'=>'#counsellorComments'),array('class'=>'counsellor-comment')); ?>
 								
 							 
-							<?php 
-								if($countRecom<2){
+							<?php }
+							if($countRecom<2){
 									$form=$this->beginWidget('CActiveForm', array('id'=>'user-career-preference-form','enableAjaxValidation'=>false,));
 										echo $form->dropDownlist($model,'career_options_id',CHtml::listData(CareerOptions::model()->findAll(),'id','title'),array('class'=>'form-control mb10'));
 										echo $form->textArea($model,'comments',array('rows'=>3,'placeholder'=>'Type your comment here','maxlength'=>'360'));
 										
-										echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save');
+										echo CHtml::submitButton('Save');
 									$this->endWidget();
 								}
-							} ?>
+							 ?>
 						</div>
 						<?php }else{ ?>
 						<div class="stream-pref-min-height">
