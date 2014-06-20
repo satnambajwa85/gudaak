@@ -294,7 +294,7 @@ $this->breadcrumbs=array('Detail',);
 								<div class="col-md-12 fl pd0 ">
 									<div class="pull-left pd0 prefered-stream-img2">
 			 
-										<img  src="<?php echo Yii::app()->baseUrl;?>/uploads/career_options/small/<?php echo (!empty($counsellorList->careerOptions->image))?''.$selfSel->careerOptions->image.'':'noimage.jpg';?>" />
+										<img  src="<?php echo Yii::app()->baseUrl;?>/uploads/career_options/small/<?php echo (!empty($counsellorList->careerOptions->image))?''.$counsellorList->careerOptions->image.'':'noimage.jpg';?>" />
 									</div>
 									<div class="col-md-9 pull-left counselor-stream-description">
 										<h1><?php echo $counsellorList->careerOptions->title;?></h1>
