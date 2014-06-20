@@ -321,8 +321,8 @@ $this->breadcrumbs=array('Detail',);
 							<?php 
 								if($countRecom<2){
 									$form=$this->beginWidget('CActiveForm', array('id'=>'user-career-preference-form','enableAjaxValidation'=>false,));
-										echo $form->textField($model,'career_options_id');
-										
+										echo $form->dropDownlist($model,'career_options_id',CHtml::listData(CareerOptions::model()->findAll(),'id','title'));
+									
 										echo $form->textArea($model,'comments',array('rows'=>3,'placeholder'=>'Type your comment here','maxlength'=>'360'));
 										
 										echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save');
@@ -339,7 +339,8 @@ $this->breadcrumbs=array('Detail',);
 							echo '<div class="div_position1">';
 							
 								$form=$this->beginWidget('CActiveForm', array('id'=>'user-career-preference-form','enableAjaxValidation'=>false,));
-									echo $form->textField($model,'career_options_id');
+									echo $form->dropDownlist($model,'career_options_id',CHtml::listData(CareerOptions::model()->findAll(),'id','title'));
+									//echo $form->textField($model,'career_options_id');
 									
 									echo $form->textArea($model,'comments',array('rows'=>6, 'cols'=>50));
 									
