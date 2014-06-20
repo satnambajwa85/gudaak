@@ -433,5 +433,21 @@ class CounsellorController extends Controller
 		} //isset ends
 		$this->render('changepassword',array('model'=>$model));
 	}
+	public function actionDynamicCareer()
+	{	 
+		$getId = '';
+		if(!empty($_POST['UserCareerPreference']['career_id'])) 
+			$getId	 = $_POST['UserCareerPreference']['career_id'];
+			$data	=	CareerOptions::model()->findAll('career_id =:parent_id',array(':parent_id'=>(int) $getId));
+			$data	=	CHtml::listData($data,'id','title');
+			//echo '<option value="0">Please Select</option>';
+			foreach($data as $value=>$name){
+				echo CHtml::tag('option', array('value'=>$value),CHtml::encode($name),true);
+				
+			}
+		die;
+
+			 
+	}
 
 }

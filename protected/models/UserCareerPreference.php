@@ -28,6 +28,7 @@ class UserCareerPreference extends CActiveRecord
 	 * @param string $className active record class name.
 	 * @return UserCareerPreference the static model class
 	 */
+	public $career_id;
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
