@@ -284,14 +284,16 @@ $this->breadcrumbs=array('Detail',);
 					<?php 
 					$countRecom	=	0;
 					if (!empty($counsRecoStream)){
-						$countRecom++;
+						
 						?>
 						<h1>Counsellor Preferred Career </h1>
 						<p>Counsellor preferred career are listed here.
 						</p>
 						<div class="col-md-12 pd0">
 						
-							<?php foreach($counsRecoStream as $counsellorList){?>
+							<?php foreach($counsRecoStream as $counsellorList){
+								$countRecom++;
+								?>
 								<div class="col-md-12 pull-left fl pd0 pd-b10">
 								<div class="col-md-12 fl pd0 ">
 									<div class="pull-left pd0 prefered-stream-img2">
