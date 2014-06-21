@@ -27,13 +27,17 @@
 							array('label'=>'Login Detials', 'url'=>array('/admin/userlogin/admin/')),
 							array('label'=>'Students', 'url'=>array('/admin/userProfiles/admin/')),
 							)),
-							 array('label'=>'Manage Counselor<span class="caret"></span>', 'url'=>'#','itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"), 
+							array('label'=>'Manage Students','url'=>array('/admin/userProfiles/admin/'),'active'=>(($action=='userProfiles/admin')||($action=='userProfiles/create')||($action=='userProfiles/update')||($action=='userProfiles/view'))),
+							 array('label'=>'Manage Counselor<span class="caret"></span>', 'url'=>array('/admin/counselor/admin/'),'active'=>(($action=='counselor/admin')||($action=='counselor/create')||($action=='counselor/update')||($action=='counselor/view'))
+							 
+							 /*,'itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"), 
                         'items'=>array(
 							array('label'=>'Counselor', 'url'=>array('/admin/counselor/admin/')),
 							array('label'=>'Counselor Schools', 'url'=>array('/admin/counselorHasSchools/admin/')),
 							//array('label'=>'Counselor Details', 'url'=>array('/admin/counselorDetails/admin/')),
 							array('label'=>'Session', 'url'=>array('/admin/session/admin/')),
-                        )),
+                        )
+						*/),
 /*array('label'=>'Locations', 'url'=>'#','itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"),
 'items'=>array(
 array('label'=>'<span class="badge '.$result.' pull-right">'.$countries.'</span>Countries', 'url'=>array('/admin/countries/admin/')),
