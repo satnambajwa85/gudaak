@@ -19,18 +19,11 @@
 					'itemCssClass'=>'item-test',
                     'encodeLabel'=>false,
                     'items'=>array(
-                       
-						 array('label'=>'Users', 'url'=>'#','itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"),
-						 
-						  'items'=>array(
-							//array('label'=>'User Role', 'url'=>array('/admin/userRole/admin/')),
-							array('label'=>'Login Detials', 'url'=>array('/admin/userlogin/admin/')),
-							array('label'=>'Students', 'url'=>array('/admin/userProfiles/admin/')),
-							)),
-							array('label'=>'Manage Students','url'=>array('/admin/userProfiles/admin/'),'active'=>(($action=='userProfiles/admin')||($action=='userProfiles/create')||($action=='userProfiles/update')||($action=='userProfiles/view'))),
-							 array('label'=>'Manage Counselor<span class="caret"></span>', 'url'=>array('/admin/counselor/admin/'),'active'=>(($action=='counselor/admin')||($action=='counselor/create')||($action=='counselor/update')||($action=='counselor/view'))
+						array('label'=>'Login Details', 'url'=>array('/admin/userlogin/admin/')),
+						array('label'=>'Manage Students','url'=>array('/admin/userProfiles/admin/'),'active'=>(($action=='userProfiles/admin')||($action=='userProfiles/create')||($action=='userProfiles/update')||($action=='userProfiles/view'))),
+						array('label'=>'Manage Counselor<span class="caret"></span>', 'url'=>array('/admin/counselor/admin/'),'active'=>(($action=='counselor/admin')||($action=='counselor/create')||($action=='counselor/update')||($action=='counselor/view'))
 							 
-							 /*,'itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"), 
+						/*,'itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"), 
                         'items'=>array(
 							array('label'=>'Counselor', 'url'=>array('/admin/counselor/admin/')),
 							array('label'=>'Counselor Schools', 'url'=>array('/admin/counselorHasSchools/admin/')),
