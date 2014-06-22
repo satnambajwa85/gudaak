@@ -11,7 +11,7 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'counselor_id'); ?>
-		<?php echo  $form->dropDownList($model,'counselor_id',CHtml::listData(counselor::model()->findAll(),'id','userLogin->username'),array('empty'=>'Please select'));?>
+		<?php echo  $form->dropDownList($model,'counselor_id',CHtml::listData(counselor::model()->findAll(),'id','first_name'),array('empty'=>'Please select'));?>
 		<?php echo $form->error($model,'counselor_id'); ?>
 	</div>
 
