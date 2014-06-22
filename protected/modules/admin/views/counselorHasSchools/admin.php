@@ -42,12 +42,21 @@ else
 
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'counselor-has-schools-grid',
+	'itemsCssClass'=>'table table-bordered',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
-		'counselor_id',
-		'schools_id',
+		array(
+			'type'=>'raw',
+			'name'=>'counselor_id',
+            'value'=>'$data->counselor->first_name $data->counselor->last_name($data->counselor->userLogin->username)',
+        ),
+		array(
+			'type'=>'raw',
+			'name'=>'schools_id',
+            'value'=>'$data->schools->name($data->schools->userLogin->username)',
+        ),
 		'service_type',
 		'add_date',
 		'status',
