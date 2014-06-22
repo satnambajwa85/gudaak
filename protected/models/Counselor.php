@@ -85,6 +85,7 @@ class Counselor extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'counsellings' => array(self::HAS_MANY, 'Counselling', 'counselor_id'),
+			'counselorHasSchools' => array(self::HAS_MANY, 'CounselorHasSchools', 'counselor_id'),
 			'userLogin' => array(self::BELONGS_TO, 'UserLogin', 'user_login_id'),
 		);
 	}
