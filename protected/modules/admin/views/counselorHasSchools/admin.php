@@ -55,7 +55,7 @@ else
 		array(
 			'type'=>'raw',
 			'name'=>'schools_id',
-            'value'=>'$data->schools->name($data->schools->userLogin->username)',
+            'value'=>'$data->schools->name($data->schools->schoolsHasUserLogins->userLogin->username)',
         ),
 		'service_type',
 		'add_date',
