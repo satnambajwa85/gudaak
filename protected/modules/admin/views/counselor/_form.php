@@ -71,6 +71,12 @@
 	</div>
 
 	<div class="row">
+		<?php echo $form->labelEx($model,'mobile_no'); ?>
+		<?php echo $form->textField($model,'mobile_no',array('size'=>45,'maxlength'=>45)); ?>
+		<?php echo $form->error($model,'mobile_no'); ?>
+	</div>
+    
+	<div class="row">
 		<?php echo $form->labelEx($model,'work_email'); ?>
 		<?php echo $form->textField($model,'work_email',array('size'=>45,'maxlength'=>45)); ?>
 		<?php echo $form->error($model,'work_email'); ?>
@@ -92,12 +98,6 @@
 		<?php echo $form->labelEx($model,'work_phone_no'); ?>
 		<?php echo $form->textField($model,'work_phone_no',array('size'=>45,'maxlength'=>45)); ?>
 		<?php echo $form->error($model,'work_phone_no'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'mobile_no'); ?>
-		<?php echo $form->textField($model,'mobile_no',array('size'=>45,'maxlength'=>45)); ?>
-		<?php echo $form->error($model,'mobile_no'); ?>
 	</div>
 
 	<div class="row">
@@ -150,13 +150,13 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'activation'); ?>
-		<?php echo $form->textField($model,'activation'); ?>
+		<?php echo $form->radioButtonlist($model,'activation',array('1'=>'Yes','0'=>'No'),array('separator'=>'')); ?>
 		<?php echo $form->error($model,'activation'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'status'); ?>
-		<?php echo $form->textField($model,'status'); ?>
+		<?php echo $form->radioButtonlist($model,'status',array('1'=>'Yes','0'=>'No'),array('separator'=>'')); ?>
 		<?php echo $form->error($model,'status'); ?>
 	</div>
 
