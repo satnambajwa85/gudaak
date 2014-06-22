@@ -35,6 +35,7 @@ class Schools extends CActiveRecord
 	public $password;
 	public $states_id;
 	public $countries_id;
+	public $student_list;
 	public function tableName()
 	{
 		return 'schools';
@@ -103,6 +104,7 @@ class Schools extends CActiveRecord
 			'add_date' => 'Add Date',
 			'status' => 'Status',
 			'cities_id' => 'Cities',
+			'student_list'=>'Student List'
 		);
 	}
 

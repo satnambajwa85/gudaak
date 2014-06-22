@@ -57,8 +57,8 @@ $('.search-form form').submit(function(){
         ),
 		array(
 		'type'=>'raw',
-		'name'=>'Gudaak_ID',
-		'value'=>'CHtml::link("Gudaak_ID",array("/admin/generateGudaakIds/adminView","id"=>$data->id))',
+		'name'=>'student_list',
+		'value'=>'CHtml::link("Student",array("/admin/generateGudaakIds/adminView","id"=>$data->id))',
 		),
 		'mobile_no',
 		/*
