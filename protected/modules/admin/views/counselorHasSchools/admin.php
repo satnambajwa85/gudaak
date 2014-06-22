@@ -26,8 +26,9 @@ $('.search-form form').submit(function(){
 <h1>Manage Counselor Has Schools</h1>
 
 <?php echo CHtml::link('Back to Counselor list',array('/admin/Counselor/admin'),array('class'=>'pull-right btn btn-danger ui-slider'));?>
+<?php echo CHtml::link('Create',array('/admin/counselorHasSchools/create'),array('class'=>'pull-right btn btn-s-md btn-success')); ?>
 
-<?php echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
+<?php //echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
 	'model'=>$model,

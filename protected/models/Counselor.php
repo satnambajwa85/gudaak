@@ -42,6 +42,9 @@ class Counselor extends CActiveRecord
 	 * @param string $className active record class name.
 	 * @return Counselor the static model class
 	 */
+	public $last_login;
+	public $schools;
+	
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
@@ -122,6 +125,8 @@ class Counselor extends CActiveRecord
 			'activation' => 'Activation',
 			'status' => 'Status',
 			'user_login_id' => 'User Login',
+			'last_login'=>'Last Login',
+			'schools'=>'Schools',
 		);
 	}
 

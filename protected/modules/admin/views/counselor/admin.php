@@ -49,8 +49,13 @@ $('.search-form form').submit(function(){
 		'mobile_no',
 		array(
 			'type'=>'raw',
-			'name'=>'other_details',
+			'name'=>'schools',
             'value'=>'CHtml::link("Schools",array("/admin/counselorHasSchools/admin","counselor_id"=>$data->id))',
+        ),
+		array(
+			'type'=>'raw',
+			'name'=>'last_login',
+            'value'=>'$data->userLogin->last_login',
         ),
 		/*
 		'date_of_birth',
