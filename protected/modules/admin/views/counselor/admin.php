@@ -25,11 +25,6 @@ $('.search-form form').submit(function(){
 
 <h1>Manage Counselors</h1>
 
-<p>
-You may optionally enter a comparison operator (<b>&lt;</b>, <b>&lt;=</b>, <b>&gt;</b>, <b>&gt;=</b>, <b>&lt;&gt;</b>
-or <b>=</b>) at the beginning of each of your search values to specify how the comparison should be done.
-</p>
-
 <?php //echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
 <div class="search-form" style="display:none">
 <?php $this->renderPartial('_search',array(
@@ -46,10 +41,20 @@ or <b>=</b>) at the beginning of each of your search values to specify how the c
 		'id',
 		'first_name',
 		'last_name',
-		'image',
+		array(
+			'type'=>'raw',
+			'name'=>'user_login_id',
+            'value'=>'$data->userLogin->username',
+        ),
+		'mobile_no',
+		array(
+			'type'=>'raw',
+			'name'=>'other_details',
+            'value'=>'(count($data->counselorHasSchools)>0)?CHtml::link("Schools",array("/admin/counselorHasSchools/admin","counselor_id"=>$data->id)):"No"',
+        ),
+		/*
 		'date_of_birth',
 		'gender',
-		/*
 		'address',
 		'postcode',
 		'email',
