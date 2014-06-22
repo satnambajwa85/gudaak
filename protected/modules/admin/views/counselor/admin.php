@@ -50,7 +50,7 @@ $('.search-form form').submit(function(){
 		array(
 			'type'=>'raw',
 			'name'=>'other_details',
-            'value'=>'(count($data->counselorHasSchools)>0)?CHtml::link("Schools",array("/admin/counselorHasSchools/admin","counselor_id"=>$data->id)):"No"',
+            'value'=>'CHtml::link("Schools",array("/admin/counselorHasSchools/admin","counselor_id"=>$data->id))',
         ),
 		/*
 		'date_of_birth',
