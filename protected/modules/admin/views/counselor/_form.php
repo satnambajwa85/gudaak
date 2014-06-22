@@ -143,12 +143,6 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'other_details'); ?>
-		<?php echo $form->textArea($model,'other_details',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'other_details'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($model,'resume'); ?>
 		<?php echo $form->textArea($model,'resume',array('rows'=>6, 'cols'=>50)); ?>
 		<?php echo $form->error($model,'resume'); ?>

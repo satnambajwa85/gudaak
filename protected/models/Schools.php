@@ -48,11 +48,9 @@ class Schools extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('email', 'required'),
+			array('name, cities_id,email,password', 'required'),
 			array('email', 'email'),
-			array('password', 'required'),
 			array('password', 'length', 'max' => 50, 'min' => 6, 'tooShort' => 'Password must have at least 6 chars'),
-			array('name, cities_id', 'required'),
 			array('activation, status, cities_id', 'numerical', 'integerOnly'=>true),
 			array('name, display_name, address, address2, website', 'length', 'max'=>500),
 			array('email', 'length', 'max'=>150),
