@@ -135,6 +135,9 @@ class CounselorHasSchoolsController extends Controller
 		if(isset($_GET['CounselorHasSchools']))
 			$model->attributes=$_GET['CounselorHasSchools'];
 
+		if(isset($_GET['counselor_id']))
+			$model->counselor_id=$_GET['counselor_id'];
+
 		$this->render('admin',array(
 			'model'=>$model,
 		));
