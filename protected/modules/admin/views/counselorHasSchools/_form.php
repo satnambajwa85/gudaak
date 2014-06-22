@@ -17,22 +17,11 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'schools_id'); ?>
-		<?php echo $form->textField($model,'schools_id'); ?>
+		<?php 
+		$listData = CHtml::listData(Schools::model()->findAll('status=3'),'id', 'name');
+		echo $form->dropDownList($model,'schools_id',$listData,array('empty'=>'Select one or many','multiple'=>true,'size'=>'5'));?>
 		<?php echo $form->error($model,'schools_id'); ?>
 	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'service_type'); ?>
-		<?php echo $form->textField($model,'service_type'); ?>
-		<?php echo $form->error($model,'service_type'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'add_date'); ?>
-		<?php echo $form->textField($model,'add_date'); ?>
-		<?php echo $form->error($model,'add_date'); ?>
-	</div>
-
 	<div class="row">
 		<?php echo $form->labelEx($model,'status'); ?>
 		<?php echo $form->textField($model,'status'); ?>
