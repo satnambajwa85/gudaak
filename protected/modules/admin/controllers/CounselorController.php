@@ -53,8 +53,7 @@ class CounselorController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new Counselor;
-
+		$model	=	new Counselor;
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
@@ -104,9 +103,7 @@ class CounselorController extends Controller
 				$this->redirect(array('admin'));
 		}
 
-		$this->render('create',array(
-			'model'=>$model,
-		));
+		$this->render('create',array('model'=>$model,));
 	}
 
 	/**
