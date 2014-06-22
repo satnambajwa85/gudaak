@@ -64,12 +64,10 @@ class CounselorHasSchoolsController extends Controller
 			$model->add_date		=	date('Y-m-d');
 			$model->service_type	=	1;
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('admin','counselor_id'=>$model->counselor_id));
 		}
 
-		$this->render('create',array(
-			'model'=>$model,
-		));
+		$this->render('create',array('model'=>$model,));
 	}
 
 	/**

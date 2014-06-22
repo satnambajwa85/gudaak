@@ -23,7 +23,7 @@ else
 		<?php echo $form->labelEx($model,'schools_id'); ?>
 		<?php 
 		$listData = CHtml::listData(Schools::model()->findAll(),'id', 'name');
-		echo $form->dropDownList($model,'schools_id',$listData,array('empty'=>'Select one or many','multiple'=>true,'size'=>'5'));?>
+		echo $form->dropDownList($model,'schools_id',$listData,array('empty'=>'Select one or many','multiple'=>false,'size'=>'5'));?>
 		<?php echo $form->error($model,'schools_id'); ?>
 	</div>
 	<div class="row">
