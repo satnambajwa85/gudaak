@@ -50,7 +50,7 @@ else
 		array(
 			'type'=>'raw',
 			'name'=>'counselor_id',
-            'value'=>'$data->counselor->first_name $data->counselor->last_name($data->counselor->userLogin->username)',
+            'value'=>'$data->counselor->first_name." ".$data->counselor->last_name."(".$data->counselor->userLogin->username.")"',
         ),
 		array(
 			'type'=>'raw',
