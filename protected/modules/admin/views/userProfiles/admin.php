@@ -69,7 +69,7 @@ $('.search-form form').submit(function(){
 		//'add_date',
 		array(
 			'type'=>'raw',
-			'name'=>'Schools Name',
+			'name'=>'schools_name',
             'value'=>'(isset($data->generateGudaakIds->schools->name))?$data->generateGudaakIds->schools->name:"NA"',
         ),
 		array(

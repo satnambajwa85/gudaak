@@ -41,7 +41,7 @@ class UserProfiles extends CActiveRecord
 	public $percentage;
 	public $user_role;
 	public $class;
-	
+	public $schools_name;
 	public $user_name;
 	public $last_login;
 	public $test_taken;
@@ -138,6 +138,7 @@ class UserProfiles extends CActiveRecord
 			'gudaak_id' => 'Gudaak',
 			'user_name'=>'User Name',
 			'last_login'=>'Last Login',
+			'schools_name'=>'Schools Name',
 			'test_taken'=>'Test Taken',
 		);
 	}
