@@ -28,10 +28,9 @@ $('.search-form form').submit(function(){
 <?php echo CHtml::link('Back to Counselor list',array('/admin/Counselor/admin'),array('class'=>'pull-right btn btn-danger ui-slider'));?>
 <?php 
 if(isset($_REQUEST['counselor_id']))
-	echo CHtml::link('Create',array('/admin/counselorHasSchools/create',array('counselor_id'=>$_REQUEST['counselor_id'])),array('class'=>'pull-right btn btn-s-md btn-success mr20'));
+	echo CHtml::link('Create',array('/admin/counselorHasSchools/create','counselor_id'=>$_REQUEST['counselor_id']),array('class'=>'pull-right btn btn-s-md btn-success mr20'));
 else
-	echo CHtml::link('Create',array('/admin/counselorHasSchools/create'),array('class'=>'pull-right btn btn-s-md btn-success mr20'));
-	?>
+	echo CHtml::link('Create',array('/admin/counselorHasSchools/create'),array('class'=>'pull-right btn btn-s-md btn-success mr20'));?>
     
 
 <?php //echo CHtml::link('Advanced Search','#',array('class'=>'search-button')); ?>
