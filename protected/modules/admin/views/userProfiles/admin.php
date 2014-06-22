@@ -42,14 +42,14 @@ $('.search-form form').submit(function(){
 	'filter'=>$model,
 	'columns'=>array(
 		'id',
+		//'display_name',
+		'first_name',
+		'last_name',
 		array(
 			'type'=>'raw',
 			'name'=>'user_name',
             'value'=>'$data->userLogin->username',
-        ),
-		'display_name',
-		'first_name',
-		'last_name',
+        ),		
 		array(
 			'type'=>'raw',
 			'name'=>'class',
@@ -66,8 +66,12 @@ $('.search-form form').submit(function(){
                 )
             ),
         ),
-		
-		'add_date',
+		//'add_date',
+		array(
+			'type'=>'raw',
+			'name'=>'Schools Name',
+            'value'=>'(isset($data->generateGudaakIds->schools->name))?$data->generateGudaakIds->schools->name:"NA"',
+        ),
 		array(
 			'type'=>'raw',
 			'name'=>'last_login',
@@ -87,11 +91,11 @@ $('.search-form form').submit(function(){
 		'status',
 		'user_login_id',
 		'cities_id',*/
-		array(
+		/*array(
 			'type'=>'raw',
 			'name'=>'test_taken',
             'value'=>'(count($data->userScores)>0)?CHtml::link("Yes(Scores)",array("/admin/userScores/admin","user_profiles_id"=>$data->id)):"No"',
-        ),
+        ),*/
 		array(
 			'class'=>'CButtonColumn',
 		),
