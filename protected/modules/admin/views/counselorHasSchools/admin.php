@@ -57,7 +57,7 @@ else
 			'name'=>'schools_id',
             'value'=>'$data->schools->name',
         ),
-		'service_type',
+		//'service_type',
 		'add_date',
 		'status',
 		array(
