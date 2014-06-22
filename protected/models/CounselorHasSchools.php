@@ -56,6 +56,7 @@ class CounselorHasSchools extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 		'counselor' => array(self::BELONGS_TO, 'Counselor', 'counselor_id'),
+		'schools' => array(self::BELONGS_TO, 'Schools', 'schools_id'),
 		);
 	}
 
