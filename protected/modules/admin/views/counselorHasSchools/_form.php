@@ -6,9 +6,9 @@
 )); ?>
 <?php 
 if(isset($_REQUEST['counselor_id']))
-	echo CHtml::link("Counselor's School",array('/admin/counselorHasSchools/admin','counselor_id'=>$_REQUEST['counselor_id']),array('class'=>'pull-right btn btn-s-md btn-success mr20'));
+	echo CHtml::link("Back to Counselor's School",array('/admin/counselorHasSchools/admin','counselor_id'=>$_REQUEST['counselor_id']),array('class'=>'pull-right btn btn-s-md btn-success mr20'));
 else
-	echo CHtml::link("Counselor's School",array('/admin/counselorHasSchools/admin'),array('class'=>'pull-right btn btn-s-md btn-success mr20'));?>
+	echo CHtml::link("Back to Counselor's School",array('/admin/counselorHasSchools/admin'),array('class'=>'pull-right btn btn-s-md btn-success mr20'));?>
 
 	<?php echo $form->errorSummary($model); ?>
 
