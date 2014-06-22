@@ -18,13 +18,13 @@
 	<div class="row">
 		<?php echo $form->labelEx($model,'schools_id'); ?>
 		<?php 
-		$listData = CHtml::listData(Schools::model()->findAll('status=3'),'id', 'name');
+		$listData = CHtml::listData(Schools::model()->findAll(),'id', 'name');
 		echo $form->dropDownList($model,'schools_id',$listData,array('empty'=>'Select one or many','multiple'=>true,'size'=>'5'));?>
 		<?php echo $form->error($model,'schools_id'); ?>
 	</div>
 	<div class="row">
 		<?php echo $form->labelEx($model,'status'); ?>
-		<?php echo $form->textField($model,'status'); ?>
+		<?php echo $form->radioButtonlist($model,'status',array('1'=>'Yes','0'=>'No'),array('separator'=>'')); ?>
 		<?php echo $form->error($model,'status'); ?>
 	</div>
 
