@@ -63,13 +63,11 @@
 		<?php echo $form->textField($model,'postcode',array('size'=>6,'maxlength'=>6)); ?>
 		<?php echo $form->error($model,'postcode'); ?>
 	</div>
-
 	<div class="row">
 		<?php echo $form->labelEx($model,'email'); ?>
 		<?php echo $form->textField($model,'email',array('size'=>50,'maxlength'=>50)); ?>
 		<?php echo $form->error($model,'email'); ?>
 	</div>
-
 	<div class="row">
 		<?php echo $form->labelEx($model,'mobile_no'); ?>
 		<?php echo $form->textField($model,'mobile_no',array('size'=>45,'maxlength'=>45)); ?>
