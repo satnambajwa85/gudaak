@@ -21,7 +21,7 @@
 	
 	<div class="form-group">
 		<?php echo $form->labelEx($model,'user_role_id'); ?>
-		<?php echo $form->dropDownlist($model,'user_role_id',CHtml::listData(UserRole::model()->findAll(),'id','title'),array('class'=>'form-control')); ?>
+		<?php echo $form->dropDownlist($model,'user_role_id',CHtml::listData(UserRole::model()->findAll('status=1'),'id','title'),array('class'=>'form-control')); ?>
 		<?php echo $form->error($model,'user_role_id'); ?>
 	</div>
 	<div class="form-group">
