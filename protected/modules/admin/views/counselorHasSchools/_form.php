@@ -4,12 +4,13 @@
 	'id'=>'counselor-has-schools-form',
 	'enableAjaxValidation'=>false,
 )); ?>
+<div class="row">
 <?php 
 if(isset($_REQUEST['counselor_id']))
 	echo CHtml::link("Back to Counselor's School",array('/admin/counselorHasSchools/admin','counselor_id'=>$_REQUEST['counselor_id']),array('class'=>'pull-right btn btn-s-md btn-success mr20'));
 else
 	echo CHtml::link("Back to Counselor's School",array('/admin/counselorHasSchools/admin'),array('class'=>'pull-right btn btn-s-md btn-success mr20'));?>
-
+</div>
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
