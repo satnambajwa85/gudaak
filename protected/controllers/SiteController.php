@@ -132,13 +132,13 @@ class SiteController extends Controller
 								$this->redirect(Yii::app()->createUrl('/admin/admin'));
 							}
 							if(Yii::app()->user->userType=='school'){
-								$this->redirect(Yii::app()->createUrl('/school/'));
+								$this->redirect(Yii::app()->createUrl('/school'));
 							}
 							if(Yii::app()->user->userType=='counsellor'){
-								$this->redirect(Yii::app()->createUrl('/counsellor/'));
+								$this->redirect(Yii::app()->createUrl('/counsellor'));
 							}
 							else{
-								$this->redirect(Yii::app()->createUrl('/user/'));
+								$this->redirect(Yii::app()->createUrl('/user'));
 							}
 						}
 						else{
