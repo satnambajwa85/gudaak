@@ -7,6 +7,11 @@ class UserController extends Controller
 	public function accessRules() {
 		return array(
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
+				'actions'=>array('autoComplete'),
+				'users' => array('*')					
+				),
+			
+			array('allow', // allow authenticated user to perform 'create' and 'update' actions
 				'actions'=>array('index','editProfile','test','tests','detailedReport','collage','userStreamRaitng','liveChat','articlesList','articles','summary','newsUpdates','exploreColleges','shortListedColleges','dynamicCourse','dynamicSearchResult','userShortlistCollage','userShortlistTest','userShortlistTestRemove','search','changePassword','application','questionsAnswer','upload','testMail','userProfileUpdate','retakeTest','news','readEvent','summaryDetails','summaryData','talkData','talk','feedbackAnswer','data','testDetails','autoComplete'),
 				'users' => array('@')					
 				),
