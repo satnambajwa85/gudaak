@@ -35,8 +35,6 @@ class UserIdentity extends CUserIdentity
 			$record->login_status	=	1;
 			$record->last_login		=	date('Y-m-d H:i:s');
 			$record->save();
-			
-			
 		} 
 		$this->errorCode = self::ERROR_NONE;
 		return !$this->errorCode;
