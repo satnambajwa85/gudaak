@@ -52,7 +52,8 @@ $getId=$_REQUEST['id'];
 							<li><?php echo CHtml::link('Detailed Report',array('user/DetailedReport'))?></li>
 						</ul>					
 					</li>
-					<?php if(Yii::app()->user->id && Yii::app()->user->userType=='upper11th'){?>
+					<?php //if(Yii::app()->user->id && Yii::app()->user->userType=='student'){
+						?>
 					<li><?php  echo CHtml::link('<i class="glyphicon glyphicon-eye-open"></i>Explore',array('user/explore'),array('title'=>'Explore','class'=>''.($action=='career'|| $action=='careerDetails'|| $action == 'liveChat' || $action == 'careerList' || $action == 'explore' || $action =='articlesList')?'slidebg':''.''))?>
 						<ul style="<?php echo ($action=='career'||$action=='liveChat' || $action=='explore' || $action=='careerList' || $action=='careerDetails' || $action=='articlesList')?'display:block':'display:block';?>">
                         
@@ -68,7 +69,9 @@ $getId=$_REQUEST['id'];
 					<li><?php echo CHtml::link('<i class="glyphicon glyphicon-thumbs-up"></i>Career Preference',array('user/careerPreference'),array('title'=>'Career Preference','class'=>''.($action=='careerPreference')?'slidebg':''.''))?>
 						 					
 					</li>
-					<?php } else { ?>
+					<?php 
+					/*
+					} else { ?>
 					<li><?php echo CHtml::link('<i class="glyphicon glyphicon-eye-open"></i>Explore',array('user/streamExplore'),array('title'=>'Explore','class'=>''.($action=='streamList'|| $action=='streamExplore'|| $action == 'stream' || $action =='articlesList')?'slidebg':''.''))?>
 					
 					
@@ -82,10 +85,12 @@ $getId=$_REQUEST['id'];
 					<li><?php echo CHtml::link('<i class="glyphicon glyphicon-thumbs-up"></i>Stream Preference',array('user/streamPreference'),array('title'=>'Career Preference','class'=>''.($action=='streamPreference')?'slidebg':''.''))?>
 						 					
 					</li>
-					<?php } ?>
+					<?php }*/ ?>
 					
 				
-					<?php if(Yii::app()->user->id && Yii::app()->user->userType=='upper11th'){?>
+					<?php //if(Yii::app()->user->id && Yii::app()->user->userType=='upper11th'){
+						
+						?>
 					<li>
 						<?php echo CHtml::link('<i class="glyphicon glyphicon-flag"></i>Finalized Career',array('user/finalizedCareer'),array('class'=>''.($action=='finalizedCareer')?'slidebg':''.''));?>
 					
@@ -99,12 +104,14 @@ $getId=$_REQUEST['id'];
 							<li><?php echo CHtml::link('Entrance Exams',array('user/application'));?></li>
 						</ul>
 					</li>
-					<?php }else{ ?>
+					<?php 
+					
+					/*}else{ ?>
 					<li>
 						<?php echo CHtml::link('<i class="glyphicon glyphicon-flag"></i>Finalized Stream',array('user/finalizedStream'),array('class'=>''.($action=='finalizedStream' || $action=='collage')?'slidebg':''.''));?>
 					
 					</li>
-					<?php } ?>
+					<?php }*/ ?>
 					
 				</ul>
 			</div>
