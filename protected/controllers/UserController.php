@@ -1893,7 +1893,7 @@ class UserController extends Controller
 	}
 	public function actionDynamicSearchResult()
 	{	
-		$getId = '';
+		/*$getId = '';
 		$city 					=	(isset($_POST['Collage']['city_id']))?$_POST['Collage']['city_id']:'';
 		$courses 				=	(isset($_POST['Collage']['courses_id']))?$_POST['Collage']['courses_id']:'';
 		$specialisation 		=	(isset($_POST['Collage']['specialisation']))?$_POST['Collage']['specialisation']:'';
@@ -1907,8 +1907,8 @@ class UserController extends Controller
 			$list	=	CollagesCoursesSpecialization::model()->findAllByAttributes(array('specialization_id'=>$specialisation));
 		else
 			$list	=	CollagesCoursesSpecialization::model()->findAll();
-		
-		
+		*/
+
 		$value	=	(isset($_POST['search']))?$_POST['search']:'';
 		if(!empty($value)){
 			$criteria = new CDbCriteria();
