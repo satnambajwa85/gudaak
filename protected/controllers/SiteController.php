@@ -127,7 +127,9 @@ class SiteController extends Controller
 					$login->email		=	$userC->username;
 					$login->password	=	$userC->fb_id;
 					if($login->login()){
+						die(Yii::app()->user->userType);
 						if(isset(Yii::app()->user->userType)){
+						
 							if(Yii::app()->user->userType=='admin'){
 								$this->redirect(Yii::app()->createUrl('/admin/admin'));
 							}
@@ -144,7 +146,6 @@ class SiteController extends Controller
 						}
 						else{
 							Yii::app()->user->setFlash('login','Email or password not valid.');
-							die('dfd');
 						}
 					}
 					else{
