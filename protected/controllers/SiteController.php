@@ -127,9 +127,7 @@ class SiteController extends Controller
 					$login->email		=	$userC->username;
 					$login->password	=	$userC->fb_id;
 					if($login->login()){
-						die(Yii::app()->user->userType);
 						if(isset(Yii::app()->user->userType)){
-						
 							if(Yii::app()->user->userType=='admin'){
 								$this->redirect(Yii::app()->createUrl('/admin/admin'));
 							}
@@ -139,10 +137,9 @@ class SiteController extends Controller
 							if(Yii::app()->user->userType=='counsellor'){
 								$this->redirect(Yii::app()->createUrl('/counsellor/'));
 							}
-							if(Yii::app()->user->userType=='upper11th'|| Yii::app()->user->userType=='below10th'){
+							else{
 								$this->redirect(Yii::app()->createUrl('/user/'));
 							}
-							
 						}
 						else{
 							Yii::app()->user->setFlash('login','Email or password not valid.');
