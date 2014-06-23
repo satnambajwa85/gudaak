@@ -48,7 +48,7 @@ return false;
 ),
 ));*/
 ?>            </div>
-                    <div class="text_w_outer">
+                    <div class="text_w_outer mt20 ml10">
                     <?php 	echo CHtml::button('Search',array('id'=>'basicSave','class'=>'summery-left-btn'));?>
 					</div>
                     <?php $this->endWidget(); ?>

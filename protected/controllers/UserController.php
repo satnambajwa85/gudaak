@@ -1807,7 +1807,7 @@ class UserController extends Controller
 	    $this->renderPartial('_careerOptionsAjax',array('resultList'=> $resultList), false, true);
 	}
 	public function actionExploreColleges()
-	{	
+	{
 		$userTest				=	UserReports::model()->countByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
 		if($userTest==0){
 			Yii::app()->user->setFlash('redirect',"Take the Test to Get Started");
@@ -1905,25 +1905,23 @@ class UserController extends Controller
 		
 		
 		$value	=	(isset($_POST['search']))?$_POST['search']:'';
-		
 		if(!empty($value)){
 			$criteria = new CDbCriteria();
-			$criteria->with = array('CollagesCoursesSpecialization' => array('alias'=>'CCS'));
-			$criteria->with = array('Course' => array('alias'=>'C'));
-			$criteria->with = array('Specialization' => array('alias'=>'S'));
-			
-			$criteria->condition = "t.id = CCS.collage_id";
-			$criteria->addCondition("S.id = CCS.specialization_id");
-			$criteria->addCondition('C.id = CCS.courses_id');
-			
-			
-			$criteria->addCondition('t.deleted IS NULL');
-			$criteria->addCondition('pl.deleted IS NULL');
-			$criteria->params = array(':etz' => $value, ':stz' => $value, ':eid' => $value);
-			
-			
-			
-			$list	=	Collage::model()->findAll($criteria);
+			$criteria->with = array('collage' => array('alias'=>'COL'));
+			$criteria->condition = "t.collage_id=COL.id";
+			$criteria->addCondition('COL.name LIKE :key');
+			$criteria2 = new CDbCriteria;
+			$criteria2->with = array('courses' => array('alias'=>'C'));
+			$criteria2->condition = "(t.collage_id=C.id)";
+			$criteria2->addCondition('C.title LIKE :key');
+			$criteria->mergeWith($criteria2, 'OR');
+			$criteria3 = new CDbCriteria;
+			$criteria3->with = array('specialization' => array('alias'=>'S'));
+			$criteria3->condition = "(t.specialization_id=S.id)";
+			$criteria3->addCondition('S.title LIKE :key');
+			$criteria->mergeWith($criteria3, 'OR');
+			$criteria->params = array(':key' => '%'.$value.'%');
+			$list	=	CollagesCoursesSpecialization::model()->findAll($criteria);
 		}
 		
 		foreach($list as $collage){
@@ -1932,7 +1930,7 @@ class UserController extends Controller
                      <div class="coll_top_row">
                          <div class="coll_top_part">
                             <div class="coll_logo"><img alt="" src="'.Yii::app()->theme->baseUrl.'/images/coll_logo.png"></div>   
-                             <div class="head_text_coll">'.$collage->collage->name.'<br>
+                             <div class="head_text_coll">'.CHtml::link($collage->collage->name,array('user/collage','id'=>$collage->collage->id)).'<br>
                               <span>'.$collage->collage->address1.'</span>
                              </div>
                         </div>
