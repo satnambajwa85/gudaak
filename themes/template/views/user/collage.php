@@ -23,9 +23,31 @@ $this->breadcrumbs=array('Colleges Explore'=>array('/user/exploreColleges'));
 						'htmlOptions'=>array('enctype'=>'multipart/form-data'),
 					)); ?>
                 	<div class="text_w_outer">
-                     <span class="text_w_dd">Course</span>
-                    <?php 	echo $form->textField($model,'courses_id');?>
-                    </div>
+                     <span class="text_w_dd">Search</span>
+<?php
+echo CHtml::textField('search','');
+/*
+echo CHtml::hiddenField('selectedvalue','');
+$this->widget('zii.widgets.jui.CJuiAutoComplete', array(
+'name'=>'searchbox',
+'value'=>'',
+'source'=>CController::createUrl('/user/autoComplete'),
+'options'=>array(
+'showAnim'=>'fold',         
+'minLength'=>'2',
+'select'=>'js:function( event, ui ) {
+$("#searchbox").val( ui.item.label );
+$("#selectedvalue").val( ui.item.value );
+return false;
+}',
+),
+'htmlOptions'=>array(
+'onfocus' => 'js: this.value = null; $("#searchbox").val(null); $("#selectedvalue").val(null);',
+'class' => 'input-xxlarge search-query',
+'placeholder' => "Search...",
+),
+));*/
+?>            </div>
                     <div class="text_w_outer">
                     <?php 	echo CHtml::button('Search',array('id'=>'basicSave','class'=>'summery-left-btn'));?>
 					</div>
@@ -117,7 +139,7 @@ $this->breadcrumbs=array('Colleges Explore'=>array('/user/exploreColleges'));
 $("#basicSave").click(function(){
 	$.ajax({
 		type:'POST',
-		url:"<?php echo CController::createUrl("/user/DynamicSearchResult");?>",
+		url:"<?php echo CController::createUrl("/user/dynamicSearchResult");?>",
 		data : $('#collages-search-form').serialize(),
 		success:function(data){
 			$("#collegeResult").html(data);

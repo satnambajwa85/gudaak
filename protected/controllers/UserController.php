@@ -7,7 +7,7 @@ class UserController extends Controller
 	public function accessRules() {
 		return array(
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('index','editProfile','test','tests','detailedReport','collage','userStreamRaitng','liveChat','articlesList','articles','summary','newsUpdates','exploreColleges','shortListedColleges','dynamicCourse','dynamicSearchResult','userShortlistCollage','userShortlistTest','userShortlistTestRemove','search','changePassword','application','questionsAnswer','upload','testMail','userProfileUpdate','retakeTest','news','readEvent','summaryDetails','summaryData','talkData','talk','feedbackAnswer','data','testDetails',),
+				'actions'=>array('index','editProfile','test','tests','detailedReport','collage','userStreamRaitng','liveChat','articlesList','articles','summary','newsUpdates','exploreColleges','shortListedColleges','dynamicCourse','dynamicSearchResult','userShortlistCollage','userShortlistTest','userShortlistTestRemove','search','changePassword','application','questionsAnswer','upload','testMail','userProfileUpdate','retakeTest','news','readEvent','summaryDetails','summaryData','talkData','talk','feedbackAnswer','data','testDetails','autoComplete'),
 				'users' => array('@')					
 				),
 				array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -101,11 +101,6 @@ class UserController extends Controller
 					$courses	=	$dt->seats;
 					$courses	=	$dt->collage_id;
 					$courses	=	$courses->id;
-			
-			
-			
-			
-			
 		}
 		CVarDumper::dump($list,10,1);
 		die;
@@ -1903,11 +1898,33 @@ class UserController extends Controller
 			$list	=	CollagesCoursesSpecialization::model()->findAllByAttributes(array('courses_id'=>$courses,'specialization_id'=>$specialisation));
 		elseif($courses!=''){
 			$list	=	CollagesCoursesSpecialization::model()->findAllByAttributes(array('courses_id'=>$courses));
-			//,array('limit' => '1, 10',)
 		}elseif($specialisation!='')
 			$list	=	CollagesCoursesSpecialization::model()->findAllByAttributes(array('specialization_id'=>$specialisation));
 		else
 			$list	=	CollagesCoursesSpecialization::model()->findAll();
+		
+		
+		$value	=	(isset($_POST['search']))?$_POST['search']:'';
+		
+		if(!empty($value)){
+			$criteria = new CDbCriteria();
+			$criteria->with = array('CollagesCoursesSpecialization' => array('alias'=>'CCS'));
+			$criteria->with = array('Course' => array('alias'=>'C'));
+			$criteria->with = array('Specialization' => array('alias'=>'S'));
+			
+			$criteria->condition = "t.id = CCS.collage_id";
+			$criteria->addCondition("S.id = CCS.specialization_id");
+			$criteria->addCondition('C.id = CCS.courses_id');
+			
+			
+			$criteria->addCondition('t.deleted IS NULL');
+			$criteria->addCondition('pl.deleted IS NULL');
+			$criteria->params = array(':etz' => $value, ':stz' => $value, ':eid' => $value);
+			
+			
+			
+			$list	=	Collage::model()->findAll($criteria);
+		}
 		
 		foreach($list as $collage){
 			if(($city!='' && $collage->collage->city_id == $city) || $city == ''){
@@ -2005,6 +2022,21 @@ class UserController extends Controller
 		$event		=	Events::model()->findByPk($id);
 		$this->render('readEvent',array('event'=>$event));
 	}
+	
+	
+	public function actionAutoComplete()
+	{
+		$res =array();
+		
+		if (isset($_GET['term'])) {
+			$sql = 'SELECT col.name as label, ccs.id as value FROM collages_courses_specialization as ccs,collage as col where ccs.collage_id=col.id';
+			$sql = $sql . ' and col.name LIKE :label';
+			$command =Yii::app()->db->createCommand($sql);
+			$command->bindValue(":label", '%'.$_GET['term'].'%', PDO::PARAM_STR);
+			echo json_encode ($command->queryAll());
+		}
+	}
+	
 	public function actionSearch()
 	{	
 

@@ -45,12 +45,12 @@
                                                                 <input class="big_index" type="text" disabled="disabled"  value="+91<?php echo $model->mobile_no;?>" />
                                                                 <input type="text" disabled="disabled" value="<?php echo $model->generateGudaakIds->cities->title;?>" />
                                                                 <select disabled="disabled" >
-                                                                    <option value="State"> - <?php echo $model->generateGudaakIds->cities->states->title;?> -</option>
+                                                                    <option value="State"> - <?php echo (isset($model->generateGudaakIds->cities->states->title))?$model->generateGudaakIds->cities->states->title:'';?> -</option>
                                                                 </select>
                                                             </div>
                                                             <div class="profile_tab1_right margin-top27">
                                                                 <select disabled="disabled" >
-                                                                    <option value="State"> -<?php echo $model->generateGudaakIds->cities->states->countries->title;?>-</option>
+                                                                    <option value="State"> -<?php echo (isset($model->generateGudaakIds->cities->states->countries->title))?$model->generateGudaakIds->cities->states->countries->title:'';?>-</option>
                                                                 </select>
                                                                 <input type="text" disabled="disabled" value="<?php echo (!empty($model->postcode))?''.$model->postcode.'':'Postcode here';?>" />
                                                                 <select disabled="disabled" class="uClass">
@@ -95,12 +95,12 @@
                                                           
                                                                 <input type="text" placeholder="City Name" value="<?php echo $model->generateGudaakIds->cities->title;?>" />
                                                                 <select>
-                                                                    <option value="State"> - <?php echo $model->generateGudaakIds->cities->states->title;?> -</option>
+                                                                    <option value="State"> - <?php echo (isset($model->generateGudaakIds->cities->states->title))?$model->generateGudaakIds->cities->states->title:'';?> -</option>
                                                                 </select>
                                                             </div>
                                                             <div class="profile_tab1_right margin-top27">
                                                                 <select>
-                                                                    <option value="State"> -<?php echo $model->generateGudaakIds->cities->states->countries->title;?>-</option>
+                                                                    <option value="State"> -<?php echo (isset($model->generateGudaakIds->cities->states->countries->title))?$model->generateGudaakIds->cities->states->countries->title:'';?>-</option>
                                                                 </select>
                                                              
                                                                 <?php echo $form->textField($model,'postcode',array('placeholder'=>'Postcode here'));
