@@ -126,6 +126,8 @@ class SiteController extends Controller
 					$login				=	new LoginForm;
 					$login->email		=	$userC->username;
 					$login->password	=	$userC->fb_id;
+					CVarDumper::dump($login,10,1);
+					die;
 					if($login->login()){
 						if(isset(Yii::app()->user->userType)){
 							if(Yii::app()->user->userType=='admin'){
