@@ -29,7 +29,7 @@
 								<ul class="nav pull-left col-md-9 row">
 									<li class="<?php echo (Yii::app()->controller->action->id=='talk')?'pull-left active-link':'pull-left'?>">
 										<i class="pull-left mar-top10 icon-microphone icon-top"></i>
-											<?php echo CHtml::link('Talk to Admin',array('counsellor/talk'),array('class'=>'pull-left'));?>
+											<?php echo CHtml::link('Tickets',array('counsellor/talk'),array('class'=>'pull-left'));?>
 									</li>
                                     <li class="<?php echo (Yii::app()->controller->action->id=='schools'|| Yii::app()->controller->action->id=='studentDetail' || Yii::app()->controller->action->id=='studentDetails')?'pull-left active-link':'pull-left'?>">
 										<i class="pull-left mar-top10 icon-microphone icon-top"></i>
