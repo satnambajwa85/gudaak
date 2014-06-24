@@ -1,4 +1,6 @@
-<?php $path	=	Yii::app()->theme->baseUrl;?>
+<?php 
+echo (isset(Yii::app()->user->userType))?Yii::app()->user->userType:'';
+$path	=	Yii::app()->theme->baseUrl;?>
 <!DOCTYPE html>
 <html lang="en">
   <head>

@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="<?php echo Yii::app()->session['setting']['site_meta']?>">
     <meta name="author" content="">
-    <!--<link rel="shortcut icon" href="ico/favicon.png">-->
     <title><?php echo CHtml::encode($this->pageTitle);?></title>
     <!-- Bootstrap core CSS -->
 	<link href="<?php echo $path;?>/css/dashboard.css" rel="stylesheet">
@@ -19,19 +18,8 @@
       <script src="<?php echo $path;?>/js/html5shiv.js"></script>
       <script src="<?php echo $path;?>/js/respond.min.js"></script>
     <![endif]-->
-	<?php Yii::app()->clientScript->registerScript(
-'myHideEffect',
-'$(".flash-success").animate({opacity: 1.0}, 3000).fadeOut("slow");', 
-CClientScript::POS_READY
-);
-Yii::app()->clientScript->registerScript(
-	'myHideEffect2',
-	'$(".flash-error").animate({opacity: 1.0}, 3000).fadeOut("slow");', 
-	CClientScript::POS_READY
-);
-
-
-?>
+<?php Yii::app()->clientScript->registerScript('myHideEffect','$(".flash-success").animate({opacity: 1.0}, 3000).fadeOut("slow");',CClientScript::POS_READY);
+Yii::app()->clientScript->registerScript('myHideEffect2','$(".flash-error").animate({opacity: 1.0}, 3000).fadeOut("slow");',CClientScript::POS_READY);?>
   </head>
 
   <body style="width:1347px; margin:0 auto;">
@@ -41,43 +29,18 @@ Yii::app()->clientScript->registerScript(
 		<div class="left-main">
 			<div class="w100 fl color">
 						<div class="white-text mt10 fl">
-
-						<?php /*$this->widget('zii.widgets.CBreadcrumbs', array(
-                'homeLink'=>'Dashboard',
-                'links'=>$this->breadcrumbs,
-        )); */?><!-- breadcrumbs -->
-
-						<?php 
-						echo $this->pageTitle;
-						//$this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,)); ?>
-                        <!-- breadcrumbs -->
-
-						
-						</div>
+						<?php echo $this->pageTitle;?>
+                        </div>
 						<div class="pull-right dashbord-top-nav ">
 							<ul class="nav  top-nav-left pull-left">
-
-							  <!--<li id="talk-btn"><i class="icon-microphone icon-top talk-icon"></i><a href="#">Talk to Counsellor</a></li>-->
 							  <li><i class="icon-microphone icon-top talk-icon"></i><?php echo CHtml::link('Talk to Counsellor',array('user/talk'));?></li>
-
 							  <li><i class="news-icon"></i><?php echo CHtml::link('Notifications',array('user/newsUpdates'));?></li>
 							  <li><i class="summary-icon"></i><?php echo CHtml::link('Summary',array('user/summary'));?></li>
-							 
-							  
 							</ul>
 							<div class="top-stats-icons fr social-icon-links mr12">
 								<a href="<?php echo Yii::app()->session['setting']['fb_link'];?>" target="_blank">
 									<i class="icon-facebook"></i>
-								</a>
-								<!--<a href="<?php echo Yii::app()->session['setting']['twittwe_link'];?>" target="_blank">
-									<i class="icon-twitter"></i>
-								</a>
-								<a href="<?php echo Yii::app()->session['setting']['linkedin_link'];?>" target="_blank">
-									<i class="icon-linkedin"></i>
-								</a>-->
-					
-								 
-								
+								</a>								
 							</div>
 						</div>
 						 
