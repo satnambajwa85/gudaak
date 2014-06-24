@@ -254,14 +254,7 @@ class CounsellorController extends Controller
 		}
 		$profile		=	 UserProfiles::model()->findByPk($userId);
 		$role	=	$profile->userLogin->user_role_id;
-		if($profile->userLogin->user_role_id==2)
-			$this->renderPartial('_detailedReport2',array('reports'=>$data,'profile'=>$profile), false, true);
-		else
-			$this->renderPartial('_detailedReport',array('reports'=>$data,'profile'=>$profile), false, true);
-	
-	
-	
-	
+		$this->renderPartial('_detailedReport',array('reports'=>$data,'profile'=>$profile), false, true);
 	}
 	public function actionCounsellorComments()
 	{	
