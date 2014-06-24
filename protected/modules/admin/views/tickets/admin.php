@@ -28,7 +28,7 @@ $('.search-form form').submit(function(){
 
 <?php 
 if(isset($_REQUEST['role']) && $_REQUEST['role']=='user')
-	echo CHtml::link('Back to List',array('/admin/userProfiles/admin'),array('class'=>'pull-right btn btn-s-md btn-success mr20'));
+	echo CHtml::link('Back to List',array('/admin/userProfiles/admin'),array('class'=>'pull-right btn btn-s-md btn-success ui-slider'));
 	
 ?>
 <?php $this->widget('zii.widgets.grid.CGridView', array(
