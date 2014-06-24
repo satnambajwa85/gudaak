@@ -32,7 +32,6 @@
 				break;
 				case 'textarea':
 					echo CHtml::textArea('question['.$item->id.']',((isset($ans[$item->id]))?$ans[$item->id]:''),array('rows'=>8,'placeholder'=>'Type your summery here','class'=>"form-control"));
-					//echo '<input type="text" value="'.((isset($ans[$item->id]))?$ans[$item->id]:'').'" name="question['.$item->id.']" class="form-control"/>';
 				break;
 			}
 			?>
