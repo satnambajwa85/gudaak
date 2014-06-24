@@ -51,9 +51,9 @@ if(isset($_REQUEST['role']) && $_REQUEST['role']=='user')
 		//'mode',
 		/*
 		'available',
-		*/
+		
 		array(
 			'class'=>'CButtonColumn',
-		),
+		),*/
 	),
 )); ?>
