@@ -28,15 +28,15 @@
 							<div class="pd0 col-md-10 pull-left top-nav-section">
 								<ul class="nav pull-left col-md-8 row">
 									<li class="<?php echo (Yii::app()->controller->action->id=='talk')?'pull-left active-link':'pull-left'?>">
-										<i class="pull-left mar-top10 icon-microphone icon-top"></i>
+										<!--<i class="pull-left mar-top10 icon-microphone icon-top"></i>-->
 											<?php echo CHtml::link('Tickets',array('counsellor/talk'),array('class'=>'pull-left'));?>
 									</li>
                                     <li class="<?php echo (Yii::app()->controller->action->id=='schools'|| Yii::app()->controller->action->id=='studentDetail' || Yii::app()->controller->action->id=='studentDetails')?'pull-left active-link':'pull-left'?>">
-										<i class="pull-left mar-top10 icon-microphone icon-top"></i>
+										<!--<i class="pull-left mar-top10 icon-microphone icon-top"></i>-->
 											<?php echo CHtml::link('Schools Details',array('counsellor/schools'),array('class'=>'pull-left'));?>
 									</li>
 									<li class="<?php echo (Yii::app()->controller->action->id=='profile')?'pull-left active-link':'pull-left'?>">
-										<i class="pull-left mar-top10 icon-microphone icon-top"></i>
+										<!--<i class="pull-left mar-top10 icon-microphone icon-top"></i>-->
 										<?php echo CHtml::link('Counsellor Profile',array('counsellor/profile'),array('class'=>'pull-left'));?>
 									</li>
 								</ul>
