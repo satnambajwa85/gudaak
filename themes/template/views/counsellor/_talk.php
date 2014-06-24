@@ -2,7 +2,7 @@
 <?php $form=$this->beginWidget('CActiveForm', array('id'=>'tickets-form','enableAjaxValidation'=>false,)); ?>
 <div class="talk_popup_outer">
    	  <div class="div_position"> 
-    	<h1><i class="glyphicon glyphicon-transfer"></i> Talk to Counselor</h1>
+    	<h1><i class="glyphicon glyphicon-transfer"></i> Talk to Admin</h1>
         <div>
         	<?php echo $form->textField($model,'title',array('placeholder'=>'Please enter title','maxlength'=>'50','style'=>'width:96%;margin-left: 10px;')); ?>
             <?php echo $form->error($model,'title'); ?>
