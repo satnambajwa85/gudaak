@@ -356,10 +356,10 @@ class CounsellorController extends Controller
 			
 			$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/uploads/counsellor/';
 					$targetFolder = Yii::app()->request->baseUrl.'/uploads/counsellor/';
-				if (!empty($_FILES['Counselor']['name']['images'])) {
-					$tempFile = $_FILES['Counselor']['tmp_name']['images'];
+				if (!empty($_FILES['Counselor']['name']['image'])) {
+					$tempFile = $_FILES['Counselor']['tmp_name']['image'];
 					$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
-					$targetFile = $targetPath.'/'.$_FILES['Counselor']['name']['images'];
+					$targetFile = $targetPath.'/'.$_FILES['Counselor']['name']['image'];
 					$pat = $targetFile;
 					move_uploaded_file($tempFile,$targetFile);
 					$absoPath = $pat;
@@ -389,15 +389,15 @@ class CounsellorController extends Controller
 					$img->clean();
 	
 				}
-				$model->images	=	$fileName;
-				if($_POST['Counselor']['images']!=''){
-					@unlink($targetFolder1.'original/'.$_POST['Counselor']['images']);
-					@unlink($targetFolder1.'small/'.$_POST['Counselor']['images']);
-					@unlink($targetFolder1.'large/'.$_POST['Counselor']['images']);
+				$model->image	=	$fileName;
+				if($_POST['Counselor']['image']!=''){
+					@unlink($targetFolder1.'original/'.$_POST['Counselor']['image']);
+					@unlink($targetFolder1.'small/'.$_POST['Counselor']['image']);
+					@unlink($targetFolder1.'large/'.$_POST['Counselor']['image']);
 				}
 			}
 			else
-				$model->images	=	$_POST['Counselor']['images'];
+				$model->image	=	$_POST['Counselor']['image'];
 			if($model->save())
 				$this->redirect(array('counsellor/profile'));
 		}
