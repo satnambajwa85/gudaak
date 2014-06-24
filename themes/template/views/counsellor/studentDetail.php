@@ -442,7 +442,7 @@ $this->breadcrumbs=array('Detail',);
     </div>
 	
 <div id="Summary-details" class="modal fade">
-    	<div class="modal-dialog">
+    	<div class="mt50 col-sm-offset-1 col-md-9">
         	<div class="modal-content">
             <!-- dialog body -->
             	<div class="modal-body">
