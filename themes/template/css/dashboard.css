@@ -7372,6 +7372,14 @@ header {
 	-ms-border-radius: 17px;
 	-o-border-radius: 27px;
     border-radius: 27px;}
+.userImage1 {float:left;margin:0;}
+.userImage1 img{ border: 3px solid #F5F5F5;
+    height: 50px;
+    width: 50px;
+	-moz-border-radius: 27px;
+	-ms-border-radius: 17px;
+	-o-border-radius: 27px;
+    border-radius: 27px;}
 .userImage2 {float:left;margin:0 19px 0 0;}
 .userImage2 img{ border: 3px solid #F5F5F5;
     height: 50px;

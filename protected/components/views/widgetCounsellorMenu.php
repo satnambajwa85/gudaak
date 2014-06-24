@@ -48,9 +48,9 @@
 													$path=Yii::getPathOfAlias('webroot.uploads.user.small') . '/';
 													$file=$path.$filename;
 													if (file_exists($file)){ ?>
-												<?php echo CHtml::link('<img src="'.Yii::app()->baseUrl.'/uploads/user/small/noimage.jpg"/>',array('counsellor/'),array('class'=>'userImage pull-left'));
+												<?php echo CHtml::link('<img src="'.Yii::app()->baseUrl.'/uploads/user/small/noimage.jpg"/>',array('counsellor/'),array('class'=>'userImage1 pull-left'));
 													}else{
-														echo CHtml::link('<img src="'.Yii::app()->baseUrl.'/uploads/user/small/noimage.jpg"/>',array('counsellor/'),array('class'=>'userImage pull-left'));
+														echo CHtml::link('<img src="'.Yii::app()->baseUrl.'/uploads/user/small/noimage.jpg"/>',array('counsellor/'),array('class'=>'userImage1 pull-left'));
 													} ?>
 													<span>Welcome</span>
 													<h3><?php echo $counselor->first_name.' '.$counselor->last_name;?></h3>
