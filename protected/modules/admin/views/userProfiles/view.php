@@ -41,6 +41,11 @@ $this->menu=array(
 		'semd_mail',
 		'status',
 		'user_login_id',
+		array(
+			'type'=>'raw',
+			'name'=>'user_name',
+            'value'=>'$data->userLogin->username',
+        ),	
 		 
 	),
 )); ?>
