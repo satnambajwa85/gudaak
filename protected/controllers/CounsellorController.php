@@ -349,9 +349,9 @@ class CounsellorController extends Controller
 		if(isset($_POST['Counselor']))
 		{	 
 			$model->attributes		=	$_POST['Counselor'];
-			$model->password		=	123456;
-			$model->states_id		=	1;
-			$model->countries_id	=	1;
+			//$model->password		=	123456;
+			//$model->states_id		=	1;
+			//$model->countries_id	=	1;
 	
 			
 			$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/uploads/counsellor/';
@@ -399,7 +399,7 @@ class CounsellorController extends Controller
 			else
 				$model->images	=	$_POST['Counselor']['images'];
 			if($model->save())
-				$this->redirect(array('school/profile'));
+				$this->redirect(array('counsellor/profile'));
 		}
 		 
 		$this->render('Profile', array('model'=>$model));
