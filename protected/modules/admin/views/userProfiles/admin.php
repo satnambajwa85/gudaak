@@ -91,11 +91,11 @@ $('.search-form form').submit(function(){
 		'status',
 		'user_login_id',
 		'cities_id',*/
-		/*array(
+		array(
 			'type'=>'raw',
-			'name'=>'test_taken',
-            'value'=>'(count($data->userScores)>0)?CHtml::link("Yes(Scores)",array("/admin/userScores/admin","user_profiles_id"=>$data->id)):"No"',
-        ),*/
+			'name'=>'ticket',
+            'value'=>'CHtml::link("ticket",array("/admin/tickets/admin","sender_id"=>$data->id,"role"=>"user"))',
+        ),
 		array(
 			'class'=>'CButtonColumn',
 		),

@@ -24,23 +24,53 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
-		'display_name',
+		//'display_name',
 		'first_name',
 		'last_name',
-		'class',
-		 'gudaak_id',
+		//'class',
+		array(
+			'name'=>'City',
+			'value'=>$model->generateGudaakIds->cities->title,
+		),
+		array(
+			'name'=>'State',
+			'value'=>$model->generateGudaakIds->cities->states->title,
+		),
 		'email',
 		'gender',
 		'date_of_birth',
-		'image',
+		array(
+			'type'=>'raw',
+			'name'=>'Image',
+			'value'=>CHtml::image(Yii::app()->baseUrl."/uploads/user/small/".$model->image),
+		),
 		'mobile_no',
 		'address',
 		'postcode',
-		'user_info',
+		//'user_info',
 		'add_date',
-		'semd_mail',
+		//'semd_mail',
 		'status',
 		'user_login_id',
 		'userLogin.username'		 
 	),
 )); ?>
+
+ <div class="tab2_form_box">
+<h4>What are your current Interest?</h4>
+<div class="col-xs-12">
+<?php
+
+$Interests		=	Interests::model()->findAll();
+$selInter		=	array();
+foreach($model->userProfilesHasInterests as $ind)
+	$selInter[]	=	$ind->interests_id;
+
+foreach($Interests as $interest){?>
+<div class="col-xs-4">
+<input type="checkbox" <?php echo (in_array($interest->id,$selInter))?'checked="checked"':'';?> disabled="disabled" value="<?php echo $interest->id; ?>" name="interest[]" /><?php echo $interest->title; ?>
+</div>
+<?php
+}?>
+</div>   
+</div>

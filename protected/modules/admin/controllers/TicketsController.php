@@ -1,12 +1,12 @@
 <?php
 
-class UserProfilesController extends Controller
+class TicketsController extends Controller
 {
 	/**
-	 * @var string the default layout for the views. Defaults to '/layouts/admin', meaning
+	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
 	 * using two-column layout. See 'protected/views/layouts/column2.php'.
 	 */
-	public $layout='/layouts/admin';
+		public $layout='/layouts/admin';
 
 	/**
 	 * @return array action filters
@@ -15,7 +15,6 @@ class UserProfilesController extends Controller
 	{
 		return array(
 			'accessControl', // perform access control for CRUD operations
-			'postOnly + delete', // we only allow deletion via POST request
 		);
 	}
 
@@ -32,12 +31,12 @@ class UserProfilesController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','admin','delete'),
-				'expression' =>"Yii::app()->user->userType ==  'admin'",
+				'actions'=>array('create','update'),
+				'users'=>array('@'),
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
-				'actions'=>array('admin','delete'),
-				'users'=>array('admin'),
+					'actions'=>array('create','update','admin','delete'),
+				'expression' =>"Yii::app()->user->userType ==  'admin'",
 			),
 			array('deny',  // deny all users
 				'users'=>array('*'),
@@ -51,8 +50,9 @@ class UserProfilesController extends Controller
 	 */
 	public function actionView($id)
 	{
-		
-		$this->render('view',array('model'=>$this->loadModel($id),));
+		$this->render('view',array(
+			'model'=>$this->loadModel($id),
+		));
 	}
 
 	/**
@@ -61,14 +61,14 @@ class UserProfilesController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new UserProfiles;
+		$model=new Tickets;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['UserProfiles']))
+		if(isset($_POST['Tickets']))
 		{
-			$model->attributes=$_POST['UserProfiles'];
+			$model->attributes=$_POST['Tickets'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -90,9 +90,9 @@ class UserProfilesController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['UserProfiles']))
+		if(isset($_POST['Tickets']))
 		{
-			$model->attributes=$_POST['UserProfiles'];
+			$model->attributes=$_POST['Tickets'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
@@ -109,11 +109,17 @@ class UserProfilesController extends Controller
 	 */
 	public function actionDelete($id)
 	{
-		$this->loadModel($id)->delete();
+		if(Yii::app()->request->isPostRequest)
+		{
+			// we only allow deletion via POST request
+			$this->loadModel($id)->delete();
 
-		// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-		if(!isset($_GET['ajax']))
-			$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+			if(!isset($_GET['ajax']))
+				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+		}
+		else
+			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
 	}
 
 	/**
@@ -121,7 +127,7 @@ class UserProfilesController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('UserProfiles');
+		$dataProvider=new CActiveDataProvider('Tickets');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -132,11 +138,15 @@ class UserProfilesController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new UserProfiles('search');
+		$model	=	new Tickets('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['UserProfiles']))
-			$model->attributes=$_GET['UserProfiles'];
+		if(isset($_GET['Tickets']))
+			$model->attributes=$_GET['Tickets'];
 
+		if(isset($_GET['sender_id']))
+			$model->sender_id=$_GET['sender_id'];
+
+		
 		$this->render('admin',array(
 			'model'=>$model,
 		));
@@ -145,13 +155,11 @@ class UserProfilesController extends Controller
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.
-	 * @param integer $id the ID of the model to be loaded
-	 * @return UserProfiles the loaded model
-	 * @throws CHttpException
+	 * @param integer the ID of the model to be loaded
 	 */
 	public function loadModel($id)
 	{
-		$model=UserProfiles::model()->findByPk($id);
+		$model=Tickets::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -159,11 +167,11 @@ class UserProfilesController extends Controller
 
 	/**
 	 * Performs the AJAX validation.
-	 * @param UserProfiles $model the model to be validated
+	 * @param CModel the model to be validated
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='user-profiles-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='tickets-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

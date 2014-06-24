@@ -45,7 +45,7 @@ class UserProfiles extends CActiveRecord
 	public $user_name;
 	public $last_login;
 	public $test_taken;
-	
+	public $ticket;
 	
 	public function tableName()
 	{
