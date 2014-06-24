@@ -67,7 +67,7 @@ foreach($model->userProfilesHasInterests as $ind)
 	$selInter[]	=	$ind->interests_id;
 
 foreach($Interests as $interest){?>
-<div class="col-xs-4">
+<div class="col-xs-3">
 <input type="checkbox" <?php echo (in_array($interest->id,$selInter))?'checked="checked"':'';?> disabled="disabled" value="<?php echo $interest->id; ?>" name="interest[]" /><?php echo $interest->title; ?>
 </div>
 <?php
