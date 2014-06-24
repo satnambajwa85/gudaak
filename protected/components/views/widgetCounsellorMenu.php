@@ -26,7 +26,7 @@
 								</h1>
 							</div>
 							<div class="pd0 col-md-10 pull-left top-nav-section">
-								<ul class="nav pull-left col-md-9 row">
+								<ul class="nav pull-left col-md-8 row">
 									<li class="<?php echo (Yii::app()->controller->action->id=='talk')?'pull-left active-link':'pull-left'?>">
 										<i class="pull-left mar-top10 icon-microphone icon-top"></i>
 											<?php echo CHtml::link('Tickets',array('counsellor/talk'),array('class'=>'pull-left'));?>
@@ -40,7 +40,7 @@
 										<?php echo CHtml::link('Counsellor Profile',array('counsellor/profile'),array('class'=>'pull-left'));?>
 									</li>
 								</ul>
-								<div class="pd0 pull-left col-md-3 ">
+								<div class="pd0 pull-left col-md-4 ">
 											<div class="pd0 col-md-12 pull-left">
 												<div class="welcome-school  col-md-9">
 											<?php 
