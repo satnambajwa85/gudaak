@@ -169,7 +169,7 @@ class SiteController extends Controller
 								if(Yii::app()->user->userType=='counsellor'){
 									$this->redirect(Yii::app()->createUrl('/counsellor/'));
 								}
-								if(Yii::app()->user->userType=='upper11th'|| Yii::app()->user->userType=='below10th'){
+								if(Yii::app()->user->userType=='student'|| Yii::app()->user->userType=='below10th'){
 									$this->redirect(Yii::app()->createUrl('/user/'));
 								}
 								
@@ -231,7 +231,7 @@ class SiteController extends Controller
 										if(Yii::app()->user->userType=='counsellor'){
 											$this->redirect(Yii::app()->createUrl('/counsellor/'));
 										}
-										if(Yii::app()->user->userType=='upper11th'|| Yii::app()->user->userType=='below10th'){
+										if(Yii::app()->user->userType=='student'|| Yii::app()->user->userType=='below10th'){
 											$this->redirect(Yii::app()->createUrl('/user/'));
 										}
 										

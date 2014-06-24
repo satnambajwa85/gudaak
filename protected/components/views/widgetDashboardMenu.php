@@ -88,7 +88,7 @@ $getId=$_REQUEST['id'];
 					<?php }*/ ?>
 					
 				
-					<?php //if(Yii::app()->user->id && Yii::app()->user->userType=='upper11th'){
+					<?php //if(Yii::app()->user->id && Yii::app()->user->userType=='student'){
 						
 						?>
 					<li>

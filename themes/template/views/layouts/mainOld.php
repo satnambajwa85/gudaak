@@ -59,7 +59,7 @@
 						
 						<li><?php echo CHtml::link('School',array('site/schools'),array('class'=>''.(Yii::app()->controller->action->id=='schools')?'white-text':''.''));?></li>
 						<li><?php echo CHtml::link('Student/Parents',array('site/students'),array('class'=>''.(Yii::app()->controller->action->id=='students')?'white-text':''.''));?></li>
-                         <?php if(isset(Yii::app()->user->id) && isset(Yii::app()->user->userType) && (Yii::app()->user->userType=='upper11th' or Yii::app()->user->userType=='admin' or Yii::app()->user->userType=='below10th' or Yii::app()->user->userType=='school')){ ?>
+                         <?php if(isset(Yii::app()->user->id) && isset(Yii::app()->user->userType) && (Yii::app()->user->userType=='student' or Yii::app()->user->userType=='admin' or Yii::app()->user->userType=='below10th' or Yii::app()->user->userType=='school')){ ?>
 					 <li>
 						<?php if(Yii::app()->user->userType=='school'){?>
 						<?php echo CHtml::link('&nbsp;<i class="glyphicon glyphicon-user"></i> Dashboard',array('school/'),array('class'=>'join_us'));?></li>
