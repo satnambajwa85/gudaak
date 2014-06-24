@@ -318,7 +318,21 @@ class CounsellorController extends Controller
 			$userAns->answer				=	$val;
 			$userAns->add_date				=	date('Y-m-d H:i:s');
 			$userAns->status				=	1;
-			$userAns->save();
+			if($userAns->save() && $userAns->sessionQuestions->controller_type=='textarea' && !empty($val)){
+				$log					=	Summary::model()->findByAttributes(array('user_profile_id'=>$_POST['user'],'event_id'=>$userAns->sessionQuestions->session_id,'schools_id'=>Yii::app()->user->profileId));
+				if(empty($log))
+					$log				=	new Summary;
+				$log->user_profile_id	=	$_POST['user'];
+				$log->schools_id		=	Yii::app()->user->profileId;
+				$log->event_id			=	$userAns->sessionQuestions->session_id;
+				$log->topic				=	'Counsellor session';
+				$log->event				=	'Summery for counsellor session';
+				$log->remarks			=	$val;
+				$log->add_date			=	date('Y-m-d H:i:s');
+				$log->status			=	1;
+				$log->save();
+			}
+			
 		}
 		echo 'Saved you session for this user';
 		die;
