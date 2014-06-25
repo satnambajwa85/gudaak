@@ -406,7 +406,96 @@ class CounsellorController extends Controller
 		$this->render('Profile', array('model'=>$model));
 	}
 	
-	 
+	 public function actionDetailedReport($id)
+	{	
+		$userTest				=	UserReports::model()->countByAttributes(array('user_profiles_id'=>$id));
+		if($userTest <= 1){
+			echo "This user dont have both personality and interest tests.";
+			die;
+		}
+		
+		$userReports			=	UserReports::model()->findAllByAttributes(array('user_profiles_id'=>$id),array('order'=> 'orient_items_id ASC'));
+		$data					=	array();
+		$userTestDate			=	UserReports::model()->findByAttributes(array('user_profiles_id'=>$id));
+		foreach($userReports as $report){
+			$userTest	=	array();
+			$data[$report->orient_items_id]['id']=$report->orient_items_id;
+			$data[$report->orient_items_id]['name']=$report->orientItems->title;
+			$data[$report->orient_items_id]['description']=$report->orientItems->description;
+			$userTests	=	UserScores::model()->findAllByAttributes(array('user_profiles_id'=>$id,'test_category'=>$report->orient_items_id));
+			
+			foreach($userTests as $cur){
+				$score	=	$cur->score;
+				foreach($cur->careerCategories->careerAssessments as $asswssment){
+					if($score >= $asswssment->score_start && $score <= $asswssment->score_end){
+						$userTest[$asswssment->value][$cur->career_categories_id]['value']		=	$asswssment->value;
+						$userTest[$asswssment->value][$cur->career_categories_id]['score']		=	$score;	
+						$userTest[$asswssment->value][$cur->career_categories_id]['id']			=	$cur->careerCategories->id;
+						$userTest[$asswssment->value][$cur->career_categories_id]['title']		=	$cur->careerCategories->title;
+						$userTest[$asswssment->value][$cur->career_categories_id]['title2']		=	$asswssment->title;
+						$userTest[$asswssment->value][$cur->career_categories_id]['description']=	$asswssment->description;
+						$userTest[$asswssment->value][$cur->career_categories_id]['descr']		=	$asswssment->descr;
+						$userTest[$asswssment->value][$cur->career_categories_id]['image']		=	$asswssment->image;
+					}
+				}
+				
+			}
+		if($report->orient_items_id==3){
+			$highCount	=	0;
+			$midCount	=	0;
+			$final		=	array();
+			$final1		=	array();
+			if(isset($userTest['high'])){
+				$highCount	=	count($userTest['high']);
+				$final		=	$userTest['high'];
+				$final1		=	$userTest['high'];
+			}
+			if(isset($userTest['moderate'])){
+				$midCount	=	count($userTest['moderate']);
+				$final1		=	array_merge($final1,array_slice($userTest['moderate'], 0, 5));
+			}
+			
+			if($highCount ==	0 && isset($userTest['moderate']))
+				$final		=	array_merge($final,array_slice($userTest['moderate'], 0, 2));
+			if($highCount>0 && $highCount < 2 && isset($userTest['moderate']))
+				$final		=	array_merge($final,array_slice($userTest['moderate'], 0, 1));
+			if(isset($userTest['low']))
+				$final1		=	array_merge($final1,array_slice($userTest['low'], 0, 5));
+			$total	=	$highCount+$midCount;
+			
+			ksort($final1);
+			ksort($final);
+			$data[$report->orient_items_id]['results1']=$final1;
+			$data[$report->orient_items_id]['results']=$final;
+			
+		}else{
+				
+			$final		=	array();
+			if(isset($userTest['high']))
+				$final		=	$userTest['high'];
+			if(isset($userTest['moderate']))
+				$final		=	$final+$userTest['moderate'];
+				
+			if(isset($userTest['low']))
+				$final		=	$final+$userTest['low'];
+			ksort($final);
+			/*	$final		=	array();
+				if(isset($userTest['high'])){
+					$final		=	$userTest['high'];
+				}
+				if(isset($userTest['moderate']))
+					$final		=	array_merge($final,array_slice($userTest['moderate'],0,5));
+				if(isset($userTest['low']))
+					$final		=	array_merge($final,array_slice($userTest['low'],0,5));*/
+				
+				$data[$report->orient_items_id]['results']=$final;
+			}	
+			
+		}
+
+		$profile		=	 UserProfiles::model()->findByPk($id);
+		$this->renderPartial('detailedReport',array('reports'=>$data,'profile'=>$profile,'userTestDate'=>$userTestDate));
+	}
 	 
 	//Forgot password
 		//Change password 

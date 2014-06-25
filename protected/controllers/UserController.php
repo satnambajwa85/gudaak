@@ -801,7 +801,8 @@ class UserController extends Controller
 		}
 		
 		if(Yii::app()->user->userType ==  'below10th')
-			$this->render('detailedReportS',array('reports'=>$data,'profile'=>$profile,'userTestDate'=>$userTestDate));//$this->render('detailedReport2',array('reports'=>$data,'profile'=>$profile,'userTestDate'=>$userTestDate));
+			$this->render('detailedReportS',array('reports'=>$data,'profile'=>$profile,'userTestDate'=>$userTestDate));
+			//$this->render('detailedReport2',array('reports'=>$data,'profile'=>$profile,'userTestDate'=>$userTestDate));
 		else
 			$this->render('detailedReport',array('reports'=>$data,'profile'=>$profile,'userTestDate'=>$userTestDate));
 		

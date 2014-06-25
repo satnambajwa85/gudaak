@@ -11,6 +11,9 @@ $this->breadcrumbs=array('Detail',);
         <div class="pull-right back-btn">
     		<?php echo CHtml::link('Back', Yii::app()->createUrl('/counsellor/studentDetails',array('id'=>$userInfo->generateGudaakIds->schools_id) ));?>
         </div>
+         <div class="pull-right back-btn">
+    		<?php echo CHtml::link('Back to Queries', Yii::app()->createUrl('/counsellor/query'));?>
+        </div>
     </div>
 <?php if($userType==2){ ?>
 
@@ -357,8 +360,11 @@ $this->breadcrumbs=array('Detail',);
                      <div class="pull-left back-btn">
 						<?php echo CHtml::link('User Sessions', Yii::app()->createUrl('/counsellor/sessionList',array('id'=>$userInfo->id)));?>
                     </div>
+                    <div class="pull-left back-btn">
+						<?php echo CHtml::ajaxLink('User Report', Yii::app()->createUrl('/counsellor/detailedReport',array('id'=>$userInfo->id)),array('update'=>'#summeryRecodes'),array('class'=>'summery-left-btn Summary-details')); ?>
+                    </div>
 				</div>
-				<div class="col-md-12 pull-left summery-left pd0">
+				<div class="col-md-12 pull-left summery-left pd0 mb10">
 					<ul>
 						<div class="col-md-12 border pull-left pd0">
 							<div class="col-md-3 pull-left pd0">
@@ -400,7 +406,7 @@ $this->breadcrumbs=array('Detail',);
 									<p><?php echo Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse($list->add_date, 'yyyy-MM-dd'),'medium',null);?></p>
 								</div>
 								<div class="col-md-3 center pull-left mar-top10 pd0">
-								<?php echo CHtml::ajaxLink('Summary', Yii::app()->createUrl('/school/summaryDetails' ),array('data' =>array( 'userId' =>$list->user_profiles_id,'orient_items_id'=>$list->orient_items_id),'update'=>'#summeryRecodes'),array('class'=>'summery-left-btn Summary-details')); ?>
+								<?php echo CHtml::ajaxLink('Summary', Yii::app()->createUrl('/counsellor/summaryDetails' ),array('data' =>array( 'userId' =>$list->user_profiles_id,'orient_items_id'=>$list->orient_items_id),'update'=>'#summeryRecodes'),array('class'=>'summery-left-btn Summary-details')); ?>
 								<?php	//echo CHtml::Ajaxlink('Summary',array('school/summaryDetails'),array('id'=>$list->user_profiles_id,'orient_items_id'=>$list->orient_items_id ),array('update'=>'#summeryRecodes'),array('class'=>''));?>
 									 
 									
@@ -451,7 +457,7 @@ $this->breadcrumbs=array('Detail',);
                         	<div class="col-md-12 pd13 ">
 							<a data-dismiss="modal" class="btn schoo-bt-color pull-right">Go Back</a>
     		
-                            	 <div  class="col-md-12 pd0 login-box pull-left">
+                            	 <div  class="col-md-12 pd0 login-box pull-left" id="scrollBar" style="max-height:500px;width:97%;">
 									<div id="summeryRecodes">
 									
 									</div>
@@ -466,3 +472,10 @@ $this->breadcrumbs=array('Detail',);
 		</div>
 	</div>
     </div>
+<script src="<?php echo Yii::app()->theme->baseUrl;?>/js/bootstrap.min.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl;?>/js/profle-pop-up.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl;?>/js/jquery-ui-1.10.3.custom.js"></script>
+<script type="text/javascript"  src="<?php echo Yii::app()->theme->baseUrl;?>/js/dashboard-custom.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl;?>/js/jquery.scrollbox.js" type="text/javascript"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl;?>/js/jquery.flot.min.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl;?>/js/jquery.knob.js"></script>

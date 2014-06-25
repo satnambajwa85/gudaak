@@ -124,9 +124,11 @@ foreach($report['results'] as $result){
 					} ?>
                     <div style="height:20px;width:100%;"></div>
 					
-				Career Recommendations	<br/><br/>
+				
 					
                     <?php 
+					if($report['id']==3)
+					echo 'Career Recommendations	<br/><br/>';
 $listArr	=	array();	
 foreach($report['results'] as $result){	
     if($report['id']==3){

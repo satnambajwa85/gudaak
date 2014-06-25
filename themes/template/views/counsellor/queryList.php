@@ -27,8 +27,8 @@ $this->breadcrumbs=array('studentDetails',);
 		),
 		array(
 			'type'=>'raw',
-			'name'=>'Profile',
-			'value'=>'CHtml::link("Link",array("/counsellor/studentDetail","id"=>$data->sender_id))',
+			'name'=>'Link',
+			'value'=>'CHtml::link("Profile",array("/counsellor/studentDetail","id"=>$data->sender_id))',
 		),
 		
 	),
