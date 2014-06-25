@@ -75,7 +75,7 @@ button,
 select {
   text-transform: none;
 }
-
+textarea{border: 1px solid #cccccc;border-radius: 3px;color: #666666;float: left; margin-bottom: 10px; padding: 5px;width: 96%;}
 button,
 html input[type="button"],
 input[type="reset"],
