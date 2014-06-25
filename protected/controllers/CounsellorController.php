@@ -50,7 +50,6 @@ class CounsellorController extends Controller
 	
 	public function actionTalk()
 	{
-		
 		$model	=	new Tickets('search');
 		if(isset($_POST['Tickets'])){
 			$user	=	UserProfiles::model()->findByPk(Yii::app()->user->profileId);
@@ -58,6 +57,7 @@ class CounsellorController extends Controller
 			$model->sender_id	=	Yii::app()->user->profileId;
 			$model->receiver_id	=	Yii::app()->user->schoolsId;
 			$model->status		=	1;
+			$model->admin		=	1;
 			$model->add_date	=	date('Y-m-d H:i:s');
 			if($model->save()){
 				$log					=	new Summary;
@@ -75,13 +75,21 @@ class CounsellorController extends Controller
 		}
 		$model->unsetAttributes();
 		$model->sender_id	=	Yii::app()->user->profileId;
-		
-		$modelR	=	new Tickets('search');
-		$modelR->unsetAttributes();
-		$modelR->receiver_id	=	Yii::app()->user->profileId;
-		
-		$this->render('talk',array('model'=>$model,'modelR'=>$modelR));
+		$this->render('talk',array('model'=>$model));
 	}
+	public function actionQuery()
+	{
+		$lists	=	CounselorHasSchools::model()->findAllByAttributes(array('counselor_id'=>Yii::app()->user->profileId));
+		$lat	=	array();
+		foreach($lists as $list)
+			$lat[]	=	$list->schools_id;
+		$modelR					=	new Tickets('search');
+		$modelR->unsetAttributes();
+		$modelR->receiver_id	=	$lat;
+		$modelR->admin			=	0;
+		$this->render('queryList',array('modelR'=>$modelR));
+	}
+	
 	public function actionStudentQuery($id)
 	{
 		$model	=	Tickets::model()->findByPk($id);
@@ -89,7 +97,7 @@ class CounsellorController extends Controller
 			$model->attributes	=	$_POST['Tickets'];
 			$model->status		=	2;
 			if($model->save()){
-				$this->redirect(Yii::app()->createUrl('counsellor/talk'));
+				$this->redirect(Yii::app()->createUrl('counsellor/query'));
 			}
 		}
 		$this->render('query',array('model'=>$model));

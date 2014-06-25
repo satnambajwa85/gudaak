@@ -57,6 +57,7 @@ class SchoolController extends Controller
 			$model->sender_id	=	Yii::app()->user->profileId;
 			$model->receiver_id	=	Yii::app()->user->schoolsId;
 			$model->status		=	1;
+			$model->admin		=	1;
 			$model->add_date	=	date('Y-m-d H:i:s');
 			if($model->save()){
 				$log					=	new Summary;
