@@ -122,12 +122,14 @@ $this->breadcrumbs=array('Detail',);
 							 
 							<?php } 
 							if($countRecom<2){
+								echo '<div class="clear"></div><div>';
 								$form=$this->beginWidget('CActiveForm', array('id'=>'user-career-preference-form','enableAjaxValidation'=>false,));
 									echo $form->dropDownlist($model,'stream_id',CHtml::listData(Stream::model()->findAll(),'id','name'),array('class'=>'form-control mb10'));
 									echo $form->textArea($model,'comments',array('rows'=>3,'placeholder'=>'Type your comment here','maxlength'=>'360'));
 									
 									echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save');
 								$this->endWidget();
+								echo '</div>';
 							}?>
 						</div>
 						<?php }else{ ?>
