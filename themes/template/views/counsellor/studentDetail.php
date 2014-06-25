@@ -323,6 +323,7 @@ $this->breadcrumbs=array('Detail',);
 							 
 							<?php }
 							if($countRecom<2){
+								echo '<div class="clear"></div><div>';
 									$form=$this->beginWidget('CActiveForm', array('id'=>'user-career-preference-form','enableAjaxValidation'=>false,));
 										echo $form->dropDownList($model,'career_id',CHtml::listData(Career::model()->findAll(),'id','title'), array('empty' => 'Please Select','ajax' => array('type'=>'POST','url'=>CController::createUrl('dynamicCareer'),'update'=>'#CareerDetails_career_options_id',),'class'=>'form-control mb10'));
 
@@ -331,6 +332,7 @@ $this->breadcrumbs=array('Detail',);
 										
 										echo CHtml::submitButton('Save');
 									$this->endWidget();
+								echo '</div>';	
 								}
 							 ?>
 						</div>
