@@ -478,7 +478,7 @@ $this->breadcrumbs=array('Detail',);
 		 
 		</div>
 	</div>
-    </div>
+</div>
 <script src="<?php echo Yii::app()->theme->baseUrl;?>/js/bootstrap.min.js"></script>
 <script src="<?php echo Yii::app()->theme->baseUrl;?>/js/profle-pop-up.js"></script>
 <script src="<?php echo Yii::app()->theme->baseUrl;?>/js/jquery-ui-1.10.3.custom.js"></script>
