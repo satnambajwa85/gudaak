@@ -328,9 +328,10 @@ $this->breadcrumbs=array('Detail',);
 										echo $form->dropDownList($model,'career_id',CHtml::listData(Career::model()->findAll(),'id','title'), array('empty' => 'Please Select','ajax' => array('type'=>'POST','url'=>CController::createUrl('dynamicCareer'),'update'=>'#CareerDetails_career_options_id',),'class'=>'form-control mb10'));
 
 										echo $form->dropDownlist($model,'career_options_id',CHtml::listData(CareerOptions::model()->findAll(),'id','title'),array('class'=>'form-control mb10','id'=>'CareerDetails_career_options_id'));
-										echo $form->textArea($model,'comments',array('rows'=>3,'placeholder'=>'Type your comment here','maxlength'=>'360'));
-										
-										echo CHtml::submitButton('Save');
+										echo $form->textArea($model,'comments',array('rows'=>6,'placeholder'=>'Type your comment here','cols'=>50));
+
+										echo CHtml::submitButton('Save',array('class'=>'btn',"style"=>'float:right;margin-right:50px;margin-top:10px;'));
+									
 									$this->endWidget();
 								echo '</div>';	
 								}
@@ -348,9 +349,11 @@ $this->breadcrumbs=array('Detail',);
 									echo $form->dropDownList($model,'career_id',CHtml::listData(Career::model()->findAll(),'id','title'), array('empty' => 'Please Select','ajax' => array('type'=>'POST','url'=>CController::createUrl('dynamicCareer'),'update'=>'#CareerDetails_career_options_id',),'class'=>'form-control mb10'));
 
 									echo $form->dropDownlist($model,'career_options_id',CHtml::listData(CareerOptions::model()->findAll(),'id','title'),array('class'=>'form-control mb10','id'=>'CareerDetails_career_options_id'));
-									echo $form->textArea($model,'comments',array('rows'=>6, 'cols'=>50));
+									echo $form->textArea($model,'comments',array('rows'=>6,'placeholder'=>'Type your comment here','cols'=>50));
 
 									echo CHtml::submitButton('Save',array('class'=>'btn',"style"=>'float:right;margin-right:50px;margin-top:10px;'));
+									
+									
 								$this->endWidget();
 								echo '</div>';
 							}
