@@ -64,15 +64,20 @@ $this->breadcrumbs=array('studentDetails',);
 														),
 													//'filter'=>$model,
 													'columns'=>array(
-														array(
+														/*array(
 															'name'=>'gudaak_id',
 															'value'=>'$data->generateGudaakIds->gudaak_id'
-														),
+														),*/
 														'first_name',
 														'last_name',
 														array(
 															'name'=>'class',
 															'value'=>'$data->userClass->title'
+														),
+														
+														array(
+															'name'=>'class',
+															'value'=>'$data->generateGudaakIds->schools->title'
 														),
 														array(
 															'name'=>'user_role',
