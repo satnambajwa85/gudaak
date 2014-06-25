@@ -1,7 +1,4 @@
-<script type="text/javascript"  src="<?php echo Yii::app()->theme->baseUrl;?>/js/dashboard-custom.js"></script>		
-<script src="<?php echo Yii::app()->theme->baseUrl;?>/js/jquery.flot.min.js"></script>
-<script src="<?php echo Yii::app()->theme->baseUrl;?>/js/jquery.knob.js"></script>
-<div id="scrollBar" style="max-height:400px">
+<div>
 <div class="pull-left">
 	<div class="col-md-12 pull-left inner-padding">
 		<div class="col-md-12  pull-left  pd0">
