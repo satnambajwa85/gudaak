@@ -16,7 +16,7 @@ $this->breadcrumbs=array('Detailed Report'=>array('/user/detailedReport'));?>
 			<div class="wrapper" style="position:relative">
             
  <!--Page NO. 1-->
-  <div style=" float:left; width:680px; margin-left:40px; border:1px solid #333333;">
+  <div style=" float:left; width:680px; border:1px solid #333333;">
         <div style="float:left; width:100%; margin-top:5%; height:38px; padding-top:14px; text-align:right; font-size:18px; color:#fff;  font-family:Arial, Helvetica, sans-serif;">Profile Summary &nbsp;&nbsp;&nbsp;</div>
         <div style=" position:absolute; width:200px; height:139px; top:-17px; left:20%;  "></div>                    
         
@@ -55,7 +55,7 @@ $this->breadcrumbs=array('Detailed Report'=>array('/user/detailedReport'));?>
     
     <!--Page NO. 2 -->
     
-    <div style=" float:left; width:680px; margin-left:40px; border:1px solid #333333; height:1050px; position:relative;">
+    <div style=" float:left; width:680px; border:1px solid #333333; height:1050px; position:relative;">
         <div style="float:left; width:100%; margin-top:5%; background:#1acccc; height:38px; padding-top:14px; text-align:right; font-size:18px; color:#fff;  font-family:Arial, Helvetica, sans-serif;">Profile Summary &nbsp;&nbsp;&nbsp;</div>
        <div style=" position:absolute; width:200px; height:139px; top:8px; left:20%; "><img width="144" alt="" src="./image/small.jpg"></div>
         
@@ -90,7 +90,7 @@ Wishing you all the best in all your future endeavours!
 			foreach($reports as $report){
 				if($report['id']==2){?>
      <!--Page NO. 3 Start-->
-    <div style=" float:left; width:680px; margin-left:40px; border:1px solid #333333; height:1050px; position:relative;">
+    <div style=" float:left; width:680px; border:1px solid #333333; height:1050px; position:relative;">
         <div style="float:left; width:100%; margin-top:5%; background:#1acccc; height:38px; padding-top:14px; text-align:right; font-size:18px; color:#fff;  font-family:Arial, Helvetica, sans-serif;">Profile Summary &nbsp;&nbsp;&nbsp;</div>
          <div style=" position:absolute; width:200px; height:139px; top:8px; left:20%; "><img width="144" alt="" src="./image/small.jpg"></div>                   
         
@@ -146,7 +146,7 @@ There has been much research on how people describe themselves and others based 
      </div>
      <!--Page NO. 3 End-->
      
-     <div style=" float:left; width:680px; margin-left:40px; border:1px solid #333333; height:1050px; position:relative;">
+     <div style=" float:left; width:680px; border:1px solid #333333; height:1050px; position:relative;">
         <div style="float:left; width:680px; margin-top:34px;; background:#1acccc; height:38px; padding-top:14px; text-align:right; font-size:18px; color:#fff;  font-family:Arial, Helvetica, sans-serif;">Profile Summary &nbsp;&nbsp;&nbsp;</div>
           <div style=" position:absolute; width:200px; height:139px; top:8px; left:20%; "><img width="144" alt="" src="./image/small.jpg"></div>                   
         
@@ -173,7 +173,7 @@ There has been much research on how people describe themselves and others based 
      <?php }else{ ?>
      
      <!--Page NO. 4 -->
-     <div style=" float:left; width:680px; margin-left:40px; border:1px solid #333333; height:1050px; position:relative;">
+     <div style=" float:left; width:680px; border:1px solid #333333; height:1050px; position:relative;">
         <div style="float:left; width:680px; margin-top:34px; background:#1acccc; height:38px; padding-top:14px; text-align:right; font-size:18px; color:#fff;  font-family:Arial, Helvetica, sans-serif;">Profile Summary &nbsp;&nbsp;&nbsp;</div>
           <div style=" position:absolute; width:200px; height:139px; top:8px; left:20%; "><img width="144" alt="" src="./image/small.jpg"></div>                 
         
@@ -228,7 +228,7 @@ The Interest Test you have taken maps you on the six types popularly known as Ho
      <!--Page NO. 4 End-->
      
      
-     <div style=" float:left; width:680px !important; margin-left:40px; border:1px solid #333333; height:1050px;position:relative;">
+     <div style=" float:left; width:680px !important; border:1px solid #333333; height:1050px;position:relative;">
         <div style="float:left; width:680px; margin-top:34px; background:#1acccc; height:38px; padding-top:14px; text-align:right; font-size:18px; color:#fff;  font-family:Arial, Helvetica, sans-serif;">Profile Summary &nbsp;&nbsp;&nbsp;</div>
           <div style=" position:absolute; width:200px; height:139px; top:8px; left:20%; "><img width="144" alt="" src="./image/small.jpg"></div>                 
         
@@ -304,7 +304,7 @@ The Interest Test you have taken maps you on the six types popularly known as Ho
  	
     
       <!--Page NO. 5-->
-     <div style=" float:left; width:680px; margin-left:40px; border:1px solid #333333 !important; position:relative;">
+     <div style=" float:left; width:680px; border:1px solid #333333 !important; position:relative;">
         <div style="float:left; width:100%; margin-top:34px; background:#1acccc; height:38px; padding-top:14px; text-align:right; font-size:18px; color:#fff;  font-family:Arial, Helvetica, sans-serif;">Profile Summary &nbsp;&nbsp;&nbsp;</div>
         <div style=" position:absolute; width:200px; height:139px; top:7px; left:20%;  "><img src="./image/small.jpg" alt="" width="144" /></div>                    
        
