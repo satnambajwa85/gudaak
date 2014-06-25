@@ -448,6 +448,19 @@ class CounsellorController extends Controller
 		} //isset ends
 		$this->render('changepassword',array('model'=>$model));
 	}
+	public function actionSummaryData($id)
+	{
+		$summaryDetails=Summary::model()->findByPk($id);
+		echo '
+		<div class="col-md-12"><a href="javascript:void(0);" class="summery-left-btn pull-right mb10" onclick="$(\'#resultSummery\').html(\'\');">Close</a></div>
+		<table width="90%" class="pull-right" cellpadding="10" border="1">
+                	<tr class="light-gray"><td width="25%"><span>Event</span></td><td width="75%"><span>'.$summaryDetails->event.'</span></td></tr>
+                	<tr><td><span>Title</span></td><td><span>'.$summaryDetails->topic.'</span></td></tr>
+                	<tr class="light-gray"><td><span>Add Date</span></td><td><span>'.date('d M, Y',strtotime($summaryDetails->add_date)).'</span></td></tr>
+                	<tr><td><span>Details</span></td><td><span>'.$summaryDetails->remarks.'</span></td></tr>
+                	
+                </table>';
+	}
 	public function actionDynamicCareer()
 	{	 
 		$getId = '';
