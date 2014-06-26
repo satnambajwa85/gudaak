@@ -1352,12 +1352,12 @@ class UserController extends Controller
 		$data2	=array();
 		$finalCounselor	=	UserCareerPreference::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'reccomended'=>1));
 		foreach($finalCounselor as $fCounselor){
-			$data2[$fCounselor->career_options_id]['id']				=	$fCounselor-> careerOptions->id;
+			$data2[$fCounselor->career_options_id]['id']			=	$fCounselor-> careerOptions->id;
 			$data2[$fCounselor->career_options_id]['title']			=	$fCounselor-> careerOptions->title;
 			$data2[$fCounselor->career_options_id]['description']	=	$fCounselor->careerOptions->description;
 			$data2[$fCounselor->career_options_id]['image']			=	$fCounselor->careerOptions->image;
 			$data2[$fCounselor->career_options_id]['rate']			=	$fCounselor->self;
-			$data[$preference->stream_id]['updated_by']		=	$preference->updated_by;
+			$data[$preference->stream_id]['updated_by']				=	$fCounselor->updated_by;
 	 	}
 		 
 		//CVarDumper::dump($finalCounselor,10,1);die;
