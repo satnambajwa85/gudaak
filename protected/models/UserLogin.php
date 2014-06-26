@@ -43,6 +43,7 @@ class UserLogin extends CActiveRecord
 			array('username,name, password, add_date, user_role_id', 'required'),
 			array('activation, login_status, block, status, user_role_id', 'numerical', 'integerOnly'=>true),
 			array('username, password', 'length', 'max'=>50),
+			array('username','unique'),
 			array('last_login', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
