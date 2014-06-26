@@ -34,7 +34,7 @@ $this->breadcrumbs=array('Explore'=>array('/user/explore'));?>
 				<div class="clear"></div>
                 <a href="javascript:void();"><h1>&nbsp;</h1></a>
 				<?php //echo CHtml::link('<h1>'.substr($list['title'],0,20).'..</h1>',array('user/careerList','id'=>''.$list['id'].''),array('title'=>$list['title']));?>
-				<p><?php echo substr($list['description'],0,70);?></p>
+				<p><?php echo substr(strip_tags($list['description']),0,70);?></p>
 				<div class="col-md-12 career-hot-links">
                 	<?php echo CHtml::link(substr($list['title'],0,20).'..',array('user/careerList','id'=>''.$list['id'].''),array('class'=>'pull-left','title'=>$list['title']));?>
 				<?php //echo CHtml::link('Read more..',array('user/readFull','id'=>''.$list['id'].''),array('class'=>'pull-left','title'=>'Read Full.'));?>

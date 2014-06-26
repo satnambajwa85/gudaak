@@ -34,7 +34,7 @@
 	<div class="">
 		<div class="clear"></div>
 		<?php echo ($report['id']==3)?'<h4>'.$result['title'].'</h4>':'<h4>'.$result['title2'].'</h4>';?>
-		<p  class="description-content"><?php echo $result['description'];?></p>
+		<p  class="description-content"><?php echo strip_tags($result['description']);?></p>
     	<div class="border_b"></div>
 	</div>
     <?php }?>
