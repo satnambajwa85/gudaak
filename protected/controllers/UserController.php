@@ -1357,7 +1357,7 @@ class UserController extends Controller
 			$data2[$fCounselor->career_options_id]['description']	=	$fCounselor->careerOptions->description;
 			$data2[$fCounselor->career_options_id]['image']			=	$fCounselor->careerOptions->image;
 			$data2[$fCounselor->career_options_id]['rate']			=	$fCounselor->self;
-			$data[$preference->stream_id]['updated_by']				=	$fCounselor->updated_by;
+			$data[$fCounselor->stream_id]['updated_by']				=	$fCounselor->updated_by;
 	 	}
 		 
 		//CVarDumper::dump($finalCounselor,10,1);die;
