@@ -90,7 +90,7 @@
                                                                 echo $form->error($model,'mobile_no');?>
                                                                 
                                                                 <?php echo $form->dropDownList($model,'states_id',CHtml::listData(States::model()->findAll(array('condition'=>'status = 1 and published=1')),'id', 'title'),array('ajax' => array('type'=>'POST',
-									'url'=>CController::createUrl('/site/dynamicCity'), //url to call.
+									'url'=>Yii::app()->createUrl('/site/dynamicCity'), //url to call.
 									'update'=>'#UserProfiles_cities_id',
 									),'placeholder'=>'State'));
 									echo $form->error($model,'states_id');
