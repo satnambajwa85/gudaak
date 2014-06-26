@@ -104,8 +104,8 @@ class UserLoginController extends Controller
 						$schoolLogin->schools_id	=	$user->id;
 						$schoolLogin->user_login_id	=	$model->id;
 						$schoolLogin->add_date		=	date('Y-m-d H:i:s');
-						if($schoolLogin->save()){ 
-							$this->redirect(array('/admin/states/admin'));
+						if($schoolLogin->save()){
+							$this->redirect(array('/admin/schools/adminView','id'=>1));
 						}
 					}
 				}
