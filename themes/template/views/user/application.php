@@ -28,8 +28,10 @@ $this->breadcrumbs=array('Application'=>array('/user/application'));?>
      
             
             <?php 
+			$selc	=	array();
 			$count=1;
 			foreach($selmodel as $list){
+				$selc[]	=	$list->test->id;
 				if($count%2 == 0)
 							$class='light-gray';
 						else 
@@ -45,7 +47,7 @@ $this->breadcrumbs=array('Application'=>array('/user/application'));?>
          <td><?php echo $list->test->level;?></td>
          <td><?php echo ($list->test->end_date != '1970-01-01')?date('M d, Y',strtotime($list->test->end_date)):'';?></td>
          <td><?php echo ($list->test->test_date != '1970-01-01')?date('M d, Y',strtotime($list->test->test_date)):'';?></td>
-         <td><?php echo CHtml::ajaxLink('Remove',array('/user/userShortlistTestRemove','id'=>$list->id),array('type'=>'POST','success'=>'function(data){alert(data);$("#list-'.$list->test->id.'").html(""); }'),array('class'=>'summery-left-btn'));  ?>
+         <td><?php echo CHtml::ajaxLink('Remove',array('/user/userShortlistTestRemove','id'=>$list->id),array('type'=>'POST','success'=>'function(data){alert(data);$("#list-'.$list->test->id.'").html("");location.reload();}'),array('class'=>'summery-left-btn'));  ?>
          </td>
         </tr>
 			<?php }?>
@@ -107,7 +109,7 @@ $this->breadcrumbs=array('Application'=>array('/user/application'));?>
          <td><?php echo $list->level;?></td>
          <td><?php echo ($list->end_date != '1970-01-01')?date('M d, Y',strtotime($list->end_date)):'';?></td>
          <td><?php echo ($list->test_date != '1970-01-01')?date('M d, Y',strtotime($list->test_date)):'';?></td>
-         <td><?php echo CHtml::ajaxLink('Shortlist Test',array('/user/userShortlistTest','id'=>$list->id),array('type'=>'POST','success'=>'function(data){alert(data);location.reload();}'),array('class'=>'summery-left-btn'));  ?>
+         <td><?php echo (in_array($list->id,$selc))?'<div class="green_div">Shortlisted</div>':CHtml::ajaxLink('Shortlist Test',array('/user/userShortlistTest','id'=>$list->id),array('type'=>'POST','success'=>'function(data){alert(data);location.reload();}'),array('class'=>'summery-left-btn'));  ?>
          </td>
         </tr>
 			<?php }?>

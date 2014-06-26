@@ -1827,8 +1827,13 @@ class UserController extends Controller
 		$pages->pageSize	=	5;
 		$pages->applyLimit($criteria);
 		$Institutes				=	Collage::model()->findAll($criteria);
-
-		$this->render('collage',array('model'=>$model,'Institutes'=>$Institutes,'pages'=>$pages));
+		
+		$shortListed = UserProfilesHasInstitutes::model()->findAll('user_profiles_id=:id', array(':id'=>Yii::app()->user->profileId));
+		$shortList	=	array();
+		foreach($shortListed as $col)
+			$shortList[]	=	$col->institutes_id;
+			
+		$this->render('collage',array('model'=>$model,'Institutes'=>$Institutes,'pages'=>$pages,'shortList'=>$shortList));
 	}
 	public function actionShortListedColleges()
 	{	

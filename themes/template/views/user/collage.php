@@ -73,9 +73,8 @@ return false;
                         </div>
                       
                         <div class="coll_top_part12">
-                            <!--<div class="orange_div">Rating <span>4.5/5</span></div>-->
-                        <div class="orange_div"><input type="checkbox" id="box_11" class="css-checkbox">
-						<?php echo CHtml::ajaxlink('Shortlist College',array('user/UserShortlistCollage','id'=>$Institutes->id),array('update'=>'#messagePrint'),array('class'=>'css-label'));?>
+                        
+						<?php echo (in_array($Institutes->id,$shortList))?'<div class="green_div">Shortlisted':'<div class="orange_div">'.CHtml::ajaxlink('Shortlist College',array('user/UserShortlistCollage','id'=>$Institutes->id),array('success'=>'function(data){$("#messagePrint").html(data);$("#link'.$Institutes->id.'").html("Shortlisted");$("#link'.$Institutes->id.'").parent().removeClass("orange_div").addClass("green_div");}'),array('class'=>'css-label','id'=>'link'.$Institutes->id));?>
         			   </div>
                         </div>
                        <?php 

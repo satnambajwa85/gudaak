@@ -8232,7 +8232,7 @@ input[type="radio"]:checked + label
 }
 #mycarouseltwo{border:none;}
 .jcarousel-item.jcarousel-item-horizontal.jcarousel-item-1.jcarousel-item-1-horizontal{border:none;}
-
+.green_div{float:left;color: #FFFFFF; padding:6px; font-size:12px;  font-family: robotomedium; -webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px; margin-left:5px; margin-top:10px;background-color:#21C4C1;}
 .orange_div{ float:left; background: #f7aa43; color: #FFFFFF; padding:6px; font-size:12px;  font-family: robotomedium; -webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px; margin-left:5px; margin-top:10px;}
 .orange_div:hover{ background:#f5bb6e;}
 .orange_div span{ letter-spacing:1px; margin-left:10px;}
