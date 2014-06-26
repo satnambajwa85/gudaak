@@ -119,6 +119,7 @@ class UserLoginController extends Controller
 					$user->first_name		=	'first name';
 					$user->last_name		=	'last name';
 					$user->status			=	1;
+					$user->cities_id		=	1;
 					$user->image			=	'noimage.jpg';
 					$user->save();
 					$this->redirect(array('/admin/userProfiles/admin'));

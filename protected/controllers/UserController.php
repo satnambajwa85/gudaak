@@ -315,11 +315,8 @@ class UserController extends Controller
 		if(isset($_POST['UserProfiles']))
 		{
 			$model->attributes		=	$_POST['UserProfiles'];
-			$model->gudaak_id		=	$model->gudaak_id;
 			$model->display_name 	=	$_POST['UserProfiles']['first_name'].' '.$_POST['UserProfiles']['last_name'];
-			
 			if($model->save()){
-				
 				UserProfilesHasInterests::model()->deleteAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
 				foreach($_POST['UserProfiles']['interest'] as $key=>$val){
 					if($val!=0){

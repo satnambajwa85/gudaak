@@ -78,18 +78,8 @@ array('label'=>'Career Details', 'url'=>array('/admin/CareerDetails/admin/')),
 							array('label'=>'Orient Items', 'url'=>array('/admin/orientItems/admin/')),
 							array('label'=>'Questions', 'url'=>array('/admin/questions/admin/')),
 							array('label'=>'Question Options', 'url'=>array('/admin/questionOptions/admin/')),
-							//array('label'=>'SessionQuestions', 'url'=>array('/admin/sessionQuestions/admin/')),
 						)),
-						
-					   /* array('label'=>'<span class="badge '.$uProResult.' pull-right">'.$slider.'</span>Site Slider', 'url'=>array('/admin/Slider/admin/')),*/
-						//array('label'=>'Course Stream', 'url'=>array('/admin/courseStream/admin')),
-						/*array('label'=>'Gii generated', 'url'=>array('customer/index')),*/
-                       /* array('label'=>'My Account <span class="caret"></span>', 'url'=>'#','itemOptions'=>array('class'=>'dropdown','tabindex'=>"-1"),'linkOptions'=>array('class'=>'dropdown-toggle','data-toggle'=>"dropdown"), 
-                        'items'=>array(
-                            array('label'=>'Account Setting','url'=>array('AccountUpdate')),
-							
-                        )),*/
-                        array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+						array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
                         array('label'=>'Logout', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
                     ),
                 )); ?>
@@ -103,19 +93,7 @@ array('label'=>'Career Details', 'url'=>array('/admin/CareerDetails/admin/')),
     	<div class="container">
         
         	<div class="style-switcher pull-left">
- <!--               <a href="javascript:chooseStyle('none', 60)" checked="checked"><span class="style" style="background-color:#0088CC;"></span></a>
-                <a href="javascript:chooseStyle('style2', 60)"><span class="style" style="background-color:#7c5706;"></span></a>
-                <a href="javascript:chooseStyle('style3', 60)"><span class="style" style="background-color:#468847;"></span></a>
-                <a href="javascript:chooseStyle('style4', 60)"><span class="style" style="background-color:#4e4e4e;"></span></a>
-                <a href="javascript:chooseStyle('style5', 60)"><span class="style" style="background-color:#d85515;"></span></a>
-                <a href="javascript:chooseStyle('style6', 60)"><span class="style" style="background-color:#a00a69;"></span></a>
-                <a href="javascript:chooseStyle('style7', 60)"><span class="style" style="background-color:#a30c22;"></span></a>-->
           	</div>
-           <!--<form class="navbar-search pull-right" action="">
-           	 
-           <input type="text" class="search-query span2" placeholder="Search">
-           
-           </form>-->
     	</div><!-- container -->
     </div><!-- navbar-inner -->
 </div><!-- subnav -->

@@ -567,7 +567,20 @@ class SiteController extends Controller
 	/**
 	 * Logs out the current user and redirect to homepage.
 	 */
-	 
+	public function actionDynamicCity()
+	{	 
+		$getId = '';
+		if(!empty($_POST['UserProfiles']['states_id'])) 
+			$getId	 = $_POST['UserProfiles']['states_id'];
+			$data	=	Cities::model()->findAll('states_id =:parent_id',array(':parent_id'=>(int) $getId));
+			$data	=	CHtml::listData($data,'id','title');
+			foreach($data as $value=>$name){
+				echo CHtml::tag('option', array('value'=>$value),CHtml::encode($name),true);
+				
+			}
+		die;
+	}
+	
 	public function actionLogout()
 	{
 		Yii::app()->user->logout();

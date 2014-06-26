@@ -8600,6 +8600,7 @@ opacity: 0.85;
        -o-user-select: none;
           user-select: none;
 }
+#uploadFile{width:100px;}
 #uploadFile .qq-upload-button{
 display: block;
 width: 120px;

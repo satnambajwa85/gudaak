@@ -37,25 +37,21 @@
                                                             <div  class="user-profile-form">
                                                             <div class="profile_tab1_left">
                                                                
-                                                                <input type="text" disabled="disabled" value="<?php echo $model->first_name;?>" />
-                                                                <input type="text" disabled="disabled" value="<?php echo $model->last_name;?>" />
-                                                                <input type="text" disabled="disabled" value="<?php echo $model->date_of_birth;?>" />
-                                                                <input type="text" disabled="disabled" value="<?php echo $model->gender;?>" />
-                                                                <input class="big_index" type="text" disabled="disabled"  value="<?php echo $model->email;?>" />
-                                                                <input class="big_index" type="text" disabled="disabled"  value="+91<?php echo $model->mobile_no;?>" />
-                                                                <input type="text" disabled="disabled" value="<?php echo $model->generateGudaakIds->cities->title;?>" />
-                                                                <select disabled="disabled" >
-                                                                    <option value="State"> - <?php echo (isset($model->generateGudaakIds->cities->states->title))?$model->generateGudaakIds->cities->states->title:'';?> -</option>
-                                                                </select>
+                                                        <input type="text" disabled="disabled" value="<?php echo $model->first_name;?>" />
+                                                        <input type="text" disabled="disabled" value="<?php echo $model->last_name;?>" />
+                                                        <input type="text" disabled="disabled" value="<?php echo $model->date_of_birth;?>" />
+                                                        <input type="text" disabled="disabled" value="<?php echo $model->gender;?>" />
+                                                        <input class="big_index" type="text" disabled="disabled"  value="<?php echo $model->email;?>" />
+                                                        <input class="big_index" type="text" disabled="disabled"  value="+91<?php echo $model->mobile_no;?>" />
+                                                        <input type="text" disabled="disabled" value="<?php echo $model->cities->states->title;?>" />
+                                                        <input type="text" disabled="disabled" value="<?php echo $model->cities->title;?>" />
                                                             </div>
                                                             <div class="profile_tab1_right margin-top27">
                                                                 <select disabled="disabled" >
                                                                     <option value="State"> -<?php echo (isset($model->generateGudaakIds->cities->states->countries->title))?$model->generateGudaakIds->cities->states->countries->title:'';?>-</option>
                                                                 </select>
                                                                 <input type="text" disabled="disabled" value="<?php echo (!empty($model->postcode))?''.$model->postcode.'':'Postcode here';?>" />
-                                                                <select disabled="disabled" class="uClass">
-                                                                    <option value="State"><?php echo $model->class;?></option>
-                                                                </select> 
+                                                                 <?php echo $form->dropDownList($model,'class',CHtml::listData(UserClass::model()->findAll(array('condition'=>'status = 1 and published=1')),'id', 'title'),array('placeholder'=>'Class','disabled'=>'disabled'));?>
                                                                 <input class="big_index" disabled="disabled"  type="text" value="<?php echo $model->generateGudaakIds->schools->name;?>" />
                                                                 <ul>
                                                                     <li>
@@ -92,11 +88,18 @@
                                                             
                                                                 <?php echo $form->textField($model,'mobile_no',array('placeholder'=>'Mobile no.','maxlength'=>'10','class'=>'phone required big_index'));
                                                                 echo $form->error($model,'mobile_no');?>
-                                                          
-                                                                <input type="text" placeholder="City Name" value="<?php echo $model->generateGudaakIds->cities->title;?>" />
-                                                                <select>
-                                                                    <option value="State"> - <?php echo (isset($model->generateGudaakIds->cities->states->title))?$model->generateGudaakIds->cities->states->title:'';?> -</option>
-                                                                </select>
+                                                                
+                                                                <?php echo $form->dropDownList($model,'states_id',CHtml::listData(States::model()->findAll(array('condition'=>'status = 1 and published=1')),'id', 'title'),array('ajax' => array('type'=>'POST',
+									'url'=>CController::createUrl('/site/dynamicCity'), //url to call.
+									'update'=>'#UserProfiles_cities_id',
+									),'placeholder'=>'State'));
+									echo $form->error($model,'states_id');
+									?>
+                                    							<?php echo $form->dropDownList($model,'cities_id',CHtml::listData(Cities::model()->findAll(array('condition'=>'status = 1 and published=1')),'id', 'title'),array('placeholder'=>'City Name','value'=>$model->cities_id));
+																echo $form->error($model,'cities_id');
+																?>
+                                                                
+                                                                
                                                             </div>
                                                             <div class="profile_tab1_right margin-top27">
                                                                 <select>
@@ -108,7 +111,7 @@
             
             
             
-                                                                <?php echo $form->dropDownList($model,'class',array('placeholder'=>'Class','value'=>''.$model->class.''));
+                                                                <?php echo $form->dropDownList($model,'user_class_id',CHtml::listData(UserClass::model()->findAll(array('condition'=>'status = 1 and published=1')),'id', 'title'),array('placeholder'=>'Class','value'=>''.$model->class.''));
                                                                 echo $form->error($model,'class');?>
                                                                
                                                                 <input class="big_index" type="text" placeholder="School Name" value="<?php echo $model->generateGudaakIds->schools->name;?>" />

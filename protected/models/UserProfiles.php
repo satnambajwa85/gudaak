@@ -46,7 +46,7 @@ class UserProfiles extends CActiveRecord
 	public $last_login;
 	public $test_taken;
 	public $ticket;
-	
+	public $state;
 	public function tableName()
 	{
 		return 'user_profiles';
@@ -60,18 +60,17 @@ class UserProfiles extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('first_name, last_name, email, gender, add_date, user_login_id', 'required'),
-			array('semd_mail, status, generate_gudaak_ids_id, user_login_id, user_academic_id, user_class_id', 'numerical', 'integerOnly'=>true),
+			array('first_name, last_name, email, gender,cities_id, add_date, user_login_id', 'required'),
+			array('semd_mail, status, generate_gudaak_ids_id, user_login_id, user_academic_id, user_class_id,states_id', 'numerical', 'integerOnly'=>true),
 			array('display_name, email, board, gudaak_id', 'length', 'max'=>100),
 			array('first_name, last_name', 'length', 'max'=>50),
 			array('class, gender, image', 'length', 'max'=>45),
 			array('mobile_no', 'length', 'max'=>10),
 			array('address, user_info', 'length', 'max'=>600),
 			array('postcode', 'length', 'max'=>6),
-			array('language_known, medium_instruction', 'safe'),
-			// The following rule is used by search().
-			// @todo Please remove those attributes that should not be searched.
-			array('id, display_name, first_name, last_name, class, email, gender, date_of_birth, image, mobile_no, address, postcode, language_known, medium_instruction, board, user_info, add_date,last_login, semd_mail,user_name,status, generate_gudaak_ids_id, user_login_id, user_academic_id, user_class_id, gudaak_id', 'safe', 'on'=>'search'),
+			array('language_known, medium_instruction,states_id,cities_id', 'safe'),
+			
+			array('id, display_name,cities_id,states_id,first_name, last_name, class, email, gender, date_of_birth, image, mobile_no, address, postcode, language_known, medium_instruction, board, user_info, add_date,last_login, semd_mail,user_name,status, generate_gudaak_ids_id, user_login_id, user_academic_id, user_class_id, gudaak_id', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -90,6 +89,7 @@ class UserProfiles extends CActiveRecord
 			'userCareerPreferences' => array(self::HAS_MANY, 'UserCareerPreference', 'user_profiles_id'),
 			'userEducations' => array(self::HAS_MANY, 'UserEducation', 'user_profiles_id'),
 			'generateGudaakIds' => array(self::BELONGS_TO, 'GenerateGudaakIds', 'generate_gudaak_ids_id'),
+			'cities' => array(self::BELONGS_TO, 'Cities', 'cities_id'),
 			'userAcademic' => array(self::BELONGS_TO, 'UserAcademicMedium', 'user_academic_id'),
 			'userClass' => array(self::BELONGS_TO, 'UserClass', 'user_class_id'),
 			'userLogin' => array(self::BELONGS_TO, 'UserLogin', 'user_login_id'),
