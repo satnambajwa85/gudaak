@@ -386,7 +386,7 @@ class SiteController extends Controller
 						$data['email']		=	$user->username;
 						$data['password']	=	$user->password;
 						$data['code']	=	$this->createAbsoluteUrl('site/checkUser',array('email'=>base64_encode($user->username)));
-						//$this->sendMail($data,'register');
+						$this->sendMail($data,'register');
 						//End  mail Function  
 						Yii::app()->user->setFlash('create','Thank you for join us check your email and activate your account.');
 						$this->redirect(array('site/userRegister'));

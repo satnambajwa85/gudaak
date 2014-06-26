@@ -26,6 +26,7 @@ class UserLogin extends CActiveRecord
 	/**
 	 * @return string the associated database table name
 	 */
+	public $name;
 	public function tableName()
 	{
 		return 'user_login';
@@ -39,13 +40,13 @@ class UserLogin extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username, password, add_date, user_role_id', 'required'),
+			array('username,name, password, add_date, user_role_id', 'required'),
 			array('activation, login_status, block, status, user_role_id', 'numerical', 'integerOnly'=>true),
 			array('username, password', 'length', 'max'=>50),
 			array('last_login', 'safe'),
 			// The following rule is used by search().
 			// @todo Please remove those attributes that should not be searched.
-			array('id, username, password, activation, add_date, last_login, login_status, block, status, user_role_id', 'safe', 'on'=>'search'),
+			array('id, username,name, password, activation, add_date, last_login, login_status, block, status, user_role_id', 'safe', 'on'=>'search'),
 		);
 	}
 

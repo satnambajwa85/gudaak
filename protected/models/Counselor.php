@@ -66,7 +66,7 @@ class Counselor extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('first_name, last_name, date_of_birth, gender, address, postcode, email, mobile_no, user_login_id', 'required'),
+			array('first_name, last_name,email,user_login_id', 'required'),
 			array('activation, status, user_login_id', 'numerical', 'integerOnly'=>true),
 			array('first_name, last_name, email', 'length', 'max'=>50),
 			array('image, gender, work_email, alternative_email, official_email, work_phone_no, mobile_no, contact_no, alternative_mobile_no, official_contact_no, fax', 'length', 'max'=>45),

@@ -73,12 +73,56 @@ class UserLoginController extends Controller
 			$model->password	=	md5($_POST['UserLogin']['password']);
 			$model->add_date	=	date('Y-m-d H:s:i');
 			if($model->save()){
-				if($model->user_role_id==5)
+				$data['name']		=	$model->name;
+				$data['email']		=	$model->username;
+				$data['password']	=	$_POST['UserLogin']['password'];
+				$data['code']		=	$this->createAbsoluteUrl('/site/checkUser',array('email'=>base64_encode($model->username)));
+				$this->sendMail($data,'register'); 
+				if($model->user_role_id==5){
+					
+					$user					=	new Counselor;
+					$user->user_login_id	=	$model->id;
+					$user->email			=	$model->username;
+					$user->first_name		=	'first name';
+					$user->last_name		=	'last name';
+					$user->status			=	1;
+					$user->image			=	'noimage.jpg';
+					$user->save();
 					$this->redirect(array('/admin/counselor/admin'));
-				else if($model->user_role_id==4)
-					$this->redirect(array('/admin/states/admin'));
-				else
+				}
+				else if($model->user_role_id==4){
+					$user					=	new Schools;
+					$user->add_date			=	date('Y-m-d');
+					$user->email			=	$model->username;
+					$user->password			=	$model->password;
+					$user->name				=	$model->name;
+					$user->cities_id		=	1;
+					$user->status			=	1;
+					$user->images			=	'noimage.jpg';
+					if($user->save()){
+						$schoolLogin				=	new SchoolsHasUserLogin;
+						$schoolLogin->schools_id	=	$user->id;
+						$schoolLogin->user_login_id	=	$model->id;
+						$schoolLogin->add_date		=	date('Y-m-d H:i:s');
+						if($schoolLogin->save()){ 
+							$this->redirect(array('/admin/states/admin'));
+						}
+					}
+				}
+				else{
+					$user	=	 new UserProfiles;
+					$user->user_login_id	=	$model->id;
+					$user->add_date			=	date('Y-m-d');
+					$user->gender			=	'male';
+					$user->email			=	$model->username;
+					$user->display_name		=	$model->name;
+					$user->first_name		=	'first name';
+					$user->last_name		=	'last name';
+					$user->status			=	1;
+					$user->image			=	'noimage.jpg';
+					$user->save();
 					$this->redirect(array('/admin/userProfiles/admin'));
+				}
 			}
 		}
 		$this->render('create',array('model'=>$model,));
@@ -175,4 +219,45 @@ class UserLoginController extends Controller
 			Yii::app()->end();
 		}
 	}
+	public function sendMail($data,$type)
+	{
+		switch($type){
+			case 'contact':
+				$subject = 'Contact Us';
+				$body = $this->renderPartial('/mails/contact_tpl',
+										array('name' => $data['name']), true);
+			break;
+			case 'forget':
+				$subject = 'Forgot Password';
+				$body = $this->renderPartial('/mails/forgot_tpl',
+										array(	'name' => $data['name'],
+												'email'=>$data['email'],
+												'password'=>$data['password']), true);
+			break;
+			case 'register':
+				$subject = 'Register';
+				$body = $this->renderPartial('/mails/register_tpl',
+										array(	'name' => $data['name'],
+												'email'=>$data['email'],
+												'code'=>$data['code'],
+												'password'=>$data['password']), true);
+			break;
+			default:
+			break;			
+		}
+		$from		=	Yii::app()->params['adminEmail'];
+		$to			=	$data['email'];
+		$mail		=	Yii::app()->Smtpmail;
+        $mail->SetFrom($from,'Gudaak');
+        $mail->Subject	=	$subject;
+        $mail->MsgHTML($body);
+        $mail->AddAddress($to, "");		
+        if(!$mail->Send()) {
+           echo 'No';
+		   return 0;
+        }else {
+			return 1;
+        }
+	}
+	
 }

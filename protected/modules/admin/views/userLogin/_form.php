@@ -26,6 +26,12 @@
 		<?php echo $form->error($model,'user_role_id'); ?>
 	</div>
 	<div class="form-group">
+		<?php echo $form->labelEx($model,'name'); ?>
+		<?php echo $form->textField($model,'name',array('size'=>50,'maxlength'=>50,'class'=>'form-control')); ?>
+		<?php echo $form->error($model,'name'); ?>
+	</div>
+    
+    <div class="form-group">
 		<?php echo $form->labelEx($model,'username'); ?>
 		<?php echo $form->textField($model,'username',array('size'=>50,'maxlength'=>50,'class'=>'form-control')); ?>
 		<?php echo $form->error($model,'username'); ?>

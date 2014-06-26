@@ -65,9 +65,9 @@ class SchoolsController extends Controller
 		$model=new Schools;
 		if(isset($_POST['Schools']))
 		{	
-			$model->attributes=$_POST['Schools'];
+			$model->attributes	=	$_POST['Schools'];
 			$testEmail			=	$_POST['Schools']['email'];
-			$model->add_date=date('Y:m:d H:i:s');
+			$model->add_date	=	date('Y:m:d H:i:s');
 			$model->password	=	md5($_POST['Schools']['password']);
 			$model->email		=	$_POST['Schools']['email'];
 			$targetFolder = Yii::app()->request->baseUrl.'/uploads/schools/';
