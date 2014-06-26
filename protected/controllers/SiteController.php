@@ -209,6 +209,7 @@ class SiteController extends Controller
 					$Uclass					=	1;
 					$user->activation		=	1;
 					$user->user_role_id		=	$userRole;
+					$user->name				=	$user_profile['name'];
 					$model->user_login_id	=	1;
 					$valid					=	$model->validate();
 					$valid					=	$user->validate() && $valid;
