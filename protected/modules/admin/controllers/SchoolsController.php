@@ -87,13 +87,6 @@ class SchoolsController extends Controller
 				$img->processed;
 				#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
 				if ($img->processed) {
-					#THUMB Image
-					$img->image_resize      = true;
-					$img->image_y         	= 304;
-					$img->image_x           = 304;
-					$img->file_new_name_body = $newName;
-					$img->process('uploads/schools/large/');
-					
 					#STHUMB Image
 					$img->image_resize      = true;
 					$img->image_y         	= 115;
@@ -150,22 +143,22 @@ class SchoolsController extends Controller
 			$model->password	=123456;
 			$model->modification_date 	=date('Y:m:d H:i:s');
 			$targetFolder1 = rtrim($_SERVER['DOCUMENT_ROOT'],'/').Yii::app()->request->baseUrl.'/uploads/schools/';
-					$targetFolder = Yii::app()->request->baseUrl.'/uploads/schools/';
-				if (!empty($_FILES['Schools']['name']['images'])) {
-					$tempFile = $_FILES['Schools']['tmp_name']['images'];
-					$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
-					$targetFile = $targetPath.'/'.$_FILES['Schools']['name']['images'];
-					$pat = $targetFile;
-					move_uploaded_file($tempFile,$targetFile);
-					$absoPath = $pat;
-					$newName = time();
-					$img = Yii::app()->imagemod->load($pat);
-					# ORIGINAL
-					$img->file_max_size = 5000000; // 5 MB
-					$img->file_new_name_body = $newName;
-					$img->process('uploads/schools/original/');
-					$img->processed;
-					#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
+			$targetFolder = Yii::app()->request->baseUrl.'/uploads/schools/';
+			if (!empty($_FILES['Schools']['name']['images'])) {
+				$tempFile = $_FILES['Schools']['tmp_name']['images'];
+				$targetPath	=	$_SERVER['DOCUMENT_ROOT'].$targetFolder;
+				$targetFile = $targetPath.'/'.$_FILES['Schools']['name']['images'];
+				$pat = $targetFile;
+				move_uploaded_file($tempFile,$targetFile);
+				$absoPath = $pat;
+				$newName = time();
+				$img = Yii::app()->imagemod->load($pat);
+				# ORIGINAL
+				$img->file_max_size = 5000000; // 5 MB
+				$img->file_new_name_body = $newName;
+				$img->process('uploads/schools/original/');
+				$img->processed;
+				#IF ORIGINAL IMAGE NOT LARGER THAN 5MB PROCESS WILL TRUE 	
 				if ($img->processed) {
 					#THUMB Image
 					$img->image_resize      = true;
@@ -187,7 +180,7 @@ class SchoolsController extends Controller
 	
 				}
 				$model->images	=	$fileName;
-				if(isset($_POST['Schools']['oldImage'])){
+				if(isset($_POST['Schools']['oldImage'])&& $_POST['Schools']['oldImage']!='noimage.jpg'){
 					@unlink($targetFolder1.'original/'.$_POST['Schools']['oldImage']);
 					@unlink($targetFolder1.'large/'.$_POST['Schools']['oldImage']);
 					@unlink($targetFolder1.'small/'.$_POST['Schools']['oldImage']);
@@ -195,7 +188,7 @@ class SchoolsController extends Controller
 			}
 			else
 				$model->images	=	$_POST['Schools']['oldImage'];
-				//CVarDumper::dump($model,10,1);die;
+			
 			if($model->save()){
 				 $school					=	SchoolsHasUserLogin::model()->findByAttributes(array('schools_id'=>$id));
 				 $school->published 		=	1;

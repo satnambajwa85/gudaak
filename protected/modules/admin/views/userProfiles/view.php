@@ -30,11 +30,11 @@ $this->menu=array(
 		//'class',
 		array(
 			'name'=>'City',
-			'value'=>$model->generateGudaakIds->cities->title,
+			'value'=>(isset($model->generateGudaakIds->cities->title))?$model->generateGudaakIds->cities->title:'Not Set',
 		),
 		array(
 			'name'=>'State',
-			'value'=>$model->generateGudaakIds->cities->states->title,
+			'value'=>(isset($model->generateGudaakIds->cities->states->title))?$model->generateGudaakIds->cities->states->title:'Not Set',
 		),
 		'email',
 		'gender',
