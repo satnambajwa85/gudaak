@@ -459,8 +459,9 @@ class UserController extends Controller
 		$model	=	new TestReports;
 		if(isset($_POST['TestReports'])||isset($_POST['testReports'])){
 			$testReport		=	TestReports::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'test_category'=>$id));
-			$total	=	count($testReport);
-			if($total!=60){
+			$total		=	count($testReport);
+			$questionCoun	=	Questions::model()->countByAttributes(array('orient_items_id'=>$id));
+			if($total!=$questionCoun){
 				
 				$list		=	array();
 				$QuestionList	=	Questions::model()->findAllByAttributes(array('orient_items_id'=>$id));

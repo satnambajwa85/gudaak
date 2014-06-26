@@ -15,7 +15,7 @@ $this->breadcrumbs=array('ShortListed Colleges'=>array('/user/shortListedCollege
 							$class='college-info';			 
 							$count= $count+1;
 		 ?>
-			<div class="col-md-6 pull-left <?php echo $class;?>   pd-b6">
+			<div class="col-md-6 pull-left college-info pd-b6">
 				<h1>Shortlisted colleges</h1>
 				<ul id="collage">
 					<li style="height:100px;">
@@ -24,7 +24,7 @@ $this->breadcrumbs=array('ShortListed Colleges'=>array('/user/shortListedCollege
 								<img src="<?php echo Yii::app()->theme->baseUrl;?>/images/schoo-logo.jpg"/>
 							</div>
 							<div class="col-md-10 pd5 pull-left middle-list">
-								<h2><?php echo $list->institutes->name; ?></h2>
+								<h2><?php echo CHtml::link($list->institutes->name,array('user/collage','id'=>$list->institutes->id));?></h2>
 								<p><?php echo substr($list->institutes->address1,0,60);?></p>
 								<span><i class=" icon-mobile-phone"></i><?php echo $list->institutes->phone_number.'  '.$list->institutes->work_phone_no.'  '.$list->institutes->official_contact_no; ?></span>
 								<a href="mailto:<?php echo $list->institutes->email;?>" title="<?php echo $list->institutes->email;?>"><span><i class=" icon-envelope-alt"></i><?php echo $list->institutes->email;?></span></a>
