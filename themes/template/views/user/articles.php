@@ -14,12 +14,6 @@ $this->breadcrumbs=array('Articles'=>array('/user/articlesList'),''.$articles->t
 							<?php echo date('M d, Y',strtotime($articles->add_date));?>
 						</datetime>
 					</div>
-					<!--<div class="col-md-3  post-info fl">
-						<span>Views</span>
-						<datetime class="date-time fl">
-							12,398
-						</datetime>
-					</div>-->
 				 </div>
                  <hr />
 				  <div class="clear"></div>
@@ -39,6 +33,11 @@ $this->breadcrumbs=array('Articles'=>array('/user/articlesList'),''.$articles->t
 					
 				</p>
                 <?php } ?>
+                
+                 <div class="col-md-6">
+                <?php $this->widget('ext.YiiDisqusWidget.YiiDisqusWidget',array('shortname'=>'gudaak'));?>
+                </div>
+                
 			</div>
 			<?php /*<div class="mr0 col-md-3 mt20 fl">
 				 <div class="mr0 col-md-12 color-light-green related-article fl">
