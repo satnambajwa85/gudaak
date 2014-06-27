@@ -1923,7 +1923,32 @@ class UserController extends Controller
 			$sqlProvider = new CSqlDataProvider('select * from collages_courses_specialization as t,collage as COL,courses as C,specialization as S where t.collage_id=COL.id and t.specialization_id=S.id and t.courses_id=C.id AND (COL.name LIKE "%'.$value.'%" OR C.title LIKE "%'.$value.'%" OR S.title LIKE "%'.$value.'%")');
 $sqlProvider = $sqlProvider->getData();
 //$sqlData = $sqlProvider[0];
-$this->widget('zii.widgets.grid.CGridView', array('data' => $sqlProvider,));
+$this->widget('zii.widgets.grid.CGridView', array(
+	'id'=>'user-profiles-grid',
+	'itemsCssClass'=>'table table-bordered',
+	'dataProvider'=>$sqlProvider,
+	//'filter'=>$model,
+	'columns'=>array(
+		'id',
+		//'display_name',
+		'collage_id',
+		'specialization_id',
+		array(
+			'type'=>'raw',
+			'name'=>'specialization_id',
+            'value'=>'$data->specialization->title',
+        ),		
+		array(
+			'type'=>'raw',
+			'name'=>'courses_id',
+            'value'=>'$data->courses->title',
+        ),
+		'city_id',
+	),
+));
+
+
+//$this->widget('zii.widgets.grid.CGridView', array('data' => $sqlProvider,));
 die;
 
 
