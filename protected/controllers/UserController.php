@@ -1925,9 +1925,7 @@ class UserController extends Controller
 //$sqlData = $sqlProvider[0];
 
 
-echo $count=Yii::app()->db->createCommand('select * from collages_courses_specialization as t,collage as COL,courses as C,specialization as S where t.collage_id=COL.id and t.specialization_id=S.id and t.courses_id=C.id AND (COL.name LIKE "%'.$value.'%" OR C.title LIKE "%'.$value.'%" OR S.title LIKE "%'.$value.'%")')->queryScalar();
-
-die;
+$count=Yii::app()->db->createCommand('select * from collages_courses_specialization as t,collage as COL,courses as C,specialization as S where t.collage_id=COL.id and t.specialization_id=S.id and t.courses_id=C.id AND (COL.name LIKE "%'.$value.'%" OR C.title LIKE "%'.$value.'%" OR S.title LIKE "%'.$value.'%")')->queryScalar();
 $sql='select * from collages_courses_specialization as t,collage as COL,courses as C,specialization as S where t.collage_id=COL.id and t.specialization_id=S.id and t.courses_id=C.id AND (COL.name LIKE "%'.$value.'%" OR C.title LIKE "%'.$value.'%" OR S.title LIKE "%'.$value.'%")';
 $dataProvider=new CSqlDataProvider($sql, array(
     'totalItemCount'=>$count,
@@ -1937,7 +1935,8 @@ $dataProvider=new CSqlDataProvider($sql, array(
 ));
 
 
-
+CVarDumper::dump($dataProvider,10,1);
+die;
 
 
 $this->widget('zii.widgets.grid.CGridView', array(
