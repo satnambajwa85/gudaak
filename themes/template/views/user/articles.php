@@ -5,9 +5,9 @@ $this->breadcrumbs=array('Articles'=>array('/user/articlesList'),''.$articles->t
 			<div class="mr0 col-md-12  pd0 fl artical">
 				<h1><?php //echo $articles->title;?></h1>
                  <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
-				 <span>by <?php echo $articles->author;?></span>
+				 <span class="pd10">by <?php echo $articles->author;?></span>
 				 <div class="clear"></div>
-				 <div class="col-md-12 pd0  fl">
+				 <div class="col-md-12 pd10 fl">
 					<div class="col-md-3 pd0 post-info fl">
 						<span>Posted on</span>
 						<datetime class="date-time fl">
