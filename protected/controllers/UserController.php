@@ -1930,7 +1930,7 @@ class UserController extends Controller
 			$criteria3->condition = "(t.specialization_id=S.id)";
 			$criteria3->addCondition('S.title LIKE :key');
 			$criteria->mergeWith($criteria3, 'OR');
-			$criteria->params = array(':key' => '%'.$value.'%');
+			$criteria->params = array(':key' => '"%'.$value.'%"');
 			$list	=	CollagesCoursesSpecialization::model()->findAll($criteria);
 		}
 		
