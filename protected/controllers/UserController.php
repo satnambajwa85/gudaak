@@ -1945,7 +1945,7 @@ $sqlData = $sqlProvider[0];
 			$criteria->params = array(':key' => '"%'.$value.'%"');
 			$list	=	CollagesCoursesSpecialization::model()->findAll($criteria);*/
 		}
-		CVarDumper::dump($sqlData,10,1);
+		CVarDumper::dump($sqlProvider,10,1);
 		die;
 		foreach($list as $collage){
 			if(($city!='' && $collage->collage->city_id == $city) || $city == ''){
