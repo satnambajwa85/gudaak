@@ -1913,7 +1913,7 @@ class UserController extends Controller
 		else
 			$list	=	CollagesCoursesSpecialization::model()->findAll();
 		*/
-		echo $value	=	(isset($_POST['search']))?$_POST['search']:'';
+		$value	=	(isset($_POST['search']))?$_POST['search']:'';
 		if(!empty($value)){
 			$criteria = new CDbCriteria();
 			$criteria->with = array('collage' => array('alias'=>'COL'));
@@ -1923,12 +1923,12 @@ class UserController extends Controller
 			$criteria2->with = array('courses' => array('alias'=>'C'));
 			$criteria2->condition = "(t.collage_id=C.id)";
 			$criteria2->addCondition('C.title LIKE :key');
-			$criteria->mergeWith($criteria2, 'OR');
+			//$criteria->mergeWith($criteria2, 'OR');
 			$criteria3 = new CDbCriteria;
 			$criteria3->with = array('specialization' => array('alias'=>'S'));
 			$criteria3->condition = "(t.specialization_id=S.id)";
 			$criteria3->addCondition('S.title LIKE :key');
-			$criteria->mergeWith($criteria3, 'OR');
+			//$criteria->mergeWith($criteria3, 'OR');
 			$criteria->params = array(':key' => '"%'.$value.'%"');
 			$list	=	CollagesCoursesSpecialization::model()->findAll($criteria);
 		}
