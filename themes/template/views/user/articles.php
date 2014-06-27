@@ -34,7 +34,7 @@ $this->breadcrumbs=array('Articles'=>array('/user/articlesList'),''.$articles->t
 				</p>
                 <?php } ?>
                 
-                 <div class="col-md-6">
+                 <div class="col-md-10">
                 <?php $this->widget('ext.YiiDisqusWidget.YiiDisqusWidget',array('shortname'=>'gudaak'));?>
                 </div>
                 
