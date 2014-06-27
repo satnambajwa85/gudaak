@@ -1933,7 +1933,8 @@ class UserController extends Controller
 			$criteria->params = array(':key' => '"%'.$value.'%"');
 			$list	=	CollagesCoursesSpecialization::model()->findAll($criteria);
 		}
-		
+		CVarDumper::dump($list,10,1);
+		die;
 		foreach($list as $collage){
 			if(($city!='' && $collage->collage->city_id == $city) || $city == ''){
 				echo '<div class="coll_right_main_outer" >
