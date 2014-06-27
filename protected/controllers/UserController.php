@@ -1923,7 +1923,7 @@ class UserController extends Controller
 			$sqlProvider = new CSqlDataProvider('select * from collages_courses_specialization as t,collage as COL,courses as C,specialization as S where t.collage_id=COL.id and t.specialization_id=S.id and t.courses_id=C.id AND (COL.name LIKE "%'.$value.'%" OR C.title LIKE "%'.$value.'%" OR S.title LIKE "%'.$value.'%")');
 $sqlProvider = $sqlProvider->getData();
 //$sqlData = $sqlProvider[0];
-$this->widget('zii.widgets.CDetailView', array('data' => $sqlData,));
+$this->widget('zii.widgets.grid.CGridView', array('data' => $sqlProvider,));
 die;
 
 
