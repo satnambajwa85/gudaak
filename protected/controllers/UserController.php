@@ -1918,7 +1918,7 @@ class UserController extends Controller
 			$criteria = new CDbCriteria();
 			$criteria->with = array('collage' => array('alias'=>'COL'));
 			$criteria->condition = "t.collage_id=COL.id";
-			$criteria->addCondition('COL.name LIKE :key');
+			//$criteria->addCondition('COL.name LIKE :key');
 			$criteria2 = new CDbCriteria;
 			$criteria2->with = array('courses' => array('alias'=>'C'));
 			$criteria2->condition = "(t.collage_id=C.id)";
