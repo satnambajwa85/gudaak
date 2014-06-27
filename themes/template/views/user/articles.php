@@ -19,7 +19,7 @@ $this->breadcrumbs=array('Articles'=>array('/user/articlesList'),''.$articles->t
 				  <div class="clear"></div>
                 <?php if(!empty($articles->image)){?>
 <div class=" row col-md-11" style="float:left;padding:6px;" >
-<img src="<?php echo Yii::app()->baseUrl;?>/uploads/articles/original/<?php echo $articles->image;?>" width="80%" />
+<img src="<?php echo Yii::app()->baseUrl;?>/uploads/articles/large/<?php echo $articles->image;?>" width="80%" />
 </div>
 <div class="clear"></div>
 				<?php } ?>
