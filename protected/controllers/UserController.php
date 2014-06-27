@@ -12,7 +12,7 @@ class UserController extends Controller
 				),
 			
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('index','editProfile','test','tests','detailedReport','collage','userStreamRaitng','liveChat','articlesList','articles','summary','newsUpdates','exploreColleges','shortListedColleges','dynamicCourse','dynamicSearchResult','userShortlistCollage','userShortlistTest','userShortlistTestRemove','search','changePassword','application','questionsAnswer','upload','testMail','userProfileUpdate','retakeTest','news','readEvent','summaryDetails','summaryData','talkData','talk','feedbackAnswer','data','testDetails','autoComplete'),
+				'actions'=>array('index','editProfile','test','tests','detailedReport','collage','userStreamRaitng','liveChat','articlesList','articles','summary','newsUpdates','exploreColleges','shortListedColleges','dynamicCourse','dynamicSearchResult','userShortlistCollage','userShortlistTest','userShortlistTestRemove','search','changePassword','application','questionsAnswer','upload','testMail','userProfileUpdate','retakeTest','news','readEvent','summaryDetails','summaryData','talkData','talk','feedbackAnswer','data','testDetails','autoComplete','userShortlistCollageRemove'),
 				'users' => array('@')					
 				),
 				array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -1896,6 +1896,16 @@ if(count($special)>0)
 		$this->render('shortListedColleges',array('collegesList'=>$collegesList));
 	}
 	
+	public function actionUserShortlistCollageRemove($id)
+	{	
+		$record_exists = UserProfilesHasInstitutes::model()->exists('id = :institutes and user_profiles_id=:id', array(':institutes'=>$id,':id'=>Yii::app()->user->profileId));
+		
+		if($record_exists==1)
+		{
+			UserProfilesHasInstitutes::model()->findByPk($id)->delete();
+			echo 'This college is removed from your list now.';die;	
+		}
+	}
 	
 	public function actionUserShortlistTestRemove($id)
 	{	
