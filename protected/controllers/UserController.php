@@ -1813,14 +1813,14 @@ class UserController extends Controller
 	}
 	public function actionExploreColleges()
 	{
-		/*$userTest				=	UserReports::model()->countByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
+		$userTest				=	UserReports::model()->countByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
 		if($userTest==0){
 			Yii::app()->user->setFlash('redirect',"Take the Test to Get Started");
 			$this->redirect(Yii::app()->createUrl('/user/tests'));
-		}*/
+		}
 		
 		
-		$value	=	(isset($_POST['search']))?$_POST['search']:'';
+		$value	=	(isset($_REQUEST['search']))?$_REQUEST['search']:'';
 		if(!empty($value)){
 			$cou1	=	Courses::model()->findAll('title LIKE "%'.$value.'%"');
 			$col1	=	Collage::model()->findAll('name LIKE "%'.$value.'%"');

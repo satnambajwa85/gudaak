@@ -19,35 +19,14 @@ $this->breadcrumbs=array('Colleges Explore'=>array('/user/exploreColleges'));
                 <div class="collage_left_inner">
 					<?php $form=$this->beginWidget('CActiveForm', array(
 						'id'=>'collages-search-form',
+						'method'=>'get',
+						'action'=>Yii::app()->createUrl('/user/exploreColleges'),
 						'enableAjaxValidation'=>false,
 						'htmlOptions'=>array('enctype'=>'multipart/form-data'),
 					)); ?>
                 	<div class="text_w_outer">
                      <span class="text_w_dd">Search</span>
-<?php
-echo CHtml::textField('search','');
-/*
-echo CHtml::hiddenField('selectedvalue','');
-$this->widget('zii.widgets.jui.CJuiAutoComplete', array(
-'name'=>'searchbox',
-'value'=>'',
-'source'=>CController::createUrl('/user/autoComplete'),
-'options'=>array(
-'showAnim'=>'fold',         
-'minLength'=>'2',
-'select'=>'js:function( event, ui ) {
-$("#searchbox").val( ui.item.label );
-$("#selectedvalue").val( ui.item.value );
-return false;
-}',
-),
-'htmlOptions'=>array(
-'onfocus' => 'js: this.value = null; $("#searchbox").val(null); $("#selectedvalue").val(null);',
-'class' => 'input-xxlarge search-query',
-'placeholder' => "Search...",
-),
-));*/
-?>            </div>
+                     <?php echo CHtml::textField('search',(isset($_REQUEST['search']))?$_REQUEST['search']:'');?></div>
                     <div class="text_w_outer mt20 ml10">
                     <?php 	echo CHtml::submitButton('Search',array('class'=>'summery-left-btn'));?>
 					</div>
