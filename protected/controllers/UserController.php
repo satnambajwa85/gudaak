@@ -1913,8 +1913,7 @@ class UserController extends Controller
 		else
 			$list	=	CollagesCoursesSpecialization::model()->findAll();
 		*/
-		$list	=	array();
-		$value	=	(isset($_POST['search']))?$_POST['search']:'';
+		echo $value	=	(isset($_POST['search']))?$_POST['search']:'';
 		if(!empty($value)){
 			$criteria = new CDbCriteria();
 			$criteria->with = array('collage' => array('alias'=>'COL'));
