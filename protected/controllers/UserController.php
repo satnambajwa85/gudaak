@@ -1920,7 +1920,7 @@ class UserController extends Controller
 		$value	=	(isset($_POST['search']))?$_POST['search']:'';
 		if(!empty($value)){
 			
-			$sqlProvider = new CSqlDataProvider('select * from CollagesCoursesSpecialization as t,collage as COL,courses as C,specializationas S where t.collage_id=COL.id and t.specialization_id=S.id and t.courses_id=C.id AND (COL.name LIKE "%'.$value.'%" OR C.title LIKE "%'.$value.'%" OR S.title LIKE "%'.$value.'%") Limit 0,20');
+			$sqlProvider = new CSqlDataProvider('select * from CollagesCoursesSpecialization as t,collage as COL,courses as C,specializationas S where t.collage_id=COL.id and t.specialization_id=S.id and t.courses_id=C.id AND (COL.name LIKE "%'.$value.'%" OR C.title LIKE "%'.$value.'%" OR S.title LIKE "%'.$value.'%")');
 $sqlProvider = $sqlProvider->getData();
 $sqlData = $sqlProvider[0];
  //$this->widget('zii.widgets.CDetailView', array('data' => $sqlData,));
