@@ -1913,15 +1913,28 @@ class UserController extends Controller
 		else
 			$list	=	CollagesCoursesSpecialization::model()->findAll();
 		*/
+		
+		
+		
+		
 		$value	=	(isset($_POST['search']))?$_POST['search']:'';
 		if(!empty($value)){
+			
+			$sqlProvider = new CSqlDataProvider('select * from CollagesCoursesSpecialization as t,collage as COL,courses as C,specializationas S where t.collage_id=COL.id and t.specialization_id=S.id and t.courses_id=C.id AND (COL.name LIKE "%'.$value.'%" OR C.title LIKE "%'.$value.'%" OR S.title LIKE "%'.$value.'%")');
+$sqlProvider = $sqlProvider->getData();
+$sqlData = $sqlProvider[0];
+ //$this->widget('zii.widgets.CDetailView', array('data' => $sqlData,));
+
+
+
+	/*		
 			$criteria = new CDbCriteria();
 			$criteria->with = array('collage' => array('alias'=>'COL'));
 			$criteria->condition = "t.collage_id=COL.id";
 			//$criteria->addCondition('COL.name LIKE :key');
 			$criteria2 = new CDbCriteria;
 			$criteria2->with = array('courses' => array('alias'=>'C'));
-			$criteria2->condition = "(t.collage_id=C.id)";
+			$criteria2->condition = "(t.courses_id=C.id)";
 			$criteria2->addCondition('C.title LIKE :key');
 			//$criteria->mergeWith($criteria2, 'OR');
 			$criteria3 = new CDbCriteria;
@@ -1930,10 +1943,10 @@ class UserController extends Controller
 			$criteria3->addCondition('S.title LIKE :key');
 			//$criteria->mergeWith($criteria3, 'OR');
 			$criteria->params = array(':key' => '"%'.$value.'%"');
-			$list	=	CollagesCoursesSpecialization::model()->findAll($criteria);
+			$list	=	CollagesCoursesSpecialization::model()->findAll($criteria);*/
 		}
-		//CVarDumper::dump($list,10,1);
-		//die;
+		CVarDumper::dump($sqlData,10,1);
+		die;
 		foreach($list as $collage){
 			if(($city!='' && $collage->collage->city_id == $city) || $city == ''){
 				echo '<div class="coll_right_main_outer" >
