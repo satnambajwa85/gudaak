@@ -82,6 +82,11 @@ $('.search-form form').submit(function(){
 		'user_login_id',
 		*/
 		array(
+			'type'=>'raw',
+			'name'=>'ticket',
+            'value'=>'CHtml::link("ticket",array("/admin/tickets/admin","receiver_id"=>$data->id,"role"=>"counselor"))',
+        ),
+		array(
 			'class'=>'CButtonColumn',
 		),
 	),

@@ -44,7 +44,7 @@ class Counselor extends CActiveRecord
 	 */
 	public $last_login;
 	public $schools;
-	
+	public $ticket;
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
@@ -170,6 +170,9 @@ class Counselor extends CActiveRecord
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			'sort'=>array(
+				'defaultOrder'=>'t.status DESC',
+			),
 		));
 	}
 }

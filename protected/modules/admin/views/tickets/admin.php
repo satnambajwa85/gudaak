@@ -30,6 +30,10 @@ $('.search-form form').submit(function(){
 if(isset($_REQUEST['role']) && $_REQUEST['role']=='user')
 	echo CHtml::link('Back to List',array('/admin/userProfiles/admin'),array('class'=>'pull-right btn btn-s-md btn-success ui-slider'));
 	
+if(isset($_REQUEST['role']) && $_REQUEST['role']=='counselor')
+	echo CHtml::link('Back to List',array('/admin/counselor/admin'),array('class'=>'pull-right btn btn-s-md btn-success ui-slider'));	
+
+
 ?>
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'tickets-grid',
@@ -44,7 +48,11 @@ if(isset($_REQUEST['role']) && $_REQUEST['role']=='user')
 		'problem',
 		'language',
 		'solution',
-		'status',
+		array(
+			'type'=>'raw',
+			'name'=>'status',
+            'value'=>'($data->status==1)?"<span style=\' color:red;\'>Pending</span>":"<span style=\' color:green;\'>Answered</span>"',
+        ),
 		'add_date',
 		'modification_date',
 		
@@ -52,8 +60,9 @@ if(isset($_REQUEST['role']) && $_REQUEST['role']=='user')
 		/*
 		'available',
 		
+		,*/
 		array(
 			'class'=>'CButtonColumn',
-		),*/
+		),
 	),
 )); ?>

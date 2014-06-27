@@ -67,7 +67,7 @@ class TicketsController extends Controller
 		{
 			$model->attributes=$_POST['Tickets'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('admin'));
 		}
 
 		$this->render('create',array(
@@ -91,7 +91,7 @@ class TicketsController extends Controller
 		{
 			$model->attributes=$_POST['Tickets'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->id));
+				$this->redirect(array('admin'));
 		}
 
 		$this->render('update',array(
@@ -143,7 +143,10 @@ class TicketsController extends Controller
 		if(isset($_GET['sender_id']))
 			$model->sender_id=$_GET['sender_id'];
 
-		
+		if(isset($_GET['receiver_id']))
+			$model->receiver_id	=	$_GET['receiver_id'];
+
+
 		$this->render('admin',array(
 			'model'=>$model,
 		));
