@@ -14,16 +14,17 @@ $this->breadcrumbs=array('Articles'=>array('/user/articlesList'));?>
 					<?php if(!empty($articles)){?>
 					 <?php $count=0; foreach($articles as $list){ $count=abs($count-1);?>
 					<li class="col-md-6 row pd0 art-class <?php echo (!$count)?'mla':'';?>">
-						<div class="pd0 col-md-12">
-							<h1><?php echo $list->title;?></h1>
-							<span class="date"><?php echo date('M d, Y',strtotime($list->add_date));?></span>
+                    
+                    <?php echo CHtml::link('<div class="pd0 col-md-12">
+							<h1>'.$list->title.'</h1>
+							<span class="date">'.date('M d, Y',strtotime($list->add_date)).'</span>
                             <div class="clear"></div>
                             <div  style="float:left;padding:6px;" >
-<img src="<?php echo Yii::app()->baseUrl;?>/uploads/articles/small/<?php echo $list->image;?>" width="100px"/>
+<img src="'.Yii::app()->baseUrl.'/uploads/articles/small/'.$list->image.'" width="100px"/>
 							</div>
-                            <p><?php echo substr(preg_replace("/<img[^>]+\>/i", " ", $list->description),0,230);?></p>
-							<?php echo CHtml::link('Read Full..',array('user/articles','id'=>$list->id));?>
-						</div>
+                            <p>'.substr(preg_replace("/<img[^>]+\>/i", " ", $list->description),0,230).'</p>							
+						</div>',array('user/articles','id'=>$list->id));?>
+						
 					
 					</li>
                     <?php echo (!$count)?'<div class="clear"></div>':'';?>
