@@ -1822,36 +1822,41 @@ class UserController extends Controller
 		
 		$value	=	(isset($_POST['search']))?$_POST['search']:'';
 		if(!empty($value)){
-			$cousre		=	Courses::model()->findAll('title LIKE "%'.$value.'%"');
-			$college	=	Collage::model()->findAll(array(),'name LIKE "%'.$value.'%"');
-			$specail	=	Specialization::model()->findAll(array(),'title LIKE "%'.$value.'%"');
+			$cou1	=	Courses::model()->findAll('title LIKE "%'.$value.'%"');
+			$col1	=	Collage::model()->findAll('name LIKE "%'.$value.'%"');
+			$spe1	=	Specialization::model()->findAll('title LIKE "%'.$value.'%"');
 
 			$collg	=	array();
-			foreach($college as $rec)
+			if(count($col1)>0)
+			foreach($col1 as $rec)
 				$collg[]	=	$rec->id;
 			
 			$special	=	array();
-			foreach($specail as $rec)
+			if(count($spe1)>0)
+			foreach($spe1 as $rec)
 				$special[]	=	$rec->id;
 			
 			$course	=	array();
-			foreach($cousre as $rec)
+			if(count($cou1)>0)
+			foreach($cou1 as $rec)
 				$course[]	=	$rec->id;
 
-			$criteria = new CDbCriteria();
-			$criteria->condition = "t.status = 1";
-			if(count($collg)>0)
-				$criteria->addInCondition("t.collage_id",$collg);
-			if(count($course)>0)
-				$criteria->addInCondition("t.courses_id",$course);
-			if(count($special)>0)
-				$criteria->addInCondition("t.specialization_id",$special);
 			
-			$list	=	CollagesCoursesSpecialization::model()->findAll($criteria);
+$criteria21 = new CDbCriteria();
+if(count($collg)>0)
+	$criteria21->addInCondition("collage_id", $collg,'OR');
+if(count($course)>0)
+	$criteria21->addInCondition("courses_id", $course,'OR');
+if(count($special)>0)
+	$criteria21->addInCondition("specialization_id", $special,'OR');
+
+			$list	=	CollagesCoursesSpecialization::model()->findAll($criteria21);
+	
+			
 			$listCollage	=	array();
 			if(count($list)>0)
-			foreach($list as $rec)
-				$listCollage[]	=	$rec->collage_id;		
+				foreach($list as $rec)
+					$listCollage[]	=	$rec->collage_id;		
 			$model				=	new Collage;
 			$criteria			=	new CDbCriteria();
 			$criteria->condition=	'(activation =:activation and status =:status )';
