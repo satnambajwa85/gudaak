@@ -89,8 +89,8 @@ class ArticlesController extends Controller
 				if ($img->processed) {
 					#THUMB Image
 					$img->image_resize      = true;
-					$img->image_y         	= 115;
-					$img->image_x           = 265;
+					$img->image_y         	= 300;
+					$img->image_x           = 600;
 					$img->file_new_name_body = $newName;
 					$img->process('uploads/articles/large/');
 					
@@ -158,8 +158,8 @@ class ArticlesController extends Controller
 				if ($img->processed) {
 					#THUMB Image
 					$img->image_resize      = true;
-					$img->image_y         	= 115;
-					$img->image_x           = 265;
+					$img->image_y         	= 300;
+					$img->image_x           = 600;
 					$img->file_new_name_body = $newName;
 					$img->process('uploads/articles/large/');
 					
