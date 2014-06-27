@@ -18,12 +18,12 @@ $this->breadcrumbs=array('Articles'=>array('/user/articlesList'),''.$articles->t
                  <hr />
 				  <div class="clear"></div>
                 <?php if(!empty($articles->image)){?>
-<div class=" row col-md-11" style="float:left;padding:6px;" >
+<div class=" row col-md-11" style="float:left;padding:10px;" >
 <img src="<?php echo Yii::app()->baseUrl;?>/uploads/articles/large/<?php echo $articles->image;?>" width="80%" />
 </div>
 <div class="clear"></div>
 				<?php } ?>
-				<p>
+				<p style="margin-top: 10px;">
 				<?php echo $articles->description;?>	
 				</p>
 				<?php if(!empty($articles->role)){?>
