@@ -1920,13 +1920,29 @@ class UserController extends Controller
 		$value	=	(isset($_POST['search']))?$_POST['search']:'';
 		if(!empty($value)){
 			
-			$sqlProvider = new CSqlDataProvider('select * from collages_courses_specialization as t,collage as COL,courses as C,specialization as S where t.collage_id=COL.id and t.specialization_id=S.id and t.courses_id=C.id AND (COL.name LIKE "%'.$value.'%" OR C.title LIKE "%'.$value.'%" OR S.title LIKE "%'.$value.'%")');
-$sqlProvider = $sqlProvider->getData();
+			//$sqlProvider = new CSqlDataProvider('select * from collages_courses_specialization as t,collage as COL,courses as C,specialization as S where t.collage_id=COL.id and t.specialization_id=S.id and t.courses_id=C.id AND (COL.name LIKE "%'.$value.'%" OR C.title LIKE "%'.$value.'%" OR S.title LIKE "%'.$value.'%")');
+//$sqlProvider = $sqlProvider->getData();
 //$sqlData = $sqlProvider[0];
+
+
+$count=Yii::app()->db->createCommand('select * from collages_courses_specialization as t,collage as COL,courses as C,specialization as S where t.collage_id=COL.id and t.specialization_id=S.id and t.courses_id=C.id AND (COL.name LIKE "%'.$value.'%" OR C.title LIKE "%'.$value.'%" OR S.title LIKE "%'.$value.'%")')->queryScalar();
+$sql='select * from collages_courses_specialization as t,collage as COL,courses as C,specialization as S where t.collage_id=COL.id and t.specialization_id=S.id and t.courses_id=C.id AND (COL.name LIKE "%'.$value.'%" OR C.title LIKE "%'.$value.'%" OR S.title LIKE "%'.$value.'%")';
+$dataProvider=new CSqlDataProvider($sql, array(
+    'totalItemCount'=>$count,
+    'sort'=>array('attributes'=>array('id', 'collage_id', 'specialization_id','courses_id','city_id',),),
+    'pagination'=>array(
+        'pageSize'=>10,
+    ),
+));
+
+
+
+
+
 $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'user-profiles-grid',
 	'itemsCssClass'=>'table table-bordered',
-	'data'=>$sqlProvider,
+	'dataProvider'=>$dataProvider,
 	//'filter'=>$model,
 	'columns'=>array(
 		'id',
