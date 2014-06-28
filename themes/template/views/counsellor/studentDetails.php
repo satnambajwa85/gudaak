@@ -62,23 +62,17 @@ $this->breadcrumbs=array('studentDetails',);
 														'lastPageLabel'=>false,
 													
 														),
-													//'filter'=>$model,
 													'columns'=>array(
-														/*array(
-															'name'=>'gudaak_id',
-															'value'=>'$data->generateGudaakIds->gudaak_id'
-														),*/
 														'first_name',
 														'last_name',
 														array(
 															'name'=>'class',
 															'value'=>'$data->userClass->title'
 														),
-														
-														array(
+														/*array(
 															'name'=>'class',
 															'value'=>'$data->generateGudaakIds->schools->title'
-														),
+														),*/
 														array(
 															'name'=>'user_role',
 															'value'=>'$data->userLogin->userRole->description'
