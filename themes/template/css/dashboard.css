@@ -8658,7 +8658,10 @@ display: none;
 }
 .sessionContent input[type="radio"]:checked + label {
 	background: url(../images/chk_active.jpg) no-repeat;
+	background-size: 15px;
 	color: #666666 !important;
+	height: 22px;
+	width: 80px;
 	display: inline;
 }
 .mt15{margin-top:15px !important;}
