@@ -65,28 +65,11 @@ $this->breadcrumbs=array('studentDetails',);
 													'columns'=>array(
 														'first_name',
 														'last_name',
+														'email',
 														array(
 															'name'=>'class',
 															'value'=>'$data->userClass->title'
 														),
-														array(
-															'type'=>'raw',
-															'name'=>'schools',
-															'value'=>'(isset($data->generateGudaakIds->schools->title))?$data->generateGudaakIds->schools->title:"Not Set"'
-														),
-														array(
-															'type'=>'raw',
-															'name'=>'user_role',
-															'value'=>'$data->userLogin->userRole->description'
-														),
-														/*
-														'id',
-														'description',
-														'email',
-														'published',
-														'status',
-														'career_id',
-														*/
 														array(
 																'class'=>'CButtonColumn', //custom button for email and view
 																'template'=>'{Details}',
