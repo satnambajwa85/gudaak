@@ -287,7 +287,7 @@ class CounsellorController extends Controller
 			$this->renderPartial('_session',array('question'=>$sess,'ans'=>$answ));
 			die;
 		}
-		$model	=	Session::model()->findAll(array('status'=>1));
+		$model	=	Session::model()->findAll(array("condition"=>'status = 1'));
 		$this->render('session',array('model'=>$model,'id'=>$id));
 	}
 	public function actionSession()
