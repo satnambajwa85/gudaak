@@ -300,7 +300,7 @@ class CounsellorController extends Controller
 			foreach($userAns as $list){
 				$answ[$list->session_questions_id]	=	$list->answer;
 			}
-			$sess	=	SessionQuestions::model()->findAllByAttributes(array('session_id'=>$session));
+			$sess	=	SessionQuestions::model()->findAllByAttributes(array('session_id'=>$session,'status'=>1));
 			$this->renderPartial('_session',array('question'=>$sess,'ans'=>$answ));
 			die;
 		}
