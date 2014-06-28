@@ -60,7 +60,9 @@ class SessionQuestionsController extends Controller
 
 		if(isset($_POST['SessionQuestions']))
 		{
-			$model->attributes=$_POST['SessionQuestions'];
+			$model->attributes	=	$_POST['SessionQuestions'];
+			$model->add_date	=	date('Y-m-d');
+			$model->other		=	'NA';
 			if($model->save())
 				$this->redirect(array('adminView','id'=>$model->session->id));
 		}
