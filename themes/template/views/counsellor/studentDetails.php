@@ -74,6 +74,7 @@ $this->breadcrumbs=array('studentDetails',);
 															'value'=>'$data->generateGudaakIds->schools->title'
 														),*/
 														array(
+															'type'=>'raw',
 															'name'=>'user_role',
 															'value'=>'$data->userLogin->userRole->description'
 														),
