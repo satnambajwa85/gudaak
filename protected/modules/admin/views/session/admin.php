@@ -28,6 +28,7 @@ $('.search-form form').submit(function(){
 <?php echo CHtml::link('Create',array('/admin/session/create'),array('class'=>'pull-right btn btn-s-md btn-success')); ?>
 <?php $this->widget('zii.widgets.grid.CGridView', array(
 	'id'=>'session-grid',
+	'itemsCssClass'=>'table table-bordered',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
