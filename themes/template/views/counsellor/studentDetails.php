@@ -69,10 +69,11 @@ $this->breadcrumbs=array('studentDetails',);
 															'name'=>'class',
 															'value'=>'$data->userClass->title'
 														),
-														/*array(
-															'name'=>'class',
-															'value'=>'$data->generateGudaakIds->schools->title'
-														),*/
+														array(
+															'type'=>'raw',
+															'name'=>'schools',
+															'value'=>'(isset($data->generateGudaakIds->schools->title))?$data->generateGudaakIds->schools->title:"Not Set"'
+														),
 														array(
 															'type'=>'raw',
 															'name'=>'user_role',
