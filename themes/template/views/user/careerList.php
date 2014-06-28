@@ -6,10 +6,9 @@ array('Career'=>array('user/career'));?>
 			<div class="mr0  pull-left middle-format-left">
 				<!--<h1><?php echo $dataBYId->title;?></h1>-->
                 <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
-				<?php echo substr($dataBYId->description,0,500);?>
+				<?php echo substr(strip_tags($dataBYId->description),0,500);?>
 				<div class="clear"></div>
 				<div id="flashMessage"></div>
-				<?php //echo CHtml::ajaxLink('Konw more about Career Library',array(''));?>
 			</div>
 			
 		</div>
@@ -36,7 +35,7 @@ array('Career'=>array('user/career'));?>
 					<div class="clear"></div>
 					
 					<?php if(!empty($data->description)){?>
-					<?php echo substr($data->description,0,100);?>
+					<?php echo substr(strip_tags($data->description),0,100);?>
 					<?php }else{ ?>
 					<p></p>
 					<?php } ?>
@@ -51,33 +50,6 @@ array('Career'=>array('user/career'));?>
 
 					<div class="col-md-12 career-hot-links">
                     <?php echo CHtml::link($data->title,array('user/careerDetails','id'=>''.$data->id.''),array('class'=>'pull-left','title'=>$data->title));?>
-					<?php //echo CHtml::link('View Details..',array('user/careerDetails','id'=>''.$data->id.''),array('class'=>'pull-left','title'=>'View Details'));?>
-					<?php //echo CHtml::Ajaxlink('<i class="glyphicon glyphicon-heart"></i>',array('user/AddCareer','id'=>''.$data->id.''),array('update'=>'#flashMessage'));?>
-						<!--<ul class="star-rating pull-right ">
-							 <div id="user-rating<?php //echo $data->id;?>" class="ratingStar" ></div>
-						</ul>-->
-						<?php /*$rating				=	UserRating::model()->findAllByAttributes(array('career_options_id'=>$data->id,'user_profiles_id'=>Yii::app()->user->profileId));		?>
-									<?php if(!empty($rating)){?>
-									<?php foreach($rating as $list){ ?>
-										<script type="text/javascript">
-										$(document).ready(function(){
-											$('#user-rating<?php echo $list->career_options_id;?>').raty({ score:'<?php echo $list->rating;?>'});
-											$('#user-rating<?php echo $list->career_options_id;?> img').click(function(){saveRating(<?php echo $list->career_options_id;?> ,$(this).attr('alt'));});
-											
-										});
-									</script>
-									<?php } ?>
-									<?php }else{ ?>
-									<script type="text/javascript">
-										$(document).ready(function(){
-											$('#user-rating<?php echo $data->id;?>').raty({ score:'0'});
-											$('#user-rating<?php echo $data->id;?> img').click(function(){saveRating(<?php echo $data->id;?> ,$(this).attr('alt'));});
-											
-										});
-									</script>
-									<?php } */?>
-									 
-					
 					</div>
  					</div>
                     <div class="clear"></div>
@@ -96,10 +68,11 @@ array('Career'=>array('user/career'));?>
 		<div class="clear"></div>
 		 
 </div>
-	
-	<div class="news pd0 pull-right">
+
+<div class="news pd0 pull-right">
 		<?php  $this->Widget('WidgetNews'); ?>
 	</div>
+
 <script type="text/javascript">
 function saveRating(cid,rate){
 	var url	=	'<?php echo Yii::app()->createUrl('/user/UserRaitng');?>';
