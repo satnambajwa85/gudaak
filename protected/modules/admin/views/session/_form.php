@@ -22,20 +22,8 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'add_date'); ?>
-		<?php echo $form->textField($model,'add_date'); ?>
-		<?php echo $form->error($model,'add_date'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'other'); ?>
-		<?php echo $form->textArea($model,'other',array('rows'=>6, 'cols'=>50)); ?>
-		<?php echo $form->error($model,'other'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($model,'status'); ?>
-		<?php echo $form->textField($model,'status'); ?>
+		<?php echo $form->radioButtonlist($model,'status',array('1'=>'Active','0'=>'Deactive'),array('separator'=>'')); ?>
 		<?php echo $form->error($model,'status'); ?>
 	</div>
 

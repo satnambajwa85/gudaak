@@ -60,7 +60,9 @@ class SessionController extends Controller
 
 		if(isset($_POST['Session']))
 		{
-			$model->attributes=$_POST['Session'];
+			$model->attributes	=	$_POST['Session'];
+			$model->add_date	=	date('Y-m-d');
+			$model->other		=	'NA';
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->id));
 		}
