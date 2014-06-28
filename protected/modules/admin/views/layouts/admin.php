@@ -60,7 +60,7 @@
 						'active'=>(($action=='generateGudaakIds/admin')||($action=='generateGudaakIds/create')||($action=='generateGudaakIds/update')||($action=='generateGudaakIds/view'))),
                        	array('label'=>'Site Setting', 'url'=>array('/admin/siteSetting/admin')),
                        	array('label'=>'Articles', 'url'=>array('/admin/articles/admin'),'active'=>(($action=='articles/admin')||($action=='articles/create')||($action=='articles/update'))),
-						array('label'=>'Sessions', 'url'=>array('/admin/session/admin'),'active'=>(($action=='session/admin')||($action=='session/create')||($action=='session/update')||($action=='sessionQuestions/admin')||($action=='sessionQuestions/create')||($action=='sessionQuestions/update'))),
+						array('label'=>'Sessions', 'url'=>array('/admin/session/admin'),'active'=>(($action=='session/admin')||($action=='session/create')||($action=='session/update')||($action=='sessionQuestions/adminView')||($action=='sessionQuestions/admin')||($action=='sessionQuestions/create')||($action=='sessionQuestions/update'))),
 						array('label'=>'Entrance Exams', 'url'=>array('/admin/entranceExams/admin'),'active'=>(($action=='entranceExams/admin')||($action=='entranceExams/create')||($action=='entranceExams/update'))),
 						array('label'=>'Images', 'url'=>array('/admin/images/admin')),
                        	array('label'=>'News', 'url'=>array('/admin/news/admin')),
