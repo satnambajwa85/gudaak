@@ -120,7 +120,7 @@ class CounsellorController extends Controller
 	{
 		if(!Yii::app()->user->id)
 			$this->redirect(Yii::app()->createUrl('/site'));
-		$gud	=	GenerateGudaakIds::model()->findAllByAttributes(array('schools_id'=>$id));
+			$gud	=	GenerateGudaakIds::model()->findAllByAttributes(array('schools_id'=>$id));
 		foreach($gud as $rec)
 			$gudIdList[]	=	$rec->id;
 
@@ -283,11 +283,11 @@ class CounsellorController extends Controller
 			foreach($userAns as $list){
 				$answ[$list->session_questions_id]	=	$list->answer;
 			}
-			$sess	=	SessionQuestions::model()->findAllByAttributes(array('session_id'=>$session));
+			$sess	=	SessionQuestions::model()->findAllByAttributes(array('session_id'=>$session,'status'=>1));
 			$this->renderPartial('_session',array('question'=>$sess,'ans'=>$answ));
 			die;
 		}
-		$model	=	Session::model()->findAll();
+		$model	=	Session::model()->findAll(array('status'=>1));
 		$this->render('session',array('model'=>$model,'id'=>$id));
 	}
 	public function actionSession()
