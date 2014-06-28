@@ -26,16 +26,6 @@
 	  $cs->registerCssFile($baseUrl.'/css/bootstrap-responsive.min.css');
 	  $cs->registerCssFile($baseUrl.'/css/abound.css');
 	  $cs->registerCssFile($baseUrl.'/css/style-blue.css');
-	  ?>
-      <!-- styles for style switcher -->
-      <!--	<link rel="stylesheet" type="text/css" href="<?php echo $baseUrl;?>/css/style-blue.css" />
-        <link rel="alternate stylesheet" type="text/css" media="screen" title="style2" href="<?php echo $baseUrl;?>/css/style-brown.css" />
-        <link rel="alternate stylesheet" type="text/css" media="screen" title="style3" href="<?php echo $baseUrl;?>/css/style-green.css" />
-        <link rel="alternate stylesheet" type="text/css" media="screen" title="style4" href="<?php echo $baseUrl;?>/css/style-grey.css" />
-        <link rel="alternate stylesheet" type="text/css" media="screen" title="style5" href="<?php echo $baseUrl;?>/css/style-orange.css" />
-        <link rel="alternate stylesheet" type="text/css" media="screen" title="style6" href="<?php echo $baseUrl;?>/css/style-purple.css" />
-        <link rel="alternate stylesheet" type="text/css" media="screen" title="style7" href="<?php echo $baseUrl;?>/css/style-red.css" />-->
-	  <?php
 	  $cs->registerScriptFile($baseUrl.'/js/bootstrap.min.js');
 	  $cs->registerScriptFile($baseUrl.'/js/plugins/jquery.sparkline.js');
 	  $cs->registerScriptFile($baseUrl.'/js/plugins/jquery.flot.min.js');
@@ -59,7 +49,6 @@
     <div class="col-md-12">
 		<div class="left-menu">
 				<?php $action=$this->id.'/'.$this->action->id;
-					//echo $action.'/----generateGudaakIds/admin';die;
 					$this->widget('zii.widgets.CMenu',array(
                     'htmlOptions'=>array('class'=>'nav nav-pills nav-stacked admin-menu'),
                     'submenuHtmlOptions'=>array('class'=>'span3 dropdown-menu'),
@@ -71,6 +60,7 @@
 						'active'=>(($action=='generateGudaakIds/admin')||($action=='generateGudaakIds/create')||($action=='generateGudaakIds/update')||($action=='generateGudaakIds/view'))),
                        	array('label'=>'Site Setting', 'url'=>array('/admin/siteSetting/admin')),
                        	array('label'=>'Articles', 'url'=>array('/admin/articles/admin'),'active'=>(($action=='articles/admin')||($action=='articles/create')||($action=='articles/update'))),
+						array('label'=>'Sessions', 'url'=>array('/admin/session/admin'),'active'=>(($action=='session/admin')||($action=='session/create')||($action=='session/update'))),
 						array('label'=>'Entrance Exams', 'url'=>array('/admin/entranceExams/admin'),'active'=>(($action=='entranceExams/admin')||($action=='entranceExams/create')||($action=='entranceExams/update'))),
 						array('label'=>'Images', 'url'=>array('/admin/images/admin')),
                        	array('label'=>'News', 'url'=>array('/admin/news/admin')),
