@@ -13,8 +13,8 @@ $this->breadcrumbs=array('studentDetails',);
 		<div class="col-md-12 fl">
 			<input type="hidden" value="<?php echo $_REQUEST['id'];?>" id="userId" name="user" />
 			<?php foreach($model as $item){?>
-            <div class="col-md-2 fl mt20">
-                <span class=""><?php echo $item->name;?></span><input type="radio" name="session" value="<?php echo $item->id?>" class="radioB pull-left mr10" />
+            <div class="col-md-3 fl mt20">
+                <span class="ml10"><?php echo $item->name;?></span><input type="radio" name="session" value="<?php echo $item->id?>" class="radioB pull-left mr10" />
             </div>
             <?php } ?>
         </div>
