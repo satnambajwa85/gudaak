@@ -7739,9 +7739,10 @@ top:115px;width: 252px;background:#FAFFFF;background-color:#FAFFFF;z-index:999;}
 .career-tab-section {padding:0 0 0 16px ;}
 .career-tab-section h1{ font-family: open sans !important;
     font-size: 15px;color:#F7A944;margin:0px;}
-.career-tab-section p{   color: #999999;
+.career-tab-section p{
+	/*color: #999999;
     font-family: open sans !important;
-    font-size: 12px !important;
+    font-size: 12px !important;*/
     font-weight: normal;
     text-align: justify;}
 .career-tab-section p span,ul>li>span,ul>li{   color: #999999;
