@@ -6,7 +6,7 @@ $this->breadcrumbs=array('ShortListed Colleges'=>array('/user/shortListedCollege
 		 <div class="col-md-12 pull-left pd0 ">
 		 <?php foreach ($collegesList as $list){?>
 			<div class="col-md-6 pull-left college-info pd-b6" id="list-<?php echo $list->id;?>">
-				<h1>Shortlisted colleges  <?php echo CHtml::ajaxLink('Remove',array('/user/userShortlistCollageRemove','id'=>$list->id),array('type'=>'POST','success'=>'function(data){alert(data);$("#list-'.$list->id.'").html("");}'),array('class'=>'pull-right btn-danger pd5'));  ?></h1>
+				<h1><?php echo CHtml::link($list->institutes->name,array('user/collage','id'=>$list->institutes->id));?> <?php echo CHtml::ajaxLink('Remove',array('/user/userShortlistCollageRemove','id'=>$list->id),array('type'=>'POST','success'=>'function(data){alert(data);$("#list-'.$list->id.'").html("");}'),array('class'=>'pull-right btn-danger pd5'));  ?></h1>
                
 				<ul id="collage">
 					<li style="height:100px;">
@@ -15,7 +15,6 @@ $this->breadcrumbs=array('ShortListed Colleges'=>array('/user/shortListedCollege
 								<img src="<?php echo Yii::app()->theme->baseUrl;?>/images/schoo-logo.jpg"/>
 							</div>
 							<div class="col-md-10 pd5 pull-left middle-list">
-								<h2><?php echo CHtml::link($list->institutes->name,array('user/collage','id'=>$list->institutes->id));?></h2>
 								<p><?php echo substr($list->institutes->address1,0,60);?></p>
 								<span><i class=" icon-mobile-phone"></i><?php echo $list->institutes->phone_number.'  '.$list->institutes->work_phone_no.'  '.$list->institutes->official_contact_no; ?></span>
 								<a href="mailto:<?php echo $list->institutes->email;?>" title="<?php echo $list->institutes->email;?>"><span><i class=" icon-envelope-alt"></i><?php echo $list->institutes->email;?></span></a>
