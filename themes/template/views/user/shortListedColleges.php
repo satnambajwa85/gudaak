@@ -6,7 +6,7 @@ $this->breadcrumbs=array('ShortListed Colleges'=>array('/user/shortListedCollege
 		 <div class="col-md-12 pull-left pd0 ">
 		 <?php foreach ($collegesList as $list){?>
 			<div class="col-md-6 pull-left college-info pd-b6" id="list-<?php echo $list->id;?>">
-				<h1><?php echo CHtml::link($list->institutes->name,array('user/collage','id'=>$list->institutes->id));?> <?php echo CHtml::ajaxLink('Remove',array('/user/userShortlistCollageRemove','id'=>$list->id),array('type'=>'POST','success'=>'function(data){alert(data);$("#list-'.$list->id.'").html("");}'),array('class'=>'pull-right btn-danger pd5'));  ?></h1>
+				<h1><?php echo CHtml::link($list->institutes->name,array('user/collage','id'=>$list->institutes->id),array('class'=>'headingSort'));?> <?php echo CHtml::ajaxLink('Remove',array('/user/userShortlistCollageRemove','id'=>$list->id),array('type'=>'POST','success'=>'function(data){alert(data);$("#list-'.$list->id.'").html("");}'),array('class'=>'pull-right btn-danger pd5'));  ?></h1>
                
 				<ul id="collage">
 					<li style="height:100px;">
