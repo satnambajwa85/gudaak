@@ -139,15 +139,17 @@ $this->breadcrumbs=array('Career Preference'=>array('/user/careerPreference'));
 							</div>
 							<div class="col-md-9 pull-left  counselor-stream-description">
 								<h1><?php echo substr($dataList['title'],0,50);?></h1>
-								<p><?php echo substr($dataList['description'],0,100);?>..</p>
-								 <ul class="star-rating" style="margin:0px;">
+								<!--
+                                <p><?php echo substr($dataList['description'],0,100);?></p>
+								<ul class="star-rating" style="margin:0px;">
 										<div id="user-rating2_<?php echo $dataList['id'];?>"  ></div>
-									</ul>
+								</ul>
 									<script type="text/javascript">
 										$(document).ready(function(){
 											$('#user-rating2_<?php echo $dataList['id'];?>').raty({readonly:true,score:'<?php echo $dataList['rate'];?>'});
 										});
 									</script> 
+                                 -->   
 								<div class="clear"></div>
 								<span><?php // echo ($selfSel->careerOptions->featured)?'Featured':'';?></span>
 						   </div>
