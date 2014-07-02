@@ -6,7 +6,7 @@ array('Career'=>array('user/career'));?>
 			<div class="mr0  pull-left middle-format-left">
 				<!--<h1><?php echo $dataBYId->title;?></h1>-->
                 <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
-				<?php echo substr(strip_tags($dataBYId->description),0,500);?>
+				<?php echo strip_tags($dataBYId->description);?>
 				<div class="clear"></div>
 				<div id="flashMessage"></div>
 			</div>
