@@ -278,7 +278,7 @@
     </div>
     
 <div id="terms" class="modal fade" style="height:600px;">
-    	<div class="modal-dialog">
+    	<div class="modal-dialog" style="width:850px;">
         	<div class="modal-content">
             <!-- dialog body -->
             	<div class="modal-body">

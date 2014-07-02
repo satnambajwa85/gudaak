@@ -26,12 +26,8 @@ $this->breadcrumbs=array('Career Preference'=>array('/user/careerPreference'));
             <div class="mr0 col-md-6 fl br-right">
 				
 					<div class="mr0  pull-left middle-format-left">
-						<h1>Your  Prefered Career </h1>
-						<p>Your prefered career are listed here.
-						</p>
+						<h1>Your  Prefered Career </h1>						
 						<p id="flashMessage"></p>
-						
-
 					</div>
 				<div class="col-md-12 pdleft  fl">
 			
@@ -133,9 +129,6 @@ $this->breadcrumbs=array('Career Preference'=>array('/user/careerPreference'));
 				<div class="col-md-12 fl">
 					<div class="mr0  pull-left middle-format-left">
 						<h1>Counselor  Prefered career options </h1>
-						<p>Counselor prefered career options are listed here.
-						</p>
-
 					</div>
 					<?php foreach($data2 as $dataList){?>
 					<div class="col-md-12 pull-left fl pd-b10">
@@ -164,14 +157,11 @@ $this->breadcrumbs=array('Career Preference'=>array('/user/careerPreference'));
 					<div class="col-md-12 pull-left fl pd0">
 						<div class="mr0  pull-left counselor-views">
 							<h1>Counselor  Comments </h1>
-							<p>Counselor prefered career are listed here.
-							</p>
-							<datetime class="date-time">
-								29-jan-2014
-							</datetime>
-							<p>Counsellor prefered career are listed here Counselor prefered career are listed here Counselor prefered career are listed here Counselor prefered stream are listed here Counselor prefered stream are listed here Counselor prefered stream are listed here Counselor prefered stream are listed here Counselor prefered stream are listed here Counselor prefered stream are listed here Counselor prefered stream are listed here Counselor prefered stream are listed here Counselor prefered stream are listed here 
-							</p>
-							<?php echo CHtml::link('<i class="icon-microphone "></i> Talk to Counselor',array('user/'),array('class'=>'orange'))?>
+							<?php foreach($data2 as $dataList){?>
+                                <datetime class="date-time"><?php echo (isset($dataList['modified_date']))?date('D-M-Y',strtotime($dataList['modified_date'])):"";?></datetime>
+                                <p><?php echo $dataList['comments'];?></p>
+							<?php } ?>
+                            <?php echo CHtml::link('<i class="icon-microphone "></i> Talk to Counselor',array('/user/talk'),array('class'=>'orange'))?>
 						</div>
 					</div>
 				</div>

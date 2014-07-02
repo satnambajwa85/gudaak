@@ -1329,15 +1329,14 @@ class UserController extends Controller
 		}
 		
 		foreach($preference as $Crate){
-			$data[$Crate->career_options_id]['id']				=	$Crate-> careerOptions->id;
-			$data[$Crate->career_options_id]['title']			=	$Crate-> careerOptions->title;
+			$data[$Crate->career_options_id]['id']				=	$Crate->careerOptions->id;
+			$data[$Crate->career_options_id]['title']			=	$Crate->careerOptions->title;
 			$data[$Crate->career_options_id]['description']		=	$Crate->careerOptions->description;
 			$data[$Crate->career_options_id]['image']			=	$Crate->careerOptions->image;
 			$data[$Crate->career_options_id]['uRating']			=	$Crate->self;
+			$data[$Crate->career_options_id]['comments']			=	$Crate->comments;
 			$data[$Crate->career_options_id]['updated_by']		=	$Crate->updated_by;
-		 
-	 	}
-		 
+		}
 		$model	=	new UserCareerComments;
 		if(isset($_POST['UserCareerComments']))
 		{	
@@ -1352,12 +1351,13 @@ class UserController extends Controller
 		$data2	=array();
 		$finalCounselor	=	UserCareerPreference::model()->findAllByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId,'reccomended'=>1));
 		foreach($finalCounselor as $fCounselor){
-			$data2[$fCounselor->career_options_id]['id']			=	$fCounselor-> careerOptions->id;
-			$data2[$fCounselor->career_options_id]['title']			=	$fCounselor-> careerOptions->title;
+			$data2[$fCounselor->career_options_id]['id']			=	$fCounselor->careerOptions->id;
+			$data2[$fCounselor->career_options_id]['title']			=	$fCounselor->careerOptions->title;
 			$data2[$fCounselor->career_options_id]['description']	=	$fCounselor->careerOptions->description;
 			$data2[$fCounselor->career_options_id]['image']			=	$fCounselor->careerOptions->image;
 			$data2[$fCounselor->career_options_id]['rate']			=	$fCounselor->self;
-			$data2[$fCounselor->career_options_id]['updated_by']		=	$fCounselor->updated_by;
+			$data2[$fCounselor->career_options_id]['comments']		=	$fCounselor->comments;
+			$data2[$fCounselor->career_options_id]['updated_by']	=	$fCounselor->updated_by;
 	 	}
 		 
 		//CVarDumper::dump($finalCounselor,10,1);die;
