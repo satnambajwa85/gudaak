@@ -174,7 +174,7 @@
                                     echo $form->error($model,'confirmpass');?>
 									</div>
                                     <div class="col-md-12 input-mar pull-left">
-                                    <!--<div><a href="javascript:vodi(0);" class="terms"  >Term and conditions</a></div>-->
+                                    <div><a href="javascript:vodi(0);" class="terms"  >Term and conditions</a></div>
                                      <div class="col-md-4 pull-right pd0">
 									    <?php echo CHtml::submitButton('Register',array('class'=>'btn fr btn-warning login '));?>
 									</div>
