@@ -12,7 +12,7 @@ class UserController extends Controller
 				),
 			
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('index','editProfile','test','tests','detailedReport','collage','userStreamRaitng','liveChat','articlesList','articles','summary','newsUpdates','exploreColleges','shortListedColleges','dynamicCourse','dynamicSearchResult','userShortlistCollage','userShortlistTest','userShortlistTestRemove','search','changePassword','application','questionsAnswer','upload','testMail','userProfileUpdate','retakeTest','news','readEvent','summaryDetails','summaryData','talkData','talk','feedbackAnswer','data','testDetails','autoComplete','userShortlistCollageRemove'),
+				'actions'=>array('index','editProfile','test','tests','detailedReport','collage','userStreamRaitng','liveChat','articlesList','articles','summary','newsUpdates','exploreColleges','shortListedColleges','dynamicCourse','dynamicSearchResult','userShortlistCollage','userShortlistTest','userShortlistTestRemove','search','changePassword','application','questionsAnswer','upload','testMail','userProfileUpdate','retakeTest','news','readEvent','summaryDetails','summaryData','talkData','talk','feedbackAnswer','data','testDetails','autoComplete','userShortlistCollageRemove','News'),
 				'users' => array('@')					
 				),
 				array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -1788,27 +1788,6 @@ class UserController extends Controller
                 	
                 </table>';
 	}
-	public function actionNewsUpdates()
-	{	
-		$criteria			=	new CDbCriteria();
-		$criteria->condition=	'(published =:published and status =:status )';
-		$criteria->params 	=	array('published'=>1,'status'=>1);
-		$criteria->order	=	'add_date DESC';
-		$count				=	News::model()->count($criteria);
-		$pages				=	new CPagination($count);
-		$pages->pageSize	=	5;
-		$pages->applyLimit($criteria);
-		$news				=	News::model()->findAll($criteria);
-		$criteria2			=	new CDbCriteria();
-		$criteria2->condition= '(published =:published and status =:status )';
-		$criteria2->params 	= array('published'=>1,'status'=>1);
-		$count				=	Events::model()->count($criteria2);
-		$pages2				=	new CPagination($count);
-		$pages2->pageSize	=	5;
-		$pages2->applyLimit($criteria2);
-		$events				=	Events::model()->findAll($criteria2);
-		$this->render('newsUpdates',array('news'=>$news,'pages'=>$pages,'pages2'=>$pages2,'events'=>$events));
-	}
 	public function actionCareerOptionsAjax($id)
 	{	
 		
@@ -2084,7 +2063,49 @@ if(count($special)>0)
 	{	
 		$career					=	CareerDetails::model()->findAllByAttributes(array('status'=>1,'published'=>1,'career_options_id'=>$id));
 		$this->renderPartial('_userPrefferdCareer',array('list'=>$career), false,true);
-	}		
+	}
+	public function actionNewsUpdates()
+	{	
+		$criteria			=	new CDbCriteria();
+		$criteria->condition=	'(published =:published and status =:status )';
+		$criteria->params 	=	array('published'=>1,'status'=>1);
+		$criteria->order	=	'add_date DESC';
+		$count				=	News::model()->count($criteria);
+		$pages				=	new CPagination($count);
+		$pages->pageSize	=	5;
+		$pages->applyLimit($criteria);
+		$news				=	News::model()->findAll($criteria);
+		$criteria2			=	new CDbCriteria();
+		$criteria2->condition= '(published =:published and status =:status )';
+		$criteria2->params 	= array('published'=>1,'status'=>1);
+		$count				=	Events::model()->count($criteria2);
+		$pages2				=	new CPagination($count);
+		$pages2->pageSize	=	5;
+		$pages2->applyLimit($criteria2);
+		$events				=	Events::model()->findAll($criteria2);
+		$this->render('newsUpdates',array('news'=>$news,'pages'=>$pages,'pages2'=>$pages2,'events'=>$events));
+	}
+	
+	public function actionNews()
+	{	
+		$criteria			=	new CDbCriteria();
+		$criteria->condition=	'(published =:published and status =:status )';
+		$criteria->params 	=	array('published'=>1,'status'=>1);
+		$criteria->order	=	'add_date DESC';
+		
+		
+		$count				=	News::model()->count($criteria);
+		$pages				=	new CPagination($count);
+		$pages->pageSize	=	50;
+		$pages->applyLimit($criteria);
+		$news				=	News::model()->findAll($criteria);
+		$criteria2			=	new CDbCriteria();
+		$criteria2->condition= '(published =:published and status =:status )';
+		$criteria2->params 	= array('published'=>1,'status'=>1);
+		
+		$this->render('newsList',array('news'=>$news,'pages2'=>$pages2));
+	}
+	
 	public function actionNews($id)
 	{	
 		
