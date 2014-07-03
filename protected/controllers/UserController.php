@@ -2083,18 +2083,8 @@ if(count($special)>0)
 		$criteria->condition=	'(published =:published and status =:status )';
 		$criteria->params 	=	array('published'=>1,'status'=>1);
 		$criteria->order	=	'add_date DESC';
-		
-		
-		$count				=	News::model()->count($criteria);
-		$pages2				=	new CPagination($count);
-		$pages2->pageSize	=	50;
-		$pages2->applyLimit($criteria);
 		$news				=	News::model()->findAll($criteria);
-		$criteria2			=	new CDbCriteria();
-		$criteria2->condition= '(published =:published and status =:status )';
-		$criteria2->params 	= array('published'=>1,'status'=>1);
-		
-		$this->render('newsList',array('news'=>$news,'pages2'=>$pages2));
+		$this->render('newsList',array('news'=>$news));
 	}
 	
 	public function actionNews($id)

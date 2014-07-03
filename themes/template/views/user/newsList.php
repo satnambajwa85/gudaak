@@ -6,6 +6,7 @@ $this->breadcrumbs=array('News'=>array('/user/newsUpdates'));?>
             <div class="mr0 pd0 col-md-12   artical">
                 <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
             </div>
+            <div id="scrollBar" style="max-height:555px">
             <ul>
 			<?php  foreach($news as $list){ ?>
                 <li class="col-md-6  art-class">
@@ -18,8 +19,6 @@ $this->breadcrumbs=array('News'=>array('/user/newsUpdates'));?>
 				</li>
 			<?php } ?>
             </ul>
-            <div class="col-md-6 pull-left">
-                <?php $this->widget('CLinkPager', array('pages' => $pages2,)) ?>
             </div>
         </div>			
     </div>
