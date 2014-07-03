@@ -1,5 +1,5 @@
-<?php $this->pageTitle='Notifications';
-$this->breadcrumbs=array('Notifications'=>array('/user/newsUpdates'));?>
+<?php $this->pageTitle='News';
+$this->breadcrumbs=array('News'=>array('/user/newsUpdates'));?>
 
 	<div class="career-bot pull-left">
 		<div class="mr0 col-md-12 pd0 fl">
@@ -23,18 +23,12 @@ $this->breadcrumbs=array('Notifications'=>array('/user/newsUpdates'));?>
 					<?php } ?>
 				</ul>
 				<div class="col-md-6 pull-left">
-					<?php $this->widget('CLinkPager', array('pages' => $pages,)) ?>
+					<?php $this->widget('CLinkPager', array('pages' => $pages2,)) ?>
 				</div>
-			</div>
-			
-			
-			
+			</div>			
 		</div>
-		 
-		 
 </div>
-	
-	<div class="news pd0 fl">
-		<?php  $this->Widget('WidgetNews'); ?>
-	</div>
+<div class="news pd0 fl">
+	<?php  $this->Widget('WidgetNews'); ?>
+</div>
 			
