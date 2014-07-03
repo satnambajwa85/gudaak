@@ -6948,7 +6948,7 @@ header {
 .welcome-school  h3 {
     color: #fff;
     float: left;
-    font-family: open sans;
+    font-family: robotomedium;
     font-size: 13px;
     line-height: 10px;
     margin: 0;
@@ -6963,7 +6963,7 @@ header {
 .welcome-user >  p {
     color: #BEBEBE;
     float: left;
-    font-family: open sans;
+    font-family: robotomedium;
     font-size: 13px;
     line-height: 10px;
     margin: 0;
@@ -7057,7 +7057,7 @@ header {
     background: none repeat scroll 0 0 #222222;
     color: #FFFFFF;
     float: right;
-    font-family: open sans;
+    font-family: robotomedium;
     font-weight: 600;
     height: 20px;
     line-height: 20px;
@@ -7117,7 +7117,7 @@ header {
 .profile-sec > a {
     color: #222222;
     float: left;
-    font-family: open sans;
+    font-family: robotomedium;
     font-size: 15px;
     font-weight: 600;
     letter-spacing: 0.25px;
@@ -7216,7 +7216,7 @@ header {
     border-radius: 3px;
     color: #B0AFAF;
     float: left;
-    font-family: open sans;
+    font-family: robotomedium;
     font-size: 12px;
     font-weight: normal;
     height: 27px;
@@ -7727,7 +7727,7 @@ top:115px;width: 252px;background:#FAFFFF;background-color:#FAFFFF;z-index:999;}
 .career-list-view.pull-left li{margin:9px 0 0 0;text-transform:capitalize;}
 .li-active{background: url("../images/active-tab.png") no-repeat scroll 186px 0 rgba(0, 0, 0, 0);}
 .career-list-view li a{    color: #21C4C1;
-    font-family: open sans !important;
+    font-family: robotomedium !important;
     font-size: 13px;
     text-decoration: none;}
 .career-list-view li a.currentTab {color:#F7A944;}
@@ -7904,7 +7904,7 @@ border-left: 1px solid #fff;}
 	.prefered-stream-img2 img {   height: 118px;
     width: 53%;}
 .stream-description{position:absolute;background:none repeat scroll 0 0 rgba(0, 0, 0, 0.66);right:0;height:100%;width:50%;padding:7px;}
-.stream-description h1{margin:0;color: #fff;font-size: 12px;font-weight: bold;text-transform: capitalize;font-family: open sans}
+.stream-description h1{margin:0;color: #fff;font-size: 12px;font-weight: bold;text-transform: capitalize;font-family: robotomedium}
 .stream-description p{color: #F5F5F5;font-size: 11px;margin-top: 7px;text-align: justify;margin:0px;}
 .stream-description a{color: #21C4C1;font-size: 11px;margin-top: 7px;text-align: justify;}
 .stream-description a:hover{color: #20C1C1;}
@@ -7919,11 +7919,11 @@ border-left: 1px solid #fff;}
 #comment-info-form-btn{color: #fff;font-size: 11px;margin-top: 7px;text-align: center; width: 76px;}
 .counselor-stream-description{position:absolute;background:none repeat scroll 0 0 rgba(0, 0, 0, 0.66);right:0;height:100%;width:54%;padding:7px;}
 .counselor-stream-description h1{ color: #FFFFFF;
-    font-family: open sans !important;
+    font-family: robotomedium !important;
     font-size: 14px;
     margin: 0;
     text-transform: capitalize}
-.counselor-stream-description p{ font-family: open sans !important;color: #F5F5F5;font-size: 11px;margin-top: 7px;margin:0px;}
+.counselor-stream-description p{ font-family: robotomedium !important;color: #F5F5F5;font-size: 11px;margin-top: 7px;margin:0px;}
 .counselor-stream-description  span{color: #F5F5F5;font-size: 11px; margin: 0;text-align: justify;font-family: robotomedium;float:right}
 .counselor-stream-description a{color: #21C4C1;font-size: 11px;margin-top: 7px;text-align: justify;}
 .counselor-stream-description a:hover{color: #20C1C1;}
@@ -8035,7 +8035,7 @@ filter: alpha(opacity=30);}
 .left-list img{margin:2px 0 0 5px;width: 77%;}
 .middle-list h2{   color: #666666;font-family: robotomedium;font-size: 13px;margin: 3px 0 3px 0; padding: 0;}
 .middle-list p{ text-transform: capitalize;color: #666666;font-family: robotomedium;font-size: 10px; margin: 0 0 6px 0; padding: 0;}
-.middle-list span{float:left; color: #666666; font-family: open sans;
+.middle-list span{float:left; color: #666666; font-family: robotomedium;
     font-size: 9px;margin: 0 6px 0 0; padding: 0;}
 .middle-list span i{float:left;font-size: 13px;margin:0 6px 0 0;}
 .right-list  h3{ color: #666666;font-family: robotomedium;font-size: 11px;margin: 3px 0; padding: 0; text-align: center;}
@@ -8263,10 +8263,10 @@ input[type="radio"]:checked + label
 .ratingStar{width:90px;}
 .career-lib:hover .ratingStar img{ border:none;}
 .mr-l{margin: 0 7px 0 0;}
-.retaketest h1{font-size:14px; color:#666; font-family:open sans;text-transform: capitalize;}
-.retaketest span{margin-bottom:9px;width: 94px;float:left;font-size:14px; color:#999; font-family:open sans;text-transform: capitalize;}
-.retaketest datetime{float:left;font-size:14px; color:#21C4C1; font-family:open sans;}
-.retaketest a{text-decoration:underline;font-size:14px;font-family:open sans;}
+.retaketest h1{font-size:14px; color:#666; font-family:robotomedium;text-transform: capitalize;}
+.retaketest span{margin-bottom:9px;width: 94px;float:left;font-size:14px; color:#999; font-family:robotomedium;text-transform: capitalize;}
+.retaketest datetime{float:left;font-size:14px; color:#21C4C1; font-family:robotomedium;}
+.retaketest a{text-decoration:underline;font-size:14px;font-family:robotomedium;}
 .retaketest{float:lft;width:100%;}
 .min-height-fix{min-height:298px;}
 .scrollbox-wrapper {position: relative;overflow: hidden;}
@@ -8330,16 +8330,16 @@ height:19px !important;
 .rating-history ul li {width:100%;}
 .rating-history ul li { border-bottom: 1px solid #CCCCCC;
     padding: 10px;}
-.rating-history h1 {color: #666;margin-top: 4px; float: left; font-family: open sans !important; font-size: 14px;}
+.rating-history h1 {color: #666;margin-top: 4px; float: left; font-family: robotomedium !important; font-size: 14px;}
 .hRate  {width: 100% !important;text-align: center;}
 .hRate img { width: 6% !important;}
 .rating-history h2 {font-size: 14px;margin:0px;}
 .rating-title{background-color:#FFEEDA;}
 .skyBlue{color:#21C4C1;}
-.rating-history li {font-family: open sans;font-size: 14px;}
-.rating-history li span{margin-left: 18px;font-family: open sans;font-size: 14px;}
+.rating-history li {font-family: robotomedium;font-size: 14px;}
+.rating-history li span{margin-left: 18px;font-family: robotomedium;font-size: 14px;}
 .counsellor-comment{ color: #21C4C1;
-    font-family: open sans !important;
+    font-family: robotomedium !important;
     font-size: 14px;
     text-decoration: none;}
 .career-tab-section ul  {
@@ -8354,14 +8354,14 @@ height:19px !important;
 }
 .career-tab-section ul li span {
     color: #666666;
-    font-family: open sans !important;
+    font-family: robotomedium !important;
     font-size: 14px !important;
 }
 .mt94{margin-top:94px;}
 .stream-cat{width:32%;margin:0 5px 0 0px ;}
 .rating-title2 {
     color: #666666 !important;
-    font-family: open sans;
+    font-family: robotomedium;
     font-size: 14px;
     margin: 3px 10px 0 4px;
 }
