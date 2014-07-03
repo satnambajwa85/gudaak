@@ -35,13 +35,17 @@
 	<tr>
 		<td>
 			Thank you for setting up an account with Gudaak.com<br />
-		Your Credentials are as follows:
 		</td>	
 	</tr>
 	<tr>
 		<td>
-			Username: <span><?php echo $email; ?></span><br />
-			Password: <span><?php echo $password; ?></span><br /><br />
+			 We are sending you this e-mail because you indicated that you forgot your password.<br /><br />
+            
+            
+            Please click the link below to reset your password:<br /><br /><br />
+            
+            <a href="<?php echo Yii::app()->createAbsoluteUrl('site/resetPassword', array('link' => $password));?>" style="background: none repeat scroll 0 0 #48a53d;color: #FFFFFF;font-size: 18px; padding: 10px 15px;text-decoration: none;transition: all 600ms ease-in-out 0s; font-weight:bold; font-family:Arial, Helvetica, sans-serif; -webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;margin-left:200px;">Reset Password</a>
+            
 		</td>	
 	</tr>
 	<tr>

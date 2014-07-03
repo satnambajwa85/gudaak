@@ -523,4 +523,18 @@ a.thumbnail:focus {
 border-color: none !important;
 }
 .fb-butt:hover{opacity:0.9}
-	
+
+.textfield_width{ width:230px; margin-bottom:10px;}
+.marginset{margin-top:50%; margin-bottom:75%;}
+.back-bt_cpwd {
+   left: -266px;
+    position: relative;
+    top: 203px;
+}
+.save_bt{ 
+   left: -26px;
+    padding: 5px 25px;
+    position: relative;
+    top: 200px;
+}
+		

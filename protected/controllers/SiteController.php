@@ -435,31 +435,78 @@ class SiteController extends Controller
 		if(isset($_POST['ForgotpasswordForm'])){
 			$model->attributes=$_POST['ForgotpasswordForm'];
 			if($model->validate()){
-				//Searches for the record in the database for the posted email 
-				$record_exists = UserLogin::model()->exists('username = :email', array(':email'=>$_POST['ForgotpasswordForm']['email']));   				
+				$record_exists = UserLogin::model()->exists('username = :email', array(':email'=>$_POST['ForgotpasswordForm']['email']));
 				if($record_exists==1){
-					$record = UserLogin::model()->findByAttributes(array('username'=>$_POST['ForgotpasswordForm']['email'])); 
-					//Generates a random number  
-					$random_number = rand(99999,9999999);
-					/*  Actual Code to be used  */
-				  	$new_password = md5($random_number);
-						UserLogin::model()->updateAll(array('password'=>$new_password),'id="'.$record->id.'"');
-					//Start  mail Function 
-						$data['name']		=	'Dear user';
-						$data['email']		=	$record->username;
-						$data['password']	=	$random_number;
-						$this->sendMail($data,'forget'); 
-						Yii::app()->user->setFlash('new_password_message','Your new password has been sent to your email address.');
+					$record = UserLogin::model()->findByAttributes(array('username'=>$_POST['ForgotpasswordForm']['email']));
+					$data['name']		=	'User';
+					$data['email']		=	$record->username;
+					$data['password']	=	base64_encode($record->username);
+					$mail	=	$this->sendMail($data,'forget');
+                	if($mail){
+						Yii::app()->user->setFlash('new_password_message','You will receive an email with instructions about how to reset your password in a few minutes.');
 						$this->refresh();
-				 		Yii::app()->user->setFlash('new_password_message',"Sorry mail could not be sent this time!Please try again.");					
-					}
-				else{
-						Yii::app()->user->setFlash('error',"The details provided by you does not match our records!");
+					}else
+						Yii::app()->user->setFlash('error',"Sorry mail could not be sent this time! Please try again.");
 				}
+				else
+					Yii::app()->user->setFlash('error',"The details you provided do not match our records. Please provide the correct details!");
 			} //validate ends
 		}
 		$this->render('forgetPassword', array('model'=>$model));
 		
+	}
+	
+	public function actionResetPassword($link)
+	{
+        $email =    '';
+        if(isset($link))
+          $email = base64_decode($link);
+        
+       $record_exists = UserLogin::model()->exists('username = :email', array(':email'=>$email));
+       if($record_exists==1){
+           Yii::app()->session['passwordEmail'] = $email;
+           $this->redirect(Yii::app()->createUrl('/site/newPassword'));
+       }
+        else{
+           Yii::app()->user->setFlash('error',"Invalid Url.");
+           $this->redirect(Yii::app()->createUrl('/site/login'));
+        }
+        
+	}
+	public function actionNewPassword()
+	{
+		$this->layout='//layouts/main2';
+		if(!isset(Yii::app()->session['passwordEmail']))
+			$this->redirect(Yii::app()->createUrl('/site/resetPassword'));
+		$model     =    new NewpasswordForm;
+		if(isset($_POST['NewpasswordForm'])){
+			$model->attributes=$_POST['NewpasswordForm'];
+			if($model->validate())
+			{
+				$record				=	UserLogin::model()->findByAttributes(array('username'=>Yii::app()->session['passwordEmail']));
+				$record->password	=	md5($model->new_password);
+				$record->name		=	'User';
+				
+				if($record->save()){
+					$login				=	new LoginForm;
+					$login->email		=  Yii::app()->session['passwordEmail']  ;
+					$login->password	=  $model->new_password;
+					if($login->validate() && $login->login()){
+						Yii::app()->user->setFlash('success','Your new password has been sent to the email address you provided.');
+						unset(Yii::app()->session['passwordEmail']);
+						if(Yii::app()->user->userType=='school')
+							$this->redirect(Yii::app()->createUrl('/school'));
+						elseif(Yii::app()->user->userType=='admin')
+							$this->redirect(Yii::app()->createUrl('/school'));
+						elseif(Yii::app()->user->userType=='counsellor')
+							$this->redirect(Yii::app()->createUrl('/counsellor'));
+						else
+							$this->redirect(Yii::app()->createUrl('/user'));
+					}
+				}
+			}
+		}
+		$this->render('newPassword',array('model'=>$model));
 	}
 	
 	/**
