@@ -6988,13 +6988,11 @@ header {
 /* Side Navigation */
 .side-navigation{
 	float:left;
-	width:96%; 
-	/*background: url(../images/menu_bg.jpg) no-repeat center;*/
+	width:96%;
     background-image: url(../images/menu_bg.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-	
-	min-height:563px;
+	min-height:475px;
 }
 .side-navigation  h4{font-family: robotothin;font-weight: bold;color:#EEECED;text-align:center;/*background:#525449;background-color:#525449;*/margin:0;padding:12px; border-bottom: 1px solid #848984;}
 .side-navigation ul{
