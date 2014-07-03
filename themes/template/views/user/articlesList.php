@@ -12,7 +12,7 @@ $this->breadcrumbs=array('Articles'=>array('/user/articlesList'));?>
 					 <?php $count=0; foreach($articles as $list){ $count=abs($count-1);?>
 					<li class="col-md-6 row pd0 art-class <?php echo (!$count)?'mla':'';?>">                    
                     <?php echo CHtml::link('<div class="pd0 col-md-12">
-							<h1>'.$list->title.'</h1>
+							<h1 class="listAtrical">'.$list->title.'</h1>
 							<span class="date">'.date('M d, Y',strtotime($list->add_date)).'</span>
                             <div class="clear"></div>
                             <div  style="float:left;padding:6px;" >
