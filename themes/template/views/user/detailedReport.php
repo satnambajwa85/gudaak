@@ -16,7 +16,7 @@ $this->breadcrumbs=array('Detailed Report'=>array('/user/detailedReport'));?>
 			} ?>
 			</div>
 		<div class="col-md-12 pull-left br-all inner-padding">
-			<div id="scrollBar" style="max-height:500px;width:97%;">
+			<div id="scrollBar" style="max-height:475px;width:97%;">
 			<div class="wrapper" style="position:relative">
             
  <!--Page NO. 1-->

@@ -13,7 +13,7 @@ array('Career'=>array('user/career'));?>
 			
 		</div>
 		<div class="clear"></div>
-		<div id="scrollBar" style="max-height:555px">
+		<div id="scrollBar" style="max-height:500px">
 		<div class="col-md-12 pdleft fl">
 		
 		<ul class="educationbot">
