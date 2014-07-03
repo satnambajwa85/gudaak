@@ -94,8 +94,9 @@ class CounsellorController extends Controller
 	{
 		$model	=	Tickets::model()->findByPk($id);
 		if(isset($_POST['Tickets'])){
-			$model->attributes	=	$_POST['Tickets'];
-			$model->status		=	2;
+			$model->attributes		=	$_POST['Tickets'];
+			$model->modified_date	=	date('Y-m-d H:i:s');
+			$model->status			=	2;
 			if($model->save()){
 				$this->redirect(Yii::app()->createUrl('counsellor/query'));
 			}
