@@ -160,7 +160,7 @@ $this->breadcrumbs=array('Career Preference'=>array('/user/careerPreference'));
 						<div class="mr0  pull-left counselor-views">
 							<h1>Counselor  Comments </h1>
 							<?php foreach($data2 as $dataList){?>
-                                <datetime class="date-time"><?php echo (isset($dataList['add_date']))?date('D-M-Y',strtotime($dataList['add_date'])):"";?></datetime>
+                                <datetime class="date-time"><?php echo (isset($dataList['add_date']))?date('d-M-Y',strtotime($dataList['add_date'])):"";?></datetime>
                                 <p><?php echo $dataList['comments'];?></p>
 							<?php } ?>
                             <?php echo CHtml::link('<i class="icon-microphone "></i> Talk to Counselor',array('/user/talk'),array('class'=>'orange'))?>
