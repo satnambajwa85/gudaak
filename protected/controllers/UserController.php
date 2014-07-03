@@ -2066,15 +2066,6 @@ if(count($special)>0)
 	}
 	public function actionNewsUpdates()
 	{	
-		$criteria			=	new CDbCriteria();
-		$criteria->condition=	'(published =:published and status =:status )';
-		$criteria->params 	=	array('published'=>1,'status'=>1);
-		$criteria->order	=	'add_date DESC';
-		$count				=	News::model()->count($criteria);
-		$pages				=	new CPagination($count);
-		$pages->pageSize	=	5;
-		$pages->applyLimit($criteria);
-		$news				=	News::model()->findAll($criteria);
 		$criteria2			=	new CDbCriteria();
 		$criteria2->condition= '(published =:published and status =:status )';
 		$criteria2->params 	= array('published'=>1,'status'=>1);
@@ -2083,7 +2074,7 @@ if(count($special)>0)
 		$pages2->pageSize	=	5;
 		$pages2->applyLimit($criteria2);
 		$events				=	Events::model()->findAll($criteria2);
-		$this->render('newsUpdates',array('news'=>$news,'pages'=>$pages,'pages2'=>$pages2,'events'=>$events));
+		$this->render('newsUpdates',array('pages2'=>$pages2,'events'=>$events));
 	}
 	
 	public function actionNewsList()

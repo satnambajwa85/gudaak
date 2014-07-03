@@ -11,20 +11,16 @@ $this->breadcrumbs=array('Notifications'=>array('/user/newsUpdates'));?>
 					 
 				</div>
 				<ul>
-					 <?php  foreach($news as $list){ ?>
 					<li>
 						<div class="pd0 col-md-12">
-							<h1><?php echo $list->title;?></h1>
-							<span><?php echo date('M d, Y',strtotime($list->add_date));?></span>
-							<p class="mt15"><?php echo substr($list->description,0,230);?>..</p>
-							<?php echo CHtml::link('Read Full..',array('user/news','id'=>$list->id));?>
+							<h1>Notifictaion title</h1>
+							<span><?php echo date('M d, Y');?></span>
+							<p class="mt15">this is dummamy data..</p>
+							<?php //echo CHtml::link('Read Full..',array('user/news','id'=>$list->id));?>
 						</div>
 					</li>
-					<?php } ?>
 				</ul>
-				<div class="col-md-6 pull-left">
-					<?php $this->widget('CLinkPager', array('pages' => $pages,)) ?>
-				</div>
+				
 			</div>
 			<div class="mr0 col-md-6  fl events">
 				<div class="mr0 col-md-12 pd0  artical">
