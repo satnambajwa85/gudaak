@@ -1334,8 +1334,9 @@ class UserController extends Controller
 			$data[$Crate->career_options_id]['description']		=	$Crate->careerOptions->description;
 			$data[$Crate->career_options_id]['image']			=	$Crate->careerOptions->image;
 			$data[$Crate->career_options_id]['uRating']			=	$Crate->self;
-			$data[$Crate->career_options_id]['comments']			=	$Crate->comments;
+			$data[$Crate->career_options_id]['comments']		=	$Crate->comments;
 			$data[$Crate->career_options_id]['updated_by']		=	$Crate->updated_by;
+			$data[$Crate->career_options_id]['add_date']		=	$Crate->add_date;
 		}
 		$model	=	new UserCareerComments;
 		if(isset($_POST['UserCareerComments']))
@@ -1358,6 +1359,9 @@ class UserController extends Controller
 			$data2[$fCounselor->career_options_id]['rate']			=	$fCounselor->self;
 			$data2[$fCounselor->career_options_id]['comments']		=	$fCounselor->comments;
 			$data2[$fCounselor->career_options_id]['updated_by']	=	$fCounselor->updated_by;
+			$data2[$fCounselor->career_options_id]['modified_date']	=	$fCounselor->modified_date;
+			$data2[$fCounselor->career_options_id]['add_date']		=	$fCounselor->add_date;
+			
 	 	}
 		 
 		//CVarDumper::dump($finalCounselor,10,1);die;

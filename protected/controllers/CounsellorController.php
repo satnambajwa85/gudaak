@@ -171,11 +171,11 @@ class CounsellorController extends Controller
 		else{
 			$preffred	=	new	UserCareerPreference;
 			if(isset($_POST['UserCareerPreference'])){
-				
 				$preffred->attributes			=	$_POST['UserCareerPreference'];
 				$preffred->user_profiles_id		=	$id;
 				$preffred->counsellor_id		=	Yii::app()->user->profileId;
 				$preffred->add_date				=	date('Y-m-d H:i:s');
+				$preffred->modified_date		=	date('Y-m-d H:i:s');
 				$preffred->self					=	0;
 				$preffred->default				=	0;
 				$preffred->status				=	0;
