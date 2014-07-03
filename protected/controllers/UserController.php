@@ -12,7 +12,7 @@ class UserController extends Controller
 				),
 			
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('index','editProfile','test','tests','detailedReport','collage','userStreamRaitng','liveChat','articlesList','articles','summary','newsUpdates','exploreColleges','shortListedColleges','dynamicCourse','dynamicSearchResult','userShortlistCollage','userShortlistTest','userShortlistTestRemove','search','changePassword','application','questionsAnswer','upload','testMail','userProfileUpdate','retakeTest','news','readEvent','summaryDetails','summaryData','talkData','talk','feedbackAnswer','data','testDetails','autoComplete','userShortlistCollageRemove','News'),
+				'actions'=>array('index','editProfile','test','tests','detailedReport','collage','userStreamRaitng','liveChat','articlesList','articles','summary','newsUpdates','exploreColleges','shortListedColleges','dynamicCourse','dynamicSearchResult','userShortlistCollage','userShortlistTest','userShortlistTestRemove','search','changePassword','application','questionsAnswer','upload','testMail','userProfileUpdate','retakeTest','news','readEvent','summaryDetails','summaryData','talkData','talk','feedbackAnswer','data','testDetails','autoComplete','userShortlistCollageRemove','newsList'),
 				'users' => array('@')					
 				),
 				array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -2086,7 +2086,7 @@ if(count($special)>0)
 		$this->render('newsUpdates',array('news'=>$news,'pages'=>$pages,'pages2'=>$pages2,'events'=>$events));
 	}
 	
-	public function actionNews()
+	public function actionNewsList()
 	{	
 		$criteria			=	new CDbCriteria();
 		$criteria->condition=	'(published =:published and status =:status )';
