@@ -46,7 +46,7 @@ $this->breadcrumbs=array('Colleges Explore'=>array('/user/exploreColleges'));
                             <div class="coll_logo">
 							<img src="<?php echo Yii::app()->theme->baseUrl;?>/images/coll_logo.png" alt="logo" width="65"></div>   
                              <div class="head_text_coll">
-							 <?php echo CHtml::link($Institutes->name,array('user/collage','id'=>$Institutes->id));?><br>
+							 <?php echo CHtml::link($Institutes->name,array('user/collage','id'=>$Institutes->id),array('class'=>'font_size_set'));?><br>
                               <span><?php echo substr($Institutes->address1,0,100);?></span>
                              </div>
                         </div>

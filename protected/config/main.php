@@ -52,8 +52,8 @@ return array(
 		'Smtpmail'=>array(
             'class'=>'application.extensions.smtpmail.PHPMailer',
             'Host'=>"smtp.gmail.com",
-            'Username'=>'satnambajwa85@gmail.com',
-            'Password'=>'gurpreet87',
+            'Username'=>'info@gudaak.com',
+            'Password'=>'email4all',
             'Mailer'=>'smtp',
 			'SMTPSecure' => "ssl",
             'Port'=>465,
@@ -107,7 +107,7 @@ return array(
 	// using Yii::app()->params['paramName']
 	'params'=>array(
 		// this is used in contact page
-		'adminEmail'=>'satnambajwa85@gmail.com',
+		'adminEmail'=>'info@gudaak.com',
 	),
 	'theme'=>'template'
 );
