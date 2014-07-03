@@ -13,7 +13,7 @@ $this->breadcrumbs=array('News'=>array('/user/newsUpdates'));?>
                     <div class="pd0 col-md-12">
                         <h1><?php echo $list->title;?></h1>
                         <span><?php echo date('M d, Y',strtotime($list->add_date));?></span>
-                        <p class="mt15"><?php echo substr($list->description,0,230);?>..</p>
+                        <p class="mt15"><?php echo substr(strip_tags($list->description),0,230);?>..</p>
 						<?php echo CHtml::link('Read Full..',array('user/news','id'=>$list->id));?>
 					</div>
 				</li>
