@@ -2095,9 +2095,9 @@ if(count($special)>0)
 		
 		
 		$count				=	News::model()->count($criteria);
-		$pages				=	new CPagination($count);
-		$pages->pageSize	=	50;
-		$pages->applyLimit($criteria);
+		$pages2				=	new CPagination($count);
+		$pages2->pageSize	=	50;
+		$pages2->applyLimit($criteria);
 		$news				=	News::model()->findAll($criteria);
 		$criteria2			=	new CDbCriteria();
 		$criteria2->condition= '(published =:published and status =:status )';
