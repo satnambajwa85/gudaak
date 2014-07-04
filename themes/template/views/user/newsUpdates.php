@@ -12,7 +12,7 @@ $this->breadcrumbs=array('Notifications'=>array('/user/newsUpdates'));?>
 				</div>
 				<ul>
 					<li>
-						<div class="pd0 col-md-12">
+						<div class="col-md-12">
 							<h1>Notifictaion title</h1>
 							<span><?php echo date('M d, Y');?></span>
 							<p class="mt15">this is dummamy data..</p>
