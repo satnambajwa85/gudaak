@@ -27,9 +27,9 @@ body{font-size:12px; color:#616161; font-family:Gotham, "Helvetica Neue", Helvet
 
 .logo{float:left;}
 .right_nav .join_us{ background:#eb8a2b; padding:5px 8px; color:#fff; border-radius:3px; position:relative; top:-5px; }
-.right_nav{float:right; width:40%; margin-top:30px;}
+.right_nav{float:right; width:40%; margin-top:20px;}
 .right_nav li{float:left; width:auto; margin:0 0 0 8%}
-.right_nav li a{float:left; font-weight:normal;font-family: robotomedium; width:auto; color:#616161; font-size:14px;padding:10px;}
+.right_nav li a{float:left; font-weight:normal;font-family: robotomedium; width:auto; color:#333; font-size:14px;padding:10px;}
 
 .logo{float:left;}
 .right_nav .join_us{ background:#eb8a2b; padding:4px; color:#F5F5F5; border-radius:3px; position:relative; top:-0px; }

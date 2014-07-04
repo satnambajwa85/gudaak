@@ -46,7 +46,7 @@
 					</ul>
 					<ul class="right_nav">
 	<li><?php echo CHtml::link('School',array('site/schools'),array('class'=>''.(Yii::app()->controller->action->id=='schools')?'white-text':''.''));?></li>
-	<li><?php echo CHtml::link('Student/Parents',array('site/students'),array('class'=>''.(Yii::app()->controller->action->id=='students')?'white-text':''.''));?></li>
+	<li><?php echo CHtml::link('Articles',array('site/articles'),array('class'=>''.(Yii::app()->controller->action->id=='students')?'white-text':''.''));?></li>
 	<?php if(isset(Yii::app()->user->id) && isset(Yii::app()->user->userType) && (Yii::app()->user->userType=='student' or Yii::app()->user->userType=='admin' or Yii::app()->user->userType=='below10th' or Yii::app()->user->userType=='school')){ ?>
 	<li><?php if(Yii::app()->user->userType=='school'){ echo CHtml::link('&nbsp;<i class="glyphicon glyphicon-user"></i> Dashboard',array('school/'),array('class'=>'join_us'));?></li>
 	<?php }else{ echo CHtml::link('&nbsp;<i class="glyphicon glyphicon-user"></i> Dashboard',array('user/'),array('class'=>'join_us'));?></li>
