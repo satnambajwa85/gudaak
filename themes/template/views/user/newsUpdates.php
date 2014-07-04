@@ -3,12 +3,10 @@ $this->breadcrumbs=array('Notifications'=>array('/user/newsUpdates'));?>
 
 	<div class="career-bot pull-left">
 		<div class="mr0 col-md-12 pd0 fl">
-			
 			<div class="mr0 col-md-6  fl newsupdates">
-				<div class="mr0 pd0 col-md-12   artical">
+				<div class="mr0 pd0 col-md-12 artical">
 					 <!--<h1>Notifications</h1>-->
                      <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
-					 
 				</div>
 				<ul>
 					<li>
@@ -20,7 +18,6 @@ $this->breadcrumbs=array('Notifications'=>array('/user/newsUpdates'));?>
 						</div>
 					</li>
 				</ul>
-				
 			</div>
 			<div class="mr0 col-md-6  fl events">
 				<div class="mr0 col-md-12 pd0  artical">
@@ -40,18 +37,11 @@ $this->breadcrumbs=array('Notifications'=>array('/user/newsUpdates'));?>
 					
 					</li>
 					<?php } ?>
-					
 				</ul>
-				 
 			</div>
-			
-			
 		</div>
-		 
-		 
 </div>
-	
-	<div class="news pd0 fl">
-		<?php  $this->Widget('WidgetNews'); ?>
-	</div>
+<div class="news pd0 fl">
+	<?php  $this->Widget('WidgetNews'); ?>
+</div>
 			
