@@ -30,9 +30,9 @@ $this->breadcrumbs=array('Notifications'=>array('/user/newsUpdates'));?>
 					 <?php foreach($events as $list){ ?>
 					<li>
 						<div class="pd0 col-md-12">
-							<h1><?php echo substr($list->title,1,50);?></h1>
+							<h1><?php echo $list->title,0,50;?></h1>
 							<?php echo CHtml::link(' <img src="'.Yii::app()->baseurl.'/uploads/events/large/'.$list->image.'"/>',array('user/readEvent','id'=>$list->id),array('style'=>'padding:0px !important'));?>
-							<p><?php echo substr($list->decription,1,175);?>..
+							<p><?php echo substr($list->decription,0,175);?>..
 							</p>
 							<?php echo CHtml::link('Read more..',array('user/readEvent','id'=>$list->id));?>
 							 
