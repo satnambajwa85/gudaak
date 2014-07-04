@@ -7926,15 +7926,15 @@ border-left: 1px solid #fff;}
 .counselor-stream-description a{color: #21C4C1;font-size: 11px;margin-top: 7px;text-align: justify;}
 .counselor-stream-description a:hover{color: #20C1C1;}
 .date-time{color:#21C4C1;font-size: 9px;}
-.stream-tabing h1{color: #666;font-size: 10px;font-family: robotomedium;   margin-left: 10px;}
+.stream-tabing h1{color: #666;font-size: 12px;font-family: robotomedium;   margin-left: 10px;}
 .stream-grid h3{margin:0px; color: #666;font-size: 13px;font-family: robotomedium}
-.stream-grid p{color: #666;font-size: 10px;font-family: robotomedium}
+.stream-grid p{color: #666;font-size: 12px;font-family: robotomedium}
 .stream-grid > img {float: left;margin: 0 10px 0 0;width:21%; border: 1px solid #EEEEEE;}
 .stream-grid > a img {float: left;margin: 0 10px 0 0;width:21%; border: 1px solid #EEEEEE;}
-.stream-grid > a {color: #21C4C1;font-size: 10px;font-family: robotomedium}
+.stream-grid > a {color: #21C4C1;font-size: 12px;font-family: robotomedium}
 .right-stream-box{text-align: center;}
-.right-stream-box h1{margin:4px; color: #666;font-size: 10px;font-family: robotomedium; text-align: center;}
-.right-stream-box a{margin:4px; color: #21C4C1;font-size: 10px;font-family: robotomedium; font-weight: bold; }
+.right-stream-box h1{margin:4px; color: #666;font-size: 13px;font-family: robotomedium; text-align: center;}
+.right-stream-box a{margin:4px; color: #21C4C1;font-size: 11px;font-family: robotomedium; font-weight: bold; }
 .stream-grid:hover{background-color:#F5F5F5}
 .stream-grid {padding: 5px;}
 #stream-user-tabs{list-style:none;padding:0px;}
