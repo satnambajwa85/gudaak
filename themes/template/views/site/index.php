@@ -52,7 +52,7 @@
                   		  <p>Ask your questions and book counselling session</p>
                         </div>
                         <img width="100%" src="<?php echo Yii::app()->theme->baseUrl;?>/images/pic1.png" /></a>
-                        <div class="col-md-12 pull-left text-center">Talk To Counsellor</div>
+                        <div class="col-md-12 pull-left text-center">Personalized Career Mentoring</div>
                         </div>
                     </div>
                    
