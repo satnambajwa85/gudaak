@@ -9,7 +9,7 @@ $this->breadcrumbs=array('News'=>array('/user/newsUpdates'));?>
             <div id="scrollBar" style="max-height:555px">
             <ul>
 			<?php  foreach($news as $list){ ?>
-                <li class="col-md-6  art-class">
+                <li class="pd0 col-md-6 art-class">
                     <div class="pd0 col-md-12">
                         <h1><?php echo $list->title;?></h1>
                         <span><?php echo date('M d, Y',strtotime($list->add_date));?></span>

@@ -8005,7 +8005,7 @@ filter: alpha(opacity=30);}
 .newsupdates ul{list-style:none;padding:0px;}
 .newsupdates ul li{margin-bottom:10px;border:1px solid #eee;}
 .newsupdates ul li:hover{margin-bottom:10px;border:1px solid #F7A944;}
-.newsupdates ul li h1{font-size:12px;margin:0px;background-color:#F7F7F7; padding: 7px;}
+.newsupdates ul li h1{font-size:15px;color: #21c4c1;margin:0px;background-color:#F7F7F7; padding: 7px;}
 .newsupdates ul li span.date{font-size:12px; background-color: #F7A944;color: #FFFFFF;left: 79%;padding:6px 11px 4px 13px;position: relative;top: -24px;}
 .newsupdates ul li p.MsoNormal span{font-size:12px;background-color:fff;!important}
 .newsupdates ul li p{font-weight:normal;}
