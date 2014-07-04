@@ -62,7 +62,7 @@ $this->breadcrumbs=array('Application'=>array('/user/application'));?>
 	'action'=>Yii::app()->createUrl('/user/application'),
 	'enableAjaxValidation'=>false,
 )); ?>
-<table class="mb10">
+<table class="mb10 mt10">
 	<tr>
 		<td width="30%"></td>
 		<td width="30%">
