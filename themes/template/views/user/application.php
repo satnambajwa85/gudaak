@@ -12,7 +12,7 @@ $this->breadcrumbs=array('Application'=>array('/user/application'));?>
              <div id="scrollBar" style="max-height:500px;width:97%;">
             
             <div class="pull-left college-info pd-b6">
-            <h1 style="font-size:15px;">Shortlisted Entrance Exams</h1>
+            <h1 style="font-size:15px;width:100%;">Shortlisted Entrance Exams</h1>
             
             <table class="table">
      <thead>
@@ -56,7 +56,7 @@ $this->breadcrumbs=array('Application'=>array('/user/application'));?>
             
             </div>
 			<div class="pull-left college-info pd-b6 mt20">
-            <h1 style="font-size:15px;">Entrance Exams</h1>
+            <h1 style="font-size:15px;width:100%;">Entrance Exams</h1>
 <?php $form=$this->beginWidget('CActiveForm', array(
 	'id'=>'entrance-exams-form',
 	'action'=>Yii::app()->createUrl('/user/application'),
