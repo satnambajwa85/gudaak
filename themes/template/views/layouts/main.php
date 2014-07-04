@@ -174,7 +174,8 @@
                                     echo $form->error($model,'confirmpass');?>
 									</div>
                                     <div class="col-md-12 input-mar pull-left">
-                                    <div><a href="javascript:vodi(0);" class="terms"  >Term and conditions</a></div>
+                                    <div>
+                                    By signing up you agree to our <a href="javascript:vodi(0);" class="terms">Term and conditions</a></div>
                                      <div class="col-md-4 pull-right pd0">
 									    <?php echo CHtml::submitButton('Register',array('class'=>'btn fr btn-warning login '));?>
 									</div>
@@ -287,8 +288,8 @@
                             	  <div  class="col-md-12 pull-left">
 								<a data-dismiss="modal" class="btn btn-info pull-right ">close</a>
 								
-                                    <div id="termsC">
-<h4> Terms of use</h4>
+<div id="termsC">
+<h3 style="width:100%; text-align:center; color:#000;"> Terms of use</h3>
 <p>
 Gudaak Consulting Services Private Limited (“Gudaak” or "We") provides this application, site and/or service 
 
@@ -308,7 +309,7 @@ legal guardian(s) do not agree with any part of the Terms of Use, including the 
 
 use, access or purchase access to the Service.
 </p><br/>
-<h5>Changes in Terms of Use</h5>
+<h4 style="color:#000;" >Changes in Terms of Use</h4>
 <p>
 Gudaak has the right to change or modify the Terms of Use, including the Privacy Policy, applicable to your use
 
@@ -326,9 +327,10 @@ in the case that you are a minor, your parent's or legal guardian's acceptance o
 
 additions.
 </p>
-<h5>User Account</h5>
-<p>
-a. In addition to any other requirements specified in this Terms of Use, the use of this Service requires that
+<h4 style="color:#000;">User Account</h4>
+
+<ul style="font-family: robotomedium !important;">
+<li style="margin-top:15px;"><strong style="padding-right:10px;">a.</strong>In addition to any other requirements specified in this Terms of Use, the use of this Service requires that
 
 you be thirteen (13) years of age or older and that you create a user account comprised of choosing a unique 
 
@@ -346,17 +348,17 @@ User's user name and password to access the Service, or to provide your User Acc
 
 User or third party to access the Service. You agree to provide accurate and truthful information when creating a 
 
-User Account.<br><br>
+User Account.</li>
 
-b. Access to certain services on the site requires you to purchase a subscription ("Subscription") for your own 
+<li  style="margin-top:15px;"><strong style="padding-right:10px;">b.</strong> Access to certain services on the site requires you to purchase a subscription ("Subscription") for your own 
 
 User Account or another person's User Account on this Service. Users must be thirteen (13) years or older. 
 
 A Subscription is valid only for the User Account for which it is purchased and is otherwise non-transferable. 
 
-Subscriptions are also non-refundable.<br><br>
+Subscriptions are also non-refundable.</li>
 
-c. Subscriptions can be purchased on an annual basis and with varying benefits as stated/communicated. 
+<li  style="margin-top:15px;"><strong style="padding-right:10px;">c.</strong> Subscriptions can be purchased on an annual basis and with varying benefits as stated/communicated. 
 
 A Subscription renewal shall be charged at the then current price for the applicable Subscription period. 
 
@@ -366,66 +368,98 @@ refunds will be given to the purchaser for the remaining portion of the Subscrip
 
 to the Subscription will be terminated at the end of the current subscription period. After cancellation of a 
 
-Subscription, Users will still be able to access free, non-premium Services.<br><br>
+Subscription, Users will still be able to access free, non-premium Services.</li>
 
-d. From time to time, Gudaak may offer free or subsidized trials of Subscriptions to premium services. Such trial 
+<li  style="margin-top:15px;"><strong style="padding-right:10px;">d.</strong> From time to time, Gudaak may offer free or subsidized trials of Subscriptions to premium services. Such trial 
 
 subscriptions may be subject to certain restrictions such as, first time users, limited duration and as otherwise 
 
-indicated by Gudaak.
-</p>
-<br /><br />
-<h5>Right to Use this Service</h5>
+indicated by Gudaak.</li>
+</ul>
+
 <br />
-<p>
-a. Gudaak grants you a personal, limited, non-exclusive, revocable license to access and use this Service for your personal use subject to this Terms of Use. Gudaak reserves the right to suspend or terminate operation of this Service at any time for any reason without liability to you. Gudaak has the right to change or discontinue any aspect or feature of the Service, including, but not limited to, content, hours of availability, and equipment needed for access or use, at any time without liability to you.<br><br>
-b. Certain features of this Service may be provided by third parties and the use of such features may be conditioned upon your agreement to such third parties' terms of use and privacy policies.<br><br>
-c. In addition to other proprietary rights specified in this Terms of Use, Users may not: 
-	i) frame or utilize framing techniques to enclose any element, including without limitation, any text, graphics, images or trademarks on the Service (collectively, "Elements");<br><br>
-    ii) gather, obtain, use, access or otherwise copy the Service or any Elements thereof by using any bot, spider, crawler, spy ware, engine, device, software or any other automatic device, utility or manual process of any kind; <br><br>
-    iii) use the Service or any features available on the Service in any manner with the intent to interrupt, damage, disable, overburden or impair the Service or such services; <br><br>
-    iv) directly or indirectly attempt to circumvent, reverse engineer, decrypt, or otherwise alter or interfere with the Service; or <br><br>
-    v) engage in any activity that interferes with another User's access, use or enjoyment of this <br><br>
-</p>
-<br /><br />
-<h5>
-Disclaimers and Limitation of Liability</h5>
+<h4 style="color:#000;">Right to Use this Service</h4>
+<ul style="font-family: robotomedium !important;">
+<li style="margin-top:15px;"><strong style="padding-right:10px;">a.</strong> Gudaak grants you a personal, limited, non-exclusive, revocable license to access and use this Service for your personal use subject to this Terms of Use. Gudaak reserves the right to suspend or terminate operation of this Service at any time for any reason without liability to you. Gudaak has the right to change or discontinue any aspect or feature of the Service, including, but not limited to, content, hours of availability, and equipment needed for access or use, at any time without liability to you.</li>
+<ul style="font-family: robotomedium !important;">
+<li style="margin-top:15px;"><strong style="padding-right:10px;">b.</strong> Certain features of this Service may be provided by third parties and the use of such features may be conditioned upon your agreement to such third parties' terms of use and privacy policies.</li>
+<ul style="font-family: robotomedium !important;">
+<li style="margin-top:15px;"><strong style="padding-right:10px;">c.</strong> In addition to other proprietary rights specified in this Terms of Use, Users may not:
+	i) frame or utilize framing techniques to enclose any element, including without limitation, any text, graphics, images or trademarks on the Service (collectively, "Elements");
+   ii) gather, obtain, use, access or otherwise copy the Service or any Elements thereof by using any bot, spider, crawler, spy ware, engine, device, software or any other automatic device, utility or manual process of any kind;
+    iii) use the Service or any features available on the Service in any manner with the intent to interrupt, damage, disable, overburden or impair the Service or such services;
+    iv) directly or indirectly attempt to circumvent, reverse engineer, decrypt, or otherwise alter or interfere with the Service; or
+    v) engage in any activity that interferes with another User's access, use or enjoyment of this </li>
+    </ul>
+
+<br />
+<h4 style="color:#000;">
+Disclaimers and Limitation of Liability</h4>
 <br>
-<p>
-a. USER EXPRESSLY AGREES THAT USE OF THE SERVICE IS AT USER'S OWN RISK.
-b. NEITHER GUDAAK, ITS AFFILIATES, NOR ANY OF THEIR RESPECTIVE EMPLOYEES, SHAREHOLDERS, AGENTS, THIRD-PARTY CONTENT PROVIDERS OR LICENSORS, WARRANT THAT THE SERVICE WILL BE UNINTERRUPTED OR ERROR FREE; NOR DO THEY MAKE ANY WARRANTY AS TO THE RESULTS THAT MAY BE OBTAINED FROM USE OF THE SERVICE, OR AS TO THE ACCURACY, RELIABILITY OR CONTENT OF ANY INFORMATION, SERVICE, OR MERCHANDISE PROVIDED THROUGH THE SERVICE. PRICE INFORMATION IS SUBJECT TO CHANGE WITHOUT 
+<ul style="font-family: robotomedium !important;">
+<li style="margin-top:15px;"><strong style="padding-right:10px;">
+a.</strong> USER EXPRESSLY AGREES THAT USE OF THE SERVICE IS AT USER'S OWN RISK.</li>
+<li style="margin-top:15px;"><strong style="padding-right:10px;">b.</strong> NEITHER GUDAAK, ITS AFFILIATES, NOR ANY OF THEIR RESPECTIVE EMPLOYEES, SHAREHOLDERS, AGENTS, THIRD-PARTY CONTENT PROVIDERS OR LICENSORS, WARRANT THAT THE SERVICE WILL BE UNINTERRUPTED OR ERROR FREE; NOR DO THEY MAKE ANY WARRANTY AS TO THE RESULTS THAT MAY BE OBTAINED FROM USE OF THE SERVICE, OR AS TO THE ACCURACY, RELIABILITY OR CONTENT OF ANY INFORMATION, SERVICE, OR MERCHANDISE PROVIDED THROUGH THE SERVICE. PRICE INFORMATION IS SUBJECT TO CHANGE WITHOUT <br/><br/>
 
-NOTICE. IT IS YOUR RESPONSIBILITY TO EVALUATE THE ACCURACY AND COMPLETENESS OF ALL INFORMATION, OPINIONS AND OTHER MATERIAL ON THE SERVICE OR ANY SITES OR  SERVICES WITH WHICH IT IS LINKED. THE SERVICE LINKS TO OR REFERENCES SITES, OTHER SERVICES AND INFORMATION LOCATED WORLDWIDE THROUGHOUT THE INTERNET. BECAUSE  GUDAAK HAS NO CONTROL OVER SUCH SITES, OTHER SERVICES AND INFORMATION, GUDAAK MAKES NO GUARANTEE AS TO SUCH SITES, OTHER SERVICES AND INFORMATION, INCLUDING THE ACCURACY, CURRENCY, CONTENT OR QUALITY OF ANY SUCH SITES, OTHER SERVICES AND INFORMATION AND GUDAAK ASSUMES NO RESPONSIBILITY AS TO WHETHER A LINK OR REFERENCE LOCATES UNINTENDED OR OBJECTIONABLE CONTENT. FURTHERMORE, BECAUSE SOME CONTENT ON THE INTERNET CONSISTS OF MATERIAL THAT IS ADULT-ORIENTED OR OTHERWISE OBJECTIONABLE TO SOME PEOPLE, THE RESULTS OF A LINK OR REFERENCE ON THE SERVICE MAY UNINTENTIONALLY GENERATE LINKS OR REFERENCES TO OBJECTIONABLE MATERIAL. GUDAAK MAKES NO CLAIM THAT SUCH SURPRISES WILL NOT OCCUR.
+NOTICE. IT IS YOUR RESPONSIBILITY TO EVALUATE THE ACCURACY AND COMPLETENESS OF ALL INFORMATION, OPINIONS AND OTHER MATERIAL ON THE SERVICE OR ANY SITES OR  SERVICES WITH WHICH IT IS LINKED. THE SERVICE LINKS TO OR REFERENCES SITES, OTHER SERVICES AND INFORMATION LOCATED WORLDWIDE THROUGHOUT THE INTERNET. BECAUSE  GUDAAK HAS NO CONTROL OVER SUCH SITES, OTHER SERVICES AND INFORMATION, GUDAAK MAKES NO GUARANTEE AS TO SUCH SITES, OTHER SERVICES AND INFORMATION, INCLUDING THE ACCURACY, CURRENCY, CONTENT OR QUALITY OF ANY SUCH SITES, OTHER SERVICES AND INFORMATION AND GUDAAK ASSUMES NO RESPONSIBILITY AS TO WHETHER A LINK OR REFERENCE LOCATES UNINTENDED OR OBJECTIONABLE CONTENT. FURTHERMORE, BECAUSE SOME CONTENT ON THE INTERNET CONSISTS OF MATERIAL THAT IS ADULT-ORIENTED OR OTHERWISE OBJECTIONABLE TO SOME PEOPLE, THE RESULTS OF A LINK OR REFERENCE ON THE SERVICE MAY UNINTENTIONALLY GENERATE LINKS OR REFERENCES TO OBJECTIONABLE MATERIAL. GUDAAK MAKES NO CLAIM THAT SUCH SURPRISES WILL NOT OCCUR.</li>
 
-c. THE SERVICE IS PROVIDED ON AN "AS IS" BASIS WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, WARRANTIES OF TITLE OR IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE, OTHER THAN THOSE WARRANTIES WHICH ARE INCAPABLE OF EXCLUSION, RESTRICTION OR MODIFICATION UNDER THE LAWS APPLICABLE TO THIS AGREEMENT.
+<li style="margin-top:15px;"><strong style="padding-right:10px;">c.</strong> THE SERVICE IS PROVIDED ON AN "AS IS" BASIS WITHOUT WARRANTIES OF ANY KIND, EITHER EXPRESS OR IMPLIED, INCLUDING, BUT NOT LIMITED TO, WARRANTIES OF TITLE OR IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A PARTICULAR PURPOSE, OTHER THAN THOSE WARRANTIES WHICH ARE INCAPABLE OF EXCLUSION, RESTRICTION OR MODIFICATION UNDER THE LAWS APPLICABLE TO THIS AGREEMENT.</li>
 
-d. THIS DISCLAIMER OF LIABILITY APPLIES TO ANY DAMAGES OR INJURY CAUSED BY ANY FAILURE OF PERFORMANCE, ERROR, OMISSION, INTERRUPTION, DELETION, DEFECT, DELAY IN OPERATION OR TRANSMISSION, COMPUTER VIRUS, COMMUNICATION LINE FAILURE, THEFT OR DESTRUCTION OR UNAUTHORIZED ACCESS TO, ALTERATION OF, OR USE OF RECORD, WHETHER FOR BREACH OF CONTRACT, TORTIOUS BEHAVIOR, NEGLIGENCE, OR UNDER ANY OTHER CAUSE OF ACTION. USER SPECIFICALLY ACKNOWLEDGES THAT GUDAAK AND ITS LICENSORS ARE NOT LIABLE FOR THE DEFAMATORY, OFFENSIVE OR ILLEGAL CONDUCT OF OTHER VISITORS OR THIRD PARTIES AND THAT THE RISK OF INJURY FROM THE FOREGOING RESTS ENTIRELY WITH USER.
+<li style="margin-top:15px;"><strong style="padding-right:10px;">d.</strong> THIS DISCLAIMER OF LIABILITY APPLIES TO ANY DAMAGES OR INJURY CAUSED BY ANY FAILURE OF PERFORMANCE, ERROR, OMISSION, INTERRUPTION, DELETION, DEFECT, DELAY IN OPERATION OR TRANSMISSION, COMPUTER VIRUS, COMMUNICATION LINE FAILURE, THEFT OR DESTRUCTION OR UNAUTHORIZED ACCESS TO, ALTERATION OF, OR USE OF RECORD, WHETHER FOR BREACH OF CONTRACT, TORTIOUS BEHAVIOR, NEGLIGENCE, OR UNDER ANY OTHER CAUSE OF ACTION. USER SPECIFICALLY ACKNOWLEDGES THAT GUDAAK AND ITS LICENSORS ARE NOT LIABLE FOR THE DEFAMATORY, OFFENSIVE OR ILLEGAL CONDUCT OF OTHER VISITORS OR THIRD PARTIES AND THAT THE RISK OF INJURY FROM THE FOREGOING RESTS ENTIRELY WITH USER.</li>
 
-e. IN NO EVENT WILL GUDAAK, OR ANY PERSON OR ENTITY INVOLVED IN CREATING, PRODUCING OR DISTRIBUTING ANY PART OF THE SERVICE BE LIABLE FOR ANY DAMAGES, INCLUDING, WITHOUT LIMITATION, DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR PUNITIVE DAMAGES ARISING OUT OF THE USE OF OR INABILITY TO USE ANY PART OF THE SERVICE. USER HEREBY ACKNOWLEDGES THAT THE PROVISIONS OF THIS SECTION SHALL APPLY TO ALL CONTENT AND FEATURES ON THE SERVICE.
+<li style="margin-top:15px;"><strong style="padding-right:10px;">e.</strong> IN NO EVENT WILL GUDAAK, OR ANY PERSON OR ENTITY INVOLVED IN CREATING, PRODUCING OR DISTRIBUTING ANY PART OF THE SERVICE BE LIABLE FOR ANY DAMAGES, INCLUDING, WITHOUT LIMITATION, DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR PUNITIVE DAMAGES ARISING OUT OF THE USE OF OR INABILITY TO USE ANY PART OF THE SERVICE. USER HEREBY ACKNOWLEDGES THAT THE PROVISIONS OF THIS SECTION SHALL APPLY TO ALL CONTENT AND FEATURES ON THE SERVICE.</li>
 
-f. IN ADDITION TO THE TERMS SET FORTH ABOVE, NEITHER GUDAAK, NOR ITS AFFILIATES, INFORMATION PROVIDERS, SERVICE PARTNERS OR CONTENT PARTNERS SHALL BE LIABLE REGARDLESS OF THE CAUSE OR DURATION, FOR ANY ERRORS, INACCURACIES, OMISSIONS, OR OTHER DEFECTS IN, OR UNTIMELINESS OR UNAUTHENTICITY OF, THE INFORMATION CONTAINED WITHIN THE SERVICE, OR FOR ANY DELAY OR INTERRUPTION IN THE TRANSMISSION THEREOF TO THE USER, OR FOR ANY CLAIMS OR LOSSES ARISING THEREFROM OR OCCASIONED THEREBY. NONE OF THE FOREGOING PARTIES SHALL BE LIABLE FOR ANY THIRD-PARTY CLAIMS OR LOSSES OF ANY NATURE, INCLUDING, BUT NOT LIMITED TO, LOST PROFITS, PUNITIVE OR CONSEQUENTIAL DAMAGES.
-</p><br><br>
-<h5>Indemnification</h5>
-<br>
+<li style="margin-top:15px;"><strong style="padding-right:10px;">f.</strong> IN ADDITION TO THE TERMS SET FORTH ABOVE, NEITHER GUDAAK, NOR ITS AFFILIATES, INFORMATION PROVIDERS, SERVICE PARTNERS OR CONTENT PARTNERS SHALL BE LIABLE REGARDLESS OF THE CAUSE OR DURATION, FOR ANY ERRORS, INACCURACIES, OMISSIONS, OR OTHER DEFECTS IN, OR UNTIMELINESS OR UNAUTHENTICITY OF, THE INFORMATION CONTAINED WITHIN THE SERVICE, OR FOR ANY DELAY OR INTERRUPTION IN THE TRANSMISSION THEREOF TO THE USER, OR FOR ANY CLAIMS OR LOSSES ARISING THEREFROM OR OCCASIONED THEREBY. NONE OF THE FOREGOING PARTIES SHALL BE LIABLE FOR ANY THIRD-PARTY CLAIMS OR LOSSES OF ANY NATURE, INCLUDING, BUT NOT LIMITED TO, LOST PROFITS, PUNITIVE OR CONSEQUENTIAL DAMAGES.</li>
+
+<h4 style="color:#000;">Indemnification</h4>
+
 <p>
 User agrees to defend, indemnify and hold harmless Gudaak, its affiliates and their respective directors, officers, shareholders, employees, agents, and assigns from and against all claims and expenses, including attorneys' fees, arising out of User's use of the Service.
-</p><br><br>
-<h5>Lawful Use</h5><br>
+</p>
+<h4 style="color:#000;">Lawful Use</h4>
+
 <p>
 User shall use the Service lawful purposes only. User shall not post or transmit through the Service any material which: 
 	(i) violates or infringes in any way upon the rights of others; 
     (ii) is unlawful, threatening, abusive, defamatory, invasive of privacy or publicity rights, vulgar, obscene, profane or otherwise objectionable; 
     (iii) encourages conduct that would constitute a criminal offense, gives rise to civil liability or otherwise violates any law; or 
     (iv) contains advertising or any solicitation with respect to products or services, unless Gudaak has expressly approved such material in advance of its transmission. Any conduct by a User that in Gudaak's discretion restricts or inhibits any other User from using or enjoying the Service is expressly prohibited.
-</p><br><br>
-<h5>Ownership of Intellectual Property</h5><br>
-<p>
-a. The Service contains copyrighted material, trademarks and other proprietary information, including, but not limited to, text, software, photos, video, graphics, music, and sound, portions of which are owned by Gudaak and portions of which are owned by other parties. The entire contents of the Service are copyrighted as a collective work/compilation. Gudaak owns copyright in the selection, coordination, arrangement, and enhancement of such content, as well as in the content original to it. User may not modify, publish, transmit, participate in the transfer or sale, create derivative works, or in any way exploit, any of the content, in whole or in part. Except as otherwise expressly permitted under copyright law, no copying, redistribution, retransmission, publication or commercial exploitation of downloaded material will be permitted without the express written permission of Gudaak (or the copyright owner(s) if other than or in addition to Gudaak). In the event of any permitted copying, redistribution or publication of copyrighted material, no changes in or deletion of author attribution, trademark legend, copyright or other proprietary notice shall be made. User acknowledges that he/she does not acquire any ownership rights by downloading copyrighted material.<br>
-
-b. The Service permits you to generate certain content, such as responses, essays, test answers and results, based on information provided by you (collectively and excluding the content referenced in Section 11 of this Terms of Use, ("User Content"). Gudaak agrees that you shall retain ownership of your User Content provided however that by using this Service and submitting User Content to the , you hereby grant to GUDAAK and its affiliates and any applicable third party service providers a worldwide, non-exclusive, royalty-free, transferable right and license to reproduce, distribute, adapt, publicly perform and display and otherwise use and modify your User Content in connection with Gudaak's provision of the Service to you. The duration of the rights and license granted in this Section<br>
-
-c. Shall terminate within five years after the expiration or termination of your User Account.Uploading of Intellectual Property User shall not upload, post or otherwise make available on the Service any material protected by copyright, trademark, or other proprietary right, without the express written permission of the owner of the copyright, trademark, or other proprietary right, and the burden of determining that any material is not protected by copyright rests with User. User shall be solely liable for any damage resulting from any infringement of copyrights, proprietary rights, or any other harm resulting from such a submission. By submitting material to any public area of the Service, User automatically grants, or warrants that the owner of such material has expressly granted Gudaak the royalty-free, perpetual, irrevocable, non-exclusive right and license to use, reproduce, modify, adapt, publish, translate and distribute such material (in whole or in part) worldwide and/or to incorporate it in other works in any form, media or technology now known or hereafter developed for the full term of any copyright that may exist in such material. User also permits any other User to access, view, store or reproduce the material for that User's personal use. User hereby grants Gudaak the right to edit, copy, publish and distribute any material made available on the Service by User.Unless otherwise indicated, trademarks that appear on this Service are trademarks of Gudaak, or its affiliates. All other trademarks not owned by Gudaak or its affiliates that appear in this Service are the property of their respective owners, who may or may not be affiliated with, connected to, or sponsored by Gudaak or its affiliates.Certain portions of the Service are supplied by third parties. Any opinions, advice, statements, services, offers, or other information or content expressed or made available by third parties, including information providers, are those of the respective author(s) or distributor(s) and not of Gudaak. Neither Gudaak nor any third-party provider of information guarantees the accuracy, completeness, or usefulness of any content, nor its merchantability or fitness for any particular purpose. Gudaak neither endorses nor is responsible for the accuracy or reliability of any opinion, advice or statement made on any Gudaak Service by anyone other than employee spokespersons of GUDAAK while acting in their official capacities.Gudaak always welcomes suggestions and comments regarding the Service. Any comments or suggestions submitted to Gudaak, either online or offline, will become Gudaak's property upon their submission. This policy is intended to avoid the possibility of future misunderstandings when projects developed by Gudaak might seem to others to be similar to their own submissions or comments.This Agreement, and any operating rules for the Service established by Gudaak, constitutes the entire agreement of the parties with respect to the subject matter hereof, and supersedes all previous written or oral agreements between the parties with respect to such subject matter.This Agreement shall be construed in accordance with the laws of India. Any cause of action of any nature arising out this Agreement shall be brought in the courts at Karnal.
 </p>
+<h4 style="color:#000;">Ownership of Intellectual Property</h4> 
+<ul style="font-family: robotomedium !important;">
+<li style="margin-top:15px;"><strong style="padding-right:10px;">
+a.</strong> The Service contains copyrighted material, trademarks and other proprietary information, including, but not limited to, text, software, photos, video, graphics, music, and sound, portions of which are owned by Gudaak and portions of which are owned by other parties. The entire contents of the Service are copyrighted as a collective work/compilation. Gudaak owns copyright in the selection, coordination, arrangement, and enhancement of such content, as well as in the content original to it. User may not modify, publish, transmit, participate in the transfer or sale, create derivative works, or in any way exploit, any of the content, in whole or in part. Except as otherwise expressly permitted under copyright law, no copying, redistribution, retransmission, publication or commercial exploitation of downloaded material will be permitted without the express written permission of Gudaak (or the copyright owner(s) if other than or in addition to Gudaak). In the event of any permitted copying, redistribution or publication of copyrighted material, no changes in or deletion of author attribution, trademark legend, copyright or other proprietary notice shall be made. User acknowledges that he/she does not acquire any ownership rights by downloading copyrighted material.</li>
+
+<li style="margin-top:15px;"><strong style="padding-right:10px;">b.</strong> The Service permits you to generate certain content, such as responses, essays, test answers and results, based on information provided by you (collectively and excluding the content referenced in Section 11 of this Terms of Use, ("User Content"). Gudaak agrees that you shall retain ownership of your User Content provided however that by using this Service and submitting User Content to the , you hereby grant to GUDAAK and its affiliates and any applicable third party service providers a worldwide, non-exclusive, royalty-free, transferable right and license to reproduce, distribute, adapt, publicly perform and display and otherwise use and modify your User Content in connection with Gudaak's provision of the Service to you. The duration of the rights and license granted in this Section.</li>
+
+<li style="margin-top:15px;"><strong style="padding-right:10px;">c.</strong> Shall terminate within five years after the expiration or termination of your User Account.
+
+<h4 style="color:#000;">Uploading of Intellectual Property</h4>
+<p>
+ User shall not upload, post or otherwise make available on the Service any material protected by copyright, trademark, or other proprietary right, without the express written permission of the owner of the copyright, trademark, or other proprietary right, and the burden of determining that any material is not protected by copyright rests with User. User shall be solely liable for any damage resulting from any infringement of copyrights, proprietary rights, or any other harm resulting from such a submission. By submitting material to any public area of the Service, User automatically grants, or warrants that the owner of such material has expressly granted Gudaak the royalty-free, perpetual, irrevocable, non-exclusive right and license to use, reproduce, modify, adapt, publish, translate and distribute such material (in whole or in part) worldwide and/or to incorporate it in other works in any form, media or technology now known or hereafter developed for the full term of any copyright that may exist in such material. User also permits any other User to access, view, store or reproduce the material for that User's personal use. User hereby grants Gudaak the right to edit, copy, publish and distribute any material made available on the Service by User.
+ </p>
+ 
+<h4 style="color:#000;">Trademarks</h4> 
+<p>
+ Unless otherwise indicated, trademarks that appear on this Service are trademarks of Gudaak, or its affiliates. All other trademarks not owned by Gudaak or its affiliates that appear in this Service are the property of their respective owners, who may or may not be affiliated with, connected to, or sponsored by Gudaak or its affiliates.
+ </p>
+ <h4 style="color:#000;">Service Content</h4> 
+ <p>
+ Certain portions of the Service are supplied by third parties. Any opinions, advice, statements, services, offers, or other information or content expressed or made available by third parties, including information providers, are those of the respective author(s) or distributor(s) and not of Gudaak. Neither Gudaak nor any third-party provider of information guarantees the accuracy, completeness, or usefulness of any content, nor its merchantability or fitness for any particular purpose. Gudaak neither endorses nor is responsible for the accuracy or reliability of any opinion, advice or statement made on any Gudaak Service by anyone other than employee spokespersons of GUDAAK while acting in their official capacities.
+ </p>
+ <h4 style="color:#000;">Submissions</h4> 
+ <p>
+ Gudaak always welcomes suggestions and comments regarding the Service. Any comments or suggestions submitted to Gudaak, either online or offline, will become Gudaak's property upon their submission. This policy is intended to avoid the possibility of future misunderstandings when projects developed by Gudaak might seem to others to be similar to their own submissions or comments.</p>
+ <h4 style="color:#000;">Entire Agreement</h4> 
+ <p>
+ This Agreement, and any operating rules for the Service established by Gudaak, constitutes the entire agreement of the parties with respect to the subject matter hereof, and supersedes all previous written or oral agreements between the parties with respect to such subject matter.</p>
+  <h4 style="color:#000;">Controlling Law</h4> 
+ <p>
+ 
+ This Agreement shall be construed in accordance with the laws of India. Any cause of action of any nature arising out this Agreement shall be brought in the courts at Karnal.
+ </p>
+</li>
+</ul>
 </div>
                                  </div>
                                

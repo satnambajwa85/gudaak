@@ -23,7 +23,7 @@
                         </div>
                         <div class="col-md-4 pd20  toolSat col-sm-offset-0 thumbnails span3" ><a href="javaScript:void(0);" class="login-boot-box thumbnail">
                          <div class="caption">                  
-                  		  <p>Webinare and sessions with professionals and institutions</p>
+                  		  <p>Webinar and sessions with professionals and institutions</p>
                         </div>
                         <img width="100%" src="<?php echo Yii::app()->theme->baseUrl;?>/images/pic6.png" /></a>
                         <div class="col-md-12 pull-left text-center">Online Event</div>

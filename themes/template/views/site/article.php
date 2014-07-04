@@ -17,7 +17,7 @@ $this->breadcrumbs=array('Articles'=>array('/site/articles'),''.$articles->title
 				</div>
 				<div class="clear"></div>
 				<p>
-				<?php echo substr($articles->description,0,3000);?>	
+				<?php echo $articles->description;?>	
 				</p>
                 <div class="col-md-6">
                 <?php $this->widget('ext.YiiDisqusWidget.YiiDisqusWidget',array('shortname'=>'gudaak'));?>
