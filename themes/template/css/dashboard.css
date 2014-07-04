@@ -7938,20 +7938,12 @@ border-left: 1px solid #fff;}
 .stream-grid:hover{background-color:#F5F5F5}
 .stream-grid {padding: 5px;}
 #stream-user-tabs{list-style:none;padding:0px;}
-#stream-user-tabs li{border: 1px solid #EEEEEE;
-    border-radius: 5px 5px 0 0;
-    color: #F5F5F5;
-    float: left;
-    font-size: 11px;
-    
-    text-align: justify; }
-	
-	
+#stream-user-tabs li{border: 1px solid #EEEEEE;border-radius: 5px 5px 0 0;color: #F5F5F5;float: left;font-size: 14px;text-align: justify; }
 #stream-user-tabs li a{	padding:8px 48px;display:block}
 .br-top{border:1px solid #eee;}
 .br-area{border-left:1px solid #eee;border-right:1px solid #eee;border-bottom:1px solid #eee;}
 #career-description-tabs {padding:0px;list-style:none;}
-#career-description-tabs > li {float: left;color: #666;font-size: 12px;margin-top: 7px;text-align: justify;margin:0px;border: 1px solid #EEEEEE; padding: 6px;}
+#career-description-tabs > li{float: left;color: #666;font-size: 12px;margin-top: 7px;text-align: justify;margin:0px;border:1px solid #EEEEEE;padding:6px;}
 .details-report h1{color: #666;font-size: 25px;font-family: robotomedium; text-align: center;}
 .report-border{border:1px solid  #21C4C1;}
 .left-section ul {list-style:none;padding:0px;}
