@@ -438,7 +438,7 @@ class SiteController extends Controller
 				$record_exists = UserLogin::model()->exists('username = :email', array(':email'=>$_POST['ForgotpasswordForm']['email']));
 				if($record_exists==1){
 					$record = UserLogin::model()->findByAttributes(array('username'=>$_POST['ForgotpasswordForm']['email']));
-					$data['name']		=	'User';
+					$data['name']		=	$record->username;
 					$data['email']		=	$record->username;
 					$data['password']	=	base64_encode($record->username);
 					$mail	=	$this->sendMail($data,'forget');
@@ -643,7 +643,7 @@ class SiteController extends Controller
 										array('name' => $data['name']), true);
 			break;
 			case 'forget':
-				$subject = 'Forgot Password';
+				$subject = 'Your Gudaak Password Change Request';
 				$body = $this->renderPartial('/mails/forgot_tpl',
 										array(	'name' => $data['name'],
 												'email'=>$data['email'],

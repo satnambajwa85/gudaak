@@ -29,7 +29,7 @@
 	</tr>
 	<tr>
 		<td>
-			Dear <?php echo $name; ?>,<br /><br />
+			Hello <?php echo $name; ?>,<br /><br />
 		</td>	
 	</tr>
 	<tr>
@@ -39,20 +39,30 @@
 	</tr>
 	<tr>
 		<td>
-			 We are sending you this e-mail because you indicated that you forgot your password.<br /><br />
+			You recently asked to reset your Gudaak password.:<br /><br /><br />
             
-            
-            Please click the link below to reset your password:<br /><br /><br />
-            
-            <a href="<?php echo Yii::app()->createAbsoluteUrl('site/resetPassword', array('link' => $password));?>" style="background: none repeat scroll 0 0 #48a53d;color: #FFFFFF;font-size: 18px; padding: 10px 15px;text-decoration: none;transition: all 600ms ease-in-out 0s; font-weight:bold; font-family:Arial, Helvetica, sans-serif; -webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;margin-left:200px;">Reset Password</a>
-            
+            <a href="<?php echo Yii::app()->createAbsoluteUrl('site/resetPassword', array('link' => $password));?>" style="background: none repeat scroll 0 0 #48a53d;color: #FFFFFF;font-size: 18px; padding: 10px 15px;text-decoration: none;transition: all 600ms ease-in-out 0s; font-weight:bold; font-family:Arial, Helvetica, sans-serif; -webkit-border-radius: 5px;-moz-border-radius: 5px;border-radius: 5px;margin-left:200px;">Click Here to change your password </a>
+           <br /><br />
+           No idea why have you received this email?<br /><br />
+           If you didn't request a new password, Please reply to this email or write to us (email us) at info@gudaak.com and let us know immediately. 
 		</td>	
 	</tr>
 	<tr>
 		<td>
-			Regards
-			Gudaak
+			Thanks & Regards<br />
+            Team Gudaak
 		</td>	
 	</tr>
 </table>
+
+
+
+
+
+
+
+
+
+
+
                              
