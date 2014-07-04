@@ -287,9 +287,11 @@
                         	<div class="col-md-12 pd13 ">
                             	  <div  class="col-md-12 pull-left">
 								<a data-dismiss="modal" class="btn btn-info pull-right ">close</a>
-								
+
 <div id="termsC">
 <h3 style="width:100%; text-align:center; color:#000;"> Terms of use</h3>
+<div id="scrollBar">
+
 <p>
 Gudaak Consulting Services Private Limited (“Gudaak” or "We") provides this application, site and/or service 
 
@@ -380,23 +382,25 @@ indicated by Gudaak.</li>
 <br />
 <h4 style="color:#000;">Right to Use this Service</h4>
 <ul style="font-family: robotomedium !important;">
+
 <li style="margin-top:15px;"><strong style="padding-right:10px;">a.</strong> Gudaak grants you a personal, limited, non-exclusive, revocable license to access and use this Service for your personal use subject to this Terms of Use. Gudaak reserves the right to suspend or terminate operation of this Service at any time for any reason without liability to you. Gudaak has the right to change or discontinue any aspect or feature of the Service, including, but not limited to, content, hours of availability, and equipment needed for access or use, at any time without liability to you.</li>
-<ul style="font-family: robotomedium !important;">
+
 <li style="margin-top:15px;"><strong style="padding-right:10px;">b.</strong> Certain features of this Service may be provided by third parties and the use of such features may be conditioned upon your agreement to such third parties' terms of use and privacy policies.</li>
-<ul style="font-family: robotomedium !important;">
+
 <li style="margin-top:15px;"><strong style="padding-right:10px;">c.</strong> In addition to other proprietary rights specified in this Terms of Use, Users may not:
 	i) frame or utilize framing techniques to enclose any element, including without limitation, any text, graphics, images or trademarks on the Service (collectively, "Elements");
    ii) gather, obtain, use, access or otherwise copy the Service or any Elements thereof by using any bot, spider, crawler, spy ware, engine, device, software or any other automatic device, utility or manual process of any kind;
     iii) use the Service or any features available on the Service in any manner with the intent to interrupt, damage, disable, overburden or impair the Service or such services;
     iv) directly or indirectly attempt to circumvent, reverse engineer, decrypt, or otherwise alter or interfere with the Service; or
     v) engage in any activity that interferes with another User's access, use or enjoyment of this </li>
-    </ul>
+</ul>
 
 <br />
 <h4 style="color:#000;">
 Disclaimers and Limitation of Liability</h4>
 <br>
 <ul style="font-family: robotomedium !important;">
+
 <li style="margin-top:15px;"><strong style="padding-right:10px;">
 a.</strong> USER EXPRESSLY AGREES THAT USE OF THE SERVICE IS AT USER'S OWN RISK.</li>
 <li style="margin-top:15px;"><strong style="padding-right:10px;">b.</strong> NEITHER GUDAAK, ITS AFFILIATES, NOR ANY OF THEIR RESPECTIVE EMPLOYEES, SHAREHOLDERS, AGENTS, THIRD-PARTY CONTENT PROVIDERS OR LICENSORS, WARRANT THAT THE SERVICE WILL BE UNINTERRUPTED OR ERROR FREE; NOR DO THEY MAKE ANY WARRANTY AS TO THE RESULTS THAT MAY BE OBTAINED FROM USE OF THE SERVICE, OR AS TO THE ACCURACY, RELIABILITY OR CONTENT OF ANY INFORMATION, SERVICE, OR MERCHANDISE PROVIDED THROUGH THE SERVICE. PRICE INFORMATION IS SUBJECT TO CHANGE WITHOUT <br/><br/>
@@ -410,7 +414,7 @@ NOTICE. IT IS YOUR RESPONSIBILITY TO EVALUATE THE ACCURACY AND COMPLETENESS OF A
 <li style="margin-top:15px;"><strong style="padding-right:10px;">e.</strong> IN NO EVENT WILL GUDAAK, OR ANY PERSON OR ENTITY INVOLVED IN CREATING, PRODUCING OR DISTRIBUTING ANY PART OF THE SERVICE BE LIABLE FOR ANY DAMAGES, INCLUDING, WITHOUT LIMITATION, DIRECT, INDIRECT, INCIDENTAL, SPECIAL, CONSEQUENTIAL OR PUNITIVE DAMAGES ARISING OUT OF THE USE OF OR INABILITY TO USE ANY PART OF THE SERVICE. USER HEREBY ACKNOWLEDGES THAT THE PROVISIONS OF THIS SECTION SHALL APPLY TO ALL CONTENT AND FEATURES ON THE SERVICE.</li>
 
 <li style="margin-top:15px;"><strong style="padding-right:10px;">f.</strong> IN ADDITION TO THE TERMS SET FORTH ABOVE, NEITHER GUDAAK, NOR ITS AFFILIATES, INFORMATION PROVIDERS, SERVICE PARTNERS OR CONTENT PARTNERS SHALL BE LIABLE REGARDLESS OF THE CAUSE OR DURATION, FOR ANY ERRORS, INACCURACIES, OMISSIONS, OR OTHER DEFECTS IN, OR UNTIMELINESS OR UNAUTHENTICITY OF, THE INFORMATION CONTAINED WITHIN THE SERVICE, OR FOR ANY DELAY OR INTERRUPTION IN THE TRANSMISSION THEREOF TO THE USER, OR FOR ANY CLAIMS OR LOSSES ARISING THEREFROM OR OCCASIONED THEREBY. NONE OF THE FOREGOING PARTIES SHALL BE LIABLE FOR ANY THIRD-PARTY CLAIMS OR LOSSES OF ANY NATURE, INCLUDING, BUT NOT LIMITED TO, LOST PROFITS, PUNITIVE OR CONSEQUENTIAL DAMAGES.</li>
-
+</ul>
 <h4 style="color:#000;">Indemnification</h4>
 
 <p>
@@ -460,6 +464,7 @@ a.</strong> The Service contains copyrighted material, trademarks and other prop
  </p>
 </li>
 </ul>
+</div>
 </div>
                                  </div>
                                

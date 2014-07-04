@@ -15,3 +15,7 @@ function afterResponse($data){
 	}
 	 else{alert($response.data);$('#Register_gudaak_id').val('');}
 }
+$(document).ready(function () {
+var $testScroll = $('#scrollBar1'),i = 1;
+$testScroll.on('reach.scrollbox', function () {if (i < 6) {window.setTimeout(function () {$testScroll.scrollbox('update');}, 300);}}).scrollbox({buffer: 150});
+});
