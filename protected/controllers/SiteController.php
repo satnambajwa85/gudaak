@@ -127,7 +127,10 @@ class SiteController extends Controller
 					$login->email		=	$userC->username;
 					$login->password	=	$userC->fb_id;
 					if($login->login()){
-						if(isset(Yii::app()->user->userType)){
+						
+						echo '<script>window.close();</script>';
+									die;
+						/*if(isset(Yii::app()->user->userType)){
 							if(Yii::app()->user->userType=='admin'){
 								$this->redirect(Yii::app()->createUrl('/admin/admin'));
 							}
@@ -143,7 +146,7 @@ class SiteController extends Controller
 						}
 						else{
 							Yii::app()->user->setFlash('login','Email or password not valid.');
-						}
+						}*/
 					}
 					else{
 						Yii::app()->user->setFlash('login','Email or password not valid.');
@@ -159,7 +162,9 @@ class SiteController extends Controller
 						$login->email		=	$userR->username;
 						$login->password	=	$userR->fb_id;
 						if($login->login()){
-							if(isset(Yii::app()->user->userType)){
+							echo '<script>window.close();</script>';
+									die;
+							/*if(isset(Yii::app()->user->userType)){
 								if(Yii::app()->user->userType=='admin'){
 									$this->redirect(Yii::app()->createUrl('/admin/admin'));
 								}
@@ -176,7 +181,7 @@ class SiteController extends Controller
 							}
 							else{
 								Yii::app()->user->setFlash('login','Email or password not valid.');
-							}
+							}*/
 						}
 						else{
 							Yii::app()->user->setFlash('login','Email or password not valid.');
@@ -222,10 +227,10 @@ class SiteController extends Controller
 								$login->email		=	$user->username;
 								$login->password	=	$user->fb_id;
 								if($login->login()){
-									echo 'in satnam';
+									echo '<script>window.close();</script>';
 									die;
 									
-									if(isset(Yii::app()->user->userType)){
+									/*if(isset(Yii::app()->user->userType)){
 										if(Yii::app()->user->userType=='admin'){
 											$this->redirect(Yii::app()->createUrl('/admin/admin'));
 										}
@@ -242,7 +247,7 @@ class SiteController extends Controller
 									}
 									else{
 										Yii::app()->user->setFlash('login','Email or password not valid.');
-									}
+									}*/
 								}
 								else{
 									Yii::app()->user->setFlash('login','Email or password not valid.');
