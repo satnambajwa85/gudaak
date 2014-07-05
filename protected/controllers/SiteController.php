@@ -222,7 +222,7 @@ class SiteController extends Controller
 								$login->email		=	$user->username;
 								$login->password	=	$user->fb_id;
 								if($login->login()){
-									echo '';
+									echo 'in satnam';
 									die;
 									
 									if(isset(Yii::app()->user->userType)){
