@@ -492,7 +492,7 @@ var popup;
 function ShowPopup(url) {
 	popup = window.open(url, "Popup", "toolbar=no,scrollbars=no,location=no,statusbar=no,menubar=no,resizable=0,width=500,height=400,left = 490,top = 200");
 	popup.focus();
-	popup.onbeforeunload=window.reload();
+	//popup.onbeforeunload=window.reload();
 }
 
 
