@@ -43,26 +43,22 @@ $getId=$_REQUEST['id'];
 }
 		 
 ?>
-					<li><?php echo CHtml::link('<i class="icon-desktop"></i>Orientation Tour',array('user/index'),array('title'=>'Orientation Tour','class'=>''.($action=='index')?'slidebg':''.''))?>
-					</li>
-					<li><?php echo CHtml::link('<i class="glyphicon glyphicon-record"></i>Assess',array('user/tests'),array('title'=>'Asses','class'=>''.($action=='tests')?'slidebg':''.''))?>
+					<!--<li><?php //echo CHtml::link('<i class="icon-desktop"></i>Orientation Tour',array('user/index'),array('title'=>'Orientation Tour','class'=>''.($action=='index')?'slidebg':''.''))?>
+					</li>-->
+					<li><?php echo CHtml::link('<i class="glyphicon glyphicon-record"></i>Assess','',array('title'=>'Asses','class'=>''))?>
 				
 				
 						<ul style="<?php echo ($action=='tests'||$action=='DetailedReport')?'display:block':'display:block';?>">
-							<li><?php echo CHtml::link('Detailed Report',array('user/DetailedReport'))?></li>
+                        	<li><?php echo CHtml::link('Career Test',array('user/tests'),array('title'=>'Asses','class'=>''.($action=='tests')?'slidebg':''.''))?></li>
+							<li><?php echo CHtml::link('Career Report',array('user/DetailedReport'))?></li>
 						</ul>					
 					</li>
 					<?php //if(Yii::app()->user->id && Yii::app()->user->userType=='student'){
 						?>
 					<li><?php  echo CHtml::link('<i class="glyphicon glyphicon-eye-open"></i>Explore',array('user/explore'),array('title'=>'Explore','class'=>''.($action=='career'|| $action=='careerDetails'|| $action == 'liveChat' || $action == 'careerList' || $action == 'explore' || $action =='articlesList')?'slidebg':''.''))?>
 						<ul style="<?php echo ($action=='career'||$action=='liveChat' || $action=='explore' || $action=='careerList' || $action=='careerDetails' || $action=='articlesList')?'display:block':'display:block';?>">
-                        
-                        
-                        <li><?php echo CHtml::link('Stream Library',array('user/streamList'),array('class'=>''.($action == 'streamList' || $action ==  'stream' )?'currentLink':''.''))?></li>
-                        
-                        
-                        
-						<li><?php echo CHtml::link('Career library',array('user/career'),array('class'=>''.($action == 'career' || $action ==  'careerList' || $action ==  'careerDetails')?'currentLink':''.''))?></li>
+                        <li><?php echo CHtml::link('Career Options',array('user/career'),array('class'=>''.($action == 'career' || $action ==  'careerList' || $action ==  'careerDetails')?'currentLink':''.''))?></li>
+                        <li><?php echo CHtml::link('Stream Options-for IX & X',array('user/streamList'),array('class'=>''.($action == 'streamList' || $action ==  'stream' )?'currentLink':''.''))?></li>
 						<li><?php echo CHtml::link('Articles',array('user/articlesList'),array('class'=>''.($action=='articlesList')?'currentLink':''.''));?></li>
 						</ul>
 					</li>
@@ -95,11 +91,11 @@ $getId=$_REQUEST['id'];
 						<?php echo CHtml::link('<i class="glyphicon glyphicon-flag"></i>Finalized Career',array('user/finalizedCareer'),array('class'=>''.($action=='finalizedCareer')?'slidebg':''.''));?>
 					
 					</li>
-							<li><?php echo CHtml::link('<i class="icon-location-arrow"></i>Approach',array('user/exploreColleges'),array('class'=>''.($action=='exploreColleges' ||$action=='shortListedColleges'||$action=='application')?'slidebg':''.''));?>
+							<li><?php echo CHtml::link('<i class="icon-location-arrow"></i>Approach','',array('class'=>''.($action=='exploreColleges' ||$action=='shortListedColleges'||$action=='application')?'slidebg':''.''));?>
 					
 						
 						<ul style="<?php echo ($action=='shortListedColleges'||$action=='exploreColleges' || $action=='application')?'display:block':'display:block';?>">
-						
+							<li><?php echo CHtml::link('Colleges',array('user/exploreColleges'));?></li>
 							<li><?php echo CHtml::link('Shortlisted Colleges',array('user/shortListedColleges'));?></li>
 							<li><?php echo CHtml::link('Entrance Exams',array('user/application'));?></li>
 						</ul>

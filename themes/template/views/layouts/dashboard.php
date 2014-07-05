@@ -18,7 +18,10 @@
       <script src="<?php echo $path;?>/js/html5shiv.js"></script>
       <script src="<?php echo $path;?>/js/respond.min.js"></script>
     <![endif]-->
-<?php Yii::app()->clientScript->registerScript('myHideEffect','$(".flash-success").animate({opacity: 1.0}, 3000).fadeOut("slow");',CClientScript::POS_READY);
+<?php 
+Yii::app()->clientScript->registerScript('opact','$("#popup_box").fadeIn("slow");$("#container").css({"opacity": "0.3" }); $("#popup_box").click(function(){$("#popup_box").fadeOut();});',CClientScript::POS_READY);
+
+Yii::app()->clientScript->registerScript('myHideEffect','$(".flash-success").animate({opacity: 1.0}, 3000).fadeOut("slow");',CClientScript::POS_READY);
 Yii::app()->clientScript->registerScript('myHideEffect2','$(".flash-error").animate({opacity: 1.0}, 3000).fadeOut("slow");',CClientScript::POS_READY);?>
 </head>
 <body style="width:1347px; margin:0 auto;" onunload="window.opener.reload();">
@@ -120,6 +123,8 @@ window.onbeforeunload = RefreshParent;
 ga('create', 'UA-51104088-1', 'gudaak.com');
 ga('send', 'pageview');
 </script>
-  </body>
-
+<div id="popup_box">    <!-- OUR PopupBox DIV-->
+<img src="<?php echo Yii::app()->theme->baseUrl;?>/images/gudaak-pointer.png"/>
+</div>
+</body>
 </html>
