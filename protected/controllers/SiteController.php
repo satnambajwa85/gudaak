@@ -222,6 +222,9 @@ class SiteController extends Controller
 								$login->email		=	$user->username;
 								$login->password	=	$user->fb_id;
 								if($login->login()){
+									echo '';
+									die;
+									
 									if(isset(Yii::app()->user->userType)){
 										if(Yii::app()->user->userType=='admin'){
 											$this->redirect(Yii::app()->createUrl('/admin/admin'));
@@ -254,18 +257,12 @@ class SiteController extends Controller
 				
 						}
 						else {
-							CVarDumper::dump($user,10,1);
-							die;
 							Yii::app()->user->setFlash('error','Some problem while registering by facebook please try simple registration.');
 							$this->redirect(array('site/userRegister'));
 							die;
 						}
 					}
 					else{
-						
-						CVarDumper::dump($user,10,1);
-						CVarDumper::dump($model,10,1);
-						die;
 						Yii::app()->user->setFlash('error','Some problem while validate registeration by facebook please try simple registration.');
 						$this->redirect(array('site/userRegister'));
 						die;

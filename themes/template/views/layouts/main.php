@@ -32,7 +32,7 @@
 	if($action=='schools'||$action=='students'||$action=='why'||$action=='what'||$action=='error'||$action=='articles')
 		$css	=	'erternalPages';?>
 </head>
-<body id="<?php echo $css;?>" style="width:1347px; margin:0 auto; ">
+<body id="<?php echo $css;?>" style="width:1347px; margin:0 auto;">
 	<div>
 		<div id="">
 			<div id="header_cont">
@@ -493,13 +493,6 @@ function ShowPopup(url) {
 	popup = window.open(url, "Popup", "toolbar=no,scrollbars=no,location=no,statusbar=no,menubar=no,resizable=0,width=500,height=400,left = 490,top = 200");
 	popup.focus();
 }
-
-function RefreshParent() {
-	if (window.opener != null && !window.opener.closed) {
-		window.opener.location.reload();
-	}
-}
-window.onbeforeunload = RefreshParent;
 
 (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://widget.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({ c: '87b04e16-7b9c-4d0e-afbd-42f97c59e435', f: true }); done = true; } }; })();</script>
 <!--Add the following script at the bottom of the web page-->

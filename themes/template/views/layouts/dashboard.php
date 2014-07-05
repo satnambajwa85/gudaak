@@ -22,7 +22,7 @@
 Yii::app()->clientScript->registerScript('myHideEffect2','$(".flash-error").animate({opacity: 1.0}, 3000).fadeOut("slow");',CClientScript::POS_READY);?>
   </head>
 
-  <body style="width:1347px; margin:0 auto;">
+  <body style="width:1347px; margin:0 auto;"  onunload="window.opener.reload();">
 	<div class="wrapper">
 	<?php  $this->Widget('WidgetDashboardMenu'); ?>
 	<section class="main-section">
@@ -100,6 +100,13 @@ alert("<?php echo Yii::app()->user->getFlash('redirect'); ?>");
 
 <?php  $this->Widget('WidgetUserProfile'); ?>
 <script>
+function RefreshParent() {
+	if (window.opener != null && !window.opener.closed) {
+		window.opener.location.reload();
+	}
+}
+window.onbeforeunload = RefreshParent;
+
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
