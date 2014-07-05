@@ -29,7 +29,7 @@
 		$css	=	'index';
 	if($action=='index')
 		$css	=	'index';
-	if($action=='schools'||$action=='students'||$action=='why'||$action=='what'||$action=='error'||$action=='articles')
+	if($action=='schools'||$action=='students'||$action=='why'||$action=='what'||$action=='error'||$action=='articles'||$action=='article')
 		$css	=	'erternalPages';?>
 </head>
 <body id="<?php echo $css;?>" style="width:1347px; margin:0 auto;">

@@ -3,7 +3,7 @@ $this->breadcrumbs=array('Articles'=>array('/site/articles'),''.$articles->title
 	<div class="career-bot pull-left">
 		<div class="mr0 col-md-12 pd0 fl">
         <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'','links'=>$this->breadcrumbs,));?>
-					 
+			<div class="mr0 col-md-12  fl newsupdates art_c" >		 
 			<div class="mr0 mt10 col-md-12 pd0 fl artical">
 				 <h3><?php echo $articles->title;?></h3><br />
 				 <div class="clear"></div>
@@ -24,6 +24,7 @@ $this->breadcrumbs=array('Articles'=>array('/site/articles'),''.$articles->title
                 </div>
 
 			</div>
+            </div>
 		</div>
 </div>
 			
