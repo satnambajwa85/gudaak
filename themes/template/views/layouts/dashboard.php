@@ -25,8 +25,10 @@ Yii::app()->clientScript->registerScript('myHideEffect2','$(".flash-error").anim
 <?php 
 if(isset($_REQUEST['fb']) && $_REQUEST['fb']==1)
 echo '<script type="text/javascript">
-		window.opener.reload();
-		window.close();
+		$(document).ready(function(){
+			window.opener.reload();
+			window.close();
+		});
 	</script>';?>
 
     <div class="wrapper">
