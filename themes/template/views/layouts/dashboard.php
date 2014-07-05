@@ -19,7 +19,7 @@
       <script src="<?php echo $path;?>/js/respond.min.js"></script>
     <![endif]-->
 <?php 
-Yii::app()->clientScript->registerScript('opact','$("#popup_box").fadeIn("slow");$("#container").css({"opacity": "0.3" }); $("#popup_box").click(function(){$("#popup_box").fadeOut();});',CClientScript::POS_READY);
+//Yii::app()->clientScript->registerScript('opact','$("#popup_box").fadeIn("slow");$("#container").css({"opacity": "0.3" }); $("#popup_box").click(function(){$("#popup_box").fadeOut();});',CClientScript::POS_READY);
 
 Yii::app()->clientScript->registerScript('myHideEffect','$(".flash-success").animate({opacity: 1.0}, 3000).fadeOut("slow");',CClientScript::POS_READY);
 Yii::app()->clientScript->registerScript('myHideEffect2','$(".flash-error").animate({opacity: 1.0}, 3000).fadeOut("slow");',CClientScript::POS_READY);?>
