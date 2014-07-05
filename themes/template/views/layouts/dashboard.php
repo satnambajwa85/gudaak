@@ -25,7 +25,7 @@ Yii::app()->clientScript->registerScript('myHideEffect2','$(".flash-error").anim
 <?php 
 if(isset($_REQUEST['fb']) && $_REQUEST['fb']==1)
 echo '<script type="text/javascript">
-		window.opener.location("'.Yii::app()->createUrl('/user/').'");
+		window.opener.location.href="'.Yii::app()->createAbsoluteUrl('/user/').'";
 		window.close();		
 	</script>';?>
 
