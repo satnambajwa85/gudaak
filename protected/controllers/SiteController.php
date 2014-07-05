@@ -128,8 +128,10 @@ class SiteController extends Controller
 					$login->password	=	$userC->fb_id;
 					if($login->login()){
 						
-						echo '<script>window.close();</script>';
-									die;
+						echo '<script>
+						window.opener.reload();
+						window.close();</script>';
+						die;
 						/*if(isset(Yii::app()->user->userType)){
 							if(Yii::app()->user->userType=='admin'){
 								$this->redirect(Yii::app()->createUrl('/admin/admin'));
@@ -162,8 +164,10 @@ class SiteController extends Controller
 						$login->email		=	$userR->username;
 						$login->password	=	$userR->fb_id;
 						if($login->login()){
-							echo '<script>window.close();</script>';
-									die;
+							echo '<script>
+							window.opener.reload();
+							window.close();</script>';
+							die;
 							/*if(isset(Yii::app()->user->userType)){
 								if(Yii::app()->user->userType=='admin'){
 									$this->redirect(Yii::app()->createUrl('/admin/admin'));
@@ -227,7 +231,9 @@ class SiteController extends Controller
 								$login->email		=	$user->username;
 								$login->password	=	$user->fb_id;
 								if($login->login()){
-									echo '<script>window.close();</script>';
+									echo '<script>
+									window.opener.reload();
+									window.close();</script>';
 									die;
 									
 									/*if(isset(Yii::app()->user->userType)){
