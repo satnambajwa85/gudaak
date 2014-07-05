@@ -122,7 +122,7 @@
                                     <h4 class="form-signin-heading ">Enroll !!!</h4>
 									
                                     <div class="">
-                                    <?php echo CHtml::link('<img src="'.$path.'/images/register.png" alt="facebook login">',array('site/facebook'),array('class'=>'fb-butt','style'=>'margin-left: 150px;'));?>
+                                    <?php echo CHtml::link('<img src="'.$path.'/images/register.png" alt="facebook login">','',array('class'=>'fb-butt','style'=>'margin-left: 150px;','onclick'=>'ShowPopup("'.Yii::app()->createUrl('site/facebook').'")'));?>
                                     <?php //echo CHtml::link('Register with <i class="posi-bt icon-facebook"></i>',array('site/facebook'),array('class'=>'btn  btn-primary fb1','style'=>'margin-left: 150px;'));?>
 									</div>
                                     <div class="clear"></div>
@@ -235,12 +235,8 @@
                                         <?php echo CHtml::submitButton('Login',array('class'=>'btn btn-warning login'));?>
                                         <div class="clearfix"></div>
                                         <div class="or">or</div>
-                                        <?php echo CHtml::link('<img src="'.$path.'/images/login.png" alt="facebook login">',array('site/facebook'),array('class'=>'fb-butt','style'=>''));?>
-                                        
-                                        
-                                        
-										<?php //echo CHtml::link('<i class="posi-bt icon-facebook"></i>Login with your<br/><strong>Facebook Account</strong>',array('/site/facebook'),array('class'=>'btn btn-lg btn-primary fb'));?>
-                                        </div>
+                                        <?php echo CHtml::link('<img src="'.$path.'/images/login.png" alt="facebook login">','',array('class'=>'fb-butt','style'=>'','onclick'=>'ShowPopup("'.Yii::app()->createUrl('site/facebook').'")'));?>
+										</div>
                                         <?php $this->endWidget(); ?>
                                         <?php $forgetPass=new ForgotpasswordForm;
                                             $form=$this->beginWidget('CActiveForm', array('id'=>'forget-form2','action'=>Yii::app()->createUrl('/site/ForgetPassword'),'enableClientValidation'=>true,'clientOptions'=>array('validateOnSubmit'=>true,)));?> 
@@ -490,7 +486,21 @@ a.</strong> The Service contains copyrighted material, trademarks and other prop
     <script src="<?php echo $path?>/js/custom.js"></script>
     <script src="<?php echo $path?>/js/custom2.js"></script>
 	<script src="<?php echo Yii::app()->theme->baseUrl;?>/js/jquery.scrollbox.js" type="text/javascript"></script>
-<script type='text/javascript'>
+    
+<script type="text/javascript">
+var popup;
+function ShowPopup(url) {
+	popup = window.open(url, "Popup", "toolbar=no,scrollbars=no,location=no,statusbar=no,menubar=no,resizable=0,width=500,height=400,left = 490,top = 200");
+	popup.focus();
+}
+
+function RefreshParent() {
+	if (window.opener != null && !window.opener.closed) {
+		window.opener.location.reload();
+	}
+}
+window.onbeforeunload = RefreshParent;
+
 (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://widget.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({ c: '87b04e16-7b9c-4d0e-afbd-42f97c59e435', f: true }); done = true; } }; })();</script>
 <!--Add the following script at the bottom of the web page-->
 <!--<script type="text/javascript" src="https://mylivechat.com/chatinline.aspx?hccid=72556058"></script>-->
