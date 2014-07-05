@@ -124,7 +124,13 @@ ga('create', 'UA-51104088-1', 'gudaak.com');
 ga('send', 'pageview');
 </script>
 <div id="popup_box">    <!-- OUR PopupBox DIV-->
-<img src="<?php echo Yii::app()->theme->baseUrl;?>/images/gudaak-pointer.png"/>
+<img class="img_position1" src="<?php echo Yii::app()->theme->baseUrl;?>/images/gudaak-pointer1.png"/>
+<img class="img_position2" src="<?php echo Yii::app()->theme->baseUrl;?>/images/gudaak-pointer2.png"/>
+<img class="img_position3" src="<?php echo Yii::app()->theme->baseUrl;?>/images/gudaak-pointer3.png"/>
+<img class="img_position4" src="<?php echo Yii::app()->theme->baseUrl;?>/images/gudaak-pointer4.png"/>
+<img class="img_position5" src="<?php echo Yii::app()->theme->baseUrl;?>/images/gudaak-pointer5.png"/>
+<img class="img_position6" src="<?php echo Yii::app()->theme->baseUrl;?>/images/gudaak-pointer7.png"/>
+<img class="img_position7" src="<?php echo Yii::app()->theme->baseUrl;?>/images/gudaak-pointer8.png"/>
 </div>
 </body>
 </html>

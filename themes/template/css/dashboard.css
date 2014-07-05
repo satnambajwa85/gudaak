@@ -8648,3 +8648,13 @@ display: none;
 .widget-heading{text-align: center;}
 .headingSort{color: #fff;}
 h1.listAtrical{font-size:12px;margin:0px;background-color:#F7F7F7; padding-right: 100px !important;}
+
+
+.img_position1{ position:absolute; left: 211px; top: 135px; }
+.img_position2{ position:absolute; left: 211px; top: 260px; }
+.img_position3{ position:absolute; left: 211px; top: 398px; }
+.img_position4{ position:absolute;left: 26px;top: 16px; right:0; }
+.img_position5{ position:absolute;right: 442px;top: -15px; }
+.img_position6{ position:absolute;right: 246px;top: 40px; }
+.img_position7{ position:absolute;right: -30px;
+top: 45px;}
