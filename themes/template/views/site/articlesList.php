@@ -2,11 +2,9 @@
 	<div class="career-bot pull-left">
 		<div class="mr0 col-md-12 pd0 fl">
 			
-			<div class="mr0 col-md-12  fl newsupdates">
+			<div class="mr0 col-md-12  fl newsupdates art_c" >
 				<div class="mr0 pd0 col-md-12 artical">
-				<p>
-                  Read the articles about different careers to update your knowledge and information. These are a crucial part of your Exploration stage!<br /><br />
-                     </p>
+				<p>Read the articles about different careers to update your knowledge and information. These are a crucial part of your Exploration stage!</p>
 				</div>
 				<ul>
 					<?php if(!empty($articles)){?>

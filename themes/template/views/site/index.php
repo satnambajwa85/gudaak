@@ -2,7 +2,7 @@
     	<div class="middle_cont">
         	<div class="middle">
             	<div class="mid_lef_heading col-md-12 pd-15">
-                    	Now <a href="javaScript:void(0);" class="home-login-box"><em>Sign Up for free</em></a> to start designing your career path...
+                    	Now <a href="javaScript:void(0);" class="home-login-box "><span class="btn btn_sign_up">Sign Up</span> </a> for free to start designing your career path...
                 </div>
 				<div class="col-md-7 fl" >
                 	
@@ -12,21 +12,21 @@
                   		  <p>Assess your personality and interests to find the right career</p>
                         </div>
                         <img width="100%" src="<?php echo Yii::app()->theme->baseUrl;?>/images/pic2.png" /></a>
-                        <div class="col-md-12 pull-left text-center">Take Career Assessment</div>
+                        <div class="col-md-12 pull-left text-center font_color_set">Take Career Assessment</div>
                         </div>
                         <div class="col-md-4 pd20  toolSat col-sm-offset-0  thumbnails span3 " ><a href="javaScript:void(0);" class="login-boot-box thumbnail">
                         <div class="caption">                  
                   		  <p>Know everything about career options before you finalize one</p>
                         </div>
                         <img width="100%" src="<?php echo Yii::app()->theme->baseUrl;?>/images/pic3.png" /></a>
-                        <div class="col-md-12 pull-left text-center">Explore Career</div>
+                        <div class="col-md-12 pull-left text-center font_color_set">Explore Career</div>
                         </div>
                         <div class="col-md-4 pd20  toolSat col-sm-offset-0 thumbnails span3" ><a href="javaScript:void(0);" class="login-boot-box thumbnail">
                          <div class="caption">                  
                   		  <p>Webinar and sessions with professionals and institutions</p>
                         </div>
                         <img width="100%" src="<?php echo Yii::app()->theme->baseUrl;?>/images/pic6.png" /></a>
-                        <div class="col-md-12 pull-left text-center">Online Event</div>
+                        <div class="col-md-12 pull-left text-center font_color_set" >Online Event</div>
                         </div>
                     </div>
                     <div class="home_left_down">
@@ -36,7 +36,7 @@
                   		  <p>Pick the right college and course</p>
                         </div>
                         <img width="100%" src="<?php echo Yii::app()->theme->baseUrl;?>/images/pic5.png" /></a>
-                        <div class="col-md-12 pull-left text-center">Shortlist Colleges</div>
+                        <div class="col-md-12 pull-left text-center font_color_set">Shortlist Colleges</div>
                         </div>
                         <div class="col-md-4 pd20 toolSat thumbnails span3">
                         <a href="javaScript:void(0);" class="login-boot-box thumbnail">
@@ -44,7 +44,7 @@
                   		  <p>Shortlist and never miss a deadline</p>
                         </div>
                         <img width="100%" src="<?php echo Yii::app()->theme->baseUrl;?>/images/pic4.png" /></a>
-                        <div class="col-md-12 pull-left text-center">Entrance Exams</div>
+                        <div class="col-md-12 pull-left text-center font_color_set">Entrance Exams</div>
                         </div>
                         <div class="col-md-4 pd20 toolSat thumbnails span3" >
                         <a href="javaScript:void(0);" class="login-boot-box thumbnail">
@@ -52,7 +52,7 @@
                   		  <p>Ask your questions and book counselling session</p>
                         </div>
                         <img width="100%" src="<?php echo Yii::app()->theme->baseUrl;?>/images/pic1.png" /></a>
-                        <div class="col-md-12 pull-left text-center">Personalized Career Mentoring</div>
+                        <div class="col-md-12 pull-left text-center font_color_set">Personalized Career Mentoring</div>
                         </div>
                     </div>
                    
