@@ -20,9 +20,11 @@
     <![endif]-->
 <?php Yii::app()->clientScript->registerScript('myHideEffect','$(".flash-success").animate({opacity: 1.0}, 3000).fadeOut("slow");',CClientScript::POS_READY);
 Yii::app()->clientScript->registerScript('myHideEffect2','$(".flash-error").animate({opacity: 1.0}, 3000).fadeOut("slow");',CClientScript::POS_READY);?>
-  </head>
-
-  <body style="width:1347px; margin:0 auto;" onunload="window.opener.reload();">
+</head>
+<body style="width:1347px; margin:0 auto;" onunload="window.opener.reload();">
+<?php if(isset($_REQUEST['fb']) && $_REQUEST['fb']==1)
+		echo '<script>window.close();</script>';
+?>
 	<div class="wrapper">
 	<?php  $this->Widget('WidgetDashboardMenu'); ?>
 	<section class="main-section">

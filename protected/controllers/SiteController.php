@@ -127,8 +127,7 @@ class SiteController extends Controller
 					$login->email		=	$userC->username;
 					$login->password	=	$userC->fb_id;
 					if($login->login()){
-						
-						echo 'Login sucessfull close this wondow';die;
+						$this->redirect(Yii::app()->createUrl('/user/',array('fb'=>1)));
 						/*if(isset(Yii::app()->user->userType)){
 							if(Yii::app()->user->userType=='admin'){
 								$this->redirect(Yii::app()->createUrl('/admin/admin'));
@@ -161,7 +160,7 @@ class SiteController extends Controller
 						$login->email		=	$userR->username;
 						$login->password	=	$userR->fb_id;
 						if($login->login()){
-							echo 'Login sucessfull close this wondow';die;
+							$this->redirect(Yii::app()->createUrl('/user/',array('fb'=>1)));
 							/*if(isset(Yii::app()->user->userType)){
 								if(Yii::app()->user->userType=='admin'){
 									$this->redirect(Yii::app()->createUrl('/admin/admin'));
@@ -225,26 +224,7 @@ class SiteController extends Controller
 								$login->email		=	$user->username;
 								$login->password	=	$user->fb_id;
 								if($login->login()){
-									echo 'Login sucessfull close this wondow';die;
-									
-									/*if(isset(Yii::app()->user->userType)){
-										if(Yii::app()->user->userType=='admin'){
-											$this->redirect(Yii::app()->createUrl('/admin/admin'));
-										}
-										if(Yii::app()->user->userType=='school'){
-											$this->redirect(Yii::app()->createUrl('/school/'));
-										}
-										if(Yii::app()->user->userType=='counsellor'){
-											$this->redirect(Yii::app()->createUrl('/counsellor/'));
-										}
-										if(Yii::app()->user->userType=='student'|| Yii::app()->user->userType=='below10th'){
-											$this->redirect(Yii::app()->createUrl('/user/'));
-										}
-										
-									}
-									else{
-										Yii::app()->user->setFlash('login','Email or password not valid.');
-									}*/
+									$this->redirect(Yii::app()->createUrl('/user/',array('fb'=>1)));
 								}
 								else{
 									Yii::app()->user->setFlash('login','Email or password not valid.');
