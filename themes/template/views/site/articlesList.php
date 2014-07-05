@@ -17,7 +17,7 @@
                             <div  style="float:left;padding:6px;" >
 <img src="<?php echo Yii::app()->baseUrl;?>/uploads/articles/small/<?php echo $list->image;?>" width="100px"/>
 							</div>
-                            <p><?php echo substr(preg_replace("/<img[^>]+\>/i", " ", $list->description),0,230);?></p>
+                            <p><?php echo substr(strip_tags(preg_replace("/<img[^>]+\>/i", " ", $list->description)),0,230);?></p>
 							<?php //echo CHtml::link('Read Full..',array('/site/article','id'=>$list->id));?>
 						</div>
 						</a>
