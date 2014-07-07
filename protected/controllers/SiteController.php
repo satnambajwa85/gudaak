@@ -119,8 +119,10 @@ class SiteController extends Controller
 				error_log($e);
 				$user = null;
 			}
-			if (!empty($user_profile ))
+			if (!empty($user_profile))
 			{
+				CVarDumpeer::dump($user_profile,10,1);
+				die;
 				$userC	=	UserLogin::model()->findByAttributes(array('username'=>$user_profile['email'],'fb_id'=>$user_profile['id']));
 				if(!empty($userC)){
 					$login				=	new LoginForm;
@@ -188,7 +190,6 @@ class SiteController extends Controller
 				
 				}
 				else{
-					
 					$model	=	new Register;
 					$model->display_name	=	$user_profile['name'];
 					$model->first_name		=	$user_profile['first_name'];
@@ -196,8 +197,8 @@ class SiteController extends Controller
 					$model->email			=	$user_profile['email'];
 					$passVal				=	rand(100000, 10000000);
 					$pass					=	md5($passVal);
-					$model->image			=	'noimage.jpg';
-					//$model->image			=	'https://graph.facebook.com/'.$user_profile['id'].'/picture?type=large';
+					//$model->image			=	'noimage.jpg';
+					$model->image			=	'https://graph.facebook.com/'.$user_profile['id'].'/picture?type=large';
 					$model->gender			=	$user_profile['gender'];
 					$userRole				=	3;
 					$model->add_date		=	date('Y-m-d H:i:s');
@@ -216,6 +217,7 @@ class SiteController extends Controller
 					$model->user_login_id	=	1;
 					$valid					=	$model->validate();
 					$valid					=	$user->validate() && $valid;
+					
 					if($valid){
 						if($user->save()){
 							$model->user_login_id			=	$user->id;
