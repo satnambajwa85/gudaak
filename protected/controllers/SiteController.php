@@ -121,6 +121,9 @@ class SiteController extends Controller
 			}
 			if (!empty($user_profile ))
 			{
+				
+				CVarDumper::dump($user_profile,10,1);
+				die;
 				$userC	=	UserLogin::model()->findByAttributes(array('username'=>$user_profile['email'],'fb_id'=>$user_profile['id']));
 				if(!empty($userC)){
 					$login				=	new LoginForm;
