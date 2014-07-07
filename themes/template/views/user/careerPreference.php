@@ -157,7 +157,7 @@ $this->breadcrumbs=array('Career Preference'=>array('/user/careerPreference'));
 					</div>
                     <?php } ?>
 					<div class="col-md-12 pull-left fl pd0">
-						<div class="mr0  pull-left counselor-views">
+						<div class="mr0 col-md-12 pull-left counselor-views">
 							<h1>Counselor  Comments </h1>
 							<?php foreach($data2 as $dataList){?>
                                 <datetime class="date-time"><?php echo (isset($dataList['add_date']))?date('d-M-Y',strtotime($dataList['add_date'])):"";?></datetime>
