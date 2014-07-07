@@ -153,12 +153,9 @@ class SiteController extends Controller
 				}
 				else{
 					$userR	=	UserLogin::model()->findByAttributes(array('username'=>$user_profile['email']));
-					
-					CVarDumper::dump($userR,10,1);
-					CVarDumper::dump($user_profile,10,1);
-					die;
 					if(!empty($userR)){
 						$userR->fb_id	=	$user_profile['id'];
+						
 						if($userR->save()){
 							$login				=	new LoginForm;
 							$login->email		=	$userR->username;
@@ -189,7 +186,9 @@ class SiteController extends Controller
 								$this->redirect(Yii::app()->createUrl('/site/login'));
 							}
 						}
-					
+						CVarDumper::dump($userR,10,1);
+						CVarDumper::dump($user_profile,10,1);
+						die;
 					}
 					else{
 						$model	=	new Register;
