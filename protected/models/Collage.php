@@ -35,6 +35,7 @@ class Collage extends CActiveRecord
 	 * @return Collage the static model class
 	 */
 	public $courses_id,$specialisation;
+	public $states_id;
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);

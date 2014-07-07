@@ -25,8 +25,26 @@ $this->breadcrumbs=array('Colleges Explore'=>array('/user/exploreColleges'));
 						'htmlOptions'=>array('enctype'=>'multipart/form-data'),
 					)); ?>
                 	<div class="text_w_outer">
-                     <span class="text_w_dd">Search</span>
-                     <?php echo CHtml::textField('search',(isset($_REQUEST['search']))?$_REQUEST['search']:'');?></div>
+                     <span class="text_w_dd">Keyword</span>
+                     <?php echo CHtml::textField('search',(isset($_REQUEST['search']))?$_REQUEST['search']:'');?>
+                    </div>
+                    <div class="text_w_outer">
+                     <span class="text_w_dd">State</span>
+
+<?php echo $form->dropDownList($model,'states_id',CHtml::listData(State::model()->findAll(array('condition'=>'status = 1 and published=1')),'id', 'title'),
+	array('ajax' => array('type'=>'POST',
+		'url'=>Yii::app()->createUrl('/site/dynamicCollageCity'),
+		'update'=>'#Collage_city_id',
+	),'placeholder'=>'State'));?>
+
+                    </div>
+                    <div class="text_w_outer">
+                     <span class="text_w_dd">City</span>
+                     <?php echo $form->dropDownList($model,'city_id',CHtml::listData(City::model()->findAll(array('condition'=>'status = 1 and published=1')),'id', 'title'),array('placeholder'=>'City Name','value'=>$model->city_id));?>
+                    </div>
+                    
+                    
+                    
                     <div class="text_w_outer mt20 ml10">
                     <?php 	echo CHtml::submitButton('Search',array('class'=>'summery-left-btn'));?>
 					</div>

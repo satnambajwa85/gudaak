@@ -100,8 +100,6 @@ class SiteController extends Controller
 	
 	public function actionFacebook()
 	{
-		//'280973568648095'
-		//'cb87d29ce10af839948748ad14e2de8f'
 		if(isset(Yii::app()->user->profileId)){
 			$this->redirect(Yii::app()->createUrl('/user'));
 		}
@@ -128,23 +126,6 @@ class SiteController extends Controller
 					$login->password	=	$userC->fb_id;
 					if($login->login()){
 						$this->redirect(Yii::app()->createUrl('/user/',array('fb'=>1)));
-						/*if(isset(Yii::app()->user->userType)){
-							if(Yii::app()->user->userType=='admin'){
-								$this->redirect(Yii::app()->createUrl('/admin/admin'));
-							}
-							if(Yii::app()->user->userType=='school'){
-								$this->redirect(Yii::app()->createUrl('/school'));
-							}
-							if(Yii::app()->user->userType=='counsellor'){
-								$this->redirect(Yii::app()->createUrl('/counsellor'));
-							}
-							else{
-								$this->redirect(Yii::app()->createUrl('/user'));
-							}
-						}
-						else{
-							Yii::app()->user->setFlash('login','Email or password not valid.');
-						}*/
 					}
 					else{
 						Yii::app()->user->setFlash('login','Email or password not valid.');
@@ -162,24 +143,6 @@ class SiteController extends Controller
 							$login->password	=	$userR->fb_id;
 							if($login->login()){
 								$this->redirect(Yii::app()->createUrl('/user/',array('fb'=>1)));
-								/*if(isset(Yii::app()->user->userType)){
-									if(Yii::app()->user->userType=='admin'){
-										$this->redirect(Yii::app()->createUrl('/admin/admin'));
-									}
-									if(Yii::app()->user->userType=='school'){
-										$this->redirect(Yii::app()->createUrl('/school/'));
-									}
-									if(Yii::app()->user->userType=='counsellor'){
-										$this->redirect(Yii::app()->createUrl('/counsellor/'));
-									}
-									if(Yii::app()->user->userType=='student'|| Yii::app()->user->userType=='below10th'){
-										$this->redirect(Yii::app()->createUrl('/user/'));
-									}
-									
-								}
-								else{
-									Yii::app()->user->setFlash('login','Email or password not valid.');
-								}*/
 							}
 							else{
 								Yii::app()->user->setFlash('login','Email or password not valid.');
@@ -195,7 +158,6 @@ class SiteController extends Controller
 						$model->email			=	$user_profile['email'];
 						$passVal				=	rand(100000, 10000000);
 						$pass					=	md5($passVal);
-						//$model->image			=	'noimage.jpg';
 						$model->image			=	'https://graph.facebook.com/'.$user_profile['id'].'/picture?type=large';
 						$model->gender			=	$user_profile['gender'];
 						$userRole				=	3;
@@ -608,6 +570,20 @@ class SiteController extends Controller
 			}
 		die;
 	}
+	public function actionDynamicCollageCity()
+	{	 
+		$getId = '';
+		if(!empty($_POST['Collage']['states_id'])) 
+			$getId	 = $_POST['Collage']['states_id'];
+			$data	=	City::model()->findAll('state_id =:parent_id',array(':parent_id'=>(int) $getId));
+			$data	=	CHtml::listData($data,'id','title');
+			foreach($data as $value=>$name){
+				echo CHtml::tag('option', array('value'=>$value),CHtml::encode($name),true);
+				
+			}
+		die;
+	}
+	
 	
 	public function actionLogout()
 	{
