@@ -577,6 +577,7 @@ class SiteController extends Controller
 			$getId	 = $_POST['Collage']['states_id'];
 			$data	=	City::model()->findAll('state_id =:parent_id',array(':parent_id'=>(int) $getId));
 			$data	=	CHtml::listData($data,'id','title');
+				echo CHtml::tag('option', array('value'=>''),CHtml::encode('Select City'),true);
 			foreach($data as $value=>$name){
 				echo CHtml::tag('option', array('value'=>$value),CHtml::encode($name),true);
 				

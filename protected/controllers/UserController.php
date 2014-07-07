@@ -1801,12 +1801,30 @@ class UserController extends Controller
 			Yii::app()->user->setFlash('redirect',"Take the Test to Get Started");
 			$this->redirect(Yii::app()->createUrl('/user/tests'));
 		}
-		
-		
+		$model1	=	new Collage;
 		$value	=	(isset($_REQUEST['search']))?$_REQUEST['search']:'';
 		if(!empty($value)){
+			if($_REQUEST['Collage']['city_id']){
+				$model1->city_id	=	$_REQUEST['Collage']['city_id'];
+				if(!empty($_REQUEST['Collage']['states_id']))
+					$model1->states_id	=	$_REQUEST['Collage']['states_id'];
+			
+				$col1	=	Collage::model()->findAll('name LIKE "%'.$value.'%" AND city_id = '.$_REQUEST['Collage']['city_id']);
+			}elseif($_REQUEST['Collage']['states_id']){
+				$model1->states_id	=	$_REQUEST['Collage']['states_id'];
+				$Citylist	=	City::model()->findAllByAttributes(array('state_id'=>$_REQUEST['Collage']['states_id']));
+				$City3		=	array();
+				foreach($Citylist as $reCity)
+					$City3[]	=	$reCity->id;
+					
+				$strCity	=		implode(',',$City3);
+				$col1	=	Collage::model()->findAll('name LIKE "%'.$value.'%" AND city_id IN ('.$strCity.')');
+			}else{
+				$col1	=	Collage::model()->findAll('name LIKE "%'.$value.'%"');
+			}
+			
+			
 			$cou1	=	Courses::model()->findAll('title LIKE "%'.$value.'%"');
-			$col1	=	Collage::model()->findAll('name LIKE "%'.$value.'%"');
 			$spe1	=	Specialization::model()->findAll('title LIKE "%'.$value.'%"');
 
 			$collg	=	array();
@@ -1825,17 +1843,94 @@ class UserController extends Controller
 				$course[]	=	$rec->id;
 
 			
-$criteria21 = new CDbCriteria();
-if(count($collg)>0)
-	$criteria21->addInCondition("collage_id", $collg,'OR');
-if(count($course)>0)
-	$criteria21->addInCondition("courses_id", $course,'OR');
-if(count($special)>0)
-	$criteria21->addInCondition("specialization_id", $special,'OR');
+			$criteria21 = new CDbCriteria();
+			if(count($collg)>0)
+				$criteria21->addInCondition("collage_id", $collg,'OR');
+			if(count($course)>0)
+				$criteria21->addInCondition("courses_id", $course,'OR');
+			if(count($special)>0)
+				$criteria21->addInCondition("specialization_id", $special,'OR');
 
 			$list	=	CollagesCoursesSpecialization::model()->findAll($criteria21);
 	
 			
+			$listCollage	=	array();
+			if(count($list)>0)
+				foreach($list as $rec)
+					$listCollage[]	=	$rec->collage_id;		
+			$model				=	new Collage;
+			$criteria			=	new CDbCriteria();
+			$criteria->condition=	'(activation =:activation and status =:status )';
+			$criteria->params 	=	array('activation'=>1,'status'=>1);
+			$criteria->addInCondition("t.id",$listCollage);
+			$count				=	Collage::model()->count($criteria);
+			$pages				=	new CPagination($count);
+			$pages->pageSize	=	5;
+			$pages->applyLimit($criteria);
+			$Institutes				=	Collage::model()->findAll($criteria);
+			$shortListed = UserProfilesHasInstitutes::model()->findAll('user_profiles_id=:id', array(':id'=>Yii::app()->user->profileId));
+			$shortList	=	array();
+			foreach($shortListed as $col)
+				$shortList[]	=	$col->institutes_id;
+		}
+		elseif(!empty($_REQUEST['Collage']['city_id'])){
+			$model1->city_id	=	$_REQUEST['Collage']['city_id'];
+			if(!empty($_REQUEST['Collage']['states_id']))
+				$model1->states_id	=	$_REQUEST['Collage']['states_id'];
+			
+			$col1	=	Collage::model()->findAll('city_id ='.$_REQUEST['Collage']['city_id']);
+			$collg	=	array();
+			if(count($col1)>0)
+			foreach($col1 as $rec)
+				$collg[]	=	$rec->id;
+			$criteria21 = new CDbCriteria();
+			if(count($collg)>0)
+				$criteria21->addInCondition("collage_id", $collg);
+
+			$list	=	array();
+			if(count($collg)>0)
+				$list	=	CollagesCoursesSpecialization::model()->findAll($criteria21);
+			$listCollage	=	array();
+			if(count($list)>0)
+				foreach($list as $rec)
+					$listCollage[]	=	$rec->collage_id;		
+			$model				=	new Collage;
+			$criteria			=	new CDbCriteria();
+			$criteria->condition=	'(activation =:activation and status =:status )';
+			$criteria->params 	=	array('activation'=>1,'status'=>1);
+			$criteria->addInCondition("t.id",$listCollage);
+			$count				=	Collage::model()->count($criteria);
+			$pages				=	new CPagination($count);
+			$pages->pageSize	=	5;
+			$pages->applyLimit($criteria);
+			$Institutes			=	Collage::model()->findAll($criteria);
+			$shortListed		=	UserProfilesHasInstitutes::model()->findAll('user_profiles_id=:id', array(':id'=>Yii::app()->user->profileId));
+			$shortList			=	array();
+			foreach($shortListed as $col)
+				$shortList[]	=	$col->institutes_id;
+		}
+		elseif(!empty($_REQUEST['Collage']['states_id'])){
+			$model1->states_id	=	$_REQUEST['Collage']['states_id'];
+			
+			$Citylist	=	City::model()->findAllByAttributes(array('state_id'=>$_REQUEST['Collage']['states_id']));
+			$City3		=	array();
+			foreach($Citylist as $reCity)
+				$City3[]	=	$reCity->id;
+			
+			$col1	=	Collage::model()->findAllByAttributes(array('city_id'=>$City3));
+			$collg	=	array();
+			if(count($col1)>0)
+				foreach($col1 as $rec)
+					$collg[]	=	$rec->id;
+			
+			$criteria21 = new CDbCriteria();
+			if(count($collg)>0)
+				$criteria21->addInCondition("collage_id", $collg);
+				
+			$list	=	array();
+			if(count($collg)>0)
+				$list	=	CollagesCoursesSpecialization::model()->findAll($criteria21);
+	
 			$listCollage	=	array();
 			if(count($list)>0)
 				foreach($list as $rec)
@@ -1871,7 +1966,8 @@ if(count($special)>0)
 				$shortList[]	=	$col->institutes_id;
 		}
 		
-		$this->render('collage',array('model'=>$model,'Institutes'=>$Institutes,'pages'=>$pages,'shortList'=>$shortList));
+		
+		$this->render('collage',array('model'=>$model1,'Institutes'=>$Institutes,'pages'=>$pages,'shortList'=>$shortList));
 	}
 	public function actionShortListedColleges()
 	{	

@@ -35,12 +35,12 @@ $this->breadcrumbs=array('Colleges Explore'=>array('/user/exploreColleges'));
 	array('ajax' => array('type'=>'POST',
 		'url'=>Yii::app()->createUrl('/site/dynamicCollageCity'),
 		'update'=>'#Collage_city_id',
-	),'placeholder'=>'State'));?>
+	),'placeholder'=>'State','empty'=>'Select State'));?>
 
                     </div>
                     <div class="text_w_outer">
                      <span class="text_w_dd">City</span>
-                     <?php echo $form->dropDownList($model,'city_id',CHtml::listData(City::model()->findAll(array('condition'=>'status = 1 and published=1')),'id', 'title'),array('placeholder'=>'City Name','value'=>$model->city_id));?>
+                     <?php echo $form->dropDownList($model,'city_id',CHtml::listData(City::model()->findAll(array('condition'=>'status = 1 and published=1')),'id', 'title'),array('placeholder'=>'City Name','value'=>$model->city_id,'empty'=>'Select City'));?>
                     </div>
                     
                     
