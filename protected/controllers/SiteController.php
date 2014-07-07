@@ -100,8 +100,6 @@ class SiteController extends Controller
 	
 	public function actionFacebook()
 	{
-		//'280973568648095'
-		//'cb87d29ce10af839948748ad14e2de8f'
 		if(isset(Yii::app()->user->profileId)){
 			$this->redirect(Yii::app()->createUrl('/user'));
 		}
@@ -131,23 +129,6 @@ class SiteController extends Controller
 					$login->password	=	$userC->fb_id;
 					if($login->login()){
 						$this->redirect(Yii::app()->createUrl('/user/',array('fb'=>1)));
-						/*if(isset(Yii::app()->user->userType)){
-							if(Yii::app()->user->userType=='admin'){
-								$this->redirect(Yii::app()->createUrl('/admin/admin'));
-							}
-							if(Yii::app()->user->userType=='school'){
-								$this->redirect(Yii::app()->createUrl('/school'));
-							}
-							if(Yii::app()->user->userType=='counsellor'){
-								$this->redirect(Yii::app()->createUrl('/counsellor'));
-							}
-							else{
-								$this->redirect(Yii::app()->createUrl('/user'));
-							}
-						}
-						else{
-							Yii::app()->user->setFlash('login','Email or password not valid.');
-						}*/
 					}
 					else{
 						Yii::app()->user->setFlash('login','Email or password not valid.');
@@ -164,24 +145,6 @@ class SiteController extends Controller
 						$login->password	=	$userR->fb_id;
 						if($login->login()){
 							$this->redirect(Yii::app()->createUrl('/user/',array('fb'=>1)));
-							/*if(isset(Yii::app()->user->userType)){
-								if(Yii::app()->user->userType=='admin'){
-									$this->redirect(Yii::app()->createUrl('/admin/admin'));
-								}
-								if(Yii::app()->user->userType=='school'){
-									$this->redirect(Yii::app()->createUrl('/school/'));
-								}
-								if(Yii::app()->user->userType=='counsellor'){
-									$this->redirect(Yii::app()->createUrl('/counsellor/'));
-								}
-								if(Yii::app()->user->userType=='student'|| Yii::app()->user->userType=='below10th'){
-									$this->redirect(Yii::app()->createUrl('/user/'));
-								}
-								
-							}
-							else{
-								Yii::app()->user->setFlash('login','Email or password not valid.');
-							}*/
 						}
 						else{
 							Yii::app()->user->setFlash('login','Email or password not valid.');
