@@ -7040,8 +7040,8 @@ header {
 	-o-transition:all 0.4s ease 0s;
 	transition:all 0.4s ease 0s;
 }
-.side-navigation>li>a {
-	color:#f7a944;
+.side-navigation>ul>li>a {
+	color:#f7a944 !important;
 }
 .side-navigation li a:hover {
     
