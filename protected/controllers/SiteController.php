@@ -351,10 +351,10 @@ class SiteController extends Controller
 	{	
 		$user			=	base64_decode($email);
 		$password		=	base64_decode($code);
-		$record_exists = UserLogin::model()->exists('username = :email', array(':email'=>$user));
+		echo $record_exists = UserLogin::model()->exists('username = :email', array(':email'=>$user));
 		if($record_exists){
-			$record = UserLogin::model()->findByAttributes(array('username'=>$user)); 
-			$record->activation	=	1;
+			$record					=	UserLogin::model()->findByAttributes(array('username'=>$user)); 
+			$record->activation		=	1;
 			if($record->save()){
 				$login				=	new LoginForm;
 				$login->email		=	$record->username;
