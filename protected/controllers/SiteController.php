@@ -349,8 +349,9 @@ class SiteController extends Controller
 	}
 	public function actionCheckUser($email,$code='')
 	{	
-		$user			=	base64_decode($email);
-		$password		=	base64_decode($code);
+		echo $user			=	base64_decode($email);
+		echo $password		=	base64_decode($code);
+		die;
 		$record_exists = UserLogin::model()->exists('username = :email', array(':email'=>$user));
 		if($record_exists){
 			$record = UserLogin::model()->findByAttributes(array('username'=>$user)); 
