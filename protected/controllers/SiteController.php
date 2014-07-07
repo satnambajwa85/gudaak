@@ -336,9 +336,7 @@ class SiteController extends Controller
 						$this->redirect(array('site/userRegister'));
 						die;
 					}
-					else {
-						CVarDumper::dump($model,10,1);
-						die;	
+					else{
 						Yii::app()->user->setFlash('error','Please fill up carefully all field are mandatory.');
 						$this->redirect(array('site/userRegister'));
 						die;
@@ -351,8 +349,10 @@ class SiteController extends Controller
 	}
 	public function actionCheckUser($email)
 	{	
-		$user		=	base64_decode($email);
-		$record_exists = UserLogin::model()->exists('username = :email', array(':email'=>$user));   				
+		echo $user		=	base64_decode($email);
+		$record_exists = UserLogin::model()->exists('username = :email', array(':email'=>$user));
+		CVarDumper::dump($record_exists,10,1);
+		die('done');
 		if($record_exists==1){ 
 			$record = UserLogin::model()->findByAttributes(array('username'=>$user)); 
 			$record->activation	=	1;
@@ -361,7 +361,6 @@ class SiteController extends Controller
 				$this->redirect(array('site/login'));
 			
 			}
-			 
 		}else{
 		
 			Yii::app()->user->setFlash('create','Not record found.');
