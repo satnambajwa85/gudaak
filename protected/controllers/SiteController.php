@@ -309,6 +309,7 @@ class SiteController extends Controller
 			}
 			$user					=	new  UserLogin();
 			$user->username			=	$_POST['Register']['email'];
+			$user->name				=	$model->first_name.' '.$model->last_name;
 			$user->password			=	md5($_POST['Register']['password']);
 			$user->add_date			=	date('Y-m-d H:i:s');
 			$user->block			=	0;
@@ -328,7 +329,7 @@ class SiteController extends Controller
 						$data['name']		=	$model->display_name;
 						$data['email']		=	$user->username;
 						$data['password']	=	$user->password;
-						$data['code']	=	$this->createAbsoluteUrl('site/checkUser',array('email'=>base64_encode($user->username)));
+						$data['code']		=	$this->createAbsoluteUrl('site/checkUser',array('email'=>base64_encode($user->username)));
 						$this->sendMail($data,'register');
 						//End  mail Function  
 						Yii::app()->user->setFlash('create','Thank you for join us check your email and activate your account.');
