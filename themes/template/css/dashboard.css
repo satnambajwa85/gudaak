@@ -7307,7 +7307,7 @@ header {
 .middle-format-right h1{color: #666;font-size: 15px;text-transform: capitalize;}
 .middle-format-right p{color: #666666;font-size: 11px;margin-top: 7px;text-align: justify;}
 
-.counselor-views{padding:0 20px 0 0;}
+.counselor-views{padding:0 20px 0 0;overflow: hidden;}
 .counselor-views h1{color: #21C4C1;font-family: robotomedium;font-size: 15px;font-weight: normal; text-transform: capitalize;}
 .counselor-views p{color: #666666;font-size: 10px;margin-top: 7px;text-align: justify;}
 .counselor-views a {color: #E88B2D;font-size: 11px;text-decoration:none;}
