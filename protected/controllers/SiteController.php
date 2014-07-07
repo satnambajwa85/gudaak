@@ -328,8 +328,8 @@ class SiteController extends Controller
 						//Start  mail Function 
 						$data['name']		=	$model->display_name;
 						$data['email']		=	$user->username;
-						$data['password']	=	$user->password;
-						$data['code']		=	$this->createAbsoluteUrl('site/checkUser',array('email'=>base64_encode($user->username)));
+						$data['password']	=	$_POST['Register']['password'];
+						$data['code']		=	$this->createAbsoluteUrl('site/checkUser',array('email'=>base64_encode($user->username),'code'=>base64_encode($_POST['Register']['password'])));
 						$this->sendMail($data,'register');
 						//End  mail Function  
 						Yii::app()->user->setFlash('create','Thank you for join us check your email and activate your account.');
@@ -347,18 +347,26 @@ class SiteController extends Controller
 		}	
 		$this->render('userRegister',array('model'=>$model));
 	}
-	public function actionCheckUser($email)
+	public function actionCheckUser($email,$code='')
 	{	
-		echo $user		=	base64_decode($email);
+		$user			=	base64_decode($email);
+		$password		=	base64_decode($code);
 		$record_exists = UserLogin::model()->exists('username = :email', array(':email'=>$user));
-		CVarDumper::dump($record_exists,10,1);
-		die('done');
-		if($record_exists==1){ 
+		if($record_exists){
 			$record = UserLogin::model()->findByAttributes(array('username'=>$user)); 
 			$record->activation	=	1;
 			if($record->save()){
-				Yii::app()->user->setFlash('login','Thank you for join us your account is activated.');
-				$this->redirect(array('site/login'));
+				$login				=	new LoginForm;
+				$login->email		=	$record->username;
+				$login->password	=	$password;
+				if($login->login()){
+					Yii::app()->user->setFlash('login','Thank you for join us your account is activated.');
+					$this->redirect(Yii::app()->createUrl('/user/',array('first'=>1)));
+				}
+				else{
+					Yii::app()->user->setFlash('login','Thank you for join us your account is activated.');
+					$this->redirect(array('site/login'));
+				}
 			
 			}
 		}else{
