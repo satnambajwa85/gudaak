@@ -196,8 +196,8 @@ class SiteController extends Controller
 					$model->email			=	$user_profile['email'];
 					$passVal				=	rand(100000, 10000000);
 					$pass					=	md5($passVal);
-					//$model->image			=	'noimage.jpg';
-					$model->image			=	'https://graph.facebook.com/'.$user_profile['id'].'/picture?type=large';
+					$model->image			=	'noimage.jpg';
+					//$model->image			=	'https://graph.facebook.com/'.$user_profile['id'].'/picture?type=large';
 					$model->gender			=	$user_profile['gender'];
 					$userRole				=	3;
 					$model->add_date		=	date('Y-m-d H:i:s');
