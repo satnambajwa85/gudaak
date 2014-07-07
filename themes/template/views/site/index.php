@@ -7,21 +7,21 @@
 				<div class="col-md-7 fl" >
                 	
                 	<div class="home_left_top col-md-12 "  >
-                    	<div class="col-md-4 pd20 toolSat thumbnails span3" ><a href="javaScript:void(0);" class="login-boot-box thumbnail">
+                    	<div class="col-md-4 pd20 toolSat thumbnails span3" ><a href="javaScript:void(0);" class="home-login-box thumbnail">
                         <div class="caption">                  
                   		  <p>Assess your personality and interests to find the right career</p>
                         </div>
                         <img width="100%" src="<?php echo Yii::app()->theme->baseUrl;?>/images/pic2.png" /></a>
                         <div class="col-md-12 pull-left text-center font_color_set">Take Career Assessment</div>
                         </div>
-                        <div class="col-md-4 pd20  toolSat col-sm-offset-0  thumbnails span3 " ><a href="javaScript:void(0);" class="login-boot-box thumbnail">
+                        <div class="col-md-4 pd20  toolSat col-sm-offset-0  thumbnails span3 " ><a href="javaScript:void(0);" class="home-login-box thumbnail">
                         <div class="caption">                  
                   		  <p>Know everything about career options before you finalize one</p>
                         </div>
                         <img width="100%" src="<?php echo Yii::app()->theme->baseUrl;?>/images/pic3.png" /></a>
                         <div class="col-md-12 pull-left text-center font_color_set">Explore Career</div>
                         </div>
-                        <div class="col-md-4 pd20  toolSat col-sm-offset-0 thumbnails span3" ><a href="javaScript:void(0);" class="login-boot-box thumbnail">
+                        <div class="col-md-4 pd20  toolSat col-sm-offset-0 thumbnails span3" ><a href="javaScript:void(0);" class="home-login-box thumbnail">
                          <div class="caption">                  
                   		  <p>Webinar and sessions with professionals and institutions</p>
                         </div>
@@ -31,7 +31,7 @@
                     </div>
                     <div class="home_left_down">
                     	<div class="col-md-4 pd20 toolSat thumbnails span3" >
-                        <a href="javaScript:void(0);" class="login-boot-box thumbnail">
+                        <a href="javaScript:void(0);" class="home-login-box thumbnail">
                         <div class="caption">                  
                   		  <p>Pick the right college and course</p>
                         </div>
@@ -39,7 +39,7 @@
                         <div class="col-md-12 pull-left text-center font_color_set">Shortlist Colleges</div>
                         </div>
                         <div class="col-md-4 pd20 toolSat thumbnails span3">
-                        <a href="javaScript:void(0);" class="login-boot-box thumbnail">
+                        <a href="javaScript:void(0);" class="home-login-box thumbnail">
                          <div class="caption">                  
                   		  <p>Shortlist and never miss a deadline</p>
                         </div>
@@ -47,7 +47,7 @@
                         <div class="col-md-12 pull-left text-center font_color_set">Entrance Exams</div>
                         </div>
                         <div class="col-md-4 pd20 toolSat thumbnails span3" >
-                        <a href="javaScript:void(0);" class="login-boot-box thumbnail">
+                        <a href="javaScript:void(0);" class="home-login-box thumbnail">
                          <div class="caption">                  
                   		  <p>Ask your questions and book counselling session</p>
                         </div>
