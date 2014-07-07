@@ -153,6 +153,10 @@ class SiteController extends Controller
 				}
 				else{
 					$userR	=	UserLogin::model()->findByAttributes(array('username'=>$user_profile['email']));
+					
+					CVarDumper::dump($userR,10,1);
+					CVarDumper::dump($user_profile,10,1);
+					die;
 					if(!empty($userR)){
 						$userR->fb_id	=	$user_profile['id'];
 						if($userR->save()){
@@ -188,8 +192,6 @@ class SiteController extends Controller
 					
 					}
 					else{
-						CVarDumper::dump($user_profile,10,1);
-						die;
 						$model	=	new Register;
 						$model->display_name	=	$user_profile['name'];
 						$model->first_name		=	$user_profile['first_name'];
