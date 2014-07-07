@@ -121,8 +121,6 @@ class SiteController extends Controller
 			}
 			if (!empty($user_profile))
 			{
-				CVarDumper::dump($user_profile,10,1);
-				die;
 				$userC	=	UserLogin::model()->findByAttributes(array('username'=>$user_profile['email'],'fb_id'=>$user_profile['id']));
 				if(!empty($userC)){
 					$login				=	new LoginForm;
@@ -154,105 +152,107 @@ class SiteController extends Controller
 					}
 				}
 				else{
-				$userR	=	UserLogin::model()->findByAttributes(array('username'=>$user_profile['email']));
-				if(!empty($userR)){
-					$userR->fb_id	=	$user_profile['id'];
-					if($userR->save()){
-						$login				=	new LoginForm;
-						$login->email		=	$userR->username;
-						$login->password	=	$userR->fb_id;
-						if($login->login()){
-							$this->redirect(Yii::app()->createUrl('/user/',array('fb'=>1)));
-							/*if(isset(Yii::app()->user->userType)){
-								if(Yii::app()->user->userType=='admin'){
-									$this->redirect(Yii::app()->createUrl('/admin/admin'));
-								}
-								if(Yii::app()->user->userType=='school'){
-									$this->redirect(Yii::app()->createUrl('/school/'));
-								}
-								if(Yii::app()->user->userType=='counsellor'){
-									$this->redirect(Yii::app()->createUrl('/counsellor/'));
-								}
-								if(Yii::app()->user->userType=='student'|| Yii::app()->user->userType=='below10th'){
-									$this->redirect(Yii::app()->createUrl('/user/'));
-								}
-								
-							}
-							else{
-								Yii::app()->user->setFlash('login','Email or password not valid.');
-							}*/
-						}
-						else{
-							Yii::app()->user->setFlash('login','Email or password not valid.');
-							$this->redirect(Yii::app()->createUrl('/site/login'));
-						}
-					}
-				
-				}
-				else{
-					$model	=	new Register;
-					$model->display_name	=	$user_profile['name'];
-					$model->first_name		=	$user_profile['first_name'];
-					$model->last_name		=	$user_profile['last_name'];
-					$model->email			=	$user_profile['email'];
-					$passVal				=	rand(100000, 10000000);
-					$pass					=	md5($passVal);
-					//$model->image			=	'noimage.jpg';
-					$model->image			=	'https://graph.facebook.com/'.$user_profile['id'].'/picture?type=large';
-					$model->gender			=	$user_profile['gender'];
-					$userRole				=	3;
-					$model->add_date		=	date('Y-m-d H:i:s');
-					$model->semd_mail		=	1;
-					$model->password		=	$pass;
-					$model->confirmpass		=	$pass;
-					$user					=	new  UserLogin();
-					$user->username			=	$user_profile['email'];
-					$user->password			=	$pass;
-					$user->add_date			=	date('Y-m-d H:i:s');
-					$user->block			=	0;
-					$Uclass					=	1;
-					$user->activation		=	1;
-					$user->user_role_id		=	$userRole;
-					$user->name				=	$user_profile['name'];
-					$model->user_login_id	=	1;
-					$valid					=	$model->validate();
-					$valid					=	$user->validate() && $valid;
-					
-					if($valid){
-						if($user->save()){
-							$model->user_login_id			=	$user->id;
-							$model->generate_gudaak_ids_id	=	1;
-							if($model->save()){
-								$login=new LoginForm;
-								$login->email		=	$user->username;
-								$login->password	=	$user->fb_id;
-								if($login->login()){
-									$this->redirect(Yii::app()->createUrl('/user/',array('fb'=>1)));
+					$userR	=	UserLogin::model()->findByAttributes(array('username'=>$user_profile['email']));
+					if(!empty($userR)){
+						$userR->fb_id	=	$user_profile['id'];
+						if($userR->save()){
+							$login				=	new LoginForm;
+							$login->email		=	$userR->username;
+							$login->password	=	$userR->fb_id;
+							if($login->login()){
+								$this->redirect(Yii::app()->createUrl('/user/',array('fb'=>1)));
+								/*if(isset(Yii::app()->user->userType)){
+									if(Yii::app()->user->userType=='admin'){
+										$this->redirect(Yii::app()->createUrl('/admin/admin'));
+									}
+									if(Yii::app()->user->userType=='school'){
+										$this->redirect(Yii::app()->createUrl('/school/'));
+									}
+									if(Yii::app()->user->userType=='counsellor'){
+										$this->redirect(Yii::app()->createUrl('/counsellor/'));
+									}
+									if(Yii::app()->user->userType=='student'|| Yii::app()->user->userType=='below10th'){
+										$this->redirect(Yii::app()->createUrl('/user/'));
+									}
+									
 								}
 								else{
 									Yii::app()->user->setFlash('login','Email or password not valid.');
-									$this->redirect(Yii::app()->createUrl('/site/login'));
-								}
-						
-						
-							}else{
-								Yii::app()->user->setFlash('login','Some problem while registering by facebook please try simple registration.');
+								}*/
+							}
+							else{
+								Yii::app()->user->setFlash('login','Email or password not valid.');
 								$this->redirect(Yii::app()->createUrl('/site/login'));
 							}
-				
 						}
-						else {
-							Yii::app()->user->setFlash('error','Some problem while registering by facebook please try simple registration.');
+					
+					}
+					else{
+						CVarDumper::dump($user_profile,10,1);
+						die;
+						$model	=	new Register;
+						$model->display_name	=	$user_profile['name'];
+						$model->first_name		=	$user_profile['first_name'];
+						$model->last_name		=	$user_profile['last_name'];
+						$model->email			=	$user_profile['email'];
+						$passVal				=	rand(100000, 10000000);
+						$pass					=	md5($passVal);
+						//$model->image			=	'noimage.jpg';
+						$model->image			=	'https://graph.facebook.com/'.$user_profile['id'].'/picture?type=large';
+						$model->gender			=	$user_profile['gender'];
+						$userRole				=	3;
+						$model->add_date		=	date('Y-m-d H:i:s');
+						$model->semd_mail		=	1;
+						$model->password		=	$pass;
+						$model->confirmpass		=	$pass;
+						$user					=	new  UserLogin();
+						$user->username			=	$user_profile['email'];
+						$user->password			=	$pass;
+						$user->add_date			=	date('Y-m-d H:i:s');
+						$user->block			=	0;
+						$Uclass					=	1;
+						$user->activation		=	1;
+						$user->user_role_id		=	$userRole;
+						$user->name				=	$user_profile['name'];
+						$model->user_login_id	=	1;
+						$valid					=	$model->validate();
+						$valid					=	$user->validate() && $valid;
+						
+						if($valid){
+							if($user->save()){
+								$model->user_login_id			=	$user->id;
+								$model->generate_gudaak_ids_id	=	1;
+								if($model->save()){
+									$login=new LoginForm;
+									$login->email		=	$user->username;
+									$login->password	=	$user->fb_id;
+									if($login->login()){
+										$this->redirect(Yii::app()->createUrl('/user/',array('fb'=>1)));
+									}
+									else{
+										Yii::app()->user->setFlash('login','Email or password not valid.');
+										$this->redirect(Yii::app()->createUrl('/site/login'));
+									}
+							
+							
+								}else{
+									Yii::app()->user->setFlash('login','Some problem while registering by facebook please try simple registration.');
+									$this->redirect(Yii::app()->createUrl('/site/login'));
+								}
+					
+							}
+							else {
+								Yii::app()->user->setFlash('error','Some problem while registering by facebook please try simple registration.');
+								$this->redirect(array('site/userRegister'));
+								die;
+							}
+						}
+						else{
+							Yii::app()->user->setFlash('error','Some problem while validate registeration by facebook please try simple registration.');
 							$this->redirect(array('site/userRegister'));
 							die;
 						}
 					}
-					else{
-						Yii::app()->user->setFlash('error','Some problem while validate registeration by facebook please try simple registration.');
-						$this->redirect(array('site/userRegister'));
-						die;
-					}
-				}
 				}
 			} 
 			else
