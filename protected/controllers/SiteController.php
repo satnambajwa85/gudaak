@@ -111,7 +111,6 @@ class SiteController extends Controller
 		if($user) {
 			try {
 				$user_profile = $facebook->api('/me');
-				$user_pic = $facebook->api('/me/picture');
 			} 
 			catch (FacebookApiException $e) 
 			{
@@ -120,11 +119,6 @@ class SiteController extends Controller
 			}
 			if (!empty($user_profile ))
 			{
-				
-				CVarDumper::dump($user_profile,10,1);
-				CVarDumper::dump($user_pic,10,1);
-				
-				die;
 				$userC	=	UserLogin::model()->findByAttributes(array('username'=>$user_profile['email'],'fb_id'=>$user_profile['id']));
 				if(!empty($userC)){
 					$login				=	new LoginForm;
@@ -157,7 +151,6 @@ class SiteController extends Controller
 				
 				}
 				else{
-					
 					$model	=	new Register;
 					$model->display_name	=	$user_profile['name'];
 					$model->first_name		=	$user_profile['first_name'];
@@ -165,7 +158,7 @@ class SiteController extends Controller
 					$model->email			=	$user_profile['email'];
 					$passVal				=	rand(100000, 10000000);
 					$pass					=	md5($passVal);
-					$model->image			=	'noimage.jpg';
+					$model->image			=	'https://graph.facebook.com/'.$user_profile['id'].'/picture?type=large';
 					$model->gender			=	$user_profile['gender'];
 					$userRole				=	3;
 					$model->add_date		=	date('Y-m-d H:i:s');
