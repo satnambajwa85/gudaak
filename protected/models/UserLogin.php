@@ -40,7 +40,7 @@ class UserLogin extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('username,name, password, add_date, user_role_id', 'required'),
+			array('username,password, add_date, user_role_id', 'required'),
 			array('activation, login_status, block, status, user_role_id', 'numerical', 'integerOnly'=>true),
 			array('username, password', 'length', 'max'=>50),
 			array('username','unique'),

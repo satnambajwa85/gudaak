@@ -21,7 +21,7 @@ class Register extends CActiveRecord
 		return array(
 			array('confirmpass', 'required','message' => 'Please confirm new password.'), 
             array('password', 'compare', 'compareAttribute'=>'confirmpass'),
-			array('display_name, first_name, last_name, email, gender, add_date,user_login_id', 'required'),
+			array('first_name, last_name, email, gender, add_date,user_login_id', 'required'),
 			array('semd_mail, status, generate_gudaak_ids_id, user_login_id, user_academic_id, user_class_id', 'numerical', 'integerOnly'=>true),
 			array('display_name, email', 'length', 'max'=>100),
 			array('password', 'required','message' => 'Please enter  password.'), 
