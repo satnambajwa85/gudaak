@@ -194,7 +194,10 @@ class SiteController extends Controller
 								}
 						
 						
-							}else{
+							}
+							else{
+								CVarDumper::dump($model,10,1);
+								die;
 								Yii::app()->user->setFlash('login','Some problem while registering by facebook please try simple registration.');
 								$this->redirect(Yii::app()->createUrl('/site/login'));
 							}
