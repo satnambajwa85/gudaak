@@ -192,30 +192,25 @@ class SiteController extends Controller
 									Yii::app()->user->setFlash('login','Email or password not valid.');
 									$this->redirect(Yii::app()->createUrl('/site/login'));
 								}
-						
-						
 							}
 							else{
-								CVarDumper::dump($model,10,1);
-								die;
+								//CVarDumper::dump($model,10,1);die;
 								Yii::app()->user->setFlash('login','Some problem while registering by facebook please try simple registration.');
 								$this->redirect(Yii::app()->createUrl('/site/login'));
 							}
 				
 						}
 						else {
-							CVarDumper::dump($user,10,1);
-							die;
+							//CVarDumper::dump($user,10,1);die;
 							Yii::app()->user->setFlash('error','Some problem while registering by facebook please try simple registration.');
 							$this->redirect(array('site/userRegister'));
 							die;
 						}
 					}
 					else{
-						
-						CVarDumper::dump($user,10,1);
-						CVarDumper::dump($model,10,1);
-						die;
+						//CVarDumper::dump($user,10,1);
+						//CVarDumper::dump($model,10,1);
+						//die;
 						Yii::app()->user->setFlash('error','Some problem while validate registeration by facebook please try simple registration.');
 						$this->redirect(array('site/userRegister'));
 						die;
