@@ -21,22 +21,33 @@ $this->breadcrumbs=array('Notifications'=>array('/user/newsUpdates'));?>
 			</div>
 			<div class="mr0 col-md-6  fl events">
 				<div class="mr0 col-md-12 pd0  artical">
-					 <h1>Events</h1>
+					 <span>Events</span>
 				</div>
 				<ul>
 					 <?php foreach($events as $list){ ?>
-					<li>
-						<div class="pd0 col-md-12">
-							<h1><?php echo $list->title,0,50;?></h1>
-							<?php echo CHtml::link(' <img src="'.Yii::app()->baseurl.'/uploads/events/large/'.$list->image.'"/>',array('user/readEvent','id'=>$list->id),array('style'=>'padding:0px !important'));?>
-							<p><?php echo substr($list->decription,0,250); echo CHtml::link('Read more..',array('user/readEvent','id'=>$list->id));?></p>
+                     <li class="col-md-12 row pd0 event-class">                    
+                    <?php echo CHtml::link('<div class="col-md-12">
+						<div class="width_set" >
+							<div class="left">'.$list->title.'</div>
+							<div class="right"><span class="date">'.date('M d, Y',strtotime($list->add_date)).'</span></div>
+						</div>	
+						<div class="width_set1">
 							
-							 
-						</div>
+                            <div class="clear"></div>
+                            <div  style="float:left;padding:6px;" >
+<img src="'.Yii::app()->baseUrl.'/uploads/events/large/'.$list->image.'" width="100px"/>
+							</div>
+                            <p>'.substr(preg_replace("/<img[^>]+\>/i", " ", $list->decription),0,230).'</p>	
+						</div>							
+						</div>',array('user/readEvent','id'=>$list->id));?>
+						
 					
 					</li>
+                    
+                     
 					<?php } ?>
 				</ul>
+                
 			</div>
 		</div>
 </div>
