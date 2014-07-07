@@ -30,7 +30,7 @@ class Register extends CActiveRecord
 		    array('email', 'email'),
 			array('email','unique'),
 			array('first_name, last_name', 'length', 'max'=>50),
-			array('gender, image', 'length', 'max'=>45),
+			array('gender', 'length', 'max'=>45),
 			array('mobile_no', 'length', 'max'=>10),
 			array('address, user_info', 'length', 'max'=>600),
 			array('postcode', 'length', 'max'=>6),

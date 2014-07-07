@@ -64,7 +64,7 @@ class UserProfiles extends CActiveRecord
 			array('semd_mail, status, generate_gudaak_ids_id, user_login_id, user_academic_id, user_class_id,states_id', 'numerical', 'integerOnly'=>true),
 			array('display_name, email, board, gudaak_id', 'length', 'max'=>100),
 			array('first_name, last_name', 'length', 'max'=>50),
-			array('class, gender, image', 'length', 'max'=>45),
+			array('class, gender', 'length', 'max'=>45),
 			array('mobile_no', 'length', 'max'=>10),
 			array('address, user_info', 'length', 'max'=>600),
 			array('postcode', 'length', 'max'=>6),
