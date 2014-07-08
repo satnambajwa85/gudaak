@@ -8672,7 +8672,7 @@ h1.listAtrical{font-size:12px;margin:0px;background-color:#F7F7F7; padding-right
 .width_set .right{float:left; width:25%; }
 .width_set .right span{  background-color: #f7a944; margin-left:5px;color: #ffffff;font-size: 12px;padding: 7px; position:relative; left:12px; top:1px;}
 .reportLink{ }
-.vticker{width: 575px;}
+.vticker{}
 .vticker ul{padding: 0;}
 .vticker li{list-style: none;}
 .et-run{background: red; cursor:}
