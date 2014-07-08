@@ -76,16 +76,11 @@
 			</div>
 			<div id="footer_cont">
 				<div class="footer_2">
-					<div class="footer_2left">
-						<ul>
-							<li><a href="<?php echo Yii::app()->session['setting']['fb_link'];?>" target="_blank" class="fb_icon"></a></li>
+                	<div class="footer_2left">
+                		<ul>
+                    		<li><a href="<?php echo Yii::app()->session['setting']['fb_link'];?>" target="_blank" class="fb_icon"></a></li>
                     	    <li><a href="<?php echo Yii::app()->session['setting']['twittwe_link'];?>" target="_blank" class="tw_icon"></a></li>
                     	    <li><a href="<?php echo Yii::app()->session['setting']['linkedin_link'];?>" target="_blank" class="li_icon"></a></li>
-						</ul>
-					</div>
-                	<div class="footer_2right">
-                		<ul>
-                    		
                     	</ul>
                     	<p>&copy; Gudaak.com</p>
                 	</div>
