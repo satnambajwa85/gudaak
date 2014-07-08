@@ -24,11 +24,8 @@ class WidgetNews extends CWidget
 		$criteria->condition=	'(published =:published and status =:status )';
 		$criteria->params 	=	array('published'=>1,'status'=>1);
 		$criteria->order	=	'add_date DESC';
-			
-		$count				=	News::model()->count($criteria);
-		$pages				=	new CPagination($count);
-		$pages->pageSize	=	8;
-		$pages->applyLimit($criteria);
+		$criteria->limit	=	15;
+		
 		$news				=	News::model()->findAll($criteria);
 		$this->render('widgetNews',array('pages'=>$pages,'news'=>$news));
 	}  
