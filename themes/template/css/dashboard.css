@@ -7042,6 +7042,7 @@ header {
 }
 .side-navigation>ul>li>a {
 	color:#f7a944 !important;
+	cursor: default;
 }
 .side-navigation li a:hover {
     
@@ -8646,13 +8647,8 @@ display: none;
 	margin-left: 8px;
 	padding-left:20px;
 }
-.sessionContent input[type="radio"]:checked + label {
-	background: url(../images/chk_active.jpg) no-repeat;
-	background-size: 15px;
-	color: #666666 !important;
-}
+.sessionContent input[type="radio"]:checked + label {background: url(../images/chk_active.jpg) no-repeat;background-size: 15px;color: #666666 !important;}
 .mt15{margin-top:15px !important;}
-
 .list_head{background:#f5f5f5; height:47px; padding:5px; padding-left:10px; border-top:1px solid #21C4C1;border-bottom:1px solid #21C4C1;  }
 .list_head h4{ font-size:15px;}
 .font_size_set{font-size:18px; color:#f0ad4e; margin-bottom:-15px; }
@@ -8662,29 +8658,17 @@ display: none;
 .widget-heading{text-align: center;}
 .headingSort{color: #fff;}
 h1.listAtrical{font-size:12px;margin:0px;background-color:#F7F7F7; padding-right: 100px !important;}
-
-
 .img_position1{ position:absolute; left: 211px; top: 135px; }
 .img_position2{ position:absolute; left: 211px; top: 260px; }
 .img_position3{ position:absolute; left: 211px; top: 398px; }
 .img_position4{ position:absolute;left: 26px;top: 16px; right:0; }
 .img_position5{ position:absolute;right: 442px;top: -15px; }
 .img_position6{ position:absolute;right: 246px;top: 40px; }
-.img_position7{ position:absolute;right: -30px;
-top: 45px;}
-
-.artical span { float:left;
-    color: #f7a944;
-    font-family: robotomedium;
-    font-size: 15px; margin-bottom:0px; margin-top:5px; width:100%; margin-bottom:-17px;  
-}
+.img_position7{ position:absolute;right: -30px;top: 45px;}
+.artical span { float:left;color: #f7a944;font-family: robotomedium;font-size: 15px; margin-bottom:0px; margin-top:5px; width:100%; margin-bottom:-17px;}
 .width_set{ float:left; padding:5px; width:100%; background:#f7f7f7; border:1px solid #eee;  }
 .width_set1{ float:left; padding:5px; width:100%; border:1px solid #eee; border-top:0px; margin-bottom:5px; }
 .width_set .left{ float:left; width:75%; font-size:14px;}
 .width_set .right{float:left; width:25%; }
-.width_set .right span{  background-color: #f7a944; margin-left:5px;
-    color: #ffffff;
-    font-size: 12px;    
-    padding: 7px; position:relative; left:12px; top:1px;
-    
-   }
+.width_set .right span{  background-color: #f7a944; margin-left:5px;color: #ffffff;font-size: 12px;padding: 7px; position:relative; left:12px; top:1px;}
+.reportLink{ }
