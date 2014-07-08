@@ -70,8 +70,11 @@ $this->breadcrumbs=array('Assess'=>array('/user/tests'));?>
 						
 						
 						
-						<?php foreach($testContent as $list){ ?>
-						<?php 	if(in_array($list->id,$userTest)){?>
+						<?php 
+						$testCount	=	0;
+						foreach($testContent as $list){ 
+								if(in_array($list->id,$userTest)){
+									$testCount++;?>
 						<div class="col-md-6 pull-left">
 							<div class="col-md-12 pull-left min-height-fix border-box" style="min-height: 300px;">
 								<div align="center">
@@ -109,7 +112,7 @@ $this->breadcrumbs=array('Assess'=>array('/user/tests'));?>
 							</div>
 						</div>
     
-			
+			<?php if($testCount==2){echo 'Done';}?>
     
  					   <div id="retake<?php echo $list->id;?>" class="modal fade">
     	<div class="modal-dialog">
