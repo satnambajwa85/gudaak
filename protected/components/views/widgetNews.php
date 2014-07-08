@@ -13,7 +13,6 @@ $(document).ready(function(){
 			up: '.up',
 			down: '.down',
 			toggle: '.toggle',
-			stopText: 'Stop !!!'
 		}
 	}).data('easyTicker');
 });
