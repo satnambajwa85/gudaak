@@ -1,6 +1,7 @@
 <?php $this->pageTitle='News';
 $this->breadcrumbs=array('News'=>array('/user/newsUpdates'));?>
-	<div class="career-bot pull-left">
+<div id="partial-render">
+	<div class="col-md-10 pull-left pd0">
 		<div class="mr0 col-md-12 pd0 fl">
 			<div class="mr0 col-md-12 pd0 fl artical">
 				 <h1>&nbsp;<!--Gudaak helps you to fullfill news--></h1>
@@ -20,16 +21,10 @@ $this->breadcrumbs=array('News'=>array('/user/newsUpdates'));?>
 				<p class="mt15">
 				<?php echo strip_tags($news->description);?>	
 				</p>
-				
 			</div>
-			
-			
 		</div>
-		 
-		 
-</div>
-	
-	<div class="news pd0 pull-right">
+	</div>
+	<div class="col-md-2 pd0  pull-right">
 		<?php  $this->Widget('WidgetNews'); ?>
 	</div>
-			
+</div>
