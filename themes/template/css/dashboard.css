@@ -8665,6 +8665,9 @@ h1.listAtrical{font-size:12px;margin:0px;background-color:#F7F7F7; padding-right
 .img_position5{ position:absolute;right: 442px;top: -15px; }
 .img_position6{ position:absolute;right: 246px;top: 40px; }
 .img_position7{ position:absolute;right: -30px;top: 45px;}
+.next_position{ position:absolute;right: -30px;top: 45px;}
+.close_position{ position:absolute;right: -30px;top: 45px;}
+
 .artical span { float:left;color: #f7a944;font-family: robotomedium;font-size: 15px; margin-bottom:0px; margin-top:5px; width:100%; margin-bottom:-17px;}
 .width_set{ float:left; padding:5px; width:100%; background:#f7f7f7; border:1px solid #eee;  }
 .width_set1{ float:left; padding:5px; width:100%; border:1px solid #eee; border-top:0px; margin-bottom:5px; }

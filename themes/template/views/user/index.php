@@ -21,10 +21,12 @@ Assess, Explore and Approach!</p>-->
 <img class="img_position1" src="<?php echo Yii::app()->theme->baseUrl;?>/images/gudaak-pointer1.png"/>
 <img class="img_position2" src="<?php echo Yii::app()->theme->baseUrl;?>/images/gudaak-pointer2.png"/>
 <img class="img_position3" src="<?php echo Yii::app()->theme->baseUrl;?>/images/gudaak-pointer3.png"/>
+<img class="next_position" src="<?php echo Yii::app()->theme->baseUrl;?>/images/next.png"/>
 </div>
 <div id="popup_box1">
 <img class="img_position4" src="<?php echo Yii::app()->theme->baseUrl;?>/images/gudaak-pointer4.png"/>
 <img class="img_position5" src="<?php echo Yii::app()->theme->baseUrl;?>/images/gudaak-pointer5.png"/>
 <img class="img_position6" src="<?php echo Yii::app()->theme->baseUrl;?>/images/gudaak-pointer7.png"/>
 <img class="img_position7" src="<?php echo Yii::app()->theme->baseUrl;?>/images/gudaak-pointer8.png"/>
+<img class="close_position" src="<?php echo Yii::app()->theme->baseUrl;?>/images/close.png"/>
 </div>
