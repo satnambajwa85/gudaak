@@ -1796,11 +1796,6 @@ class UserController extends Controller
 	}
 	public function actionExploreColleges()
 	{
-		$userTest				=	UserReports::model()->countByAttributes(array('user_profiles_id'=>Yii::app()->user->profileId));
-		if($userTest==0){
-			Yii::app()->user->setFlash('redirect',"Take the Test to Get Started");
-			$this->redirect(Yii::app()->createUrl('/user/tests'));
-		}
 		$model1	=	new Collage;
 		$value	=	(isset($_REQUEST['search']))?$_REQUEST['search']:'';
 		if(!empty($value)){
