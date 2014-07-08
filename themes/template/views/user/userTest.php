@@ -73,7 +73,7 @@ $this->breadcrumbs=array('Assess'=>array('/user/tests'));?>
 						<?php foreach($testContent as $list){ ?>
 						<?php 	if(in_array($list->id,$userTest)){?>
 						<div class="col-md-6 pull-left">
-							<div class="col-md-12 pull-left min-height-fix border-box">
+							<div class="col-md-12 pull-left min-height-fix border-box" style="min-height: 300px;">
 								<div align="center">
                                 <span class='btnTNew btn-info2 center-bt'>
 								<?php echo $list->title;?> </span>
@@ -161,7 +161,7 @@ $this->breadcrumbs=array('Assess'=>array('/user/tests'));?>
     </div>
 						<?php  }else{ ?>
 							<div class="col-md-6 pull-left">
-							<div class="col-md-12 pull-left border-box test_features">
+							<div class="col-md-12 pull-left border-box test_features" style="min-height: 380px;">
 							
 								<div align="center">
                                 <span class='btnTNew btn-info2 center-bt'>
