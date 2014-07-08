@@ -135,7 +135,7 @@ background-image: url("../images/01_Home_Slider_1.jpg");
 .footer_2 ul li{float:left; width:auto; color:#333; margin-right:6px;}
 .footer_2 ul li a{float:left; font-size:12px; width:auto; color:#333;}
 .footer_2 ul li a:hover{text-decoration:underline; color:#256767;}
-.footer_2right{ float:right; width:auto;}
+.footer_2right{ float:left; width:auto;}
 .footer_2right ul{padding-bottom:0px; width:100%;}
 .footer_2right ul li{ margin:0px;}
 .footer_2right .fb_icon{ float:left; width:28px; height:25px; background:url(../images/social_sprites.png) no-repeat 0 0;}
