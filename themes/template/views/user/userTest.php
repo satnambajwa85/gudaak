@@ -112,7 +112,7 @@ $this->breadcrumbs=array('Assess'=>array('/user/tests'));?>
 							</div>
 						</div>
     
-			<?php if($testCount==2){echo 'Done';}?>
+			<?php if($testCount==2){echo CHtml::link('Career Report',array('user/DetailedReport'),array('class'=>'reportLink'));}?>
     
  					   <div id="retake<?php echo $list->id;?>" class="modal fade">
     	<div class="modal-dialog">
