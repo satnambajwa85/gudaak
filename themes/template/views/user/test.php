@@ -1,14 +1,10 @@
 <div class="col-md-12 fl">
 	<div class="row pd0 ">
-    	 
               	<div class="border">
 					<ol class="breadcrumb">
 					  <li><a href="#">Assessment</a></li>
-					 
 					</ol>
 				</div>
-                
-    
 			<div class="col-md-12  pull-left jcarousel-skin-tango-two">
             		<div class="clear"></div>
 				<div id="popup_box">    <!-- OUR PopupBox DIV-->
@@ -25,37 +21,25 @@
 								
 							</div>
 					<?php endif; ?>	
-						<!--<div class="test-bot">Question to know your interest</div>-->
 						<div id="testScroll">
 						<div class="pd0 ">
 					<?php $form=$this->beginWidget('CActiveForm', array(
 													'id'=>'user-person-test-form',
 													'enableAjaxValidation'=>false,
 														'htmlOptions'=>array(
-														   'onsubmit'=>"return false;",/* Disable normal form submit */
-														   'onkeypress'=>" if(event.keyCode == 13){ testFormSend(); } " /* Do ajax call when user presses enter key */
+														   'onsubmit'=>"return false;",
+														   'onkeypress'=>" if(event.keyCode == 13){ testFormSend(); }"
 														 ),
-												)); ?>
-            		 
-														
-						 
-						  <?php $counter=1;$count=0;$counterId=1;?>
-									<?php foreach($questions as $question){	?>
+												)); 
+						$counter=1;$count=0;$counterId=1;
+										foreach($questions as $question){	?>
 											<div class=" required<?php echo $question['id'] ?> test-area <?php echo ($count)?'gray2':'';?>">
 												<?php echo $form->hiddenField($model,'career_categories_id['.$question['career_categories_id'].']',array('value'=>''.$question['career_categories_id'].'')); ?>
 												<p class="questionTitle"><?php	echo $counter.'. '. $question['title'];?></p>
 												<div class="ans_set">
-													<?php if(!empty($question['option'])){ ?>
-														<?php 
+													<?php if(!empty($question['option'])){ 
 														echo CHtml::radioButtonList('TestReports[question_options_id]['.$question['id'].']',(isset($testAns[$question['id']]))?$testAns[$question['id']]:'',$question['option'],array('template'=>"{input} {label}", 'separator'=>' ','class'=>'required','onchange' => 'answer(this.value,testId='.$question['testId'].' ,QID='. $question['id'].');'));
-														
-														//echo $form->radioButtonList($model,'question_options_id['.$question['id'].']',$question['option'],array('template'=>"{input} {label}", 'separator'=>' ','class'=>'required','onchange' => 'answer(this.value,testId='.$question['testId'].' ,QID='. $question['id'].');')); 
-														?>
-														
-													<?php }else{ ?>
-													
-													<?php } ?>
-													
+													} ?>
 												</div>
 											</div>
                                         <?php if($counter%2==0){
@@ -67,16 +51,11 @@
 				<div class="center mt10">
 				<?php echo CHtml::Button('Submit Test',array('onclick'=>'testFormSend(id='.Yii::app()->request->getQuery('id').');','class'=>'btn btn-s-md btn-success')); ?>
                 </div>
-				<?php	$this->endWidget();?>	
-               
+				<?php	$this->endWidget();?>
 				</div>
 				</div>
                 </div>
-                
             </div>
-            
-		
-
 	</div>
 </div>
 <script language="javascript">
@@ -84,13 +63,11 @@ function answer(value,QID,testId)
 {    
 	var url	=	'<?php echo Yii::app()->createUrl('/user/questionsAnswer');?>';
 	$.ajax({
-	url: url+'&QID='+QID+'&ans='+value+'&testId='+testId,
-	type	:	"POST",
-	data	:	'json',
-	
-	complete:	function(result) {
-		console.log('Success:'+ result);
-		
+		url: url+'&QID='+QID+'&ans='+value+'&testId='+testId,
+		type	:	"POST",
+		data	:	'json',	
+		complete:	function(result) {
+			console.log('Success:'+ result);
 		}
 	});
     

@@ -32,7 +32,7 @@ function testFormSend(id)
 				
 			}
 			else{
-					alert('Plsease don not skip any question please.');
+					alert("Oops! Looks like you've skipped a question.");
 					$.each($response.message, function(i, obj) {
 					  $('.required'+obj).css( "backgroundColor", "#E9D1D4" );
 					});

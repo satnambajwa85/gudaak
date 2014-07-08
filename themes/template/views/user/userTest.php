@@ -3,21 +3,11 @@ $this->breadcrumbs=array('Assess'=>array('/user/tests'));?>
 <div id="partial-render">
 	<div class="col-md-10 pull-left pd0">
     <div class="border pd0">
-    	<!--<h1>Tour</h1>-->
-        
                 	<ol class="breadcrumb">
                     <li><?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?></li>
-					 <li>
-                        <p>Click here to see the video, which explains the purpose of taking up these tests and will be helpful to understand the concepts on the basis of which the test results will be explained.</p>
-                        </li>
 					</ol>
-                    
 	</div>
-    
-                
-                
-                
-					<div class="mr0 col-md-12 fl">
+                	<div class="mr0 col-md-12 fl">
 						<?php  $count=1;
 								foreach($testContent as $list){ 
 								if($count%2 == 0)
@@ -29,18 +19,13 @@ $this->breadcrumbs=array('Assess'=>array('/user/tests'));?>
 								?>
 						<div class="mr0 col-md-6 pull-left <?php echo $css;?>">
 							<h1><?php echo $list->title;?></h1>
-							<p><?php //echo substr($list->description,0,225);?></p>
-							<!--<a href="#">Konw more about stream explore</a>-->
+							<p></p>
+							
 						</div>
 					<?php } ?>
 					</div>
 					<div class="col-md-12 pull-left mt50 pd0" id="take-test">
-						<!--<div class="col-md-6 pull-left test-description-bot">
-							<?php //echo $testContent->test_features ;?>
-						</div>-->
-						
-						
-                           <div id="popup_box" style="opacity:100">    <!-- OUR PopupBox DIV-->
+						   <div id="popup_box" style="opacity:100">    <!-- OUR PopupBox DIV-->
 						
                         
                         <div class="col-md-6 col-sm-offset-3">
@@ -180,7 +165,7 @@ $this->breadcrumbs=array('Assess'=>array('/user/tests'));?>
 							
 								<div align="center">
                                 <span class='btn btn-info2 center-bt'>
-								Take <?php echo $list->title;?> </span>
+								<?php echo $list->title;?> </span>
 									
 								</div>
 								<p><?php echo $list->test_features ;?></p>
