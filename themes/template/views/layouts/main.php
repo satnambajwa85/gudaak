@@ -78,15 +78,14 @@
 				<div class="footer_2">
 					<div class="footer_2left">
 						<ul>
-							<li><?php //echo CHtml::link('Articles',array('site/articles'))?></li>
-                            <!--<li><a href="javascript:void(0);">|</a></li><li><?php echo CHtml::link('Contact',array('site/contact'))?></li>-->
+							<li><a href="<?php echo Yii::app()->session['setting']['fb_link'];?>" target="_blank" class="fb_icon"></a></li>
+                    	    <li><a href="<?php echo Yii::app()->session['setting']['twittwe_link'];?>" target="_blank" class="tw_icon"></a></li>
+                    	    <li><a href="<?php echo Yii::app()->session['setting']['linkedin_link'];?>" target="_blank" class="li_icon"></a></li>
 						</ul>
 					</div>
                 	<div class="footer_2right">
                 		<ul>
-                    		<li><a href="<?php echo Yii::app()->session['setting']['fb_link'];?>" target="_blank" class="fb_icon"></a></li>
-                    	    <li><a href="<?php echo Yii::app()->session['setting']['twittwe_link'];?>" target="_blank" class="tw_icon"></a></li>
-                    	    <li><a href="<?php echo Yii::app()->session['setting']['linkedin_link'];?>" target="_blank" class="li_icon"></a></li>
+                    		
                     	</ul>
                     	<p>&copy; Gudaak.com</p>
                 	</div>
