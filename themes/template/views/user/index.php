@@ -1,7 +1,7 @@
 <?php 
 if(isset($_REQUEST['first']) && $_REQUEST['first']==1)
-Yii::app()->clientScript->registerScript('opact','$("#popup_box").fadeIn("slow");$("#container").css({"opacity": "0.3" }); $("#popup_box").click(function(){$("#popup_box").fadeOut();$("#popup_box1").fadeIn("slow");$("#container").css({"opacity": "0.3" });});
-$("#popup_box1").click(function(){$("#popup_box1").fadeOut();});',CClientScript::POS_READY);
+Yii::app()->clientScript->registerScript('opact','$("#popup_box").fadeIn("slow");$("#container").css({"opacity": "0.3" }); $(".next_position").click(function(){$("#popup_box").fadeOut();$("#popup_box1").fadeIn("slow");$("#container").css({"opacity": "0.3" });});
+$(".close_position").click(function(){$("#popup_box1").fadeOut();});',CClientScript::POS_READY);
 $this->pageTitle=Yii::app()->name . ' - Home';
 $this->breadcrumbs=array('Home'=>array('/user/'));?>
 <div class="career-bot pull-left">
