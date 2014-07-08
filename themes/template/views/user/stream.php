@@ -6,7 +6,7 @@ $this->breadcrumbs=array('Stream Library'=>array('/user/streamList'),'Stream Sub
 		<div class="mr0 col-md-12 fl">
 			<div class="mr0  pull-left stream-pref">
 				<h1><?php echo $stream->name;?> </h1>
-				<p><?php echo $stream->description;?></p>
+				<p><?php //echo $stream->description;?></p>
 
 			</div>
 			
