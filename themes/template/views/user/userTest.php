@@ -164,7 +164,7 @@ $this->breadcrumbs=array('Assess'=>array('/user/tests'));?>
 							<div class="col-md-12 pull-left border-box test_features">
 							
 								<div align="center">
-                                <span class='btn btn-info2 center-bt'>
+                                <span class='btnTNew btn-info2 center-bt'>
 								<?php echo $list->title;?> </span>
 									
 								</div>
