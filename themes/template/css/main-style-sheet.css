@@ -495,49 +495,19 @@ opacity: 0.85;
 
 /* Add for Hover Effect*/
 #hover-cap-4col .thumbnail,
-	#hover-cap-3col .thumbnail,
-	#hover-cap-unique .thumbnail,
-	#hover-cap-6col .thumbnail {
-		position:relative;
-		overflow:hidden;	
-	}
-	.caption {
-		display: none;
-		position: absolute;
-		top: 0;
-		left: 0;
-		background: rgba(0,0,0,0.4);
-		width: 100%;
-		height: 100%;
-		color:#fff !important;
-	}
-	.caption p {
-		padding:25% 6px; text-align:center; color:#fff; font-size:12px; font-weight:normal;  
-	}
-	.caption h4 {
-		 color:#F90;
-	}
+#hover-cap-3col .thumbnail,
+#hover-cap-unique .thumbnail,
+#hover-cap-6col .thumbnail {position:relative;overflow:hidden;}
+.caption {display: none;position: absolute;top: 0;left: 0;background: rgba(0,0,0,0.6);width: 100%;height: 100%;color:#fff !important;z-index:99;}
+.caption p {padding:25% 6px; text-align:center; color:#fff; font-size:14px; font-weight:normal;}
+.caption h4 {color:#F90;}
 .thumbnail {background: none !important; border: none !important;}
-a.thumbnail:hover,
-a.thumbnail:focus {
-border-color: none !important;
-}
+a.thumbnail:hover,a.thumbnail:focus {border-color: none !important;}
 .fb-butt:hover{opacity:0.9}
-
 .textfield_width{ width:230px; margin-bottom:10px;}
 .marginset{margin-top:50%; margin-bottom:75%;}
-.back-bt_cpwd {
-   left: -266px;
-    position: relative;
-    top: 203px;
-}
-.save_bt{ 
-   left: -26px;
-    padding: 5px 25px;
-    position: relative;
-    top: 200px;
-}
-
+.back-bt_cpwd {  left: -266px;position: relative;top: 203px;}
+.save_bt{left: -26px;padding: 5px 25px;position: relative;top: 200px;}
 .btn_sign_up{ font-family: robotomedium !important;
 background: #eb8a2b;
 padding: 4px;
