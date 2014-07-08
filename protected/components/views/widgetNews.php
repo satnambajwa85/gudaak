@@ -8,7 +8,7 @@ $(document).ready(function(){
 		speed: 'slow',
 		interval: 2000,
 		height: 'auto',
-		visible:3,
+		visible:10,
 		mousePause: 0,
 		controls: {
 			up: '.up',

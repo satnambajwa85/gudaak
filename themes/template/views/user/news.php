@@ -18,7 +18,7 @@ $this->breadcrumbs=array('News'=>array('/user/newsUpdates'));?>
 				 </div>
 				  <div class="clear"></div>
 				<p class="mt15">
-				<?php echo substr($news->description,0,3000);?>	
+				<?php echo strip_tags($news->description);?>	
 				</p>
 				
 			</div>
