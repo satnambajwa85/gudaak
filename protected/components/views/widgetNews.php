@@ -1,4 +1,5 @@
 <script src="<?php echo Yii::app()->theme->baseUrl;?>/js/jquery.easing.min.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl;?>/js/jquery.easy-ticker.min.js"></script>
 <script type="text/javascript">
 $(document).ready(function(){
 	var dd = $('.vticker').easyTicker({
