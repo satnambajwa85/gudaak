@@ -135,6 +135,9 @@ class UserController extends Controller
 				Yii::app()->user->setFlash('updated',"Successfully updated.");
 			}
 		}
+		
+		if(!isset($_REQUEST['first']))
+			$this->redirect(Yii::app()->createUrl('/user/career'));
 		$this->render('index',array('model'=>$model));
 	}
 	public function actionTalk()
