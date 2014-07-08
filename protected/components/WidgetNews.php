@@ -27,7 +27,7 @@ class WidgetNews extends CWidget
 		$criteria->limit	=	15;
 		
 		$news				=	News::model()->findAll($criteria);
-		$this->render('widgetNews',array('pages'=>$pages,'news'=>$news));
+		$this->render('widgetNews',array('news'=>$news));
 	}  
 
 }
