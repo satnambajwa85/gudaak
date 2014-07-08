@@ -18,7 +18,7 @@ $this->breadcrumbs=array('Assess'=>array('/user/tests'));?>
 								
 								?>
 						<div class="mr0 col-md-6 pull-left <?php echo $css;?>">
-							<h1><?php echo $list->title;?></h1>
+							<h1><?php //echo $list->title;?></h1>
 							<p></p>
 							
 						</div>
