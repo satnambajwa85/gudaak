@@ -1803,7 +1803,6 @@ class UserController extends Controller
 				$model1->city_id	=	$_REQUEST['Collage']['city_id'];
 				if(!empty($_REQUEST['Collage']['states_id']))
 					$model1->states_id	=	$_REQUEST['Collage']['states_id'];
-			
 				$col1	=	Collage::model()->findAll('name LIKE "%'.$value.'%" AND city_id = '.$_REQUEST['Collage']['city_id']);
 			}elseif($_REQUEST['Collage']['states_id']){
 				$model1->states_id	=	$_REQUEST['Collage']['states_id'];
@@ -1811,33 +1810,25 @@ class UserController extends Controller
 				$City3		=	array();
 				foreach($Citylist as $reCity)
 					$City3[]	=	$reCity->id;
-					
 				$strCity	=		implode(',',$City3);
 				$col1	=	Collage::model()->findAll('name LIKE "%'.$value.'%" AND city_id IN ('.$strCity.')');
 			}else{
 				$col1	=	Collage::model()->findAll('name LIKE "%'.$value.'%"');
 			}
-			
-			
 			$cou1	=	Courses::model()->findAll('title LIKE "%'.$value.'%"');
 			$spe1	=	Specialization::model()->findAll('title LIKE "%'.$value.'%"');
-
 			$collg	=	array();
 			if(count($col1)>0)
 			foreach($col1 as $rec)
 				$collg[]	=	$rec->id;
-			
 			$special	=	array();
 			if(count($spe1)>0)
 			foreach($spe1 as $rec)
 				$special[]	=	$rec->id;
-			
 			$course	=	array();
 			if(count($cou1)>0)
 			foreach($cou1 as $rec)
 				$course[]	=	$rec->id;
-
-			
 			$criteria21 = new CDbCriteria();
 			if(count($collg)>0)
 				$criteria21->addInCondition("collage_id", $collg,'OR');
@@ -1845,10 +1836,7 @@ class UserController extends Controller
 				$criteria21->addInCondition("courses_id", $course,'OR');
 			if(count($special)>0)
 				$criteria21->addInCondition("specialization_id", $special,'OR');
-
 			$list	=	CollagesCoursesSpecialization::model()->findAll($criteria21);
-	
-			
 			$listCollage	=	array();
 			if(count($list)>0)
 				foreach($list as $rec)
@@ -1872,7 +1860,6 @@ class UserController extends Controller
 			$model1->city_id	=	$_REQUEST['Collage']['city_id'];
 			if(!empty($_REQUEST['Collage']['states_id']))
 				$model1->states_id	=	$_REQUEST['Collage']['states_id'];
-			
 			$col1	=	Collage::model()->findAll('city_id ='.$_REQUEST['Collage']['city_id']);
 			$collg	=	array();
 			if(count($col1)>0)
@@ -1881,7 +1868,6 @@ class UserController extends Controller
 			$criteria21 = new CDbCriteria();
 			if(count($collg)>0)
 				$criteria21->addInCondition("collage_id", $collg);
-
 			$list	=	array();
 			if(count($collg)>0)
 				$list	=	CollagesCoursesSpecialization::model()->findAll($criteria21);
@@ -1906,7 +1892,6 @@ class UserController extends Controller
 		}
 		elseif(!empty($_REQUEST['Collage']['states_id'])){
 			$model1->states_id	=	$_REQUEST['Collage']['states_id'];
-			
 			$Citylist	=	City::model()->findAllByAttributes(array('state_id'=>$_REQUEST['Collage']['states_id']));
 			$City3		=	array();
 			foreach($Citylist as $reCity)
