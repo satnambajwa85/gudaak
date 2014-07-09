@@ -108,6 +108,7 @@ class SiteController extends Controller
 
 		$facebook = new Facebook(array('appId' => APP_ID,'secret' => APP_SECRET,));
 		$user = $facebook->getUser();
+		
 		if($user) {
 			try {
 				$user_profile = $facebook->api('/me');
@@ -600,6 +601,14 @@ class SiteController extends Controller
 	public function actionLogout()
 	{
 		Yii::app()->user->logout();
+
+		define('APP_ID', '846828762012851');
+		define('APP_SECRET','1f989e3870a57ed90fad047993bb7f01');
+		$facebook = new Facebook(array('appId' => APP_ID,'secret' => APP_SECRET,));
+		$user = $facebook->getUser();
+		$facebook->destroySession();
+
+
 		$this->redirect(Yii::app()->homeUrl);
 	}
 	public function sendMail($data,$type)
