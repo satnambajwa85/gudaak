@@ -3,7 +3,7 @@ $this->breadcrumbs=array('News'=>array('/user/newsUpdates'));?>
 <div id="partial-render">
 	<div class="col-md-10 pull-left pd0">
 		<div class="mr0 col-md-12 pd0 fl">
-			<div class="mr0 col-md-12 pd0 fl artical">
+			<div class="mr0 col-md-12 fl artical">
 				 <h1>&nbsp;<!--Gudaak helps you to fullfill news--></h1>
 				 <h3><?php echo $news->title;?></h3>
 				 <span class="pd5">by admin</span>
