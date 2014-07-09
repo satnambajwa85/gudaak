@@ -95,7 +95,7 @@ $this->breadcrumbs=array('Assess'=>array('/user/tests'));?>
 									<datetime><?php echo $detials[$list->id]['count'];?></datetime>
 									
 								</div>
-								<div align="center" class="mar-bottom mt30">
+								<div align="center" style="bottom: 15px;position: absolute;width: 400px;">
 				
 				
 				<?php	
@@ -172,7 +172,7 @@ $this->breadcrumbs=array('Assess'=>array('/user/tests'));?>
 									
 								</div>
 								<p><?php echo $list->test_features ;?></p>
-								<div align="center" class="mar-bottom">							 
+								<div align="center" style="bottom: 15px;position: absolute;width: 400px;">
 									<?php  
 										echo CHtml::link('Take Test',array('user/test','id'=>$list->id),array('class'=>'btn btn-warning'));?>
 								</div>
