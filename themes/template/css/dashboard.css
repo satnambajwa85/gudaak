@@ -8658,7 +8658,7 @@ display: none;
 .widget-heading{text-align: center;}
 .headingSort{color: #fff;}
 h1.listAtrical{font-size:12px;margin:0px;background-color:#F7F7F7; padding-right: 100px !important;}
-.menu_position{ position:absolute; left: 211px; top: 135px; }
+.menu_position{ position:absolute; left: 0; bottom:0; }
 .img_position1{ position:absolute; left: 211px; top: 135px; }
 .img_position2{ position:absolute; left: 211px; top: 260px; }
 .img_position3{ position:absolute; left: 211px; top: 398px; }
@@ -8668,6 +8668,8 @@ h1.listAtrical{font-size:12px;margin:0px;background-color:#F7F7F7; padding-right
 .img_position7{ position:absolute;right: 25px;top: 40%;}
 .next_position{ position:absolute;right: 53px;bottom: 34px;}
 .close_position{ position:absolute;right: 53px;bottom: 34px;}
+.news_position{ position:absolute;right: 0;bottom: 0;}
+.top_position{ position:absolute;right: 0;top: 0;}
 
 .artical span { float:left;color: #f7a944;font-family: robotomedium;font-size: 15px; margin-bottom:0px; margin-top:5px; width:100%; margin-bottom:-17px;}
 .width_set{ float:left; padding:5px; width:100%; background:#f7f7f7; border:1px solid #eee;  }
