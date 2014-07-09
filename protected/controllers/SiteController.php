@@ -605,8 +605,10 @@ class SiteController extends Controller
 		define('APP_ID', '846828762012851');
 		define('APP_SECRET','1f989e3870a57ed90fad047993bb7f01');
 		$facebook = new Facebook(array('appId' => APP_ID,'secret' => APP_SECRET,));
+		$facebook->destroySession();
 		$user = $facebook->getUser();
-		$logouturl = $facebook->getLogoutUrl();
+		echo $logouturl = $facebook->getLogoutUrl();
+		die;
 		header("Location: ".$logouturl."");
 
 		$this->redirect(Yii::app()->homeUrl);
