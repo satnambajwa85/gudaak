@@ -11,11 +11,11 @@ $this->breadcrumbs=array('News'=>array('/user/newsUpdates'));?>
 				 <div class="col-md-12 br-all pd0  fl">
 					<div class="col-md-3 pd10 post-info fl">
 						<span>Posted on</span>
-						
+						<datetime class="date-time fl">
+							<?php echo date('M d, Y',strtotime($news->add_date));?>
+						</datetime>
 					</div>
-					<datetime class="date-time fl">
-						<?php echo date('M d, Y',strtotime($news->add_date));?>
-                    </datetime>
+					
 				 </div>
 				  <div class="clear"></div>
 				<p class="mt15">
