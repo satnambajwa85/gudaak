@@ -8658,6 +8658,7 @@ display: none;
 .widget-heading{text-align: center;}
 .headingSort{color: #fff;}
 h1.listAtrical{font-size:12px;margin:0px;background-color:#F7F7F7; padding-right: 100px !important;}
+.menu_position{ position:absolute; left: 211px; top: 135px; }
 .img_position1{ position:absolute; left: 211px; top: 135px; }
 .img_position2{ position:absolute; left: 211px; top: 260px; }
 .img_position3{ position:absolute; left: 211px; top: 398px; }

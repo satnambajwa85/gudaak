@@ -8,9 +8,6 @@ $this->breadcrumbs=array('Home'=>array('/user/'));?>
 	<div class="mr0 col-md-12 fl">
 		<div class="mr0  pull-left stream-pref">
 			<h1>Home</h1>
-			<!--<p>Watch this video to understand how you will proceed through the Gudaak journey of choosing your career through the three steps of career planning…<br />
-Assess, Explore and Approach!</p>-->
-<!--<img src="<?php //echo Yii::app()->theme->baseUrl;?>/images/tour.png" width="100%" />-->
 		</div>
 	</div>
 </div>
@@ -18,6 +15,7 @@ Assess, Explore and Approach!</p>-->
 	<?php  $this->Widget('WidgetNews'); ?>
 </div>
 <div id="popup_box">    <!-- OUR PopupBox DIV-->
+<img class="menu_position" src="<?php echo Yii::app()->theme->baseUrl;?>/images/gudaak-menu.png"/>
 <img class="img_position1" src="<?php echo Yii::app()->theme->baseUrl;?>/images/gudaak-pointer1.png"/>
 <img class="img_position2" src="<?php echo Yii::app()->theme->baseUrl;?>/images/gudaak-pointer2.png"/>
 <img class="img_position3" src="<?php echo Yii::app()->theme->baseUrl;?>/images/gudaak-pointer3.png"/>
