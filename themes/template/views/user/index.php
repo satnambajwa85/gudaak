@@ -28,7 +28,7 @@ $this->breadcrumbs=array('Home'=>array('/user/'));?>
 <img class="img_position7" src="<?php echo Yii::app()->theme->baseUrl;?>/images/gudaak-pointer8.png"/>
 
 
-
+<img class="profile_position" src="<?php echo Yii::app()->theme->baseUrl;?>/images/profile.png"/>
 <img class="top_position" src="<?php echo Yii::app()->theme->baseUrl;?>/images/top.png"/>
 <img class="news_position" src="<?php echo Yii::app()->theme->baseUrl;?>/images/news.png"/>
 
