@@ -7,7 +7,7 @@ $this->breadcrumbs=array('News'=>array('/user/newsUpdates'));?>
 				 <h1>&nbsp;<!--Gudaak helps you to fullfill news--></h1>
 				 <h3><?php echo $news->title;?></h3>
 				<div class="col-md-3 pd10 post-info fl">
-                    	by admin 
+                    	<div  class="fl">by admin </div>
 						<datetime class="date-time fl">
                         	Posted on <?php echo date('M d, Y',strtotime($news->add_date));?>
 						</datetime>
