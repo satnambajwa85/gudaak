@@ -76,7 +76,7 @@ $this->breadcrumbs=array('Assess'=>array('/user/tests'));?>
 								if(in_array($list->id,$userTest)){
 									$testCount++;?>
 						<div class="col-md-6 pull-left">
-							<div class="col-md-12 pull-left min-height-fix border-box" style="min-height: 300px;">
+							<div class="col-md-12 pull-left min-height-fix border-box" style="min-height: 380px;">
 								<div align="center">
                                 <span class='btnTNew btn-info2 center-bt'>
 								<?php echo $list->title;?> </span>
