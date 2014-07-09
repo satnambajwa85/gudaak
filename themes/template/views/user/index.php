@@ -15,7 +15,7 @@ $this->breadcrumbs=array('Home'=>array('/user/'));?>
 	<?php  $this->Widget('WidgetNews'); ?>
 </div>
 <div id="popup_box">    <!-- OUR PopupBox DIV-->
-<img class="menu_position" src="<?php echo Yii::app()->theme->baseUrl;?>/images/gudaak-menu.png"/>
+<img class="menu_position" src="<?php echo Yii::app()->theme->baseUrl;?>/images/menu_position.png"/>
 <img class="img_position1" src="<?php echo Yii::app()->theme->baseUrl;?>/images/gudaak-pointer1.png"/>
 <img class="img_position2" src="<?php echo Yii::app()->theme->baseUrl;?>/images/gudaak-pointer2.png"/>
 <img class="img_position3" src="<?php echo Yii::app()->theme->baseUrl;?>/images/gudaak-pointer3.png"/>
