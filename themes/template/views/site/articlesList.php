@@ -1,7 +1,7 @@
 <?php $this->pageTitle='Articles';?>
 	<div class="col-md-12 pull-left">
-		<div class="mr0 col-md-12 pd0 fl" style="min-height:500px">			
-			<div class="mr0 col-md-12  fl newsupdates art_c" >
+		<div class="mr0 col-md-12 pd0 fl">			
+			<div class="col-md-12 pd0 fl " style="min-height:500px">
 				<div class="mr0 pd0 col-md-12 artical mtb15">
 				<p>Read the articles about different careers to update your knowledge and information. These are a crucial part of your Exploration stage!</p>
 				</div>
