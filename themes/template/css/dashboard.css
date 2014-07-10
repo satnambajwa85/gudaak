@@ -8466,7 +8466,7 @@ height:19px !important;
     text-align: justify;
     width: 77%;
 }
-#popup_box2,#popup_box1 {
+#popup_box2,#popup_box,#popup_box1 {
     display:none; /* Hide the DIV */
     position:fixed;  
     _position:absolute; /* hack for internet explorer 6 */  
@@ -8487,7 +8487,7 @@ opacity: 0.85;
   
    
 }
-#popup_box2 h1,#popup_box1 h1{ 
+#popup_box h1,#popup_box2 h1,#popup_box1 h1{ 
     font-size: 15px;
 	 text-align: center;
     line-height: 48px;
