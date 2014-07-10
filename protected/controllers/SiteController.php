@@ -101,7 +101,7 @@ class SiteController extends Controller
 			$model->add_date	=	date('Y-m-d H:i:s');
 			$model->articles_id	=	$id;
 			if($model->save())
-				$model->refresh();
+				$this->redirect(array('site/article','id'=>$id));
 		}
 		$comments	=	ArticlesComments::model()->findAllByAttributes(array('articles_id'=>$id))	;
 		
