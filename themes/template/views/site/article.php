@@ -18,9 +18,49 @@ $this->breadcrumbs=array('Articles'=>array('/site/articles'),''.$articles->title
 				<p>
 				<?php echo $articles->description;?>	
 				</p>
-                <div class="col-md-6">
-                <?php $this->widget('ext.YiiDisqusWidget.YiiDisqusWidget',array('shortname'=>'gudaak'));?>
-                </div>
+                
+<div class="col-md-6">
+<?php $form=$this->beginWidget('CActiveForm', array('id'=>'articles-comments-form','enableAjaxValidation'=>false,)); ?>
+	<div class="row">
+		<?php echo $form->labelEx($model,'name',array('style'=>'font-family: Arial;margin-bottom:10px')); ?>
+		<?php echo $form->textField($model,'name',array('class'=>'form-control mar-b16')); ?>
+		<?php echo $form->error($model,'name'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'email',array('style'=>'font-family: Arial;margin-bottom:10px;margin-top:10px')); ?>
+		<?php echo $form->textField($model,'email',array('class'=>'form-control mar-b16')); ?>
+		<?php echo $form->error($model,'email'); ?>
+	</div>
+
+	<div class="row">
+		<?php echo $form->labelEx($model,'comment',array('style'=>'font-family: Arial;margin-bottom:10px;margin-top:10px')); ?>
+		<?php echo $form->textArea($model,'comment',array('rows'=>6, 'cols'=>50,'class'=>'form-control mar-b16')); ?>
+		<?php echo $form->error($model,'comment'); ?>
+	</div>
+	<div class="row buttons">
+		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array('class'=>'btn mtb15')); ?>
+	</div>
+
+<?php $this->endWidget(); ?>
+
+
+<div class="col-md-12">
+<?php foreach($comments	as $comment){?>
+<div class="outer_b">
+	<div class="head">Posted by : <?php echo $comment->name;?></div>
+    <div class="time">Posted on : <span class="post-meta"><?php echo date('M d, Y',strtotime($comment->add_date));?></span></div>
+    <span class="border_bb"></span>
+
+<div class="content " >
+	Comment : <?php echo $comment->comment;?>
+</div>
+</div>
+<?php } ?>
+
+</div>
+
+</div>
 
 			</div>
             </div>

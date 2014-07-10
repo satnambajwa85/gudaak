@@ -67,6 +67,7 @@ class Articles extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'userLogin' => array(self::BELONGS_TO, 'UserLogin', 'user_login_id'),
+			'comments' => array(self::HAS_MANY, 'Articles', 'articles_id'),
 		);
 	}
 

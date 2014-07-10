@@ -523,3 +523,8 @@ margin-top: -7px;
 .art_c{background:#fbfbfb; margin-top:15px; padding:10px; border:1px solid #e2e2e2;}
 .date-time{color: #21C4C1;font-size: 14px;margin-bottom: 10px;}
 .mtb15{margin-bottom:15px;margin-top:15px;}
+.outer_b{ float:left; width:98%; padding:5px; border:1px solid #e2e2e2;margin-top:10px;}
+.outer_b .head{ float:left; width:60%; font-size:14px; }
+.outer_b .time{ float:right; font-size:12px; color: #21C4C1; font-weight:normal; text-align:right; padding-bottom:10px; }
+.outer_b .border_bb{ float:left; width:90%; margin-left:5%;  border-bottom:1px solid #e2e2e2; height:1px; }
+.outer_b .content{ font-size:12px; font-weight:normal; float:left; width:100%; margin-top:10px; }

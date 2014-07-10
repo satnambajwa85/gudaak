@@ -89,9 +89,23 @@ class SiteController extends Controller
 	
 	public function actionArticle($id)
 	{	
-		$result				=	 Articles::model()->findByAttributes(array('id'=>$id));
+		$result		=	Articles::model()->findByAttributes(array('id'=>$id));
+		$model		=	new ArticlesComments;
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['ArticlesComments']))
+		{
+			$model->attributes=$_POST['ArticlesComments'];
+			$model->add_date	=	date('Y-m-d H:i:s');
+			$model->articles_id	=	$id;
+			if($model->save())
+				$model->refresh();
+		}
+		$comments	=	ArticlesComments::model()->findAllByAttributes(array('articles_id'=>$id))	;
 		
-		$this->render('article',array('articles'=>$result));
+		$this->render('article',array('articles'=>$result,'model'=>$model,'comments'=>$comments));
 	}
 	/**
 	 * This is the Register  User 'userRegister' action that is invoked
