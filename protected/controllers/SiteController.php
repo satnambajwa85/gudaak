@@ -188,7 +188,7 @@ class SiteController extends Controller
 									$login->email		=	$user->username;
 									$login->password	=	$user->fb_id;
 									if($login->login()){
-										$this->redirect(Yii::app()->createUrl('/user/tests',array('first'=>1)));
+										$this->redirect(Yii::app()->createUrl('/user/tests',array('firstTime'=>1)));
 									}
 									else{
 										Yii::app()->user->setFlash('login','Email or password not valid.');
@@ -362,7 +362,7 @@ class SiteController extends Controller
 				$login->password	=	$password;
 				if($login->login()){
 					Yii::app()->user->setFlash('login','Thank you for join us your account is activated.');
-					$this->redirect(Yii::app()->createUrl('/user/test',array('first'=>1)));
+					$this->redirect(Yii::app()->createUrl('/user/test',array('firstTime'=>1)));
 				}
 				else{
 					Yii::app()->user->setFlash('login','Thank you for join us your account is activated.');

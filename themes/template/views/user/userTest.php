@@ -25,10 +25,8 @@ $this->breadcrumbs=array('Assess'=>array('/user/tests'));?>
 					<?php } ?>
 					</div>
 					<div class="col-md-12 pull-left mt50 pd0" id="take-test">
-						   <div id="popup_box" style="opacity:100">    <!-- OUR PopupBox DIV-->
-						
-                        
-                        <div class="col-md-6 col-sm-offset-3">
+						<div id="popup_box" style="opacity:100">    <!-- OUR PopupBox DIV-->
+						<div class="col-md-6 col-sm-offset-3">
                 		<div class="site-logo"></div>
 						<div class="row white ">
                         	<div class="col-md-12 pd13 ">
