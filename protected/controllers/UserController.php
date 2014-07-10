@@ -1759,7 +1759,17 @@ class UserController extends Controller
 	public function actionArticles($id)
 	{	
 		$result				=	 Articles::model()->findByAttributes(array('id'=>$id));
-		$this->render('articles',array('articles'=>$result));
+		$model		=	new ArticlesComments;
+		if(isset($_POST['ArticlesComments']))
+		{
+			$model->attributes	=	$_POST['ArticlesComments'];
+			$model->add_date	=	date('Y-m-d H:i:s');
+			$model->articles_id	=	$id;
+			if($model->save())
+				$this->redirect(array('article','id'=>$id));
+		}
+		$comments	=	ArticlesComments::model()->findAllByAttributes(array('articles_id'=>$id));
+		$this->render('articles',array('articles'=>$result,'model'=>$model,'comments'=>$comments,'id'=>$id));
 	}
 	public function actionSummary()
 	{	
