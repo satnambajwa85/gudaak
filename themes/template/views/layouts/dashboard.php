@@ -105,9 +105,9 @@ alert("<?php echo Yii::app()->user->getFlash('redirect'); ?>");
 </script>
 <?php  $this->Widget('WidgetUserProfile'); ?>
 <?php 
-if(isset($_REQUEST['firstTime']) && $_REQUEST['firstTime']==1)
-	Yii::app()->clientScript->registerScript('opact','$("#popup_box").fadeIn("slow");$("#container").css({"opacity": "0.3" }); $(".next_position").click(function(){$("#popup_box").fadeOut();$("#popup_box1").fadeIn("slow");$("#container").css({"opacity": "0.3" });});$(".close_position").click(function(){$("#popup_box1").fadeOut();});',CClientScript::POS_READY);?>
-<div id="popup_box">    <!-- OUR PopupBox DIV-->
+if(isset($_REQUEST['first']) && $_REQUEST['first']==1)
+	Yii::app()->clientScript->registerScript('opact','$("#popup_box2").fadeIn("slow");$("#container").css({"opacity": "0.3" }); $(".next_position").click(function(){$("#popup_box2").fadeOut();$("#popup_box1").fadeIn("slow");$("#container").css({"opacity": "0.3" });});$(".close_position").click(function(){$("#popup_box1").fadeOut();});',CClientScript::POS_READY);?>
+<div id="popup_box2">    <!-- OUR PopupBox DIV-->
 <img class="menu_position" src="<?php echo Yii::app()->theme->baseUrl;?>/images/menu_position.png"/>
 <img class="img_position1" src="<?php echo Yii::app()->theme->baseUrl;?>/images/gudaak-pointer1.png"/>
 <img class="img_position2" src="<?php echo Yii::app()->theme->baseUrl;?>/images/gudaak-pointer2.png"/>
