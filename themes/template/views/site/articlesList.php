@@ -1,5 +1,5 @@
 <?php $this->pageTitle='Articles';?>
-	<div class="career-bot pull-left">
+	<div class="col-md-12 pull-left">
 		<div class="mr0 col-md-12 pd0 fl">			
 			<div class="mr0 col-md-12  fl newsupdates art_c" >
 				<div class="mr0 pd0 col-md-12 artical">
