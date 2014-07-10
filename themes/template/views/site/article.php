@@ -5,7 +5,7 @@ $this->breadcrumbs=array('Articles'=>array('/site/articles'),''.$articles->title
         <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'','links'=>$this->breadcrumbs,));?>
 			<div class="mr0 col-md-12  fl newsupdates art_c" >		 
 			<div class="mr0 mt10 col-md-12 pd0 fl artical">
-				 <h1 style="font-size:20px;"><?php echo $articles->title;?></h1><br />
+				 <h1 style="font-size:20px;"><?php echo $articles->title;?></h1>
 				 <div class="clear"></div>
                  <?php if(isset($articles->add_date)){?>
                  <div class="col-md-12 fl pd0">
