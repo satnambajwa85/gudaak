@@ -188,7 +188,7 @@ class SiteController extends Controller
 									$login->email		=	$user->username;
 									$login->password	=	$user->fb_id;
 									if($login->login()){
-										$this->redirect(Yii::app()->createUrl('/user/',array('fb'=>1,'first'=>1)));
+										$this->redirect(Yii::app()->createUrl('/user/test',array('first'=>1)));
 									}
 									else{
 										Yii::app()->user->setFlash('login','Email or password not valid.');
@@ -362,7 +362,7 @@ class SiteController extends Controller
 				$login->password	=	$password;
 				if($login->login()){
 					Yii::app()->user->setFlash('login','Thank you for join us your account is activated.');
-					$this->redirect(Yii::app()->createUrl('/user/',array('first'=>1)));
+					$this->redirect(Yii::app()->createUrl('/user/test',array('first'=>1)));
 				}
 				else{
 					Yii::app()->user->setFlash('login','Thank you for join us your account is activated.');
@@ -370,8 +370,8 @@ class SiteController extends Controller
 				}
 			
 			}else{
-				CVarDumper::dump($record,10,1);
-				die;
+				Yii::app()->user->setFlash('create','Not able to activate your account due to some technical issues. Please contact admin.');
+				$this->redirect(array('site/userRegister'));
 			}
 		}else{
 		
@@ -455,7 +455,7 @@ class SiteController extends Controller
 						elseif(Yii::app()->user->userType=='counsellor')
 							$this->redirect(Yii::app()->createUrl('/counsellor'));
 						else
-							$this->redirect(Yii::app()->createUrl('/user'));
+							$this->redirect(Yii::app()->createUrl('/user/test'));
 					}
 				}
 			}
@@ -548,7 +548,7 @@ class SiteController extends Controller
 						$this->redirect(Yii::app()->createUrl('/counsellor/'));
 					}
 					else{
-						$this->redirect(Yii::app()->createUrl('/user/'));
+						$this->redirect(Yii::app()->createUrl('/user/test'));
 					}
 					
 				}
