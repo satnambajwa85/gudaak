@@ -25,10 +25,8 @@ $this->breadcrumbs=array('Assess'=>array('/user/tests'));?>
 					<?php } ?>
 					</div>
 					<div class="col-md-12 pull-left mt50 pd0" id="take-test">
-						   <div id="popup_box" style="opacity:100">    <!-- OUR PopupBox DIV-->
-						
-                        
-                        <div class="col-md-6 col-sm-offset-3">
+						<div id="popup_box" style="opacity:100">    <!-- OUR PopupBox DIV-->
+						<div class="col-md-6 col-sm-offset-3">
                 		<div class="site-logo"></div>
 						<div class="row white ">
                         	<div class="col-md-12 pd13 ">
@@ -76,7 +74,7 @@ $this->breadcrumbs=array('Assess'=>array('/user/tests'));?>
 								if(in_array($list->id,$userTest)){
 									$testCount++;?>
 						<div class="col-md-6 pull-left">
-							<div class="col-md-12 pull-left min-height-fix border-box" style="min-height: 300px;">
+							<div class="col-md-12 pull-left min-height-fix border-box" style="min-height: 380px;">
 								<div align="center">
                                 <span class='btnTNew btn-info2 center-bt'>
 								<?php echo $list->title;?> </span>
@@ -95,7 +93,7 @@ $this->breadcrumbs=array('Assess'=>array('/user/tests'));?>
 									<datetime><?php echo $detials[$list->id]['count'];?></datetime>
 									
 								</div>
-								<div align="center" class="mar-bottom mt30">
+								<div align="center" style="bottom: 15px;position: absolute;width: 400px;">
 				
 				
 				<?php	
@@ -172,7 +170,7 @@ $this->breadcrumbs=array('Assess'=>array('/user/tests'));?>
 									
 								</div>
 								<p><?php echo $list->test_features ;?></p>
-								<div align="center" class="mar-bottom">							 
+								<div align="center" style="bottom: 15px;position: absolute;width: 400px;">
 									<?php  
 										echo CHtml::link('Take Test',array('user/test','id'=>$list->id),array('class'=>'btn btn-warning'));?>
 								</div>

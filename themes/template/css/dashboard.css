@@ -7083,6 +7083,9 @@ header {
     padding: 0;
     width: 100%;
 }
+.side-navigation ul li ul li a {
+	margin-left: 24px;
+}
 .side-navigation ul li ul li:hover {
     background: none repeat scroll 0 0 #FFFFFF;
 }
@@ -8463,7 +8466,7 @@ height:19px !important;
     text-align: justify;
     width: 77%;
 }
-#popup_box,#popup_box1 {
+#popup_box2,#popup_box,#popup_box1 {
     display:none; /* Hide the DIV */
     position:fixed;  
     _position:absolute; /* hack for internet explorer 6 */  
@@ -8484,7 +8487,7 @@ opacity: 0.85;
   
    
 }
-#popup_box h1,#popup_box1 h1{ 
+#popup_box h1,#popup_box2 h1,#popup_box1 h1{ 
     font-size: 15px;
 	 text-align: center;
     line-height: 48px;
@@ -8658,16 +8661,19 @@ display: none;
 .widget-heading{text-align: center;}
 .headingSort{color: #fff;}
 h1.listAtrical{font-size:12px;margin:0px;background-color:#F7F7F7; padding-right: 100px !important;}
+.menu_position{ position:absolute; left: 0; bottom:0; }
 .img_position1{ position:absolute; left: 211px; top: 135px; }
 .img_position2{ position:absolute; left: 211px; top: 260px; }
 .img_position3{ position:absolute; left: 211px; top: 398px; }
 .img_position4{ position:absolute;left: 26px;top: 16px; right:0; }
 .img_position5{ position:absolute;right: 442px;top: -15px; }
 .img_position6{ position:absolute;right: 246px;top: 40px; }
-.img_position7{ position:absolute;right: 25px;top: 40%;}
+.img_position7{ position:absolute;right: 80px;top: 40%;}
 .next_position{ position:absolute;right: 53px;bottom: 34px;}
-.close_position{ position:absolute;right: 53px;bottom: 34px;}
-
+.close_position{ position:absolute;right: 220px;bottom: 34px;}
+.news_position{ position:absolute;right: 0;bottom: 0;}
+.top_position{ position:absolute;right: 0;top: 0;}
+.profile_position{position:absolute;left:0px;top:140px;}
 .artical span { float:left;color: #f7a944;font-family: robotomedium;font-size: 15px; margin-bottom:0px; margin-top:5px; width:100%; margin-bottom:-17px;}
 .width_set{ float:left; padding:5px; width:100%; background:#f7f7f7; border:1px solid #eee;  }
 .width_set1{ float:left; padding:5px; width:100%; border:1px solid #eee; border-top:0px; margin-bottom:5px; }

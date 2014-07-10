@@ -135,9 +135,9 @@ class UserController extends Controller
 				Yii::app()->user->setFlash('updated',"Successfully updated.");
 			}
 		}
-		
-		if(!isset($_REQUEST['first']))
-			$this->redirect(Yii::app()->createUrl('/user/career'));
+
+		$this->redirect(Yii::app()->createUrl('/user/tests'));
+
 		$this->render('index',array('model'=>$model));
 	}
 	public function actionTalk()
@@ -1839,9 +1839,10 @@ class UserController extends Controller
 				$criteria21->addInCondition("courses_id", $course,'OR');
 			if(count($special)>0)
 				$criteria21->addInCondition("specialization_id", $special,'OR');
+			
 			$list	=	CollagesCoursesSpecialization::model()->findAll($criteria21);
 			$listCollage	=	array();
-			if(count($list)>0)
+			if(count($list)>0 && count($collg)>0)
 				foreach($list as $rec)
 					$listCollage[]	=	$rec->collage_id;		
 			$model				=	new Collage;

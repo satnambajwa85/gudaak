@@ -73,7 +73,9 @@
             'attribute'=>'date_of_birth',
             'options'=>array('dateFormat'=>'yy-mm-dd',
             'changeMonth'=>'true',
-            'changeYear'=>'true',),
+            'changeYear'=>'true',
+			'yearRange'=>'1950:'.date('Y'),
+			),
             'htmlOptions'=>array('id'=>'disabledInput','placeholder'=>'DOB'),
             
             ));

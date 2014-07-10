@@ -466,35 +466,30 @@ a.</strong> The Service contains copyrighted material, trademarks and other prop
 		</div>
 	</div>
     </div>    
-    
-
- 
-  <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-	<link href="<?php echo $path?>/css/bootstrap.css" rel="stylesheet">
-   <link href="<?php echo $path?>/css/bootstrap-switch.min.css" rel="stylesheet">
-    <script src="<?php echo $path?>/js/bootstrap.min.js"></script>
-	<script src="<?php echo $path?>/js/bootstrap-switch.min.js"></script>
-    <script src="<?php echo $path?>/js/index.js"></script>
-    <script src="<?php echo $path?>/js/custom.js"></script>
-    <script src="<?php echo $path?>/js/custom2.js"></script>
-	<script src="<?php echo Yii::app()->theme->baseUrl;?>/js/jquery.scrollbox.js" type="text/javascript"></script>
-    
+<!-- Bootstrap core JavaScript
+================================================== -->
+<!-- Placed at the end of the document so the pages load faster -->
+<link href="<?php echo $path?>/css/bootstrap.css" rel="stylesheet">
+<link href="<?php echo $path?>/css/bootstrap-switch.min.css" rel="stylesheet">
+<script src="<?php echo $path?>/js/bootstrap.min.js"></script>
+<script src="<?php echo $path?>/js/bootstrap-switch.min.js"></script>
+<script src="<?php echo $path?>/js/index.js"></script>
+<script src="<?php echo $path?>/js/custom.js"></script>
+<script src="<?php echo $path?>/js/custom2.js"></script>
+<script src="<?php echo Yii::app()->theme->baseUrl;?>/js/jquery.scrollbox.js" type="text/javascript"></script>
 <script type="text/javascript">
 var popup;
 function ShowPopup(url) {
-	popup = window.open(url, "Popup", "toolbar=no,scrollbars=no,location=no,statusbar=no,menubar=no,resizable=0,width=500,height=400,left = 490,top = 200");
+	popup = window.open(url, "Popup", "toolbar=no,scrollbars=yes,location=no,statusbar=no,menubar=no,resizable=1,width=500,height=400,left = 490,top = 200");
 	popup.focus();
 }
-
 (function () { var done = false; var script = document.createElement('script'); script.async = true; script.type = 'text/javascript'; script.src = 'https://widget.purechat.com/VisitorWidget/WidgetScript'; document.getElementsByTagName('HEAD').item(0).appendChild(script); script.onreadystatechange = script.onload = function (e) { if (!done && (!this.readyState || this.readyState == 'loaded' || this.readyState == 'complete')) { var w = new PCWidget({ c: '87b04e16-7b9c-4d0e-afbd-42f97c59e435', f: true }); done = true; } }; })();</script>
 <!--Add the following script at the bottom of the web page-->
 <!--<script type="text/javascript" src="https://mylivechat.com/chatinline.aspx?hccid=72556058"></script>-->
-	<div id="popup_box">    <!-- OUR PopupBox DIV-->
-			<img src="<?php echo Yii::app()->theme->
-			baseUrl;?>/images/gudaak-pointer.png"/>
-	</div>
+<div id="popup_box">    <!-- OUR PopupBox DIV-->
+<img src="<?php echo Yii::app()->theme->
+baseUrl;?>/images/gudaak-pointer.png"/>
+</div>
 <script>
 (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
 (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),

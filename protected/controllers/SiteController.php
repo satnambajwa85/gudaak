@@ -89,9 +89,23 @@ class SiteController extends Controller
 	
 	public function actionArticle($id)
 	{	
-		$result				=	 Articles::model()->findByAttributes(array('id'=>$id));
-		
-		$this->render('article',array('articles'=>$result));
+		$result		=	Articles::model()->findByAttributes(array('id'=>$id));
+		$model		=	new ArticlesComments;
+
+		// Uncomment the following line if AJAX validation is needed
+		// $this->performAjaxValidation($model);
+
+		if(isset($_POST['ArticlesComments']))
+		{
+			$model->attributes	=	$_POST['ArticlesComments'];
+			$model->add_date	=	date('Y-m-d H:i:s');
+			$model->articles_id	=	$id;
+			if($model->save())
+				$this->redirect(array('site/article','id'=>$id));
+		}
+		$comments	=	ArticlesComments::model()->findAllByAttributes(array('articles_id'=>$id));
+
+		$this->render('article',array('articles'=>$result,'model'=>$model,'comments'=>$comments,'id'=>$id));
 	}
 	/**
 	 * This is the Register  User 'userRegister' action that is invoked
@@ -108,6 +122,7 @@ class SiteController extends Controller
 
 		$facebook = new Facebook(array('appId' => APP_ID,'secret' => APP_SECRET,));
 		$user = $facebook->getUser();
+		
 		if($user) {
 			try {
 				$user_profile = $facebook->api('/me');
@@ -187,7 +202,7 @@ class SiteController extends Controller
 									$login->email		=	$user->username;
 									$login->password	=	$user->fb_id;
 									if($login->login()){
-										$this->redirect(Yii::app()->createUrl('/user/',array('fb'=>1,'first'=>1)));
+										$this->redirect(Yii::app()->createUrl('/user/tests',array('first'=>1)));
 									}
 									else{
 										Yii::app()->user->setFlash('login','Email or password not valid.');
@@ -361,7 +376,7 @@ class SiteController extends Controller
 				$login->password	=	$password;
 				if($login->login()){
 					Yii::app()->user->setFlash('login','Thank you for join us your account is activated.');
-					$this->redirect(Yii::app()->createUrl('/user/',array('first'=>1)));
+					$this->redirect(Yii::app()->createUrl('/user/tests',array('first'=>1)));
 				}
 				else{
 					Yii::app()->user->setFlash('login','Thank you for join us your account is activated.');
@@ -369,8 +384,8 @@ class SiteController extends Controller
 				}
 			
 			}else{
-				CVarDumper::dump($record,10,1);
-				die;
+				Yii::app()->user->setFlash('create','Not able to activate your account due to some technical issues. Please contact admin.');
+				$this->redirect(array('site/userRegister'));
 			}
 		}else{
 		
@@ -383,7 +398,8 @@ class SiteController extends Controller
 	}
 	//Forgot password
 	public function actionForgetPassword()
-	{	$this->layout='//layouts/main2';
+	{
+		$this->layout='//layouts/main2';
 		$model=new ForgotpasswordForm;
 		if(isset($_POST['ForgotpasswordForm'])){
 			$model->attributes=$_POST['ForgotpasswordForm'];
@@ -454,7 +470,7 @@ class SiteController extends Controller
 						elseif(Yii::app()->user->userType=='counsellor')
 							$this->redirect(Yii::app()->createUrl('/counsellor'));
 						else
-							$this->redirect(Yii::app()->createUrl('/user'));
+							$this->redirect(Yii::app()->createUrl('/user/tests'));
 					}
 				}
 			}
@@ -547,7 +563,7 @@ class SiteController extends Controller
 						$this->redirect(Yii::app()->createUrl('/counsellor/'));
 					}
 					else{
-						$this->redirect(Yii::app()->createUrl('/user/'));
+						$this->redirect(Yii::app()->createUrl('/user/tests'));
 					}
 					
 				}
@@ -600,6 +616,12 @@ class SiteController extends Controller
 	public function actionLogout()
 	{
 		Yii::app()->user->logout();
+		//define('APP_ID', '846828762012851');
+		//define('APP_SECRET','1f989e3870a57ed90fad047993bb7f01');
+		//$facebook = new Facebook(array('appId' => APP_ID,'secret' => APP_SECRET,));
+		//$facebook->clearPersistentData();
+		//$logouturl = $facebook->getLogoutUrl();
+		//header("Location: ".$logouturl."");
 		$this->redirect(Yii::app()->homeUrl);
 	}
 	public function sendMail($data,$type)
