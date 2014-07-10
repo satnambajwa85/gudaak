@@ -97,15 +97,15 @@ class SiteController extends Controller
 
 		if(isset($_POST['ArticlesComments']))
 		{
-			$model->attributes=$_POST['ArticlesComments'];
+			$model->attributes	=	$_POST['ArticlesComments'];
 			$model->add_date	=	date('Y-m-d H:i:s');
 			$model->articles_id	=	$id;
 			if($model->save())
 				$this->redirect(array('site/article','id'=>$id));
 		}
-		$comments	=	ArticlesComments::model()->findAllByAttributes(array('articles_id'=>$id))	;
-		
-		$this->render('article',array('articles'=>$result,'model'=>$model,'comments'=>$comments));
+		$comments	=	ArticlesComments::model()->findAllByAttributes(array('articles_id'=>$id));
+
+		$this->render('article',array('articles'=>$result,'model'=>$model,'comments'=>$comments,'id'=>$id));
 	}
 	/**
 	 * This is the Register  User 'userRegister' action that is invoked
@@ -398,7 +398,8 @@ class SiteController extends Controller
 	}
 	//Forgot password
 	public function actionForgetPassword()
-	{	$this->layout='//layouts/main2';
+	{
+		$this->layout='//layouts/main2';
 		$model=new ForgotpasswordForm;
 		if(isset($_POST['ForgotpasswordForm'])){
 			$model->attributes=$_POST['ForgotpasswordForm'];

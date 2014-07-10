@@ -20,6 +20,7 @@ $this->breadcrumbs=array('Articles'=>array('/site/articles'),''.$articles->title
 				</p>
                 
 <div class="col-md-6">
+
 <?php $form=$this->beginWidget('CActiveForm', array('id'=>'articles-comments-form','enableAjaxValidation'=>false,)); ?>
 	<div class="row">
 		<?php echo $form->labelEx($model,'name',array('style'=>'font-family: Arial;margin-bottom:10px')); ?>
@@ -39,6 +40,17 @@ $this->breadcrumbs=array('Articles'=>array('/site/articles'),''.$articles->title
 		<?php echo $form->error($model,'comment'); ?>
 	</div>
 	<div class="row buttons">
+
+<div id="fb-root"></div>
+<script>(function(d, s, id) {
+  var js, fjs = d.getElementsByTagName(s)[0];
+  if (d.getElementById(id)) return;
+  js = d.createElement(s); js.id = id;
+  js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=846828762012851&version=v2.0";
+  fjs.parentNode.insertBefore(js, fjs);
+}(document, 'script', 'facebook-jssdk'));</script>
+<div class="fb-share-button" data-href="<?php echo Yii::app()->createUrl('/site/article',array('id'=>$id));?>"></div>
+
 		<?php echo CHtml::submitButton('Save',array('class'=>'btn mtb15 fr btn-warning  ')); ?>
 	</div>
 
