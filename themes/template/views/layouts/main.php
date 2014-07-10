@@ -484,7 +484,7 @@ a.</strong> The Service contains copyrighted material, trademarks and other prop
 <script type="text/javascript">
 var popup;
 function ShowPopup(url) {
-	popup = window.open(url, "Popup", "toolbar=no,scrollbars=no,location=no,statusbar=no,menubar=no,resizable=0,width=500,height=400,left = 490,top = 200");
+	popup = window.open(url, "Popup", "toolbar=no,scrollbars=yes,location=no,statusbar=no,menubar=no,resizable=1,width=500,height=400,left = 490,top = 200");
 	popup.focus();
 }
 
