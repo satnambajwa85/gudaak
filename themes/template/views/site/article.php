@@ -39,7 +39,7 @@ $this->breadcrumbs=array('Articles'=>array('/site/articles'),''.$articles->title
 		<?php echo $form->error($model,'comment'); ?>
 	</div>
 	<div class="row buttons">
-		<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save',array('class'=>'btn mtb15')); ?>
+		<?php echo CHtml::submitButton('Save',array('class'=>'btn mtb15 fr btn-warning  ')); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
