@@ -135,6 +135,7 @@ class UserController extends Controller
 				Yii::app()->user->setFlash('updated',"Successfully updated.");
 			}
 		}
+		$this->redirect(Yii::app()->createUrl('/user/tests'));
 		$this->render('index',array('model'=>$model));
 	}
 	public function actionTalk()
