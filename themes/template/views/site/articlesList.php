@@ -18,7 +18,7 @@ $this->breadcrumbs=array('Home'=>array('/site'),'Articles'=>array('/site/article
                             <div  style="float:left;padding:6px;" >
 <img src="'.Yii::app()->baseUrl.'/uploads/articles/small/'.$list->image.'" width="100px"/>
 							</div>
-                            <p>'.substr(preg_replace("/<img[^>]+\>/i", " ", $list->description),0,230).'....</p>							
+                            <p>'.substr(strip_tags($list->description),0,350).'....</p>							
 						</div>',array('article','id'=>$list->id));?>
 						
 					
