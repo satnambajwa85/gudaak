@@ -21,7 +21,6 @@ $this->breadcrumbs=array('Articles'=>array('/site/articles'),''.$articles->title
 				<p>
 				<?php echo $articles->description;?>	
 				</p>
-
 <div id="fb-root"></div>
 <script>(function(d, s, id) {
   var js, fjs = d.getElementsByTagName(s)[0];
