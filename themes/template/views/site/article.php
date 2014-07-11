@@ -2,13 +2,13 @@
 $this->pageTitle=$articles->title;
 Yii::app()->clientScript->registerMetaTag($articles->title,'description');
 
-$this->breadcrumbs=array('Articles'=>array('/site/articles'),''.$articles->title.'');?>
+$this->breadcrumbs=array('Home'=>array('/site'),'Articles'=>array('/site/articles'),''.$articles->title.'');?>
 	<div class="col-md-12 pull-left">
 		<div class="mr0 col-md-12 pd0 fl">
         <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'','links'=>$this->breadcrumbs,));?>
 			<div class="mr0 col-md-12  fl newsupdates art_c" >		 
 			<div class="mr0 mt10 col-md-12 pd0 fl">
-				 <h1 style="font-size:20px;"><?php echo $articles->title;?></h1>
+				 <h1 style="font-size:40px;color:#f7a944"><?php echo $articles->title;?></h1>
 				 <div class="clear"></div>
                  <?php if(isset($articles->add_date)){?>
                  <div class="col-md-12 fl pd0">

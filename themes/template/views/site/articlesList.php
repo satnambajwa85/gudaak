@@ -1,10 +1,10 @@
 <?php $this->pageTitle='Articles';
-$this->breadcrumbs=array('Articles'=>array('/user/articlesList'));?>
+$this->breadcrumbs=array('Home'=>array('/site'),'Articles'=>array('/site/articles'));?>
 	<div class="col-md-12 pull-left">
 		<div class="mr0 col-md-12 pd0 fl">
 			<div class="mr0 col-md-12  fl newsupdates">
 				<div class="mr0 pd0 col-md-12 artical">
-					 <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'Dashboard','links'=>$this->breadcrumbs,));?>
+					  <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'','links'=>$this->breadcrumbs,));?>
 					 <p>Read the articles about different careers to update your knowledge and information. These are a crucial part of your Exploration stage!<br /><br /></p>
 				</div>
 				<ul>
@@ -18,7 +18,7 @@ $this->breadcrumbs=array('Articles'=>array('/user/articlesList'));?>
                             <div  style="float:left;padding:6px;" >
 <img src="'.Yii::app()->baseUrl.'/uploads/articles/small/'.$list->image.'" width="100px"/>
 							</div>
-                            <p>'.substr(preg_replace("/<img[^>]+\>/i", " ", $list->description),0,230).'</p>							
+                            <p>'.substr(preg_replace("/<img[^>]+\>/i", " ", $list->description),0,230).'....</p>							
 						</div>',array('article','id'=>$list->id));?>
 						
 					
