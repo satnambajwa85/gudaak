@@ -27,51 +27,8 @@ $this->breadcrumbs=array('Articles'=>array('/site/articles'),''.$articles->title
   js.src = "//connect.facebook.net/en_US/sdk.js#xfbml=1&appId=846828762012851&version=v2.0";
   fjs.parentNode.insertBefore(js, fjs);
 }(document, 'script', 'facebook-jssdk'));</script>
-<div class="fb-share-button" data-href="<?php echo Yii::app()->createUrl('/site/article',array('id'=>$id));?>" style="margin-top:10px;margin-bottom:10px;"></div>
-                
-<div class="col-md-6">
+<div class="fb-comments" data-href="<?php echo Yii::app()->createAbsoluteUrl('/site/article',array('id'=>$id));?>" data-numposts="5" data-colorscheme="light"></div>          
 
-<?php $form=$this->beginWidget('CActiveForm', array('id'=>'articles-comments-form','enableAjaxValidation'=>false,)); ?>
-	<div class="row">
-		<?php echo $form->labelEx($model,'name',array('style'=>'font-family: Arial;margin-bottom:10px')); ?>
-		<?php echo $form->textField($model,'name',array('class'=>'form-control mar-b16')); ?>
-		<?php echo $form->error($model,'name'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'email',array('style'=>'font-family: Arial;margin-bottom:10px;margin-top:10px')); ?>
-		<?php echo $form->textField($model,'email',array('class'=>'form-control mar-b16')); ?>
-		<?php echo $form->error($model,'email'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'comment',array('style'=>'font-family: Arial;margin-bottom:10px;margin-top:10px')); ?>
-		<?php echo $form->textArea($model,'comment',array('rows'=>6, 'cols'=>50,'class'=>'form-control mar-b16')); ?>
-		<?php echo $form->error($model,'comment'); ?>
-	</div>
-	<div class="row buttons">
-		<?php echo CHtml::submitButton('Save',array('class'=>'btn mtb15 fr btn-warning  ')); ?>
-	</div>
-
-<?php $this->endWidget(); ?>
-
-
-<div class="col-md-12">
-<?php foreach($comments	as $comment){?>
-<div class="outer_b">
-	<div class="head">Posted by : <?php echo $comment->name;?></div>
-    <div class="time">Posted on : <span class="post-meta"><?php echo date('M d, Y',strtotime($comment->add_date));?></span></div>
-    <span class="border_bb"></span>
-
-<div class="content " >
-	Comment : <?php echo $comment->comment;?>
-</div>
-</div>
-<?php } ?>
-
-</div>
-
-</div>
 
 			</div>
             </div>

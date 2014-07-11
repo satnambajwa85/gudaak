@@ -75,6 +75,7 @@ class SiteController extends Controller
 	
 	}
 	public function actionArticles(){
+		$this->layout = 'frontDashboard';
 		$criteria			=	new CDbCriteria();
 		$criteria->condition= '(published =:published and status =:status )';
 		$criteria->params 	= array('published'=>1,'status'=>1);
@@ -89,6 +90,7 @@ class SiteController extends Controller
 	
 	public function actionArticle($id)
 	{	
+		$this->layout = 'frontDashboard';
 		$result		=	Articles::model()->findByAttributes(array('id'=>$id));
 		$model		=	new ArticlesComments;
 

@@ -21,8 +21,25 @@ $(document).ready(function () {
 		.scrollbox({
 			buffer: 150 // position from bottom when reach.scrollbox will be triggered
 		});
-		
-	//scroll ends
+			//scroll ends
+
+
+var $approachScrol2 = $('#terms'),
+i = 1;
+$approachScrol2.on('reach.scrollbox', function (){
+		if (i < 6) {
+			window.setTimeout(function () {
+			$approachScrol2.scrollbox('update');
+			}, 300);
+		}
+	}).scrollbox({buffer: 150	});
+$(".terms").on("click", function() { // wire up the OK button to dismiss the modal when shown
+$("#terms").modal({ // wire up the actual modal functionality and show the dialog
+"backdrop" : "static",
+"keyboard" : true,
+"show" : true // ensure the modal is shown immediately
+});
+});	
 	$('.hot-link-icon a').tooltip();
 	//$('.tab-description').hide();
 	$('#test-tab a').bind('click', function(e){
@@ -138,6 +155,18 @@ $(document).ready(function () {
 			"show" : true // ensure the modal is shown immediately
 			});
 		}); 
+		
+		$(".home-login-box").on("click", function() { // wire up the OK button to dismiss the modal when shown
+			$("#myModal").modal({ // wire up the actual modal functionality and show the dialog
+			"backdrop" : "static",
+			"keyboard" : true,
+			"show" : true // ensure the modal is shown immediately
+			});
+		}); 
+		
+		
+		
+		
 		
 		$(".retakePersonality").on("click", function() { // wire up the OK button to dismiss the modal when shown
 			$("#retake2").modal({ // wire up the actual modal functionality and show the dialog
