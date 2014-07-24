@@ -68,7 +68,7 @@ $this->breadcrumbs=array('studentDetails',);
 														'email',
 														array(
 															'name'=>'class',
-															'value'=>'$data->userClass->title'
+															'value'=>'(isset($data->user_class_id))?$data->userClass->title:""'
 														),
 														array(
 																'class'=>'CButtonColumn', //custom button for email and view
