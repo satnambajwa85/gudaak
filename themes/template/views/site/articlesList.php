@@ -7,7 +7,7 @@ $this->breadcrumbs=array('Home'=>array('/site'),'Articles'=>array('/site/article
 					  <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'','links'=>$this->breadcrumbs,));?>
 					 <p>Read the articles about different careers to update your knowledge and information. These are a crucial part of your Exploration stage!<br /><br /></p>
 				</div>
-                <div id="scrollBar" class="col-md-12">
+                <div id="scrollBar" class="col-md-12" style="min-height:535px;">
 					<ul>
 					<?php if(!empty($articles)){?>
 					 <?php $count=0; foreach($articles as $list){ $count=abs($count-1);?>
