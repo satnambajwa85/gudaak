@@ -445,16 +445,14 @@ a.</strong> The Service contains copyrighted material, trademarks and other prop
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->
     <link href="<?php echo $path?>/css/bootstrap-switch.min.css" rel="stylesheet">
-<script src="<?php echo $path?>/js/bootstrap.min.js"></script>
-<script src="<?php echo $path?>/js/bootstrap-switch.min.js"></script>
- 
+	<script src="<?php echo $path?>/js/bootstrap.min.js"></script>
+	<script src="<?php echo $path?>/js/bootstrap-switch.min.js"></script>
 	<script src="<?php echo $path;?>/js/profle-pop-up.js"></script>
 	<script src="<?php echo $path;?>/js/jquery-ui-1.10.3.custom.js"></script>
 	<script type="text/javascript"  src="<?php echo $path;?>/js/dashboard-custom.js"></script>
 	<script type="text/javascript"  src="<?php echo $path;?>/js/rating.js"></script>
 	<script src="<?php echo Yii::app()->theme->baseUrl;?>/js/jquery.scrollbox.js" type="text/javascript"></script>
-<script src="<?php echo $path?>/js/index.js"></script>
-<script src="<?php echo $path;?>/js/jquery-ui-1.10.3.custom.js"></script>
+	<script src="<?php echo $path?>/js/index.js"></script>
 <!-- jquery jcarousel --> 
 
 <!-- end Scripts --> 

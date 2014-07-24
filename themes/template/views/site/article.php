@@ -3,7 +3,8 @@ $this->pageTitle=$articles->title;
 Yii::app()->clientScript->registerMetaTag($articles->title,'description');
 
 $this->breadcrumbs=array('Home'=>array('/site'),'Articles'=>array('/site/articles'),''.$articles->title.'');?>
-	<div class="col-md-12 pull-left">
+<div class="col-md-12 pull-left">
+	<div class="col-md-9 pull-left">
 		<div class="mr0 col-md-12 pd0 fl">
         <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'','links'=>$this->breadcrumbs,));?>
 			<div class="mr0 col-md-12  fl newsupdates art_c" >		 
@@ -33,5 +34,22 @@ $this->breadcrumbs=array('Home'=>array('/site'),'Articles'=>array('/site/article
 			</div>
             </div>
 		</div>
+	</div>
+	<div class="mr0 col-md-3 mt20 fl">
+		<div class="mr0 col-md-12 color-light-green related-article fl">
+			<h4>Resent articles</h4>
+		</div>
+		<div class="mr0 col-md-12 br-all fl">
+			<div class="article-img fl">
+				<img src="<?php echo Yii::app()->theme->baseUrl?>/images/thumb1.jpg" />
+				<?php echo CHtml::link('Read more',array('user/'));?>
+				<?php echo CHtml::link('share',array('user/'),array('class'=>'fr'));?>
+				<div class="advertise">
+					<h3 class="pd10">Title Here</h3>
+				</div>
+				<div class="buttom-bg"></div>
+			</div>
+		</div>
+	</div>
 </div>
 			
