@@ -2,6 +2,7 @@ $(document).ready(function () {
 	//scroll starts
 	var $scrollBar = $('#scrollBar'),i = 1;
 	$scrollBar.on('reach.scrollbox',function(){if (i < 6) {window.setTimeout(function(){$scrollBar.scrollbox('update');}, 300);}}).scrollbox({buffer: 150});
+	$('#scrollBar1').on('reach.scrollbox',function(){if (i < 6) {window.setTimeout(function(){$scrollBar.scrollbox('update');}, 300);}}).scrollbox({buffer: 150});
 	$('#collegeResult1').on('reach.scrollbox',function(){if (i < 6) {window.setTimeout(function(){$scrollBar.scrollbox('update');}, 300);}}).scrollbox({buffer: 150});
 		
 	//scroll ends	
