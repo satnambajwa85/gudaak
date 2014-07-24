@@ -7,6 +7,7 @@ $this->breadcrumbs=array('Home'=>array('/site'),'Articles'=>array('/site/article
 					  <?php $this->widget('zii.widgets.CBreadcrumbs', array('homeLink'=>'','links'=>$this->breadcrumbs,));?>
 					 <p>Read the articles about different careers to update your knowledge and information. These are a crucial part of your Exploration stage!<br /><br /></p>
 				</div>
+                
 				<ul>
 					<?php if(!empty($articles)){?>
 					 <?php $count=0; foreach($articles as $list){ $count=abs($count-1);?>
@@ -35,9 +36,7 @@ $this->breadcrumbs=array('Home'=>array('/site'),'Articles'=>array('/site/article
 					</li>
 					<?php } ?>
 				</ul>
-			<div class="col-md-6 pull-left">
-				<?php $this->widget('CLinkPager', array('pages' => $pages,)) ?>
-			</div>
+                
 		</div>
 	</div>
 </div>
