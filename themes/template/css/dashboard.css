@@ -7871,6 +7871,7 @@ border-left: 1px solid #fff;}
 .scrollbox-rail-in,.scrollbox-bar-in {display: block;}.scrollbox-rail {height: 100%;opacity: .2;filter: alpha(opacity=20);}.scrollbox-bar {min-height: 30px;opacity: .4;filter: alpha(opacity=40);}.scroll-text-pd{padding:0 19px 0 0 ;}
 #accessScroll {max-height: 200px;}#exploreScroll {max-height: 200px;}#approachScroll {max-height: 200px;}
 #scrollBar {max-height: 575px;}
+#scrollBar1 {max-height: 535px;}
 #access-Links h2{font-size:12px;}.top-logo {background:url("../images/home-logo.png") no-repeat scroll -1px 9px #FFFFFF;border-radius: 75px;height: 150px;left: 43%;position: absolute;top: -21px;width: 150px;}
 .padding-right {box-shadow: 9px -1px 9px -11px #333;padding: 0 93px 0 0;text-align: justify;}.padding-left {padding: 0 75px 0 81px;text-align: justify;}
 .right-tab-content h3{font-size:16px; color:#E88B2D;margin:10px 0 10px 0 ;}
