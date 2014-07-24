@@ -75,17 +75,13 @@ class SiteController extends Controller
 	
 	}
 	public function actionArticles(){
-		$this->layout = 'frontDashboard';
+		$this->layout 		= 'frontDashboard';
 		$criteria			=	new CDbCriteria();
 		$criteria->condition= '(published =:published and status =:status )';
 		$criteria->params 	= array('published'=>1,'status'=>1);
 		$count				=	Articles::model()->count($criteria);
-		$pages				=	new CPagination($count);
-		$pages->pageSize	=	5;
-		$pages->applyLimit($criteria);
 		$articles			=	Articles::model()->findAll($criteria);
-		
-		$this->render('articlesList',array('articles'=>$articles,'pages'=>$pages));
+		$this->render('articlesList',array('articles'=>$articles));
 	}
 	
 	public function actionArticle($id)
