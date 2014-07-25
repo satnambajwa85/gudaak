@@ -9,6 +9,12 @@ class ContactForm extends CFormModel
 {
 	public $name;
 	public $email;
+	
+	public $institution;
+	public $designation;
+	public $phone;
+	
+	
 	public $subject;
 	public $body;
 	public $verifyCode;
@@ -20,11 +26,12 @@ class ContactForm extends CFormModel
 	{
 		return array(
 			// name, email, subject and body are required
-			array('name, email, subject, body', 'required'),
+			array('name, email, phone, institution,designation,body', 'required'),
 			// email has to be a valid email address
 			array('email', 'email'),
+			array('phone', 'numerical'),
 			// verifyCode needs to be entered correctly
-			array('verifyCode', 'captcha', 'allowEmpty'=>!CCaptcha::checkRequirements()),
+			array('designation', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -37,6 +44,8 @@ class ContactForm extends CFormModel
 	{
 		return array(
 			'verifyCode'=>'Verification Code',
+			'institution'=>'Name of Institution',
+			'designation'=>'Designation',
 		);
 	}
 }

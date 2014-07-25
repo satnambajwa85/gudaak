@@ -3,9 +3,6 @@ $this->pageTitle=Yii::app()->name . ' -  Student Details';
 $this->breadcrumbs=array('studentDetails',);
 ?>
 <div class="container">
-
-
-
 <div class="col-md-10 pop-up-border fl col-lg-offset-1 ">
 	<div class="row test-bot">School Details
     <div class="pull-right back-btn">

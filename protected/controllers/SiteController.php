@@ -529,8 +529,26 @@ class SiteController extends Controller
 	}
 	public function actionSchools()
 	{
+		$model=new ContactForm;
+		if(isset($_POST['ContactForm']))
+		{
+			$model->attributes=$_POST['ContactForm'];
+			if($model->validate())
+			{
+				$data['name']			=	$model->name;
+				$data['email']			=	$model->email;
+				$data['phone']			=	$model->phone;
+				$data['designation']	=	$model->designation;
+				$data['institution']	=	$model->institution;
+				$data['body']			=	$model->body;
+				$mail					=	$this->sendMail($data,'contact');
+				
+				Yii::app()->user->setFlash('contact','Thank you for contacting us. We will respond to you as soon as possible.');
+				$this->refresh();
+			}
+		}
+		$this->render('schoolsFeatures',array('model'=>$model));
 		
-		$this->render('schoolsFeatures');
 	}
 	/**
 	 * Displays the login page
@@ -624,11 +642,14 @@ class SiteController extends Controller
 	}
 	public function sendMail($data,$type)
 	{
+		$admin		=	0;
 		switch($type){
 			case 'contact':
-				$subject = 'Contact Us';
-				$body = $this->renderPartial('/mails/contact_tpl',
-										array('name' => $data['name']), true);
+				$admin		=	1;
+				$subject	=	'Contact Us';
+				$body		=	$this->renderPartial('/mails/contact_tpl',array('name' => $data['name'],'email' => $data['email'],'body' => $data['body']), true);
+				$subject1	=	'Contact Us';
+				$body1		=	$this->renderPartial('/mails/contact_tpl1',array('name' => $data['name'],'email' => $data['email'],'phone' => $data['phone'],'designation' => $data['designation'],'institution' => $data['institution'],'body' => $data['body']), true);
 			break;
 			case 'forget':
 				$subject = 'Your Gudaak Password Change Request';
@@ -654,8 +675,21 @@ class SiteController extends Controller
         $mail->SetFrom($from,'Gudaak');
         $mail->Subject	=	$subject;
         $mail->MsgHTML($body);
-        $mail->AddAddress($to, "");		
-        if(!$mail->Send()) {
+        $mail->AddAddress($to, "");
+		
+		if($admin==1){
+			$mail->Send();
+			$from1		=	$data['email'];
+			$to1		=	Yii::app()->params['adminEmail'];
+			$mail1		=	Yii::app()->Smtpmail;
+			$mail1->SetFrom($from1,'Gudaak');
+			$mail1->Subject	=	$subject1;
+			$mail1->MsgHTML($body1);
+			$mail1->AddAddress($to1, "");
+			$mail1->Send();
+			return 1;
+		}
+		if(!$mail->Send()) {
            echo 'No';
 		   return 0;
         }else {
