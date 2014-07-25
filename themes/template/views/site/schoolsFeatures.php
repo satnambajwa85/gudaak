@@ -28,38 +28,28 @@
 																
 															)
 														));?>
-			  
-				<i class="glyphicon glyphicon-edit orange pull-left"></i>
-				<h4 class="form-signin-heading mb50 mt50 ">Contact us</h4>
+			  	<h2 class="mb50 mt50 ">ASK FOR FREE TRIAL</h2> 
 				<?php echo $form->textField($model,'name',array('class'=>'form-control','placeholder'=>'Name','autofocus'=>true));
 				echo $form->error($model,'name');?>
 				
 				<div class="pd4"></div>
 				<?php echo $form->textField($model,'email',array('class'=>'form-control','placeholder'=>'Email','autofocus'=>true));
-				echo $form->error($model,'email');
-				?>
+				echo $form->error($model,'email');?>
 				<div class="pd4"></div>
 		  
 				<?php echo $form->textField($model,'designation',array('class'=>'form-control','placeholder'=>'Designation','autofocus'=>true));
-				echo $form->error($model,'designation');
-				?>
+				echo $form->error($model,'designation');?>
 				<div class="pd4"></div>
 				<?php echo $form->textField($model,'institution',array('class'=>'form-control','placeholder'=>'Institution Name','autofocus'=>true));
-				echo $form->error($model,'institution');
-				?>
+				echo $form->error($model,'institution');?>
                 
                 <div class="pd4"></div>
 				<?php echo $form->textField($model,'phone',array('class'=>'form-control','placeholder'=>'Phone','autofocus'=>true));
-				echo $form->error($model,'phone');
-				?>
-                
+				echo $form->error($model,'phone');?>
                 <div class="pd4"></div>
-				<?php echo $form->textArea($model,'body',array('class'=>'form-control','placeholder'=>'Body','autofocus'=>true));
-				echo $form->error($model,'body');?>
-				<div class="pd4"></div>
-                
-				<div align="center">
-				<?php echo CHtml::submitButton('Submit',array('class'=>'btn btn-warning login mt'));?>
+                <div align="center">
+                <?php echo CHtml::submitButton('Submit',array('class'=>'btn btn-warning mt'));?>
+                <?php echo CHtml::link('Explore more',array('/site'),array('class'=>'btn btn-warning mt'));?>
 				</div>
 			  <?php $this->endWidget();?>
 			</div>	
