@@ -49,7 +49,9 @@
                 <div class="pd4"></div>
                 <div align="center">
                 <?php echo CHtml::submitButton('Submit',array('class'=>'btn btn-warning mt'));?>
-                <?php echo CHtml::link('Explore more',array('/site'),array('class'=>'btn btn-warning mt'));?>
+                </div>
+                <div class="pull-right">
+				<?php echo CHtml::link('Explore more',array('/site'),array('class'=>'btn btn-warning mt'));?>
 				</div>
 			  <?php $this->endWidget();?>
 			</div>	
