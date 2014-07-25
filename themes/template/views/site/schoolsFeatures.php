@@ -30,7 +30,7 @@
 														));?>
 			  
 				<i class="glyphicon glyphicon-edit orange pull-left"></i>
-				<h4 class="form-signin-heading ">Contact us</h4>
+				<h4 class="form-signin-heading mb50 mt50 ">Contact us</h4>
 				<?php echo $form->textField($model,'name',array('class'=>'form-control','placeholder'=>'Name','autofocus'=>true));
 				echo $form->error($model,'name');?>
 				
