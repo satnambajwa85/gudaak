@@ -1,0 +1,55 @@
+@charset "utf-8";
+/* CSS Document */
+.test-bot {
+background: #21C4C1;
+background-color: #21C4C1;
+color: #fff;
+font-size: 18px;
+padding: 6px 0 4px 15px;
+}
+.back-btn {
+background: none repeat scroll 0 0 #F7AA43;
+border: none;
+border-radius: 3px;
+color: #FFFFFF !important;
+font-size: 13px;
+margin-right: 20px;
+padding: 2px 12px !important;
+}
+.back-btn a {
+color: #FFFFFF !important;
+}
+.fl {
+float: left !important;
+}
+.row {
+margin-right: -15px;
+margin-left: -15px;
+}
+.rating-history ul{list-style:none;padding:0px;}
+.rating-history ul li {width:100%;}
+.rating-history ul li { border-bottom: 1px solid #CCCCCC;
+    padding: 10px;}
+.rating-history h1 {color: #666;margin-top: 4px; float: left; font-family: robotomedium !important; font-size: 14px;}
+.hRate  {width: 100% !important;text-align: center;}
+.hRate img { width: 6% !important;}
+.rating-history h2 {font-size: 14px;margin:0px;}
+.rating-title{background-color:#FFEEDA;}
+.skyBlue{color:#21C4C1;}
+.rating-history li {font-family: robotomedium;font-size: 14px;}
+.rating-history li span{margin-left: 18px;font-family: robotomedium;font-size: 14px;}
+.counsellor-comment{ color: #21C4C1;font-family: robotomedium !important;font-size: 14px;text-decoration: none;}
+.career-tab-section ul  { margin: 6px 0 0;padding: 0 0 0 11px;}
+.rating-title {background-color: #FFEEDA;}
+.stream-pref {padding: 0 20px 0 0;}
+.pd0 {padding: 0px;}
+.mr0 {margin: 0px;}
+.pull-left {float: left !important;}
+.stream-pref-min-height {min-height: 200px;}
+.stream-pref h1 {color: #f7aa40;font-size: 16px;text-transform: capitalize;font-family: robotomedium;}
+.right-menu h1 {font-size: 18px;font-weight: normal;margin: 0;}
+.center {text-align: center;}
+.col-md-12 {width: 100%;}
+.col-md-9 {width: 75%;}
+.col-md-6 {width: 50%;}
+.col-md-3 {width: 25%;}

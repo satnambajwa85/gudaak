@@ -2,6 +2,7 @@
 $this->pageTitle=Yii::app()->name . ' - '.$userInfo->display_name.' Details';
 $this->breadcrumbs=array('Detail',);
 ?>
+<link href="<?php echo Yii::app()->theme->baseUrl;?>/css/admin.css" rel="stylesheet">
 <div class="container">
 	<div class="col-md-10 	 pop-up-border fl col-lg-offset-1 ">
 		<div class="row test-bot">
