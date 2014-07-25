@@ -50,12 +50,13 @@
                 <div align="center">
                 <?php echo CHtml::submitButton('Submit',array('class'=>'btn btn-warning mt'));?>
                 </div>
-                <div class="pull-right">
-				<?php echo CHtml::link('Explore more',array('/site'),array('class'=>'btn btn-warning mt'));?>
-				</div>
+                
 			  <?php $this->endWidget();?>
 			</div>	
             
 				<!--<img src="<?php echo Yii::app()->theme->baseUrl;?>/images/mac.png"/>-->
 			</div>
-</div>
+ </div>           
+             <div class="col-md-12" align="center">
+				<?php echo CHtml::link('Explore more',array('/site'),array('class'=>'btn btn-warning mt'));?>
+			</div>
