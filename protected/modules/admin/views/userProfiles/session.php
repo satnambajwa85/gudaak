@@ -2,12 +2,16 @@
 $this->pageTitle=Yii::app()->name . ' -  Student Details';
 $this->breadcrumbs=array('studentDetails',);
 ?>
+<link href="<?php echo Yii::app()->theme->baseUrl;?>/css/admin.css" rel="stylesheet">
 <div class="container">
 	<div class="col-md-10 pop-up-border fl col-lg-offset-1 ">
-		<div class="row test-bot">School Details
-        <div class="pull-right back-btn">
-    	<?php echo CHtml::link('Back', Yii::app()->createUrl('/counsellor/studentDetail',array('id'=>$id)));?>
-        </div>
+		<div class="row test-bot">
+        	School Details
+        <div class="row col-md-10">
+			<div class="pull-right back-btn"><?php echo CHtml::link('Back', Yii::app()->createUrl('/admin/userProfiles/studentDetail',array('id'=>$id)));?></div>
+		</div>
+        
+        
         </div>
 		<div class="clear"></div>
 		<div class="col-md-12 fl">

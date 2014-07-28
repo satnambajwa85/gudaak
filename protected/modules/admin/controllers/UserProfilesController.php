@@ -32,7 +32,7 @@ class UserProfilesController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','admin','delete','studentDetail'),
+				'actions'=>array('create','update','admin','delete','studentDetail','sessionList'),
 				'expression' =>"Yii::app()->user->userType ==  'admin'",
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -196,28 +196,7 @@ class UserProfilesController extends Controller
 		$uRate2	=	array();
 		$userInfo			=	UserProfiles::model()->findByPk($id);
 		$userType=$userInfo->userLogin->user_role_id;
-		if($userInfo->userLogin->user_role_id==2){
-			$preffred	=	new	UserProfilesHasStream;
-			if(isset($_POST['UserProfilesHasStream'])){
-				$preffred->attributes			=	$_POST['UserProfilesHasStream'];
-				$preffred->user_profiles_id		=	$id;
-				$preffred->counsellor_id		=	Yii::app()->user->profileId;
-				$preffred->add_date				=	date('Y-m-d H:i:s');
-				$preffred->self					=	0;
-				$preffred->default				=	0;
-				$preffred->status				=	0;
-				$preffred->reccomended			=	1;
-				$preffred->save();
-			}
 		
-		
-		
-		
-			$userFinalStream	=	UserProfilesHasStream::model()->findAllByAttributes(array('user_profiles_id'=>$id,'updated_by'=>1));		
-			$CounsRecoStream	=	UserProfilesHasStream::model()->findAllByAttributes(array('user_profiles_id'=>$id,'reccomended'=>1));
-			$ratingHistory		=	UserProfilesHasStream::model()->findAllByAttributes(array('user_profiles_id'=>$id),array('order'=>'self DESC'));
-		}
-		else{
 			$preffred	=	new	UserCareerPreference;
 			if(isset($_POST['UserCareerPreference'])){
 				$preffred->attributes			=	$_POST['UserCareerPreference'];
@@ -238,7 +217,7 @@ class UserProfilesController extends Controller
 			$ratingHistory		=	UserCareerPreference::model()->findAllByAttributes(array('user_profiles_id'=>$id),array('order'=>'self DESC'));
 
 	
-		}
+		
 		
 		
 		$this->render('studentDetail',array('userInfo'=>$userInfo,'userFinalStream'=>$userFinalStream,'counsRecoStream'=>$CounsRecoStream,
@@ -336,6 +315,7 @@ class UserProfilesController extends Controller
 			$this->renderPartial('_session',array('question'=>$sess,'ans'=>$answ));
 			die;
 		}
+		
 		$model	=	Session::model()->findAll(array("condition"=>'status = 1'));
 		$this->render('session',array('model'=>$model,'id'=>$id));
 	}

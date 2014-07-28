@@ -97,6 +97,11 @@ $('.search-form form').submit(function(){
             'value'=>'CHtml::link("ticket",array("/admin/tickets/admin","sender_id"=>$data->id,"role"=>"user"))',
         ),
 		array(
+			'type'=>'raw',
+			'name'=>'status',
+            'value'=>'CHtml::link("Details",array("/admin/userProfiles/studentDetail","id"=>$data->id))',
+        ),
+		array(
 			'class'=>'CButtonColumn',
 		),
 	),

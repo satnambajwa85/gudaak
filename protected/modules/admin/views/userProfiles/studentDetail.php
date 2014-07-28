@@ -9,8 +9,8 @@ $this->breadcrumbs=array('Detail',);
 			<?php echo $userInfo->display_name;?>
 			<div class="pull-right back-btn"><?php echo CHtml::link('Back to List', Yii::app()->createUrl('/admin/userProfiles/admin'));?></div>
 		</div>
-		<div class="row  fl">
-			<div class="col-md-3 pd0 fl">
+		<div class="col-md-12 fl pset_admin">
+			<div class="col-md-3 pd0 fl" >
 				<div class="rating-history">
 					<ul>
 						<li class="rating-title"><h2>Last Login</h2></li>
@@ -34,9 +34,9 @@ $this->breadcrumbs=array('Detail',);
 					</ul>
 				</div>
 			</div>
-			<div class="col-md-9  fl">
-				<div class="col-md-12 mr0  pd0 pull-left stream-pref">
-					<div class="col-md-6 mr0 pd0 pull-left stream-pref">
+			<div class="col-md-9 pd0 pull-left">
+				<div class="col-md-12 pd0  pull-left">
+					<div class="col-md-6 mr0 pd0 pull-left" >
 						<?php if(!empty($userFinalStream)){ ?>
 						<h1>Finalized Career </h1>
 						<p>Your preferred career are listed here.</p>
@@ -73,7 +73,7 @@ $this->breadcrumbs=array('Detail',);
 						</div>
 						<?php } ?>
 					</div>
-					<div class="col-md-6 mr0  pull-left stream-pref">
+					<div class="col-md-6 mr0  pull-left pd0">
 					<?php 
 					$countRecom	=	0;
 					if (!empty($counsRecoStream)){?>
@@ -155,7 +155,7 @@ $this->breadcrumbs=array('Detail',);
 				<div class="col-md-12 mr0 pull-left stream-pref">
 					<h1 class="pull-left mr0 mb10 col-md-3">Summary</h1>
                      <div class="pull-left back-btn">
-						<?php echo CHtml::link('User Sessions', Yii::app()->createUrl('/counsellor/sessionList',array('id'=>$userInfo->id)));?>
+						<?php echo CHtml::link('User Sessions', Yii::app()->createUrl('admin/userProfiles/sessionList',array('id'=>$userInfo->id)));?>
                     </div>
                     <div class="pull-left back-btn">
 						<?php echo CHtml::ajaxLink('User Report', Yii::app()->createUrl('/counsellor/detailedReport',array('id'=>$userInfo->id)),array('update'=>'#summeryRecodes'),array('class'=>'summery-left-btn Summary-details')); ?>
