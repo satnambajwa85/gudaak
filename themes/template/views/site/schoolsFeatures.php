@@ -18,7 +18,7 @@
 										
 			</div>
 			<div class="col-md-5 pull-right right-tab-content mt84">
-            	<div class="col-md-12  pull-right">	
+            	<div class="col-md-12  pull-right" style="z-index:9999">	
 				<?php 
 				 $form=$this->beginWidget('CActiveForm', array(
 														'id'=>'contact-us',
