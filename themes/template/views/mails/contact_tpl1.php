@@ -22,7 +22,13 @@
 <table cellpadding="0" cellspacing="0" border="0" class="mail_set">
 	<tr>
 		<td colspan="2">
-			Dear Admin,<br /><br />
+			Dear User,<br /><br />
+		</td>	
+	</tr>
+    <tr>
+		<td>
+			Thank you for contacting us we will get back to you soon<br /><br />
+		
 		</td>	
 	</tr>
 	<tr>
