@@ -190,7 +190,7 @@ $this->breadcrumbs=array('Detail',);
 								$count= $count+1;
 						
 						?>
-						<li class="<?php echo $class;?>">
+						<li class="<?php echo $class;?>" style="list-style:none;">
 							
 							<div class="col-md-12 pull-left pd0">
 								<div class="col-md-3 pull-left pd0 center">
