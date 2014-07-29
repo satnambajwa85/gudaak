@@ -543,7 +543,7 @@ class SiteController extends Controller
 				$data['body']			=	$model->body;
 				$mail					=	$this->sendMail($data,'contact');
 				
-				Yii::app()->user->setFlash('contact','Thank you for contacting us. We will respond to you as soon as possible.');
+				Yii::app()->user->setFlash('contact','Thank you for your interest in our service. Our representative will soon contact you.');
 				$this->refresh();
 			}
 		}
@@ -679,7 +679,7 @@ class SiteController extends Controller
 		
 		if($admin==1){
 			//CVarDumper::dump($mail,10,1);
-			//$mail->Send();
+			$mail->Send();
 			$from1		=	$data['email'];
 			$to1		=	Yii::app()->params['adminEmail'];
 			$mail1		=	Yii::app()->Smtpmail;
