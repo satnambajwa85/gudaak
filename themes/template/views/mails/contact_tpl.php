@@ -22,12 +22,13 @@
 <table cellpadding="0" cellspacing="0" border="0" class="mail_set">
 	<tr>
 		<td>
-			Dear <?php echo $name; ?>,<br /><br />
+			Hello,<br /><br />
 		</td>	
 	</tr>
 	<tr>
 		<td>
-			Thank you for contacting us we will get back to you soon<br /><br />
+			Thanks for contacting us, We appreciate your interest in our product and look forward to working in collaboration. Our team would get back to you soon.<br /><br />
+Note: All queries submitted at Gudaak website are responded to within 24 working hrs.<br /><br />
 		
 		</td>	
 	</tr>
