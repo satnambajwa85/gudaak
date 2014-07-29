@@ -1,5 +1,6 @@
 <?php $this->pageTitle=Yii::app()->name . ' - Detailed Report';
 $this->breadcrumbs=array('Detailed Report'=>array('/user/detailedReport'));?>
+<link href="<?php echo Yii::app()->theme->baseUrl;?>/css/admin.css" rel="stylesheet">
 <div class="career-bot pull-left">
 		<div class="mr0 col-md-12 pd0 fl">
 			<div class="mr0  pull-left stream-pref">
@@ -359,19 +360,19 @@ Based on your personality and interest you can explore the right type of role in
 	<?php
 		$listCar	=	Career::model()->findAllByAttributes(array('career_categories_id'=>$result['id']));
 		foreach($listCar as $data){		?>
-<div class="col-md-4 pdleft career-lib" style="height:150px;">
+<div class="col-md-3 pull-left career-lib" style="height:150px;">
 	<?php 
 			$filename = ''.$data->image.'';
 			 $path=Yii::getPathOfAlias('webroot.uploads.career.small') . '/';
 			$file=$path.$filename;
 			if (file_exists($file)){ ?>
-			<?php echo CHtml::link('<img src="'.Yii::app()->baseUrl.'/uploads/career/small/'.$data->image.'"/>',array('user/careerList','id'=>''.$data->id.''),array('class'=>'fl'));?>
+			<?php echo CHtml::link('<img src="'.Yii::app()->baseUrl.'/uploads/career/small/'.$data->image.'"/>',array('/admin/careerOptions/adminView','id'=>''.$data->id.''),array('class'=>'fl'));?>
 	<?php 	}else{ ?>
-			<?php echo CHtml::link('<img src="'.Yii::app()->baseUrl.'/uploads/career/small/noimage.jpg"/>',array('user/careerList','id'=>''.$data->id.''),array('class'=>'fl'));?>
+			<?php echo CHtml::link('<img src="'.Yii::app()->baseUrl.'/uploads/career/small/noimage.jpg"/>',array('/admin/careerOptions/adminView','id'=>''.$data->id.''),array('class'=>'fl'));?>
 		
 	<?php } ?>
-	<div class="clear"></div>
-	<?php echo CHtml::link('<h1>'.substr(strip_tags($data->title),0,20).'..</h1>',array('user/careerList','id'=>''.$data->id.''),array('title'=>strip_tags($data->title)));?>
+	
+	<?php echo CHtml::link('<h1>'.substr(strip_tags($data->title),0,20).'..</h1>',array('/admin/careerOptions/adminView','id'=>''.$data->id.''),array('title'=>strip_tags($data->title)));?>
 	<p><?php echo substr(strip_tags($data->description),0,70);?></p>
 </div>
 

@@ -99,3 +99,25 @@ margin-bottom: 26px;
 -o-border-radius: 5px;
 border-radius: 5px;
 }
+.career-lib{margin-bottom:29px;height:175px !important}
+.career-lib a >img{width:100%; border:1px solid #fff;}
+
+.career-lib a{text-decoration:none;}
+.career-lib a > h1:hover{color:#000;}
+.career-lib:hover .career-hot-links >a{color:#fff;}
+.career-lib:hover .icon-eye-open{color:#fff;}
+.career-lib:hover .career-lib > a {border: 1px solid #F7A944;}
+.career-lib:hover .star-rating li i{font-size:10px;color:#fff;margin:0 0 0 2px;}
+.career-lib:hover .options-explore{display:block;}
+.career-lib:hover img{ border:1px solid #F90;}
+.career-lib2:hover p{display:none;}
+.career-lib2:hover p{display:none;}
+
+.career-lib h1{font-size:13px !important;color:#666;margin-top:10px;font-size:12px;}
+.career-lib p{color:#999;font-size:11px;text-align: justify;}
+.career-hot-links{background:#F0F0F0;background-color:#F0F0F0;	-webkit-border-radius: 3px;padding:4px 5px 3px 7px;min-height:30px;clear:both;
+	-moz-border-radius: 23px;
+	-ms-border-radius: 3px;
+	-o-border-radius: 3px;
+    border-radius: 3px;font-size:11px;
+}
