@@ -679,7 +679,7 @@ class SiteController extends Controller
 		
 		if($admin==1){
 			//CVarDumper::dump($mail,10,1);
-			//$mail->Send();
+			$mail->Send();
 			//$from1		=	$data['email'];
 			$to1		=	Yii::app()->params['adminEmail'];
 			$mail1		=	Yii::app()->Smtpmail;
