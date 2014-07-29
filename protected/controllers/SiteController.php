@@ -540,8 +540,9 @@ class SiteController extends Controller
 				$data['phone']			=	$model->phone;
 				$data['designation']	=	$model->designation;
 				$data['institution']	=	$model->institution;
-				//$this->sendMail($data,'contact');
 				$this->sendMail($data,'contactAdmin');
+				
+				//$this->sendMail($data,'contact');
 				Yii::app()->user->setFlash('contact','Thank you for your interest in our service. Our representative will soon contact you.');
 				$this->refresh();
 			}
@@ -647,7 +648,7 @@ class SiteController extends Controller
 				$body		=	$this->renderPartial('/mails/contact_tpl',array('name' => $data['name'],'email' => $data['email']), true);
 			break;
 			case 'contactAdmin':
-				$from		=	$data['email'];
+				//$from		=	$data['email'];
 				$to			=	Yii::app()->params['adminEmail'];
 				
 				$subject	=	'Contact Us';
