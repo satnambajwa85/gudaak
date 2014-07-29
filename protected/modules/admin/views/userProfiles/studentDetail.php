@@ -165,7 +165,7 @@ $this->breadcrumbs=array('Detail',);
 				<div class="col-md-12 pull-left summery-left pd0 mb10">
 					<ul>
 						<div class="col-md-12 border pull-left pd0">
-							<div class="col-md-3 pull-left pd0">
+							<div class="col-md-3 pull-left pd0 center">
 								<h1>Events</h1>
 								
 							</div>
