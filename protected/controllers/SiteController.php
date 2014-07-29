@@ -685,9 +685,9 @@ class SiteController extends Controller
 			default:
 			break;			
 		}
-		
+		unset($mail);
 		$mail		=	Yii::app()->Smtpmail;
-        //$mail->SetFrom($from,'Gudaak');
+        $mail->SetFrom($from,'Gudaak');
         $mail->Subject	=	$subject;
         $mail->MsgHTML($body);
         $mail->AddAddress($to, "");
