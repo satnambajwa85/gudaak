@@ -687,15 +687,14 @@ class SiteController extends Controller
 		}
 		
 		$mail		=	Yii::app()->Smtpmail;
-        $mail->SetFrom($from,'Gudaak');
+        //$mail->SetFrom($from,'Gudaak');
         $mail->Subject	=	$subject;
         $mail->MsgHTML($body);
         $mail->AddAddress($to, "");
-		if(!$mail->Send()) {
-           echo 'No';
+
+		if(!$mail->Send())
 		   return 0;
-        }else {
+        else
 			return 1;
-        }
 	}
 }
