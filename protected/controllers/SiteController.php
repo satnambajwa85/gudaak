@@ -645,14 +645,14 @@ class SiteController extends Controller
 				$from		=	Yii::app()->params['adminEmail'];
 				$to			=	$data['email'];
 				$subject	=	'Your Request for a Career Planning Trial @ Gudaak';
-				$body		=	$this->renderPartial('/mails/contact_tpl',array('name' => $data['name'],'email' => $data['email'],'body' => $data['body']), true);
+				$body		=	$this->renderPartial('/mails/contact_tpl',array('name' => $data['name'],'email' => $data['email']), true);
 			break;
 			case 'contactAdmin':
 				//$from		=	$data['email'];
 				$to			=	Yii::app()->params['adminEmail'];
 				
 				$subject	=	'Contact Us';
-				$body		=	$this->renderPartial('/mails/contact_tpl1',array('name' => $data['name'],'email' => $data['email'],'phone' => $data['phone'],'designation' => $data['designation'],'institution' => $data['institution'],'body' => $data['body']), true);
+				$body		=	$this->renderPartial('/mails/contact_tpl1',array('name' => $data['name'],'email' => $data['email'],'phone' => $data['phone'],'designation' => $data['designation'],'institution' => $data['institution']), true);
 			break;
 			case 'forget':
 				$from		=	Yii::app()->params['adminEmail'];
