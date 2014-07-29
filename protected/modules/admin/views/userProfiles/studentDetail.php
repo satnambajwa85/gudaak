@@ -175,9 +175,9 @@ $this->breadcrumbs=array('Detail',);
 							<div class="col-md-3 pull-left pd0">
 								<h1>Date</h1>
 							</div>
-							<div class="col-md-3 center pull-left pd0">
+							<!--<div class="col-md-3 center pull-left pd0">
 								<h1>Remarks</h1>
-							</div>
+							</div>-->
 						</div>
 						<?php 
 							 $count=1;
@@ -204,11 +204,7 @@ $this->breadcrumbs=array('Detail',);
 									<p><?php echo Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse($list->add_date, 'yyyy-MM-dd'),'medium',null);?></p>
 								</div>
 								<div class="col-md-3 center pull-left mar-top10 pd0">
-								<?php echo CHtml::ajaxLink('Summary', Yii::app()->createUrl('/counsellor/summaryDetails' ),array('data' =>array( 'userId' =>$list->user_profiles_id,'orient_items_id'=>$list->orient_items_id),'update'=>'#summeryRecodes'),array('class'=>'summery-left-btn Summary-details')); ?>
-								<?php	//echo CHtml::Ajaxlink('Summary',array('school/summaryDetails'),array('id'=>$list->user_profiles_id,'orient_items_id'=>$list->orient_items_id ),array('update'=>'#summeryRecodes'),array('class'=>''));?>
-									 
-									
-									<?php //echo CHtml::link('Summery','#',array('class'=>''))?>
+								<?php //echo CHtml::ajaxLink('Summary', Yii::app()->createUrl('/counsellor/summaryDetails' ),array('data' =>array( 'userId' =>$list->user_profiles_id,'orient_items_id'=>$list->orient_items_id),'update'=>'#summeryRecodes'),array('class'=>'summery-left-btn Summary-details')); ?>
 								</div>
 							</div>
 							
