@@ -158,7 +158,8 @@ $this->breadcrumbs=array('Detail',);
 						<?php echo CHtml::link('User Sessions', Yii::app()->createUrl('admin/userProfiles/sessionList',array('id'=>$userInfo->id)));?>
                     </div>
                     <div class="pull-left back-btn">
-						<?php echo CHtml::ajaxLink('User Report', Yii::app()->createUrl('/counsellor/detailedReport',array('id'=>$userInfo->id)),array('update'=>'#summeryRecodes'),array('class'=>'summery-left-btn Summary-details')); ?>
+						<?php echo CHtml::link('User Sessions', Yii::app()->createUrl('admin/userProfiles/detailedReport',array('id'=>$userInfo->id)));?>
+						<?php //echo CHtml::ajaxLink('User Report', Yii::app()->createUrl('/counsellor/detailedReport',array('id'=>$userInfo->id)),array('update'=>'#summeryRecodes'),array('class'=>'summery-left-btn Summary-details')); ?>
                     </div>
 				</div>
 				<div class="col-md-12 pull-left summery-left pd0 mb10">
