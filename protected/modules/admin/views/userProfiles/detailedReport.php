@@ -10,6 +10,13 @@ $this->breadcrumbs=array('Detailed Report'=>array('/user/detailedReport'));?>
 
 			</div>
 			
+        <div class="row col-md-10">
+			<div class="pull-right back-btn"><?php echo CHtml::link('Back', Yii::app()->createUrl('/admin/userProfiles/studentDetail',array('id'=>$id)));?></div>
+		</div>
+        
+        
+            
+            
 			</div>
 		<div class="col-md-12 pull-left inner-padding">
 			<div >

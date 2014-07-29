@@ -32,7 +32,7 @@ class UserProfilesController extends Controller
 				'users'=>array('*'),
 			),
 			array('allow', // allow authenticated user to perform 'create' and 'update' actions
-				'actions'=>array('create','update','admin','delete','studentDetail','sessionList'),
+				'actions'=>array('create','update','admin','delete','studentDetail','sessionList','detailedReport'),
 				'expression' =>"Yii::app()->user->userType ==  'admin'",
 			),
 			array('allow', // allow admin user to perform 'admin' and 'delete' actions
@@ -454,9 +454,8 @@ class UserProfilesController extends Controller
 		}
 
 		$profile		=	 UserProfiles::model()->findByPk($id);
-		$this->renderPartial('detailedReport',array('reports'=>$data,'profile'=>$profile,'userTestDate'=>$userTestDate));
+		$this->render('detailedReport',array('reports'=>$data,'profile'=>$profile,'userTestDate'=>$userTestDate,'id'=>$id));
 	}
-	
 	
 	
 	public function actionDelete($id)
