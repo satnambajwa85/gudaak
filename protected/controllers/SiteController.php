@@ -540,7 +540,6 @@ class SiteController extends Controller
 				$data['phone']			=	$model->phone;
 				$data['designation']	=	$model->designation;
 				$data['institution']	=	$model->institution;
-				$data['body']			=	$model->body;
 				$this->sendMail($data,'contact');
 				$this->sendMail($data,'contactAdmin');
 				
@@ -633,12 +632,6 @@ class SiteController extends Controller
 	public function actionLogout()
 	{
 		Yii::app()->user->logout();
-		//define('APP_ID', '846828762012851');
-		//define('APP_SECRET','1f989e3870a57ed90fad047993bb7f01');
-		//$facebook = new Facebook(array('appId' => APP_ID,'secret' => APP_SECRET,));
-		//$facebook->clearPersistentData();
-		//$logouturl = $facebook->getLogoutUrl();
-		//header("Location: ".$logouturl."");
 		$this->redirect(Yii::app()->homeUrl);
 	}
 	public function sendMail($data,$type)
@@ -655,7 +648,7 @@ class SiteController extends Controller
 				$body		=	$this->renderPartial('/mails/contact_tpl',array('name' => $data['name'],'email' => $data['email'],'body' => $data['body']), true);
 			break;
 			case 'contactAdmin':
-				$from		=	$data['email'];
+				//$from		=	$data['email'];
 				$to			=	Yii::app()->params['adminEmail'];
 				
 				$subject	=	'Contact Us';
@@ -685,6 +678,7 @@ class SiteController extends Controller
 			default:
 			break;			
 		}
+		$mail	=	'';
 		unset($mail);
 		$mail		=	Yii::app()->Smtpmail;
         $mail->SetFrom($from,'Gudaak');
