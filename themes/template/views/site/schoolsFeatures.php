@@ -19,16 +19,17 @@
 			</div>
 			<div class="col-md-5 pull-right right-tab-content mt84">
             	<div class="col-md-12  pull-right" style="z-index:9999">	
-				<?php 
-				 $form=$this->beginWidget('CActiveForm', array(
-														'id'=>'contact-us',
-													    'enableClientValidation'=>true,
-														'clientOptions'=>array(
-																'validateOnSubmit'=>true,
-																
-															)
-														));?>
-			  	<h2 class="mb50 mt50 ">ASK FOR FREE TRIAL</h2> 
+		<?php $form=$this->beginWidget('CActiveForm', array('id'=>'contact-us','enableClientValidation'=>true,'clientOptions'=>array('validateOnSubmit'=>true,)));?>
+        		<h2 class="mb50 mt50 ">ASK FOR FREE TRIAL</h2> 
+                <?php if(Yii::app()->user->hasFlash('contact')): ?>
+				<div class="alert alert-success">
+					<button data-dismiss="alert" class="close" type="button">×</button>
+					<strong><?php echo Yii::app()->user->getFlash('contact'); ?></strong>
+				</div>
+				<?php endif; ?>	
+        
+        
+        
 				<?php echo $form->textField($model,'name',array('class'=>'form-control','placeholder'=>'Name','autofocus'=>true));
 				echo $form->error($model,'name');?>
 				
@@ -44,7 +45,7 @@
 				echo $form->error($model,'institution');?>
                 
                 <div class="pd4"></div>
-				<?php echo $form->textField($model,'phone',array('class'=>'form-control','placeholder'=>'Phone','autofocus'=>true));
+				<?php echo $form->textField($model,'phone',array('class'=>'form-control','placeholder'=>'Phone','autofocus'=>true,'maxlength'=>"10" ));
 				echo $form->error($model,'phone');?>
                 <div class="pd4"></div>
                 <div align="center">
@@ -57,6 +58,6 @@
 				<!--<img src="<?php echo Yii::app()->theme->baseUrl;?>/images/mac.png"/>-->
 			</div>
  </div>           
-             <div class="col-md-12" align="center">
+             <div class="col-md-12 pull-left" align="center">
 				<?php echo CHtml::link('Explore more',array('/site'),array('class'=>'btn btn-warning mt'));?>
 			</div>

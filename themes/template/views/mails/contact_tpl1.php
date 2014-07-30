@@ -25,12 +25,6 @@
 			Dear User,<br /><br />
 		</td>	
 	</tr>
-    <tr>
-		<td>
-			Thank you for contacting us we will get back to you soon<br /><br />
-		
-		</td>	
-	</tr>
 	<tr>
 		<td> Name :</td>
         <td>
@@ -64,12 +58,6 @@
 		<td>
 			<?php echo $designation; ?><br /><br />
 		
-		</td>	
-	</tr>
-    <tr>
-    	<td> Query :</td>
-		<td>
-			<?php echo $body; ?><br /><br />
 		</td>	
 	</tr>
 	<tr>

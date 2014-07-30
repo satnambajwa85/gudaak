@@ -158,13 +158,14 @@ $this->breadcrumbs=array('Detail',);
 						<?php echo CHtml::link('User Sessions', Yii::app()->createUrl('admin/userProfiles/sessionList',array('id'=>$userInfo->id)));?>
                     </div>
                     <div class="pull-left back-btn">
-						<?php echo CHtml::ajaxLink('User Report', Yii::app()->createUrl('/counsellor/detailedReport',array('id'=>$userInfo->id)),array('update'=>'#summeryRecodes'),array('class'=>'summery-left-btn Summary-details')); ?>
+						<?php echo CHtml::link('User Sessions', Yii::app()->createUrl('admin/userProfiles/detailedReport',array('id'=>$userInfo->id)));?>
+						<?php //echo CHtml::ajaxLink('User Report', Yii::app()->createUrl('/counsellor/detailedReport',array('id'=>$userInfo->id)),array('update'=>'#summeryRecodes'),array('class'=>'summery-left-btn Summary-details')); ?>
                     </div>
 				</div>
 				<div class="col-md-12 pull-left summery-left pd0 mb10">
 					<ul>
 						<div class="col-md-12 border pull-left pd0">
-							<div class="col-md-3 pull-left pd0">
+							<div class="col-md-3 pull-left pd0 center">
 								<h1>Events</h1>
 								
 							</div>
@@ -174,9 +175,9 @@ $this->breadcrumbs=array('Detail',);
 							<div class="col-md-3 pull-left pd0">
 								<h1>Date</h1>
 							</div>
-							<div class="col-md-3 center pull-left pd0">
+							<!--<div class="col-md-3 center pull-left pd0">
 								<h1>Remarks</h1>
-							</div>
+							</div>-->
 						</div>
 						<?php 
 							 $count=1;
@@ -189,7 +190,7 @@ $this->breadcrumbs=array('Detail',);
 								$count= $count+1;
 						
 						?>
-						<li class="<?php echo $class;?>">
+						<li class="<?php echo $class;?>" style="list-style:none;">
 							
 							<div class="col-md-12 pull-left pd0">
 								<div class="col-md-3 pull-left pd0 center">
@@ -203,11 +204,7 @@ $this->breadcrumbs=array('Detail',);
 									<p><?php echo Yii::app()->dateFormatter->formatDateTime(CDateTimeParser::parse($list->add_date, 'yyyy-MM-dd'),'medium',null);?></p>
 								</div>
 								<div class="col-md-3 center pull-left mar-top10 pd0">
-								<?php echo CHtml::ajaxLink('Summary', Yii::app()->createUrl('/counsellor/summaryDetails' ),array('data' =>array( 'userId' =>$list->user_profiles_id,'orient_items_id'=>$list->orient_items_id),'update'=>'#summeryRecodes'),array('class'=>'summery-left-btn Summary-details')); ?>
-								<?php	//echo CHtml::Ajaxlink('Summary',array('school/summaryDetails'),array('id'=>$list->user_profiles_id,'orient_items_id'=>$list->orient_items_id ),array('update'=>'#summeryRecodes'),array('class'=>''));?>
-									 
-									
-									<?php //echo CHtml::link('Summery','#',array('class'=>''))?>
+								<?php //echo CHtml::ajaxLink('Summary', Yii::app()->createUrl('/counsellor/summaryDetails' ),array('data' =>array( 'userId' =>$list->user_profiles_id,'orient_items_id'=>$list->orient_items_id),'update'=>'#summeryRecodes'),array('class'=>'summery-left-btn Summary-details')); ?>
 								</div>
 							</div>
 							

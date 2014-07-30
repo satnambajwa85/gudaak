@@ -540,10 +540,10 @@ class SiteController extends Controller
 				$data['phone']			=	$model->phone;
 				$data['designation']	=	$model->designation;
 				$data['institution']	=	$model->institution;
-				$data['body']			=	$model->body;
-				$mail					=	$this->sendMail($data,'contact');
+				$this->sendMail($data,'contactAdmin');
 				
-				Yii::app()->user->setFlash('contact','Thank you for contacting us. We will respond to you as soon as possible.');
+				//$this->sendMail($data,'contact');
+				Yii::app()->user->setFlash('contact','Thank you for your interest in our service. Our representative will soon contact you.');
 				$this->refresh();
 			}
 		}
@@ -632,26 +632,32 @@ class SiteController extends Controller
 	public function actionLogout()
 	{
 		Yii::app()->user->logout();
-		//define('APP_ID', '846828762012851');
-		//define('APP_SECRET','1f989e3870a57ed90fad047993bb7f01');
-		//$facebook = new Facebook(array('appId' => APP_ID,'secret' => APP_SECRET,));
-		//$facebook->clearPersistentData();
-		//$logouturl = $facebook->getLogoutUrl();
-		//header("Location: ".$logouturl."");
 		$this->redirect(Yii::app()->homeUrl);
 	}
 	public function sendMail($data,$type)
 	{
 		$admin		=	0;
+		$from		=	Yii::app()->params['adminEmail'];
+		$to			=	$data['email'];
+				
 		switch($type){
 			case 'contact':
-				$admin		=	1;
+				$from		=	Yii::app()->params['adminEmail'];
+				$to			=	$data['email'];
+				$subject	=	'Your Request for a Career Planning Trial @ Gudaak';
+				$body		=	$this->renderPartial('/mails/contact_tpl',array('name' => $data['name'],'email' => $data['email']), true);
+			break;
+			case 'contactAdmin':
+				//$from		=	$data['email'];
+				$to			=	Yii::app()->params['adminEmail'];
+				
 				$subject	=	'Contact Us';
-				$body		=	$this->renderPartial('/mails/contact_tpl',array('name' => $data['name'],'email' => $data['email'],'body' => $data['body']), true);
-				$subject1	=	'Contact Us';
-				$body1		=	$this->renderPartial('/mails/contact_tpl1',array('name' => $data['name'],'email' => $data['email'],'phone' => $data['phone'],'designation' => $data['designation'],'institution' => $data['institution'],'body' => $data['body']), true);
+				$body		=	$this->renderPartial('/mails/contact_tpl1',array('name' => $data['name'],'email' => $data['email'],'phone' => $data['phone'],'designation' => $data['designation'],'institution' => $data['institution']), true);
 			break;
 			case 'forget':
+				$from		=	Yii::app()->params['adminEmail'];
+				$to			=	$data['email'];
+				
 				$subject = 'Your Gudaak Password Change Request';
 				$body = $this->renderPartial('/mails/forgot_tpl',
 										array(	'name' => $data['name'],
@@ -659,6 +665,9 @@ class SiteController extends Controller
 												'password'=>$data['password']), true);
 			break;
 			case 'register':
+				$from		=	Yii::app()->params['adminEmail'];
+				$to			=	$data['email'];
+				
 				$subject = 'Register';
 				$body = $this->renderPartial('/mails/register_tpl',
 										array(	'name' => $data['name'],
@@ -669,32 +678,17 @@ class SiteController extends Controller
 			default:
 			break;			
 		}
-		$from		=	Yii::app()->params['adminEmail'];
-		$to			=	$data['email'];
+		$mail	=	'';
+		unset($mail);
 		$mail		=	Yii::app()->Smtpmail;
         $mail->SetFrom($from,'Gudaak');
         $mail->Subject	=	$subject;
         $mail->MsgHTML($body);
         $mail->AddAddress($to, "");
-		
-		if($admin==1){
-			//CVarDumper::dump($mail,10,1);
-			//$mail->Send();
-			$from1		=	$data['email'];
-			$to1		=	Yii::app()->params['adminEmail'];
-			$mail1		=	Yii::app()->Smtpmail;
-			$mail1->SetFrom($from1,'Gudaak');
-			$mail1->Subject	=	$subject1;
-			$mail1->MsgHTML($body1);
-			$mail1->AddAddress($to1, "");
-			$mail1->Send();
-			return 1;
-		}
-		if(!$mail->Send()) {
-           echo 'No';
+
+		if(!$mail->Send())
 		   return 0;
-        }else {
+        else
 			return 1;
-        }
 	}
 }
