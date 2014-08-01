@@ -18,7 +18,7 @@
 										
 			</div>
 			<div class="col-md-5 pull-right right-tab-content mt84">
-            	<div class="col-md-12  pull-right" style="z-index:9999">	
+            	<div class="col-md-12  pull-right" style="z-index:99">	
 		<?php $form=$this->beginWidget('CActiveForm', array('id'=>'contact-us','enableClientValidation'=>true,'clientOptions'=>array('validateOnSubmit'=>true,)));?>
         		<h2 class="mb50 mt50 ">ASK FOR FREE TRIAL</h2> 
                 <?php if(Yii::app()->user->hasFlash('contact')): ?>
