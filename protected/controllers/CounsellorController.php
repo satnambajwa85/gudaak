@@ -90,6 +90,8 @@ class CounsellorController extends Controller
 		$modelR->unsetAttributes();
 		$modelR->receiver_id	=	$lat;
 		$modelR->admin			=	0;
+		
+		
 		$this->render('queryList',array('modelR'=>$modelR));
 	}
 	
