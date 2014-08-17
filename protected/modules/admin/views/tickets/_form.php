@@ -53,7 +53,7 @@
 		<?php	$this->widget('zii.widgets.jui.CJuiDatePicker',array(
 									'model'=>$model,
 									'attribute'=>'add_date',
-									'options'=>array('dateFormat'=>'yy-mm-dd','minDate'=>0),
+									'options'=>array('dateFormat'=>'yy-mm-dd'),
 									'htmlOptions'=>array('class'=>'form-control'),
 									//'value'=>date('Y-m-d', strtotime('+2 day', strtotime(date('Y-m-d')))),
 									));?>
@@ -65,7 +65,7 @@
 		<?php	$this->widget('zii.widgets.jui.CJuiDatePicker',array(
 									'model'=>$model,
 									'attribute'=>'modification_date',
-									'options'=>array('dateFormat'=>'yy-mm-dd','minDate'=>0),
+									'options'=>array('dateFormat'=>'yy-mm-dd'),
 									'htmlOptions'=>array('class'=>'form-control'),
 									'value'=>date('Y-m-d'),
 									));?>
