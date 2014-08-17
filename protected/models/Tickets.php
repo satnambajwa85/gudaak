@@ -112,8 +112,12 @@ class Tickets extends CActiveRecord
 		$criteria->compare('modification_date',$this->modification_date,true);
 		$criteria->compare('admin',$this->admin);
 
+		
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
+			'sort'=>array(
+				'defaultOrder'=>'id ASC',
+			),
 		));
 	}
 
