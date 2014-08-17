@@ -10,15 +10,11 @@
 	<?php echo $form->errorSummary($model); ?>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'sender_id'); ?>
-		<?php echo $form->textField($model,'sender_id'); ?>
-		<?php echo $form->error($model,'sender_id'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'receiver_id'); ?>
-		<?php echo $form->textField($model,'receiver_id'); ?>
-		<?php echo $form->error($model,'receiver_id'); ?>
+		
+		<?php echo $form->hiddenField($model,'sender_id'); ?>
+		
+		<?php echo $form->hiddenField($model,'receiver_id'); ?>
+		
 	</div>
 
 	<div class="row">
