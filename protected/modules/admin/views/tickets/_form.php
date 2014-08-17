@@ -14,7 +14,8 @@
 		<?php echo $form->hiddenField($model,'sender_id'); ?>
 		
 		<?php echo $form->hiddenField($model,'receiver_id'); ?>
-		
+        <?php echo $form->hiddenField($model,'mode',array('size'=>60,'maxlength'=>100)); ?>
+		<?php echo $form->hiddenField($model,'available'); ?>
 	</div>
 
 	<div class="row">
@@ -30,21 +31,9 @@
 	</div>
 
 	<div class="row">
-		<?php echo $form->labelEx($model,'mode'); ?>
-		<?php echo $form->textField($model,'mode',array('size'=>60,'maxlength'=>100)); ?>
-		<?php echo $form->error($model,'mode'); ?>
-	</div>
-
-	<div class="row">
 		<?php echo $form->labelEx($model,'language'); ?>
 		<?php echo $form->textField($model,'language',array('size'=>60,'maxlength'=>100)); ?>
 		<?php echo $form->error($model,'language'); ?>
-	</div>
-
-	<div class="row">
-		<?php echo $form->labelEx($model,'available'); ?>
-		<?php echo $form->textField($model,'available'); ?>
-		<?php echo $form->error($model,'available'); ?>
 	</div>
 
 	<div class="row">
@@ -61,13 +50,25 @@
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'add_date'); ?>
-		<?php echo $form->textField($model,'add_date'); ?>
+		<?php	$this->widget('zii.widgets.jui.CJuiDatePicker',array(
+									'model'=>$model,
+									'attribute'=>'add_date',
+									'options'=>array('dateFormat'=>'yy-mm-dd','minDate'=>0),
+									'htmlOptions'=>array('class'=>'form-control'),
+									//'value'=>date('Y-m-d', strtotime('+2 day', strtotime(date('Y-m-d')))),
+									));?>
 		<?php echo $form->error($model,'add_date'); ?>
 	</div>
 
 	<div class="row">
 		<?php echo $form->labelEx($model,'modification_date'); ?>
-		<?php echo $form->textField($model,'modification_date'); ?>
+		<?php	$this->widget('zii.widgets.jui.CJuiDatePicker',array(
+									'model'=>$model,
+									'attribute'=>'modification_date',
+									'options'=>array('dateFormat'=>'yy-mm-dd','minDate'=>0),
+									'htmlOptions'=>array('class'=>'form-control'),
+									'value'=>date('Y-m-d'),
+									));?>
 		<?php echo $form->error($model,'modification_date'); ?>
 	</div>
 
