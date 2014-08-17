@@ -1,0 +1,13 @@
+protected/config/*
+protected/runtime/*
+protected/extensions/*
+assets/*
+/deploy.php
+/deploy.log
+web.conf
+push
+/node/node_modules/
+/design/
+/web.config
+/protected/extensions/ServicesFirebaseTokenGenerator/ServicesFirebaseTokenGenerator.php
+/index.php
