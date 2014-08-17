@@ -65,6 +65,7 @@
 						array('label'=>'Images', 'url'=>array('/admin/images/admin')),
                        	array('label'=>'News', 'url'=>array('/admin/news/admin')),
                        	array('label'=>'Events', 'url'=>array('/admin/events/admin')),
+						array('label'=>'Tickets', 'url'=>array('/admin/tickets/admin')),
     
                     ),
                 )); ?>
