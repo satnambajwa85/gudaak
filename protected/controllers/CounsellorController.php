@@ -60,6 +60,9 @@ class CounsellorController extends Controller
 			$model->admin		=	1;
 			$model->add_date	=	date('Y-m-d H:i:s');
 			if($model->save()){
+				
+				
+				
 				$log					=	new Summary;
 				$log->user_profile_id	=	Yii::app()->user->profileId;
 				$log->schools_id		=	Yii::app()->user->schoolsId;
@@ -87,6 +90,8 @@ class CounsellorController extends Controller
 		$modelR->unsetAttributes();
 		$modelR->receiver_id	=	$lat;
 		$modelR->admin			=	0;
+		
+		
 		$this->render('queryList',array('modelR'=>$modelR));
 	}
 	
@@ -98,6 +103,14 @@ class CounsellorController extends Controller
 			$model->modification_date	=	date('Y-m-d H:i:s');
 			$model->status				=	2;
 			if($model->save()){
+$user	=	UserProfiles::model()->findByPk($model->sender_id);
+//Start  mail Function 
+$data['name']		=	$user->first_name.' '.$user->last_name;
+$data['email']		=	$user->userLogin->username;
+$this->sendMail($data,'ticket');
+//End  mail Function 
+
+
 				$this->redirect(Yii::app()->createUrl('counsellor/query'));
 			}
 		}
@@ -566,6 +579,31 @@ class CounsellorController extends Controller
 		die;
 
 			 
+	}
+	public function sendMail($data,$type)
+	{
+		switch($type){
+			case 'ticket':
+				$subject = 'Ticket Response Submitted';
+				$body = $this->renderPartial('/mails/ticketR_tpl',
+										array(	'name' => $data['name'],
+												'email'=>$data['email']), true);
+			break;
+			default:
+			break;			
+		}
+		$from		=	Yii::app()->params['adminEmail'];
+		$to			=	$data['email'];
+		$mail		=	Yii::app()->Smtpmail;
+        $mail->SetFrom($from,'Gudaak');
+        $mail->Subject	=	$subject;
+        $mail->MsgHTML($body);
+        $mail->AddAddress($to, "");		
+        if(!$mail->Send()) {
+			return 0;
+        }else {
+			return 1;
+        }
 	}
 
 }

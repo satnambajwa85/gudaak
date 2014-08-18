@@ -152,6 +152,16 @@ class UserController extends Controller
 			$model->status		=	1;
 			$model->add_date	=	date('Y-m-d H:i:s');
 			if($model->save()){
+$dta	=	CounselorHasSchools::model()->findByAttributes(array('schools_id'=>Yii::app()->user->schoolsId));
+//Start  mail Function 
+$data['name']		=	$dta->counselor->first_name.' '.$dta->counselor->last_name;
+$data['email']		=	$dta->counselor->userLogin->username;
+$data['userName']	=	$user->first_name.' '.$user->last_name;
+$this->sendMail($data,'ticket');
+//End  mail Function 
+
+						
+				
 				$log					=	new Summary;
 				$log->user_profile_id	=	Yii::app()->user->profileId;
 				$log->schools_id		=	Yii::app()->user->schoolsId;
@@ -169,8 +179,7 @@ class UserController extends Controller
 		$model->sender_id	=	Yii::app()->user->profileId;
 		
 		
-		$list	=	Tickets::model()->FindAllByAttributes(array('sender_id'=>Yii::app()->user->profileId));
-		
+		$list	=	Tickets::model()->FindAllByAttributes(array('sender_id'=>Yii::app()->user->profileId),array('order'=> 'id DESC'));
 		$this->render('talk',array('model'=>$model,'lists'=>$list));
 	}
 	public function actionUserProfileUpdate()
@@ -2276,25 +2285,12 @@ class UserController extends Controller
 	public function sendMail($data,$type)
 	{
 		switch($type){
-			case 'contact':
-				$subject = 'Contact Us';
-				$body = $this->renderPartial('/mails/contact_tpl',
-										array('name' => $data['name']), true);
-			break;
-			case 'forget':
-				$subject = 'Forgot Password';
-				$body = $this->renderPartial('/mails/forgot_tpl',
+			case 'ticket':
+				$subject = 'New Ticket Submitted';
+				$body = $this->renderPartial('/mails/ticket_tpl',
 										array(	'name' => $data['name'],
 												'email'=>$data['email'],
-												'password'=>$data['password']), true);
-			break;
-			case 'register':
-				$subject = 'Register';
-				$body = $this->renderPartial('/mails/register_tpl',
-										array(	'name' => $data['name'],
-												'email'=>$data['email'],
-												'code'=>$data['code'],
-												'password'=>$data['password']), true);
+												'userName'=>$data['userName']), true);
 			break;
 			default:
 			break;			
@@ -2307,7 +2303,7 @@ class UserController extends Controller
         $mail->MsgHTML($body);
         $mail->AddAddress($to, "");		
         if(!$mail->Send()) {
-		 echo 'No';die; return 0;
+		 return 0;
         }else {
 			return 1;
         }
