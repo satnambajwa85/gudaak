@@ -1,3 +1,7 @@
+<?php 
+$this->pageTitle = 'Gudaak - Career Guidance &  Career Option after 12th';
+Yii::app()->clientScript->registerMetaTag('We are the career counseling service that provide the facility to students to choose the career option after 10th or 12th.', 'description');
+?>
 <div class="col-md-12 mb86 inner-min-height pull-left mt10 ">
 			<div  class="col-md-5 pull-left content-left">
 					<h1 class="fs22">What is <strong class="orange">Gudaak</strong></h1> 

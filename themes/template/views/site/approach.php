@@ -1,3 +1,7 @@
+<?php 
+$this->pageTitle = 'Gudaak - Design Career After 12th & Career Guidance';
+Yii::app()->clientScript->registerMetaTag('We facilate the students to chosse the career option & select the best college or institute of their interest.', 'description');
+?>
 <div id="middle_outr">
     	<div class="middle_cont">
         	<div class="mid_lef_heading_index3 col-md-12" style="height:100px;padding-top:40px;">

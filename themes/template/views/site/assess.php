@@ -1,3 +1,7 @@
+<?php 
+$this->pageTitle = 'Gudaak - Career Options & Online Career Aptitude Test';
+Yii::app()->clientScript->registerMetaTag('We provide career aptitude test to identify student\'s personality and interested area for best career option.', 'description');
+?>
 <div id="middle_outr">
     	<div class="middle_cont">
         	<div class="mid_lef_heading col-md-12" style="height:100px;">

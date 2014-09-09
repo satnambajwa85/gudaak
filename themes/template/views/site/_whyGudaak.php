@@ -1,4 +1,8 @@
-<?php $path=Yii::app()->theme->baseUrl;?>
+<?php $path=Yii::app()->theme->baseUrl;
+
+$this->pageTitle = 'Career Options after 12th Science, Commerce & Humanities Students';
+Yii::app()->clientScript->registerMetaTag('Gudaak.com is the only site that helps students to identify their interested career after 12th in different stream. ', 'description');
+?>
 <div class="col-md-12  mb57 pull-left inner-min-height mt10 home-tab-section">
 			<div  class="col-md-5 pull-left content-left">
 					<h1>Why <strong class="orange">Gudaak ?</strong></h1> 

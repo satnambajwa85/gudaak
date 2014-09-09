@@ -1,3 +1,8 @@
+<?php 
+$this->pageTitle = 'Gudaak - Career Options After 12th & Online Career Counselling';
+Yii::app()->clientScript->registerMetaTag('Gudaak - Online career counselling service guide you to choose the career options after 12th. We provide online career apptitude test to select you the right career path.', 'description');
+?>
+
 <div id="middle_outr">
     	<div class="middle_cont">
         	<div class="middle">
